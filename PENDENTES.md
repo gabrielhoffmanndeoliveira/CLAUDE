@@ -1047,3 +1047,84 @@ desse canal.
 - Barra de anúncio diz "8.900+ items", são 14.845 ativos
 - Gap não explicado: em 15/set o GA4 capturou 42% dos cliques do Google Ads
   (135 de 322). Até 10/set capturava 94–103%. Vale olhar o tag do GA4 no tema.
+
+## 17. Defeito de peso no catálogo — os dois testes (16/set)
+
+### O gatilho: #THS1037
+
+Pasco `50750`, 7/8" × **50 ft** de Drain Hose, 2 unidades, **$303,00**, frete
+grátis. Peso cadastrado: **0,37 lb**. `length`/`width`/`height` nulos. 1.965 em
+estoque, perfil General + tag `free-ship-eligible`.
+
+50 pés de mangueira de 7/8" não pesam 0,37 lb — é rolo, é volume, e sem
+dimensão o peso dimensional não existe pro cálculo. Mesmo defeito dos zone
+dampers e dos cimentos, só que aqui o disfarce é o comprimento.
+
+### TESTE B — peso implausível para o que o título descreve
+
+Arquivo: `peso_implausivel_TESTE_B.csv`. **95 suspeitos, 54 no frete grátis.**
+
+Regras (aplicadas sobre `sh.json` com pesos de `ver2.jsonl` sobrepostos):
+
+- `≥10 ft` no título e `lb < ft × 0,02`
+- `gallon` no título e `lb < 5`
+- `quart` / `32 oz` / `32 fl` e `lb < 1,5`
+
+Piores por preço unitário:
+
+| Preço | Peso | SKU | Título diz |
+|---|---|---|---|
+| $2.141,12 | 0,73 lb | MILW-3154-20 | 75' câmera de dreno + PACKOUT |
+| $1.467,00 | 0,94 lb | POLY-200-250/300 | 2" × 300' Poly Pipe |
+| $1.405,90 | 0,48 lb | WATT-0792024 | Quart |
+| $1.275,00 | 0,63 lb | HDPE-GASH0110200250 | 2" × 250' Gas Pipe HDPE |
+| $1.070,00 | 0,63 lb | MDPE-1002278 | 250 ft |
+| $959,61 | 3,5 lb | CALA-GMP4 | Glycol Make-Up 4-Gallon |
+| $937,85 | 0,94 lb | MPEX-1330040 | 5/8" × 400' PEX-AL-PEX |
+| $891,00 | 0,57 lb | POLY-150-250/300 | 1,5" × 300' |
+| $726,03 | 1,0 lb | ELKA-ELGDULB3322WH0 | Quart |
+| $651,00 | 0,42 lb | POLY-125-250/300 | 1,25" × 300' |
+
+**Os rolos de tubo são o caso do THS1037 em escala.** Bobina de 250–400 ft é
+volume puro: o peso real já passa de 50 lb e o dimensional passa muito mais.
+Estão cadastrados abaixo de 1 lb, com frete grátis, a mais de $600 cada.
+
+### TESTE A — peso idêntico em tamanhos diferentes
+
+Arquivo: `peso_chapado_TESTE_A.csv`. **444 grupos `(fornecedor, peso)`** com
+≥4 SKUs e ≥4 tokens de tamanho distintos no título. Somados, tocam **4.344 SKUs
+em frete grátis** — esse é o teto do dano, não o dano; boa parte é leve de
+verdade. O sinal é o peso repetido, não o peso baixo.
+
+| Fornecedor @ peso | SKUs | Tamanhos | No frete grátis |
+|---|---|---|---|
+| Pasco @ 0,33 lb | 35 | 20 | **26** |
+| Diablo @ 0,73 lb | 60 | 18 | **45** |
+| Milwaukee @ 0,73 lb | 47 | 16 | **37** |
+| Centrotherm @ 2,19 lb | 34 | 15 | 22 |
+| Elkay @ 1,0 lb | 9 | 15 | 9 |
+| Dearborn @ 0,96 lb | 29 | 17 | 9 |
+| Resideo @ 7,0 lb | 44 | 22 | 5 |
+| MrPEX @ 29,2 lb | 21 | 17 | 0 |
+
+O 0,73 lb de Diablo e Milwaukee e o 0,33 da Pasco são peso-padrão chapado: o
+importador preencheu um valor único pra família inteira. É o mesmo mecanismo do
+1,21 lb dos cimentos.
+
+### Ressalva obrigatória
+
+Os dois CSVs vêm do snapshot de **15/set**. Nenhum deles autoriza mutação
+direta: **reler cada SKU ao vivo por API antes de tocar**, conforme a regra de
+nunca colar ID de memória.
+
+### Ordem proposta
+
+1. **Rolos de tubo** (Poly / HDPE / MDPE / MrPEX PEX-AL-PEX) — maior risco por
+   unidade e o caso já comprovado em pedido real.
+2. **Diablo @ 0,73 (45 em frete grátis)** e **Milwaukee @ 0,73 (37)** — maior
+   número de itens expostos.
+3. **Pasco @ 0,33 (26)** — a família do THS1037.
+4. **Centrotherm @ 2,19 (22)** — chaminé, volumoso por natureza.
+
+Cada bloco: buscar peso e dimensão reais no `sup.json` / fornecedor, gerar
+rollback, recalcular λ do dado bruto e mover só quem falha.
