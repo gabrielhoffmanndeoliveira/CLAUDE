@@ -151,7 +151,86 @@ consistente, é dinheiro recorrente e argumento para cobrar do fornecedor.
 - **Perguntar ao Master Source** por que a dimensão declarada da Blanco deu
   exatamente 9,500 ft³, na casa decimal do limiar de 10.
 
-## 4. Fornecedor
+## 4. Benchmark SupplyHouse — o frete deles não é uma regra, é a malha
+
+Testado em 15/set, deslogado, com o `TH1210U4001` (FocusPRO N100, $43,26),
+36 unidades, ~18 lb — mesmo peso do THS1013, que nos custou **$125,58**.
+
+| CEP | Resultado | Entrega |
+|---|---|---|
+| 19056 Levittown PA (destino real do THS1013) | **FREE** | 1 dia, FastTrack |
+| 95008 Campbell CA (travessia de país) | **FREE** | **dividido em 2**: 25 un. em 17/set, 11 un. em 21/set |
+
+**O split é a descoberta.** Eles não têm tarifa UPS melhor — têm **estoque
+distribuído**, e quebram o pedido para cada parte sair do armazém mais perto do
+cliente. Frete grátis é consequência de zona baixa, não generosidade. E
+absorvem **duas** remessas sem repassar nada.
+
+Regra declarada deles: frete terrestre grátis acima de $99; acima de **100 lb**
+normalmente vira freight carrier. Bate perto do teto de 131 lb que a nossa
+fórmula dá para carrinho de $2.000+.
+
+| | THS1013 | SupplyHouse |
+|---|---|---|
+| Subtotal | $1.144,80 | $1.557,36 |
+| Custo de frete | **$125,58** | estimado $40–60 |
+| **% do pedido** | **11,0%** | **~3%** |
+
+11% come um terço da margem bruta de 33,3%. 3% não faz cócegas.
+
+**Consequências:**
+
+1. **Não copiar a regra deles.** A THS despacha de origem única via fornecedor,
+   sem controle de onde sai. "$99 e pronto" é o sintoma de uma máquina que não
+   temos.
+2. **A régua λ está certa por isso.** Não é conservadora demais — é a
+   ferramenta adequada para origem única e distante.
+3. **A alavanca é a origem, não a régua.** Nosso $111,48 de base para 18 lb é
+   tarifa de zona 7–8. **Perguntar ao fornecedor de qual centro de distribuição
+   cada SKU sai, e se dá para rotear pelo mais próximo do cliente.** Vale mais
+   que qualquer ajuste de limiar.
+4. **Split delivery é capacidade, não defeito.** O cliente aceita duas datas.
+   Abre espaço para a THS fazer igual quando o carrinho misturar origens, em vez
+   de segurar tudo esperando o item mais lento.
+
+**Ressalva:** dólar contra dólar não é maçã com maçã — origens diferentes. O que
+o teste mede bem é o comportamento, e isso é independente de zona.
+
+Comparação de preço, de passagem: estamos mais caros nos três itens conferidos.
+
+| Nosso SKU | Nosso preço | Equivalente na SH |
+|---|---|---|
+| `HONE-TH3210D1004/U` | $82,83 | $70,00 |
+| `HONE-TH3210U2004/U` | $46,28 | $43,26 (sucessor `TH1210U4001`) |
+| `HONE-TH3110U2008/U` | $30,00 | $27,79 (sucessor `TH1110U4000`) |
+
+## 5. Termostatos Honeywell descontinuados (comercial, urgente)
+
+**Os 3 SKUs da série T3 Pro / PRO 3000 que temos estão ACTIVE na loja e a
+série foi descontinuada pelo fabricante.**
+
+| Nosso SKU | Preço | Descontinuado | Sucessor |
+|---|---|---|---|
+| `HONE-TH3210D1004/U` | $82,83 | **a confirmar** — busca diz que sim, mas apareceu preço ativo de $70,00 | `TH1320U4002` |
+| `HONE-TH3210U2004/U` | $46,28 | 26/nov/2025 | `TH1210U4001` |
+| `HONE-TH3110U2008/U` | $30,00 | 30/set/2025 | `TH1110U4000` |
+
+São o carro-chefe dos pedidos recentes: **$2.655,20 em 4 pedidos** —
+THS1032 (hoje, 10 un.), THS1024 (4 un.), THS1022 (6 un.), THS1013 (36 un.).
+
+**Ações:**
+- **O THS1032 saiu hoje, 10 unidades, e ainda não tem fulfillment.** Confirmar
+  com o fornecedor se consegue as 10 antes de prometer prazo.
+- Confirmar o status do `TH3210D1004` abrindo a página da SupplyHouse.
+- Cadastrar os 3 sucessores. O `TH1110U4000` tem 5.502 unidades no estoque da
+  distribuição.
+- THS1022 e THS1032 foram os dois para **Newark, DE 19711** — mesmo cliente,
+  recomprando termostato. É o primeiro para avisar quando os sucessores
+  entrarem.
+- **Não investigado ainda:** se o padrão se repete em outras marcas. Quantos
+  SKUs ACTIVE nossos já morreram no fabricante?
+
+## 6. Fornecedor
 
 Um pacote só, com três listas:
 - **54 segurados** pelo piso físico (`pesos_segurados_suspeitos.csv`) — inclui
@@ -164,12 +243,12 @@ Um pacote só, com três listas:
 Pergunta objetiva para o fornecedor: **o campo `weight` é por pé ou pela peça
 inteira?** Já está comprovado que para tubo é por pé.
 
-## 5. SEO
+## 7. SEO
 
 Resta **1** da lista original: `pipe-straps-brackets-hooks` (64 produtos).
 19 coleções no ar, 238 títulos corrigidos.
 
-## 6. Mídia — revista de associação (em espera)
+## 8. Mídia — revista de associação (em espera)
 
 **PHCC** é a associação certa: público é contratante e dono, que é quem compra.
 **ASPE é público errado** — engenheiro especifica, não compra material.
@@ -188,7 +267,7 @@ para 4.000 contratantes e donos no LinkedIn, de graça. É mais gente que a
 revista nacional, sai essa semana em vez do próximo trimestre, e dá para medir
 com UTM. Se gerar pedido, aí a revista se decide com número.
 
-## 7. Menores
+## 9. Menores
 
 - `Single Hole Faucets` (10) vs `Single-Hole Faucets` (97) — dois product types
   para a mesma coisa, 107 produtos separados por um hífen
