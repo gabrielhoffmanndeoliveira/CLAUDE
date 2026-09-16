@@ -117,12 +117,16 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   Só depois suspeitar de coleção, paginação ou JavaScript. Eu testei nessa ordem
   invertida e errei três hipóteses seguidas.
 
-- **`utm_campaign=sag_organic` + `utm_medium=product_sync` é o Google Shopping**,
-  vindo do feed do Merchant Center sincronizado pelo canal Google & YouTube.
-  **Isso já foi dito muitas vezes — não re-deduzir, não rebatizar de "free
-  listing" nem de "outra coisa" a cada sessão.** Foi por esse caminho que entrou
-  a maior order da loja: **#THS1026, $4.247,67, 11/09/2026**, Navien
-  NHW700-199SU-LP x2 ($3.015 em produto), 1 dia até a conversão.
+- **`utm_campaign=sag_organic` + `utm_medium=product_sync` é o Google Shopping
+  PAGO.** O "organic" dentro do nome do parâmetro é rótulo do UTM, **não** a
+  natureza do tráfego. **Nunca chamar de "free listing", de "listagem gratuita",
+  de "orgânico" nem de "custo de mídia zero" — tudo isso já foi dito e corrigido
+  várias vezes.** Toda receita que chega por `sag_organic` tem o gasto do Google
+  Ads atrelado e entra no cálculo de ROAS, nunca como receita sem custo.
+  Por esse caminho entraram as maiores orders da loja: **#THS1026, $4.247,67,
+  11/09/2026** (Navien NHW700-199SU-LP x2, $3.015 em produto) e **#THS1034,
+  $1.068,33, 16/09/2026** (Resideo T10 Pro x3, 5min36 da primeira visita até a
+  order, cliente novo, um único toque).
   Consequência prática: **nunca propor negativar "navien" como marca** — é a
   melhor demanda comprovada da loja. O que não performa é a cauda genérica
   (`navien tankless water heater`: 2.345 impressões, 25 cliques, 0 conversão) e
