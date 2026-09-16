@@ -961,6 +961,77 @@ campo errado.
    usado. Fechado.
 4. Medir daqui a algumas semanas: GSC dos 39 tocados contra os Resideo intactos.
 
+## 16. GA4 — key events contam carrinho como conversao (16/set, URGENTE)
+
+### O achado
+
+Tres eventos estao marcados como key event no GA4, 90 dias:
+
+```
+add_to_cart                       533   is_key_event: true
+ads_conversion_Shopping_Cart_1    300   is_key_event: true
+purchase                           32   is_key_event: true
+                                  ---
+                                  865   <- so 32 sao venda. 96% e carrinho.
+```
+
+**E ha duplicacao.** O mesmo `add_to_cart` aparece duas vezes no relatorio, com
+342 (nao marcado) e 533 (marcado), mais o `ads_conversion_Shopping_Cart_1` com
+300 — que e evento criado pelo proprio Google Ads, contando o mesmo carrinho por
+um terceiro caminho. Um add-to-cart esta sendo contado ate tres vezes.
+
+### Por que custa dinheiro
+
+Se o Google Ads e o Bing otimizam contra esse sinal, estao comprando **carrinho
+abandonado, nao venda**. Bate exatamente com a analise de termos de busca do
+mesmo dia: 98,1% do gasto em termos com clique e zero conversao, e a campanha
+seguia rodando como se funcionasse — o algoritmo estava sendo recompensado por
+encher carrinho.
+
+Funil real, 90 dias:
+
+```
+view_item        6.189
+add_to_cart        342   (5,5% dos view_item)
+begin_checkout     616   <- MAIOR que add_to_cart, tambem nao fecha
+purchase            32   (0,5%)
+```
+
+### Recomendacao
+
+Deixar **so `purchase`** como key event. Desmarcar `add_to_cart` e
+`ads_conversion_Shopping_Cart_1`.
+
+Duas ressalvas:
+1. Desmarcar nao apaga historico, mas **quebra a serie** — as campanhas vao
+   parecer despencar de 865 para 32. E contabil, nao real.
+2. **O Google Ads pode estar importando esses eventos como conversao.** Se
+   estiver, ajustar la tambem, senao o Ads continua otimizando pelo sinal velho.
+
+E configuracao no GA4 e no Ads, fora da API. Acao do Gabriel.
+
+### De quebra, o GA4 confirmou tres coisas por angulo independente
+
+- **Os bots.** GA4 ve `(direct)` com **1.535 sessoes**; o Shopify contava 60.323.
+  GA4 roda JavaScript e script simples nao executa JS. **GA4 e a fonte limpa** — e
+  confirma o diagnostico de bot das Seychelles sem depender do ShopifyQL.
+- **O Bing converte.** `bing / cpc`: 1.415 sessoes, 3 transacoes, $399,26 em 90
+  dias — mais a #THS1036 de hoje, que ainda nao entrou no GA4 por atraso de
+  processamento. Sao 4 no total.
+- **A barra da TFAS nao se paga.** 147 sessoes, 1 transacao, **$0,50** de receita.
+  Reforca o `rel="nofollow"` ja recomendado.
+
+### Achado novo: o ChatGPT vendeu
+
+```
+chatgpt.com / ai-assistant     9 sessoes   1 transacao   $216,98
+chatgpt.com / feed            30 sessoes   0 transacoes   9 key events
+```
+
+9 sessoes e 1 venda. Amostra minuscula, nao da para concluir nada
+estatisticamente — mas e dinheiro real de superficie de IA, e ninguem cuida
+desse canal.
+
 ## 10. Menores
 
 - `Single Hole Faucets` (10) vs `Single-Hole Faucets` (97) — dois product types
