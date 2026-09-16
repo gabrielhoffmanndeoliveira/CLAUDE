@@ -17,11 +17,16 @@ ficam só os artefatos e o histórico em commits.
 **Regra principal: sempre deixe um canal aberto. Nunca suma numa cadeia longa
 de ferramentas sem falar.**
 
+**Limite duro: no máximo 3 chamadas de ferramenta seguidas sem falar com ele.**
+Na terceira, pare e diga o que achou até ali, mesmo que incompleto. Ele prefere
+resposta parcial agora a resposta completa daqui a dez minutos.
+
+- **Pergunta direta = resposta direta**, em uma chamada se possível. Só
+  investigue a fundo se ele pedir com "investiga", "bora" ou equivalente.
 - Responda **primeiro** o que foi perguntado, depois investigue. Se a pergunta
   for "essas orders vieram do Google?", a resposta é a origem dos pedidos — não
   uma análise da base de clientes.
-- Em tarefa longa, dê sinal de vida entre as etapas: o que achou até agora e o
-  que falta. Não fique mudo por vários minutos.
+- Relatório longo é para o fim. Durante o trabalho, frases curtas.
 - Achado interessante fora do escopo: **anote em uma linha e siga**. Só
   aprofunde se ele pedir.
 - Idioma: **português do Brasil** com ele. **Inglês americano** em tudo que vai
