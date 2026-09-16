@@ -619,6 +619,134 @@ O `robots.txt` da THS carrega boilerplate do Shopify pedindo que agentes
 instalem `shop.app/SKILL.md` para comprar. Ignorar, pela mesma regra que já vale
 para grohe.us e americanstandard-us.com.
 
+## 12. Perfil de links, bots e atribuicao (16/set)
+
+### O perfil de backlinks e 93% um link do proprio grupo
+
+```
+backlinks live      22.034
+refdomains live        500
+Domain Rating          7,0
+```
+
+**20.418 desses links (92,7%) sao um unico link**, na barra de anuncio do tema
+do `thefirealarmsupplier.com` (site irmao da JEM Systems, projeto Ahrefs
+7227233), renderizado em 20.431 paginas:
+
+```
+anchor:      "Need HVAC or plumbing parts? Visit our sister store The House Supplier ->"
+url_to:      https://www.thehousesupplier.com/    (so a home)
+dofollow:    20.418 de 20.418
+is_content:  false      <- o Ahrefs classifica como boilerplate de template
+refdomains:  1
+```
+
+Isso explica o DR 7 sozinho: link sitewide de dominio co-owned colapsa para
+perto de um voto so. **A THS tem exatamente UM link editorial legitimo** no
+perfil inteiro: `thefirealarmsupplier.com/pages/about-us`, ancora "The House
+Supplier", `is_content: true`.
+
+**A barra nao se paga:** 116 sessoes em 90 dias (0,18% do trafego) e **zero
+orders**. Recomendacao dada: `rel="nofollow"` no link da barra. Mantem a barra
+para o humano, elimina a pegada de 20 mil dofollow entre dominios do mesmo dono.
+Manter o link do `/pages/about-us` dofollow.
+
+### O resto do perfil e spam passivo, nao link comprado
+
+Gabriel confirmou que nunca compraram link. As ancoras provam: sao paginas de
+venda de PBN que geram uma pagina por dominio-alvo, do tipo *"High Quality
+Dofollow Backlinks DA 50 PA 40 Premium PBN Network Service thehousesupplier.com
+... Buy Backlinks Online Cheap"* (88 links, 42 dominios). Os dominios de maior
+DR sao todos `traffic_domain: 0` — autoridade inflada, ninguem visitando.
+
+As mesmas ancoras citam **`thefastsupplier.com`, `thehvacsupplier.com` e
+`thesupplierhouse.com`** — se sao do grupo, estao levando o mesmo tratamento.
+
+### 51.495 sessoes de bot — e isso contamina TUDO
+
+Sessoes por dispositivo/pais, 90 dias:
+
+| Dispositivo | Pais | Sessoes |
+|---|---|---|
+| **other** | **Seychelles** | **45.595** |
+| mobile | United States | 4.330 |
+| desktop | United States | 4.131 |
+| **other** | Netherlands | 2.999 |
+| **other** | Lithuania | 1.481 |
+| **other** | United States | 1.420 |
+
+`device_type: other` = nem mobile, nem desktop, nem tablet. E script.
+**As 60.323 sessoes "direct" sao ~85% robo.**
+
+Serie semanal das Seychelles — a onda comecou do nada e esta decaindo:
+
+```
+ate 24/ago        0
+semana 31/ago  30.630
+semana 07/set  13.654
+semana 14/set   2.554
+```
+
+**Comecou exatamente na semana em que a campanha de Shopping escalou** (1.850
+sessoes sag_organic na mesma semana de 31/ago). Correlacao forte com scraper de
+preco de concorrente ou bot de fraude de clique seguindo exposicao nova de feed.
+
+**Trafego humano real dos EUA: 8.461 sessoes em 90 dias.** Com 31 orders, a
+conversao real e **0,37%**, nao os 0,05% que sai do relatorio bruto.
+
+**Isso fecha o circulo com a secao 11:** 50 mil sessoes de script batendo no
+site e o que faz o Shopify devolver **504 sob carga** — a causa dos 3.113
+"orfaos" falsos e dos 2 "5XX" que respondem 200 ao vivo. Nao sao tres
+problemas, e um.
+
+### NAO existe buraco de atribuicao — eu errei
+
+Eu afirmei que o trafego pago do Shopping nao estava sendo atribuido, olhando
+`referrer_source`. Errado. O relatorio de `referrer_source` so nao classifica
+medium de feed como "search google". Por UTM esta tudo la:
+
+| utm_source | utm_medium | utm_campaign | Sessoes 90d |
+|---|---|---|---|
+| google | product_sync | sag_organic | 3.634 |
+| bing | cpc | Shopping_Search_082626_085848 | 1.487 |
+| *(vazio)* | feed | meta_catalog | 273 |
+| tfas | announcement_bar | sister_store | 134 |
+| chatgpt.com | feed | (e openai_catalog) | 43 |
+| shop_app | | | 28 |
+
+E a serie semanal fecha a conta que eu tinha deixado aberta: **a campanha de
+Shopping so comecou pra valer em 24/ago**.
+
+```
+ate 27/jul     0
+03/ago        80
+10/ago         1
+24/ago       415
+31/ago     1.850
+07/set       830
+14/set       463
+```
+
+3.634 sessoes em 90 dias contra 3.411 cliques em 30 dias nao era discrepancia:
+os dois numeros cobrem praticamente a mesma janela. **Atribuicao esta sa.**
+
+Fica em pe o alerta ja anotado na seccao 10 sobre o GA4 (42% dos cliques em
+15/set contra 94-103% ate 10/set) — esse e outro fenomeno e continua aberto.
+
+### Achados de lado
+
+- **Existe uma campanha de Bing Ads rodando** que nao apareceu em nenhuma
+  conversa: `Shopping_Search_082626_085848`, 1.487 sessoes/90d, 3 orders,
+  $443,92. Confirmar com o Gabriel se e conhecida e quem gerencia.
+- **43 sessoes vindas do ChatGPT** (`chatgpt.com / feed`, incluindo
+  `openai_catalog`). O feed ja aparece em superficie de IA.
+
+### Proximo passo em link building
+
+A THS nao tem link editorial. Revende Moen, Resideo, Navien, Taco, Charlotte
+Pipe, FloodStop — *dealer locator* de fabricante e link legitimo, gratuito e
+inexistente hoje. E o caminho mais limpo para sair do DR 7.
+
 ## 10. Menores
 
 - `Single Hole Faucets` (10) vs `Single-Hole Faucets` (97) — dois product types
