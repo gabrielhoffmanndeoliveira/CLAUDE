@@ -49,10 +49,30 @@ então isso resolve só a atribuição dentro do Shopify.
 - **43 pesagens** de conexões PEX de $1,67 a $2,44, todas com o placeholder de
   0,05 lb (22,7 g) e peso crítico entre 25 e 37 g. São os únicos da régua λ com
   folga apertada e peso não verificado. Balança de cozinha, 15 minutos.
-- **Intuitive Shipping em sandbox** (grátis, ilimitado). Resolve o box packing
-  dos **1.262 subcotados por volume** — buraco que nenhuma régua conserta, é a
-  mecânica dos $276,82 perdidos na pia Blanco. $70/mês no plano Growth.
-  Confirmar com o suporte deles se dá para esconder frete grátis acima de X lb.
+- **Intuitive Shipping — trial de 15 dias em andamento.** Plano Growth, $70/mês,
+  500 pedidos, SmartBoxing incluso, 30¢/pedido de excedente. Resolve o box
+  packing dos **1.262 subcotados por volume** — buraco que nenhuma régua
+  conserta, é a mecânica dos $276,82 perdidos na pia Blanco.
+  - Unidades já corrigidas para **in / lb / mi** (estava cm/kg/km). Dimensão do
+    fornecedor (`cube`) é em polegada cúbica e o divisor dimensional da UPS
+    (139) é em polegada — trocar a unidade invalidaria tudo.
+  - Confirmado na tela de edição de produto: o app **puxa o peso do Shopify**
+    e aceita **override de dimensão por produto** (Shipping dimensions em
+    polegadas, em branco = usa a plataforma). Logo o caminho de carga em massa
+    é o **Import** da tela Products.
+  - **Próximo passo: exportar o CSV da tela Products** e mandar o cabeçalho.
+    Preciso da ordem das colunas, se a chave é SKU ou ID do Shopify, e como ele
+    nomeia comprimento/largura/altura. Tenho pronto para carregar: **3.795
+    itens com L/H/W completos** do arquivo do fornecedor, mais **2.917 que só
+    têm `cube`** (volume), que precisam de tratamento à parte porque o app quer
+    três medidas separadas.
+  - Cenário novo nasce com `Status = Published`. Pôr em **Testing** antes de
+    salvar, senão entra no checkout ao vivo.
+  - Elegibilidade a frete grátis: usar **Product tag** em vez de perfil do
+    Shopify. Tag entra por Matrixify; perfil de entrega só sai por API.
+  - Três testes do trial: (1) de onde ele lê dimensão; (2) pia Blanco — Shopify
+    cota $380,20 e a UPS fatura $657,02, se ele devolver ~$657 funciona;
+    (3) o AND — grátis acima de $99 **E** abaixo de X lb.
 - **Limiar de freight grátis estilo Ferguson**, ~$1.744 (Banda C), no perfil
   Freight. Ferguson usa $49 parcel / $1.499 freight.
 - **Travar `Variant Weight` no import do fornecedor** — senão os 2.790 pesos
