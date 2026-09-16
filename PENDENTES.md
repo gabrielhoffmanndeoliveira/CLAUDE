@@ -129,6 +129,61 @@ raiz do custo de frete: quase todo cliente cai em zona 7–8 da UPS.
    que a UPS aceita. A régua λ não enxerga comprimento. Só o veto de
    comprimento + cintura no Intuitive pega isso.
 
+### Auditoria da configuração de frete (15/set)
+
+Lida ao vivo por `deliveryProfiles`. Rollback do estado anterior em
+`frete_config_rollback.csv`.
+
+**O que estava certo:** cobertura geográfica sem buraco (Band A 7 + Band B 7 +
+Band C 35 = 49 = `US Continental` exato); direção das bandas coerente com a
+origem em Seattle (A é o Oeste e a mais barata, C é o Leste e a mais cara);
+`US Outside` sem frete grátis; `adaptToNewServicesFlag: false` no `ups_shipping`.
+
+**Consertado:**
+
+1. **`THS Freight & Oversize` não cobria Alasca, Havaí e territórios.** Cliente
+   de lá não recebia tarifa nenhuma para os 844 produtos do perfil — checkout
+   travado sem explicação. Criada a zona `US Outside - Alaska, Hawaii,
+   territories` (13 territórios) com as cinco faixas, a **2,5 × Band C**:
+   $699 / $879 / $1.329 / $1.779 / $2.379. **São placeholder** — não tenho custo
+   real de freight para lá. Tarifa alta erra perdendo a venda; tarifa baixa erra
+   pagando do bolso. Recalibrar com cotação real.
+
+2. **Faixas de peso sobrepostas.** As condições eram `≥70 e ≤70` nas bordas, o
+   que mostrava duas tarifas em 70, 150, 300 e 600 lb e deixava o cliente pegar
+   a mais barata. Os 12 métodos das três bandas agora fecham em `69.99`,
+   `149.99`, `299.99` e `599.99`. O Shopify guarda peso com 2 casas, então não
+   sobra buraco. Verificado 12/12 por leitura independente.
+
+**NÃO consertável no Shopify nativo:**
+
+3. **Teto de peso no `Free shipping over $99`.** Duas tentativas, duas recusas:
+   - `"Method definition cannot save more than two conditions."`
+   - `"Method definition cannot save conditions with different fields
+     (total_price and total_weight)."`
+
+   **Uma tarifa é ou por preço ou por peso, nunca as duas.** A regra que a régua
+   λ exige — grátis acima de $99 **E** abaixo de X lb — o Shopify não expressa.
+   A alternativa nativa (Delivery Customization por Shopify Function) é
+   **exclusiva do Plus**. **É a justificativa técnica do Intuitive Shipping:**
+   sem o app, a camada 3 não existe.
+
+**Adiado por falta de dado:**
+
+4. **Band B mistura zonas.** Junta Califórnia e Arizona (zona 3–4 de Seattle)
+   com Colorado, Nebraska e as Dakotas (zona 5–6) no mesmo preço. A Califórnia
+   paga caro e Nebraska é subsidiada. **O que resolve:** exportar do UPS Billing
+   Center o histórico de 3 a 6 meses com CEP de destino e valor, e calcular o
+   custo médio por banda e faixa de peso. Isso também diz se as bandas atuais
+   estão calibradas — Band C pode estar barata demais, o que seria pior que a
+   mistura da B.
+
+**Aprendizados da API:**
+- `criteriaUnit` em condição de peso quer **`"lb"`**, não `"POUNDS"`. Com
+  `"POUNDS"` a mutação inteira falha com `profile: null`, sem aplicar nada —
+  o que é bom, é atômico.
+- Máximo de **2 condições** por método, e **do mesmo campo**.
+
 ### A lógica do frete grátis, em três camadas
 
 1. **Por item:** tag `free-ship-eligible`, dada por λ ≤ 0,0337. Todo item do
