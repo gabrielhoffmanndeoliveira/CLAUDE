@@ -102,6 +102,21 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   exatamente 1 variante cada, então metafield de produto basta.
 - O Matrixify escreve metafield `dimension` como `{"value":12.5,"unit":"in"}`;
   o Shopify normaliza a unidade para `INCHES` ao salvar.
+- **Pico em massa de "Orphan page" no Ahrefs Site Audit = artefato de crawl até
+  prova em contrário.** Em 16/09/2026 apareceram **3.113 órfãs de uma vez**
+  (mudança +3.112, o crawl anterior tinha ~1). Eram falsas: os produtos estão em
+  5 coleções cada, o grid da coleção é HTML puro e as páginas têm `<a href>`
+  real. A causa foi o site dar **504 sob a carga do crawler** — página de
+  coleção que estoura timeout não tem os links de saída registrados, e todo
+  produto que só ela linkava vira "órfão". Os 2 "5XX page" do mesmo crawl
+  respondiam **200 em menos de 1s** ao vivo.
+  **Ordem certa de checagem, do mais barato pro mais caro:** (1) a mudança é
+  grande demais pra ter acontecido de verdade da noite pro dia? (2) as páginas
+  respondem 200 ao vivo? (3) contar `<a href="/products/...">` real na página de
+  coleção — não `grep /products/` no HTML bruto, que pega JSON-LD e script.
+  Só depois suspeitar de coleção, paginação ou JavaScript. Eu testei nessa ordem
+  invertida e errei três hipóteses seguidas.
+
 - **`utm_campaign=sag_organic` + `utm_medium=product_sync` é o Google Shopping**,
   vindo do feed do Merchant Center sincronizado pelo canal Google & YouTube.
   **Isso já foi dito muitas vezes — não re-deduzir, não rebatizar de "free

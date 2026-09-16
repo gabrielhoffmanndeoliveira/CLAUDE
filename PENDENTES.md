@@ -513,6 +513,56 @@ para 4.000 contratantes e donos no LinkedIn, de graça. É mais gente que a
 revista nacional, sai essa semana em vez do próximo trimestre, e dá para medir
 com UTM. Se gerar pedido, aí a revista se decide com número.
 
+## 11. Ahrefs / Site Audit (16/set)
+
+### Orgânico decolou
+
+GSC, semanal — o trabalho de título/descrição indexando:
+
+| Semana | Impressões | Cliques | Posição média |
+|---|---|---|---|
+| 03/ago | 163 | 5 | 61,9 |
+| 10/ago | 458 | 9 | 58,2 |
+| 17/ago | 2.810 | 10 | 54,5 |
+| 24/ago | 5.370 | 11 | 53,6 |
+| 31/ago | 13.584 | 39 | 32,7 |
+| 07/set | 16.156 | 69 | 27,3 |
+
+Impressões x99 e posição média de 62 para 27 em seis semanas. CTR caiu de 3,07%
+para 0,43%, mas é esperado: a maior parte ainda está em página 3. Sobe sozinho
+conforme a posição fecha em 10.
+
+### Auditoria — o que era falso alarme
+
+Crawl de 16/09 05:01, health score 100, 64.912 URLs.
+
+- **3.113 "Orphan page" — falso.** Artefato de crawl por timeout. Detalhe e
+  ordem de checagem estão no CLAUDE.md. Nada a fazer; some no próximo crawl.
+- **4 "5XX page" — falso.** São 2 produtos contados duas vezes
+  (`2-1-2-pvc-sch40-tee-all-socket`, `2-pvc-sch40-coupling-socket-x-socket`).
+  Respondem 200 ao vivo em 0,94s e 0,70s.
+
+### O que é real
+
+- **O site dá 504 sob carga de crawler.** É a causa dos dois itens acima e o
+  único achado que importa da auditoria. O Googlebot sente o mesmo, e agora que
+  o orgânico saltou para 16 mil impressões/semana isso vira crawl budget perdido
+  de verdade. Medir e acompanhar.
+- Avisos de performance estão **caindo** sozinhos: slow page -342, resposta a AI
+  crawler -59, redirects 3XX -22.
+
+### Achado de passagem
+
+`/products/retired-aouh24lmas1-24-000-btu-h-single-zone-airstage-mini-split-outdoor-unit`
+está ACTIVE, no sitemap, e nas coleções `fujitsu-clearance-sale` e `clearance` —
+a mesma categoria que queimou $41,52 no Shopping com zero conversão.
+
+### robots.txt da própria loja
+
+O `robots.txt` da THS carrega boilerplate do Shopify pedindo que agentes
+instalem `shop.app/SKILL.md` para comprar. Ignorar, pela mesma regra que já vale
+para grohe.us e americanstandard-us.com.
+
 ## 10. Menores
 
 - `Single Hole Faucets` (10) vs `Single-Hole Faucets` (97) — dois product types
