@@ -494,6 +494,62 @@ inteira?** Já está comprovado que para tubo é por pé.
 Resta **1** da lista original: `pipe-straps-brackets-hooks` (64 produtos).
 19 coleções no ar, 238 títulos corrigidos.
 
+### Leak detection — alvo trocado (16/set)
+
+A `potable-water-leak-detection` tinha 321 impressões em `water leak detection`
+na **posição 49, zero cliques**. Investiguei achando que era alavanca on-page.
+Não era, por dois motivos que só apareceram medindo:
+
+- **DR da THS é 7,0.** O menor DR no top 10 orgânico dessa query é **57**
+  (prefeitura de Port Orange). Depois vêm Amazon 96, Home Depot 90, YouTube 99,
+  Reddit 95, doityourself 77, minut 66. Distância que on-page não fecha.
+- **A intenção é serviço.** Posição 1 é local pack de encanadores, posição 3 é
+  caixa de perguntas sobre custo. O único espaço comprável é o carrossel de
+  Shopping na posição 2 — que é o feed, não a página de coleção.
+
+A página em si não tem defeito: title, meta, h1 únicos, 462 palavras boas,
+23/23 produtos linkados, sem paginação, guia em `/pages/water-leak-detection-guide`
+respondendo 200. **Impressão em posição 49 não é ativo, é ruído** — foi erro meu
+priorizar por volume de impressão sem olhar DR e intenção antes.
+
+### Feito (16/set) — três páginas mirando KD 0–5
+
+| Página | Produtos | Alvo | Vol/mês | KD |
+|---|---|---|---|---|
+| `/collections/flo-by-moen` (nova) | 8 | `flo by moen` | 7.900 | 1 |
+| `/collections/water-heater-shut-off-valves` (nova) | 4 | `water heater shut off valve` +2 | 1.550 | 0 |
+| `/collections/floodstop` (reescrita) | 4 | `floodstop` | 400 | 0 |
+
+Rollback em `colecoes_seo_rollback.csv`, commitado antes de mutar.
+
+Duas lições da execução, ambas já valendo como regra:
+
+- **Coleção nova não nasce publicada.** `collectionCreate` devolveu `userErrors`
+  vazio e as duas páginas davam **404 no storefront**. Precisou de
+  `publishablePublish` no `Publication/134723731559` (Online Store) em chamada
+  separada. Conferir sempre por `resourcePublicationsV2`.
+- **Regra automática > lista manual.** `TITLE contains "Flo by Moen"` puxou 8, não
+  os 7 que eu tinha mapeado: `MOEN-935-001` Flo by Moen Service Kit tem
+  `productType` diferente e não estava na coleção de leak detection.
+
+Não confirmei a `flo-by-moen` pelo storefront — duas tentativas caíram no
+**HTTP 429 / "Verifying your connection"** do Shopify depois de eu bater demais
+no site. Não falseei user-agent. Confirmação existente é pela Admin API
+(8 produtos, `isPublished: true` no Online Store). Abrir no navegador para fechar.
+
+### Próximo na mesma veia
+
+Alvos KD 0–5 já medidos onde a loja tem estoque e ainda não tem página:
+`moen water leak detector` (1.400, KD 0), `best water leak detector` (900, KD 0),
+`smart water leak detector` (900, KD 5), `underground water leak detector`
+(700, KD 2). Pular Govee, Kidde e Ring — aparecem com KD 0 mas a THS não vende.
+
+**Problema maior que apareceu de lado:** `moen` (535 produtos),
+`taco-comfort-solutions` (122) e a `floodstop` antiga estavam todas no **mesmo
+template genérico** ("Shop X products in stock at The House Supplier. Fast U.S.
+shipping on plumbing, HVAC, fittings, valves and more."). Não é problema de três
+páginas, é de toda coleção de marca da loja.
+
 ## 9. Mídia — revista de associação (em espera)
 
 **PHCC** é a associação certa: público é contratante e dono, que é quem compra.
