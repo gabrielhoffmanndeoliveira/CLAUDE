@@ -878,6 +878,82 @@ Medir daqui a algumas semanas: impressao e clique dos 19 contra os produtos
 Resideo nao tocados, no GSC. Se subir, escala para os 607 Resideo — o submittal
 cobre familias inteiras, entao nao sao 607 requisicoes.
 
+## 15. Descricao Resideo — termostatos e o que o teste estabeleceu (16/set)
+
+### Feito
+
+| Bloco | SKUs | Estado |
+|---|---|---|
+| Zone dampers ZD | 19 | no ar, verificado (import #746917174) |
+| Termostatos T-series + PRO 1000/2000/3000 | 20 | no ar, verificado (import #746927781) |
+| | **39 de 607** | ~6,4% do catalogo Resideo |
+
+Nos 20 termostatos: texto novo em 20/20, **UPC preservado em 18**, **Shipping
+Weight em 6**, zero sobra do template antigo, perfil de entrega e meta
+description intactos, e os 4 links de colecao do texto respondem 200.
+
+### O corte foi por demanda, e a demanda Resideo e minuscula
+
+Vendas Resideo em 12 meses, por `product_type`:
+
+```
+Non-Programmable Thermostats   $2.673,23   5 orders
+Smart Thermostats                $989,19   1 order
+Zone Dampers                     $447,35   1 order
+                               ---------
+                               $4.109,77   7 orders no ano
+```
+
+So tres familias venderam. Ressalva: **e circular** — produto sem descricao nao
+vende, entao demanda passada num catalogo mudo mede o estado atual, nao o
+potencial. E a janela e enviesada: o Shopping so escalou em 24/ago.
+
+### O que o teste estabeleceu sobre a fonte Resideo
+
+**Ganho que vale para os 607:** o sitemap `https://www.resideo.com/us/en/sitemap.xml`
+tem **6.368 URLs**, 518 de termostato, e **casa numero de modelo com o slug oficial**.
+Os 20 modelos bateram 20/20. Acabou a adivinhacao de URL e a busca modelo a modelo.
+
+**Limite, testado e nao suposto:**
+- Paginas de **categoria** da Resideo sao renderizadas por JavaScript — as tres
+  vieram com ~170 KB identicos e zero numero de modelo no HTML.
+- Paginas de **produto** idem: 20 baixadas, ~121 KB cada, spec nenhuma no HTML.
+- **Só 3 das 20 linkam PDF**, e nenhuma e modelo de volume (TH1110DV1009,
+  TH4210U2002, TH6320U2008, TH6220WF2006, TH3210D1004, THX321WFS2001W: zero).
+
+O damper deu certo porque a pagina dele carregava o submittal `33-00264.pdf` no
+HTML. **Isso foi excecao.** Para a maior parte do catalogo nao havera spec
+estruturada, e o texto sera do tipo dos termostatos (guia de compra ancorado no
+que o titulo afirma) e nao do tipo dos dampers (ficha tecnica).
+
+### Regra de escrita adotada
+
+Nao inventar terminal, faixa de temperatura, tipo de pilha nem requisito de
+C-wire. Termostato errado volta como devolucao — texto curto e melhor que numero
+inventado. O valor entregue foi a **equivalencia de nomenclatura** (PRO 1000/2000/3000
+sao os nomes antigos dos mesmos tiers que T1/T4/T3) e o **guia de estagios**
+(casar com o equipamento, nao com o comodo; sobra de estagio funciona, falta nao).
+
+### Preservar campos e obrigatorio
+
+Diferente dos dampers, os termostatos carregavam **UPC e Shipping Weight dentro
+da descricao** — dado real que um overwrite cego apagaria. O gerador le e repassa.
+**Peso de embarque dentro da descricao e o dado que passamos o dia cacando**, no
+campo errado.
+
+### Aberto nesta linha
+
+1. **Cinco titulos quebrados** em line voltage: o SKU foi inserido no meio da
+   frase (`"Resideo Line TH114-A-120S/U Volt Electric heating Manual Thermostat"`).
+   Descricao e alt sao gerados do titulo nesta loja, entao corrigir o titulo vem
+   antes de escrever a descricao deles.
+2. **`YTH5320R1000/U`** esta como `Non-Programmable Thermostats` mas e um RedLINK
+   Equipment Interface Module. Polui colecao e feed.
+3. **Comparar os 6 pesos declarados na descricao** (0,5 e 0,811 lb) contra o
+   `inventoryItem.measurement.weight`. Se divergirem, e a familia do defeito dos
+   dampers ao contrario: o dado existe e nao foi usado.
+4. Medir daqui a algumas semanas: GSC dos 39 tocados contra os Resideo intactos.
+
 ## 10. Menores
 
 - `Single Hole Faucets` (10) vs `Single-Hole Faucets` (97) — dois product types
