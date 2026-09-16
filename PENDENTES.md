@@ -263,8 +263,67 @@ packing mais importam.
 preço (item mediano de cada célula, só com MPN conhecido), com nosso preço,
 nosso custo e markup real. Duas colunas em branco para o preço deles e o gap.
 
-Executar por lote, cada MPN é uma busca. **Lote 1:** os 10 de maior impacto —
-Rheem e Navien nas faixas altas, mais Taco e Watts, itens de $400 a $12.000.
+Executar por lote, cada MPN é uma busca.
+
+### Lote 1 executado — 12 itens de $460 a $3.848
+
+**5 com preço obtido. Média: o varejo deles fica em nosso custo +4,4%. Nosso
+preço fica +44,3% acima do deles.**
+
+| Item | Nosso custo | Preço SH | SH vs custo | Nosso preço | Gap |
+|---|---|---|---|---|---|
+| Taco `0011-F4` | $498,77 | $460,26 | **−7,7%** | $748,15 | **+62,5%** |
+| Grundfos `99452461` | $458,60 | $468,44 | +2,1% | $687,90 | +46,8% |
+| Grundfos `98126804` MAGNA3 | $2.565,61 | $2.684,39 | +4,6% | $3.848,41 | +43,4% |
+| Taco `0034E-SF2` | $1.056,73 | $1.153,76 | +9,2% | $1.585,10 | +37,4% |
+| Watts `88004115` 2" RPZ | $1.126,52 | $1.284,20 | **+14,0%** | $1.689,78 | **+31,6%** |
+
+(+ o aquecedor Rheem 40 gal do teste de frete: custo $1.018,85, SH $1.060,14,
++4,1%, gap +44,2%.)
+
+**O gradiente é a informação principal.** Ordenado pelo gap, não é aleatório:
+
+- **Pior ponta — bomba circuladora comum** (Taco 0011, Grundfos UP15-18). Todo
+  atacadista tem, giro alto, preço público. Gap de 47% a 63%.
+- **Melhor ponta — RPZ de backflow 2"** (Watts). Item técnico, instalação
+  regulada, giro baixo. Gap de 32%, e é o único onde sobraria margem real se
+  igualássemos o preço.
+
+**Se igualássemos o preço deles**, a margem bruta seria: Taco `0011-F4`
+**−$38,51 (prejuízo)**, Grundfos `99452461` +2,1%, Rheem 40 gal +3,9%. Antes do
+frete. Com 3% de cartão, os três viram prejuízo.
+
+**Nosso markup não é o problema:** em todos, `preço ÷ custo` = exatamente 1,50.
+A regra de 50% está sendo aplicada certo. **O problema é o custo de compra.**
+
+### 4 de 12 eles simplesmente não carregam
+
+| Item | Nosso preço | Categoria |
+|---|---|---|
+| Rheem `ELD120-D` | $3.656,72 | comercial 120 gal |
+| Navien `30018664A` | $1.689,60 | kit de peças OEM |
+| Noritz `EZ2FVK-1` | $812,18 | kit de vent, acessório |
+| Navien `GXXX002396` | $766,68 | kit manifold OEM |
+
+Quatro de quatro são **comercial ou OEM** — a mesma fronteira dos três da
+primeira rodada (`NAVI-30010747A`, `HGRI-454005`, `SIOU-851-36T`).
+
+### Pendentes do lote 1
+
+- **Watts `88004111`** — página existe, busca não trouxe preço. Nosso custo
+  $487,38. [Link](https://www.supplyhouse.com/Watts-88004111-3-4-Bronze-RPZ-LF009M3QTFS-Lead-Free)
+- **Rheem `PROE40-M2-RH-CG`** — nosso custo $756,82. Equivalente Ruud
+  `PROE40-M2-RU95` existe lá, sem preço na busca.
+- **Noritz `EZ111DVNG`** — **descontinuado pelo fabricante em 25/ago/2020** e
+  ACTIVE no nosso catálogo a $2.490,32. Substituto: `GQ-3260WX`. Some à
+  seção 6: o problema de SKU morto não é só a série Honeywell de 2025.
+- **Lote 2:** os 70 restantes do `amostra_preco_supplyhouse.csv`, faixas baixas
+  e médias. Vale para confirmar se o gradiente se mantém abaixo de $400.
+
+### A conversa com o fornecedor
+
+Não é "estamos caros". É: **seu preço de atacado é o preço de varejo do seu
+concorrente** — com cinco itens, cinco marcas, de $460 a $2.684, na mão.
 
 ## 6. Termostatos Honeywell descontinuados (comercial, urgente)
 
