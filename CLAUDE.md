@@ -132,6 +132,22 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   (`navien tankless water heater`: 2.345 impressões, 25 cliques, 0 conversão) e
   o modelo errado (o lance está no NPE-240A2; quem vende é o NHW-SU).
 
+- **`SEOInput` no `productUpdate` substitui o objeto inteiro, nao faz merge.**
+  Mandar `seo { title }` sozinho **apaga a `seo.description`**. Sempre reenviar
+  os dois campos juntos. Aconteceu em 16/09 com 3 termostatos de line voltage;
+  peguei na verificacao e restaurei, mas o `userErrors` veio vazio o tempo todo.
+- **O sitemap da Resideo valida classificacao, nao so acha spec.**
+  `https://www.resideo.com/us/en/sitemap.xml` tem **6.368 URLs** e casa numero de
+  modelo com o slug oficial. Foi ele que impediu um erro meu: o `YTH5320R1000/U`
+  estava titulado "RedLINK Equipment Interface Module" e eu ia reclassificar o
+  `productType`; o slug da Resideo e `focuspro-kit-for-truezoner-panels-yth5320r1000-u`
+  — e um **kit FocusPRO para paineis TrueZONE**, e a categoria estava certa. O
+  errado era o titulo. **Prefixo `Y` na Resideo costuma ser kit.**
+- **Paginas de produto e de categoria da Resideo sao renderizadas por
+  JavaScript.** Nao ha spec no HTML. Dos 20 termostatos testados, so 3 linkavam
+  PDF e nenhum era modelo de volume. O damper foi excecao porque a pagina dele
+  carregava o submittal `33-00264.pdf`. Nao contar com spec estruturada.
+
 ## Restrições permanentes
 
 - Checar `robots.txt` antes de buscar site externo. **Nunca falsear user-agent**

@@ -943,12 +943,17 @@ campo errado.
 
 ### Aberto nesta linha
 
-1. **Cinco titulos quebrados** em line voltage: o SKU foi inserido no meio da
-   frase (`"Resideo Line TH114-A-120S/U Volt Electric heating Manual Thermostat"`).
-   Descricao e alt sao gerados do titulo nesta loja, entao corrigir o titulo vem
-   antes de escrever a descricao deles.
-2. **`YTH5320R1000/U`** esta como `Non-Programmable Thermostats` mas e um RedLINK
-   Equipment Interface Module. Polui colecao e feed.
+1. **Cinco titulos quebrados em line voltage — RESOLVIDO (16/set).** O SKU
+   estava inserido entre "Line" e "Volt". Corrigidos os 5 por API, mais caixa
+   normalizada. Rollback em `titulos_line_voltage_rollback.csv`.
+2. **`YTH5320R1000/U` — RESOLVIDO, e ao contrario do que eu propus.** Eu ia
+   reclassificar o `productType` achando que era um Equipment Interface Module.
+   O sitemap da Resideo desmentiu: o slug e
+   `focuspro-kit-for-truezoner-panels-yth5320r1000-u`, e um **kit FocusPRO para
+   paineis TrueZONE**, e `Non-Programmable Thermostats` estava certo. Corrigi o
+   **titulo** e os dois campos de SEO, que repetiam a informacao errada. A meta
+   agora aponta para o termostato avulso (`TH5320R1002/U`, $195,39), que era a
+   confusao que o titulo velho criava contra o kit de $405,97.
 3. **Pesos conferidos — batem.** Dos 6 com peso declarado na descricao: 3 batem
    exato (0,5 lb) e 3 diferem so por arredondamento (0,811 na descricao contra
    0,81 no Shopify, que trunca em 2 casas). **Zero divergencia real.** Minha
