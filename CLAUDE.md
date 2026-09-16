@@ -102,6 +102,16 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   exatamente 1 variante cada, então metafield de produto basta.
 - O Matrixify escreve metafield `dimension` como `{"value":12.5,"unit":"in"}`;
   o Shopify normaliza a unidade para `INCHES` ao salvar.
+- **`utm_campaign=sag_organic` + `utm_medium=product_sync` é o Google Shopping**,
+  vindo do feed do Merchant Center sincronizado pelo canal Google & YouTube.
+  **Isso já foi dito muitas vezes — não re-deduzir, não rebatizar de "free
+  listing" nem de "outra coisa" a cada sessão.** Foi por esse caminho que entrou
+  a maior order da loja: **#THS1026, $4.247,67, 11/09/2026**, Navien
+  NHW700-199SU-LP x2 ($3.015 em produto), 1 dia até a conversão.
+  Consequência prática: **nunca propor negativar "navien" como marca** — é a
+  melhor demanda comprovada da loja. O que não performa é a cauda genérica
+  (`navien tankless water heater`: 2.345 impressões, 25 cliques, 0 conversão) e
+  o modelo errado (o lance está no NPE-240A2; quem vende é o NHW-SU).
 
 ## Restrições permanentes
 
