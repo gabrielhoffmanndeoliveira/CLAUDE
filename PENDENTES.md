@@ -111,21 +111,29 @@ poderiam entrar.
    Ground). Falhar não bloqueia a compra — só esconde o frete grátis e mostra a
    tarifa UPS normal.
 
-### Itens perigosos ainda no frete grátis
+### Itens perigosos — resolvidos, menos um
 
-Medido contra snapshot anterior à execução da λ, então **carece de releitura**
-(o passo 2 acima resolve). Os que sobreviveram à conferência:
+Conferido ao vivo pela relação direta em 15/set. Dos cinco que eu tinha
+listado contra snapshot velho, quatro já saíram:
 
-| SKU | Volume | Peso no Shopify | Peso dimensional | Preço |
-|---|---|---|---|---|
-| `ELKA-LZSTL8WSLK` | 13,63 ft³ | 2,0 lb | **169,5 lb** | $3.676,80 |
-| `ZOEL-915-0005` | 10,08 ft³ | 60,0 lb | **125,4 lb** | $2.024,89 |
-| `ELKA-LZS8WSLK` | 9,97 ft³ | 2,0 lb | **123,9 lb** | $2.636,87 |
-| `AMST-6400.001.020` | 9,31 ft³ | 1,0 lb | **115,7 lb** | $749,82 |
-| `ELKA-LZSTL8WSLP` | 8,94 ft³ | 2,0 lb | **111,1 lb** | $3.817,65 |
+| SKU | Perfil atual |
+|---|---|
+| `ELKA-LZSTL8WSLK` | THS Standard |
+| `ELKA-LZS8WSLK` | THS Standard |
+| `AMST-6400.001.020` | THS Standard |
+| `ZOEL-915-0005` | THS Standard |
+| **`ELKA-LZSTL8WSLP`** | **General, com a tag** |
 
-Caldeiras Burnham de 300 a 502 lb (`BURN-205EN-G0` a `BURN-208EN-G0`) também
-reprovam na λ — e estão acima do teto de 150 lb da UPS Ground.
+O último passa na λ **legitimamente**: λ = 0,0291. O preço de $3.817,65 banca
+111 lb de peso dimensional — $516 de frete contra $1.156 de margem disponível.
+
+Mas tem **8,94 ft³** e o degrau do Large Package é em **10**. Uma polegada de
+erro de medida e vira o caso da Blanco. A guarda correta é o **veto de volume
+no Intuitive**, não mover à mão.
+
+**Defeito de dado nele:** peso real de **2,0 lb** no Shopify, enquanto os irmãos
+da mesma família têm 104 e 85 lb. É placeholder — a λ só não errou porque o peso
+dimensional cobriu. Entra na lista do fornecedor.
 
 ### Faturas UPS — sangramento medido
 
