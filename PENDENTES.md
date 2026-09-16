@@ -747,6 +747,89 @@ A THS nao tem link editorial. Revende Moen, Resideo, Navien, Taco, Charlotte
 Pipe, FloodStop — *dealer locator* de fabricante e link legitimo, gratuito e
 inexistente hoje. E o caminho mais limpo para sair do DR 7.
 
+## 13. Zone dampers Resideo — familia inteira fora do frete gratis (16/set)
+
+### O gatilho
+
+A order **#THS1033** ($531,21) trouxe dois dampers no mesmo carrinho: o
+`ZD10X16` (7 lb, THS Standard) e o `ZD10X18` (3 lb, General com
+`free-ship-eligible`). Um damper 10x18 nao pesa menos que um 10x16 — isso
+abriu a investigacao.
+
+### O dado nao existia em lugar nenhum
+
+- **Fornecedor:** os 19 SKUs `ZD##X##` tem `w = 0`, sem L/W/H, sem cube.
+- **Loja:** os pesos sao placeholder — so existem dois valores, **3 lb ou 7 lb**,
+  sem progressao por tamanho. Um 10x10 (100 in2) e um 12x20 (240 in2) pesavam
+  "3 lb" os dois.
+- **Nenhum dos 19 tem metafield de dimensao**, entao o peso dimensional nunca
+  entrava no calculo do lambda.
+
+A elegibilidade a frete gratis era **heranca de perfil, nao calculo**: a regra
+de tagueacao marcava se lambda passasse **e** (tivesse dimensao **ou** ja
+estivesse no General). Sem dimensao, so foram marcados os que ja estavam no
+General por motivo historico. Prova: o `ZD10X16` tinha lambda 0,0326 (passa) e
+estava no Standard, enquanto o `ZD24X10`, maior e mais arriscado, estava no
+General.
+
+### A geometria veio do submittal sheet
+
+`33-00264.pdf` (ZD Series Damper Submittal Sheet) da os dois numeros que
+faltavam:
+
+- **"All ZD models are 4 in. thick"** — espessura confirmada para a familia toda
+- **Projecao maxima do atuador: 4-31/32 in (126 mm)**
+
+Os PDFs **nao trazem peso nem dimensao de caixa** — confirmado em
+`33-00264`, `33-00038` e `33-00040`. As paginas de produto tambem nao.
+
+### Calculo e veredito
+
+Caixa assumida `(d1+2) x (d2+2) x 7,48 in` (1" de folga por lado, metade da
+projecao do atuador na altura), divisor UPS 139:
+
+| SKU | caixa in | in3 | dim lb | preco | lambda |
+|---|---|---|---|---|---|
+| ZD20X12 | 22x14x7,48 | 2.305 | 16,6 | 228,83 | 0,0725 |
+| ZD12X20 | 14x22x7,48 | 2.305 | 16,6 | 267,34 | 0,0620 |
+| ZD24X10 | 26x12x7,48 | 2.335 | 16,8 | 273,31 | 0,0615 |
+| ZD10X18 | 12x20x7,48 | 1.796 | 12,9 | 232,38 | 0,0556 |
+| ZD16X12 | 18x14x7,48 | 1.886 | 13,6 | 258,78 | 0,0524 |
+| ZD12X12 | 14x14x7,48 | 1.467 | 10,6 | 264,41 | 0,0399 |
+| ZD10X10 | 12x12x7,48 | 1.078 | 7,8 | 198,94 | 0,0390 |
+| ZD16X8 | 18x10x7,48 | 1.347 | 9,7 | 257,20 | 0,0377 |
+
+**Os 19 falham a regua.** O menor lambda da familia e 0,0377, contra limite
+0,0337 — nem o mais favoravel passa. O peso declarado subestimava o faturavel
+em **2 a 5 vezes**.
+
+Quanto custava, no ZD24X10: custo UPS = 14,98 + 4,51 x 16,8 = **$90,74**,
+contra lucro bruto de 273,31 x 33,3% = **$91,01**. Sobrava **$0,27** — e isso
+antes de qualquer sobretaxa.
+
+Ressalva: espessura e projecao do atuador sao **dado confirmado**; a caixa e
+**suposicao conservadora**. Se a caixa real for maior, os lambda pioram.
+
+### Feito
+
+9 SKUs movidos de General para `THS Standard - no free shipping` e com a tag
+`free-ship-eligible` removida, verificado por leitura independente (nao por
+`userErrors`): `ZD10X10, ZD10X18, ZD12X12, ZD12X20, ZD14X12, ZD16X12, ZD16X8,
+ZD18X10, ZD24X10`. Os outros 10 ja estavam no Standard. **A familia inteira
+esta correta agora.** Rollback em `zone_dampers_rollback.csv` e
+`zone_dampers_tag_restaurar_MATRIXIFY.csv`.
+
+### Aberto
+
+- **Perguntar ao Craig (Resideo) se existe planilha de peso de embarque.** Seria
+  o dado exato no lugar do derivado, e cobriria os 607 SKUs Resideo da loja.
+- **O submittal sheet cobre familias inteiras** — este resolveu 19 SKUs num PDF
+  so. Extrair geometria dos submittals e um caminho viavel para os 607, mesmo
+  sem peso.
+- O mesmo buraco continua nos **2.414 itens so com cube** e nos **579 segurados
+  sem dimensao**. Se o Craig entregar a planilha, vale pedir o mesmo aos outros
+  fornecedores grandes.
+
 ## 10. Menores
 
 - `Single Hole Faucets` (10) vs `Single-Hole Faucets` (97) — dois product types
