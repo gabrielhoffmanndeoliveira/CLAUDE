@@ -67,6 +67,51 @@ então isso resolve só a atribuição dentro do Shopify.
 destes 8.407 com tag e **301 sem**. Mais 355 com tag fora do General, que
 poderiam entrar.
 
+### Intuitive Shipping — travado no suporte (15/set)
+
+**A leitura da dimensão está PROVADA.** A tela `Select products` do Cart Tester
+mostra `9.449×8.74×5.118 in` com o ícone da Shopify ao lado, igual ao peso. O
+metafield mapping funciona. O export vazio era limitação do export, que só
+mostra override do app, não valor resolvido — o peso também sai vazio lá.
+
+**O que não funciona: a cotação.** O Cart Tester devolve "No shipping rates
+available" e o **Activity fica vazio** — nenhuma requisição chega ao motor.
+
+Tudo configurado e verificado:
+- Zone `US Domestic`, Published, United States
+- Scenario `TESTE dimensao`, Testing, `Cart volume > 400 in³`, All conditions
+- Método `TESTE`, Custom Shipping Rates, Testing, **na zona US Domestic**,
+  Quantity, Combine products, `up to 9999 = $1.00`
+- Package: Box `40×30×30 in`, Published
+- Location: Seattle, 7115 W Marginal Way SW, WA 98106, Published
+- Carrinho: 1 × `GROH-19.494001` → Levittown PA 19056
+
+Ticket enviado ao suporte deles (atendem seg–qui 7h–18h e sex 8h–17h EST).
+
+**Aprendizados do app, para não repetir:**
+- Estrutura é **Zone → Scenario → Shipping method**. O método é que se prende à
+  zona, e a escolha de zona só aparece no **segundo passo** do diálogo
+  `Create shipping method` — depois do `Next`, não do `Close`.
+- `Rest of world` significa *"all countries not included in other zones"*. Ao
+  criar a `US Domestic`, os EUA saem do `Rest of world` automaticamente.
+- **Sandbox mode** impede que o cliente veja qualquer método no checkout. Testar
+  pelo checkout real daria falso negativo — usar o **Cart Tester**.
+- **`Future services` precisa estar marcado** nas configs de entrega do Shopify
+  quando for para produção. Sem isso o Intuitive calcula, aparece no Activity,
+  e **não chega ao cliente**.
+- Condições disponíveis: `Cart total`, `Cart weight`, `Cart volume` (em **in³**),
+  `Cart length/width/height`, `Product tag` com escopo **`All products`**.
+  **Não existe condição de fórmula** — por isso a régua vira 7 cenários, um por
+  faixa de valor.
+- A tag é lida **ao vivo do Shopify no checkout**, não do catálogo importado.
+- **Nunca digitar dimensão dentro do app**: o valor dele tem precedência sobre
+  o metafield.
+
+**Origem da THS: Seattle, WA 98106** — o mapa do app identificou como
+**Pacific Plumbing Supply Company**. Somado ao Master Source (Seattle 98108,
+remetente da fatura da Blanco), confirma origem única na costa oeste. É a causa
+raiz do custo de frete: quase todo cliente cai em zona 7–8 da UPS.
+
 ### Falta
 
 1. **`Import catalog` no Intuitive** — rodando em 15/set. Sem isso ele não
