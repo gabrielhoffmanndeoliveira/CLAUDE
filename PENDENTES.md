@@ -1,6 +1,6 @@
 # Pendentes — THS
 
-Atualizado em 16/set/2026. Ordem = prioridade.
+Atualizado em 16/set/2026 (frete e dimensão). Ordem = prioridade.
 
 ## 1. Card testing ativo (urgente)
 
@@ -46,39 +46,110 @@ então isso resolve só a atribuição dentro do Shopify.
 
 ## 3. Peso e frete
 
+### Em execução agora
+
+- **Tag `free-ship-eligible` importando** — 8.762 produtos,
+  `tag_free_ship_IMPORTAR.csv`, `Tags Command: MERGE`. Verificado nos 12
+  primeiros que as tags originais sobrevivem. Rollback:
+  `tag_free_ship_rollback.csv`.
+- **Dimensões em metafield importando** — 3.035 produtos,
+  `dimensoes_metafield_IMPORTAR.csv`. As três definições (`product.length`,
+  `product.width`, `product.height`, tipo `dimension`) já existem e estão
+  mapeadas no Intuitive. Rollback: `dimensoes_metafield_rollback.csv`.
+
+**Quando os dois terminarem:**
+1. `Import catalog` no Intuitive, para ele puxar dimensão e tag.
+2. Rodar `delivery_profile_id:89783402599 AND tag_not:free-ship-eligible` —
+   devolve em uma chamada a lista exata do que está no frete grátis e não
+   deveria. Substitui o snapshot `general_skus.json`, que é velho.
+3. Montar o cenário no Intuitive em **`Status: Testing`** (ele nasce
+   `Published`). Falta ver a lista de condições que o app oferece — o print do
+   dropdown `Add condition` decide se é 1 cenário (se aceitar fórmula) ou 7
+   (um por faixa de valor).
+
+### A lógica do frete grátis, em três camadas
+
+1. **Por item:** tag `free-ship-eligible`, dada por λ ≤ 0,0337. Todo item do
+   carrinho precisa ter.
+2. **Por carrinho:** o SmartBoxing do Intuitive empacota e devolve o peso
+   faturável da **caixa**, não a soma dos itens. É o que fecha o furo do
+   THS1013 — 36 termostatos, cada um passando na λ com folga, e a caixa custou
+   $125,58 num pedido que cobrou $0,00.
+3. **Teto que cresce com o valor:** peso_faturável ≤ (0,303 × subtotal − 14,98) / 4,51.
+
+   | Subtotal | Peso faturável máx |
+   |---|---|
+   | $99–149 | 3,3 lb |
+   | $150–199 | 6,7 lb |
+   | $200–299 | 10,1 lb |
+   | $300–499 | 16,8 lb |
+   | $500–999 | 30,2 lb |
+   | $1.000–1.999 | 63,8 lb |
+   | $2.000+ | 131 lb |
+
+   Usando o piso de cada faixa, que é conservador por construção.
+
+4. **Três vetos absolutos**, independentes de valor: caixa ≥ **10 ft³**,
+   comprimento + cintura > **130 in**, ou volume > **150 lb** (teto da UPS
+   Ground). Falhar não bloqueia a compra — só esconde o frete grátis e mostra a
+   tarifa UPS normal.
+
+### Itens perigosos ainda no frete grátis
+
+Medido contra snapshot anterior à execução da λ, então **carece de releitura**
+(o passo 2 acima resolve). Os que sobreviveram à conferência:
+
+| SKU | Volume | Peso no Shopify | Peso dimensional | Preço |
+|---|---|---|---|---|
+| `ELKA-LZSTL8WSLK` | 13,63 ft³ | 2,0 lb | **169,5 lb** | $3.676,80 |
+| `ZOEL-915-0005` | 10,08 ft³ | 60,0 lb | **125,4 lb** | $2.024,89 |
+| `ELKA-LZS8WSLK` | 9,97 ft³ | 2,0 lb | **123,9 lb** | $2.636,87 |
+| `AMST-6400.001.020` | 9,31 ft³ | 1,0 lb | **115,7 lb** | $749,82 |
+| `ELKA-LZSTL8WSLP` | 8,94 ft³ | 2,0 lb | **111,1 lb** | $3.817,65 |
+
+Caldeiras Burnham de 300 a 502 lb (`BURN-205EN-G0` a `BURN-208EN-G0`) também
+reprovam na λ — e estão acima do teto de 150 lb da UPS Ground.
+
+### Faturas UPS — sangramento medido
+
+**THS1008 (pia Blanco), fatura 000022K7Y8366, $675,26.** Declarado 38×27×16 in
+= 9,500 ft³; auditado 39×28×16 = 10,111 ft³. Cruzou o degrau de 10 ft³:
++$331,00 de Large Package Surcharge, +$76,96 de combustível, +$42,52 de audit
+fee. Custo real $657,02 contra $0,00 cobrado. Peso real 55 lb, cobrado 126.
+
+**Fatura 00000022K7Y8376, $224,84** — quatro pedidos, todos `Inbound/Third
+Party` (fornecedor despachando direto na conta da THS):
+
+| Order | Rastreio | Cobrado | Pago à UPS | Resultado |
+|---|---|---|---|---|
+| THS1013 | 1Z7873030392581089 | $0,00 | $125,58 | −$125,58 |
+| THS1014 | 1ZH1146Y0333123072 | $0,00 | $36,56 | −$36,56 |
+| THS1012 | 1Z9515X00332116138 | $15,00 | $33,85 | −$18,85 |
+| THS1015 | 1Z7873030393686492 | $15,00 | $21,14 | −$6,14 |
+
+Cobrado $30,00, pago $187,63. **−$157,63 numa fatura só.** Vale puxar a aba
+`Adjustments` dos últimos 6 meses: se a taxa de correção de 13,4% for
+consistente, é dinheiro recorrente e argumento para cobrar do fornecedor.
+
+### Ainda abertos
+
 - **43 pesagens** de conexões PEX de $1,67 a $2,44, todas com o placeholder de
   0,05 lb (22,7 g) e peso crítico entre 25 e 37 g. São os únicos da régua λ com
   folga apertada e peso não verificado. Balança de cozinha, 15 minutos.
-- **Intuitive Shipping — trial de 15 dias em andamento.** Plano Growth, $70/mês,
-  500 pedidos, SmartBoxing incluso, 30¢/pedido de excedente. Resolve o box
-  packing dos **1.262 subcotados por volume** — buraco que nenhuma régua
-  conserta, é a mecânica dos $276,82 perdidos na pia Blanco.
-  - Unidades já corrigidas para **in / lb / mi** (estava cm/kg/km). Dimensão do
-    fornecedor (`cube`) é em polegada cúbica e o divisor dimensional da UPS
-    (139) é em polegada — trocar a unidade invalidaria tudo.
-  - Confirmado na tela de edição de produto: o app **puxa o peso do Shopify**
-    e aceita **override de dimensão por produto** (Shipping dimensions em
-    polegadas, em branco = usa a plataforma). Logo o caminho de carga em massa
-    é o **Import** da tela Products.
-  - **Próximo passo: exportar o CSV da tela Products** e mandar o cabeçalho.
-    Preciso da ordem das colunas, se a chave é SKU ou ID do Shopify, e como ele
-    nomeia comprimento/largura/altura. Tenho pronto para carregar: **3.795
-    itens com L/H/W completos** do arquivo do fornecedor, mais **2.917 que só
-    têm `cube`** (volume), que precisam de tratamento à parte porque o app quer
-    três medidas separadas.
-  - Cenário novo nasce com `Status = Published`. Pôr em **Testing** antes de
-    salvar, senão entra no checkout ao vivo.
-  - Elegibilidade a frete grátis: usar **Product tag** em vez de perfil do
-    Shopify. Tag entra por Matrixify; perfil de entrega só sai por API.
-  - Três testes do trial: (1) de onde ele lê dimensão; (2) pia Blanco — Shopify
-    cota $380,20 e a UPS fatura $657,02, se ele devolver ~$657 funciona;
-    (3) o AND — grátis acima de $99 **E** abaixo de X lb.
+- **579 itens segurados** (`tag_free_ship_segurados_sem_dimensao.csv`): passam
+  na λ só pelo peso real, sem nenhuma noção de volume, e hoje estão fora do
+  General. Destravam quando houver dimensão.
+- **2.414 itens têm só `cube`** (volume) e não as três medidas. O Intuitive
+  exige comprimento, largura e altura juntos — volume sozinho não serve.
+  Pedir as três ao fornecedor.
+- **Intuitive Shipping** — trial de 15 dias, plano Growth $70/mês, 500 pedidos,
+  SmartBoxing incluso, 30¢/pedido de excedente. Unidades já em **in/lb/mi**.
 - **Limiar de freight grátis estilo Ferguson**, ~$1.744 (Banda C), no perfil
   Freight. Ferguson usa $49 parcel / $1.499 freight.
 - **Travar `Variant Weight` no import do fornecedor** — senão os 2.790 pesos
   aplicados voltam atrás. *Ainda não sei se o import é agendado ou manual.*
-- **629 itens do Standard** passam no λ mas não têm dimensão conhecida.
-  Destravam sozinhos quando houver dimensão.
+- **Perguntar ao Master Source** por que a dimensão declarada da Blanco deu
+  exatamente 9,500 ft³, na casa decimal do limiar de 10.
 
 ## 4. Fornecedor
 
