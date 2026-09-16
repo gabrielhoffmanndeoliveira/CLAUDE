@@ -1128,3 +1128,85 @@ nunca colar ID de memória.
 
 Cada bloco: buscar peso e dimensão reais no `sup.json` / fornecedor, gerar
 rollback, recalcular λ do dado bruto e mover só quem falha.
+
+## 18. Rolos de tubo + PASC-50750 — aplicado em 16/set
+
+### O defeito por-pé chegou ao peso
+
+O `sup.json` prova: mesmo diâmetro tem **peso idêntico em 100 ft e em 300 ft**.
+
+| SKU | Peso fornecedor | ft |
+|---|---|---|
+| POLY-200-250/300 | 0,945 | 300 |
+| POLY-200-250/100 | 0,945 | 100 |
+| POLY-150-250/300 | 0,575 | 300 |
+| POLY-150-250/100 | 0,575 | 100 |
+| POLY-125-250/300 | 0,42 | 300 |
+| POLY-125-250/100 | 0,42 | 100 |
+
+Peso não pode ser igual pra um rolo e pra outro três vezes maior. O valor é
+**por pé** — é o mesmo defeito sistêmico já registrado no CLAUDE.md em custo,
+agora confirmado também no peso. A loja importou o valor por pé como se fosse o
+peso da peça, e o peso da loja **é** o do fornecedor (0,945 → 0,94).
+
+Peso real = `lb_por_pé × ft`. Os 15 falham λ por **3,7× a 7,6×**, nenhum de
+raspão: o menor é 0,124 contra o teto de 0,0337.
+
+### Movidos (verificado por leitura independente)
+
+**THS Freight & Oversize** — os 4 acima de 150 lb, que não cabem em UPS Ground:
+
+| SKU | Preço | Cadastrado | Real |
+|---|---|---|---|
+| POLY-200-250/300 | $1.467,00 | 0,94 | 283,5 lb |
+| POLY-150-250/300 | $891,00 | 0,57 | 172,5 lb |
+| HDPE-GASH0110200250 | $1.275,00 | 0,63 | 157,5 lb |
+| MDPE-1002278 | $1.070,00 | 0,63 | 157,5 lb |
+
+**THS Standard - no free shipping** — os outros 11.
+
+Os 15 perderam a tag `free-ship-eligible`.
+
+Rollback: `rolos_tubo_rollback.csv`, `rolos_tubo_tag_restaurar_MATRIXIFY.csv`.
+
+### Pendente: os pesos ainda estão errados na loja
+
+`rolos_tubo_pesos_IMPORTAR.csv` tem os 15 pesos corrigidos. **Importar é
+obrigatório, não opcional:** o THS Freight & Oversize cobra por tabela fixa por
+peso, então com 0,94 lb cadastrado os 4 rolos caem na banda mais barata e o
+problema continua, só que escondido atrás de outro perfil. Ação do Gabriel.
+
+Os valores vêm da multiplicação `lb_por_pé × ft` do `sup.json`. Confirmar com a
+Centennial antes de tratar como verdade absoluta — a derivação é sólida mas não
+foi validada em fatura.
+
+### PASC-50750 — vendeu duas vezes em dois dias
+
+- **#THS1037**, 15/set, ×2, $303,00, frete grátis
+- **#THS1038**, 16/set, ×3, $454,50, frete grátis
+
+7/8" × 50 ft de Code DW Drain Hose a **0,37 lb** cadastrado.
+
+**Não dá pra derivar o peso real.** O fornecedor manda 0,369 e não existe par de
+comprimentos do mesmo produto que prove se é por pé. Os dois candidatos são
+ruins: 0,37 lb pra 50 ft é impossível, e 18,45 lb (por pé × 50) é pesado demais
+pra mangueira de 7/8".
+
+**A decisão não dependeu do peso.** Um rolo de 50 ft de mangueira 7/8" não
+comprime abaixo de ~16×16×5 in = 1.280 in³ → **9,2 lb de peso dimensional** →
+λ = **0,0607**, contra o teto de 0,0337. Falha por 1,8× no cenário mais
+generoso possível.
+
+Movido pra THS Standard, tag removida, verificado.
+Rollback: `pasco_50750_rollback.csv`.
+**Peso real pendente com a Pasco.**
+
+### Correção: o grupo Pasco @ 0,33 lb do TESTE A não é defeito por-pé
+
+É **placeholder**. O fornecedor manda `w: 0` ou nada nos 35 SKUs e a loja
+preencheu 0,33 chapado em todos. Mecanismo diferente do Centennial — lá o dado
+existia e estava na unidade errada, aqui o dado não existe. Consertar exige
+fonte externa, não aritmética.
+
+Vale suspeitar do mesmo em **Diablo @ 0,73** e **Milwaukee @ 0,73**, os dois
+maiores grupos por exposição a frete grátis. Checar `sup_w` antes de assumir.
