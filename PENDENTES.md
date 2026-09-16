@@ -949,9 +949,11 @@ campo errado.
    antes de escrever a descricao deles.
 2. **`YTH5320R1000/U`** esta como `Non-Programmable Thermostats` mas e um RedLINK
    Equipment Interface Module. Polui colecao e feed.
-3. **Comparar os 6 pesos declarados na descricao** (0,5 e 0,811 lb) contra o
-   `inventoryItem.measurement.weight`. Se divergirem, e a familia do defeito dos
-   dampers ao contrario: o dado existe e nao foi usado.
+3. **Pesos conferidos — batem.** Dos 6 com peso declarado na descricao: 3 batem
+   exato (0,5 lb) e 3 diferem so por arredondamento (0,811 na descricao contra
+   0,81 no Shopify, que trunca em 2 casas). **Zero divergencia real.** Minha
+   suspeita de que "o dado existe e nao foi usado" estava errada: o peso foi
+   usado. Fechado.
 4. Medir daqui a algumas semanas: GSC dos 39 tocados contra os Resideo intactos.
 
 ## 10. Menores
