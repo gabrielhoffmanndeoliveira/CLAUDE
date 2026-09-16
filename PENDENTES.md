@@ -830,6 +830,54 @@ esta correta agora.** Rollback em `zone_dampers_rollback.csv` e
   sem dimensao**. Se o Craig entregar a planilha, vale pedir o mesmo aos outros
   fornecedores grandes.
 
+## 14. Descricao de produto — piloto nos zone dampers (16/set)
+
+### O buraco
+
+O SEO ate agora cobriu **titulo, meta e colecao**. **Descricao de produto nunca
+entrou.** O que esta nas paginas e a saida do pipeline de import:
+
+```
+The 10 in x 16 in Parallel Blade Damper by Resideo is part of our zone dampers selection.
+Brand: Resideo / Manufacturer Part #: ZD10X16TZ/U / Category: Zone Dampers
+```
+
+Template: `The {titulo} by {marca} is part of our {categoria} selection.` mais
+tres bullets. Cinco dos 19 dampers nem o paragrafo tinham, so os bullets.
+
+Nao tenho percentual confiavel do catalogo — o dump local de 15/set tem 38.918
+registros para 14.883 produtos e nao e 1:1. Contar ao vivo se precisar do numero.
+
+### Feito — 19 zone dampers, no ar em 16/09/2026
+
+De ~250 para **~2.600 caracteres** por produto. Import Matrixify #746917174,
+Updated 19 / Total 19, verificado por leitura live: perfil de entrega, tags e
+meta description intactos nos 19.
+
+Texto **derivado do submittal sheet 33-00264 e reescrito**, nao copiado da
+Resideo — evita duplicar com o site do fabricante e com os outros distribuidores
+que colam o mesmo blurb. Cada SKU e genuinamente diferente: traz o tamanho, o
+lado em que o atuador monta e o **SKU espelhado equivalente** (`ZD10X16` vs
+`ZD16X10`), que e a confusao real que faz o instalador pedir errado.
+
+Cinco secoes: o que e e o que faz, power close / spring open, sizing e
+orientacao, eletrica e desempenho, construcao, atuador de reposicao.
+
+### Dois erros que valem para os proximos 607
+
+- **O gerador nao tratava `d1 == d2`.** Nos dois dampers quadrados o texto dizia
+  *"a ZD10X10TZ is the same opening..."* — o produto comparado com ele mesmo.
+  Corrigido por API depois do import; o caso quadrado virou informacao util
+  ("no mirrored part number to confuse it with"). **Qualquer familia com
+  tamanhos quadrados vai repetir isso.**
+- **`productUpdate` usa `ProductUpdateInput`, nao `ProductInput`.**
+
+### Proximo
+
+Medir daqui a algumas semanas: impressao e clique dos 19 contra os produtos
+Resideo nao tocados, no GSC. Se subir, escala para os 607 Resideo — o submittal
+cobre familias inteiras, entao nao sao 607 requisicoes.
+
 ## 10. Menores
 
 - `Single Hole Faucets` (10) vs `Single-Hole Faucets` (97) — dois product types
