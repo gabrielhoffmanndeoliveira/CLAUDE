@@ -204,7 +204,69 @@ Comparação de preço, de passagem: estamos mais caros nos três itens conferid
 | `HONE-TH3210U2004/U` | $46,28 | $43,26 (sucessor `TH1210U4001`) |
 | `HONE-TH3110U2008/U` | $30,00 | $27,79 (sucessor `TH1110U4000`) |
 
-## 5. Termostatos Honeywell descontinuados (comercial, urgente)
+## 5. Preço — não conseguimos competir em commodity residencial
+
+Descoberto no teste de frete de 15/set. O aquecedor de 40 galões:
+
+| | Valor |
+|---|---|
+| **Nosso custo de compra** (`unitCost`) | **$1.018,85** |
+| **Preço de varejo da SupplyHouse** (Ruud `PROG40S-40N-RU62`) | **$1.060,14** |
+| Nosso preço de venda (`RHEE-PRO+G40S-40N-RH62`) | $1.528,28 |
+
+**O varejo deles está 4,1% acima do nosso atacado.** Vendendo a preço de custo
+ficaríamos $41 abaixo, com margem zero, e ainda perderíamos em prazo e malha.
+Com os 50% de markup do catálogo, ficamos **44% acima**.
+
+Rheem e Ruud são a mesma fabricante — mesmo aparelho, etiqueta diferente.
+
+Nos termostatos o gap era 7–18%. Aqui 44%. Eles compram melhor do que nós.
+
+**31% do catálogo está em concorrência direta:** 4.590 itens ACTIVE em marcas
+que a SupplyHouse carrega, de 14.883.
+
+| Marca | Nossos itens | Mediana |
+|---|---|---|
+| Viega | 955 | $57,60 |
+| Milwaukee | 764 | $57,89 |
+| Honeywell/Resideo | 606 | $110,59 |
+| Sioux Chief | 538 | $13,44 |
+| Legend Valve | 295 | $21,73 |
+| MrPEX | 289 | $26,61 |
+| **Rheem/Ruud** | 278 | **$1.255,47** |
+| Taco | 119 | $287,00 |
+| Navien | 73 | $1.155,00 |
+| Watts | 74 | $399,57 |
+
+### Onde eles NÃO estão
+
+Três de três itens testados que a SupplyHouse não carrega:
+
+| Item | Categoria |
+|---|---|
+| `NAVI-30010747A` | acessório OEM Navien |
+| `HGRI-454005` | nVent CADDY |
+| `SIOU-851-36T` | cleanout comercial 6" |
+
+Eles são fortes em **commodity residencial**, que é onde estamos 7% a 44% mais
+caros. Não estão em **peça OEM, item comercial e tamanho grande** — onde a THS
+tem catálogo e o cliente não tem comparação fácil de preço.
+
+**Conclusão prática:** competir em termostato Resideo e aquecedor Rheem é perder
+por construção. A margem está no sortimento que sobra. E, por coincidência útil,
+é lá que os itens são pesados e volumosos — ou seja, onde a régua λ e o box
+packing mais importam.
+
+### Amostragem em andamento
+
+`amostra_preco_supplyhouse.csv` — 82 itens estratificados por marca × faixa de
+preço (item mediano de cada célula, só com MPN conhecido), com nosso preço,
+nosso custo e markup real. Duas colunas em branco para o preço deles e o gap.
+
+Executar por lote, cada MPN é uma busca. **Lote 1:** os 10 de maior impacto —
+Rheem e Navien nas faixas altas, mais Taco e Watts, itens de $400 a $12.000.
+
+## 6. Termostatos Honeywell descontinuados (comercial, urgente)
 
 **Os 3 SKUs da série T3 Pro / PRO 3000 que temos estão ACTIVE na loja e a
 série foi descontinuada pelo fabricante.**
@@ -230,7 +292,7 @@ THS1032 (hoje, 10 un.), THS1024 (4 un.), THS1022 (6 un.), THS1013 (36 un.).
 - **Não investigado ainda:** se o padrão se repete em outras marcas. Quantos
   SKUs ACTIVE nossos já morreram no fabricante?
 
-## 6. Fornecedor
+## 7. Fornecedor
 
 Um pacote só, com três listas:
 - **54 segurados** pelo piso físico (`pesos_segurados_suspeitos.csv`) — inclui
@@ -243,12 +305,12 @@ Um pacote só, com três listas:
 Pergunta objetiva para o fornecedor: **o campo `weight` é por pé ou pela peça
 inteira?** Já está comprovado que para tubo é por pé.
 
-## 7. SEO
+## 8. SEO
 
 Resta **1** da lista original: `pipe-straps-brackets-hooks` (64 produtos).
 19 coleções no ar, 238 títulos corrigidos.
 
-## 8. Mídia — revista de associação (em espera)
+## 9. Mídia — revista de associação (em espera)
 
 **PHCC** é a associação certa: público é contratante e dono, que é quem compra.
 **ASPE é público errado** — engenheiro especifica, não compra material.
@@ -267,7 +329,7 @@ para 4.000 contratantes e donos no LinkedIn, de graça. É mais gente que a
 revista nacional, sai essa semana em vez do próximo trimestre, e dá para medir
 com UTM. Se gerar pedido, aí a revista se decide com número.
 
-## 9. Menores
+## 10. Menores
 
 - `Single Hole Faucets` (10) vs `Single-Hole Faucets` (97) — dois product types
   para a mesma coisa, 107 produtos separados por um hífen
