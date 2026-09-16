@@ -46,26 +46,43 @@ então isso resolve só a atribuição dentro do Shopify.
 
 ## 3. Peso e frete
 
-### Em execução agora
+### Feito (15/set)
 
-- **Tag `free-ship-eligible` importando** — 8.762 produtos,
-  `tag_free_ship_IMPORTAR.csv`, `Tags Command: MERGE`. Verificado nos 12
-  primeiros que as tags originais sobrevivem. Rollback:
+- **Dimensões em metafield** — 3.035 produtos, `dimension` em `product.length`
+  / `width` / `height`. Verificado: `metafieldsCount` 3.035 nos três, idêntico.
+  Rollback: `dimensoes_metafield_rollback.csv`.
+- **Tag `free-ship-eligible`** — 8.762 produtos, `precision: EXACT`. `MERGE`
+  preservou as tags originais (conferido nos 12 primeiros). Rollback:
   `tag_free_ship_rollback.csv`.
-- **Dimensões em metafield importando** — 3.035 produtos,
-  `dimensoes_metafield_IMPORTAR.csv`. As três definições (`product.length`,
-  `product.width`, `product.height`, tipo `dimension`) já existem e estão
-  mapeadas no Intuitive. Rollback: `dimensoes_metafield_rollback.csv`.
+- **Mapeamento no Intuitive** — os três metafields apontando para
+  `product.length/width/height`. Os de variante ficam vazios: os 14.883
+  produtos têm 1 variante cada.
+- **265 produtos tirados do frete grátis** — 11 para `THS Freight & Oversize`
+  (acima de 150 lb: as nove caldeiras Burnham de 202 a 502 lb, a bomba Liberty
+  2448LSG202 e o rolo de PEX 2"×100' com 175 lb dimensionais), 254 para
+  `THS Standard`. Verificado 15/15 na amostra pela relação direta.
+  Rollback: `perfil_301_rollback.csv`.
 
-**Quando os dois terminarem:**
-1. `Import catalog` no Intuitive, para ele puxar dimensão e tag.
-2. Rodar `delivery_profile_id:89783402599 AND tag_not:free-ship-eligible` —
-   devolve em uma chamada a lista exata do que está no frete grátis e não
-   deveria. Substitui o snapshot `general_skus.json`, que é velho.
-3. Montar o cenário no Intuitive em **`Status: Testing`** (ele nasce
-   `Published`). Falta ver a lista de condições que o app oferece — o print do
-   dropdown `Add condition` decide se é 1 cenário (se aceitar fórmula) ou 7
-   (um por faixa de valor).
+**Contagem ao vivo antes de mover** (`productsCount`, EXACT): General 8.708,
+destes 8.407 com tag e **301 sem**. Mais 355 com tag fora do General, que
+poderiam entrar.
+
+### Falta
+
+1. **`Import catalog` no Intuitive** — rodando em 15/set. Sem isso ele não
+   enxerga dimensão nem tag.
+2. **Verificar pelo `Export` da tela Products** se a dimensão chegou.
+   Produto de controle: `GROH-19.494001`, deve vir 9,449 × 8,74 × 5,118 in.
+3. **Montar o cenário em `Status: Testing`** (nasce `Published`). Falta ver a
+   lista do dropdown `Add condition` — ela decide se é 1 cenário (se aceitar
+   fórmula) ou 7 (um por faixa de valor).
+4. **36 produtos com preço $0,00** seguem no frete grátis
+   (`perfil_301_segurados_preco_zero.csv`). Sem preço não há λ. Revisar quando
+   o fornecedor der preço.
+5. **Aquecedores de rodapé Suntemp** `SUS-4` a `SUS-9` — foram para o Standard
+   pelo λ, mas o risco real é **comprimento**: o `SUS-9` tem 108 in, o máximo
+   que a UPS aceita. A régua λ não enxerga comprimento. Só o veto de
+   comprimento + cintura no Intuitive pega isso.
 
 ### A lógica do frete grátis, em três camadas
 
