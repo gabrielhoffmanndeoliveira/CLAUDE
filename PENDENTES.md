@@ -1614,3 +1614,38 @@ da seção 23.
  68 prontas neste bloco, aguardando import
 418 pendentes
 ```
+
+### 24.1 — UPC e peso nas especificações (17/09)
+
+O texto antigo gerado pelo pipeline trazia dois campos que eu não estava
+incluindo: **UPC** e **Shipping Weight**. O UPC é dado de busca real — quem
+escaneia um código na obra procura por ele.
+
+**O peso é armadilha, e quase entrou.** Primeiro item da amostra:
+
+```
+HONE-120650/U   Heat Conductive Grease 1/2 oz   →   1,4 lb
+```
+
+Graxa de meia onça (0,03 lb) cadastrada a 1,4 lb. E 59 dos 68 pesos do bloco
+estão em três valores só: **1,4 (23), 7,0 (18), 2,19 (18)** — 7,0 é o mesmo
+placeholder Resideo que o TESTE A já tinha apontado.
+
+**Mas não é placeholder puro.** Onde existe peso de fornecedor para conferir
+(11 itens), **os 11 batem** — inclusive dois aquastats L6006 a 1,4 lb. O 1,4 é
+o peso real da família L6006, copiado por cima da graxa. O valor está
+*contaminado*, não inventado: certo em alguns, errado em outros, e pelo número
+sozinho não dá para separar.
+
+**Regra adotada:**
+- **UPC: sempre** (59/68 têm) — não tem como estar "meio certo"
+- **Peso: só onde o fornecedor confirma** (11/68). Nos outros 57, omitido.
+
+Publicar peso errado numa descrição é pior do que não publicar: hoje o erro
+está num campo interno; na descrição vira spec pública que o cliente lê.
+
+Mediana subiu para **1.6xx chars**. A graxa saiu corretamente sem peso.
+
+**Nota para os próximos blocos:** UPC existe em **408 dos 486**. O peso do
+catálogo Resideo inteiro tem a mesma contaminação — 7,0 lb em 61 itens,
+2,19 em 56, 0,2 em 48. Mesma regra vale.
