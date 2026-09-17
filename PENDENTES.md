@@ -1321,3 +1321,76 @@ $200/lb é permissivo (a mediana é $95,9) e pega 14% do catálogo. **1.240 não
 uma lista de ação** — é o funil. O topo (>$2.000/lb, acima do p99) é
 indefensável e deve ser atacado primeiro. O meio precisa de peso de fornecedor
 ou de fonte externa para decidir.
+
+## 22. Duas correções minhas, uma delas de uma correção minha
+
+### O que ficou de pé
+
+**X-PV4 = 310 lb**, do data sheet da própria US Boiler (`usboiler.net`,
+`robots.txt` libera tudo, `Crawl-delay: 10`). SKU `BURN-X-PV4N-T02` casa exato:
+X-PV4**N** Nat. Gas, 105 MBH, build **T02** = sea level a 2.000 ft.
+Cadastrado: 2,19 lb. Fator de **141×**.
+
+**EWS-SPECTRUM-V2 = 135 lb**, 13" D × 67" H, do tearsheet da EWS. Os PDFs da
+EWS são **imagem pura** — 2 e 362 caracteres de texto. Resolvido com
+`pdftoppm -png` e leitura da imagem.
+
+**Midea continua bloqueado.** `robots.txt` devolveu 503. Pela RFC 9309, 5xx =
+"unreachable" = proibição total. Não busquei. (4xx = "unavailable" = liberado —
+foi o caso do S3 da US Boiler e do CDN do Wix da EWS.)
+
+**Bosch BP048 não existe no catálogo atual.** As famílias water-to-air hoje são
+RP, RF e RL. Série descontinuada ou código de distribuidor. Pendente com o
+Gabriel.
+
+### Correção 1: eu movi o filtro EWS sem precisar
+
+135 lb contra teto λ de 169,5 lb — **passa**. E 135 < 150, cabe em UPS Ground.
+Custo real ~$664 contra margem disponível de $1.525. O frete grátis nele se
+paga.
+
+Movi porque apliquei o detector de `$/lb` sem cruzar com λ — o mesmo erro de um
+eixo só que eu tinha acabado de escrever que não devia cometer. Reversível por
+`equipamento_pesado_rollback.csv`.
+
+### Correção 2: a "correção" da λ estava errada
+
+Eu afirmei que λ era uma aproximação conservadora demais da fórmula de custo, e
+que todo item caro estava sendo julgado por teto até 49% apertado demais.
+**Errado.**
+
+A fórmula `(0,303×S − 14,98)/4,51` é **de carrinho**. O $14,98 é a taxa base da
+UPS, uma por remessa. Aplicá-la item a item cobra a base de cada item: quatro
+itens de $30 pagariam $59,92 de base onde a remessa paga $14,98. Foi assim que
+apareceram **2.013 "falhas"** que não existem — quase todas em item barato.
+
+λ é a **linearização que torna a regra compositiva**, e a álgebra fecha exata:
+
+```
+w_i ≤ 0,0337·p_i  para todo i   ⟹   W ≤ 0,0337·S
+carrinho passa se  4,51·W + 14,98 ≤ 0,303·S
+pior caso:         0,152·S + 14,98 ≤ 0,303·S   ⟹   S ≥ $99,21
+```
+
+**$99,21 é o limiar de frete grátis da loja.** Não é coincidência, é o projeto.
+λ ser conservadora no item caro é a margem que garante o fechamento do carrinho.
+
+Isso **já estava no CLAUDE.md** — "λ é compositiva; peso unitário não é. É isso
+que derruba o problema do parafuso." Eu li hoje e passei por cima. Regra
+reforçada lá com o caso concreto.
+
+### O que sobrevive de tudo isso
+
+- Todos os movimentos de hoje continuam válidos por larga margem: rolos (falham
+  por 3–7×), Pasco, Grohe, caldeira (310 lb contra teto 197,6 **e** contra o
+  teto físico de 150 lb da UPS).
+- **Acima de ~$2.282 quem limita é a UPS, não a economia** — nesse preço o teto
+  λ ultrapassa 150 lb e o limite físico da UPS Ground passa a mandar. São 135
+  itens em frete grátis. Achado legítimo, sobrevive à correção.
+- Único erro de execução do dia: o filtro EWS.
+
+### Pendente
+
+- Devolver `ENVI-EWS-SPECTRUM-V2` ao frete grátis
+- Importar os dois pesos confirmados: X-PV4 = 310 lb, EWS Spectrum = 135 lb
+- Peso de Bosch BP048, Midea indoor e Midea outdoor — sem fonte pública

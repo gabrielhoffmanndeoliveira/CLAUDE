@@ -67,6 +67,18 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   a régua antiga de "peso ≤ 3 lb". Derivada de custo UPS = 14,98 + 4,51/lb,
   calibrado em dois pedidos reais. O divisor 139 está **comprovado em fatura**:
   16.416 in³ ÷ 139 = 119 lb cobradas na THS1008.
+- **A fórmula do teto de peso é de CARRINHO. Nunca aplicar item a item.**
+  `peso_faturável ≤ (0,303 × subtotal − 14,98) / 4,51` tem o **$14,98 da taxa
+  base da UPS, cobrada uma vez por remessa**. Aplicada por item, ela cobra a
+  base de cada item e reprova em massa produto barato que está perfeitamente
+  são. Eu fiz isso em 17/09 e gerei 2.013 "falhas" que não existiam.
+  **Para julgar item, a régua é λ. Só λ.**
+- **λ não é aproximação tosca da fórmula acima — é a linearização que a torna
+  compositiva.** A álgebra fecha exata: se todo item tem w ≤ 0,0337·p, então
+  W ≤ 0,0337·S, e o carrinho passa quando 0,152·S + 14,98 ≤ 0,303·S, ou seja
+  **S ≥ $99,21** — o próprio limiar de frete grátis da loja. λ ser conservadora
+  no item caro **é a margem de segurança que faz o carrinho fechar**, não um
+  defeito a corrigir.
 - **λ é compositiva; peso unitário não é.** λ do carrinho = média do λ dos itens
   ponderada por valor. Se todo item passa, todo carrinho possível passa. É isso
   que derruba o problema do parafuso. Mas ela pressupõe que o volume da caixa é
