@@ -1799,3 +1799,60 @@ O erro de artigo saiu das 23 páginas.
 
 **Catálogo Resideo: 225 de 607 escritas, 382 pendentes.** As três levas
 (121 + 68 + 36) verificadas por leitura independente.
+
+## 26. Bloco 4 em preparo — e uma correção minha antes de escrever
+
+### Eu quase escrevi "standing pilot" em quatro válvulas de ignição direta
+
+Varrendo as 36 válvulas de gás contra o sitemap da Resideo, achei 4 conflitos e
+**reportei como se nossos títulos estivessem errados**, chamando de "o mais
+grave dos três itens para o Craig".
+
+Era o contrário. Os quatro slugs da Resideo são **a mesma string**:
+
+```
+VR8204H1006  →  single-stage-standing-pilot-1-2-in-x-1-2-in-24-v-ac-standard-opening
+VR8205A2024  →  single-stage-standing-pilot-1-2-in-x-1-2-in-24-v-ac-standard-opening
+VR8205Q2787T →  single-stage-standing-pilot-1-2-in-x-1-2-in-24-v-ac-standard-opening
+VR8205Q2795T →  single-stage-standing-pilot-1-2-in-x-1-2-in-24-v-ac-standard-opening
+```
+
+Quatro part numbers distintos, um slug só. É **template**, não spec.
+
+E o conteúdo dele contradiz a própria Resideo: **VR8205 é série de direct
+ignition** na numeração da Honeywell, e o slug diz standing pilot.
+
+**Teste que resolveu:** série → tipo de ignição declarado nos nossos títulos.
+
+```
+VR8200/VR4300 = standing pilot      COERENTE
+VR8204/VR8304 = intermittent pilot  COERENTE
+VR8205/8215/8305 = direct ignition  COERENTE
+VR8245/VR8345 = intermittent+direct COERENTE
+```
+
+**Os títulos da loja estão certos.** `VR8205Q2795T` sai da lista do Craig.
+
+Regra nova no CLAUDE.md: **slug idêntico entre part numbers diferentes não vale
+como evidência**, e a numeração de série da Honeywell serve de verificação
+cruzada.
+
+### Conteúdo duplicado que o dado não resolve
+
+Seis igniters `Q4100C` com título idêntico — "Silicon Carbide Hot Surface
+Igniter -5.25 in Lead Length" — em 9054, 9056, 9060, 9062, 9066, 9068.
+
+**O sitemap da Resideo também não diferencia**: 5 dos 6 slugs são iguais; só o
+9068 ganha o prefixo `120-volt`. O diferenciador (suporte, aplicação OEM) não
+existe em fonte pública.
+
+Vou escrever a plataforma uma vez, diferenciar pelo que é conhecido
+(comprimento de cabo, 120 V no 9068, montagem redonda no 9048) e dizer que os
+part numbers diferem por suporte e aplicação OEM. **Os 5 vão ficar quase
+idênticos — o conserto disso é dado, não texto.** Item para o Craig.
+
+### Lista atual para o Craig
+
+1. `802360QA` — 277 V, nosso título diz V4043/V4044, slug diz V4043/V8044
+2. `DS06-102-DUP-LF` (SKU) vs `DS06-102-DUT-LF` (título)
+3. Diferenciador dos 6 igniters `Q4100C` de 5,25 in

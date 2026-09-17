@@ -155,6 +155,20 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   `productType`; o slug da Resideo e `focuspro-kit-for-truezoner-panels-yth5320r1000-u`
   — e um **kit FocusPRO para paineis TrueZONE**, e a categoria estava certa. O
   errado era o titulo. **Prefixo `Y` na Resideo costuma ser kit.**
+- **O slug do sitemap da Resideo carrega spec que a pagina nao mostra — mas
+  tambem carrega campo templated.** Dele sairam Cv de valvulas TRV
+  (`46-cv` = 4,6 Cv; o slug derruba a virgula), precisao de 0,9 F, montagem
+  vertical e nome de linha. **Porem**: em 17/09 quatro valvulas de gas
+  diferentes (VR8204H1006, VR8205A2024, VR8205Q2787T, VR8205Q2795T) tinham o
+  **mesmo slug**, dizendo "standing pilot" para series VR8205, que na
+  numeracao da propria Honeywell sao **direct ignition**. O slug contradizia o
+  modelo deles.
+  **Regra: slug identico entre part numbers diferentes nao vale como
+  evidencia.** Cheque se o slug discrimina antes de confiar nele.
+- **A numeracao de serie da Honeywell codifica o tipo de ignicao** e serve de
+  verificacao cruzada: VR8200/8300 = standing pilot, VR8204/8304 = intermittent
+  pilot, VR8205/8215/8305 = direct ignition, VR8245/8345 = universal/multisystem.
+  Os titulos da loja batem com isso.
 - **Paginas de produto e de categoria da Resideo sao renderizadas por
   JavaScript.** Nao ha spec no HTML. Dos 20 termostatos testados, so 3 linkavam
   PDF e nenhum era modelo de volume. O damper foi excecao porque a pagina dele
