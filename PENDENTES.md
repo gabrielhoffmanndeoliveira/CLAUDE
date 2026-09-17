@@ -2015,3 +2015,49 @@ um) estão num perfil que cota **UPS + 65%**, e esses itens estouram o limite
 físico da UPS. Não dão frete grátis, mas oferecem no checkout uma transportadora
 que vai recusar o volume. É erro de cotação, não de margem — deveriam estar em
 Freight & Oversize junto com os outros 48.
+
+## 28. Divergência tag × perfil no catálogo inteiro (17/09)
+
+Varredura dos 14.883 pela relação `ProductVariant.deliveryProfile`:
+
+```
+ 8.350  tag SIM / General profile          <- coerente
+ 5.366  tag NAO / THS Standard             <- coerente
+   787  tag NAO / THS Freight & Oversize   <- coerente
+   267  tag SIM / THS Standard             <- DIVERGENTE
+    76  tag SIM / THS Freight & Oversize   <- DIVERGENTE
+    37  tag NAO / General profile          <- divergente, mas soma $0,36
+```
+
+**343 divergências que importam, $111.759,68 de catálogo.** Moen 74, Delta 36,
+Legend Valve 29, Charlotte Pipe 27, Milwaukee Tools 22.
+
+Os 37 do outro sentido somam **$0,36** — produtos de preço zero ou centavos.
+
+Arquivo: `divergencia_tag_perfil.csv`.
+
+### Não consigo decidir qual vence, e não vou fingir que consigo
+
+O CLAUDE.md diz que a elegibilidade mora na tag, mas isso descreve como cada
+campo é **escrito**, não qual **vence no checkout**.
+
+Cruzei os 343 com os 11 SKUs que efetivamente venderam nos últimos 30 pedidos:
+**nenhum dos vendidos está na lista.** O histórico não testa a hipótese.
+
+O que os pedidos provam é que o perfil funciona **quando não há conflito**:
+
+```
+THS1028  Maax shower  $1.256,50  ->  Freight 70 to 150 lb $349,00   (Freight, sem tag)
+THS1026  Navien       $3.015,00  ->  UPS Ground $918,03             (Standard, sem tag)
+THS1032  termostato   $  828,30  ->  Free shipping $0               (General, com tag)
+```
+
+**As duas hipóteses:**
+
+- **Perfil vence:** os 343 já cobram certo, a tag é sujeira. Higiene, não urgência.
+- **Tag vence:** $111.759,68 oferecendo frete grátis com perfil pago, incluindo
+  **76 itens em Freight & Oversize** — justamente os volumosos.
+
+**Teste que o Gabriel faz em 30 segundos e eu não consigo fazer:** colocar um
+dos 343 no carrinho e ver o que o checkout oferece. Se aparecer "Free shipping
+over $99", a tag vence e é urgente. Se aparecer UPS Ground, o perfil vence.
