@@ -2479,3 +2479,56 @@ fornecedor.
  30 neste CSV
  83 pendentes depois deste
 ```
+
+---
+
+## §35 — 9 `seo.title` sem part number, reescritos
+
+Arquivos: `resideo_seo9_IMPORTAR.csv` + `resideo_seo9_rollback.csv`.
+Matrixify: Products, colunas `SEO Title` e `SEO Description`.
+
+Depois do §32 os 26 títulos visíveis ficaram com o part number, mas **9 dos 26
+`seo.title` continuavam sem ele**, e vários estavam truncados no meio da frase —
+corte cego por comprimento no pipeline de import:
+
+```
+"Resideo Single Stage LP to Natural Gas Conversion Kit, 5"
+"Resideo Standard 2-Stage Opening SmartValve, Intermittent"
+"Resideo Two Stage Gas Controls for Direct Spark Ignition"
+"Resideo Prestige® 2-Wire IAQ Kit with high definition color"
+```
+
+As `seo.description` dos mesmos 9 estavam truncadas igual (`"…, includes."`,
+`"…, contacts."`, `"…1/2 in x 1/2."`), então reescrevi os dois campos, não só o
+título. Novos: título 47 a 55 chars, description 132 a 158 — dentro do que o
+Google mostra sem cortar, com o part number nos dois.
+
+### Correção de um erro meu no §32
+
+Eu registrei que o part number errado tinha propagado para o `alt` da imagem nos
+4. **Não tinha.** Os quatro `alt` não têm part number nenhum — nunca tiveram o
+errado. Não existe defeito a consertar no `alt`; pôr o PN lá é melhoria
+opcional. O `seo.title` e a `seo.description` estavam mesmo errados e foram
+corrigidos.
+
+### Correção de escala do §34
+
+Eu escrevi que o `custom.specifications` tinha peso em "546+ produtos". **546 era
+a contagem de produtos com chave de _dimensão_**, de trabalho anterior. Peso é
+bem menos:
+
+```
+407 produtos com peso do fabricante utilizável
+  312  Weight                (unidade dentro do valor)
+   39  Weight (lb)
+   28  Boiler weight
+   19  Overall Weight (lbs)
+    3  Shipping weight
+    3  Weight (oz)
+    2  Product Weight
+    1  Weight, valor "105 Lbe" (typo de Lbs)
+```
+
+**Ressalva de método para os 28 `Boiler weight`:** é peso **seco**, não de
+remessa. Caldeira engradada pesa mais. Para esses o spec é piso, não valor —
+registrado abaixo do spec é erro certo; acima não conclui nada.
