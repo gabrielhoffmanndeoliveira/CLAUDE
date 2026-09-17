@@ -1899,3 +1899,23 @@ Canonical não serve aqui: esconderia cinco SKUs distintos da busca.
  77 bloco 4, aguardando import
 305 pendentes
 ```
+
+### 26.2 — Bloco 4 importado e um erro corrigido (17/09)
+
+Import #747425667, 77 updated. Verificado: a `VR8205Q2795T` está no ar como
+**direct ignition**, que é o correto — o slug templated da Resideo teria posto
+"standing pilot" numa válvula de ignição direta.
+
+**Erro encontrado na verificação:** *"with a **-5.25** in lead"* e
+`Lead length: -5.25 in`. Comprimento negativo, em **9 páginas de igniter**.
+
+Causa: o título é *"Igniter -5.25 in Lead Length"* e meu regex
+`([\d./-]+)\s*in\s*Lead Length` incluía o hífen na classe de caracteres, então
+capturava o traço separador junto com o número.
+
+Corrigido, e a captura fracionária (`19-1/8 in`) continua funcionando.
+**CSV regravado — precisa de reimport.**
+
+**Erros deste bloco pegos só na verificação ao vivo, não nas checagens:** o
+comprimento negativo passou por todas as checagens automáticas porque
+`-5.25 in` é string bem formada.
