@@ -1394,3 +1394,25 @@ reforçada lá com o caso concreto.
 - Devolver `ENVI-EWS-SPECTRUM-V2` ao frete grátis
 - Importar os dois pesos confirmados: X-PV4 = 310 lb, EWS Spectrum = 135 lb
 - Peso de Bosch BP048, Midea indoor e Midea outdoor — sem fonte pública
+
+### 22.1 — Aplicado e verificado (17/09)
+
+Feito por API (`inventoryItemUpdate` + `deliveryProfileUpdate` + `tagsAdd`),
+verificado por leitura independente:
+
+| SKU | Peso antes | Peso agora | Perfil | Tag |
+|---|---|---|---|---|
+| `ENVI-EWS-SPECTRUM-V2` | 1,44 lb | **135 lb** | General profile | `free-ship-eligible` restaurada |
+| `BURN-X-PV4N-T02` | 2,19 lb | **310 lb** | THS Freight & Oversize | sem tag |
+
+O EWS voltou ao frete grátis: 135 lb contra teto λ de 169,5 lb, e cabe no
+limite de 150 lb da UPS Ground. Erro desfeito.
+
+A caldeira fica no Freight, agora com o peso certo — o que faz a tabela por
+banda cobrar a faixa correta em vez da mais barata.
+
+**Continua pendente:** peso de `BOSC-BP048-1-VTC-FRT-TDBD`,
+`MIDE-MHA-V16WD2MN8-B2` e `MIDE-HB-A160CMDM30GN8-B2`. Os três estão no
+Freight & Oversize com peso placeholder (2,00 / 2,19 / 2,19 lb), então a
+tabela cobra a banda mais barata. Sem fonte pública: Midea bloqueado por
+`robots.txt` (503), Bosch não tem o BP048 no catálogo atual.
