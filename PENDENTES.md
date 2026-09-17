@@ -1732,3 +1732,33 @@ do DP2020A5022, 59 UPCs, polos) e **3 vezes para menos** (amperagem 04,
  36 bloco 3, aguardando import
 382 pendentes
 ```
+
+### 25.1 — Erro de artigo que eu mesmo introduzi, e que foi ao ar
+
+O bloco 2 (#747356983, 68 updated) entrou correto em tudo que eu tinha
+verificado — amperagem, polos, tiers, UPC. **Mas ele subiu com um erro de
+inglês que eu criei ao corrigir outro.**
+
+```
+"...frequent cycling on an unit that short-cycles..."
+"...keeps an unit that is otherwise sound out of the landfill."
+```
+
+Quando corrigi o *"a adjustable"* do bloco 2, escrevi a regra por **letra**:
+`a` + vogal → `an`. Artigo em inglês vai pelo **som**. "Unit" começa com som de
+consoante (/juː/), então é *"a unit"* — como "a university", "a European". A
+regra por letra também quebraria "an hour" e "an honest" no sentido inverso.
+
+**23 dos 68 foram ao ar com o erro. O bloco 3 estava limpo** só porque os
+templates dele não usam a palavra "unit".
+
+Regra reescrita para tratar `uni-`, `use-`, `user-`, `usual-`, `utili-`,
+`Euro-`, `one` e `ubiqui-` como som de consoante, e `hour`/`honest`/`honor`
+como vogal. Zero ocorrência nos dois blocos depois.
+
+**Os dois CSVs foram regravados.** O bloco 2 precisa de **reimport** — as 23
+páginas estão no ar com o erro agora.
+
+**Padrão que se repete:** cada correção minha de texto introduziu um erro novo
+(`{BRAND}` atributivo → `.capitalize()` em minúscula; `a adjustable` →
+`an unit`). Toda correção de string precisa de releitura, não só de recontagem.
