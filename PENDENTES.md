@@ -1649,3 +1649,14 @@ Mediana subiu para **1.6xx chars**. A graxa saiu corretamente sem peso.
 **Nota para os próximos blocos:** UPC existe em **408 dos 486**. O peso do
 catálogo Resideo inteiro tem a mesma contaminação — 7,0 lb em 61 itens,
 2,19 em 56, 0,2 em 48. Mesma regra vale.
+
+**Correção da 24.1:** a checagem acusou "upc invalido: 59", mas era o meu
+verificador: o regex `(\S+)` capturava `085267005319</li>` com a tag junto.
+Revalidado com extração correta — **os 59 são UPC-A de 12 dígitos e os 59
+passam no dígito verificador**. Zero inválido.
+
+Terceiro falso positivo do meu próprio verificador hoje (os outros: pontuação
+com tag removida, e o aviso de conflito do DP2020A5022 que eu não tinha
+procurado no texto inteiro). **O verificador erra nas duas direções** — deixa
+passar erro de fato (amperagem 04, "fixed range" falso, fan center descrito
+como aquastat) e acusa erro que não existe. Ele filtra, não decide.
