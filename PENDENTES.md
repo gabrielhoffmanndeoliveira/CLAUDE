@@ -2174,3 +2174,61 @@ por item de tudo que restou.
 **Ressalva sobre Thermostat Accessories:** os 4.000/mo vêm de `thermostat wire`.
 **Não confirmei que os 20 itens dessa família são fio** — podem ser placa de
 parede e adaptador, e aí a demanda não é deles. Verificar antes de priorizar.
+
+---
+
+## §30 — Bloco 6 Resideo: 65 descrições (thermocouples, relays, transformers, non-programmable)
+
+Arquivos: `resideo_bloco6_descricao_IMPORTAR.csv` + `resideo_bloco6_descricao_rollback.csv`.
+Matrixify: Products / Body HTML, `Command: UPDATE`. Rollback tem o HTML anterior
+dos 65 (nenhum veio vazio; média de 339 chars, o texto auto-gerado de sempre).
+
+```
+ 16  Non-Programmable Thermostats     mediana 2.152
+ 14  Transformers                     mediana 1.554
+ 13  Relays                           mediana 1.188
+ 11  Switching Relays                 mediana 1.355
+ 11  Thermocouples & Thermopiles      mediana 1.423
+min 870 · max 2.508 · 11 com link interno
+```
+
+**Thermostat Accessories ficou fora com razão.** Verifiquei a família: 10 placas
+de cobertura, 2 guardas de termostato, 3 sensores, um range stop, um jogo de
+chaves e um adaptador WireSaver de fio C. **Não é fio.** Os 4.000/mo de
+`thermostat wire` não pertencem a ela. Anotado de passagem: `AT120B1028` é
+transformador cadastrado como thermostat accessory.
+
+### Erros pegos na leitura (o verificador automático deu LIMPO nos três)
+
+1. **`T4398A1021`** — título *"Electric Heat Thermostat … Baseboard"* é line
+   voltage, mas o regex exigia `120|277 V` **e** o nome da aplicação. Sem os
+   volts, o item recebeu o parágrafo do **fio C** e o do **heat anticipator** —
+   os dois falsos num stat de linha: não tem 24 V, não tem anticipator, não tem
+   comum. `T4398B1029` caía no mesmo buraco pelo outro lado (tinha os volts, não
+   tinha o nome). Regra nova: volts **ou** `Electric Heat|Baseboard|Line Volt`.
+2. **`RC840`** — título diz *"Without Transformer"* e a descrição ignorava. É a
+   pegadinha de compra da família: `RC840T-120` e `RC840T-240` são o mesmo relé
+   **com** trafo. Agora tem parágrafo próprio, ficha `Internal transformer: No`
+   e link cruzado nos dois sentidos.
+3. **`AT150F1022` / `AT72D1683`** — saíam *"50 VA, multi mount mount"*: o campo
+   já é "Multi Mount" e o gerador concatenava " mount" de novo.
+4. `Category` dos Switching Relays saía como `Relays`; passou a usar o
+   `productType` real.
+
+**O `Connection` do §29.1 não se aplica aqui** — nenhum item do bloco 6 tem esse
+campo. Fica para o bloco que tiver.
+
+### Links internos (11)
+
+`RC840` ↔ `RC840T-120`/`RC840T-240` · `TH5320R1002` ↔ `YTH5320R1000` ·
+stats millivolt (`TS812A1007`, `T827K1009`) → termopilhas `Q313A1188`/`Q313A1139`
+· termopilhas → stat millivolt. Todos apontam para handle do próprio bloco.
+
+### Estado das descrições Resideo
+
+```
+607 total
+376 no ar
+ 65 neste CSV
+166 pendentes depois deste
+```
