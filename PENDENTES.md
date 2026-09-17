@@ -1516,3 +1516,101 @@ afirma compatibilidade** e pede confirmação ao cliente. **Perguntar ao Craig.*
 
 - Importar o CSV (ação do Gabriel) e eu verifico por leitura independente
 - Restam **486** descrições Resideo depois destas
+
+## 24. Bloco 2 Resideo — 68 descrições (contactors, aquastats, humidifiers)
+
+### Os 82 da seção 23 entraram
+
+Import Matrixify #747144568, 82 updated. Verificado por leitura independente:
+a contagem fecha exata (39 → 106 acima de 1.200 chars, mais 15 na faixa
+600–1.200 = 82) e os **215 links internos estão vivos, zero quebrado**.
+
+A única diferença entre o enviado e o gravado é **quebra de linha que o Shopify
+insere em volta de `<li>` e `</ul>`** — 526 ocorrências desse padrão, zero
+mudança de conteúdo.
+
+### A demanda reordenou a fila, contra a intuição de contagem
+
+| Família | Itens | Demanda/mês | KD |
+|---|---|---|---|
+| Dehumidifiers & Humidifiers | 18 | **20.300** | 4–5 |
+| Aquastats & Wells | 32 | 2.800 | 0 |
+| Contactors | 18 | 2.300 | 0 |
+| Thermostatic Radiator Valves | 21 | 1.900 | 1 |
+| Line Voltage Thermostats | 15 | 1.600 | 0 |
+| Gas Valves | 36 | 1.500 | 0 |
+| Gas Ignition Components | **41** | ~1.000 | 0 |
+| Pressure Reducing Valves | 32 | **40** | 0 |
+
+Eu ia começar pelo maior bloco (41 de ignição). `Pressure Reducing Valves` é a
+3ª maior família e tem **40 buscas/mês** — seria desperdício puro.
+
+**Ressalva:** as 20.300 de umidificador caem quase todas em **1** dos 18
+produtos (`HE300A1005`, o aparelho). Os outros 17 são peça de reposição.
+
+### Erros pegos LENDO, não pelas checagens automáticas
+
+1. **Spec errada na página:** `DP3040C5001` saiu como *"rated 04 amps"*. São
+   **40 A**. O formato é `DP` + polos + **três** dígitos de amperagem
+   (`DP3040` = 3 polos, 040 = 40 A) e meu regex pegava dois.
+2. **Afirmação falsa:** o fallback dizia *"operates over a fixed temperature
+   range"* em controle cujo título traz 100–240 °F. O regex não pegava o
+   formato "100 F to 240 F". Fallback reescrito para não afirmar nada.
+3. **Produto descrito como outra coisa:** `R8239A1052` e `R8285A1048` são
+   **fan center** (transformador + relé) classificados pela loja em
+   `Aquastats & Wells`. Meu template os descrevia como controle de temperatura
+   de água de caldeira. Branch própria criada, e a descrição diz explicitamente
+   que o item não sente temperatura.
+4. Inglês: *"a adjustable"*, *"range with an adjustable differential, with SPST
+   contacts"* (dois "with"), `{BRAND}` em posição atributiva.
+
+**As checagens automáticas deram limpo em todas as rodadas.** Só a leitura pega.
+
+### Dois alarmes falsos meus
+
+- O aviso de conflito do `DP2020A5022` **dispara** — eu tinha olhado só os
+  primeiros 240 chars.
+- A "pontuação ruim" em 8 itens era artefato do meu próprio verificador, que
+  tira as tags e deixa `" texto ."`. O HTML real está correto. Não consertei
+  o que estava certo.
+
+### Defeito de catálogo: part number ausente do título
+
+**26 dos 486** têm o número de peça no SKU e **não** no título:
+
+```
+10  Gas Valves          2  Air Separators
+ 7  Aquastats & Wells   1  Pressure Reducing Valves
+ 4  Gas Ignition        1  Leak Detection / 1 Smart Thermostats
+```
+
+Isso importa porque **a demanda do bloco está nos part numbers** e é o título
+que ranqueia. Resolvido nas descrições (modelo puxado do SKU), mas **a correção
+de título é trabalho separado**.
+
+### Divergência nova para o Craig
+
+```
+SKU:     HONE-DS06-102-DU**P**-LF/U
+Título:  Resideo DS06-102-DU**T**-LF/U
+```
+
+Uma letra, e são referências diferentes na Resideo. Vai junto com o `802360QA`
+da seção 23.
+
+### Resultado
+
+- **68 descrições**, mediana **1.581 chars** (contactors 1.619, aquastats 1.602,
+  humidifiers 1.387)
+- Checagens finais: 0 artigo errado, 0 "with" duplo, 0 palavra duplicada,
+  0 sem SKU, 0 placeholder
+- Arquivos: `resideo_bloco2_descricao_IMPORTAR.csv` e `_rollback.csv`
+
+### Estado das descrições Resideo
+
+```
+607 total
+121 feitas (39 iniciais + 82 valvulas de zona)
+ 68 prontas neste bloco, aguardando import
+418 pendentes
+```
