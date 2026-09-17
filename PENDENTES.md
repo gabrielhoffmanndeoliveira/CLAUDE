@@ -2629,3 +2629,83 @@ A verificação confirma perfil novo **e tag antiga** nos três. Enquanto o
 estado dos 343 divergentes: tag dizendo grátis, perfil dizendo frete. **Mudar o
 perfil sozinho não fecha o vazamento** — quem decide no checkout é a tag, lida
 pelo app de frete.
+
+---
+
+## §38 — Bloco 9 Resideo: 83 descrições, a cauda inteira. Resideo fechado.
+
+Arquivos: `resideo_bloco9_descricao_IMPORTAR.csv` + `_rollback.csv`.
+
+```
+ 20  Thermostat Accessories             11  (várias famílias de 1 e 2 itens)
+  9  Leak Detection Valves               5  Water Filters
+  8  Fan Coil Zone Valves                5  Fan & Limit Controllers
+  7  Oil Burner Controls                 4  Programmable Thermostats
+  6  Smart Thermostats                   4  3-Way Zone Valve
+mediana 1.321 · min 777 · max 2.517 · 35 com link interno
+```
+
+19 famílias, 10 delas com 1 ou 2 itens. Como é o último bloco, fiz tudo de uma vez.
+
+### O que o spec resolveu e o slug não resolveria
+
+- **A família Fan Coil é definida pela ação, não pelo tamanho:** `VU52` =
+  **normally open**, `VU53` = **normally closed**, `VU54` = três vias diverting.
+  Todas 1/2 in, mesma Cv, títulos quase idênticos. Trocar uma pela outra inverte
+  o que a zona faz quando o atuador perde energia. E todas trazem
+  `Actuation: Must be purchased separately` — o corpo vem **sem atuador**, que é
+  a pegadinha de compra da família e não está no título.
+- **`Used With` ligou meio bloco:** o cad cell `C554A1463` lista
+  `R8184, R7284` — os primários de óleo deste mesmo bloco; o `TH9320WF5003` traz
+  `Used With: THP9045 Wire Saver` e o WireSaver traz o inverso; o `C7089U1006`
+  lista o `HZ432`, do bloco 7. Dos 35 links, a maior parte saiu daí.
+
+### Erros pegos
+
+1. **Bug de parsing no `mdl()`.** A função tirava tudo depois da barra,
+   assumindo que barra é sempre o sufixo `/U`. Em `ES06F-1/2A` e nos quatro
+   `VWS02Y-1/2`, `-3/4`, `-11/4` **a barra é parte do tamanho** — o part number
+   saía truncado como `ES06F-1`. Passou a tirar só sufixo de **uma letra**
+   (`/U`, `/B`, `/C`).
+2. **`.lower()` em valor com nome próprio — a quarta vez desta mesma classe.**
+   Saíram `"type r bracket"` (era Type R), `"a, b, e, j and p mounting
+   brackets"` (era A, B, E, J, P) e `"l5 actuator"` (era L5). Antes já tinham
+   sido `Npt`, `Honeywell Home` minúsculo e `NPT`.
+   **Parei de remendar caso a caso** e escrevi um helper:
+
+   ```python
+   def low(v):
+       """minusculiza só palavra comum: preserva SIGLA, letra isolada e código com dígito."""
+   ```
+   Todo `.lower()` sobre valor de spec passou a usar ele. Check novo no
+   verificador: `Npt|Upc|Spdt|Spst|Epdm|Merv|Csa|Nec`.
+3. `"45 sec.."` — o valor do spec já terminava em ponto. E `--` dentro de
+   `Electrical Ratings` e `Current Draw`, e `1/2in.` colado nos ES06F.
+
+### Conflito de dado anotado
+
+`ES06F-1/2A` e `ES06F-1B` têm título "Replacement filter insert" mas
+`Valve Type: Pressure Regulating Valve` no metafield. **Contradizem.** Fui pelo
+título e não afirmei PRV em lugar nenhum. Vale confirmar com o Craig.
+
+### Mais uma família mal classificada
+
+`AT120B1028` é **transformador** cadastrado como Thermostat Accessory (já
+anotado no §30). Recebeu a branch de transformador e `Category: Transformers` no
+texto; o `productType` na loja continua errado.
+
+### Estado das descrições Resideo
+
+```
+607 total
+524 no ar (após bloco 8)
+ 83 neste CSV
+  0 pendentes
+```
+
+**Com este bloco as 607 descrições Resideo estão escritas.** O que resta da
+frente Resideo não é descrição:
+- reimport do bloco 4 (o `-5.25 in lead` em 9 páginas de igniter);
+- os `productType` errados anotados nos §30, §33 e aqui;
+- os itens para o Craig: `802360QA`, o diferenciador dos seis `Q4100C`, o
+  conflito `Motor` × `Motor Timing` dos dampers ARD, e agora o `ES06F`.
