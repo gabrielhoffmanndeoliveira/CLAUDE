@@ -2532,3 +2532,70 @@ bem menos:
 **Ressalva de método para os 28 `Boiler weight`:** é peso **seco**, não de
 remessa. Caldeira engradada pesa mais. Para esses o spec é piso, não valor —
 registrado abaixo do spec é erro certo; acima não conclui nada.
+
+---
+
+## §36 — Cruzamento de peso no catálogo inteiro: 8 vazamentos reais, não 18
+
+Método: `bulkOperationRunQuery` puxou peso e preço ao vivo dos 14.883 (29.766
+linhas JSONL, salvo em `wd/bulk_w.jsonl` — reutilizável). Cruzado com o peso do
+fabricante no `custom.specifications`.
+
+```
+402 comparáveis
+155 divergem mais de 0,05 lb
+ 81 subregistrados   (registrado < fabricante)
+ 74 superregistrados (registrado > fabricante)
+```
+
+### λ apontou 18 "vazando". Só 8 são.
+
+**A tag é que decide, não o peso.** Dos 18 que mudam de lado no λ:
+
+| | itens | situação |
+|---|---|---|
+| `free-ship-eligible` + General profile | **8** | **vazamento real, $12.290,69** |
+| tag + Freight & Oversize | 1 | é o caso dos 343 do §"tag x perfil", pendente do teste de carrinho |
+| sem a tag | 9 | peso errado, **vazamento nenhum** |
+
+Os 8 reais: os 5 trim kits `HONE-TK30PV*` já conhecidos do §34, mais **três
+Navien NPF700** a $2.940–3.570 registrados em **2,19 lb** com peso real de
+**145 a 167,6 lb**.
+
+Os 9 que **não** vazam: `ZILM-ZFT8R/18R` e os seis `RHEE-RTG/RTGH-95*` estão em
+THS Standard sem a tag; o `RHEE-GHE100SU-300ANG` de 810 lb está em Freight &
+Oversize sem a tag. Eu os havia listado como vazando antes de ler a tag —
+errado, e era o risco que eu mesmo tinha sinalizado.
+
+**λ é a régua errada acima do teto da UPS.** Aplicar λ a um item de 810 lb é
+artefato: ele nunca vai por UPS. Acima de 150 lb a pergunta é de perfil, não de λ.
+
+### Achado novo: item em UPS acima do limite físico
+
+`NAVI-NPF700-100H5CH` e `-100U5CH` pesam **167,6 lb**, estão no **General
+profile** com `free-ship-eligible`, e passam do **teto de 150 lb por volume da
+UPS Ground**. Não é frete subcobrado — é cotação que a UPS não aceita. Mesma
+classe dos 4 que já estavam anotados no THS Standard.
+
+### O placeholder 2,19 lb é sistemático
+
+Dos 81 subregistrados, **14 têm peso registrado igual a um placeholder
+conhecido**, e **10 deles são exatamente 2,19**: os 7 trim kits e os 3 Navien.
+Confirma que 2,19 não é medida, é valor de preenchimento do pipeline.
+
+### Arquivos
+
+| arquivo | o quê |
+|---|---|
+| `peso_fabricante_IMPORTAR.csv` (30) + `_rollback` | correção só onde a fonte é peso de remessa ou onde o registrado é placeholder |
+| `navien_tag_remover_IMPORTAR.csv` (3) + `_restaurar` | remove `free-ship-eligible` dos 3 Navien |
+| `peso_ambiguo_REVISAR.csv` (46) | fonte é a chave `Weight`, que **pode ser peso do produto e não de remessa**. Não corrigir às cegas |
+| `peso_superregistrado_REVISAR.csv` (74) | registrado acima do fabricante — superestima cotação. `RHEE-ELDS30-FTB-208` tem 350 lb registrados contra 105 no metafield |
+| `peso_caldeira_SECO_REVISAR.csv` (28) | `Boiler weight` é peso **seco**. Registrado abaixo dele é erro certo; acima não conclui |
+
+Ordem: **peso primeiro, depois tag.** O perfil dos 3 Navien (General → Freight &
+Oversize, porque 145–167 lb passa do teto da UPS) sai por API.
+
+**O que o cruzamento NÃO cobre:** só 402 dos 14.883 têm peso de fabricante no
+metafield. Os outros 14.481 continuam sem segunda fonte — para eles o detector
+que funciona segue sendo preço por libra (mediana $95,9/lb).
