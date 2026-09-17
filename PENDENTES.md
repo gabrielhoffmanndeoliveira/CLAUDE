@@ -2709,3 +2709,60 @@ frente Resideo não é descrição:
 - os `productType` errados anotados nos §30, §33 e aqui;
 - os itens para o Craig: `802360QA`, o diferenciador dos seis `Q4100C`, o
   conflito `Motor` × `Motor Timing` dos dampers ARD, e agora o `ES06F`.
+
+---
+
+## §39 — One-pager: caminho para US$ 500K até 31/12/2026
+
+Arquivos: `THS-caminho-500K.pdf` (A4, 1 página) e o fonte `ths_caminho_500k.html`.
+Painel interativo das orders: https://claude.ai/artifact/AxwxarkMgC5hnh49qpj8zW
+
+### A conta
+
+```
+receita até 17/09          $14.622,29   (34 orders pagas de 40)
+falta para $500K          $485.377,71   em 105 dias
+necessário                 $4.622,64/dia
+run rate atual (7d)          $860,33/dia   ->  5,4x
+crescimento composto          2,65%/dia  =  20,1%/semana, 15 semanas
+run rate parado fecha 2026 em $104.957   ->  gap de $395.043
+```
+
+**A forma da conta importa mais que o total:** o caminho exige **$288.022 só em
+dezembro** — vinte vezes toda a receita da loja desde que abriu, num mês.
+
+| mês | receita | por dia | orders/dia |
+|---|---|---|---|
+| set (13 d) | $13.494 | $1.038 | 3,3 |
+| out | $58.481 | $1.949 | 6,2 |
+| nov | $125.381 | $4.179 | 13,3 |
+| **dez** | **$288.022** | **$9.601** | **30,5** |
+
+Orders/dia com AOV de $314 — a média **sem** a `#THS1026` de $4.247,67, que
+sozinha é **29% de toda a receita da loja**. Com o AOV cheio de $430 cai para
+10,7/dia; com a mediana de $182 sobe para 25,5/dia.
+
+### Como está apresentado, e por quê
+
+**Não é previsão, é alvo trabalhado de trás para frente**, e o PDF diz isso em
+bloco próprio. Com 30 dias e 40 orders não existe projeção estatística honesta
+até dezembro — o intervalo de confiança seria maior que a previsão. A curva azul
+sai de $500.000 e volta no tempo; a cinza é o único cenário que os dados
+sustentam sozinhos (run rate mantido, sem crescimento).
+
+### Erros pegos na renderização
+
+1. **O gráfico não desenhou.** Eu afinei a série `flat` para 2 pontos por ser
+   reta, mas a área do gap e o rótulo indexam `flat` pelo **mesmo índice** de
+   `alvo`, que tem 54. `flat[38]` é `undefined` e `[1]` estourou, derrubando o
+   script inteiro — painel vazio. Agora as duas séries são amostradas **nas
+   mesmas datas**.
+2. **Tiles do topo com rótulo e valor colados** (`"RECEITA ATÉ 17/09 $14.622 34
+   orders..."`): faltou `display:flex` no `.h`, então os `<span>` ficaram inline.
+3. **Rótulo do gap cruzando a curva** — estava ancorado à esquerda, e para a
+   esquerda a curva desce em cima do texto. Ancorado à direita ela sobe e sai.
+4. Saiu em 2 páginas na primeira renderização; cortei altura do gráfico e
+   respiros até fechar em 1.
+5. **Google Fonts não carrega neste ambiente** (`ERR_CERT_AUTHORITY_INVALID` no
+   proxy). Num PDF isso é dependência de rede sem motivo — removi e usei só a
+   pilha local. O painel HTML continua com a fonte, que carrega no navegador.

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>THS — Caminho para US$ 500K</title>
+<style>
+  @page{size:A4 portrait;margin:11mm 12mm 9mm}
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --ink:#0b0b0b; --ink-2:#4a4945; --muted:#8a8882;
+    --grid:#e4e3dc; --hair:#d6d5cd; --panel:#faf9f6;
+    --accent:#2a78d6; --accent-soft:#eaf1fc; --crit:#d03b3b;
+    --sans:system-ui,-apple-system,"Segoe UI",Helvetica,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace;
+  }
+  html,body{background:#fff}
+  body{font-family:var(--sans);color:var(--ink);font-size:9.3pt;line-height:1.42;
+       -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sheet{display:flex;flex-direction:column;gap:3.9mm}
+
+  header{border-bottom:1.6pt solid var(--ink);padding-bottom:2.2mm}
+  .brow{display:flex;justify-content:space-between;align-items:baseline;gap:6mm}
+  .eyebrow{font-family:var(--mono);font-size:6.9pt;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  h1{font-size:18pt;line-height:1.1;letter-spacing:-.022em;margin-top:1.4mm}
+  .dek{font-size:9.1pt;color:var(--ink-2);margin-top:1.5mm;max-width:158mm}
+  .dek b{color:var(--ink)}
+
+  .hero{display:grid;grid-template-columns:repeat(4,1fr);border:.7pt solid var(--hair);
+        border-radius:1.2mm;overflow:hidden}
+  .h{padding:2.2mm 3.2mm;border-right:.7pt solid var(--hair);display:flex;flex-direction:column}
+  .h:last-child{border-right:0}
+  .h.flag{background:#fdf3f3}
+  .h .k{font-family:var(--mono);font-size:6.4pt;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .h .v{font-size:15.5pt;font-weight:600;letter-spacing:-.024em;line-height:1.14;margin-top:.5mm;
+        font-variant-numeric:tabular-nums}
+  .h .v.crit{color:var(--crit)}
+  .h .s{font-size:7.6pt;color:var(--ink-2);margin-top:.4mm}
+
+  .panel{border:.7pt solid var(--hair);border-radius:1.2mm;padding:2.4mm 3.4mm 1.6mm}
+  .ptitle{display:flex;justify-content:space-between;align-items:baseline;gap:5mm;margin-bottom:1mm}
+  .ptitle h2{font-size:9.6pt;font-weight:600;letter-spacing:-.01em}
+  .ptitle .sub{font-size:7.4pt;color:var(--muted)}
+  .legend{display:flex;gap:6mm;font-size:7.5pt;color:var(--ink-2);margin:.6mm 0 1.4mm}
+  .legend i{display:inline-block;width:5.5mm;height:1.5pt;vertical-align:middle;margin-right:1.6mm;border-radius:1pt}
+  svg{display:block;width:100%;height:auto}
+
+  .cols{display:grid;grid-template-columns:1.06fr 1fr;gap:4.2mm;align-items:start}
+  table{width:100%;border-collapse:collapse;font-size:8.3pt;font-variant-numeric:tabular-nums}
+  caption{text-align:left;font-size:9.4pt;font-weight:600;padding-bottom:1.4mm;letter-spacing:-.01em}
+  th,td{padding:1.35mm 1.6mm;border-bottom:.6pt solid var(--grid);text-align:right;white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  thead th{font-family:var(--mono);font-size:6.6pt;letter-spacing:.06em;text-transform:uppercase;
+           color:var(--muted);font-weight:500;border-bottom:.8pt solid var(--hair)}
+  tbody tr:last-child td{border-bottom:0}
+  td.big{font-weight:600}
+  tr.peak td{background:var(--accent-soft)}
+  .tnote{font-size:7.3pt;color:var(--muted);margin-top:1.4mm;line-height:1.38}
+
+  .req{border:.7pt solid var(--hair);border-left:2.2pt solid var(--accent);border-radius:1.2mm;
+       padding:2.8mm 3.2mm;background:var(--panel)}
+  .req h3{font-size:9.4pt;margin-bottom:1.4mm;letter-spacing:-.01em}
+  .req ul{list-style:none;display:flex;flex-direction:column;gap:1.2mm}
+  .req li{font-size:8pt;color:var(--ink-2);padding-left:4.6mm;position:relative;line-height:1.38}
+  .req li::before{content:"";position:absolute;left:0;top:1.35mm;width:2.1mm;height:2.1mm;
+                  border-radius:50%;background:var(--accent)}
+  .req li b{color:var(--ink)}
+
+  .warn{border:.7pt solid var(--hair);border-left:2.2pt solid var(--crit);border-radius:1.2mm;
+        padding:2.4mm 3.2mm;margin-top:2.2mm}
+  .warn h3{font-size:9pt;margin-bottom:1.2mm}
+  .warn p{font-size:7.9pt;color:var(--ink-2);line-height:1.4}
+  .warn p+p{margin-top:1.2mm}
+  .warn b{color:var(--ink)}
+
+  footer{border-top:.6pt solid var(--hair);padding-top:2mm;font-size:7.1pt;color:var(--muted);
+         display:flex;justify-content:space-between;gap:6mm;line-height:1.4}
+  footer code{font-family:var(--mono);font-size:6.8pt}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <div class="brow">
+      <span class="eyebrow">thehousesupplier.com &middot; JEM Systems</span>
+      <span class="eyebrow">base 18 ago – 17 set 2026</span>
+    </div>
+    <h1>Caminho para US$ 500.000 até 31 de dezembro</h1>
+    <p class="dek">A THS fez <b>US$ 14.622 em 30 dias</b>. O alvo exige <b>US$ 485.378 nos 105 dias
+      restantes</b> — e a forma dessa conta importa mais que o total:
+      <b>US$ 288.022 teriam que entrar só em dezembro</b>, vinte vezes tudo que a loja faturou desde
+      que abriu, em um único mês.</p>
+  </header>
+
+  <div class="hero">
+    <div class="h"><span class="k">Receita até 17/09</span><span class="v">$14.622</span>
+      <span class="s">34 orders pagas de 40</span></div>
+    <div class="h"><span class="k">Falta para o alvo</span><span class="v">$485.378</span>
+      <span class="s">em 105 dias</span></div>
+    <div class="h flag"><span class="k">Run rate exigido</span><span class="v crit">5,4×</span>
+      <span class="s">$4.623/dia contra $860/dia hoje</span></div>
+    <div class="h flag"><span class="k">Crescimento composto</span><span class="v crit">20%</span>
+      <span class="s">por semana, 15 semanas seguidas</span></div>
+  </div>
+
+  <div class="panel">
+    <div class="ptitle">
+      <h2>Receita acumulada: o realizado e os dois futuros</h2>
+      <span class="sub">US$, fuso da loja (America/New_York)</span>
+    </div>
+    <div class="legend">
+      <span><i style="background:var(--ink)"></i>Realizado</span>
+      <span><i style="background:var(--accent)"></i>Caminho exigido pelo alvo</span>
+      <span><i style="background:var(--muted)"></i>Run rate de hoje, mantido parado</span>
+    </div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="cols">
+    <div>
+      <table>
+        <caption>O que cada mês teria que entregar</caption>
+        <thead><tr><th>Mês</th><th>Receita</th><th>Por dia</th><th>Orders/dia*</th></tr></thead>
+        <tbody>
+          <tr><td>set (13 dias)</td><td class="big">$13.494</td><td>$1.038</td><td>3,3</td></tr>
+          <tr><td>outubro</td><td class="big">$58.481</td><td>$1.949</td><td>6,2</td></tr>
+          <tr><td>novembro</td><td class="big">$125.381</td><td>$4.179</td><td>13,3</td></tr>
+          <tr class="peak"><td>dezembro</td><td class="big">$288.022</td><td>$9.601</td><td>30,5</td></tr>
+        </tbody>
+      </table>
+      <p class="tnote">* com AOV de US$ 314 — a média sem a <code>#THS1026</code> de US$ 4.247,67,
+        que sozinha é 29% de toda a receita da loja até hoje. Com o AOV cheio de US$ 430 os números
+        caem cerca de um quarto; com a mediana de US$ 182, quase dobram.</p>
+    </div>
+
+    <div class="req">
+      <h3>O que teria que ser verdade</h3>
+      <ul>
+        <li><b>14,7 orders por dia em média</b> nos 105 dias, contra 2,43 hoje — <b>6,1×</b>.
+          Em dezembro, 30 por dia.</li>
+        <li><b>Aquisição paga escalada.</b> As maiores orders vieram de Google Shopping pago
+          (<code>sag_organic</code>). Multiplicar volume por seis significa multiplicar gasto de
+          mídia, e o ROAS cai conforme a cauda entra.</li>
+        <li><b>AOV mantido acima de US$ 300.</b> A mediana é US$ 182 — se o mix pender para o
+          ticket pequeno, a meta em orders sobe para 25,5 por dia.</li>
+        <li><b>Operação de 30 pedidos/dia em dezembro:</b> estoque, fornecedor despachando direto e
+          frete cotado certo. É onde o defeito de peso vira dinheiro de verdade.</li>
+        <li><b>Devolução sob controle.</b> 6 das 40 orders foram integralmente reembolsadas
+          (<b>15%</b>). No volume do alvo, isso são US$ 75 mil.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="warn">
+    <h3>Isto é um alvo trabalhado de trás para frente, não uma previsão</h3>
+    <p>A curva azul não sai dos dados: ela sai de <b>US$ 500.000</b> e volta no tempo. Com
+      <b>30 dias de histórico e 40 orders</b> não existe projeção estatística honesta até dezembro —
+      o intervalo de confiança seria maior que a própria previsão. O que existe é a conta acima: o
+      que o alvo exige, mês a mês.</p>
+    <p>Para referência, a linha cinza é o único cenário que os dados sustentam sozinhos — o run rate
+      atual mantido sem nenhum crescimento, que fecha 2026 em <b>US$ 104.957</b>. O alvo está
+      <b>US$ 395.043 acima disso</b>. Se bater, a US$ 500 mil com markup de 50% correspondem a
+      <b>US$ 166.667 de lucro bruto</b>, antes de mídia, frete subcotado e devolução.</p>
+  </div>
+
+  <footer>
+    <span>Fonte: API Admin do Shopify, <code>orders(sortKey:CREATED_AT, query:"status:any")</code>,
+      lida em 17/09/2026 — todas as 40 orders da loja. Receita = <code>currentTotalPrice</code>,
+      já líquida de reembolso.</span>
+    <span style="white-space:nowrap;text-align:right">THS &middot; 17/09/2026</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var P={"real":[{"d":"2026-08-18","v":0.0},{"d":"2026-08-19","v":0.0},{"d":"2026-08-20","v":0.0},{"d":"2026-08-21","v":0.0},{"d":"2026-08-22","v":0.0},{"d":"2026-08-23","v":0.0},{"d":"2026-08-24","v":0.0},{"d":"2026-08-25","v":20.28},{"d":"2026-08-26","v":20.28},{"d":"2026-08-27","v":20.28},{"d":"2026-08-28","v":20.28},{"d":"2026-08-29","v":20.28},{"d":"2026-08-30","v":1051.19},{"d":"2026-08-31","v":1051.19},{"d":"2026-09-01","v":1080.17},{"d":"2026-09-02","v":1145.12},{"d":"2026-09-03","v":2289.92},{"d":"2026-09-04","v":2459.22},{"d":"2026-09-05","v":2563.9},{"d":"2026-09-06","v":2975.55},{"d":"2026-09-07","v":2975.55},{"d":"2026-09-08","v":3091.46},{"d":"2026-09-09","v":3943.07},{"d":"2026-09-10","v":8599.97},{"d":"2026-09-11","v":8599.97},{"d":"2026-09-12","v":8719.22},{"d":"2026-09-13","v":8719.22},{"d":"2026-09-14","v":8887.96},{"d":"2026-09-15","v":10085.63},{"d":"2026-09-16","v":13569.2},{"d":"2026-09-17","v":14622.29}],"alvo":[{"d":"2026-09-17","v":14622.29},{"d":"2026-09-19","v":16411.9},{"d":"2026-09-21","v":18297.56},{"d":"2026-09-23","v":20284.4},{"d":"2026-09-25","v":22377.87},{"d":"2026-09-27","v":24583.68},{"d":"2026-09-29","v":26907.86},{"d":"2026-10-01","v":29356.76},{"d":"2026-10-03","v":31937.09},{"d":"2026-10-05","v":34655.88},{"d":"2026-10-07","v":37520.58},{"d":"2026-10-09","v":40539.01},{"d":"2026-10-11","v":43719.41},{"d":"2026-10-13","v":47070.49},{"d":"2026-10-15","v":50601.41},{"d":"2026-10-17","v":54321.8},{"d":"2026-10-19","v":58241.85},{"d":"2026-10-21","v":62372.26},{"d":"2026-10-23","v":66724.33},{"d":"2026-10-25","v":71309.95},{"d":"2026-10-27","v":76141.64},{"d":"2026-10-29","v":81232.63},{"d":"2026-10-31","v":86596.82},{"d":"2026-11-02","v":92248.87},{"d":"2026-11-04","v":98204.23},{"d":"2026-11-06","v":104479.19},{"d":"2026-11-08","v":111090.88},{"d":"2026-11-10","v":118057.38},{"d":"2026-11-12","v":125397.73},{"d":"2026-11-14","v":133131.99},{"d":"2026-11-16","v":141281.3},{"d":"2026-11-18","v":149867.94},{"d":"2026-11-20","v":158915.37},{"d":"2026-11-22","v":168448.32},{"d":"2026-11-24","v":178492.85},{"d":"2026-11-26","v":189076.4},{"d":"2026-11-28","v":200227.91},{"d":"2026-11-30","v":211977.86},{"d":"2026-12-02","v":224358.35},{"d":"2026-12-04","v":237403.24},{"d":"2026-12-06","v":251148.16},{"d":"2026-12-08","v":265630.68},{"d":"2026-12-10","v":280890.4},{"d":"2026-12-12","v":296969.01},{"d":"2026-12-14","v":313910.47},{"d":"2026-12-16","v":331761.07},{"d":"2026-12-18","v":350569.6},{"d":"2026-12-20","v":370387.48},{"d":"2026-12-22","v":391268.86},{"d":"2026-12-24","v":413270.82},{"d":"2026-12-26","v":436453.49},{"d":"2026-12-28","v":460880.23},{"d":"2026-12-30","v":486617.81},{"d":"2026-12-31","v":500000.0}],"flat":[{"d":"2026-09-17","v":14622.29},{"d":"2026-09-19","v":16342.95},{"d":"2026-09-21","v":18063.62},{"d":"2026-09-23","v":19784.28},{"d":"2026-09-25","v":21504.94},{"d":"2026-09-27","v":23225.6},{"d":"2026-09-29","v":24946.27},{"d":"2026-10-01","v":26666.93},{"d":"2026-10-03","v":28387.59},{"d":"2026-10-05","v":30108.26},{"d":"2026-10-07","v":31828.92},{"d":"2026-10-09","v":33549.58},{"d":"2026-10-11","v":35270.24},{"d":"2026-10-13","v":36990.91},{"d":"2026-10-15","v":38711.57},{"d":"2026-10-17","v":40432.23},{"d":"2026-10-19","v":42152.9},{"d":"2026-10-21","v":43873.56},{"d":"2026-10-23","v":45594.22},{"d":"2026-10-25","v":47314.88},{"d":"2026-10-27","v":49035.55},{"d":"2026-10-29","v":50756.21},{"d":"2026-10-31","v":52476.87},{"d":"2026-11-02","v":54197.54},{"d":"2026-11-04","v":55918.2},{"d":"2026-11-06","v":57638.86},{"d":"2026-11-08","v":59359.52},{"d":"2026-11-10","v":61080.19},{"d":"2026-11-12","v":62800.85},{"d":"2026-11-14","v":64521.51},{"d":"2026-11-16","v":66242.18},{"d":"2026-11-18","v":67962.84},{"d":"2026-11-20","v":69683.5},{"d":"2026-11-22","v":71404.16},{"d":"2026-11-24","v":73124.83},{"d":"2026-11-26","v":74845.49},{"d":"2026-11-28","v":76566.15},{"d":"2026-11-30","v":78286.82},{"d":"2026-12-02","v":80007.48},{"d":"2026-12-04","v":81728.14},{"d":"2026-12-06","v":83448.8},{"d":"2026-12-08","v":85169.47},{"d":"2026-12-10","v":86890.13},{"d":"2026-12-12","v":88610.79},{"d":"2026-12-14","v":90331.46},{"d":"2026-12-16","v":92052.12},{"d":"2026-12-18","v":93772.78},{"d":"2026-12-20","v":95493.44},{"d":"2026-12-22","v":97214.11},{"d":"2026-12-24","v":98934.77},{"d":"2026-12-26","v":100655.43},{"d":"2026-12-28","v":102376.1},{"d":"2026-12-30","v":104096.76},{"d":"2026-12-31","v":104957.09}]};
+  var NS="http://www.w3.org/2000/svg";
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  var W=1000,H=286,M={t:14,r:96,b:27,l:62};
+  var iw=W-M.l-M.r, ih=H-M.t-M.b;
+  var d0=new Date("2026-08-18T00:00:00"), d1=new Date("2026-12-31T00:00:00");
+  var span=(d1-d0)/86400000;
+  function x(iso){return M.l + ((new Date(iso+"T00:00:00")-d0)/86400000/span)*iw;}
+  function y(v){return M.t + ih - (v/500000)*ih;}
+  var svg=el("svg",{viewBox:"0 0 "+W+" "+H,role:"img","aria-label":
+    "Receita acumulada da THS: realizado ate 17 de setembro de 2026 em 14.622 dolares, o caminho exigido pelo alvo chegando a 500.000 em 31 de dezembro, e o run rate atual mantido parado fechando em 104.957."});
+
+  [0,100000,200000,300000,400000,500000].forEach(function(t){
+    svg.appendChild(el("line",{x1:M.l,x2:M.l+iw,y1:y(t),y2:y(t),
+      stroke:t===0?"#8a8882":"#e4e3dc","stroke-width":t===0?1:.8}));
+    var tx=el("text",{x:M.l-7,y:y(t)+3.6,"text-anchor":"end",fill:"#8a8882","font-size":10.5,
+      "font-family":"var(--mono)"});
+    tx.textContent=t?("$"+(t/1000)+"k"):"$0"; svg.appendChild(tx);
+  });
+  ["2026-09-01","2026-10-01","2026-11-01","2026-12-01","2026-12-31"].forEach(function(iso){
+    var tx=el("text",{x:x(iso),y:H-11,"text-anchor":"middle",fill:"#8a8882","font-size":10.5,
+      "font-family":"var(--mono)"});
+    tx.textContent={"2026-09-01":"1 set","2026-10-01":"1 out","2026-11-01":"1 nov",
+      "2026-12-01":"1 dez","2026-12-31":"31 dez"}[iso];
+    svg.appendChild(tx);
+  });
+  // limite do realizado
+  svg.appendChild(el("line",{x1:x("2026-09-17"),x2:x("2026-09-17"),y1:M.t,y2:M.t+ih,
+    stroke:"#d6d5cd","stroke-width":.9,"stroke-dasharray":"3 3"}));
+  var hj=el("text",{x:x("2026-09-17")+5,y:M.t+11,fill:"#8a8882","font-size":10,
+    "font-family":"var(--mono)"}); hj.textContent="hoje"; svg.appendChild(hj);
+
+  function path(pts){return pts.map(function(p,i){return (i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1);}).join(" ");}
+  function series(arr){return arr.map(function(r){return [x(r.d),y(r.v)];});}
+
+  var alvo=series(P.alvo), flat=series(P.flat), real=series(P.real);
+  // area entre o alvo e o run rate parado = o gap
+  var gap=path(alvo)+" "+flat.slice().reverse().map(function(p){return "L"+p[0].toFixed(1)+" "+p[1].toFixed(1);}).join(" ")+" Z";
+  svg.appendChild(el("path",{d:gap,fill:"#eaf1fc",stroke:"none"}));
+
+  svg.appendChild(el("path",{d:path(flat),fill:"none",stroke:"#8a8882","stroke-width":1.8,
+    "stroke-dasharray":"6 4","stroke-linecap":"round"}));
+  svg.appendChild(el("path",{d:path(alvo),fill:"none",stroke:"#2a78d6","stroke-width":2.4,
+    "stroke-linejoin":"round","stroke-linecap":"round"}));
+  svg.appendChild(el("path",{d:path(real),fill:"none",stroke:"#0b0b0b","stroke-width":2.6,
+    "stroke-linejoin":"round","stroke-linecap":"round"}));
+
+  function dot(p,c){svg.appendChild(el("circle",{cx:p[0],cy:p[1],r:4.4,fill:c,stroke:"#fff","stroke-width":1.8}));}
+  dot(alvo[alvo.length-1],"#2a78d6"); dot(flat[flat.length-1],"#8a8882"); dot(real[real.length-1],"#0b0b0b");
+
+  function lab(p,dx,dy,txt,c,w,size){
+    var t=el("text",{x:p[0]+dx,y:p[1]+dy,fill:c,"font-size":size||12,"font-weight":w||600});
+    t.textContent=txt; svg.appendChild(t); return t;
+  }
+  lab(alvo[alvo.length-1],9,4,"$500.000","#2a78d6",600,13);
+  lab(alvo[alvo.length-1],9,17,"alvo","#8a8882",400,10.5);
+  lab(flat[flat.length-1],9,4,"$104.957","#52514e",600,12);
+  lab(flat[flat.length-1],9,16,"run rate parado","#8a8882",400,10.5);
+  lab(real[real.length-1],-8,-11,"$14.622","#0b0b0b",600,11.5).setAttribute("text-anchor","end");
+
+  // rotulo do gap, no meio da area
+  var midi=Math.floor(alvo.length*0.60);
+  var gx=alvo[midi][0]+10, gy=(alvo[midi][1]+flat[midi][1])/2-9;
+  var g1=el("text",{x:gx,y:gy-2,fill:"#2a78d6","font-size":11.5,"font-weight":600});
+  g1.textContent="gap de $395.043"; svg.appendChild(g1);
+  var g2=el("text",{x:gx,y:gy+11,fill:"#8a8882","font-size":10});
+  g2.textContent="é isto que o alvo pede a mais"; svg.appendChild(g2);
+
+  document.getElementById("chart").appendChild(svg);
+})();
+</script>
+</body>
+</html>
