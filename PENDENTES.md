@@ -1258,3 +1258,66 @@ Ordem:
 4. Instalar e conectar o XPO
 
 Cobertura de dimensão no fornecedor hoje: **5.430 de 14.883** (36%).
+
+## 21. O erro de método: λ valida política, não valida dado
+
+### O gatilho: #THS1039
+
+Grohe `38996000` 2"x4" In-Wall Carrier and Tank, **$564,21**, frete grátis.
+Peso cadastrado: **0,63 lb**. É armação de aço com tanque, ~1,20 m de altura.
+
+O teto de λ nesse preço é 19,02 lb. A caixa (~55×20×8 in) dá **63 lb de peso
+dimensional**. Falha por qualquer leitura.
+
+### Ele não estava na lista das 739 suspeitas
+
+Porque eu escolhi os valores de placeholder **a dedo** — 1,0 / 0,73 / 0,35 /
+0,33 / 0,37 / 0,24 / 0,2 / 2,0 — a partir do que tinha visto passar, e esqueci
+o 0,63.
+
+Tentei corrigir derivando os valores por frequência. **Também não pega o 0,63** —
+ele não está nem no top 22 de pesos repetidos. O diagnóstico do erro também
+estava errado.
+
+### O detector certo é preço por libra
+
+Nada em material hidráulico custa $895/lb. O Grohe a 0,63 lb custa isso.
+
+Distribuição do catálogo em frete grátis: mediana **$95,9/lb**, p90 $419,6,
+p95 $709,5, p99 $2.252,2.
+
+Detector `$/lb ≥ 200 e preço ≥ $150`: **1.240 itens, $1.078.400,79**.
+Arquivo: `peso_implausivel_por_preco.csv`.
+
+| SKU | Preço | Cadastrado | $/lb |
+|---|---|---|---|
+| BOSC-BP048-1-VTC-FRT-TDBD | $17.245,50 | 2,0 lb | $8.623 |
+| GVLF-AE7722-3-1000 | $12.536,91 | 0,52 lb | $24.109 |
+| MIDE-MHA-V16WD2MN8-B2 | $8.164,41 | 2,19 lb | $3.728 |
+| BOSC-BMS500-AAM048-1CSXHD | $8.051,15 | 7,0 lb | $1.150 |
+| MILW-49-16-2697X | $6.000,12 | 0,73 lb | $8.219 |
+
+O primeiro é bomba de calor água-ar de 4 toneladas. Pesa ~300 lb.
+
+Por fornecedor: Gruvlok 156 ($261 mil), Tyler Pipe 114, Viega 102,
+Milwaukee Tools 100, Resideo 57, Moen 54, Grohe 41.
+
+### A lição, que vale mais que a lista
+
+**λ compara o peso cadastrado contra o preço. Se o peso cadastrado é mentira,
+λ aprova a mentira.** A varredura da seção 20 deu "zero falhas confirmadas" e
+isso era tecnicamente verdade e praticamente inútil: ela provou que os pesos são
+internamente consistentes com a régua, não que são verdadeiros.
+
+Toda checagem de frete precisa de **duas** camadas:
+1. **Plausibilidade do dado** ($/lb, peso vs. o que o título descreve) — isso vem primeiro
+2. **λ** — só faz sentido depois que a camada 1 passou
+
+Eu rodei só a 2 e declarei a loja limpa.
+
+### Ressalva sobre o threshold
+
+$200/lb é permissivo (a mediana é $95,9) e pega 14% do catálogo. **1.240 não é
+uma lista de ação** — é o funil. O topo (>$2.000/lb, acima do p99) é
+indefensável e deve ser atacado primeiro. O meio precisa de peso de fornecedor
+ou de fonte externa para decidir.
