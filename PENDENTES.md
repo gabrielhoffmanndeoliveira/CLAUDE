@@ -1660,3 +1660,75 @@ com tag removida, e o aviso de conflito do DP2020A5022 que eu não tinha
 procurado no texto inteiro). **O verificador erra nas duas direções** — deixa
 passar erro de fato (amperagem 04, "fixed range" falso, fan center descrito
 como aquastat) e acusa erro que não existe. Ele filtra, não decide.
+
+## 25. Bloco 3 Resideo — 36 descrições (TRV + termostatos de linha)
+
+### O sitemap da Resideo carrega spec que a página não tem
+
+Achado novo e reaproveitável: **o slug do sitemap traz dado que o HTML
+renderizado por JS não mostra.**
+
+```
+v110d1000  →  straight-pattern-1-2-in-high-capacity-valve-46-cv-...
+v110f1010  →  horizontal-angle-pattern-3-4-in-high-capacity-valve-58-cv-...
+th114-a-240d → line-volt-manual-t-stat-for-electric-heat-09f-accuracy-...
+t498a1810  →  brush-gold-electric-heat-thermostat-vertical-mount-...
+t301920w0  →  t301920w0-thera-6-radiator-thermostat-external-sensor-...
+```
+
+**36/36 casaram no sitemap.** Saíram daí: Cv de 6 corpos V110, precisão de
+0,9 °F, montagem vertical, a linha Thera-6 e 50/60 Hz.
+
+**O slug derruba a vírgula decimal:** `46-cv` é 4,6 Cv. Confirmado pela
+progressão com a bitola — **1/2" = 4,6 · 3/4" = 5,8 · 1" = 7,0**, monotônica.
+Lidos como literais seriam vazões de tubo de 4 polegadas numa válvula de
+radiador.
+
+### Compatibilidade de TRV: onde o risco estava
+
+Três padrões de rosca convivem no bloco e ligar errado seria afirmar
+compatibilidade falsa:
+
+- `T3019DAW0NA` → **Danfoss RA**
+- `T301920W0`, `T3019W0NA` → **M30x1.5**
+- `T104*` (High Capacity) → corpos `V110*` (High Capacity)
+
+A cabeça Danfoss ficou **sem bloco de links** e a descrição dela diz
+explicitamente que **não serve** M30x1.5 nem as séries V110/V2040 da Resideo.
+
+80 links internos, 0 quebrado, 0 autolink.
+
+### Polos: 7 detectados, 8 omitidos de propósito
+
+O sufixo do part number carrega o dado: `TH115-A-120**S**` = single-pole,
+`TH115-A-240**D**` = double-pole. Conferido contra a ficha: **0 divergência**.
+
+Os 8 sem indicação no título nem no modelo ficaram **sem afirmar polo**. Polo
+em termostato de linha é spec de segurança elétrica — single-pole deixa uma
+perna viva no aquecedor com o termostato desligado. Chutar ali é pior que
+omitir.
+
+### Quarto falso positivo do meu verificador
+
+Acusei erro de detecção de polo em 5 itens. Era o diagnóstico: eu testei
+`"double-pole" in texto`, e o parágrafo do **single-pole** cita "double-pole"
+ao explicar a diferença. Conferido pelo campo `Poles` da ficha: os 7 corretos.
+
+Contagem do dia: o verificador errou **4 vezes para mais** (pontuação, conflito
+do DP2020A5022, 59 UPCs, polos) e **3 vezes para menos** (amperagem 04,
+"fixed range" falso, fan center como aquastat).
+
+### Resultado
+
+- **36 descrições** — TRV mediana **2.067**, termostatos **1.696**
+- Arquivos: `resideo_bloco3_descricao_IMPORTAR.csv` e `_rollback.csv`
+
+### Estado das descrições Resideo
+
+```
+607 total
+121 feitas e no ar
+ 68 bloco 2, aguardando import
+ 36 bloco 3, aguardando import
+382 pendentes
+```
