@@ -2599,3 +2599,33 @@ Oversize, porque 145–167 lb passa do teto da UPS) sai por API.
 **O que o cruzamento NÃO cobre:** só 402 dos 14.883 têm peso de fabricante no
 metafield. Os outros 14.481 continuam sem segunda fonte — para eles o detector
 que funciona segue sendo preço por libra (mediana $95,9/lb).
+
+---
+
+## §37 — Perfil dos 3 Navien NPF700 movido por API (feito e verificado)
+
+`General profile` → `THS Freight & Oversize` (94651809895).
+
+```
+NAVI-NPF700-060U3BH  $2.940,00  145,0 lb  verificado
+NAVI-NPF700-100H5CH  $3.570,00  167,6 lb  verificado
+NAVI-NPF700-100U5CH  $3.570,00  167,6 lb  verificado
+```
+
+IDs buscados por handle imediatamente antes da mutação, não de memória.
+Rollback comitado antes (`navien_perfil_rollback.csv`, com product_id,
+variant_id e o perfil anterior). Verificado por leitura independente da
+relação `ProductVariant.deliveryProfile`, não pelo filtro de busca.
+
+Motivo por item: os dois `-100` pesam **167,6 lb e passam do teto de 150 lb por
+volume da UPS Ground** — não é frete subcobrado, é cotação que a UPS recusa. O
+`-060` pesa 145 lb, cabe na UPS, mas custaria ~$669 em UPS Ground contra ~$980
+de margem bruta na order.
+
+### ATENÇÃO: os 3 continuam com a tag `free-ship-eligible`
+
+A verificação confirma perfil novo **e tag antiga** nos três. Enquanto o
+`navien_tag_remover_IMPORTAR.csv` não for importado, eles ficam exatamente no
+estado dos 343 divergentes: tag dizendo grátis, perfil dizendo frete. **Mudar o
+perfil sozinho não fecha o vazamento** — quem decide no checkout é a tag, lida
+pelo app de frete.
