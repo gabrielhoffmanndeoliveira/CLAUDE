@@ -1762,3 +1762,31 @@ páginas estão no ar com o erro agora.
 **Padrão que se repete:** cada correção minha de texto introduziu um erro novo
 (`{BRAND}` atributivo → `.capitalize()` em minúscula; `a adjustable` →
 `an unit`). Toda correção de string precisa de releitura, não só de recontagem.
+
+### 25.2 — Verificação ao vivo dos blocos 2 e 3 (17/09)
+
+Import #747404754: **bloco 3, 36 updated. Verificado: 36/36 idênticos.**
+
+**O reimport corrigido do bloco 2 NÃO saiu.** Ao vivo:
+
+```
+bloco 2: 16 iguais, 52 ainda na versao antiga
+paginas Resideo com "an unit" AO VIVO: 23
+```
+
+Só o bloco 3 foi importado. O arquivo corrigido do bloco 2 tem o mesmo nome de
+antes (`resideo_bloco2_descricao_IMPORTAR.csv`) — provável que só um dos dois
+tenha entrado.
+
+**Pendente: reimportar o bloco 2.**
+
+Estado do catálogo Resideo ao vivo:
+
+```
+607 total
+225 escritas  (121 + 68 bloco 2 + 36 bloco 3)
+382 pendentes
+```
+
+Próximos por demanda: **Gas Valves** (36 itens, 1.500/mo) e **Gas Ignition
+Components** (41, ~1.000/mo) — juntos, 77 dos 382.
