@@ -1994,3 +1994,24 @@ menos é o certo.
 2. **Divergência perfil × tag** no catálogo inteiro
 3. **Grohe em mm** — perguntar ao fornecedor ou corrigir no import
 4. `GROH-26.635GN0` está com **preço $0,00**
+
+### 27.1 — Os 52 acima de 10 ft³: nada errado (17/09)
+
+Verificado ao vivo em amostra de 20 dos 52: **16 em THS Freight & Oversize,
+4 em THS Standard, zero com a tag `free-ship-eligible`, zero em General
+profile.**
+
+São box de acrílico Maax de peça única (60 × 36 × 77 in = 96 ft³), paredes de
+chuveiro Mustee, banheiras Bootz. **49 dos 52 passam ao mesmo tempo dos 130 in
+de comprimento+cintura e dos 150 lb de peso dimensional** — UPS Ground não
+aceita nenhum deles.
+
+**Primeiro bloco do dia em que eu abro e não acho nada errado.** A classe mais
+óbvia de risco já estava resolvida.
+
+**Ressalva, e não é vazamento de dinheiro:** os 4 em THS Standard
+(`MUST-247WHT` $441,06, `BOOT-011-3302-00` $405,64, `MUST-17FK` $143,97 e mais
+um) estão num perfil que cota **UPS + 65%**, e esses itens estouram o limite
+físico da UPS. Não dão frete grátis, mas oferecem no checkout uma transportadora
+que vai recusar o volume. É erro de cotação, não de margem — deveriam estar em
+Freight & Oversize junto com os outros 48.
