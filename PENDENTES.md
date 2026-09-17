@@ -2061,3 +2061,77 @@ THS1032  termostato   $  828,30  ->  Free shipping $0               (General, co
 **Teste que o Gabriel faz em 30 segundos e eu não consigo fazer:** colocar um
 dos 343 no carrinho e ver o que o checkout oferece. Se aparecer "Free shipping
 over $99", a tag vence e é urgente. Se aparecer UPS Ground, o perfil vence.
+
+## 29. Bloco 5 — 74 descrições (PRV + mixing valves)
+
+### Eu tinha descartado a maior oportunidade que restava
+
+Em 17/09 medi `pressure reducing valve **boiler**` — **40/mo** — e concluí que
+a família de 32 PRVs não valia a pena. Errado por um fator de ~500:
+
+```
+pressure reducing valve    5.400/mo  KD  7
+water pressure regulator  16.000/mo  KD 12
+```
+
+**21.400 buscas/mês somadas.** Usei uma cauda longa como proxy da cabeça e
+quase pulei a maior família restante do catálogo.
+
+Demanda medida dos tipos que faltavam:
+
+| Família | Itens | Demanda/mês | KD |
+|---|---|---|---|
+| **Pressure Reducing Valves** | 32 | **21.400** | 7–12 |
+| Thermocouples & Thermopiles | 11 | 4.600 | 0 |
+| Thermostat Accessories | 20 | 4.000 | 0 |
+| Mixing Valves (todas) | 42 | 2.800 | 0–2 |
+| Relays + Switching Relays | 24 | 2.200 | 0 |
+| Transformers | 14 | 2.000 | 0 |
+| Non-Programmable Thermostats | 16 | 1.800 | 0 |
+| Leak Detection Valves | 9 | 1.320 | 14–22 |
+| Air Cleaners & Filters | 24 | 500 | 0–15 |
+
+`thermopile` sozinho faz **3.900/mo KD 0** em 11 produtos — a melhor razão
+demanda por item da lista.
+
+### Resolve o item 2 da lista do Craig
+
+```
+SKU:    HONE-DS06-102-DUP-LF/U
+Titulo: "DS06-102-DUT-LF/U 1" DialSet Press Double Union PRV"
+```
+
+Na nomenclatura DS06 o sufixo é a conexão: `T` threaded, `S` sweat, `P` press.
+O título **repete o número DUT mas descreve uma válvula Press**. O SKU está
+certo, o título tem o part number errado e a descrição certa. **Erro de
+digitação nosso, não ambiguidade da Resideo.** Vira correção de título.
+
+### Segurança: as 6 válvulas heat-only
+
+`AM101R` e `AM102R` (6 itens) são da série **R, para loop hidrônico** — não
+para água potável. As descrições dizem isso explicitamente e a ficha traz
+*"Heat-only mixing valve (not for potable water)"*.
+
+**Erro pego na leitura:** a frase de abertura dessas 6 dizia *"lead-free
+thermostatic mixing valve"*. Lead free existe por causa de potável — chamar
+assim uma válvula que não é para potável é enganoso. Eu tinha suprimido o
+parágrafo de lead-free mas esquecido da abertura. Corrigido para *"for hydronic
+heating service"*.
+
+**Terceiro erro de sigla do dia:** `.capitalize()` transformou `NPT` em `Npt` no
+campo de conexão. Mesmo padrão do "honeywell home" e do `-5.25 in`.
+
+### Resultado
+
+- **74 descrições** — PRV mediana **2.096**, mixing valves ~1.550
+- Checagens limpas; 6 heat-only marcados; 9 com a designação 1070
+- Arquivos: `resideo_bloco5_descricao_IMPORTAR.csv` e `_rollback.csv`
+
+### Estado
+
+```
+607 total
+302 no ar
+ 74 bloco 5, aguardando import
+231 pendentes
+```
