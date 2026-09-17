@@ -2381,3 +2381,101 @@ Vários `seo.title` estão **truncados no meio da palavra**:
 `"Resideo Pilot Burner, C- Mounting Bracket"` (comeu o "C-Style"). Parece corte
 cego por comprimento no pipeline de import. Medir a extensão disso no catálogo
 inteiro antes de propor conserto.
+
+---
+
+## §33 — Bloco 8 Resideo: 30 descrições (hidrônico)
+
+Arquivos: `resideo_bloco8_descricao_IMPORTAR.csv` + `_rollback.csv`.
+
+```
+ 12  Air Separators                 mediana 2.146
+  7  Boiler Trim Kits               mediana 2.584
+  6  System Fill Tanks & Autofills  mediana 1.942
+  3  Hydro Separators               mediana   906
+  2  Air Vents                      mediana 1.382
+min 894 · max 2.629 · 7 com link interno
+```
+
+Os 7 links saem do campo `Includes` dos trim kits, que declara o conteúdo em
+part number: `TK300-30, PV125S, SCV-050, NK300S-100` — três dos quatro são
+produtos nossos.
+
+### Erro pego na leitura
+
+`PV-020RP` recebeu *"Universal fit across the SuperVent range"* porque o
+`Connection Type` do metafield diz `Universal`. **O título diz
+`(New Style 90 Degree)`** — as tampas do SuperVent mudaram de desenho e não são
+intercambiáveis. Afirmar encaixe universal ali geraria devolução. Agora o texto
+declara o estilo e manda casar com o que sai do corpo. O `PV-001RP`, cujo título
+não contradiz, manteve o `Universal`.
+
+Também corrigido: `Pipe Size` do `VF06-100-SUSUT` vinha malformado
+(`"1/2 in. Inlet Size-- 1/2 in."`) e vazava pra frase de abertura; e
+`Maximum temperature: 240 F Maximum`, com o rótulo repetido no valor.
+
+### Duas famílias mal classificadas
+
+- **Hydro Separators (3)** não são separadores — são **adaptadores de união NPT**
+  (`Used With: HYDROSEP-104-U`). Recategorizados no texto como Hydronic
+  Accessories; o `productType` na loja continua errado.
+- **`PA404A1025` / `PA404A1033`** são **Pressuretrol**, controle de pressão de
+  caldeira a vapor, arquivados em "System Fill Tanks & Autofills". A diferença
+  entre os dois é real e vale descrever: diferencial **subtrativo** (cut-in é o
+  ajuste, religa no ajuste menos o diferencial) contra **aditivo** (cut-out é o
+  ajuste mais o diferencial). Mesmos números nas duas versões dão ciclos
+  diferentes.
+
+---
+
+## §34 — Peso: 18 divergências achadas pelo metafield, 5 vazando frete grátis
+
+Arquivos: `b8_peso_IMPORTAR.csv` (18) + `b8_peso_rollback.csv`,
+`b8_tag_remover_IMPORTAR.csv` (5) + `b8_tag_restaurar_MATRIXIFY.csv`,
+`b8_perfil_rollback.csv`.
+
+O `custom.specifications` traz `Weight (lb)` do fabricante em 21 dos 30 itens do
+bloco 8. Cruzado com o peso registrado: **18 divergem**.
+
+**Os 7 boiler trim kits estão todos registrados em 2,19 lb** — valor da lista de
+placeholders conhecidos — contra 16 a 19,2 lb declarados. Subregistro de 14 a
+17 lb.
+
+λ recalculado do dado bruto, preço lido ao vivo:
+
+| SKU | preço | reg. | real | λ reg. | λ real | |
+|---|---|---|---|---|---|---|
+| TK30PV100SFM | $402,42 | 2,19 | 16,0 | 0,0054 | **0,0398** | vaza |
+| TK30PV100SNK | $481,05 | 2,19 | 19,2 | 0,0046 | **0,0399** | vaza |
+| TK30PV125FM | $416,72 | 2,19 | 16,8 | 0,0053 | **0,0403** | vaza |
+| TK30PV125SFM | $416,72 | 2,19 | 16,8 | 0,0053 | **0,0403** | vaza |
+| TK30PV125SNK | $493,78 | 2,19 | 19,2 | 0,0044 | **0,0389** | vaza |
+| TK30PV100PNKP | $490,35 | 2,19 | 16,0 | 0,0045 | 0,0326 | passa |
+| TK30PV125PNKP | $517,10 | 2,19 | 16,0 | 0,0042 | 0,0309 | passa |
+
+**5 de 7 vazam; 2 passam porque o preço compra folga.** 16 lb reprova a $402 e
+aprova a $490. É a mesma lição do Diablo/Milwaukee: ranquear por peso engana,
+só λ decide. Custo UPS estimado nos que vazam: **$87 a $102 por remessa**, com
+frete cobrado $0,00. Todos os 18 estão no General profile com
+`free-ship-eligible`.
+
+**Os 11 da família PV passam mesmo com o peso real.** O `PV150P` sobe de 2,50
+para 6,10 lb e λ vai só a 0,0171. Corrigir o peso deles é precisão de cotação,
+não vazamento. O `PV125S` está **super**registrado (6,00 contra 3,50 reais).
+
+Ordem de importação: **peso primeiro**, depois tag. Perfil dos 5 (General →
+THS Standard) sai por API, não por Matrixify.
+
+**Método novo que isso abre:** o `custom.specifications` tem `Weight (lb)` em
+546+ produtos do catálogo. Vale rodar o mesmo cruzamento no catálogo inteiro —
+é peso do fabricante contra peso registrado, sem depender da planilha do
+fornecedor.
+
+### Estado das descrições Resideo
+
+```
+607 total
+494 no ar (após bloco 7)
+ 30 neste CSV
+ 83 pendentes depois deste
+```
