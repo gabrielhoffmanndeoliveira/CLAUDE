@@ -1790,3 +1790,12 @@ Estado do catálogo Resideo ao vivo:
 
 Próximos por demanda: **Gas Valves** (36 itens, 1.500/mo) e **Gas Ignition
 Components** (41, ~1.000/mo) — juntos, 77 dos 382.
+
+### 25.3 — Reimport do bloco 2 confirmado (17/09)
+
+Import #747407572, 68 updated. Verificado ao vivo: **"a unit" correto** nas
+páginas que tinham o erro, e "an air conditioning" / "an entire" seguem certos.
+O erro de artigo saiu das 23 páginas.
+
+**Catálogo Resideo: 225 de 607 escritas, 382 pendentes.** As três levas
+(121 + 68 + 36) verificadas por leitura independente.
