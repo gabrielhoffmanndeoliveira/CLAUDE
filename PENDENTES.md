@@ -2135,3 +2135,42 @@ campo de conexão. Mesmo padrão do "honeywell home" e do `-5.25 in`.
  74 bloco 5, aguardando import
 231 pendentes
 ```
+
+### 29.1 — Bloco 5 importado e verificado (17/09)
+
+Import #747500543, 74 produtos. Verificado ao vivo na `AM101R-US-1`, que é uma
+das 6 de segurança:
+
+- abre com *"for **hydronic heating** service"*
+- traz *"**not** for potable water"* em negrito no corpo
+- ficha: `Type: Heat-only mixing valve (not for potable water)`
+- **sem "lead-free" em lugar nenhum**
+
+**Inconsistência cosmética anotada:** o campo `Connection` sai `sweat` em
+minúscula ao lado de `NPT` e `ProPress`, que são maiúsculas por serem nome
+próprio. Correto, mas desalinhado. Corrigir no próximo bloco, não vale reimport.
+
+### Estado das descrições Resideo
+
+```
+607 total
+376 no ar
+231 pendentes
+```
+
+### Fila por demanda para o bloco 6
+
+| Família | Itens | Demanda/mês |
+|---|---|---|
+| Thermocouples & Thermopiles | 11 | 4.600 |
+| Thermostat Accessories | 20 | 4.000 |
+| Relays + Switching Relays | 24 | 2.200 |
+| Transformers | 14 | 2.000 |
+| Non-Programmable Thermostats | 16 | 1.800 |
+
+`thermopile` sozinho faz 3.900/mo KD 0 em 11 produtos — melhor razão demanda
+por item de tudo que restou.
+
+**Ressalva sobre Thermostat Accessories:** os 4.000/mo vêm de `thermostat wire`.
+**Não confirmei que os 20 itens dessa família são fio** — podem ser placa de
+parede e adaptador, e aí a demanda não é deles. Verificar antes de priorizar.
