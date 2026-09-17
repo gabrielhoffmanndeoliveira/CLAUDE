@@ -1856,3 +1856,46 @@ idênticos — o conserto disso é dado, não texto.** Item para o Craig.
 1. `802360QA` — 277 V, nosso título diz V4043/V4044, slug diz V4043/V8044
 2. `DS06-102-DUP-LF` (SKU) vs `DS06-102-DUT-LF` (título)
 3. Diferenciador dos 6 igniters `Q4100C` de 5,25 in
+
+## 26.1 — Bloco 4 gerado: 77 descrições (válvulas de gás + ignição)
+
+- **Gas Valves 36**, mediana **1.855 chars** — aviso de segurança em **36/36**
+- **Gas Ignition Components 41**, mediana **1.364 chars**
+- Checagens limpas; zero fallback genérico (os 41 caíram em branch específica)
+
+Válvulas de gás levam bloco fixo de segurança: a válvula tem que casar com o
+aparelho (sistema de ignição, capacidade, pressão de entrada, tipo de gás), a
+troca é serviço de técnico licenciado, e quem decide é a lista de peças do
+fabricante do aparelho — não o encaixe da rosca.
+
+O tipo de ignição saiu da **numeração de série da Honeywell**, validada contra
+os títulos: a `VR8205Q2795T` está descrita como **direct ignition**, que é o
+que a série manda e o que o slug templated da Resideo teria me feito errar.
+
+### Conteúdo duplicado: o limite do que texto resolve
+
+Os seis igniters `Q4100C` de 5,25 in saíram **99,3% a 99,5% idênticos entre si**.
+
+Usei o slug da Resideo para separar dois: `Q4100C9068` (120 V, caiu para 97,4%)
+e `Q4100C9048` (montagem redonda, 94,9%). **Os cinco do meio continuam em
+99,5%**, e o `Q4100C9042` também — comprimento de cabo diferente não move o
+texto o bastante.
+
+**Isso não tem solução por escrita.** Cinco páginas quase idênticas competem
+entre si no índice. Os caminhos reais são dois, e os dois são decisão do
+Gabriel:
+
+1. **Pedir o diferenciador à Resideo** (suporte, aplicação OEM) — já está na
+   lista do Craig
+2. **Consolidar** os cinco num produto com variantes
+
+Canonical não serve aqui: esconderia cinco SKUs distintos da busca.
+
+### Estado
+
+```
+607 total
+225 no ar
+ 77 bloco 4, aguardando import
+305 pendentes
+```
