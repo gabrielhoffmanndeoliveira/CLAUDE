@@ -1210,3 +1210,51 @@ fonte externa, não aritmética.
 
 Vale suspeitar do mesmo em **Diablo @ 0,73** e **Milwaukee @ 0,73**, os dois
 maiores grupos por exposição a frete grátis. Checar `sup_w` antes de assumir.
+
+## 19. Imports de peso aplicados e verificados — 16/set
+
+Matrixify import #747073653 (15 rolos) e #747073510 (23 cimentos), ambos
+`Updated` sem erro. Verificado por leitura independente via API.
+
+**Os 38 bateram exato. Nenhum arredondamento, nenhuma divergência.**
+
+Rolos, os 4 que seguraram no THS Freight & Oversize:
+
+| SKU | Peso |
+|---|---|
+| POLY-200-250/300 | 283,5 lb |
+| POLY-150-250/300 | 172,5 lb |
+| HDPE-GASH0110200250 | 157,5 lb |
+| MDPE-1002278 | 157,5 lb |
+
+Os outros 11 em THS Standard, de 20 a 126 lb. Cimentos: 8,3 / 8,5 no galão,
+2,17 quart, 1,08 pint, 0,58 meio-pint, 0,33 quarto-pint — todos em THS Standard.
+
+**Divergência de registro:** eu tinha anotado que movi 8 cimentos para fora do
+frete grátis. A loja mostra os 23 em THS Standard. Ou moveram-se mais do que
+registrei, ou a anotação anterior estava incompleta. O estado atual está certo;
+o número 8 no registro anterior não bate.
+
+## 20. XPO LTL Freight Quotes — decisão e ordem
+
+O Gabriel confirmou que a THS tem contrato XPO e pode usar o app da Eniture.
+
+**Volume que justifica:** 74 SKUs acima de 150 lb, onde UPS Ground nem aceita —
+48 Rheem, 14 US Boiler, 3 Shaws, 2 Liberty Pumps, 2 Maax. Mais 175 na faixa
+70–150 lb, onde UPS aceita mas cobra caro.
+
+**O app é downstream do dado.** Ele cota por peso + dimensão + freight class.
+Peso errado entra, cotação errada sai — o mesmo defeito da tabela fixa, com
+nome de carrier em cima.
+
+Ordem:
+
+1. ✅ Pesos dos rolos e cimentos importados e verificados
+2. Conferir o `dimensoes_metafield_IMPORTAR.csv` (gerado em outra sessão,
+   conteúdo e cobertura desconhecidos) — **não importar antes de conferir**,
+   dimensão errada em LTL sai mais caro que dimensão ausente
+3. **Freight class (NMFC) nos 74** — não existe em lugar nenhum do catálogo,
+   é trabalho novo. LTL cota por classe, não só por peso
+4. Instalar e conectar o XPO
+
+Cobertura de dimensão no fornecedor hoje: **5.430 de 14.883** (36%).
