@@ -2232,3 +2232,93 @@ stats millivolt (`TS812A1007`, `T827K1009`) → termopilhas `Q313A1188`/`Q313A11
  65 neste CSV
 166 pendentes depois deste
 ```
+
+---
+
+## §31 — Bloco 7 Resideo: 53 descrições (ar — filtros, dampers, painéis, RedLINK)
+
+Arquivos: `resideo_bloco7_descricao_IMPORTAR.csv` + `resideo_bloco7_descricao_rollback.csv`.
+Matrixify: Products / Body HTML, `Command: UPDATE`.
+
+```
+ 24  Air Cleaners & Filters               mediana 1.518
+  9  Zone Dampers                         mediana 1.757
+  8  RedLINK Accessories                  mediana 1.888
+  6  Forced Air Zone Panels               mediana 2.800
+  4  Ventilation Controls & Accessories   mediana 1.204
+  2  Bypass Dampers                       mediana 1.172
+min 871 · max 3.342 · 20 com link interno
+```
+
+### Mudança de método: a fonte passou a ser o metafield da própria loja
+
+Os 53 têm `custom.specifications` preenchido, e ele é **mais rico que o sitemap
+da Resideo**. O sitemap não discrimina os painéis (os três slugs são
+`truezoner-hzXXX-panel`); o metafield dá zonas e estágios exatos:
+
+| | Zonas | Estágios |
+|---|---|---|
+| HZ311 | 3 | 1 Heat / 1 Cool |
+| HZ322 | 3 | 2 Heat / 2 Cool |
+| HZ432 | 4 (expansível a 32 com painéis TAZ-4H) | 3 Heat / 2 Cool |
+
+E o campo **`Used With` / `Includes` / `Replacement Filters` virou o gerador de
+link interno** — evidência da loja, não inferência de slug. Dos 20 links, 6
+saíram de casamento por **dimensão** entre a mídia de reposição e o gabinete
+(`Dimensions` dos dois lados), que é o único caminho porque o `Used With` da
+mídia é prosa sem part number.
+
+### Demanda medida (Ahrefs, us)
+
+`redlink` 1.300/mo KD 0 · `air separator` 1.000 KD 1 · `zone damper` 450 KD 1 ·
+`automatic air vent` 450 KD 0 · `whole house air cleaner` 350 KD 15 ·
+`bypass damper` 300 KD 0 · `honeywell air cleaner` 250 KD 2 ·
+`thermostat wall plate` 200 KD 0.
+
+**`furnace air filter` faz 2.100/mo com KD 96 — não é nossa, não mirar.** O
+ganhável em Air Cleaners é part number, `media air filter` (100, KD 0) e
+`honeywell air cleaner` (250, KD 2).
+
+### Erros pegos antes de gerar o CSV
+
+1. **Bug de tupla, o pior do bloco.**
+   ```python
+   MERVP=('<p>...</p>'
+    '<p>...</p>')        # parênteses = concatenação, é UMA string
+   b.append(MERVP[0]+MERVP[1])   # -> "<p"
+   ```
+   `MERVP[0]` é o caractere `<`. Os dois parágrafos sobre MERV **nunca
+   entraram** em 20 itens e sobrou `<p<p>` no HTML. O mesmo em `RLP` nos 8
+   RedLINK. **O teste de balanceamento passou** porque `<p<p>` tem um `<p>` e um
+   `</p>`. Só apareceu lendo o HTML cru. Check novo: `<(?!/?(p|ul|li|strong|em|a)[ >])`.
+2. `Terminals: Terminals: M1-Power…` — o valor do spec já começa com o rótulo.
+3. `16 in. x 20 in.` virava `16in x 20in` — o regex comia o espaço, não o ponto.
+4. HZ432K repetia "4 Zones (expandable to 32…)" **três vezes** no mesmo texto.
+5. `10 in Diameter round` — redundante e com maiúscula no meio da frase.
+6. `Voltage: 24V` na ficha contra "24 V" no corpo.
+
+### Conflito de dados anotado (não corrigido)
+
+Os dampers `ARD*` têm `Motor: Power closed, spring open` e
+`Motor Timing: 30 seconds power open/10 seconds spring return` — **os dois
+campos se contradizem na direção**. Usei só o `Motor` (que bate com o ARD ser
+normalmente aberto) e **omiti os tempos**. Conferir com o Craig.
+
+### Intrusos na família Air Cleaners & Filters
+
+`S688A1007` é **sail switch** (prova de fluxo) e `UV2400U1000`/`UV2400XLAM1` são
+**UV** (tratamento, não filtragem). Ganharam branch própria e `Category` fora de
+filtros. A família em si é legítima — ao contrário do que eu suspeitava de
+Thermostat Accessories no §30.
+
+### Estado das descrições Resideo
+
+```
+607 total
+441 no ar (após bloco 6)
+ 53 neste CSV
+113 pendentes depois deste
+```
+
+**Bloco 8 (hidrônico), 30 itens:** Air Separators 12 + Boiler Trim Kits 7 +
+System Fill Tanks & Autofills 6 + Hydro Separators 3 + Air Vents 2.
