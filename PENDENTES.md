@@ -2322,3 +2322,62 @@ Thermostat Accessories no §30.
 
 **Bloco 8 (hidrônico), 30 itens:** Air Separators 12 + Boiler Trim Kits 7 +
 System Fill Tanks & Autofills 6 + Hydro Separators 3 + Air Vents 2.
+
+---
+
+## §32 — 26 títulos Resideo sem part number (+ 4 com part number ERRADO)
+
+Arquivos: `resideo_titulos_IMPORTAR.csv` (26) + `resideo_titulos_rollback.csv`,
+e `resideo_pn_errado_seo_IMPORTAR.csv` (4) + `resideo_pn_errado_seo_rollback.csv`.
+Matrixify: Products. Importar **o de títulos primeiro**.
+
+Não são 26 do mesmo caso:
+
+- **22 sem part number nenhum** — aquastats L4008/L6006/L6008, válvulas de gás
+  VR/SV, pilot burners Q3450, o kit de conversão 395253-1 e o YTHX9421R7001WW.
+  Correção: inserir o PN logo depois de "Resideo", que é o padrão dominante da
+  loja. Maior título resultante: 163 chars.
+- **4 com o part number ERRADO no título**, e nos quatro o **SKU é que está
+  certo**:
+
+| SKU | Título dizia | Evidência |
+|---|---|---|
+| `DS06-102-DUP-LF` | `DS06-102-DUT-LF/U` | slug `…-dup-lf-u` = **press** double union; `dut` = NPT fêmea, `dus` = sweat |
+| `VB-SP02Y-003` | `VB-SP02Y-002` | slug `-003` = **power adaptor**; `-002` = replacement actuator |
+| `PV125S` | `PV125/U` | slug `pv125s` = **sweat**; `pv125` = NPT |
+| `PV150P` | `PV150/U` | slug `pv150p` = **press** |
+
+Desta vez **os slugs discriminam** (part number diferente → slug diferente →
+produto diferente), então valem como evidência — ao contrário das quatro
+válvulas de gás do §29. E o próprio texto do nosso título confirma de forma
+independente: "Press", "Sweat", "Power Adapter". Duas fontes concordando.
+
+### O PN errado tinha propagado
+
+Nos 4, o part number errado não estava só no título — estava também em
+`seo.title`, `seo.description` e no `alt` da imagem:
+
+```
+PV125S  title: Resideo PV125/U 1-1/4" SuperVent Air Eliminator Sweat
+        seo_t: Resideo PV125/U 1-1/4" SuperVent Air Eliminator Sweat
+        seo_d: ... MPN PV125/U.
+        alt  : 1-1/4" SuperVent Air Eliminator Sweat
+```
+
+Corrigir só o título deixaria part number errado em três campos indexados.
+O CSV de SEO cobre `seo.title` e `seo.description`. **O `alt` dos 4 sai por
+API**, não está em CSV.
+
+### Nos outros 22 o MPN já estava no `seo.description`
+
+Todos os 22 já trazem `"MPN L4008A1130/U."` na meta description — o part number
+já é indexável. O que falta é ele no **título visível**, que é o H1 e o anchor
+interno.
+
+### Achado fora do escopo, anotado
+
+Vários `seo.title` estão **truncados no meio da palavra**:
+`"Resideo Single Stage LP to Natural Gas Conversion Kit, 5"` e
+`"Resideo Pilot Burner, C- Mounting Bracket"` (comeu o "C-Style"). Parece corte
+cego por comprimento no pipeline de import. Medir a extensão disso no catálogo
+inteiro antes de propor conserto.
