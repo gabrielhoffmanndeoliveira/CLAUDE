@@ -1416,3 +1416,103 @@ banda cobrar a faixa correta em vez da mais barata.
 Freight & Oversize com peso placeholder (2,00 / 2,19 / 2,19 lb), então a
 tabela cobra a banda mais barata. Sem fonte pública: Midea bloqueado por
 `robots.txt` (503), Bosch não tem o BP048 no catálogo atual.
+
+## 23. Descrições das 82 válvulas de zona Resideo (17/09)
+
+### Estado das descrições Resideo, medido ao vivo
+
+Bulk operation sobre `vendor:Resideo` — **607 produtos**:
+
+```
+     0-300 chars:   68
+   300-600 chars:  500     <- texto gerado do titulo pelo pipeline de import
+  600-1200 chars:    0
+      2000+ chars:   39     <- as escritas a mao
+```
+
+Zero itens na faixa do meio. **39 feitas, 568 pendentes.**
+
+### O que o Ahrefs mostrou, e muda a estratégia
+
+**O mercado busca "Honeywell", não "Resideo":**
+
+```
+honeywell zone valve   1.400/mo  KD 0        resideo zone valve   10/mo
+zone valve             1.600/mo  KD 0
+boiler zone valve        400/mo  KD 0
+taco zone valve          800/mo  KD 52  (concorrente)
+```
+
+**140× de diferença.** A Resideo é a antiga Honeywell Home e licencia a marca —
+escrever "Resideo (Honeywell Home)" é fato, não keyword stuffing. Os 607
+títulos dizem só "Resideo".
+
+**Part number tem volume real e dificuldade zero:**
+
+```
+v8043e1012  350/mo KD 0      v8043a1011    40      v8043a1003   20
+v8043e1061  100/mo KD 0      40003916-048  40      v8044a1010   20
+vczz1100     60/mo           v8043e1004    30      v8044e1011   20
+v8043f1051   50/mo KD 0      honeywell zone valve v8043e1012  90/mo
+802360ja     50/mo KD 0      honeywell v8043  50/mo KD 0
+```
+
+~900 buscas/mês só nos 15 amostrados. Não é cauda longa — é quem já sabe o
+número da peça.
+
+### Limite da fonte Resideo, confirmado de novo
+
+A página de produto é shell de JavaScript: specs, submittals e compatibilidade
+todos vazios ("No Results found"). **Mas o texto de marketing carrega**, e dele
+saíram dois fatos usados nas 82: a lista de aplicação (radiator, convector,
+finned baseboard, in-floor radiant coil) e **300 psi de pressão de operação**.
+
+Cv, close-off, tempo de atuação, dimensões e peso **não existem em lugar
+nenhum** — e não foram inventados.
+
+### Links internos: 215 arestas, zero autolink
+
+Grafo de compatibilidade construído dos próprios títulos:
+
+- cabeça `40003916-*` → corpos da família citada
+- corpo `V8043*`/`V8044*` → sua cabeça + motor universal `802360JA`
+- atuador `VC*` ↔ corpo `VCZ*` ↔ cartucho `VCZZ*`
+
+**Limite de 5 links por página.** Sem isso o `802360JA` apontaria para 25
+produtos, o que o Google lê como link farm.
+
+**15 ficaram sem link, corretamente:** 8 atuadores VU e 2 kits QVU (não há
+corpo VU na loja), `802360UA` (V8043J não é vendido), `802360QA` (divergência,
+ver abaixo) e 3 peças genéricas.
+
+### Divergência achada no sitemap da Resideo
+
+`802360QA`: nosso título diz *"277V Replacement motor for V4043 or **V4044**"*.
+O slug oficial da Resideo é
+`277v-replacement-motor-for-v4043-or-**v8044**-802360qa-u`.
+
+Um dos dois está errado e **o dado não decide qual** — V4043/V4044 são 120 V,
+V8043/V8044 são 24 V, e 277 V não encaixa em nenhuma. A descrição dele **não
+afirma compatibilidade** e pede confirmação ao cliente. **Perguntar ao Craig.**
+
+### Dois bugs meus, pegos na leitura e não nas checagens
+
+1. **`{BRAND}` em posição atributiva quebrava a frase**: *"Replacement head for
+   Resideo, the brand that carries the Honeywell Home line of residential
+   heating controls V8043F zone valves"*. Afetava 47 dos 82. Corrigido com
+   forma curta `Resideo (Honeywell Home)` onde é atributivo.
+2. Ao corrigir, `.capitalize()` derrubou "Honeywell Home" para minúscula em uma
+   frase. Gambiarra de string; reescrita à mão.
+
+**As checagens automáticas passaram limpas nas duas vezes.** Só apareceu lendo.
+
+### Resultado
+
+- **82 descrições**, mediana **342 → 1.860 chars**
+- Honeywell em 82/82, part number em 82/82, bloco de links em 66/82
+- Arquivos: `zone_valves_descricao_IMPORTAR.csv` e `_rollback.csv`
+
+### Pendente
+
+- Importar o CSV (ação do Gabriel) e eu verifico por leitura independente
+- Restam **486** descrições Resideo depois destas
