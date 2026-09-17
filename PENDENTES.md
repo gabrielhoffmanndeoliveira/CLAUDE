@@ -1919,3 +1919,78 @@ Corrigido, e a captura fracionária (`19-1/8 in`) continua funcionando.
 **Erros deste bloco pegos só na verificação ao vivo, não nas checagens:** o
 comprimento negativo passou por todas as checagens automáticas porque
 `-5.25 in` é string bem formada.
+
+## 27. Peso dimensional: o furo que λ não fecha sozinha (17/09)
+
+### Gatilho: #THS1041
+
+Franke Cube `FRAN-CUX11030`, pia undermount 31,5 × 17,7 in, **$643,42**, frete
+grátis. Peso cadastrado **20,25 lb** — peso real, não placeholder.
+
+**Pelo peso real ele passa:** teto λ a $643,42 é 21,68 lb, e 20,25 < 21,68.
+Passou com 7% de folga.
+
+**Pelo volume não.** A régua é `peso_efetivo = max(peso real, peso dimensional)`.
+Só a cuba, sem caixa: 31,5 × 17,75 × 9 = 5.032 in³ → **36,2 lb**. Falha por
+**1,7×** na leitura mais conservadora possível.
+
+Primeiro caso do dia em que o peso real passa e o dimensional reprova. É
+exatamente o furo que o CLAUDE.md nomeia.
+
+### Fonte de dimensão nova: `custom.specifications`
+
+Metafield que nunca tinha sido usado. Existe em **13.141 de 14.883** produtos
+(88,3%), mas quase sempre com `Type`, `Size`, `Material`. Dimensão utilizável
+em **546**, dos quais **266 não tinham** `product.length/width/height`.
+
+Chaves que valem: `Length`, `Width`, `Height`, `Depth`, e para pia também
+`Large Bowl Depth` / `Sink Basin Depth` — foi essa última que fez o Franke
+aparecer, e sem ela a varredura passava batido nele.
+
+**Fração em polegada** (`25-9/16"`, `6-9/16"`) exige parser próprio; a leitura
+ingênua devolvia `16`.
+
+### 31 pias fora do frete grátis — aplicado e verificado
+
+**$19.661,71.** Dayton 18, Franke 10, mais Blanco, Elkay e Mustee.
+
+```
+MUST-14K    tanque de lavanderia 23x25x33 in   136,5 lb dim   teto 2,96   46x
+DAYT-D-23322-4                                  34,3 lb dim   teto 13,29  2,6x
+FRAN-CUX11030 (o do THS1041)                    36,2 lb dim   teto 21,68  1,7x
+```
+
+O Mustee a **46×** é o caso extremo: item de $87,81 que ocupa 11 ft³.
+
+### Achado: perfil e tag divergiam em 12 dos 31
+
+Na releitura ao vivo, **12 já estavam em THS Standard mas seguiam com a tag
+`free-ship-eligible`**. Como a elegibilidade mora na tag e é ela que o app de
+frete lê, esses 12 podiam estar dando frete grátis com o perfil correto.
+
+**Vale varrer essa divergência no catálogo inteiro** — não foi feito ainda.
+
+### CSV de dimensões: 254 produtos, Grohe excluída
+
+`dimensoes_do_spec_IMPORTAR.csv` — 254 produtos ganham
+`product.length/width/height` a partir do `custom.specifications`.
+
+**A Grohe foi excluída inteira** (12 itens, em
+`dimensoes_grohe_SUSPEITO_MM.csv`). Motivo: o `wall-union` (Grohe 26635GN0,
+conexão de parede) traz "Height 64", Length 90", Width 50"" — que em mm dá
+3,5 × 2 × 2,5 in, o tamanho real da peça. **São milímetros com aspas de
+polegada.**
+
+Mas é **misto**: os outros 11 Grohe têm valores plausíveis em polegada. Não dá
+para separar item a item pelo número, então os 12 saíram. Onze bons ficaram de
+fora para evitar um ruim — numa fonte única de verdade de frete, errar para
+menos é o certo.
+
+### Pendências abertas daqui
+
+1. **53 produtos acima de 10 ft³** no CSV — degrau do *Large Package Surcharge*
+   da UPS, o mesmo que custou $331 na THS1008. São box de acrílico de peça única
+   (60 × 36 × 77 in = 96 ft³), reais. **Não verifiquei se estão em frete grátis.**
+2. **Divergência perfil × tag** no catálogo inteiro
+3. **Grohe em mm** — perguntar ao fornecedor ou corrigir no import
+4. `GROH-26.635GN0` está com **preço $0,00**
