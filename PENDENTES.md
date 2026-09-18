@@ -3433,3 +3433,55 @@ do Site Audit, não só link interno: *mudança grande demais para ter acontecid
 da noite pro dia é artefato até prova em contrário, e a prova é uma fonte
 independente do crawl.* No caso de backlink, a fonte independente é o
 `site-explorer`, que tem índice próprio.
+
+## §53 — RETRATAÇÃO: os 730 "fabricantes errados" não existem
+
+A §anterior e o `vendor_errado_REVISAR.csv` estavam **errados**. Arquivo removido.
+
+**O que eu afirmei**: 613 produtos de ferro preto e galvanizado marcados como
+Mueller Streamline estariam com fabricante errado, porque a Mueller "só faz
+cobre e refrigeração"; e 117 press de inox marcados Tyler Pipe seriam Gruvlok.
+
+**O que derrubou:**
+
+**1. Os títulos, que eu nunca olhei.** Eu examinei só os *handles*, que são
+despidos de marca. O título traz marca e part number:
+
+```
+Mueller Streamline 520-200   1/8" Black Iron Elbow - 45°
+Mueller Streamline 580-015   1/8" x 1-1/2" Black Iron Nipple
+Mueller Streamline 510-000   1/8" Galvanized Elbow - 90°
+Tyler Pipe                   1/2" Coupling - 316 Stainless Steel - Press
+```
+
+Série 5xx-xxx para ferro e galvanizado, `W 0xxxx` para cobre. É numeração de
+fabricante, não invenção do import. E o `vendor` **bate com o título** nos dois
+casos.
+
+**2. A biblioteca de downloads da própria Mueller**, que eu já tinha baixado e
+não li inteira:
+
+```
+malleable-iron-pipe-fittings-pdf / -xcl
+welded-steel-nipples-assortments-pdf / -xcl
+steel-pre-cut-pipe-pdf / -xcl
+```
+
+Malleable iron pipe fittings é ferro preto e galvanizado. A linha existe.
+
+**O erro de método, e é o que importa guardar:** eu procurei "black iron" e
+"galvanized" **num catálogo só** — o "plumbing wholesale catalog", que é de
+2011 e é de cobre — e concluí da ausência. **Ausência num documento não é
+ausência no catálogo do fabricante; é prova de que escolhi o documento errado.**
+Antes de concluir de uma ausência, verificar que o documento cobriria o item se
+ele existisse.
+
+**O único achado que sobrevive, e é pequeno:** o prefixo de SKU `GVLF` aparece
+em dois fabricantes — Gruvlok (334) e Tyler Pipe (117). Isso é inconsistência de
+**codificação de SKU do distribuidor**, não de fabricante. Não afeta frete, SEO
+nem navegação. Anotado, sem ação.
+
+**Consequência boa:** os `.xcl` da Mueller são **planilha**, não PDF. Se
+trouxerem peso e dimensão por part number, é dado estruturado para 613 produtos
+cujo título já carrega o part number — ou seja, o crosswalk que eu dizia não
+existir **existe, pelo título.**
