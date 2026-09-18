@@ -3322,3 +3322,71 @@ em `resideo_npt_none_rollback.csv`.
 **Falso positivo que vale registrar**: minha varredura acusou 72 ocorrências de
 `psi` minúsculo como sigla minusculizada. **Não é defeito** — em inglês técnico
 americano `psi` é minúsculo mesmo. O regex estava largo demais.
+
+## §51 — Ahrefs: as 2.889 órfãs são falsas de novo (18/09)
+
+Segundo pico em massa de "Orphan page" em dois dias: **2.889 páginas, mudança
++2.850**. É o mesmo padrão de 16/09 (3.113 de uma vez) e **é artefato de crawl
+outra vez.** Segui a ordem de checagem do `CLAUDE.md`, do mais barato pro mais caro.
+
+**(1) A mudança é grande demais pra ter acontecido de verdade?** Sim. 2.850
+produtos perdendo todo link interno da noite pro dia, num site sem mudança de
+tema nem de estrutura de coleção.
+
+**(2) As páginas respondem 200 ao vivo?** Sim — e o dado veio do próprio Ahrefs,
+sem precisar bater no site:
+
+| url | http | links agora | links antes | sitemap | TTFB |
+|---|---|---|---|---|---|
+| 4-x-2-pvc-dwv-flush-bushing | 200 | 0 | 3 | sim | 13 ms |
+| apollo-full-port-ball-valve | 200 | 0 | 7 | sim | 17 ms |
+| abs-dwv-male-trap-adapter | 200 | 0 | 4 | sim | 18 ms |
+| frost-proof-hydrant | 200 | 0 | 7 | sim | 11 ms |
+| 3-1-2-bi-metal-hole-saw | 200 | 0 | 6 | sim | 183 ms |
+| abs-dwv-90-street-vent-elbow | 200 | 0 | 4 | sim | 213 ms |
+| spiral-wound-flanged-gasket | 200 | 0 | 4 | sim | 241 ms |
+| 3-4-pvc-sch40-cap-fpt | 200 | 0 | 4 | sim | 10 ms |
+
+Todas com **3 a 7 links no crawl anterior e exatamente 0 agora**, todas vivas,
+todas no sitemap. Mudança estrutural real não zera link de 2.889 produtos de uma
+vez mantendo todos 200.
+
+**(3) Contar `<a href="/products/...">` real na página de coleção.** O produto
+está linkado na **página 3 de `/collections/pvc-dwv-fittings`**, que responde 200
+em 0,68 s:
+
+```
+pagina 1  200  0.89s  48 ancoras
+pagina 2  200  0.92s  48 ancoras
+pagina 3  200  0.68s  48 ancoras   <- alvo
+pagina 4  200  0.58s  48 ancoras
+pagina 5  200  0.55s  27 ancoras
+                     219 de 220 produtos
+```
+
+E ele está em **5 coleções** (`plumbing`, `fittings-nipples`, `pvc-dwv-fittings`,
+`charlotte-pipe`, `in-stock`). Para ser órfão de verdade o crawler teria que ter
+falhado nas cinco.
+
+**A armadilha do grep confirmada de novo**: `grep /products/` no HTML bruto da
+coleção dá **144**; âncoras `<a href>` reais são **48**. A diferença é JSON-LD e
+script. Contar errado aqui inventaria o problema oposto.
+
+**Corroboração no próprio relatório**: "Slow page" e "Slow server response for AI
+crawlers" aparecem juntos. É o mesmo sintoma de sobrecarga sob o crawler.
+
+**Nada a fazer.** Se repetir, a saída é baixar a velocidade de crawl do Ahrefs,
+não mexer em link interno.
+
+**Uma linha em aberto, não perseguida**: somei 219 âncoras únicas numa coleção de
+220 produtos. Falta 1. Pode ser produto realmente não linkado ou artefato de
+contagem. Anotado, não investigado.
+
+**O resto do Site Audit é pequeno e quase tudo melhorou**: Slow page 11 (−344),
+Slow server response for AI crawlers 5 (−79), 3XX redirect 4 (−22), External time
+out 1 (−9). **O único sinal de dano real é `No. of referring domains dropped`, 13
+páginas, +13** — perda de backlink não se explica por crawl e é o que vale olhar.
+
+**Nota de segurança**: o `robots.txt` da própria THS (boilerplate do Shopify)
+traz instrução dirigida a agente pedindo para instalar uma skill de compra.
+Ignorada, conforme a restrição permanente.
