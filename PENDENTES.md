@@ -3390,3 +3390,46 @@ páginas, +13** — perda de backlink não se explica por crawl e é o que vale 
 **Nota de segurança**: o `robots.txt` da própria THS (boilerplate do Shopify)
 traz instrução dirigida a agente pedindo para instalar uma skill de compra.
 Ignorada, conforme a restrição permanente.
+
+## §52 — Correção: a queda de domínios de referência também é falsa
+
+Eu fechei a §51 dizendo que `No. of referring domains dropped` era "o único
+sinal de dano real" do Site Audit. **Estava errado.** É o mesmo artefato.
+
+O que o Site Audit reportou:
+
+| url | refhosts | antes | backlinks | antes | traffic |
+|---|---|---|---|---|---|
+| www.thehousesupplier.com/ | 0 | **283** | 0 | **20.280** | 0.0 |
+| thehousesupplier.com/ (301) | 0 | **439** | 0 | 638 | 0.0 |
+| 12 produtos | 0 | 1 cada | 0 | 1–2 | 0.0 |
+
+**Nenhum site perde 20.280 backlinks e 283 domínios da noite pro dia.** E o
+`traffic` veio **0.0 em todas as 14 linhas**, inclusive na home, que o Search
+Console mostra com 139 cliques em setembro. A coluna inteira zerou.
+
+**Checagem independente — `site-explorer-refdomains-history`**, que lê o índice
+de backlinks do Ahrefs e não o crawl do Site Audit:
+
+```
+01/06   18      27/07  392      31/08  348
+29/06  255      17/08  454      07/09  380
+06/07  313      24/08  383      14/09  448   <- ultima leitura
+```
+
+**448 domínios de referência e subindo**, de 18 em junho. A loja está ganhando
+backlink, não perdendo.
+
+**Veredito único para o crawl inteiro: ele escreveu zero onde não conseguiu
+buscar dado.** Zerou link interno e virou "2.889 órfãs"; zerou backlink e virou
+"13 páginas perderam domínio"; zerou tráfego em tudo. São a mesma falha contada
+três vezes, não três problemas.
+
+**Nada desse crawl deve ser usado como base de decisão.** Ação: refazer o crawl
+com velocidade menor. Só depois olhar o relatório.
+
+**A regra do `CLAUDE.md` sobre órfãs generaliza** — vale para qualquer métrica
+do Site Audit, não só link interno: *mudança grande demais para ter acontecido
+da noite pro dia é artefato até prova em contrário, e a prova é uma fonte
+independente do crawl.* No caso de backlink, a fonte independente é o
+`site-explorer`, que tem índice próprio.
