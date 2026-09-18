@@ -3540,3 +3540,60 @@ esforço dimensional é inútil.
 
 **O teste de $0 que resolve: um checkout real do `TOTO-THU441.10J-A` para a
 Califórnia.** Enquanto não for feito, não vale investir mais em dimensão.
+
+## §55 — Planilhas da Mueller: sem dimensão, mas 406 pesos errados achados
+
+As três planilhas `.xcl` da Mueller (`malleable-iron-pipe-fittings`,
+`welded-steel-nipples-assortments`, `steel-pre-cut-pipe`) são **xlsx de verdade**,
+1.097 part numbers, 1.096 com peso, 1.095 com UPC. Colunas:
+
+```
+part# | prtgrp | description | inner qty | mstr qty | skid qty | upc code | piece wgt. | list price
+```
+
+**Dimensão não tem.** Confirma a §54: nem PDF, nem planilha, nem concorrente.
+
+**Mas o crosswalk existe pelo título.** `Mueller Streamline 520-200 1/8" Black
+Iron Elbow - 45°` → part# `520-200`. **599 dos 1.476 casaram (41%).**
+
+**Correção de um erro meu de amostragem.** Eu olhei as 10 primeiras linhas — todas
+de 1/8" — e afirmei que a loja estava "sempre 4 a 17× mais pesada". Falso. Nos
+599: **mediana da razão = 1,02**, e 132 são mais *leves* na loja. Mesmo erro de
+método do catálogo de 2011: conclusão de amostra não representativa.
+
+**193 batem quase exato**, e isso é a validação que faltava: `piece wgt.` do
+fabricante é a **mesma grandeza** que a loja usa, não peça nua contra embalada.
+
+### Os dois grupos
+
+**48 SUBestimados** (`mueller_peso_SUBestimado_IMPORTAR.csv`) — a THS paga frete
+que não cobrou. Direção segura de corrigir.
+
+| part# | produto | loja | real |
+|---|---|---|---|
+| 564-480HC | 3/4" x 48" Galvanized Nipple | 0,12 lb | 4,52 |
+| 570-120 | 3" x 12" Galvanized Nipple | 0,51 | 7,59 |
+| 570-060 | 3" x 6" Galvanized Nipple | 0,51 | 3,79 |
+| 571-040 | 4" x 4" Galvanized Nipple | 0,51 | 3,60 |
+| 569-060 | 2-1/2" x 6" Galvanized Nipple | 0,51 | 2,90 |
+
+**`0,51` repetido em cinco produtos de tamanhos diferentes é placeholder**, igual
+ao `2.19` dos Navien e dos trim kits.
+
+**358 SOBREestimados** (`mueller_peso_SOBREestimado_REVISAR.csv`) — o cliente
+paga frete a mais. Corrigir **baixa** peso, que é a direção de risco, então vai
+como REVISAR e não como IMPORTAR.
+
+| part# | produto | loja | real | razão |
+|---|---|---|---|---|
+| 521-910 | 1/4" x 1/8" Black Iron Bushing | 0,45 | 0,02 | 20,4x |
+| 521-800 | 1/8" Black Iron Plug | 0,32 | 0,02 | 16,8x |
+| 521-801 | 1/4" Black Iron Plug | 0,32 | 0,03 | 9,7x |
+
+Aqui `0,32` e `0,45` também se repetem. Mesmo defeito, outros valores.
+
+Rollback em `mueller_peso_rollback.csv`, com o peso atual dos 406.
+
+**Os 877 que não casaram** são handles sem part number no título
+(`1/2" x 54" - Black Iron Nipple`) ou part numbers ausentes da planilha. Não
+investigados.
