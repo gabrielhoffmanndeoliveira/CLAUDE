@@ -2890,3 +2890,55 @@ A verificação confirma perfil novo **e** `free-ship-eligible` ainda no
 `ROHL-RC4019WH`. Enquanto `rohl_rc4019_tag_remover_IMPORTAR.csv` não for
 importado, ele fica no estado dos 343 divergentes: perfil dizendo frete, tag
 dizendo grátis, num item de $5.526 e 176 lb. Os outros 4 não têm a tag.
+
+---
+
+## §42 — Intuitive Shipping ligado no THS Standard (feito e verificado)
+
+Adicionada method definition `Intuitive Shipping` (carrier
+`gid://shopify/DeliveryCarrierService/76406325351`, `percentageOfRateFee: 0`)
+nas duas zonas do perfil `94652268647`, espelhando como já estava no General.
+
+```
+US Continental  zona 350697390183  ->  DeliveryMethodDefinition/716677054567
+US Outside      zona 350798413927  ->  DeliveryMethodDefinition/716677087335
+```
+
+Verificado por leitura independente: cada zona agora tem **duas** tarifas,
+`ups_shipping` 65% (as originais, intactas) e `Intuitive Shipping` 0%.
+
+**Para reverter:** `deliveryProfileUpdate` no perfil `94652268647` com
+`methodDefinitionsToDelete: ["gid://shopify/DeliveryMethodDefinition/716677054567",
+"gid://shopify/DeliveryMethodDefinition/716677087335"]`. Estado anterior em
+`intuitive_ths_standard_rollback.md`. **Não apagar** `710220677223` nem
+`710204719207` — são as tarifas UPS originais.
+
+### O que muda no checkout
+
+Antes, uma opção por zona: UPS + 65%. Agora, duas, e o cliente escolhe —
+normalmente a mais barata. É a correção da reclamação do Marchin e, ao mesmo
+tempo, menos receita de frete por pedido. **Quanto, não dá para prever pela
+Admin API** — a tarifa do Intuitive está na configuração do app.
+
+### Por que isso valia mais que os casos individuais
+
+O Intuitive é o app que lê os metafields `product.length/width/height`. Enquanto
+ele existia só no General, os produtos do THS Standard cotavam **UPS + 65% cru**,
+sem passar por ele — ou seja, o trabalho de dimensão (os 254 importados, os 3.035
+com dimensão completa) não era aplicado nesse perfil. Agora é.
+
+### VERIFICAR NA LOJA — isto não fecha pela API
+
+Só um checkout real mostra o que o Intuitive cota. **Teste o
+`TOTO-THU441.10J-A` para a Califórnia**: era $43,68 numa opção só. Se agora
+aparecerem duas e a segunda for sensata, o mecanismo está correto e a resposta ao
+Marchin muda. Se o Intuitive não devolver tarifa nenhuma, a method definition
+está ligada mas o app não está configurado para esse perfil — e aí é dentro do
+app, não na API.
+
+### Nota sobre contagem
+
+`productVariantsCountV2` devolveu **500** para este perfil, contra os **5.633**
+que contei lendo `deliveryProfile` de cada variante na bulk operation. Vale a
+regra que já está no CLAUDE.md: **contador de variante do perfil não é
+confiável**; a contagem boa vem de ler variante a variante.
