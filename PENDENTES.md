@@ -2766,3 +2766,94 @@ sustentam sozinhos (run rate mantido, sem crescimento).
 5. **Google Fonts não carrega neste ambiente** (`ERR_CERT_AUTHORITY_INVALID` no
    proxy). Num PDF isso é dependência de rede sem motivo — removi e usei só a
    pilha local. O painel HTML continua com a fonte, que carrega no navegador.
+
+---
+
+## §40 — Perfis de entrega: o que a pergunta do cliente destravou
+
+Origem: e-mail do Marchin Ohashi (18/09) perguntando por que o frete de uma peça
+de vaso de **$23,43** sai a **$43,68** para a Califórnia.
+
+### Antes de tudo: o MCP estava apontando para a loja errada
+
+Ao reconectar no meio da sessão, o MCP do Shopify voltou em
+**thefirealarmsupplier.com**. Todas as consultas que fiz nesse intervalo
+voltaram vazias e **nenhuma conclusão delas valia**. Peguei porque `null` por ID
+**e** por handle **e** `vendor:TOTO` vazio não fecham com o cliente vendo o
+produto no ar. **Regra: quando a leitura contradiz um fato observado, conferir a
+loja conectada antes de concluir qualquer coisa sobre o dado.**
+
+O `switch-shop` revoga o token e a reautorização exige OAuth interativo — em
+sessão não-interativa isso deixa **sem acesso nenhum**. Não é reversível daqui.
+
+### As três configurações, lidas da API
+
+```
+General profile        · Free shipping over $99    ($0 acima de $99)
+                       · ups_shipping               UPS + 65%
+                       · Intuitive Shipping         carrier service, 0% de fee
+
+THS Standard           · ups_shipping               UPS + 65%      <- so isso
+Freight & Oversize     · tabela fixa por faixa de peso e banda A/B/C/Outside
+```
+
+### Duas correções minhas
+
+1. **Chamei de "sobrecobrança" e não é.** Abaixo de $99 o General cobra
+   **exatamente o mesmo** que o THS Standard: UPS + 65%. A única diferença é a
+   linha de frete grátis acima de $99. Os 1.212 não pagam tarifa inflada — estão
+   **fora da oferta de frete grátis**. O custo é conversão no limiar, não tarifa.
+2. **Rotulei o `DXVF-D29030CS416-415` como "λ reprova".** O λ dele é 0,0168 e
+   **passa**. Ele foi marcado pela regra de **volume > 10 ft³** (10,07), que é o
+   degrau do Large Package Surcharge — outro critério, outra conversa.
+
+### O achado maior
+
+**O Intuitive Shipping só existe no General profile.** Os **5.633 produtos do
+THS Standard** nunca passam por ele e recebem UPS + 65% cru. É o app que lê os
+metafields `product.length/width/height` — ou seja, **o trabalho de dimensão não
+está sendo aplicado em mais de um terço do catálogo.**
+
+### Distribuição e o que é e não é defeito
+
+```
+8.384 General · 5.633 THS Standard · 866 Freight
+325 de 588 categorias têm produtos em mais de um perfil (12.674 produtos)
+2.680 estão no perfil minoritário da própria categoria
+  2.033 λ CONCORDA com o perfil atual  ->  divisão legítima, 76%
+    629 λ discorda
+```
+
+Dos 629, **625 estão num perfil mais restritivo do que λ pede** e só 4 na direção
+oposta. Minoria na categoria é **sinal, não veredito** — três quartos dos casos
+não são erro.
+
+### Carrinho misto cobra dois fretes
+
+Os dois perfis usam o mesmo `ups_shipping`, e o Shopify soma a tarifa **por
+perfil**. Carrinho abaixo de $99 com um item de cada leva **duas cotações UPS**.
+É o caso do Marchin: `TOTO-THU441.10J-A` está em THS Standard sem a tag;
+`TOTO-9BU024E` está em General **com** `free-ship-eligible`. Mesma categoria,
+mesmo fornecedor, mesma caixa. Toilet Repair Parts divide 65 General / 64 Standard.
+
+### O mais grave: 5 itens que a UPS não aceita
+
+| SKU | preço | peso | perfil |
+|---|---|---|---|
+| IBCT-IWT119-MAX | $5.277,77 | 290 lb | THS Standard |
+| AMST-7741.000.020 | $1.192,56 | 183 lb | THS Standard |
+| ROHL-RC4019WH | $5.526,30 | 176 lb | THS Standard |
+| ROHL-RC3318WH | $2.864,55 | 173 lb | THS Standard |
+| ROHL-RC3618WH | $3.205,80 | 154 lb | THS Standard |
+
+Passam do **teto de 150 lb por volume da UPS Ground**. Não é cotação cara — é
+cotação que não embarca. Cliente fecha, paga, e o pedido trava.
+
+### Arquivos
+
+`perfil_ups_acima_150lb.csv` (5) · `perfil_lambda_discorda_REVISAR.csv` (629) ·
+`perfil_fora_do_free_ship_REVISAR.csv` (1.212).
+
+**Cobertura:** a checagem de volume > 10 ft³ só vale para os **3.035 produtos com
+dimensão completa** — 20% do catálogo. Os outros 11.848 não dá para avaliar por
+esse critério.
