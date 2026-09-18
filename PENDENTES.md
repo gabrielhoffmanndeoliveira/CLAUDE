@@ -3597,3 +3597,66 @@ Rollback em `mueller_peso_rollback.csv`, com o peso atual dos 406.
 **Os 877 que não casaram** são handles sem part number no título
 (`1/2" x 54" - Black Iron Nipple`) ou part numbers ausentes da planilha. Não
 investigados.
+
+## §56 — Mueller completo: 4.194 pesos de fabricante, 1.397 casados, 648 errados
+
+Continuação da §55, depois de baixar **todas** as planilhas da Mueller, não só três.
+
+**O que estava travando os 877 que não casavam**: as três primeiras planilhas
+eram ferro maleável, nipple e tubo pré-cortado. Os 877 restantes eram cobre —
+`COPF` 444, `CPPF` 179, `CFCB` 98, `COPT` 83, `CRBN` 38 — e cada linha tem lista
+própria.
+
+**E um defeito meu de parser**: cada planilha nomeia a coluna de peso diferente
+(`Ea. Wgt.` no cobre, `Pc Wt` no tubo, `Piece Wgt.` no press, `piece wgt.` no
+ferro). Meu parser procurava um nome só e **descartava o resto em silêncio** —
+por isso 2.989 part numbers entraram com só 689 pesos. Com normalização de
+cabeçalho:
+
+```
+cast.xlsx     +2.161   conexao de cobre (wrot/cast/lead-free/HVACR = mesmo arquivo)
+malleable       +608   ferro maleavel
+nipples         +427   nipple de aco soldado
+prs             +381   cobre press
+carbon          +308   carbon steel press
+tube            +248   tubo de cobre
+precut           +61   tubo pre-cortado
+              -------
+                4.194 part numbers com peso
+```
+
+**Casamento subiu de 41% para 95%** — 1.397 dos 1.476 Mueller ativos, por
+part number no título ou por UPC no barcode.
+
+### Resultado
+
+**Mediana da razão loja/fabricante = 1,00.** A fonte está validada.
+
+| | |
+|---|---|
+| batem (±8%) | **519** |
+| SUBestimados (razão < 0,8) | **160** — a THS paga frete que não cobrou |
+| SOBREestimados (razão > 1,08) | **488** — o cliente paga frete a mais |
+
+**Os piores subestimados:**
+
+| part# | produto | loja | real | razão |
+|---|---|---|---|---|
+| 564-480HC | 3/4" x 48" Galvanized Nipple | 0,12 lb | 4,52 | 0,03x |
+| W 40505 | 6" x 6" x 2" Copper Tee | 0,39 | 9,54 | 0,04x |
+| 570-120 | 3" x 12" Galvanized Nipple | 0,51 | 7,59 | 0,07x |
+| W 10107 | 4" Copper Sweat Fitting | 0,39 | 2,10 | 0,19x |
+
+**Placeholders confirmados por repetição** em produtos de tamanhos diferentes:
+`0,05` em 25 produtos, `0,95` em 25, `0,02` em 15, `0,32` em 14, `0,35` em 12,
+`0,51` em 11. Mesmo padrão do `2.19` dos Navien.
+
+### Arquivos
+
+- `mueller_peso_SUBestimado_IMPORTAR.csv` (160) — direção segura, sobe peso
+- `mueller_peso_SUBestimado_DETALHE.csv` — com part number, razão e título
+- `mueller_peso_SOBREestimado_REVISAR.csv` (488) — **não importar sem conferir**,
+  porque baixa peso e peso menor faz o λ aprovar frete grátis
+- `mueller_peso_rollback.csv` — peso atual dos 648
+
+**79 continuam sem casar.** Não investigados.
