@@ -2857,3 +2857,36 @@ cotação que não embarca. Cliente fecha, paga, e o pedido trava.
 **Cobertura:** a checagem de volume > 10 ft³ só vale para os **3.035 produtos com
 dimensão completa** — 20% do catálogo. Os outros 11.848 não dá para avaliar por
 esse critério.
+
+---
+
+## §41 — Os 5 acima do teto da UPS movidos por API (feito e verificado)
+
+`THS Standard` → `THS Freight & Oversize` (94651809895). Verificado por leitura
+independente da relação `ProductVariant.deliveryProfile`.
+
+| SKU | preço | peso | perfil |
+|---|---|---|---|
+| IBCT-IWT119-MAX | $5.277,77 | 290 lb | verificado |
+| AMST-7741.000.020 | $1.192,56 | 183 lb | verificado |
+| ROHL-RC4019WH | $5.526,30 | 176 lb | verificado |
+| ROHL-RC3318WH | $2.864,55 | 173 lb | verificado |
+| ROHL-RC3618WH | $3.205,80 | 154 lb | verificado |
+
+IDs buscados por SKU imediatamente antes da mutação. Rollback em
+`perfil_5ups_rollback.csv`, comitado antes.
+
+### Caso que vale guardar: λ passa e mesmo assim está errado
+
+`ROHL-RC4019WH` é pia fireclay de **176 lb a $5.526** com
+`free-ship-eligible`. **λ = 0,0319 e passa** — o preço alto compra folga. Mas
+176 lb **não embarca em UPS Ground**, com λ bonito ou não. É a demonstração
+limpa da regra: **acima do teto de 150 lb, λ não é a régua.** Primeiro o limite
+físico, depois a economia.
+
+### PENDENTE — a tag ainda está lá
+
+A verificação confirma perfil novo **e** `free-ship-eligible` ainda no
+`ROHL-RC4019WH`. Enquanto `rohl_rc4019_tag_remover_IMPORTAR.csv` não for
+importado, ele fica no estado dos 343 divergentes: perfil dizendo frete, tag
+dizendo grátis, num item de $5.526 e 176 lb. Os outros 4 não têm a tag.
