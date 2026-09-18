@@ -3952,3 +3952,81 @@ linha duas vezes aqui. Validei os dois arquivos contra o dump antes de usar
 (handle, id, titulo_atual, e a invariante especifica de cada frente). Isso e o
 que torna agente aceitavel neste repositorio: **a saida vai disco a disco e eu
 confiro contra a fonte, nao contra o relatorio.**
+
+## §63 — "74 pesos superestimados": na verdade 25, e o enquadramento estava errado
+
+**Peso registrado maior que o do fabricante NAO e defeito por si so.** O
+registrado e peso de remessa, o metafield e peso de produto — a diferenca e a
+embalagem. Dos 74, **44 tem razao <= 1,3x**, que e exatamente isso. Corrigir
+esses seria *subcotar* frete.
+
+### A folga de embalagem e multiplicativa, nao aditiva
+
+Medida nos 44 casos legitimos:
+
+```
+razao  mediana 1,112   p25 1,087   p75 1,163
+itens  <5 lb  (n=16): razao mediana 1,10   delta mediano 0,13 lb
+itens >=5 lb  (n=28): razao mediana 1,14   delta mediano 4,35 lb
+```
+
+A **razao** e estavel nos dois grupos; o **delta em libras** varia 33x. Entao a
+folga se aplica como multiplicador, nunca como "+N lb". Adotado **x1,15** (o
+p75, conservador a favor da loja).
+
+### Contagem alta nao prova placeholder — pico sobre a vizinhanca prova
+
+Primeiro criterio meu ("aparece em >=20 produtos de >=5 fornecedores") acusou
+`1,00 lb` (419 produtos) como placeholder. **Errado**: muita peca pequena pesa
+1 lb de verdade. O teste que discrimina e o **pico contra a vizinhanca** —
+quantos produtos tem peso dentro de +-0,5 lb do valor:
+
+```
+ 2,19 lb   259 produtos / 25 vendors   pico  43x   <- placeholder
+ 7,00 lb   165 produtos / 21 vendors   pico 165x   <- placeholder
+ 0,60 lb   293 produtos / 31 vendors   pico   7x   <- placeholder
+ 1,09 lb    15 produtos /  5 vendors   pico 0,9x   <- peso proprio
+```
+
+Valor **nao redondo** com repeticao alta e impossivel por acaso. Valor redondo
+precisa de pico grande para valer como prova.
+
+**Limiar arbitrario esconde sinal**: com `n>=20` o valor `45,00 lb` passou como
+"sem sinal". Mas sao 18 produtos em 45,00 e **zero** entre 44,5 e 45,5, em 5
+fornecedores diferentes — e pico, nao peso de caixa de familia.
+
+### O filtro final e de dinheiro
+
+Peso superestimado so custa se (a) tira o item do frete gratis ou (b) infla a
+cotacao UPS que o cliente paga. **Dos 25 corrigidos, 14 ja tem
+`free-ship-eligible`** — nesses o peso registrado nao muda um centavo do que o
+cliente paga; o custo real da loja depende do peso fisico, nao do cadastrado.
+O impacto concentra-se nos 11 sem a tag.
+
+### O caso grande
+
+`RHEE-ELDS30-FTB-208`, $3.697,68, registrado em **350,00 lb** contra 105 no
+fabricante. Os 5 produtos de exatamente 350,00 lb no catalogo sao todos Rheem,
+mas os outros quatro sao comerciais pesados de **85 e 98 galoes** ($8.163 a
+$10.825) que pesam 350 lb mesmo. O de **30 galoes** herdou o peso da familia.
+Reprovou no teste de pico (1 so fornecedor) e mesmo assim e defeito claro — por
+isso o teste de pico entra como suficiente, nunca como necessario.
+Novo peso **120,75 lb**: volta a caber no teto de 150 lb da UPS Ground, ou seja
+sai de Freight e volta a poder ser cotado por UPS.
+
+### Arquivos
+
+`peso_superestimado_IMPORTAR.csv` (25), `_rollback`, `_DETALHE` (com lambda antes
+e depois e a coluna `vira_elegivel`).
+
+**7 viram elegiveis a frete gratis pelo lambda depois da correcao** — mas isso
+**nao acontece sozinho**, porque elegibilidade mora na tag, nao no peso. Decidir
+a tag e passo separado.
+
+### Nao corrigidos, e por que
+
+- **44 com razao <=1,3x**: embalagem. Nao mexer.
+- **5 com razao >1,3x mas peso unico no catalogo** (`BLAN-441398` 35,5 vs 13,0,
+  `GERB-28-990` 56,3 vs 34,1, `BLAN-401927`, `BLAN-440213`, `GERB-D481027BN`):
+  peso proprio, sem repeticao. Pia Blanco vai em caixa grande; 2,7x de razao
+  pode ser caixa de verdade. Sem segunda fonte nao da para decidir.
