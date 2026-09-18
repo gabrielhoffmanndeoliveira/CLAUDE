@@ -3109,3 +3109,51 @@ de novo. Preço também está **$0,00**. Os dois defeitos seguem abertos.
 registrado absurdo — `MUST-14K` com **1 lb** para uma cuba 23×25×33, e
 `ELKA-LZSTL8WSSK` com **2 lb** para um bebedouro refrigerado. Entra na fila dos
 pesos sub-registrados.
+
+## §46 — #D5 fechado: fatura enviada, imposto explicado, cadastro corrigido
+
+**Fatura enviada** em 18/09/2026 05:05 UTC, status `INVOICE_SENT`, total **$61,88**.
+Link (público — só para o Marchin, sem Cc):
+`https://www.thehousesupplier.com/65122533479/invoices/0411227f15a9a660b93d175ba205eeba`
+
+| | |
+|---|---|
+| TOTO-THU441.10J-A | $23,43 |
+| TOTO-9BU024E | $8,69 |
+| subtotal | $32,12 |
+| UPS Ground, uma caixa | $26,47 |
+| imposto CA 10,25% | $3,29 |
+| **total** | **$61,88** |
+
+**O imposto $0,00 que eu tinha sinalizado não era defeito — eu estava errado.**
+Estava zerado porque o draft ainda não tinha endereço, e sem jurisdição o
+Shopify não calcula. Com Torrance preenchido abriram as 5 linhas:
+CA STATE 6,00% + LA COUNTY 0,25% + LA CO LOCAL SL 1,00% + LA COUNTY DISTRICT SP
+2,50% + CITY OF TORRANCE 0,50% = **10,25%**. $32,12 × 10,25% = $3,29, exato.
+Não havia nem falta de nexus nem configuração quebrada.
+
+**O frete não entra na base, e isso está certo**: na Califórnia entrega
+declarada em separado e cobrada ao custo real não é tributada. Por isso o
+imposto incide sobre $32,12 e não sobre $58,59.
+
+**Correção de cadastro.** A tela mostrava `Marchin Ohasi` no billing, mas o
+`billingAddress` do draft é `null` — o que aparece ali é o **endereço padrão do
+cliente**. O erro estava só lá:
+
+```
+customer  gid://shopify/Customer/9142938239079
+address   gid://shopify/MailingAddress/10419095535719
+  antes   lastName = "Ohasi"      <- rollback
+  depois  lastName = "Ohashi"
+```
+
+`customerAddressUpdate` com um campo. Verificado por releitura do
+`customer.defaultAddress`. O draft não foi afetado: segue `INVOICE_SENT`,
+$61,88, shipping `Marchin Ohashi / 4319 W 234th Place`. A etiqueta da UPS já
+estava correta antes — o erro só afetaria a próxima compra dele.
+
+**Nota interna do draft reescrita**: antes dizia "CONFERIR a tarifa real e
+preencher o endereco antes de enviar a fatura", as duas coisas já feitas. Agora
+registra endereço, base do imposto, total e data de envio.
+
+**Pendente**: o pagamento. Quando entrar, o draft vira order e sai o tracking.
