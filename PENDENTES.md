@@ -3862,3 +3862,93 @@ Por isso **nao se aplica maioria automatica**.
 - **`AT120B1028/U`**: `seo.description` orfa do tipo antigo, dizia "Honeywell
   Home thermostat accessories cross-reference to the Resideo catalog" num
   transformador. Corrigida.
+
+## §62 — Correcao de titulo: 483 titulos, 281 SEO, 267 alt, 2 descricoes
+
+Varredura do catalogo inteiro por defeito de titulo. Tres frentes, compostas num
+**unico CSV de titulo** — porque 12 produtos tinham mais de um defeito e arquivos
+separados se desfaziam entre si.
+
+### Frente 1 — mecanico (feito por mim)
+
+`&amp;` duplamente escapado (11), separador solto no fim (71), `(R)` em vez de
+`®` (17), espaco duplo, espaco antes de virgula, virgula colada.
+
+**O `&amp;` era defeito real, nao a normalizacao do Shopify.** Provado assim: o
+valor cru da API (bulk, JSON, sem escape HTML) traz literalmente `S&amp;DP`; o
+`<h1>` sai `S&amp;DP` e renderiza certo por acaso, porque `&amp;` em HTML vira
+`&`; mas o `og:title` sai `S&amp;amp;DP`, duplamente escapado. **Onde o valor e
+usado como texto puro — feed do Google Shopping, og:title, export — aparece o
+lixo.** Isso pesa porque o feed do Google e por onde entram as maiores orders.
+
+### Frente 2 — CAIXA ALTA (207, por agente)
+
+Title Case preservando sigla, marca e medida. Verificado por mim contra o dump:
+0 erro, e a afirmacao central do agente — "so muda caixa" — confere em
+comparacao case-insensitive.
+
+**Erro meu que o agente pegou**: eu tinha posto `OZ` e `LB` na lista de siglas a
+preservar. Unidade nao e sigla; o padrao americano e `2 oz.`, `1.2 lb.`.
+Corrigido na composicao.
+
+### Frente 3 — vendor repetido (394, por agente)
+
+**281 sao falso positivo do meu criterio** `count(vendor) > 1`. O criterio pega
+nome de linha: `GROHE BRUSHED NICKEL` e nome oficial de acabamento em 115 deles,
+mais `LegendPress`, `nVent CADDY`, `SharkBite Max`, `Flo by Moen`,
+`Sammys X-Press IT®`, `TACOGENIE`. Em `US Boiler` o `us` casou dentro de "Fuse".
+Sobraram **93 duplicacoes reais** (SharkBite 34, Mustee 33, tekmar 12) e
+**20 sufixos** (HeatLink 8, Viega 7).
+
+### Bug meu na composicao
+
+No unico produto que estava em caps **e** em vendor (`Sloan 3325151`), o
+fallback da minha funcao de composicao descartava a correcao de caixa e devolvia
+o titulo em CAIXA ALTA — porque o titulo sem o vendor nao e substring contigua do
+titulo original. Trocado por `difflib.SequenceMatcher`, que extrai o trecho
+deletado e o remove **sem depender da caixa**.
+
+### Conferencias rodadas no resultado final
+
+- 0 defeito remanescente (`&amp;`, `(R)`, espaco duplo, separador no fim).
+- 2 ainda em caixa alta, ambos legitimos (Jomar listando modelos `JF-100T/S`).
+- 0 perda real de part number. Os 14 que o teste acusou eram caixa em token
+  descritivo (`1/4HEX`→`1/4Hex`, `6-IN-1`→`6-in-1`, `9X12`→`9x12`).
+
+### Ordem de import
+
+1. `titulo_IMPORTAR.csv` (483)
+2. `titulo_seo_IMPORTAR.csv` (281)
+3. `titulo_alt_IMPORTAR.csv` (267 imagens em 202 produtos)
+4. `titulo_descricao_IMPORTAR.csv` (2)
+
+Rollback de cada um no repo.
+
+### Defeitos que o CSV NAO conserta — precisam de fonte
+
+- **~11 titulos truncados na origem**: Milwaukee Valve "Bronze Gate Valve,
+  Non-Rising Stem" (falta o resto), Taco `006e3LCe` termina em "fittings
+  needed/sold", Zoeller `912-0010` sem a tensao, Resideo `396021/U`.
+- **`Moen 8884 M-PRESS Moen 8881 Commercial Metering Faucet Chrome`** — dois
+  part numbers diferentes no mesmo titulo. Nao e redundancia de marca, e erro de
+  import.
+- ~12 Mustee truncados (`(60" x 36" x`), 6 SharkBite com campo de conexao vazio
+  `- ()`, 5 Viega com `Press Press` duplicado.
+- `Single Bowl SinksPolypropylene` / `SinksMolded` sem espaco (Mustee).
+- `IBC ... V10-Touchecreen` -> "Touchscreen".
+- `Sloan 3301151 A11 2 -BX` -> part number corrompido, provavelmente A1102A-BX.
+- `Sloan 3335149` -> o titulo inteiro e o codigo
+  `EAF-250-BAT-ISM-GR-0.5GPM-AER-IR-IQ-FCT`, sem descricao legivel.
+- Varios `seo.title` truncados no meio da frase (ex.: "Bosch 1 Ton Ductless
+  Mini-Split, Indoor Universal Wall"). Fora de escopo, nao tocado.
+- Tema publicado se chama "THS - colour + type (Claude 08/09)" — grafia
+  britanica num nome que eu criei. Interno, nao vai pro cliente.
+
+### Nota sobre agente
+
+Duas frentes de julgamento item a item rodaram em paralelo, com saida **direto
+para CSV em disco**, sem passar pela minha saida — que e o canal que ja apagou
+linha duas vezes aqui. Validei os dois arquivos contra o dump antes de usar
+(handle, id, titulo_atual, e a invariante especifica de cada frente). Isso e o
+que torna agente aceitavel neste repositorio: **a saida vai disco a disco e eu
+confiro contra a fonte, nao contra o relatorio.**
