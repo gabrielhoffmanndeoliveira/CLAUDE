@@ -57,6 +57,20 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   anterior, e comite.
 - **A coluna `Variant Shipping Profile` do Matrixify é ignorada nesta loja.**
   Mudança de perfil só sai por API.
+- **Texto longo vai por Matrixify, nunca por API.** Descrição, SEO e qualquer
+  HTML precisam passar **reescritos por mim** dentro da chamada — e em 10
+  descrições do bloco 4 eu apaguei uma linha inteira (`<li>UPC…</li>`), sem
+  `userErrors`, igual ao `<p<p>` do bloco 7. **A verificação byte a byte não
+  salva**: conferir exigiria ler da loja e reescrever para comparar, pelo mesmo
+  canal que produziu o erro. Nenhum canal se auto-verifica. O arquivo do
+  Matrixify vai do disco pro Shopify sem passar por mim.
+  **API é para valor curto e conferível por releitura**: peso, tag, perfil,
+  preço, ID, endereço. O critério não é quantidade de itens, é se a releitura
+  consegue provar que chegou certo.
+- **Descrição se confere por defeito estrutural, não por igualdade.** Procure
+  tag malformada, parágrafo falso em produto que não aceita aquela afirmação,
+  campo órfão, grafia britânica, nome próprio minusculizado. Foi assim que
+  saíram o `<p<p>`, o `colour` e o "type r bracket".
 
 ## Contexto que não pode se perder
 
