@@ -2984,3 +2984,85 @@ Estoque no momento da criação: THU441.10J-A com **2 unidades**, 9BU024E com 17
 O draft **não reserva estoque** (`reserveInventoryUntil` não foi usado).
 
 Tags: `cotacao-manual`, `frete-combinado`. Para desfazer: `draftOrderDelete`.
+
+---
+
+## §44 — Dimensões: o que dava para recuperar, e o que não dava
+
+Pedido original: preencher os 11.848 sem dimensão. **Não dá**, e a razão importa.
+
+### Por que 11.848 não era possível
+
+`custom.specifications` existe em 10.156 dos 11.848, mas **quase nenhuma chave é
+dimensão de caixa**:
+
+```
+5.616  Size              -> 1-1/2", 2", 3/4"  = medida de CONEXAO, nao caixa
+1.603  Length              931  Connection Size     150  Pipe Size
+  609  Height              390  Dimensions          145  Tank Diameter
+  367  Width               158  Vent Size            59  Inlet Size
+```
+
+**Se eu tivesse tratado `Size` como dimensão, teria escrito caixa errada em 5.616
+produtos** e o Intuitive passaria a cotar todos errado. É a armadilha central
+desta tarefa.
+
+### O arquivo do fornecedor também não resolve
+
+```
+com L/W/H preenchidos:    14
+so com "cube":         2.414
+sem nada / sem match:  9.420
+```
+
+E os 14 **não conferem**: `L × W × H ÷ 1728` não bate com `cube` em nenhum —
+porque `cube` ali é literalmente o produto das três medidas sem dividir
+(`0,09 × 8,25 × 9,38 = 6,96465`, idêntico ao campo). Mas há registros com
+`cube: 1,295` e L/W/H nulos, valor que só faz sentido em ft³. **A mesma coluna
+está em duas unidades.** Sem o fornecedor confirmar, não dá para usar.
+
+### O que foi gerado
+
+`dimensoes_consolidado_IMPORTAR.csv` — **517 produtos**.
+
+Consolida e **substitui** o `dimensoes_do_spec_IMPORTAR.csv` (254), que não deve
+mais ser importado: 229 dos 254 estão aqui dentro, e o antigo traz dimensão de
+produto **crua**, sem folga. Importar os dois deixaria metade do catálogo com uma
+regra e metade com outra.
+
+**Folga de embalagem: +2 in por eixo.** Dimensão de `custom.specifications` é do
+**produto**, não da caixa — uma pia de 33,5 × 22 × 9,87 vai num carton maior.
+Dimensão de produto subestima peso dimensional, o que **subcota frete**: erro na
+direção que custa dinheiro. É a lição da THS1008, onde o fornecedor declarou
+9,500 ft³ e a UPS mediu 10,111. A folga erra para o lado seguro.
+
+`dimensoes_consolidado_MEMORIA.csv` guarda produto, caixa, volume e peso
+dimensional de cada um, para auditar depois.
+
+```
+517 aprovados   fontes: 252 L/W/H · 240 Dimensions · 25 do CSV anterior
+peso dimensional gerado: mediana 3,1 lb · p90 68,8 · max 118,6
+```
+
+### A quarentena de 73 não é lixo
+
+**64 têm caixa acima de 10 ft³** — o degrau do Large Package Surcharge. Não é
+dado errado, é item que não devia ir de UPS. Em
+`dimensoes_acima_10ft3_REVISAR.csv`, com perfil atual:
+
+```
+51  ja em THS Freight & Oversize   (certo)
+11  em THS Standard                 <- candidatos a mover
+ 2  em General profile              <- candidatos a mover
+```
+
+**9 são dado ruim de verdade, e são todos Grohe** —
+`dimensoes_dado_suspeito_REVISAR.csv`. Valores como `270 × 68 × 5` e
+`264 × 160 × 401` são **milímetro rotulado como polegada**, o defeito que já
+estava anotado. O filtro de "acima de 120 in" pegou sozinho.
+
+### Ainda sem fonte: 11.283
+
+`fornecedor_pedido_dados_carton.md` tem o rascunho do pedido ao fornecedor: o que
+`cube` significa e em que unidade, e dimensão de carton por SKU. **É o único
+caminho que resolve os 11.283** — não existe no dado que temos.
