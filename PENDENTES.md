@@ -3485,3 +3485,58 @@ nem navegação. Anotado, sem ação.
 trouxerem peso e dimensão por part number, é dado estruturado para 613 produtos
 cujo título já carrega o part number — ou seja, o crosswalk que eu dizia não
 existir **existe, pelo título.**
+
+## §54 — Dimensão pela internet: caminho fechado, nos dois lados
+
+O Gabriel pediu para buscar as 11.301 dimensões faltantes na internet em vez de
+pedir ao fornecedor. Testei as duas fontes possíveis. **Nenhuma serve.**
+
+### Fabricante
+
+Mueller Streamline libera tudo (`Disallow:` vazio). Baixei o catálogo de atacado
+— 92 páginas, 481 tabelas de "Master Carton". A tabela é:
+
+```
+Item No.   Diameter   Each Wt.   Inner Qty.   Master Carton
+W 01207    1/8"       0.0355     100          1500
+```
+
+**Peso por peça e quantidade por caixa, sim. Dimensão, não.** Zero ocorrências
+de `L x W x H`, zero de cubagem, zero de "carton dim/size".
+
+### Concorrentes
+
+Dos 20 do rank tracker: **6 bloqueiam no `robots.txt`** (403/429), e vários que
+liberam `robots.txt` **bloqueiam o sitemap** (`acmetools`, `alpinehomeair`,
+`plumbersstock`, `qualitybath`). O sitemap do `ohiopowertool` tem 11.711 URLs
+que respondem **404** — está desatualizado.
+
+Peguei página de produto real e legível em 5 sites — `pexuniverse`,
+`bigrocksupply`, `roofdrainexpress`, `marathondrains`, `plumbingsupply` — num
+total de ~8 páginas. **Nenhuma publica peso nem dimensão de envio.**
+
+Faz sentido: distribuidor calcula frete no checkout a partir de dado interno.
+Expor dimensão de caixa não traz benefício nenhum para ele.
+
+**Limite honesto desta conclusão**: é amostra de ~8 páginas em 5 sites, não
+varredura. Algum site pode publicar. Mas o padrão é consistente e o custo de
+continuar procurando é alto.
+
+### O que restou de aproveitável
+
+**Os `.xcl` da Mueller.** A biblioteca deles tem `malleable-iron-pipe-fittings-xcl`,
+`welded-steel-nipples-assortments-xcl`, `steel-pre-cut-pipe-xcl` — **planilha,
+não PDF**. E os títulos da loja carregam o part number do fabricante
+(`Mueller Streamline 520-200 1/8" Black Iron Elbow - 45°`), então **existe
+crosswalk pelo título**. Se as planilhas trouxerem dimensão, resolve os ~863
+Mueller reais. Não testei ainda.
+
+### E o que continua travando tudo
+
+**Nunca foi verificado que a falta de dimensão causa a cotação item a item.**
+O `TOTO-THU441.10J-A` do Marchin **tinha** dimensão e mesmo assim o checkout
+cotou $43,68 como dois pacotes. Se a causa for configuração do Intuitive, todo
+esforço dimensional é inútil.
+
+**O teste de $0 que resolve: um checkout real do `TOTO-THU441.10J-A` para a
+Califórnia.** Enquanto não for feito, não vale investir mais em dimensão.
