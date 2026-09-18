@@ -1,0 +1,25 @@
+/* ---------------------------------------------------------------
+   CORREÇÃO: grade de coleção mostrando 3 colunas em vez de 4.
+
+   O CSS customizado desta loja põe gap:15px em .collection .product-list
+   e tenta compensar a largura — mas mira classes que o tema NÃO gera:
+       .1/4--desk           (o tema gera  .1/4--lap-and-up)
+       .1/3--tablet-and-up  (o tema gera  .1/3--tablet)
+   Sem o desconto do gap, 4 x 25% + 3 x 15px passa de 100% e o quarto
+   card quebra pra linha de baixo.
+
+   COMO APLICAR: Editar código -> assets/theme.css -> localizar as duas
+   regras erradas e substituir por estas.
+   --------------------------------------------------------------- */
+
+/* 4 por linha a partir de 1000px — mesmo breakpoint do tema.
+   gap 15px x 3 vãos = 45px, dividido por 4 cards = 11.25px cada. */
+@media screen and (min-width: 1000px) {
+  .collection .product-list .\31\/4--lap-and-up { width: calc(25% - 11.25px); }
+}
+
+/* 3 por linha entre 641px e 999px.
+   gap 15px x 2 vãos = 30px, dividido por 3 cards = 10px cada. */
+@media screen and (min-width: 641px) and (max-width: 999px) {
+  .collection .product-list .\31\/3--tablet { width: calc(33.3333% - 10px); }
+}
