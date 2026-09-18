@@ -60,17 +60,26 @@ resposta parcial agora a resposta completa daqui a dez minutos.
 - **Texto longo vai por Matrixify, nunca por API.** Descrição, SEO e qualquer
   HTML precisam passar **reescritos por mim** dentro da chamada — e em 10
   descrições do bloco 4 eu apaguei uma linha inteira (`<li>UPC…</li>`), sem
-  `userErrors`, igual ao `<p<p>` do bloco 7. **A verificação byte a byte não
-  salva**: conferir exigiria ler da loja e reescrever para comparar, pelo mesmo
-  canal que produziu o erro. Nenhum canal se auto-verifica. O arquivo do
-  Matrixify vai do disco pro Shopify sem passar por mim.
+  `userErrors`, igual ao `<p<p>` do bloco 7. O arquivo do Matrixify vai do disco
+  pro Shopify sem passar por mim.
   **API é para valor curto e conferível por releitura**: peso, tag, perfil,
   preço, ID, endereço. O critério não é quantidade de itens, é se a releitura
   consegue provar que chegou certo.
-- **Descrição se confere por defeito estrutural, não por igualdade.** Procure
-  tag malformada, parágrafo falso em produto que não aceita aquela afirmação,
-  campo órfão, grafia britânica, nome próprio minusculizado. Foi assim que
-  saíram o `<p<p>`, o `colour` e o "type r bracket".
+- **Para CONFERIR texto, use `bulkOperationRunQuery` e baixe o JSONL com
+  `curl`.** O conteúdo vai da loja pro disco sem passar por mim, e aí a
+  comparação byte a byte contra o CSV é exata — 607 descrições Resideo saíram
+  em uma chamada. **Isso vale só para leitura**: escrever continua sendo
+  Matrixify. Ler por MCP e reescrever para comparar não prova nada, porque usa
+  o mesmo canal que produziu o erro.
+- **Normalizações do Shopify que NÃO são defeito** ao comparar: `&` vira
+  `&amp;`, quebra de linha inserida em volta de `<li>` e `</ul>`, e
+  **NO-BREAK SPACE (U+00A0) vira espaço comum** — este apareceu 38 vezes antes
+  de `°F` no bloco 7 e fez 9 descrições parecerem divergentes sendo idênticas.
+- **Descrição também se confere por defeito estrutural.** Tag malformada,
+  parágrafo falso em produto que não aceita aquela afirmação, campo órfão,
+  grafia britânica, nome próprio minusculizado, e `None` de Python vazado numa
+  linha de spec. Foi assim que saíram o `<p<p>`, o `colour`, o "type r bracket"
+  e o `Wiring: None`.
 
 ## Contexto que não pode se perder
 

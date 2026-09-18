@@ -3269,3 +3269,56 @@ corrigido. Reimportar o CSV inteiro por cima é inofensivo: `UPDATE` em
 **Verificação das descrições daqui para frente**: amostra lida da loja
 procurando defeito estrutural — tag malformada, campo órfão, parágrafo falso,
 grafia britânica — em vez de igualdade byte a byte, que meu canal não sustenta.
+
+## §50 — Varredura das 607 descrições Resideo por bulk operation
+
+Feita por `bulkOperationRunQuery` + `curl` do JSONL para o disco: **o conteúdo
+da loja nunca passou pelo canal da conversa**, então a comparação byte a byte
+contra os CSVs é exata. 607 produtos, 1,6 MB, uma chamada.
+
+**Isso corrige o que eu escrevi em §49.** Eu disse que a verificação byte a byte
+"não salva porque usaria o mesmo canal". Está certo para **leitura via MCP**;
+está **errado para bulk**. A regra no `CLAUDE.md` foi ajustada: escrever texto
+longo continua sendo Matrixify, mas **conferir é bulk + curl**.
+
+**Estrutura — limpo nas 607:**
+zero tag malformada, zero tag desbalanceada, zero grafia britânica, zero
+descrição vazia, zero elemento vazio, zero SEO órfão.
+
+**Byte a byte — 467 iguais, 19 diferentes:**
+
+| bloco | iguais | diferem |
+|---|---|---|
+| 2 | 68 | 0 |
+| 3 | 36 | 0 |
+| 4 | 67 | **10** |
+| 5 | 74 | 0 |
+| 6 | 65 | 0 |
+| 7 | 44 | **9** |
+| 8 | 30 | 0 |
+| 9 | 83 | 0 |
+
+**Os 10 do bloco 4 são os que escrevi por API** (§49) — confirma que o reimport
+do Matrixify ainda não rodou. Quando rodar, ficam idênticos.
+
+**Os 9 do bloco 7 NÃO são defeito.** Mesmo comprimento, um único caractere
+diferente: **U+00A0 NO-BREAK SPACE no CSV virou U+0020 SPACE na loja**, 38 vezes,
+todas antes de `°F`. Escrevi espaço não-separável para o número não desgrudar da
+unidade na quebra; o Shopify normaliza ao salvar. Conteúdo idêntico. Entrou na
+lista de normalizações conhecidas no `CLAUDE.md`.
+
+**Defeitos reais encontrados: 9.** Em `resideo_npt_none_IMPORTAR.csv`, rollback
+em `resideo_npt_none_rollback.csv`.
+
+- **8 com `npt` minúsculo** onde devia ser `NPT`: quatro SuperVent air
+  eliminators (`female npt connection`) e quatro válvulas VC
+  (`Connection type: Female npt`). É o defeito do `.lower()` sobrevivendo em
+  bloco anterior ao helper `low()`.
+- **1 com `None` de Python vazado**: `10-in-truezone-bypass-damper` mostrava
+  `Wiring: None` na lista de specs. O damper é mecânico e de fato não tem
+  fiação, então lia quase certo por acidente — mas é vazamento de código. Linha
+  removida.
+
+**Falso positivo que vale registrar**: minha varredura acusou 72 ocorrências de
+`psi` minúsculo como sigla minusculizada. **Não é defeito** — em inglês técnico
+americano `psi` é minúsculo mesmo. O regex estava largo demais.
