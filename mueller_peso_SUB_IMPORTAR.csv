@@ -1,5 +1,4 @@
 Handle,Command,Variant Command,Variant SKU,Variant Weight,Variant Weight Unit
-3-4-x-48-galvanized-nipple,UPDATE,UPDATE,GAPN-075-48,4.52,lb
 6-x-6-x-2-copper-sweat-fittings-tee-c-x-c-x-c,UPDATE,UPDATE,COPF-600.200-TEE-C,9.536,lb
 3-x-12-galvanized-nipple,UPDATE,UPDATE,GAPN-300-12,7.586,lb
 3-x-6-galvanized-nipple,UPDATE,UPDATE,GAPN-300-6,3.792,lb
@@ -35,7 +34,6 @@ Handle,Command,Variant Command,Variant SKU,Variant Weight,Variant Weight Unit
 1-2-x-2-black-iron-nipple,UPDATE,UPDATE,BLPN-050-2,0.143,lb
 1-2-copper-fittings-cleaned-bagged-45-degree-elbow-c-x-c,UPDATE,UPDATE,CFCB-050-45EL,0.036,lb
 5-8-copper-fittings-cleaned-bagged-90-degree-street-elbow-ftg-x-c,UPDATE,UPDATE,CFCB-058-ST90,0.09,lb
-1-2-x-1-4-copper-sweat-fittings-flush-bushing-to-fpt-ftg-x-fpt,UPDATE,UPDATE,COPF-050.025-FLBF-C,0.036,lb
 1-x-1-2-x-1-black-iron-tee,UPDATE,UPDATE,BLIF-100.050.100-TEE,0.753,lb
 1-2-copper-fittings-cleaned-bagged-45-degree-street-elbow-ftg-x-c,UPDATE,UPDATE,CFCB-050-ST45,0.035,lb
 1-1-2-copper-fittings-dwv-22-1-2-degree-elbow-c-x-c,UPDATE,UPDATE,COPF-DWV-150-22EL-C,0.265,lb
@@ -96,7 +94,6 @@ Handle,Command,Variant Command,Variant SKU,Variant Weight,Variant Weight Unit
 1-1-2-carbon-steel-press-fittings-gas-90-degree-elbow-p-x-p,UPDATE,UPDATE,CRBN-150-90EL-G,1.322,lb
 1-x-3-4-x-3-4-copper-fittings-cleaned-bagged-tee-c-x-c-x-c,UPDATE,UPDATE,CFCB-100.075.075-TEE,0.301,lb
 1-x-3-4-x-3-4-copper-sweat-fittings-tee-c-x-c-x-c,UPDATE,UPDATE,COPF-100.075.075-TEE-C,0.301,lb
-1-1-2-x-1-1-2-x-1-copper-sweat-fittings-tee-c-x-c-x-c,UPDATE,UPDATE,COPF-150.100-TEE-C,0.52,lb
 1-1-2-copper-fittings-dwv-90-degree-street-elbow-ftg-x-c,UPDATE,UPDATE,COPF-DWV-150-ST90-C,0.383,lb
 2-x-2-x-1-1-2-copper-fittings-dwv-sanitary-tee-c-x-c-x-c,UPDATE,UPDATE,COPF-DWV-200.150-SANT-C,0.753,lb
 1-2-x-3-8-copper-fittings-cleaned-bagged-fitting-reducer-ftg-x-c,UPDATE,UPDATE,CFCB-050.038-FTR,0.027,lb
@@ -131,7 +128,6 @@ Handle,Command,Variant Command,Variant SKU,Variant Weight,Variant Weight Unit
 1-copper-fittings-cleaned-bagged-cap-c,UPDATE,UPDATE,CFCB-100-CAP,0.078,lb
 3-8-copper-sweat-fittings-two-hole-strap,UPDATE,UPDATE,COPF-038-2HSTR-C,0.013,lb
 3-8-copper-sweat-fittings-45-degree-elbow-c-x-c,UPDATE,UPDATE,COPF-038-45EL-C,0.026,lb
-3-4-copper-sweat-fittings-drop-ear-tee-to-fpt-c-x-c-x-fpt,UPDATE,UPDATE,COPF-075-DETCF-LF,0.494,lb
 1-copper-sweat-fittings-cap-c,UPDATE,UPDATE,COPF-100-CAP-C,0.078,lb
 1-1-4-x-1-copper-sweat-fittings-coupling-c-x-c,UPDATE,UPDATE,COPF-125.100-CPL-C,0.195,lb
 1-1-2-copper-fittings-dwv-sanitary-tee-c-x-c-x-c,UPDATE,UPDATE,COPF-DWV-150-SANT-C,0.518,lb
@@ -157,5 +153,14 @@ Handle,Command,Variant Command,Variant SKU,Variant Weight,Variant Weight Unit
 1-1-2-copper-fittings-dwv-coupling-c-x-c,UPDATE,UPDATE,COPF-DWV-150-CPL-C,0.114,lb
 3-4-x-1-2-x-3-4-copper-press-fittings-tee-p-x-p-x-p,UPDATE,UPDATE,CPPF-075.050.075-TEE,0.33,lb
 1-x-2-galvanized-nipple,UPDATE,UPDATE,GAPN-100-2,0.28,lb
-1-1-4-x-10-galvanized-nipple,UPDATE,UPDATE,GAPN-125-10,1.898,lb
 1-1-4-x-2-galvanized-nipple,UPDATE,UPDATE,GAPN-125-2,0.379,lb
+1-2-x-1-4-copper-fittings-cleaned-bagged-fitting-reducer-ftg-x-c,UPDATE,UPDATE,CFCB-050.025-FTR,0.025,lb
+1-2-copper-sweat-fittings-coupling-dimple-stop-c-x-c,UPDATE,UPDATE,COPF-050-CPL/DS-C,0.025,lb
+1-2-copper-sweat-fittings-fitting-male-adapter-ftg-x-mpt,UPDATE,UPDATE,COPF-050-FTGMA-C,0.088,lb
+1-2-x-1-4-copper-sweat-fittings-fitting-reducer-ftg-x-c,UPDATE,UPDATE,COPF-050.025-FTR-C,0.025,lb
+3-4-x-1-copper-sweat-fittings-female-adapter-c-x-fpt,UPDATE,UPDATE,COPF-075.100-FA-C,0.275,lb
+1-x-1-2-x-3-4-copper-sweat-fittings-tee-c-x-c-x-c,UPDATE,UPDATE,COPF-100.050.075-TEE-C,0.276,lb
+1-x-3-4-copper-sweat-fittings-fitting-reducer-ftg-x-c,UPDATE,UPDATE,COPF-100.075-FTR-C,0.113,lb
+1-1-4-copper-sweat-fittings-fitting-female-adapter-ftg-x-fpt,UPDATE,UPDATE,COPF-125-FTGFA-C,0.402,lb
+3-copper-fittings-dwv-45-degree-street-elbow-ftg-x-c,UPDATE,UPDATE,COPF-DWV-300-ST45-C,0.815,lb
+1-x-2-1-2-galvanized-nipple,UPDATE,UPDATE,GAPN-100-2.5,0.351,lb

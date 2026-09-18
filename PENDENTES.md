@@ -3660,3 +3660,71 @@ part number no título ou por UPC no barcode.
 - `mueller_peso_rollback.csv` — peso atual dos 648
 
 **79 continuam sem casar.** Não investigados.
+
+## §57 — Correção do Mueller: o casamento por UPC estava furado, e caí no defeito por-pé
+
+Os arquivos das §55 e §56 estavam contaminados. **Removidos e refeitos.**
+
+### Defeito 1 — casamento por UPC
+
+**756 dos 1.353 produtos (56%)** tinham o part number extraído do título
+divergindo do part number que o UPC casou. Ou o barcode da loja está errado, ou
+UPCs se repetem entre planilhas e meu dicionário guardou o primeiro. De qualquer
+forma, **metade dos meus "casamentos" apontava para outro produto.**
+
+Pegou porque o arquivo dos que "viram elegíveis a frete grátis" mostrava:
+
+```
+part# LH24020   titulo diz "LH24010 2-1/2" x 20' Copper"
+part# KH20020   titulo diz "KH14020 2" x 20' Copper"
+```
+
+O part number impresso não era o do título. Foi o que puxou o fio.
+
+### Defeito 2 — o por-pé, que já está no CLAUDE.md
+
+```
+2-1/2" x 20' Copper Tube   loja 49,60 lb   planilha 2,48
+```
+
+**2,48 lb é o peso por PÉ.** Vinte pés dão ~49,6 — a loja estava certa e a
+planilha é por-pé. É exatamente a classe que o `CLAUDE.md` manda filtrar:
+*"a planilha do fornecedor guarda valor por pé em itens vendidos por
+comprimento. Nunca aplicar em bloco sem filtrar essa classe."* **Apliquei em
+bloco.** A regra estava escrita, por mim, e eu não a segui.
+
+### Método corrigido
+
+- **Só part number do título.** UPC abandonado como chave.
+- **114 excluídos** por serem vendidos por comprimento — planilha de tubo,
+  pré-cortado ou line set, ou título com medida em pés.
+
+### Resultado limpo
+
+| | | |
+|---|---|---|
+| SUBestimados | **165** | sobe peso — seguro, THS deixa de pagar frete |
+| SOBRE seguros | **597** | baixa peso mas **não muda elegibilidade a frete grátis** — só corrige a tarifa cotada |
+| viram elegíveis a frete grátis | **39** | decisão do Gabriel |
+
+**A separação por risco é o que importa**: dos que ficam mais leves, só 39
+passam a ganhar frete grátis pelo λ. Os outros 597 já eram elegíveis ou seguem
+reprovados — corrigir o peso deles só para de cobrar a mais do cliente.
+
+Arquivos: `mueller_peso_SUB_IMPORTAR.csv`, `mueller_peso_SOBRE_seguro_IMPORTAR.csv`,
+`mueller_peso_vira_freeship_DECIDIR.csv`, `mueller_peso_rollback.csv`, mais os
+dois `_DETALHE` com part number, razão, preço e λ antes/depois.
+
+## §58 — A barra de anúncio diz um número errado
+
+`Free shipping over $99 on 8,900+ items`. **São 8.693** com a tag
+`free-ship-eligible`, de 14.883 produtos.
+
+Recomendado, em ordem: (1) tirar o número — `Free shipping on orders over $99`,
+não envelhece; (2) usar o número do catálogo, que é verificável —
+`Free shipping over $99 · 14,000+ parts in stock`; (3) trocar o eixo para o
+diferencial real, que o Marchin expôs — `Hard-to-find and discontinued parts ·
+Free shipping over $99`.
+
+**Não** trocar 8.900 por 8.693: número exato e ímpar parece erro de sistema e
+exige manutenção toda vez que a tag mudar.
