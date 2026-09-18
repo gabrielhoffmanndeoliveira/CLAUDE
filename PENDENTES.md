@@ -3728,3 +3728,20 @@ Free shipping over $99`.
 
 **Não** trocar 8.900 por 8.693: número exato e ímpar parece erro de sistema e
 exige manutenção toda vez que a tag mudar.
+
+## §59 — Mueller importado e verificado: 762 pesos corrigidos
+
+`mueller_peso_SUB_IMPORTAR.csv` (165) e `mueller_peso_SOBRE_seguro_IMPORTAR.csv`
+(597) importados pelo Matrixify em 18/09, 165/165 e 597/597 `Updated`.
+
+**Verificado por bulk operation** — JSONL baixado com `curl`, comparação em
+disco, sem passar pelo canal da conversa. **762 de 762 conferem**, separando
+igualdade exata de arredondamento de 2 casas do Shopify, como manda a regra.
+
+Rollback em `mueller_peso_rollback.csv`, com o peso anterior dos 801.
+
+**Ainda aberto**: `mueller_peso_vira_freeship_DECIDIR.csv` — 39 produtos que,
+com o peso corrigido, passam a ser elegíveis a frete grátis pelo λ. Não
+importados. São conexões pequenas e baratas (press de carbono 1/2" a $27, união
+galvanizada 1/4" a $13), não tubo de 20 pés — a lista ficou plausível depois de
+tirar o UPC e os itens vendidos por comprimento.
