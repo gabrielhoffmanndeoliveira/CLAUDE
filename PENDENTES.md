@@ -3786,3 +3786,79 @@ verificado que a dimensão faltando é o que causa a cotação por item. Aquele
 produto **tinha** dimensão e mesmo assim foi cotado como dois pacotes
 ($43,68 num item de $23,43). Se o teste mostrar que a dimensão não é a causa,
 os 11.301 faltantes deixam de ser prioridade e o problema é outro.
+
+## §61 — productType: 16 corrigidos, 3 em aberto, 2 anotacoes minhas retratadas
+
+Varredura do catalogo inteiro (14.883 produtos, 588 tipos distintos, nenhum
+vazio) pelo canal limpo: `bulkOperationRunQuery` + `curl`.
+
+**Duas anotacoes minhas anteriores estavam erradas e ficam retratadas:**
+
+- **Hydro Separators nao estao classificados como adaptador.** Os 4 da loja
+  (Caleffi 548066A, 548067A, 548096A, 548097A) estao em `Hydro Separators`.
+- **O UV2400U1000/U em `Air Cleaners & Filters` nao e defeito.** E equipamento
+  de tratamento de ar e nao existe tipo melhor entre os 588. A lampada de
+  reposicao UV2400XLAM1/U esta no mesmo lugar, coerente. Eu tinha exagerado.
+
+**Heuristica que rendeu**: mesmo modelo, acabamento diferente, tipo diferente.
+Isso e inconsistencia pura e nao depende de eu julgar categoria. Deu 11 grupos,
+todos reais. A heuristica anterior — familia de modelo com tipo minoritario —
+deu 8 candidatos e 6 falso positivo: o sufixo `-MH` do Rheem e literalmente
+Manufactured Housing, "Slide Bar" sozinho e slide bar mesmo, e o rebuild kit
+AM100-002RP e acessorio mesmo. **A taxonomia de 588 tipos e granular de
+proposito**; nao tratar minoria como erro.
+
+**Caso instrutivo — a maioria pode ser a errada.** O `T90331` "Tub and Shower
+Drain Covers" tinha 2 acabamentos em `Tub-Shower Trim Sets` e 1 em
+`Shower Drains`. Capa de ralo nao e trim set. Os tres foram para `Shower Drains`.
+Por isso **nao se aplica maioria automatica**.
+
+**16 aplicados por API e verificados por leitura independente** (rollback em
+`producttype_rollback.csv`):
+
+| Produto | De | Para |
+|---|---|---|
+| Resideo S688A1007/U Sail Switch | Air Cleaners & Filters | Controls, Switches & Sensors |
+| Resideo AT120B1028/U Transformer | Thermostat Accessories | Transformers |
+| Resideo PA404A1025/U Pressuretrol | System Fill Tanks & Autofills | Controls, Switches & Sensors |
+| Resideo PA404A1033/U Pressuretrol | System Fill Tanks & Autofills | Controls, Switches & Sensors |
+| Moen T90331 Drain Covers | Tub-Shower Trim Sets | Shower Drains |
+| Moen T90331ORB Drain Covers | Tub-Shower Trim Sets | Shower Drains |
+| Moen A501 Body Sprayer | Bidets & Bidet Faucets | Body Sprays |
+| Moen A721 Drop Ell | Tub Spouts | Hand Shower Wall Brackets |
+| Moen A721BN Drop Ell | Faucet & Tap Parts & Accessories | Hand Shower Wall Brackets |
+| Moen S176 rainshower | Single-Function Shower Heads | Rain Heads |
+| Moen S6360ORB Rainshower | Single-Function Shower Heads | Rain Heads |
+| Moen T2191BL Valve Trim Kit | Tub-Shower Trim Sets | Pressure Balance Valve Trims |
+| Moen T2470BL Posi-Temp Trim | Diverter Valves | Pressure Balance Valve Trims |
+| Gerber D481162BN Showerarm | Escutcheons | Shower Arms |
+| Gerber D495002 Pop-Up Drain | Faucet & Tap Parts & Accessories | Sink Drain |
+| Gerber DA667229BN Cover Plate | Centerset Faucets | Bathroom Sink Accessories |
+
+### Em aberto, para o Gabriel decidir
+
+1. **Moen T2900BL / T2900BN** — mesmo produto ("2-Handle Wall-Mount Valve Trim
+   Kit with 3-Setting Integrated Diverter"), um em `Tub-Shower Trim Sets`, outro
+   em `Pressure Balance Valve Trims`. Sendo **2-handle nao e pressure balance**.
+   Proposta: `Diverter Valve Trims` nos dois.
+2. **Moen T3111 / T3111ORB** — Moentrol, um em `Pressure Balance Valve Trims`,
+   outro em `Volume Control Trims`. Moentrol e os dois ao mesmo tempo. Tanto faz
+   qual, mas tem que ser o mesmo nos dois.
+3. **Gerber G0021187CT** — quase errei aqui. E o **unico** produto do tipo
+   `Two-Piece Toilets` da loja inteira e o titulo diz "1pc", entao eu ia mover
+   para `One-Piece Toilets`. Mas o `G0021187` sem sufixo esta em
+   `Toilet Bowls Only`, e **one-piece nao tem vaso separado**. `CT` na Gerber e
+   *Complete Toilet*: vaso + caixa = two-piece completo. **O tipo esta certo; o
+   "1pc" do titulo e que esta errado.** Vira correcao de titulo.
+
+### Defeitos de texto achados de passagem
+
+- **`T2470BL`**: titulo diz "tub/shower **valve only**", mas o prefixo `T` da
+  Moen e trim, a `seo.description` diz "Trim only", e o chrome identico se chama
+  "Valve Trim with Diverter". O titulo esta errado.
+- **`D481162BN`**: a `seo.description` dizia "The **5-inch** length sets how far
+  the fitting stands off the finished wall" num braco de chuveiro de **12.5"**.
+  Corrigido.
+- **`AT120B1028/U`**: `seo.description` orfa do tipo antigo, dizia "Honeywell
+  Home thermostat accessories cross-reference to the Resideo catalog" num
+  transformador. Corrigida.

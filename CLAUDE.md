@@ -171,6 +171,19 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   Mandar `seo { title }` sozinho **apaga a `seo.description`**. Sempre reenviar
   os dois campos juntos. Aconteceu em 16/09 com 3 termostatos de line voltage;
   peguei na verificacao e restaurei, mas o `userErrors` veio vazio o tempo todo.
+- **Reenviar `seo.title` identico ao titulo do produto APAGA o override** — o
+  Shopify grava `null`, e a releitura devolve `null` onde antes vinha a string.
+  Aconteceu em 18/09 com o `AT120B1028/U` e o `D481162BN`. **Nesses dois nao
+  houve dano**, porque sem override o Shopify renderiza o proprio titulo do
+  produto e o `<title>` da pagina saiu igual — conferi no HTML ao vivo. Mas se o
+  `seo.title` fosse **diferente** do titulo, reenvia-lo identico seria perda
+  real e silenciosa. Junto com a regra do `SEOInput` que substitui o objeto
+  inteiro: ao mexer em SEO, **releia o `seo.title` antes e reenvie o valor que
+  estava la**, nao o titulo do produto.
+- **`productType` errado deixa `seo.description` orfa.** A descricao do
+  `AT120B1028/U` dizia "Honeywell Home thermostat accessories cross-reference to
+  the Resideo catalog" porque foi escrita a partir do tipo antigo, que era o
+  errado. Ao corrigir tipo, leia a `seo.description` junto.
 - **O sitemap da Resideo valida classificacao, nao so acha spec.**
   `https://www.resideo.com/us/en/sitemap.xml` tem **6.368 URLs** e casa numero de
   modelo com o slug oficial. Foi ele que impediu um erro meu: o `YTH5320R1000/U`
