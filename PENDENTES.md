@@ -3735,8 +3735,18 @@ exige manutenção toda vez que a tag mudar.
 (597) importados pelo Matrixify em 18/09, 165/165 e 597/597 `Updated`.
 
 **Verificado por bulk operation** — JSONL baixado com `curl`, comparação em
-disco, sem passar pelo canal da conversa. **762 de 762 conferem**, separando
-igualdade exata de arredondamento de 2 casas do Shopify, como manda a regra.
+disco, sem passar pelo canal da conversa. **762 de 762 conferem.**
+
+Separando como manda a regra: **76 batem na casa exata**, **686 diferem só pelo
+arredondamento de 2 casas** do Shopify, **0 divergências reais**.
+
+Os 33 que a primeira checagem marcou como divergentes eram **convenção de
+arredondamento**, todos com delta de exatamente 0,005 lb: valores terminados em
+5 na terceira casa, como 1,025 → 1,030 e 0,105 → 0,110. **O Shopify arredonda
+meio para cima; o `round()` do Python arredonda meio para o par**, então
+`round(1.025, 2)` dá 1,02 e o Shopify gravou 1,03. Vale registrar junto com a
+regra do arredondamento que já está no `CLAUDE.md`: ao conferir peso, comparar
+contra arredondamento **meio para cima**, não contra o `round()` do Python.
 
 Rollback em `mueller_peso_rollback.csv`, com o peso anterior dos 801.
 
