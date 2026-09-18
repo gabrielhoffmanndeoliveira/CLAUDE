@@ -2942,3 +2942,45 @@ app, não na API.
 que contei lendo `deliveryProfile` de cada variante na bulk operation. Vale a
 regra que já está no CLAUDE.md: **contador de variante do perfil não é
 confiável**; a contagem boa vem de ler variante a variante.
+
+---
+
+## §43 — Draft order #D5 para o Marchin Ohashi (criado, NÃO enviado)
+
+```
+id       gid://shopify/DraftOrder/1038037778535
+status   OPEN  (nao enviado)
+invoice  https://www.thehousesupplier.com/65122533479/invoices/0411227f15a9a660b93d175ba205eeba
+email    marchin.ohashi@gmail.com   (nao e cliente cadastrado)
+```
+
+| item | qtd | preço |
+|---|---|---|
+| TOTO-THU441.10J-A — Drain Valve Assembly | 1 | $23,43 |
+| TOTO-9BU024E — Tank to Bowl Gasket | 1 | $8,69 |
+| | subtotal | **$32,12** |
+| UPS Ground — combined, one box | | **$26,47** |
+| | total | **$58,59** |
+
+### De onde saiu o $26,47
+
+O checkout mostrou **$43,68**, que é a tarifa da UPS **+ 65%** do perfil THS
+Standard. Removendo o markup: `43,68 ÷ 1,65 = 26,47`. Como a gaxeta (0,1 lb,
+4×1×4 in) entra na mesma caixa de 9×5×4 do drain valve sem alterar peso nem
+dimensão, o custo combinado é o mesmo.
+
+**Ressalva:** derivei do valor que o **cliente** reportou por e-mail, não de uma
+leitura minha do checkout. **Conferir a tarifa real antes de enviar.**
+
+### Falta preencher antes de enviar
+
+1. **Endereço de entrega** — o e-mail só diz "Califórnia". Sem CEP não dá para
+   confirmar a tarifa nem calcular imposto.
+2. **Confirmar que os dois cabem numa caixa** — 4×1×4 dentro de 9×5×4 fecha no
+   papel; quem tem a peça é você.
+3. Só então enviar a fatura pelo `invoiceUrl`.
+
+Estoque no momento da criação: THU441.10J-A com **2 unidades**, 9BU024E com 17.
+O draft **não reserva estoque** (`reserveInventoryUntil` não foi usado).
+
+Tags: `cotacao-manual`, `frete-combinado`. Para desfazer: `draftOrderDelete`.
