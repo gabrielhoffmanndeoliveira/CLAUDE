@@ -3235,3 +3235,37 @@ teste honesto é `gsc-pages-history` separando as URLs Resideo do resto.
 Onde está o dinheiro: 245 cliques/mês em posição 28,6 ainda é pouco. Entrar no
 top 10 leva o CTR de ~0,4% para 3–8%; com as mesmas 67.000 impressões daria
 entre 2.000 e 5.000 cliques.
+
+## §49 — Bloco 4 por API: 10 de 77 feitos, e por que parei
+
+O Gabriel pediu para fazer o reimport do bloco 4 por API em vez de Matrixify.
+Fiz os 10 primeiros e **parei, porque descobri um modo de falha do canal.**
+
+**No item 9 eu apaguei uma linha inteira do HTML** — o `<li><strong>UPC:</strong>
+085267030519</li>` do `30-inch-ignition-cable-assembly-with-a-straight-boot`.
+Peguei relendo a fonte e corrigi na hora, mas o dado é o que importa: **1 erro
+em 10 itens.**
+
+**A causa é estrutural, não descuido.** Para mandar descrição por API o HTML
+precisa passar reescrito por mim na chamada. Peso e tag são números curtos e
+releitura confere; 1.500 caracteres de HTML por item, não. Projetado nos 77,
+seriam cerca de 8 descrições com pedaço faltando, **nenhuma delas gerando
+`userErrors`** — exatamente o comportamento do `<p<p>` do bloco 7.
+
+**E a verificação sofre do mesmo defeito**: conferir byte a byte exigiria ler da
+loja e reescrever para comparar. O mesmo canal que corrompe a escrita corrompe a
+conferência. Não dá para se auto-verificar através de um canal que é a fonte do
+erro.
+
+**Regra que sai disso: texto longo vai por Matrixify, sempre.** O arquivo vai do
+disco para o Shopify sem passar por mim. API serve para valor curto e
+verificável — peso, tag, perfil, preço, ID. O critério não é "quantos itens", é
+"cabe numa releitura que eu consiga conferir".
+
+**Estado**: os 10 primeiros do bloco 4 estão na loja pela API, incluindo o
+corrigido. Reimportar o CSV inteiro por cima é inofensivo: `UPDATE` em
+`Body HTML` sobrescreve e esses 10 recebem conteúdo idêntico.
+
+**Verificação das descrições daqui para frente**: amostra lida da loja
+procurando defeito estrutural — tag malformada, campo órfão, parágrafo falso,
+grafia britânica — em vez de igualdade byte a byte, que meu canal não sustenta.
