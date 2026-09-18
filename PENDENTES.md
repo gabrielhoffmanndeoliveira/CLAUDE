@@ -3066,3 +3066,46 @@ estava anotado. O filtro de "acima de 120 in" pegou sozinho.
 `fornecedor_pedido_dados_carton.md` tem o rascunho do pedido ao fornecedor: o que
 `cube` significa e em que unidade, e dimensão de carton por SKU. **É o único
 caminho que resolve os 11.283** — não existe no dado que temos.
+
+## §45 — Os 7 oversize (>10 ft³) movidos para Freight por API (feito e verificado)
+
+Fechamento do "bora move os 13 por api". Dos 13 candidatos acima de 10 ft³ que
+ainda estavam em perfil UPS, **movi 7 e devolvi 5** (o 13º, `GROH-26.635GN0`,
+não era oversize — ver abaixo).
+
+**Os 7 movidos** — de `THS Standard - no free shipping` (94652268647) para
+`THS Freight & Oversize` (94651809895):
+
+| SKU | preço | peso reg. | ft³ cru |
+|---|---|---|---|
+| MUST-760T-34WHT | $1.283,24 | 100 lb | 86,18 |
+| MUST-760T-30WHT | $1.066,77 | 95,5 lb | 76,04 |
+| MUST-247WHT | $441,06 | 35 lb | 90,11 |
+| BOOT-011-3303-00 | $405,64 | 70 lb | 14,58 |
+| BOOT-011-3302-00 | $405,64 | 70 lb | 14,58 |
+| MUST-28CF | $398,46 | 40 lb | 18,89 |
+| MUST-27W | $349,92 | 40 lb | 18,89 |
+
+Rollback: `perfil_7oversize_rollback.csv` (commitado **antes** da mutação,
+commit `33044f4`, com variant ID, perfil ANTES e perfil DEPOIS).
+
+**Método**: IDs reconferidos por `sku:` imediatamente antes da mutação — os 7
+bateram com o rollback e os 7 estavam de fato em THS Standard. Um único
+`deliveryProfileUpdate` com `variantsToAssociate`. `userErrors` vazio, que não
+prova nada: verifiquei por `nodes(ids:)` + `ProductVariant.deliveryProfile`
+(relação direta, não o filtro `delivery_profile_id`, que tem atraso de índice).
+**7/7 em THS Freight & Oversize.**
+
+**Por que só 7.** O piso do Freight é **$179**. Nos 5 devolvidos o produto custa
+menos do que o frete mínimo — mover torna o item invendável, e deixar em UPS
+cobra menos do que o envio custa. **Nenhum dos dois perfis serve**; é decisão
+comercial, não de dado. Estão em `perfil_oversize_DECIDIR.csv`.
+
+**O 13º não era oversize.** `GROH-26.635GN0` (handle `wall-union`): dimensões
+`90 × 50 × 64` são **milímetros** (3,5" × 2" × 2,5"), o defeito mm-como-polegada
+de novo. Preço também está **$0,00**. Os dois defeitos seguem abertos.
+
+**Observação que ficou registrada e não foi tratada**: vários desses têm peso
+registrado absurdo — `MUST-14K` com **1 lb** para uma cuba 23×25×33, e
+`ELKA-LZSTL8WSSK` com **2 lb** para um bebedouro refrigerado. Entra na fila dos
+pesos sub-registrados.
