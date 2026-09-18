@@ -3157,3 +3157,81 @@ preencher o endereco antes de enviar a fatura", as duas coisas já feitas. Agora
 registra endereço, base do imposto, total e data de envio.
 
 **Pendente**: o pagamento. Quando entrar, o draft vira order e sai o tracking.
+
+## §47 — Pesos do fabricante e as 9 tags de frete grátis, por API (feito e verificado)
+
+Feito por API em vez de Matrixify, para fechar sem mais uma rodada de import.
+
+**Dos 30 pesos do `peso_fabricante_IMPORTAR.csv`, só 16 precisavam mudar.** Os
+outros 14 já estavam no valor alvo: o `b8_peso` importado antes cobriu todos os
+PV e os sete TK30. **Zero divergência entre o rollback e o estado real da loja**
+antes de mutar, o que valida o registro.
+
+Rollback do estado real de agora: `peso_fabricante_rollback_API.csv`, com
+`inventory_item_id`, peso antes e peso depois dos 16.
+
+| SKU | antes | depois |
+|---|---|---|
+| NAVI-NPF700-100H5CH | 2,19 lb | **167,6 lb** |
+| NAVI-NPF700-100U5CH | 2,19 lb | **167,6 lb** |
+| NAVI-NPF700-060U3BH | 2,19 lb | **145,0 lb** |
+| HONE-F76S1015 | 1,44 lb | 6,4 lb |
+| HONE-MX128LF/U | 6,0 lb | 6,4 lb |
+| HONE-AQ25742B/U | 3,63 lb | 3,9 lb |
+| DUTC-97975 | 1,0 lb | 2,0 lb |
+| GERB-D481162BN | 1,0 lb | 1,5 lb |
+| GERB-D560930T | 1,0 lb | 1,3 lb |
+| GERB-D495958BB | 1,0 lb | 1,1 lb |
+| HONE-VC2714ZZ11/U | 0,6 lb | 0,84 lb |
+| HONE-VC8711ZZ11/U | 0,6 lb | 0,84 lb |
+| HONE-VC8714ZZ11/U | 0,6 lb | 0,84 lb |
+| HONE-VC7934ZZ11/U | 0,6 lb | 0,77 lb |
+| HONE-VC2114ZZ11/U | 0,6 lb | 0,75 lb |
+| HONE-VC4011ZZ11/U | 0,6 lb | 0,73 lb |
+
+**Os três Navien são o achado.** Hydro furnaces registrados com **2,19 lb**, o
+placeholder sistemático, contra 167,6 lb reais — erro de **77 vezes**. É a
+explicação direta de por que a tag `free-ship-eligible` entrou neles: com 2,19 lb
+a régua λ aprovava sem esforço.
+
+**Método**: `inventoryItemUpdate` com 16 aliases num único documento. Verificado
+depois por `productVariants(query: "sku:")` relendo
+`inventoryItem.measurement.weight` — 16/16 exatos, não pelo eco da mutação.
+
+**As 9 tags.** Li as tags de cada produto **antes** de remover e confirmei que os
+9 tinham mesmo `free-ship-eligible`. `tagsRemove` com 9 aliases, removendo só
+essa tag. Releitura por `nodes(ids:)` confirma que saiu nos 9 e que as demais
+ficaram intactas:
+
+- 5 trim kits TK30 → sobrou `Boiler Trim Kits`, `Resideo`
+- 3 hydro furnaces Navien → sobrou `Hydro Furnaces`, `Navien`
+- 1 pia Shaws Lancaster 40 → sobrou `Apron-Front & Farmhouse Sinks`, `Shaws`
+
+Rollbacks de tag já estavam commitados como `_tag_restaurar_MATRIXIFY`.
+
+**Ordem respeitada**: peso primeiro, tag depois. Se a tag tivesse saído antes, a
+régua λ teria sido avaliada em cima de 2,19 lb.
+
+## §48 — Busca orgânica: dois meses de GSC, subindo forte
+
+| | agosto | 1–17/set | set. projetado |
+|---|---|---|---|
+| cliques | 43 | 139 | ~245 |
+| impressões | 9.975 | 37.987 | ~67.000 |
+| posição média | 52,0 | **28,6** | — |
+| CTR | 0,43% | 0,37% | — |
+
+Cliques ~5,7× e impressões ~6,7× sobre agosto. **O motor é a posição: 52 → 28,6**,
+da página 6 para a página 3. O CTR cair de 0,43% para 0,37% não é defeito —
+impressão cresceu mais rápido que clique porque o ganho veio de cauda longa em
+posição baixa.
+
+**Três ressalvas que não podem sumir**: o GSC só tem dois meses aqui, então não
+há série para comparar; setembro é parcial (17 de 30 dias); e **não dá para
+provar que foram as descrições Resideo** — elas entraram na mesma janela e a
+direção bate, mas dois pontos mensais são coincidência temporal, não causa. O
+teste honesto é `gsc-pages-history` separando as URLs Resideo do resto.
+
+Onde está o dinheiro: 245 cliques/mês em posição 28,6 ainda é pouco. Entrar no
+top 10 leva o CTR de ~0,4% para 3–8%; com as mesmas 67.000 impressões daria
+entre 2.000 e 5.000 cliques.
