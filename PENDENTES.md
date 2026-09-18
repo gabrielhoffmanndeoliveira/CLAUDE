@@ -3755,3 +3755,34 @@ com o peso corrigido, passam a ser elegíveis a frete grátis pelo λ. Não
 importados. São conexões pequenas e baratas (press de carbono 1/2" a $27, união
 galvanizada 1/4" a $13), não tubo de 20 pés — a lista ficou plausível depois de
 tirar o UPC e os itens vendidos por comprimento.
+
+## §60 — Triagem de fabricantes: o método da Mueller não generaliza
+
+Critério do teste barato, aprovado antes de rodar: **o fabricante publica lista
+de preço em Excel com coluna de peso por peça?** Se a lista só sai em PDF de
+preço, não vai ter. Foi assim que a Mueller rendeu 762 pesos.
+
+Resultado nos quatro testados depois da Mueller:
+
+| Fabricante | Produtos THS | Resultado |
+|---|---|---|
+| Charlotte Pipe | 415 (`PVCF` 213, `ABSF` 202) | Reprovou. `ABS-426` e `P-426-PF` têm `Size \| UPC# \| No. Per Carton \| No. Per Pallet \| List Price Each`, zero peso. O `TM-PL.pdf` tem peso, mas é `WT. PER 100 FT.` — peso de tubo por 100 pés, a classe por-pé de novo, e os produtos da THS são conexões |
+| Sioux Chief | 538 | Fora por `robots.txt`: `Disallow: /` no site inteiro, e `/downloads/` explícito por cima. A autorização do Gabriel não cobre site que não é dele; passar de um bloqueio exigiria falsear user-agent |
+| Legend Valve | — | Reprovou. Lista de preço são 30 PDFs por família em `/documents/DG/`. Colunas: `Part No \| UPC Code \| Description \| Size \| Configuration \| List Price \| Cs/Ct`. **Zero** ocorrências de `weight`/`wt.` nos três PDFs completos baixados (Ball Valves, Malleable Fittings, PEX Fittings) |
+| Pasco | — | Reprovou. Sem Excel. Catálogo em 10 seções PDF. Nas seções A–D (7.100 linhas) só 2 hits de "weight", ambos texto de marketing: "lightweight design" e "standard weight soil pipe". O único peso real é uma linha de oakum (4592, 6", 30 lbs) |
+
+**Conclusão: a Mueller é a exceção, não o padrão.** Ela publica planilha Excel de
+preço com coluna `EA WGT` por peça. Os outros publicam preço sem peso nenhum.
+Não vale continuar varrendo fabricante por fabricante procurando a mesma coisa —
+o teste custa pouco, mas a taxa de acerto observada é 1 em 5.
+
+Saldo do caça-dimensões inteiro: **762 pesos corrigidos e verificados, todos
+Mueller, e nenhuma dimensão**. Dimensão de embarque não é publicada por nenhum
+fabricante nem por nenhum dos concorrentes testados. Dead end confirmado.
+
+**O que ainda pode destravar o assunto** é o teste de checkout do
+`TOTO-THU441.10J-A` para a Califórnia, que está na mão do Gabriel: nunca foi
+verificado que a dimensão faltando é o que causa a cotação por item. Aquele
+produto **tinha** dimensão e mesmo assim foi cotado como dois pacotes
+($43,68 num item de $23,43). Se o teste mostrar que a dimensão não é a causa,
+os 11.301 faltantes deixam de ser prioridade e o problema é outro.
