@@ -45,6 +45,16 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   relação direta **`ProductVariant.deliveryProfile`** — ela aceita lote por
   `nodes(ids:)`, é bem mais barata que paginar `profileItems`. O filtro serve
   para enumerar, não para conferir o que você acabou de mudar.
+- **O MCP da Shopify pode trocar de loja no meio da sessao.** Em 20/09 uma
+  consulta de analytics voltou de `the-fire-alarm-supplier.myshopify.com` (TFAS)
+  sem aviso; eu quase comparei verba de anuncio da THS contra venda da TFAS.
+  **Sempre conferir o `shopDomain` da resposta** — a THS e
+  `1vy05a-x6.myshopify.com`.
+  **E nao chamar `switch-shop` para corrigir**: ele *revoga* a conexao em vez de
+  trocar, e em sessao nao-interativa nao da para refazer o OAuth. O Gabriel
+  precisa rodar `/mcp`. Se o `shopDomain` estiver errado, avise e pare.
+- **`productsCount` tem o mesmo defeito do `productVariantsCount`**: devolve
+  `10000 AT_LEAST` e ignora o `query`. Nao serve para contar item em estoque.
 - **`productVariantsCount` é inútil aqui**: devolve `10000 AT_LEAST` e ignora o
   `query`. Contagem exata só paginando, ou cruzando com tag.
 - **O Shopify arredonda peso em libras para 2 casas.** 121,254 vira 121,25.
@@ -106,6 +116,18 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   ponderada por valor. Se todo item passa, todo carrinho possível passa. É isso
   que derruba o problema do parafuso. Mas ela pressupõe que o volume da caixa é
   a soma do volume dos itens — o que é falso, e é o furo que o box packing fecha.
+- **ROAS de equilibrio da THS = 3,30.** Sai do 0,303 que ja esta aqui (margem
+  bruta 33,3% menos ~3% de cartao): 1 / 0,303 = 3,30. Abaixo disso, aumentar
+  verba aumenta prejuizo. **Julgar por contribuicao, nao por ROAS**:
+  receita x 0,303 - gasto de midia. E julgar pelo **dia mediano**, nao pela
+  media — em 09/2026 uma unica order Navien era 30% da receita atribuida ao
+  Google Ads em 30 dias, e sem ela o ROAS caia de 3,85 para 2,76.
+- **O `conversion_value` do Google Ads inclui frete e imposto; os 0,303 sao
+  sobre produto.** Para decidir verba, usar a receita do **GA4
+  (`purchase_revenue`)**, que exclui os dois. O Ads tambem atribui por modelo
+  proprio com view-through: em 30 dias de 09/2026 ele reportou 26% a mais que o
+  GA4 por ultimo clique (35 conv / $13.536 contra 30 / $10.713). Essa diferenca
+  e normal, nao e defeito — mas a decisao vai pelo numero menor.
 - **Elegibilidade mora na tag `free-ship-eligible`**, não no perfil de entrega.
   Tag entra por Matrixify e é lida por app de frete; perfil só sai por API.
   Sempre `Tags Command: MERGE`, senão o Matrixify apaga as tags existentes.

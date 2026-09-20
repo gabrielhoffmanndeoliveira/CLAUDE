@@ -4030,3 +4030,90 @@ a tag e passo separado.
   `GERB-28-990` 56,3 vs 34,1, `BLAN-401927`, `BLAN-440213`, `GERB-D481027BN`):
   peso proprio, sem repeticao. Pia Blanco vai em caixa grande; 2,7x de razao
   pode ser caixa de verdade. Sem segunda fonte nao da para decidir.
+
+## §64 — Google Ads: NAO aumentar o budget em 30% ainda (20/09/2026)
+
+Pergunta do Gabriel: ja da para subir o daily budget em 30%? **Resposta: nao.**
+
+Dados pela conexao direta do Windsor.ai, conta Google Ads `192-200-0533`
+(The House Supplier), janela 21/08 a 19/09/2026.
+
+### O achado que trava a decisao
+
+**A campanha ja gasta $320/dia contra um `budget_amount` de $160.** Cinco dias
+seguidos em exatamente 2x:
+
+```
+15/09 $320,02   16/09 $323,18   17/09 $320,88   18/09 $320,16   19/09 $316,73
+```
+
+Ou o valor foi alterado e o Windsor reporta o antigo, ou o Google esta
+compensando a parada de **11 a 14/09** (gasto $0,41 / $0 / $0 / $11,86 — motivo
+nao investigado). De qualquer forma, **pedir +30% sobre $160 quando a realidade
+e $320 e decidir no escuro**. Confirmar no painel antes de qualquer coisa.
+
+### Numeros
+
+| | Ads (proprio) | GA4 ultimo clique |
+|---|---|---|
+| Conversoes 30d | 35 | 30 |
+| Receita 30d | $13.536,14 | $10.712,58 |
+| Gasto 30d | $2.785,12 | $2.785,12 |
+| ROAS | 5,25 (so a campanha principal) | **3,85** |
+
+A diferenca de 26% e atribuicao normal (modelo proprio + view-through contra
+ultimo clique), **nao e defeito de configuracao** — eu levantei esse alarme e
+ele nao procedia. O alarme real era outro: a consulta da Shopify que eu usei
+como contraprova tinha vindo da **loja errada** (ver §"shopDomain" no CLAUDE.md).
+
+### Por que nao aumentar
+
+**1. O aumento ja aconteceu e o ROAS caiu.** O gasto saiu de ~$130/dia para
+~$320/dia em 15/09. Esse e o teste de ROAS marginal, e ja rodou no campo:
+
+```
+15-19/09 a $320/dia:  gasto $1.600,97   receita GA4 $5.480,88   ROAS 3,42
+contribuicao: 5.480,88 x 0,303 - 1.600,97 = +$59,74 em 5 dias  (~$12/dia)
+```
+
+Contra o equilibrio de 3,30, isso e **empate, nao lucro**.
+
+**2. O ROAS de 30 dias e carregado por uma order.** O dia 10/09 sozinho fez
+**$3.190,60 de $10.712,58** (30%), e dentro dele esta a Navien da #THS1026
+(~$3.015 em produto; o GA4 nao conta frete e imposto, por isso nao bate os
+$4.247,67 do pedido). **Sem ela: ROAS 2,76.** O periodo anterior a pausa, sem a
+Navien, da 2,84. **No dia mediano a campanha nao se paga** — ela depende de
+aparecer uma order grande.
+
+**3. Ha desperdicio que financia o aumento de graca.**
+- Campanha `Heating Equipment Supplies`: **$207,17 em 446 cliques, ZERO
+  conversao** em 30 dias.
+- Os 281 impressoes de Shopping pago em posicao 1 com **zero clique** nos tres
+  SKUs Moen (§ do carrossel) estao dentro dessa mesma verba.
+
+### Ordem recomendada
+
+1. Confirmar no painel qual e o budget real hoje: $160 ou $320.
+2. Pausar `Heating Equipment Supplies`.
+3. Rodar mais ~30 dias no nivel atual e julgar por **contribuicao do dia
+   mediano**, nao por ROAS com a baleia dentro.
+4. So entao aumentar. A demanda existe: `search_budget_lost_impression_share`
+   segue em **80–89%** e a `search_impression_share` e de **9,99%**. O gargalo
+   nao e leilao, e margem.
+
+### Pendente de conferencia
+
+Cruzar com a Shopify nao foi possivel: **eu derrubei a conexao** chamando
+`switch-shop` ao perceber que as respostas vinham da TFAS. Precisa de `/mcp`
+numa sessao interativa. Quando voltar, conferir `purchase_revenue` do GA4
+contra `gross_sales` da THS no mesmo periodo — o GA4 deu **$16.362,07 em 52
+transacoes** em 30 dias, e uma consulta anterior minha na Shopify dava $14.637
+no **ano inteiro**, o que nao fecha e ficou sem explicacao.
+
+### Achado lateral
+
+Fontes que converteram em 30 dias, por receita GA4: `google/cpc` $10.712,58 (30),
+`(direct)` $2.982,21 (8), `google/organic` $1.349,93 (4), `bing/cpc` $696,71 (5),
+**`chatgpt.com`** $300,76 em 3 transacoes (`/feed` 2 + `/ai-assistant` 1, em 99
+sessoes). O ChatGPT ja e canal de receita da loja, com taxa de conversao de 3%
+— melhor que a do `google/cpc` (0,66%). Nao explorado.
