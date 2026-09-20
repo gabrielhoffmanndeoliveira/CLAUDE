@@ -26,8 +26,14 @@ Description and title corrections need no approval.
 ## The enrichment pipeline
 
 Goal: replace thin product descriptions with verified copy, working down a
-priority list of 805 GSC-demand-validated products ranked by six-month Search
-Console impressions.
+priority list ranked by six-month Search Console impressions.
+
+**Scope ends at position 654 of `ranked.json`**, the last product with any
+Search Console impressions. The list nominally holds 805 candidates, but
+positions 655–804 recorded zero impressions over six months, so the owner cut
+them: writing pages nobody searches for does not pay for itself in organic
+search. Finishing position 654 covers 100% of the priority group's 165,818
+impressions.
 
 Working files live outside the repo, in `/tmp/tfas/enrich/`:
 
