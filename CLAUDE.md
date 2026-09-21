@@ -51,8 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 740 pages published** — 555 from the old list plus v2b01 through
-v2b10 and a third of v2b11 — plus 80 title-encoding fixes applied
+**Progress: 752 pages published** — 555 from the old list plus v2b01 through
+v2b11 — plus 80 title-encoding fixes applied
 catalogue-wide. One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
 reseller data.
@@ -425,6 +425,20 @@ Revisit after the high-impression band is done.
 - Unverifiable claims go in an `unverified` array with the reason, never in the copy.
 - Always ask agents to contradict the briefing. **Seven** of the coordinator's own
   premises have been proven wrong this way; that is the point.
+- **A generalisation that survives one test still needs its boundary found.** The
+  Protectowire rule "listed spacing is a function of temperature, not jacket" was
+  derived on the XLT jacket, tested again on EPC, and **breaks at 220 &deg;F** &mdash;
+  PHSC-220-EPC and -220-XCR have **no UL spacing at all** and FM 25 ft. Max ambient is
+  likewise temperature-driven at 190 &deg;F but jacket-driven at 356 &deg;F (EPC 221,
+  XCR 250). Confirming a pattern twice is not the same as knowing where it stops.
+- **For any PAM-series relay, go to `apcfire.com/wp-content/uploads/` first.** Air
+  Products and Controls publish their own current sheets there &mdash;
+  `DS-RL-1-G25-PAM-Series.pdf` (2026-01) tabulates PAM-1/-2/-4/-SD side by side. The
+  Honeywell/Fire-Lite mirror `DF-52068:A` is from **2014**, is **superseded** (it gives
+  the PAM-4 coil floor as 9 VDC where APC now says 12), and is **internally
+  inconsistent** (its table says the PAM-4 has an LED; APC's says it does not). An
+  agent had a correction drafted off that mirror and killed it after reading APC's own
+  sheet.
 - **Never conclude a part number is invented from a negative search result.**
   `THM04R3000` was called an invented part number on 21 Sep 2026 and removed from a
   live page, because it "appears in no Resideo document". It appears in **submittal
