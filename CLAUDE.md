@@ -96,3 +96,95 @@ One single-line string, no newlines.
   Owner's decision. Such warnings belong in the description body only. Using a
   manufacturer's own product name is fine even when it contains such a word.
 - Scratch scripts and datasheet PDFs produced during research are gitignored.
+
+## Catalog state (21 Sep 2026)
+
+19,442 products total: **16,031 active, 3,411 archived**. The archive wave
+completed: 701 ROHN plus 2,708 mature candidates imported via Matrixify.
+
+## Demand data: the full Ahrefs sweep
+
+Every SKU in the catalog (19,438 distinct) was measured against Ahrefs US search
+volume. **1,522 SKUs carry demand of ≥20/month, totalling 120,600 searches.**
+Results live in `/tmp/tfas/demanda_ahrefs_COMPLETO.csv`.
+
+Top vendors by demand: Resideo 290 SKUs / 20,400 per month; Honeywell Home 53 /
+18,360; System Sensor 162 / 13,010; BRK Electronics 41 / 9,710; Notifier 121 /
+7,070; Fire-Lite 65 / 6,000; Simplex 100 / 4,550; Aiphone 63 / 4,160.
+
+### Method traps proven by this sweep
+
+- **Selection effect.** An earlier sweep covered only 8,763 SKUs and found a 2%
+  hit rate. That population was *defined* as zero-impression and zero-stock, so
+  the low rate was built in. The live catalog hits 36%. Never infer catalog-wide
+  demand from the archive-screening population.
+- **Catalog SKU suffixes.** Resideo and Honeywell SKUs carry `/u`, `/b`, `/e`,
+  `/a`. Querying them literally returns nothing. Strip the suffix first — doing so
+  uncovered the entire Resideo hydronic and thermostat line.
+- **Numeric part numbers are not uniformly dead.** Simplex, Notifier and
+  Fire-Lite numerics have real volume (`4098-9714` at 350/month). Kidde Fenwal,
+  Hochiki, Apollo and Det-Tronics numerics return essentially zero — 1 hit across
+  ~1,900 Det-Tronics part numbers.
+- **The 100-row cap.** `keywords-explorer-overview` silently truncates at the
+  `limit`. When a batch returns exactly 100 rows, re-run ascending and, if still
+  capped, with a raised threshold. Five of thirteen batches capped.
+- **Short SKUs are noise.** Bare acronyms (`spc` 78k, `bcm` 60k, `csb` 24k, `l1`
+  6.5k, `rome` 234k) return real volume for unrelated subjects. Exclude SKUs under
+  4 characters and keep a noise list.
+
+## Collections
+
+204 collections exist. Only ~50 rank for anything, together drawing roughly
+1,000 visits per month. Analysis in `/tmp/tfas/oportunidade_colecoes.csv`.
+
+**Generic category terms are the wrong target.** "covers" (34,000/month) is
+noise; the page actually ranks #5 for **"fire alarm cover"** (350/month). The
+qualifier carries the commercial intent. Measured across 52 qualified terms the
+real opportunity is 21,210 searches per month, not the 559,410 that bare terms
+suggest.
+
+Of those 52 terms: 10 rank top-10, 2 sit on page 2, and **40 do not rank at all,
+covering 83% of the volume at an average difficulty of KD 0.4.** The constraint
+is page optimisation, not domain authority.
+
+Largest gaps, all with a collection already built: `fire alarm battery` 3,000/mo
+(batteries, 455 products); `fire alarm control panel` 2,200 at $2.00 CPC;
+`fire alarm pull station` 1,300; `fire alarm annunciator` 900; `magnetic door
+holder` 900; **`duct smoke detector` 800 at KD 0, currently position 23**;
+`elevator emergency phone` 350 at $2.50; `two way communication system` 200 at
+$3.00. Two terms have no collection at all: `fire extinguisher cabinet` (2,100,
+$3.00 CPC) and `fire extinguisher bracket` (1,900).
+
+`/collections/simplex?page=12` ranks #2 for "simplex fire alarm" (900/month) and
+is the single biggest collection traffic source at 212 visits. A paginated page
+holding a head term is fragile — any catalog reorder moves it.
+
+## Archiving: the wave is finished
+
+Applying the full filter to the live catalog — no stock, no GSC impressions, no
+Ahrefs demand — yields 8,599 candidates, but **8,568 of them were created in
+June–August 2026** and are one to three months old.
+
+The maturation curve says that is far too early to judge:
+
+| Age | Share with impressions |
+|---|---|
+| 1 month | 30% |
+| 2 months | 5% |
+| 3 months | 8% |
+| 6–10 months | 90% |
+| 13 months | 97% |
+| 36+ months | 94% |
+
+Only **31 candidates are mature, and 30 of them have sold** — including a
+Det-Tronics X3301S4N15W1 at $8,062 gross. Exactly one product in the entire
+catalog qualifies: Honeywell CPR14 (id 7758172979424), created July 2022, never
+sold, no stock, no impressions, no demand.
+
+**Do not archive by search demand alone.** Det-Tronics has ~3,158 products, zero
+search demand, and $340,063 in sales across 143 items. That business arrives
+through channels other than organic search. The same holds for Space Age
+($183,915) and Amerex ($90,825).
+
+Revisit the June–August 2026 cohort around **March 2027**, when it reaches the
+6–10 month mark where the impression rate jumps to 90%.
