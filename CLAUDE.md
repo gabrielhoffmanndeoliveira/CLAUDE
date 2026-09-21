@@ -750,6 +750,70 @@ Note this is **not** the earlier rejected idea of sorting by absolute revenue,
 which would have surfaced BDA gear nobody searches for. This is revenue *per
 impression* on traffic the pages already earn, which is a different test.
 
+## Google Ads: the ROAS collapse is mostly a duplicated conversion action
+
+Measured 21 Sep 2026 over the full 180 days (`google_ads`, account 151-468-5549),
+after the owner asked why ROAS was falling. Series in
+`/tmp/tfas/ROAS_180d_diagnostico.csv`.
+
+**Two conversion actions were counting the same purchase.** Alongside the site tag
+`www.thefirealarmsupplier.com (web) purchase` (id 6910639875), a second action
+**`Google Shopping App Purchase (1)` (id 7700459405) ran from 29 Jun to 10 Aug 2026**
+and added **1,121 conversions and $464,272** of value. It is provably a duplicate:
+in the weeks of 27 Jul and 3 Aug the Ads account reported **1,153 and 1,097
+conversions against 843 and 818 orders taken by the entire store, all channels**.
+The ratio of Ads conversions to Shopify orders sits at **0.68&ndash;0.89 for every
+other week of the 180 days** and jumped to **1.37 and 1.34** in exactly those two.
+
+So **the ROAS peak never existed.** Reported 15.26 and 13.11; web-tag-only **9.11 and
+7.53**. The true baseline is **~9.5**, not 15, and the real fall is 9.5 &rarr; 3.8,
+beginning **20 July** rather than mid-August.
+
+**What the fall is not:** CPC moved $2.45 &rarr; $2.66, +8%. It explains nothing.
+
+**What it is, in two parts:**
+1. **Scaling past the qualified audience.** PMax impressions went 2.70M (Jul) &rarr;
+   **4.05M** (Aug), +50%, on +31% spend; CTR fell, conversion rate fell 7.36% &rarr;
+   5.90% &rarr; 3.38%.
+2. **Attribution loss, not lost sales.** The Ads-conversions-to-Shopify-orders ratio
+   decayed 0.77, 0.68, 0.66, 0.57, 0.56, **0.38**, while the store's own AOV held at
+   ~$420 and the Ads-reported AOV fell to $307. Ads is failing to see orders the
+   store is recording.
+
+**The attribution-free check settles it.** MER (Shopify net sales &divide; Ads spend)
+averaged 13.3 in Mar&ndash;Jul, fell to 10.2 in August and 9.1, and was **back to 13.0**
+in the week of 14 Sep. A ~25% dip that has already recovered, against a *reported*
+ROAS down 60%.
+
+**And the business is not collapsing &mdash; it returned to baseline.** The &minus;43%
+figure is measured against an abnormal peak:
+
+| | net sales/week | orders/week | AOV |
+|---|---|---|---|
+| baseline Mar&ndash;Jun (14 wk) | $239,053 | 493 | $485 |
+| peak Jul&ndash;Aug (7 wk) | $352,002 | 766 | $460 |
+| September (2 full wk) | $208,320 | **506** | **$412** |
+
+September versus the spring baseline: **orders +2.6%**, net sales &minus;12.9%. The
+one real problem is **AOV, &minus;15% against baseline** &mdash; the same order count
+with smaller baskets, which is a product-mix question in the feed and therefore
+inside this project's scope.
+
+**Two things only the Ads UI can answer** (Windsor returns the bidding-strategy
+fields as `null`): who added and removed conversion action 7700459405 &mdash; Smart
+Bidding optimised for six weeks against ~$464k of inflated value, so part of the
+September fall is the model relearning &mdash; and what changed around 10 Sep, when
+spend halved **and** budget-lost impression share fell from ~37% to ~0%, which is the
+signature of a raised tROAS or tightened bid, not of weak demand.
+
+**Three method lessons worth keeping:**
+1. **Never read a ROAS trend without listing the conversion actions behind it.** One
+   `conversion_action_name` breakdown turned a "collapse from 15" into "return to 9.5".
+2. **Cross-check platform conversions against the store's own order count.** The ratio
+   is stable enough to be a control chart; >1 is impossible and instantly diagnostic.
+3. **Keep one attribution-free number.** MER needed no tags to work and disagreed with
+   the reported ROAS by more than half.
+
 ## The paid channel nobody had looked at
 
 Checked 21 Sep 2026, after 591 pages of enrichment, via the Windsor connectors
@@ -821,33 +885,88 @@ and average position and is the only durable copy of that data. Until then the
 pipeline is running on an untested premise, which is acceptable at three days and
 would not be at sixty.
 
-### BLOCKED: neither route to fresh GSC data currently works (checked 21 Sep 2026)
+### RESOLVED: the Windsor `searchconsole` connector is back (21 Sep 2026)
 
-Tested a month early, deliberately, rather than discovering it on the checkpoint date.
+Tested a month early, deliberately, rather than discovering it on the checkpoint
+date &mdash; and that was the right call, because both routes were dead at the time.
 
 - **The Ahrefs GSC tools return `No GSC data available for the requested date range`**
   for project 7227233 on every window tried (Mar&ndash;Sep, Jun&ndash;Sep,
   Aug&ndash;Sep), via both `gsc-performance-history` and `gsc-pages`. The project
-  itself is fine &mdash; verified, 308 tracked keywords, owned by
-  `gabriel@jemsystems.com` &mdash; so **Search Console is simply not connected inside
-  Ahrefs for it.** The measurement plan named these tools; they do not work.
-- **The Windsor `searchconsole` connector has disconnected** and needs the owner to
-  re-authenticate. That connector is where every GSC figure in this file came from,
-  including the 371,907 organic impressions and the `impr` column of `ranked_v2`
-  (via a `gsc_raw.json` scratch pull that no longer exists on disk).
-- **Ahrefs Site Explorer still works**, but it returns Ahrefs' own *estimated*
-  organic traffic, not GSC impressions. At these per-page volumes &mdash; most
-  products draw a handful of clicks &mdash; it is far too coarse to measure a lift
-  across 645 pages. It is not a substitute.
+  itself is fine &mdash; verified, 308 tracked keywords &mdash; so **Search Console is
+  simply not connected inside Ahrefs for it.** Still broken; do not plan around it.
+- **The Windsor `searchconsole` connector was re-authorised by the owner and now
+  returns daily rows** for `sc-domain:thefirealarmsupplier.com` (clicks, impressions,
+  position, plus `page`, `query` and a `branded_vs_nonbranded` flag). **This is the
+  measurement instrument.** The 30-day and 60-day checkpoints are unblocked.
+- **Ahrefs Site Explorer is not a substitute** &mdash; it returns Ahrefs' own
+  *estimated* organic traffic, not GSC impressions, and at these per-page volumes it
+  is far too coarse to measure a lift.
 
-**Owner action needed, and it is time-sensitive:** either connect Search Console
-inside Ahrefs for project 7227233, or re-authorise the Windsor `searchconsole`
-connector. Without one of them the 30-day checkpoint cannot be measured at all.
+**The generalisable lesson survives the fix: test the measurement instrument long
+before the measurement date.** The plan had been written down for three days and
+named a tool that returns nothing. Had this gone unchecked until 21 October, the
+30-day window would have closed unmeasured and unrecoverable.
 
-**The generalisable lesson: test the measurement instrument long before the
-measurement date.** The plan had been written down for three days and named a tool
-that returns nothing. Had this gone unchecked until 21 October, the 30-day window
-would have closed unmeasured and unrecoverable.
+### The before/after comparison is already contaminated &mdash; a control group is required
+
+The first thing the restored connector showed is a problem with the measurement
+design, not with the pipeline. Site-wide average position over the 30 days to
+19 Sep 2026, weekdays only:
+
+| week | avg position |
+|---|---|
+| 24&ndash;28 Aug | 10.19 |
+| 31 Aug&ndash;4 Sep | 9.91 |
+| 8&ndash;11 Sep | 9.80 |
+| 14&ndash;18 Sep | **8.90** |
+
+**The site gained roughly 1.3 positions before enrichment began.** The first batch
+published 18 Sep; this trend runs from late August. Whatever is causing it &mdash;
+seasonality, an algorithm update, the archive wave, the 80 title-encoding fixes
+&mdash; it is not the descriptions.
+
+**So a naive before/after on `BASELINE_555_publicadas.csv` will credit the pipeline
+with a lift that was already happening.** The fix is a control group, and it is cheap
+because the queue is already sorted: take the next N unenriched products from
+`ranked_v2_byscore.json` immediately below the published cut, which match the
+published set on impressions and description length by construction, and measure the
+**difference in differences**. Without that, the 21 Oct checkpoint produces a number
+that cannot distinguish enrichment from drift.
+
+This is the same failure shape as the priority list: a measurement whose defining
+filter nobody checked.
+
+### A matched control is impossible, so the design is a randomised hold-out
+
+The obvious control &mdash; the next N unenriched products in the queue &mdash; does
+not work, and the reason is structural. The treated set averages **2,643 impressions
+per product**; the next 198 in the queue average **1,105**. Matching treated products
+to remaining ones on impression band and description length recovered **18 of 197**.
+**The queue is sorted by score, so the treated set *is* the top of the distribution
+and there is nothing left that looks like it.** Any before/after against a
+lower-traffic control compares two different populations.
+
+What works instead, and costs nothing: **randomise the order of work.** Draw the next
+72 products by score, randomly assign 36 to enrich now and **freeze 36 as a hold-out**
+until the 60-day checkpoint. Both arms are drawn from the same band, so they match by
+construction rather than by search:
+
+| arm | n | mean impressions | mean description chars |
+|---|---|---|---|
+| treated | 36 | 1,098 | 107 |
+| hold-out | 36 | 1,168 | 108 |
+
+The frozen ids are in `/tmp/tfas/enrich/holdout_frozen_ids.json`, the paired list in
+`/tmp/tfas/EXPERIMENTO_holdout.csv`. **Every future batch must exclude those ids until
+20 Nov 2026.** The hold-out products are delayed, not abandoned &mdash; against a
+4,859-deep queue the delay costs nothing, and it buys the only clean answer to
+whether enrichment works at all.
+
+**The wider point: define the control before the treatment, not at the checkpoint.**
+The 555 old-list pages and v2b01&ndash;v2b12 have no valid control and never will;
+the best they can support is a site-wide-trend adjustment, which the position drift
+above shows is worth little. This experiment is the evidence base.
 
 ## Sales data: the ERP export (Jan 2025 to Sep 2026)
 
