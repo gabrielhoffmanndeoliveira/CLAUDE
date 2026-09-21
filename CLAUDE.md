@@ -129,13 +129,22 @@ on 21 Sep 2026 found two of 645 "published" pages were never actually written &m
 still counted) and `silent-knight-rbb` (38 chars, a genuine miss). One bulk query
 costs 19 seconds; run it every ten batches.
 
-**Re-run at batch 11 (734 pages): clean.** The only pages under 400 visible
-characters are the two Gamewell-FCI parts that are knowingly unverifiable
-(`90521`, `SM7100-L8`); the RBB miss is fixed and no new silent failure appeared.
-The non-ASCII title check was re-run at the same time: **56 of 16,031 titles**, down
-from 136, and **all 56 carry only `&deg;`, `&reg;` or `&trade;`** &mdash; the three
-characters deliberately left alone. Zero drift across roughly 110 titles written
-since the sweep, which says the ASCII rule is holding at the point of writing.
+**Re-run at batch 14 (805 pages): clean, and the sweep is now cheap enough to keep.**
+All 555 old-list pages and all 270 v2 slice ids are present in the active catalogue
+&mdash; **zero missing**. Across both sets exactly **three** pages sit under 400
+visible characters, and all three are the knowingly-unwritten ones: `90521` and
+`SM7100-L8`, unverifiable by decision, and `BDA-NMP01250`, skipped in v2b13 because
+its real manufacturer is Trilogy behind a Sucuri block and the Honeywell Fiplex
+Document Center needs a login. **No silent failure has appeared in three batches.**
+The non-ASCII title check was re-run at the same time: **56 of 16,031 titles**, and
+**all 56 carry only `&deg;`, `&reg;` or `&trade;`** &mdash; the three characters
+deliberately left alone, with **zero outside that set**. That is zero drift across
+roughly 130 further titles written since the batch-11 sweep, so the ASCII rule is
+holding at the point of writing.
+**One method note for the next sweep:** the raw count of thin pages was 19, but 16 of
+those were the slice of the batch *currently being researched* &mdash; sliced, not yet
+written. Exclude the in-flight batch before reading the number, or the sweep looks
+like it found sixteen failures every time.
 
 **House style drifted during the project, and reformatting is not worth it yet.**
 58 of 645 published pages carry a bullet count outside 4&ndash;7, almost all early
