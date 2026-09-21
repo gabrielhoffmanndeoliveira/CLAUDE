@@ -93,6 +93,31 @@ One single-line string, no newlines.
 - No raw `"` or `'` characters. Use `&quot;` for inches.
 - Titles: `Brand PartNumber Descriptive Name, qualifiers`.
 
+**The entity and newline rules are input discipline, not storage properties.**
+Shopify **decodes HTML entities and re-inserts newlines** when it stores
+`descriptionHtml`. A page sent as one line containing `&mdash;` comes back
+multi-line containing a raw em dash. The rules still matter at the input end &mdash;
+`&quot;` keeps inch marks from terminating the GraphQL string literal, `&#937;`
+survives extraction and transport, and the whitelist holds copy to a narrow
+repertoire &mdash; but **never audit published pages for entities or newlines.** That
+measures Shopify's normalizer, not the copy. A first pass of exactly that audit
+flagged 655 of 663 pages, including ones published minutes earlier in the same
+session.
+
+**Verify publication against the live catalogue, not the batch manifests.** A sweep
+on 21 Sep 2026 found two of 645 "published" pages were never actually written &mdash;
+`gamewell-fci-90521-line-filter` (30 chars, correctly skipped as unverifiable but
+still counted) and `silent-knight-rbb` (38 chars, a genuine miss). One bulk query
+costs 19 seconds; run it every ten batches.
+
+**House style drifted during the project, and reformatting is not worth it yet.**
+58 of 645 published pages carry a bullet count outside 4&ndash;7, almost all early
+old-list batches written as all-prose before the `<ul>` structure settled. The
+content is sound; the shape is not. Those 63 flagged pages carry 861 impressions
+each against 1,586 each for the next 63 unenriched pages in the queue &mdash; so
+rewriting good copy into the right shape loses to writing copy where there is none.
+Revisit after the high-impression band is done.
+
 ### Research rules given to every agent
 
 - Never invent a number, dimension, current draw, listing, temperature, or compatibility.
