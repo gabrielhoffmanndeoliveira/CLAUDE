@@ -51,8 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 770 pages published** — 555 from the old list plus v2b01 through
-v2b12 — plus 80 title-encoding fixes applied
+**Progress: 787 pages published** — 555 from the old list plus v2b01 through
+v2b13 — plus 80 title-encoding fixes applied
 catalogue-wide. One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
 reseller data.
@@ -291,6 +291,13 @@ Revisit after the high-impression band is done.
   &quot;not a valid material number&quot;. The strip-the-suffix rule applies to
   *searching*, not to this endpoint &mdash; and searching the `33-` document number
   directly was faster than either.
+- **Kidde serves its own PDFs and needs no Edwards mirror.**
+  `kidde-esfire.com/Content/Documents/` responds directly with no bot protection.
+  And the E/K prefix swap is the same line: **`K85001-1021` (Kidde, Issue 1, 2019) and
+  `E85001-1021` (Edwards, Issue 1.1, 2020) agree exactly** &mdash; candela set,
+  20 &#937; sync limit, 6.8 &times; 1.82 in., every current value. Kidde EGCAVWF is
+  Edwards GCAVWF. This extends the `85001-0581` &rarr; `E85001-0640` rule: a prefix
+  change on a shared document number is branding, not a different product.
 - **Gentex serves datasheets directly** from `fireprotection.gentex.com/files/<Model>-Series<n>.pdf`,
   with no bot protection. Beware though: one Gentex revision has a **blank Part Number
   column** while another populates it, so confirm the catalogue number on the revision
@@ -628,6 +635,29 @@ Revisit after the high-impression band is done.
   documents and the restored type field confirmed it from a second direction. Honeywell
   owns both lines, which is presumably how they merged. **Decide vendor and type
   together when they are wrong together.**
+- **Pack counts in this catalogue rest on convention, not on documents, and the
+  distinction is now measured.** Three `-BP10` SKUs came through v2b13 and **not one
+  manufacturer document states the carton quantity.** The current L-Series datasheet
+  `AVDS916-01` (10/03/2023) lists **no `-BP` model at all** in its ordering table,
+  `M23.2SS` lists none, and in `I56-0022-000` the string &quot;BP&quot; appears **zero
+  times**. Two things sharpen that into a real gap rather than an omission:
+  `AVDS916-01` **does** state pack quantity when it means to
+  (&quot;Each bezel pack ships in a package of 5&quot;), and a sibling Honeywell brand
+  states it outright &mdash; Fire-Lite `DF-61010:B` says *&quot;B300-6-BP: Bulk pack of
+  B300-6, package contains 10&quot;*. So System Sensor's silence on `-BP10` is a real
+  gap, and **the suffix plus distributor consensus is convention, not the manufacturer
+  bar.** Two live titles assert &quot;10 Units&quot; on that basis. All three went to
+  the owner rather than being changed, because pack counts in titles are a Merchant
+  Center feed attribute. **The cheapest authoritative fix is a purchase order or a
+  carton label, not another search** &mdash; and the decision generalises, because the
+  store's whole &quot;Bulk Packs&quot; collection runs on the same convention.
+- **The Sucuri fingerprint has a second host, and a blocked site is not an undocumented
+  one.** `trilogycoax.com` answers **HTTP 202, 169&ndash;193 bytes, with a
+  `/.well-known/sgcaptcha/` meta-refresh** on `/`, `/products/`, `/robots.txt` and
+  `/sitemap.xml` alike &mdash; the exact protectowire.com shape. The part behind it,
+  `BDA-NMP01250`, is a Trilogy product sold under a Honeywell SKU, and the Honeywell
+  **Fiplex Document Center requires sign-in**. That is a **bounded** negative: one
+  owner login would settle it. Recorded as a retry, not a permanent skip.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
