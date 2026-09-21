@@ -134,6 +134,32 @@ Revisit after the high-impression band is done.
   (note the `/simplex/` segment; the bare `/api/` path 404s). This reaches
   current datasheets that are not otherwise linkable, and it settled the 4081
   end-of-line range in one call after four other documents had left a gap.
+- **Supersession claims have their own source: Honeywell product-announcement
+  bulletins.** `buildings.honeywell.com/content/dam/hbtbt/...` hosts bulletins that
+  are **not** on `prod-edam`, and they carry an explicit three-column
+  MODEL / DESCRIPTION / **REPLACES** table. Bulletin M23.2SS settled PC2WL in one
+  fetch. **Try this first whenever a title claims "replaced by" or "replaces"** &mdash;
+  a datasheet almost never states supersession, so the alternative is a reseller
+  claim, and reseller supersession claims have now been wrong more than once
+  (`XTRI-D` "Replaces HTRI-D" is in no Siemens document at all).
+- **Manufacturer ordering-syntax blocks beat every other decoder.** Page 5 of the
+  Edwards catalogue sheets carries a Model Number Syntax block that decodes any
+  G1/G4/GC part letter by letter; Eaton `TD450158EN` Table 3 does the same for Eluxa.
+  Reading the syntax block is how `G1VRF` was settled, and it also showed that the
+  coordinator's guessed siblings `G1RF` and `G1VF` **do not exist** in the current
+  series &mdash; `G1RF...` numbers are the legacy xenon generation.
+- **A manufacturer document can contradict itself; prefer the table over the prose.**
+  Eaton TD450158EN's A/E Specifications paragraph lists the Eluxa ceiling candela set
+  as "15, 20, 110, 150 and 177" &mdash; five values, with 30 and 75 mangled &mdash;
+  while Table 4 and page 1 both give the correct six. Anyone quoting the prose
+  paragraph publishes a wrong number.
+- **Accessory specs often live in the parent panel's data sheet.** There is no BB-100
+  data sheet; Notifier `DN-7070` (the NFS2-3030 sheet) carries dimensions and capacity
+  for BB-100, BB-200, NFS-LBB and BB-UZC together. Check the parent panel before
+  concluding an accessory is undocumented.
+- **Go to installation instructions for specs, not the operation manual.** For
+  `FCM2041-U3` the installation document carried the full electrical ratings and
+  mounting detail and the Operation Manual carried none of it.
 - **Siemens: the document index is down, but two ways in work.**
   `https://sid.siemens.com/api/khub/documents` returns HTTP 504 after ~60 s, every
   time. Two proven workarounds: (1) `https://sid.siemens.com/api/khub/maps` **does**
