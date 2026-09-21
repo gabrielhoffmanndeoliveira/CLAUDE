@@ -225,7 +225,14 @@ Revisit after the high-impression band is done.
 - **The Omega trap:** `Ω` often extracts as the letter `W`. An extracted "50W" in
   a resistance spec is almost always 50 Ω. **Four hits.** The fourth was Edwards
   literature printing an ordering table as `4.7KW, 3.6KW and 1.1KW` where the
-  manufacturer's own technical reference prints the same parts with real Ω symbols.
+  manufacturer's own technical reference prints the same parts with real &#937;
+  symbols.
+  **The inverse case is real and more dangerous: a legitimate `W` that looks like the
+  trap.** Protectowire prints `Resistance 2W Models: .185 ohms/ft`, where **`2W`
+  means two-wire**, as opposed to the three-conductor TRI-Wire line directly below
+  it &mdash; not 2 watts and not 2 &#937;. An agent applying the Omega rule
+  mechanically would have "corrected" a correct value. Read the surrounding rows
+  before substituting; the rule is a prompt to check, not a find-and-replace.
 - **The dropped-decimal trap:** a title copied from the adjacent catalogue row
   loses a decimal point and asserts a value ten times too large. Edwards lists
   `EOL-4.7` (4.7 kΩ) and `EOL-47` (47 kΩ) on consecutive rows; the store's
