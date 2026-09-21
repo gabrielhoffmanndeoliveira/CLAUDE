@@ -81,6 +81,12 @@ One single-line string, no newlines.
   confirm which row is this exact part before writing anything.
 - **The Omega trap:** `Ω` often extracts as the letter `W`. An extracted "50W" in
   a resistance spec is almost always 50 Ω. Hit three times so far.
+- **The dropped-decimal trap:** a title copied from the adjacent catalogue row
+  loses a decimal point and asserts a value ten times too large. Edwards lists
+  `EOL-4.7` (4.7 kΩ) and `EOL-47` (47 kΩ) on consecutive rows; the store's
+  EOL-4.7 page carried the EOL-47 text while separately stocking the real EOL-47.
+  A full scan of the 19,440 active products found exactly one such case, so the
+  pattern is closed catalogue-wide, but it recurs whenever a new row is copied.
 - **The generation trap:** one document number can cover two product generations
   at different revisions. Confirm the revision covers the part.
 - Never state stock, lead time, or condition.
