@@ -550,6 +550,45 @@ old project's entire impression base in one batch.
 filters that built it.** This one was worked for 33 batches before anyone asked
 what defined membership.
 
+## Where this queue stops paying — measured at batch 10 (21 Sep 2026)
+
+281 batches of 18 is the whole v2 queue. **179 products are done, capturing 487,458
+of the 1,537,073 impressions &mdash; 32% of the value in 3.5% of the work**, which is
+what a steep long tail looks like from the good end. The curve from here:
+
+| band | products | impressions | per batch | ERP revenue | rev/impr |
+|---|---|---|---|---|---|
+| next 14 batches (to 50% of v2) | 252 | 278,061 | **19,861** | $7.0M | $25 |
+| batches 25&ndash;67 (to 75%) | 774 | 385,637 | **8,968** | $12.5M | $32 |
+| batches 68&ndash;135 (to 90%) | 1,224 | 230,230 | **3,385** | $8.6M | $38 |
+| batches 136&ndash;281 (last 10%) | 2,645 | 155,687 | **1,066** | $4.6M | $30 |
+
+**The last 146 batches are 52% of the remaining work for 10% of the remaining
+impressions**, at 59 impressions per product. The old queue's abandoned tail was 29
+per product, and abandoning it was right; this tail is twice that, which is marginal
+rather than obviously worthless.
+
+**Three things this settles:**
+
+1. **There is a natural stopping point around batch 135**, where per-batch value
+   falls to ~3,385 and then to ~1,066. Plan for it rather than drifting into it.
+   Even band 3 alone (230,230 impressions) still exceeds the *entire* old project's
+   165,818, so nothing before batch 135 is hard to justify.
+2. **Revenue per impression stays healthy across every band ($25&ndash;38).** The
+   tail is thin by traffic, not junk by value &mdash; so the stopping argument is
+   about cost per batch, not about reaching worthless products.
+3. **The thermostat problem has solved itself.** Honeywell Home and Resideo are now
+   **328 products, 5% of remaining impressions and 0.0% of remaining revenue**. The
+   $0.23-per-impression concentration was in the first 100 positions and the queue
+   has passed it. The bounded experiment is no longer needed to protect the queue,
+   though the 30-day measurement still answers whether enrichment works at all.
+
+**What follows batch 135, when it comes:** the second frontier already identified
+&mdash; the 86 products that sell *and* have Ahrefs demand *and* few impressions
+($672,002, 4,430 searches/month, 81 of them outside this queue), in
+`/tmp/tfas/ALVO_enriquecimento_vendas.csv` &mdash; then the narrow collection work,
+then Merchant Center. Per-batch projection in `/tmp/tfas/CURVA_DA_FILA.csv`.
+
 ## The thermostat problem: high traffic, almost no revenue
 
 Measured 21 Sep 2026 after noticing six Honeywell Home thermostats in one v2
