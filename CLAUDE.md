@@ -51,11 +51,13 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 832 pages published** — 555 from the old list plus v2b01 through
-v2b15, plus the first nine of v2b16 — plus 80 title-encoding fixes applied
+**Progress: 840 pages published** — 555 from the old list plus v2b01 through
+v2b16 — plus 80 title-encoding fixes applied
 catalogue-wide. One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
-reseller data.
+reseller data; the deliberate-skip list is now `SM7100-L8`, `90521`, `BDA-NMP01250`
+and `BDA-TP10-L2`, all four blocked by a host or a login rather than by absent
+documentation.
 
 **Never hand-transcribe product ids into an agent briefing.** On v2b03 all six
 ids typed into the prose of one briefing were wrong &mdash; transcribed by eye
@@ -681,6 +683,74 @@ Revisit after the high-impression band is done.
   Merchant Center feed attribute, on the brand where exactly that claim has already
   been wrong twice. Its family also splits on class and on price ($272.15 against
   $101.40 for three siblings). Both are in `pending_fixes.md`.
+- **The coordinator predicted a live claim was wrong and the live claim was right.
+  Worth recording because the scepticism, not the page, was the error.** The
+  `ATD-L3R-IV` page said the `-IV` models run both Velociti and CLIP while the
+  suffix-free part is Velociti only, and the briefing told the agent *&quot;that is a
+  strong, specific, falsifiable claim and it is the kind that is usually wrong &mdash;
+  a finish suffix does not normally change a communication protocol.&quot;* It does
+  here. Gamewell-FCI `9020-0620 Rev G` lists all six members with the protocol against
+  each finish, and its Description paragraph gives the mechanism outright: *&quot;For
+  legacy installations, service detectors are available in the classic ivory color
+  that will operate in both Velociti and CLIP protocol for backwards compatibility.
+  Service models are designated by the -IV part number.&quot;* **Ivory is a
+  service-stock designation that carries a dual-protocol build, not a colour option**
+  &mdash; two independent places in one document agreeing. The general lesson is not
+  &quot;trust the live page&quot;; it is that **&quot;that kind of claim is usually
+  wrong&quot; is a prior, not evidence**, and it has to lose to a document like any
+  other prior. The same confirmation cleared the held `ASD-PTL3` page, whose closing
+  makes the identical claim on the parallel photoelectric line.
+- **Every distributor can be wrong together, and the mechanism was visible on the
+  page.** `BDA-NM-RG8-13-NM` is **51 inches** per Honeywell `HON-62084.02`
+  (11/29/2021); every reseller says 48. The mechanism: **page 1 of that same brochure
+  tabulates a different part, `BDA-NM-RG58-12-NF`, at 48 inches**, and page 5 is the
+  only page carrying the part in question. Distributors read the first table in a file
+  named for the part they wanted. The numeric field is also **not a length** &mdash;
+  `-08-NM` is 24 in., `RG58-10` is 37 in., `RN4P-03` is 10 in. &mdash; so the
+  briefing's &quot;inches or feet, a factor of twelve&quot; framing was wrong in a
+  third way. **The 51 in. figure went in the body and deliberately not in the title**:
+  a length contradicting every distributor and possibly the stock on the shelf is a
+  feed claim the owner should confirm against a carton first.
+- **`fiplex.com` is a new blocked-host fingerprint, and it cost a page.**
+  `/Datasheets/` paths return **HTTP 400 with an Akamai &quot;Access Denied&quot; body
+  of 456 bytes `text/html`** to curl on both HTTP versions, to curl with full Safari
+  headers, to `urllib` through the proxy and to WebFetch; `/wp-content/` paths time out
+  at **0 bytes** after 60 and 90 seconds. No Wayback capture, and the Document Center
+  needs sign-in. `BDA-TP10-L2` was therefore **left unwritten by decision** rather than
+  built from reseller copy &mdash; three sources give three different frequency ranges
+  for it, which is exactly why. The document is named and findable: Fiplex
+  `BD500-High_Power_Tapper_138-960MHz`. **One owner login to the Fiplex Document Center
+  would settle both this and `BDA-NMP01250`; ask for BD500.**
+  Mapped in the process, and useful next time: the Fiplex passive-device series on
+  EDAM is `HON-62073` (DC-W2), `HON-62074` (DC-L2), `HON-62075` (HC3-L2), `HON-62079`
+  (PSx-L2 splitters) and `HON-62084` (jumpers), with **`-L2` low band and `-W2`
+  wideband, manufacturer-stated.**
+- **`alldataresource.com` cuts both ways, so the mime check decides which.** It served
+  a **verbatim 382,945-byte mirror** of `HON-62084.02` whose footer, template and
+  imprint match two sheets pulled directly from `prod-edam` &mdash; and it returns a
+  **313,459-byte HTML shell** for a PDF it does not have. Same host, same request
+  shape, one good and one poisonous. This is the `systemsensor.com` lesson again on a
+  host the project already distrusted: **`file -b --mime-type` is what separates them,
+  not the host's reputation.**
+- **DITEK reissued its whole `SPS-` datasheet series in 04/26, so any DITEK figure
+  quoted from an earlier revision needs rechecking.** `DTK-MRJPOEX` is the worked
+  example: every reseller and all older literature say 802.3af/at and &quot;PoE Plus,
+  HiPoE ready&quot;, while `SPS-100042-010` **Rev 11** carries a four-row IEEE table
+  adding **802.3bt Type 3 (60 W) and Type 4 (100 W)**. Also corrected: **DITEK's site
+  is `diteksurgeprotection.com`**, not `ditekcorp.com`, which only survives inside
+  older install sheets. And the ordering syntax is settled from the manufacturer's own
+  tables: **`B` = fails short to ground and 5 A max continuous, `F` = fails open
+  circuit and 1 A, `WB` = includes the single-position mounting base.** Two agents
+  reached that independently from opposite ends of the pair and every shared figure
+  agreed &mdash; 20,000 A, UL 497B, 30&ndash;12 AWG, &minus;40 to 158 &deg;F,
+  3.25 &times; 1.5 &times; 2.65 in. **Pair-splitting paid again.**
+- **Two revisions of one Honeywell datasheet disagree on the number a battery
+  calculation depends on.** Silent Knight `350098` **Rev K (02/22)** gives the 5815XL
+  &quot;Standby &amp; Alarm Current: 55 mA&quot;; **Rev J (01/18)** gives &quot;55 mA
+  minimum &ndash; 125 mA max&quot;. No current figure was published. Rev J also lists
+  5820XL and 5820XL-EVS IntelliKnight compatibility that Rev K drops, and **no document
+  says support was withdrawn**, so the copy states the current list and mentions the
+  older one as a relationship rather than asserting a discontinuation either way.
 - **Eighth coordinator premise proven wrong, and this one was stated as &quot;almost
   certainly&quot;. The `R` in `B200SR-LF` is not a relay.** The briefing told an agent
   the `R` was &quot;almost certainly a relay, but verify&quot;; the agent verified and
