@@ -245,6 +245,13 @@ Revisit after the high-impression band is done.
   the part number still earns the query match, without a feed attribute asserting
   something unsourced. Titles feed Merchant Center, so an unverified claim there
   costs money in two channels.
+- **The owner's structured-data decisions are consolidated in
+  `/tmp/tfas/DECISOES_DO_DONO.csv`** &mdash; 29 items as of 21 Sep 2026, each with
+  the current value, a recommendation, the reasoning, and a confidence column that
+  separates **10 demonstrably wrong** values from **6 judgement calls**, **4 feed /
+  lifecycle decisions** and **3 unsourceable pack counts**. Append to that file
+  rather than letting flags scatter across batch notes; ten batches of scattered
+  flags is what made the consolidation necessary.
 - **Discontinuation is a feed decision, not a copy decision.** Four SKUs in one batch
   were marked discontinued by their own manufacturer while carrying live prices and
   feed entries. House rules keep lifecycle out of the copy; that leaves the question
