@@ -634,6 +634,57 @@ Revisit after the high-impression band is done.
   Strobes* was the loose one, because an LF device is a sounder by NFPA 72's 520 Hz
   requirement and not a horn. The scan reports **that a family disagrees**, never
   **which member is wrong**; deciding that still takes reading the part.
+- **The same mechanism on the `vendor` field fires almost not at all, which is itself
+  the result.** 42 families, **2** split across brands. `B501` has four members under
+  System Sensor and one, `B501-BL`, under Fire-Lite &mdash; and Honeywell genuinely
+  sells that base under several brands (Notifier `DN-62046:C` lists it too), so no
+  brand is *wrong*; the defect is the store disagreeing with itself inside one family.
+  `E3-TRIMKIT` has the `-A` under Gamewell-FCI and the `-B` and `-C` under Honeywell,
+  and **here the minority is the correct one**: the E3 series is Gamewell-FCI's panel
+  line and &quot;Honeywell&quot; is the generic umbrella. Second outing, second time the
+  outlier-is-not-the-defect caveat fired.
+- **Eighth coordinator premise proven wrong, and this one was stated as &quot;almost
+  certainly&quot;. The `R` in `B200SR-LF` is not a relay.** The briefing told an agent
+  the `R` was &quot;almost certainly a relay, but verify&quot;; the agent verified and
+  found `I56-4152-005` lists six terminals with **no relay in the terminal table or
+  either wiring diagram**. The real separator is **addressability**: Gamewell-FCI
+  `9021-60843 Rev F` names the part verbatim *&quot;Low Frequency Intelligent
+  **Non-Addressable** Programmable Sounder Base&quot;*, while `SPDS53602` says the
+  **B200S-LF** *&quot;listens in to the communication between the attached sensor head
+  and the FACP to adopt the same address as the detector&quot;*, giving the panel
+  control of volume, tone and group. So `B200S-LF-IV` and `B200SR-LF-IV` are genuinely
+  different products and the store is right to carry both. **What the letter `R`
+  actually stands for is still unsourced across six documents** and is recorded as a
+  bounded negative, not guessed &mdash; the functional difference is documented, the
+  letter is not, and those are different claims.
+- **A headline spec can be conditional on a setting the datasheet does not mention.**
+  E2S datasheet `1-21-200` headlines *&quot;86.37cd &ndash; UL1971 Public mode
+  fire&quot;* with no qualifier. Instruction sheet `D191-00-261-IS Issue 3` Tables
+  3A/4A/5A show that 86.37 cd is the on-axis value **at the 1 Hz / 60 fpm flash setting
+  only**; the same unit is **58.57 cd at 1.33 Hz and 51.65 cd at 1.5 Hz**. A designer
+  who sets 90 fpm on a layout drawn for 86 cd is about 40% short. The same sheet is the
+  only place the **UL 1638** listing appears &mdash; the datasheet names UL 1971 alone.
+  **Generalises: when a datasheet states a single value for something the device can be
+  set to vary, find the instruction sheet's table before quoting it.** This is the
+  prose-versus-table rule pointing across documents rather than within one.
+- **A summarising fetch can manufacture a lifecycle claim out of page chrome.** An agent's
+  WebFetch of a Honeywell Buildings SWIFT page reported the product *&quot;marked as
+  discontinued&quot;*. Curling the same page shows `Discontinued` appears **only as a UI
+  label string inside the page JavaScript** (`discontinuedText`), attached to nothing.
+  Had that reached the owner it would have been a discontinuation flag on a live product,
+  sourced from a template. **Never take a lifecycle claim from a summarising fetch; curl
+  the page and find what the word is attached to** &mdash; the same discipline the
+  Siemens `Supersedes sheet dated` footer already demanded, one layer further out.
+- **DITEK: the coordinator's `-R5`/`-R8` filename premise was invented, and the host has
+  a fingerprint.** `DTK-2MHLPF-Series-DS-R5.pdf` and every `R4`&ndash;`R9` variant return
+  **HTTP 404 with an HTML shell of exactly 152,678 bytes** &mdash; a new stable failure
+  signature for `diteksurgeprotection.com`. Real filenames carry no revision at all and
+  are linked from the **series page**, and the current revisions are **Rev 6 and Rev 19**,
+  not 5 and 8. What the documents do settle decisively: `DTK-2MHLP24FWB` (F) and
+  `DTK-2MHLP75BWB` (B) are identical on service voltage, MCOV, clamping voltage and the
+  20,000 A surge rating and differ in **exactly two rows** &mdash; max continuous current
+  **1 A against 5 A**, and failure mode **open circuit against short to ground**. And
+  **`WB` is manufacturer-stated**: *&quot;includes single position mounting base&quot;*.
 - **A keyword-based cross-page consistency audit does not work on this catalogue, and
   it is not worth rebuilding.** Attempted 21 Sep 2026: extract every part number
   mentioned in a published page, look up that part's own title, and flag where the
