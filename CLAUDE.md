@@ -51,8 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 787 pages published** — 555 from the old list plus v2b01 through
-v2b13 — plus 80 title-encoding fixes applied
+**Progress: 805 pages published** — 555 from the old list plus v2b01 through
+v2b14 — plus 80 title-encoding fixes applied
 catalogue-wide. One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
 reseller data.
@@ -594,6 +594,30 @@ Revisit after the high-impression band is done.
   **treat any &quot;display&quot;, &quot;annunciator&quot; or &quot;interface&quot;
   wording on a panel-family part as a class question until the ordering table settles
   it.**
+- **Two more product-class errors, and both confirm that the type field is silent when
+  it agrees.** Seventh: `BDA-OIA-698869-3-1` had **no class noun in the title at all**
+  and a `type` of **BDA**, while Honeywell's own `HON-62089.01` is headed
+  &quot;INDOOR OMNI CEILING ANTENNA&quot; &mdash; a BDA is the four-figure amplifier
+  this $19.50 antenna plugs into. Eighth: `P2WLED-P` was titled a **strobe** and typed
+  **Strobes**, while `AVDS916-01`'s ordering table reads
+  *&quot;P2WLED-P &mdash; 2-Wire, Horn Strobe, Wall, White, Plain&quot;*; it has an
+  eight-position tone switch and a UL 464 listing, and the strobe-only part is a
+  different number, `SWLED-P`. **In both cases the type field agreed with the wrong
+  title and so raised nothing.** That is the rule working as stated, not failing: the
+  field is a signal on disagreement and no evidence at all on agreement.
+- **The SIGA-HRS supersession claim is settled, and what settled it was a
+  consequence, not a citation.** Two agents in different batches searched independently
+  &mdash; `E85001-0647` in **both** its revisions (Issue 2.1, 2018 and Issue 2.2, 2020)
+  and the legacy `85001-0243` Issue 6 &mdash; for HRS, HFS, replac, supersed,
+  discontinu and legacy, in both directions, and found nothing; every claim traces to
+  resellers. That alone was only a bounded negative and the title was left alone for a
+  batch. What decided it: **the two generations carry different UL listed spacing,
+  70 ft for HFS/HRS against 50 ft for HFD/HRD.** A successor with *shorter* listed
+  spacing is not a drop-in &mdash; a layout drawn on 70 ft needs more devices when
+  re-equipped &mdash; so an unqualified &quot;Replaced by&quot; in a feed title was not
+  merely unsourced but misleading in a way that costs the buyer. Claim moved to the
+  body with the spacing difference stated. **Generalises: when a supersession claim
+  cannot be sourced, look for a spec that would have to be equal if it were true.**
 - **A part can be merchandised as its general family when it is the special case, and
   that is worse than a wrong class noun.** Simplex `4099-9015` was titled *&quot;Double
   Action Addressable Manual Pull Station&quot;* &mdash; not false, but it is documented
@@ -635,6 +659,26 @@ Revisit after the high-impression band is done.
   documents and the restored type field confirmed it from a second direction. Honeywell
   owns both lines, which is presumably how they merged. **Decide vendor and type
   together when they are wrong together.**
+- **The pack count IS manufacturer-stated &mdash; in a document nobody had opened.
+  Four searches across two batches concluded &quot;unsourceable&quot; and all four were
+  bounded wrong.** System Sensor document **`9021-62013-E`** (L-Series Low Frequency)
+  carries, in its Ordering Information block, the footnote
+  **&quot;&dagger;Add -BP10 to order bulk pack of 10 units&quot;**. The dagger is
+  attached to the sounder-only models &mdash; HRL-LF, HWL-LF, HGRL-LF, HGWL-LF,
+  HCRL-LF, HCWL-LF and their ULC variants. **That settles 5 of the 27 asserting titles
+  and $2,054,439 of the $3.45M, including the largest single one, `HWL-LF-BP10` at
+  $1,842,048** (plus `B300-6-BP` and `B501-WHITE-BP` via Fire-Lite `DF-61010:B`).
+  **22 titles and $1,393,609 remain open** across the LED, strobe and speaker families:
+  six documents checked (`AVDS916-01`, `AVDS868-02`, `AVDS910-02`, `9021-60928`,
+  `9021-60929`, `AVDS885-01`) and none mentions a bulk pack.
+  **Two lessons, and the second is the transferable one.** First, the wrong-document
+  -family failure again, for the fifth time &mdash; the agents searched the datasheets
+  for the *product*, and the statement sits in the ordering block of a *different
+  family's* sheet. Second, and new: **`AVDS910-02` (2020) is the earlier revision of
+  the very same product and does NOT carry the footnote &mdash; it was added in the
+  later `9021-` numbered revision.** So on this brand, **prefer the `9021-xxxxx-E`
+  document over the `AVDS` one**, and a negative in an old revision says nothing about
+  the current one. Scope and per-SKU basis in `/tmp/tfas/PACKCOUNT_decisao.csv`.
 - **Pack counts in this catalogue rest on convention, not on documents, and the
   distinction is now measured.** Three `-BP10` SKUs came through v2b13 and **not one
   manufacturer document states the carton quantity.** The current L-Series datasheet
