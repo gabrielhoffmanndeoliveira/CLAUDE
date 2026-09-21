@@ -51,9 +51,10 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 729 pages published** — 555 from the old list plus v2b01 through
-v2b09 and two thirds of v2b10 — plus 80 title-encoding fixes applied
-catalogue-wide.
+**Progress: 734 pages published** — 555 from the old list plus v2b01 through
+v2b10 — plus 80 title-encoding fixes applied catalogue-wide. One product,
+`SM7100-L8`, was deliberately skipped as unverifiable rather than written from
+reseller data.
 
 **Never hand-transcribe product ids into an agent briefing.** On v2b03 all six
 ids typed into the prose of one briefing were wrong &mdash; transcribed by eye
@@ -154,8 +155,15 @@ Revisit after the high-impression band is done.
   sit here too. This unlocks Ansul, 27 products and 14,768 impressions of the v2
   queue, and settled a part in two fetches that would otherwise have gone to
   resellers.
-- **`/api/khub/maps` is incomplete for legacy Siemens lines, confirmed.** The index
-  holds the current XMS pull-station line but **not the older MSM line at all**.
+- **`/api/khub/maps` has patchy, not partial, coverage of the US fire catalogue.**
+  It carried the XMS pull stations, `ILED-XC`, `ABHW-4S` and `HI921` first try, and
+  **did not carry the MSM line, `FDT421` or the MTH appliances at all** &mdash; one
+  agent grepping it for horn/notification terms got 22 rows of which 2 were fire, the
+  rest European HVAC. So it is worth one grep of the `metadata` ProductType field,
+  and no more: **when it misses, web-search the A6V asset number and go straight to
+  `/go/`**, which has worked every time. A bare
+  `sid.siemens.com/api/khub/documents/<id>/content` URL also turns up in search
+  results directly, with no `/go/` round trip.
   For a legacy Siemens part, web-search the A6V asset number and go straight to
   `/go/<AssetID>`. Also note `support.industry.siemens.com/cs/attachments/...`
   returns `text/html` at ~440 bytes for the same asset that `/go/` serves properly.
@@ -226,6 +234,21 @@ Revisit after the high-impression band is done.
   Anixter lesson, cross-check the mirrored revision against any Protectowire-hosted
   document that does come through &mdash; a 2012 mirror and a 2022 original agreed
   exactly on the PHSC temperatures, so there was no generation gap there.
+- **Mirror paths must be *found*, not *built* &mdash; including `qdigital.mx`.**
+  Calling it "the one path-predictable mirror" was too strong: it worked on paths
+  discovered by search and **failed on a constructed one**
+  (`/content/Edwards/TSD-CJ/...` returned HTML). Two more hosts that answer with a
+  readable HTML shell rather than a 404: `edwards-signals.com/files/<anything>.pdf`,
+  and `steelfire.com/UserFiles/Docs/<guess>.pdf`, which returns **identically
+  48,687 bytes for every guessed filename** &mdash; a stable fingerprint like EDAM's
+  8,047-byte `application/javascript`. Mirrors that served verbatim Edwards PDFs on
+  21 Sep: `cdn.lsicloud.net/kendall/Resources/AD/`,
+  `externalassets.unilogcorp.com/ASSETS/DOCUMENTS/ITEMS/EN/`,
+  `savemoreonfirealarmparts.com`, and `steelfire.com` for a *searched* filename.
+  Also note `85001-0584` is the **Intelligent** (Signature/SIGA-SD) SuperDuct sheet and
+  is what a search for "SuperDuct datasheet" lands on first; the **four-wire** family
+  is documented by bulletin `3100685` and installation sheets `3100686` (sensor) and
+  `3100687` (controller).
 - **Edwards documents are not on edwardsfiresafety.com.** Every `/documents/`,
   `/products/` and `/literature` path 404s, and `est.net` and
   `edwardsfiresafety.com/files/import/` return an HTML shell for any filename. Edwards
@@ -250,18 +273,29 @@ Revisit after the high-impression band is done.
   `Techlit`**, and the directory is `33-00000s` with **five** zeros. Grepping
   `customer.resideo.com/en-US/Pages/Product.aspx?cat=HonECC+Catalog&pid=<SKU>` returns
   the document paths in one fetch, across the `33-` and `50-` prefixes together.
-- **Eaton and Wheelock block `curl`.** Both HTTP/2 and HTTP/1.1 with browser
-  headers fail against eaton.com (INTERNAL_ERROR or empty reply) and WebFetch
-  gets 503. This is Eaton-side bot protection, not a proxy fault. What works is
-  Python `urllib` through `HTTPS_PROXY` with a Safari user-agent. The Anixter
-  mirror `objects.eanixter.com` serves verbatim Eaton PDFs as a fallback but
-  carries superseded revisions &mdash; it had the 2016 MT4 datasheet describing
-  xenon flashtubes where the current one specifies LED.
+- **Eaton and Wheelock block `curl`, and the `urllib` workaround has now failed
+  too.** Both HTTP/2 and HTTP/1.1 with browser headers fail against eaton.com
+  (INTERNAL_ERROR or empty reply) and WebFetch gets 503. Python `urllib` through
+  `HTTPS_PROXY` with a Safari user-agent worked on 21 Sep and **failed later the
+  same day** on three Eluxa PDFs ("Remote end closed connection without response").
+  Treat it as worth one attempt, not as the answer.
+  **`www.alarmax.com/customer/docs/skudocs/` is the fallback to try first** &mdash; it
+  served `TD450188EN` at its **July 2024** revision, so unlike the Anixter mirror it
+  is current. `objects.eanixter.com` still works but **carries superseded revisions**:
+  it had the 2016 MT4 datasheet describing xenon flashtubes where the current one
+  specifies LED.
+  **Eaton document numbers are close together and easy to swap:** `TD450158EN` is the
+  Eluxa **high-fidelity speaker** sheet (the one whose A/E prose mangles the ceiling
+  candela set), while `TD450188EN` is the Eluxa **outdoor horn/strobe** sheet &mdash;
+  and in the latter the A/E prose and the table *agree*. The mangled-prose warning is
+  about one document, not about Eaton generally.
 - **The sibling part is the dominant failure mode.** Part numbers differ by one
   character and describe different products. Find the full ordering table and
   confirm which row is this exact part before writing anything.
 - **The Omega trap:** `Ω` often extracts as the letter `W`. An extracted "50W" in
-  a resistance spec is almost always 50 Ω. **Four hits.** The fourth was Edwards
+  a resistance spec is almost always 50 Ω. **Five hits.** The fifth: an Edwards
+  wiring diagram rendering a NAC end-of-line as `EOL 15 KW`, settled as **15 kΩ** by
+  the technical reference manual. The fourth was Edwards
   literature printing an ordering table as `4.7KW, 3.6KW and 1.1KW` where the
   manufacturer's own technical reference prints the same parts with real &#937;
   symbols.
