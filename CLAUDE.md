@@ -751,6 +751,36 @@ Revisit after the high-impression band is done.
   5820XL and 5820XL-EVS IntelliKnight compatibility that Rev K drops, and **no document
   says support was withdrawn**, so the copy states the current list and mentions the
   older one as a relationship rather than asserting a discontinuation either way.
+- **The `-IV` suffix encodes a PROTOCOL, not a colour, and it is a Honeywell-wide
+  convention rather than a Gamewell quirk. Measured: 52 SKUs, and not one names a
+  protocol in its title.** Confirmed independently on a second brand the batch after
+  Gamewell: Fire-Lite `DF-61011:C` prints *&quot;NOTE: '-IV' suffix indicates CLIP and
+  LiteSpeed device&quot;*, and installation sheet `I56-6525-000` says it in full &mdash;
+  *&quot;H365, H365R, and H365HT will support only LiteSpeed protocol mode. H365-IV,
+  H365R-IV, and H365HT-IV will support either LiteSpeed or CLIP.&quot;* So on Gamewell
+  it is Velociti-or-CLIP and on Fire-Lite LiteSpeed-or-CLIP: **the same idea, ivory as
+  legacy service stock carrying the dual-protocol build.**
+  The catalogue holds **52 SKUs ending `-IV`** &mdash; Notifier 27, System Sensor 10,
+  Gamewell-FCI 8, Fire-Lite 7 &mdash; of which **51 are detectors, sensors or bases**,
+  and **0 mention CLIP, LiteSpeed or Velociti anywhere in the title.** That is a
+  functional difference a specifier needs, absent from a Merchant Center feed attribute
+  on up to 51 pages.
+  **Treat it as a routing note, not a defect list.** The convention is proven on two
+  brands and two product lines, not on Notifier or on System Sensor bases (a base has no
+  protocol of its own), so **when an `-IV` part comes through the queue, check its
+  protocol in the ordering block** rather than rewriting 51 titles from a pattern. This
+  project's own history is unambiguous that a pattern is a reason to check and never a
+  licence to rewrite.
+- **The `GW` prefix hides the real manufacturer catalogue number, and it has now fired
+  twice in two batches.** `GWPID-95` is `PID-95` in `CS-2044` Rev B; `GWRCE-95` is
+  `RCE-95` throughout `CS-2045` Rev C including its Ordering table. **In both cases the
+  `GW` form appears in no Gamewell-FCI document at all** &mdash; recorded as a bounded
+  negative both times, with the real number added in parentheses rather than the SKU
+  being touched. **There are 30 Gamewell-FCI `GW*` SKUs and only one already names a
+  catalogue number in its title.** So the routing rule for this brand is: **search the
+  part number with the `GW` stripped**, and expect the documents to be filed under the
+  bare form. Beware the false friends &mdash; of 83 `GW*` SKUs, **50 are Gentex**, where
+  `GWHS…` is a genuine Gentex weatherproof horn-strobe family and nothing is hidden.
 - **Eighth coordinator premise proven wrong, and this one was stated as &quot;almost
   certainly&quot;. The `R` in `B200SR-LF` is not a relay.** The briefing told an agent
   the `R` was &quot;almost certainly a relay, but verify&quot;; the agent verified and
