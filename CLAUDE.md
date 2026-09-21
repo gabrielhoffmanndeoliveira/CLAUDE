@@ -874,6 +874,74 @@ signature of a raised tROAS or tightened bid, not of weak demand.
 3. **Keep one attribution-free number.** MER needed no tags to work and disagreed with
    the reported ROAS by more than half.
 
+## The second frontier is open: 264 products that sell and never got an ad
+
+Measured 21 Sep 2026 from 12 months of `google_ads` item-level data joined to the
+catalogue. **This is now the live enrichment queue, ahead of `ranked_v2_byscore.json`.**
+
+### What the 12 months actually say
+
+$985,765 spend, $9,114,601 conversion value, **blended ROAS 9.25**, CPC $2.39.
+**97.4% of spend sits in one campaign**, Performance Max 9-11-2024 (Product Only).
+
+**The obvious lever is not there.** Products with spend and zero conversions total
+**$39,886, 5.1% of spend**; high-spend products under ROAS 4 add $25,817. Together ~8%.
+And ROAS is nearly flat across spend bands &mdash; 9.54 for the top 50 products,
+10.14, 9.60, 9.47, and **8.52 for the bottom 4,701**. There is no fat to cut, so
+"pause the losers" would recover almost nothing. Test that before recommending it.
+
+### Where the money actually leaks: price band and coverage
+
+| price | % of catalogue | % of spend | ROAS |
+|---|---|---|---|
+| under $50 | 22.5% | 16.5% | 8.51 |
+| **$50-150** | 27.5% | **47.2%** | 9.39 |
+| $150-400 | 17.9% | 15.5% | 8.82 |
+| $400-1000 | 12.8% | 11.1% | **10.90** |
+| **over $1000** | **19.3%** | **9.6%** | **12.79** |
+
+Nearly half the budget sits in the band that returns 9.39 while the band returning
+**12.79** gets 9.6%. That is the same fact as the AOV decline: PMax concentrates on
+cheap, fast-moving items and the basket follows. **Caveat that must travel with this
+table: average ROAS per band is partly selection** &mdash; PMax already bids where it
+converts, so it is not the marginal ROAS of new spend.
+
+**The argument without that caveat is coverage. 10,359 of 16,031 active products
+(65%) received zero ad spend in twelve months.** Those never lost an auction; they
+never entered one. Filtered to what is actionable &mdash; sells in the ERP at
+&ge;$5,000, has stock, zero spend &mdash; that is **264 products carrying $10.3M**,
+and their **median description is 112 characters**. The products that sell best
+through other channels and have never been advertised are also the thinnest pages.
+List in `/tmp/tfas/ADS_sem_verba_mas_vende.csv`.
+
+### What was done
+
+- **All 264 carry `custom_label_0 = high_revenue_no_ad_spend`** in the
+  `mm-google-shopping` metafield namespace, written 21 Sep 2026, zero errors. That
+  namespace is what the Shopify Google &amp; YouTube channel reads. **Confirmed written
+  in Shopify; not confirmable from here that the channel has mapped it into the
+  Merchant Center feed** &mdash; that takes up to 24 h and must be checked there.
+  It is reversible: delete the metafield. `custom_label` is a filter and reporting
+  dimension only and does not affect query matching or product approval.
+- **The campaign itself could not be created from here, and this is a hard limit worth
+  recording: Windsor's `create_campaign` accepts only `channel_type: search` or
+  `display`. There is no Performance Max, no Shopping, and no asset-group action at
+  all.** A Search campaign would not serve these as Shopping listings. Configuration
+  handed to the owner in `/tmp/tfas/ADS_configuracao_para_o_painel.md`, budget $500/day
+  at the owner's instruction.
+- **The enrichment queue is re-sorted.** Of the 264: 25 already published, 3 frozen in
+  the hold-out, 66 already carry good descriptions. **170 remain, 10 batches, $4.45M of
+  ERP revenue, median 94 characters**, in `/tmp/tfas/enrich/FRONTEIRA_receita.json`.
+  v2b13 alone carries **$1,813,474** against roughly zero for an impression-sorted
+  batch.
+
+**The measurement consequence, recorded because it was declined:** the owner chose to
+enrich all 264 rather than split them into enriched and control arms. The feed
+refreshes daily, so a split would have answered "does enrichment work" in about two
+weeks on the channel that moves $1.2M a year. Without it, opening coverage and
+enriching happen together and cannot be separated, and **the organic hold-out frozen
+until 20 Nov is once again the only route to evidence.**
+
 ## The paid channel nobody had looked at
 
 Checked 21 Sep 2026, after 591 pages of enrichment, via the Windsor connectors
