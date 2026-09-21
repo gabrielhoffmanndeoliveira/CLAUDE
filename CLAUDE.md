@@ -51,8 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 675 pages published** — 555 from the old list plus v2b01 through
-v2b06, and two thirds of v2b07.
+**Progress: 681 pages published** — 555 from the old list plus v2b01 through
+v2b07 — plus 80 title-encoding fixes applied catalogue-wide.
 
 **Never hand-transcribe product ids into an agent briefing.** On v2b03 all six
 ids typed into the prose of one briefing were wrong &mdash; transcribed by eye
@@ -295,6 +295,26 @@ Revisit after the high-impression band is done.
   lifecycle decisions** and **3 unsourceable pack counts**. Append to that file
   rather than letting flags scatter across batch notes; ten batches of scattered
   flags is what made the consolidation necessary.
+- **Titles must be plain ASCII, and 80 were not.** A catalogue-wide scan on
+  21 Sep 2026 found **136 of 16,031 active titles carrying non-ASCII characters**,
+  carrying 52,451 impressions. 80 were normalised (curly quotes and primes to
+  `&quot;`-equivalent plain quotes, `&times;` to `x`, en dash to hyphen, vulgar
+  fractions to `3/4` and `1/2`, bullets to hyphens); `&deg;`, `&reg;` and `&trade;`
+  were deliberately left alone as harmless and widely accepted. Five were **not
+  styling but corruption**:
+  - `Edwards 868STRC-AQ` carried **double-encoded UTF-8 of a zero-width space**
+    (`U+00E2 U+20AC U+2039`) immediately after the part number, so the part number
+    did not match itself. **The corruption had already leaked into the handle**
+    (`edwards-868strc-aqa`), which was left alone to avoid breaking the URL.
+  - Two titles contained a literal **`&nbsp;`** &mdash; titles are plain text, not
+    HTML, so it displayed as those six characters.
+  - `Aiphone IXGW&#8209;LC` used a **non-breaking hyphen** inside the part number,
+    so a search for `IXGW-LC` could not match it.
+  - A Napco title used `&#9679;` as a sentence separator.
+  **The corruption clusters: 33 of the 80 are Aiphone and 34 sit in the newest
+  product-id block**, which points at a specific import rather than gradual drift.
+  Check titles for non-ASCII after any bulk import, and remember titles are Merchant
+  Center feed attributes &mdash; a mangled part number costs money in both channels.
 - **Discontinuation is a feed decision, not a copy decision.** Four SKUs in one batch
   were marked discontinued by their own manufacturer while carrying live prices and
   feed entries. House rules keep lifecycle out of the copy; that leaves the question
