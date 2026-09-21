@@ -51,9 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 711 pages published** — 555 from the old list plus v2b01 through
-v2b08 and two thirds of v2b09 — plus 80 title-encoding fixes applied
-catalogue-wide.
+**Progress: 717 pages published** — 555 from the old list plus v2b01 through
+v2b09 — plus 80 title-encoding fixes applied catalogue-wide.
 
 **Never hand-transcribe product ids into an agent briefing.** On v2b03 all six
 ids typed into the prose of one briefing were wrong &mdash; transcribed by eye
@@ -287,6 +286,14 @@ Revisit after the high-impression band is done.
   OH921 is photo-plus-thermal multi-criteria &mdash; and the store stocks an HFPT-11
   page separately. The heat-only member of the 921 family is `HI921`. Both titles are
   corrected, with the interoperability statement moved into the body.
+- **Two current parts in parallel document lines look exactly like a supersession
+  pair from outside.** `4099-9005` carried "(Replaces 4099-9002)". `4099-9002` is a
+  real, current Simplex part &mdash; listed in `S14099-0001` Rev 7 (02/2021) &mdash;
+  and `4099-9005` sits in `S4099-0005` Rev 4, **the same revision month**. Two
+  concurrent document lines (one IDNet-only/ULC-oriented, one IDNet-or-MAPNET II),
+  neither stating a replacement in either direction. So "the other part still exists
+  and is documented" does **not** disprove a supersession claim, and it does not
+  support one either; only a manufacturer statement settles it.
 - **A "Replaces X" claim belongs in a title only when a manufacturer document states
   it.** Three claims in one batch gave three different answers: `PC2WL`&rarr;`PC2WLED`
   is stated outright in a Honeywell bulletin and stays in the title; `SPSCRLED` vs
