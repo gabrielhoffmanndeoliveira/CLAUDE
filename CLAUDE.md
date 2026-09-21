@@ -139,21 +139,43 @@ Top vendors by demand: Resideo 290 SKUs / 20,400 per month; Honeywell Home 53 /
 
 **Generic category terms are the wrong target.** "covers" (34,000/month) is
 noise; the page actually ranks #5 for **"fire alarm cover"** (350/month). The
-qualifier carries the commercial intent. Measured across 52 qualified terms the
-real opportunity is 21,210 searches per month, not the 559,410 that bare terms
-suggest.
+qualifier carries the commercial intent.
 
-Of those 52 terms: 10 rank top-10, 2 sit on page 2, and **40 do not rank at all,
-covering 83% of the volume at an average difficulty of KD 0.4.** The constraint
-is page optimisation, not domain authority.
+**But the qualified terms do not convert into a collection-page opportunity
+either.** Three SERPs were read before writing any copy, and all three killed the
+premise:
 
-Largest gaps, all with a collection already built: `fire alarm battery` 3,000/mo
-(batteries, 455 products); `fire alarm control panel` 2,200 at $2.00 CPC;
-`fire alarm pull station` 1,300; `fire alarm annunciator` 900; `magnetic door
-holder` 900; **`duct smoke detector` 800 at KD 0, currently position 23**;
-`elevator emergency phone` 350 at $2.50; `two way communication system` 200 at
-$3.00. Two terms have no collection at all: `fire extinguisher cabinet` (2,100,
-$3.00 CPC) and `fire extinguisher bracket` (1,900).
+- **"duct smoke detector"** (800/month, KD 0, collection at position 23). Page one
+  is YouTube, a Honeywell PDF, a People Also Ask box, Google Shopping carousels
+  and two code/informational articles. The only retailer category pages are
+  Ferguson at #5 and Jackson Systems at #7.
+- **"fire alarm battery"** (3,000/month, KD 0). Intent is a homeowner with a
+  chirping smoke alarm: First Alert's "How to Replace 9V Batteries" article pulls
+  2,859 visits, then Shopping carousels, PAA, Amazon, Reddit and Quora. One
+  commercial category page in the whole top ten, at #8. TFAS sells SLA panel
+  batteries to contractors — wrong audience.
+- **"fire alarm annunciator"** (900/month). Page one is YouTube, PAA ("What is an
+  annunciator", "Is it required"), Honeywell's Australian site, two eBay listings
+  and three forum threads. **No e-commerce category page at all.**
+
+Three lessons, all costly if missed:
+
+1. **KD does not measure SERP features.** A KD 0 term whose page one is video,
+   PAA and Shopping has almost no organic real estate. Read the SERP before
+   valuing a keyword.
+2. **Where commercial results appear, they are individual product listings** —
+   Google Shopping, eBay, Amazon — not category pages. Positions 3 to 5 on these
+   terms draw only 30 to 60 visits per month.
+3. **This validates the product-page pipeline over a collection frontier.** The
+   1,522 SKUs with part-number demand are the real asset, because part-number
+   searchers are qualified buyers and product pages are what rank for them.
+
+The collection work worth doing is therefore narrow: the pages already ranking
+3–7 for qualified long-tail ("fire alarm cover" #5, "commercial smoke detector"
+#3, "pull down fire alarm" #7) earn 80–100 visits each and can be nudged. The
+implied redirect is **Google Merchant Center**, since Shopping owns the
+commercial slots — which ties directly to the structured fields already flagged
+for the owner (vendor/brand, product type, pack counts).
 
 `/collections/simplex?page=12` ranks #2 for "simplex fire alarm" (900/month) and
 is the single biggest collection traffic source at 212 visits. A paginated page
