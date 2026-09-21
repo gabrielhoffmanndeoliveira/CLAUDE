@@ -342,6 +342,33 @@ Revisit after the high-impression band is done.
   **A negative result bounds the search, not the catalogue.** Removing a live part
   number is a claim and needs positive evidence, the same bar as adding one; and
   check the generation before the part number.
+- **The coordinator may tighten or soften agent copy, but must not introduce a new
+  factual claim without agent-grade research.** Every inline edit made during
+  publishing on 21 Sep 2026 was checked afterwards. The ones that restated an agent's
+  sourced finding, or that made a claim *weaker* (keeping a catalogue number in
+  parentheses rather than promoting it, softening an inferred bracket claim, restoring
+  a `/U` suffix), were all sound. **Both edits that went wrong were the two where the
+  coordinator supplied the substance** &mdash; the RA100Z rewrite and the THM04R3000
+  swap. The pattern is clean enough to be a rule.
+- **A keyword-based cross-page consistency audit does not work on this catalogue, and
+  it is not worth rebuilding.** Attempted 21 Sep 2026: extract every part number
+  mentioned in a published page, look up that part's own title, and flag where the
+  mentioning page's class noun disagrees. It produced **59 findings, all false
+  positives.** Two structural reasons, and both are inherent to the house style:
+  1. **Enumerations.** 39 of 59 had another part number between the mention and the
+     class noun &mdash; *"PAD100-IB isolator, PAD100-RB relay, PAD100-SB sounder"*
+     attributes "sounder" to whichever item the window happens to start at.
+  2. **The remaining 20 were relationship statements, not identity statements.**
+     *"TRI-S is the same module without the relay"*, *"P2RK-R ships without a back
+     box"*, *"BB-100 takes two 100 Ah batteries"* &mdash; the class noun belongs to a
+     property of the part, not to what the part is. **The closing paragraph of the
+     house style exists precisely to state relationships**, so nearly every class noun
+     in it is grammatically the wrong one to test.
+  The weak positive: 698 heavily cross-referencing pages produced no genuine
+  contradiction under a naive scan. **Cross-reference checking works when an agent
+  reads the live sentence and rules on it** &mdash; that is what caught the RA100Z
+  error &mdash; and it does not work mechanically. Keep putting live sentences in
+  front of agents; do not build the scanner.
 - **A correction can introduce a new error, so corrections need verifying too.**
   The RA100Z closing paragraph was rewritten on 21 Sep 2026 to fix two real faults,
   and the rewrite asserted that *"the RTS151 and RTS151KEY are key-operated remote
