@@ -300,6 +300,57 @@ Note this is **not** the earlier rejected idea of sorting by absolute revenue,
 which would have surfaced BDA gear nobody searches for. This is revenue *per
 impression* on traffic the pages already earn, which is a different test.
 
+## The paid channel nobody had looked at
+
+Checked 21 Sep 2026, after 591 pages of enrichment, via the Windsor connectors
+(`google_merchant`, `google_ads`, `searchconsole` are all connected and were
+never queried). Last 30 days:
+
+| channel | impressions | clicks | spend | conv. | conv. value |
+|---|---|---|---|---|---|
+| Google Ads Performance Max | 2,838,637 | 36,674 | $101,108 | 1,366 | $552,797 |
+| Google Ads Search | 7,300 | 344 | $1,631 | 21 | $10,909 |
+| **Organic (Search Console)** | **371,907** | **6,537** | **$0** | &mdash; | &mdash; |
+
+**ROAS 5.49x on $102,739 of monthly spend, roughly $1.2M a year.** Paid buys
+37,018 clicks at **$2.78 each**; organic earns 6,537 clicks free, 18% of the
+paid volume.
+
+**A correction worth recording:** the Merchant Center product-performance report
+returns 2,900,556 impressions for the same period, which reads as a free-listing
+channel eight times the size of organic. It is not &mdash; it is almost entirely
+the same Performance Max traffic. Do not present that figure as earned.
+
+### Why this matters to the enrichment pipeline
+
+**Product title and description are Merchant Center feed attributes, pulled from
+Shopify.** Performance Max matches queries against feed content. So every page
+this pipeline has rewritten &mdash; and especially the ~350 corrected titles
+&mdash; is already feeding a $1.2M-a-year ad channel, not only the organic pages
+the project has been measuring.
+
+That makes title accuracy the highest-leverage output of the work, and it means
+the errors found so far were costing money in both channels: `FSP1004G` sold as
+a 4-zone panel when it is 10-zone, `EOL-4.7` carrying the 47K text, `NP7-12`
+claiming a flame-retardant case it does not have.
+
+### The measurement consequence
+
+The feed refreshes about daily, against 30 to 60 days for an organic recrawl.
+**The Shopping channel can answer "does enrichment work" in a week or two
+instead of two months.** To do that the enriched products have to be separable
+in Performance Max reporting &mdash; a `custom_label` on the feed is the normal
+mechanism. Per-product performance did **not** come back through the Windsor
+`google_merchant` connector (joins on `product_id` returned empty), so the
+segmentation has to be set up on the feed side.
+
+### What this does NOT support
+
+The feed is healthy: **16,039 active, 74 disapproved (0.46%), 4 pending.** The
+accumulated vendor/brand and product-type decisions are therefore **not blocking
+the feed**, which earlier notes implied they might be. They still matter for
+relevance matching, but they are not an outage.
+
 ## Measurement: there is no evidence yet, by design
 
 Checked 21 Sep 2026: **the entire pipeline is three days old.** The first batch
