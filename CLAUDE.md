@@ -51,8 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 752 pages published** — 555 from the old list plus v2b01 through
-v2b11 — plus 80 title-encoding fixes applied
+**Progress: 770 pages published** — 555 from the old list plus v2b01 through
+v2b12 — plus 80 title-encoding fixes applied
 catalogue-wide. One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
 reseller data.
@@ -264,6 +264,33 @@ Revisit after the high-impression band is done.
   PDFs have to come from verbatim mirrors, so cross-check two documents of different
   dates against each other. Finding the real Edwards LifeLines library URL is worth
   doing before the next Edwards-heavy batch; several SIGA parts are still in the queue.
+- **Functional Devices publishes first-party PDFs through Salesforce CMS, and the path
+  is derivable.** Their site is a JS shell and every guessed `/pdf/`, `/downloads/` and
+  `/documents/` path 404s, but `robots.txt` discloses `/document/`, and
+  `https://www.functionaldevices.com/sitemap-managedcontent-sfdc_cms__document-1.xml`
+  lists every document as `.../document/<slug>-<MC-key>`. Swapping the prefix to
+  `https://www.functionaldevices.com/sfsites/c/cms/delivery/media/<MC-key>` serves the
+  PDF. Two fetches turned a mirror-only brand into a first-party one. **When a brand's
+  site is a JS shell, read `robots.txt` and the sitemap before giving up on it.**
+- **Two cheap verification tricks worth reusing.** An MD5 comparison **proves** a mirror
+  verbatim instead of arguing about it: `prod-edam.honeywell.com`'s
+  `hbt-fire-I56-5100-001-manual.pdf` and `mainelectricsupply.com`'s
+  `syssbbgwl-8.pdf` are byte-identical at 322,407 bytes. And **a document renumbering
+  is not a new product**: Edwards `85001-0581` (2013, EST branding, one model) became
+  `E85001-0640` (2020, Carrier branding, three models), and seven years apart the sound
+  levels, currents, dimensions and temperature range agree exactly. An `E` prefix plus
+  a different number is the same line.
+- **`lenel.com` and `cdn.lenel.com` answer HTTP/2 503, 371 bytes, `text/html`, to every
+  client** &mdash; curl on both HTTP versions, `urllib` through the proxy, and WebFetch.
+  Another stable failure fingerprint, like EDAM's 8,047-byte `application/javascript`.
+- **`alarmax.com/customer/docs/skudocs/` filenames are not derivable from the SKU.**
+  It is the right host for Eaton, but `syssbbrl-8.pdf` and `SYS-SBBRL.pdf` both 404 for
+  System Sensor. Search the filename, same lesson as EDAM slugs and `qdigital.mx`.
+- **On `customer.resideo.com/en-US/Pages/Product.aspx`, the `pid` needs the `/U` suffix
+  kept and URL-encoded** (`TH6320WF2003%2FU`); bare `TH6320WF2003` returns
+  &quot;not a valid material number&quot;. The strip-the-suffix rule applies to
+  *searching*, not to this endpoint &mdash; and searching the `33-` document number
+  directly was faster than either.
 - **Gentex serves datasheets directly** from `fireprotection.gentex.com/files/<Model>-Series<n>.pdf`,
   with no bot protection. Beware though: one Gentex revision has a **blank Part Number
   column** while another populates it, so confirm the catalogue number on the revision
@@ -513,7 +540,8 @@ Revisit after the high-impression band is done.
   review; do not treat a correction as settled because it fixed what it set out to
   fix.**
 - **The product-class error is the most common real defect in this catalogue's
-  titles &mdash; five cases now, and the fifth is the subtle one.** A relay sold as a
+  titles &mdash; six cases now, and the last two both came from the manufacturer's own
+  wording.** A relay sold as a
   resistor (`EOLR-1`), a riser monitor as a plain monitor (`SIGA-RM1`), a controller
   as a detector (`TSD-CJ-C01`), a horn strobe as a horn (`MTH-MC-R`), and a panel CPU
   as a display (`CPU2-3030D`). **The last one came from the manufacturer's own
@@ -522,7 +550,25 @@ Revisit after the high-impression band is done.
   the CPU that the panel cannot run without. It is also the first where the Shopify
   `type` field gave no warning &mdash; it said "Annunciators", leaning the same wrong
   way. **So the type field is a useful signal when it disagrees and no signal at all
-  when it agrees; verify the class from the document either way.**
+  when it agrees; verify the class from the document either way.** The sixth is
+  Simplex `4100-9701`, typed **Annunciators**: `S4100-1031` Rev. 22 Table 8 lists it
+  as the 4100ES **master controller** &mdash; 32-bit controller board, CPU card holding
+  the site program, IDNet 2 loop card and the ES-PS supply. The panel does not run
+  without it. That is the CPU2-3030D shape exactly, one generation of panel later, so
+  **treat any &quot;display&quot;, &quot;annunciator&quot; or &quot;interface&quot;
+  wording on a panel-family part as a class question until the ordering table settles
+  it.**
+- **A part can be merchandised as its general family when it is the special case, and
+  that is worse than a wrong class noun.** Simplex `4099-9015` was titled *&quot;Double
+  Action Addressable Manual Pull Station&quot;* &mdash; not false, but it is documented
+  in its own datasheet, `S4099-0006`, as a station **for releasing applications**, and
+  it **ships with a blank front panel**: the buyer must separately order label kit
+  `4099-9802` to mark it clean agent, CO&#8322;, foam, sprinkler or manual release.
+  Someone shopping for an ordinary Simplex double-action station received an unmarked
+  agent-release station and a part number they did not know to order. Corrected.
+  **The agent found it only by continuing past three negative results** &mdash; the part
+  is in none of `S4099-0005`, `S14099-0001` or `S4099-0008`, the three obvious
+  manual-station datasheets. **Wrong document family, for the third time.**
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
