@@ -51,8 +51,9 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 573 pages published** — 555 from the old list plus 18 from v2b01 —
-covering 275,119 impressions.
+**Progress: 591 pages published** — 555 from the old list, 18 from v2b01 and 18
+from v2b02 — covering 355,837 impressions. v2b03 and v2b04 are sliced; v2b04 is
+in research.
 
 Batch loop: slice 18 products → split 6/6/6 across three concurrent
 `general-purpose` research agents → validate → merge → publish in two aliased
