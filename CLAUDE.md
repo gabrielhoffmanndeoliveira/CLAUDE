@@ -51,9 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 693 pages published** — 555 from the old list plus v2b01 through
-v2b07 and two thirds of v2b08 — plus 80 title-encoding fixes applied
-catalogue-wide.
+**Progress: 699 pages published** — 555 from the old list plus v2b01 through
+v2b08 — plus 80 title-encoding fixes applied catalogue-wide.
 
 **Never hand-transcribe product ids into an agent briefing.** On v2b03 all six
 ids typed into the prose of one briefing were wrong &mdash; transcribed by eye
@@ -330,6 +329,19 @@ Revisit after the high-impression band is done.
 - Unverifiable claims go in an `unverified` array with the reason, never in the copy.
 - Always ask agents to contradict the briefing. **Seven** of the coordinator's own
   premises have been proven wrong this way; that is the point.
+- **Never conclude a part number is invented from a negative search result.**
+  `THM04R3000` was called an invented part number on 21 Sep 2026 and removed from a
+  live page, because it "appears in no Resideo document". It appears in **submittal
+  33-00461**, the document that actually covers that product, twice &mdash; in the
+  T10+ model list as "THM04R3000 (EIM)" and as the heading of its own electrical
+  ratings table. The search had covered every **RedLINK** document; the T10+ Pro is a
+  **RedLINK 3.0 / Wi-Fi** generation product whose EIM does not use the RedLINK 2.0
+  `THM5421Rxxxx` numbering, so the one settling document was outside the search
+  space. The replacement part number was real but belonged to the **wrong product
+  generation** &mdash; the sibling-part failure mode operating one level up. Reverted.
+  **A negative result bounds the search, not the catalogue.** Removing a live part
+  number is a claim and needs positive evidence, the same bar as adding one; and
+  check the generation before the part number.
 - **A correction can introduce a new error, so corrections need verifying too.**
   The RA100Z closing paragraph was rewritten on 21 Sep 2026 to fix two real faults,
   and the rewrite asserted that *"the RTS151 and RTS151KEY are key-operated remote
