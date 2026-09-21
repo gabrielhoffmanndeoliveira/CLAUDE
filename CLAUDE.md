@@ -643,6 +643,44 @@ Revisit after the high-impression band is done.
   and **here the minority is the correct one**: the E3 series is Gamewell-FCI's panel
   line and &quot;Honeywell&quot; is the generic umbrella. Second outing, second time the
   outlier-is-not-the-defect caveat fired.
+- **Widening that scan taught the same lesson a fourth time, and then a new one.**
+  Loosening the stem to &quot;drop the last hyphen segment&quot; took the flag count
+  from 18 to **203** &mdash; the over-firing signature, immediately. The fix was a
+  mechanism, not a threshold: **a short trailing segment is a variant suffix, a long
+  one is model identity**, so only drop a final segment of two characters or fewer.
+  That gives 106 families and **52 outliers**, and inspecting all 52 rather than
+  reporting the number is what made it useful.
+  **The new lesson is a reframing, and it matters more than the count. In a large
+  share of these families the MAJORITY is wrong and the minority is right** &mdash;
+  `ELMTSR-N` and `ELMTSW-NA` are correctly typed Horn Strobes inside a family typed
+  Strobes; `P2WLED-SP` likewise; `VSR-CR-3` is correctly typed Switches in a family
+  typed &quot;Fire Alarms&quot;; `AFAWS-BX` is correctly typed Backboxes in a family
+  typed Doors; and **`HONBDA-7S27B-IB-18` is correctly typed BDA inside the family
+  typed Annunciators**, which is the already-confirmed `-IB-10` defect found from the
+  other direction. So &quot;outlier&quot; is the wrong word for what this scan
+  returns: **it finds a broken family by its one healthy member.** Counting outliers
+  therefore *understates* the defect, which is the opposite of every previous scan on
+  this catalogue and worth remembering before anyone sizes the work from the flag
+  count. A good part of the rest are mere taxonomy-granularity differences &mdash;
+  Kits against Bezel Kits, Relays against Relay Modules, Surface Boxes against
+  Backboxes &mdash; real inconsistencies but not worth a write.
+- **Two title defects the scan surfaced that no keyword search would have, both
+  queued for agent research rather than acted on.** First: **`4-NET-SM` is titled
+  &quot;Dual Line Dialer&quot; inside a family that is uniformly SFP network
+  controllers** &mdash; `4-NET-CAT` copper, `4-NET-MM` multimode, `4-NET-SMD`/`-SMU`
+  single-mode single-fiber, `4-NET-SMH` single-mode dual-fiber. **`SM` means
+  single-mode everywhere else in the family**, a dialer is a DACT, and the part is
+  $1,522. That is the adjacent-row trap, and **fiber mode is one of the three
+  highest-risk title fields in this catalogue**, so it needs the Edwards EST4 ordering
+  table and not a pattern. Note the type field was **no help at all** &mdash;
+  `4-NET-SM` and `4-NET-CAT` are both the generic &quot;Fire Alarms&quot;, agreeing
+  with the wrong title; **the entire signal came from the siblings.** Second:
+  **`ZH-MC-W`'s complete title is &quot;Siemens ZH-MC-W (Replaced by SLHSWW-F)&quot;**
+  &mdash; a part number and a parenthetical, with **no class noun and no descriptive
+  name at all**, whose one substantive claim is an unsourced supersession sitting in a
+  Merchant Center feed attribute, on the brand where exactly that claim has already
+  been wrong twice. Its family also splits on class and on price ($272.15 against
+  $101.40 for three siblings). Both are in `pending_fixes.md`.
 - **Eighth coordinator premise proven wrong, and this one was stated as &quot;almost
   certainly&quot;. The `R` in `B200SR-LF` is not a relay.** The briefing told an agent
   the `R` was &quot;almost certainly a relay, but verify&quot;; the agent verified and
