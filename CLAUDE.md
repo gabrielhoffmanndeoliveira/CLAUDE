@@ -316,6 +316,34 @@ Revisit after the high-impression band is done.
   `AVDS916-01.pdf` exists under no `products/` tree; the file is published as
   `.../literature-and-specs/datasheets/L-Series-LED-Indoor-Horns-Strobes-and-Horn-Strobes-Data-Sheet.pdf`.
   Search for the slug, do not build it.
+  **Softened 21 Sep 2026, because &quot;cannot&quot; was too strong and costs a free
+  fetch.** A bare `<docnum>.pdf` under `/datasheets/` **does** resolve for some
+  Gamewell-FCI documents: `9020-0625.pdf` returns a 106 KB PDF while `9020-0616.pdf`
+  returns the 8,047-byte JavaScript. So **try the bare document number once** &mdash; it
+  is one fetch and it hit on the first Gamewell part tried &mdash; then fall back to
+  searching the slug. Two more EDAM shapes worth knowing: a `<Model>_<DocNum>.pdf`
+  convention (`SD365_DF-61010.pdf`, `H365_DF-61011.pdf`), and **per-brand
+  subdirectories under `/datasheets/`**, of which `farenhyt/` is the one that unlocked
+  a third view of the System Sensor L-Series.
+- **A manufacturer's own domain can serve navigation chrome that pymupdf opens as a
+  seven-page document, and this is the worst version of the extraction trap yet.**
+  `systemsensor.com/en-us/Documents/<file>.pdf` returns **HTTP 200**, 112 KB, mime
+  `application/javascript`, and `fitz.open()` succeeds and reports **7 pages** whose
+  text begins &quot;&bull; &lt; Back to Building Automation&quot; and continues through
+  the site menu. Nothing about the fetch looks wrong: right host, right filename, 200,
+  six figures of bytes, a document that opens. The **only** signal is
+  `file -b --mime-type`, which is why that check is not optional. It cost a false
+  negative here &mdash; `AVDS865` was briefly recorded as carrying no bulk pack when it
+  had never actually been read; the real sheet (`AVDS865-05`, 859 KB, from EDAM) agrees,
+  but that was luck, not method. **A first-party host earns no trust the mime check
+  would not have given it.**
+- **`gamewell-fci.com/CatalogDocuments/` is blocked, with a new fingerprint:
+  `application/javascript` at about **258,337 bytes**, and the size varies by a single
+  byte with the requested filename.** That one-byte drift is itself the tell &mdash; a
+  real document library does not serve two different documents 1 byte apart. Add it to
+  the fingerprint list beside EDAM's 8,047-byte JavaScript, steelfire's 48,687 bytes,
+  autocall's 103 bytes of `text/plain` and lenel's 371-byte 503. **Gamewell-FCI
+  documents come from EDAM, not from gamewell-fci.com.**
 - **Fiplex public-safety BDA gear IS first-party documented on EDAM, and the
   coordinator's premise that it was not is wrong.** Two briefings told agents to skip
   a Fiplex part if no manufacturer document existed; an agent found
@@ -727,9 +755,8 @@ Revisit after the high-impression band is done.
   HCRL-LF, HCWL-LF and their ULC variants. **That settles 5 of the 27 asserting titles
   and $2,054,439 of the $3.45M, including the largest single one, `HWL-LF-BP10` at
   $1,842,048** (plus `B300-6-BP` and `B501-WHITE-BP` via Fire-Lite `DF-61010:B`).
-  **22 titles and $1,393,609 remain open** across the LED, strobe and speaker families:
-  six documents checked (`AVDS916-01`, `AVDS868-02`, `AVDS910-02`, `9021-60928`,
-  `9021-60929`, `AVDS885-01`) and none mentions a bulk pack.
+  **22 titles and $1,393,609 remain open** across the LED, strobe and speaker families
+  &mdash; and that is now a *mechanism*, not an absence. See the next entry.
   **Two lessons, and the second is the transferable one.** First, the wrong-document
   -family failure again, for the fifth time &mdash; the agents searched the datasheets
   for the *product*, and the statement sits in the ordering block of a *different
@@ -738,6 +765,36 @@ Revisit after the high-impression band is done.
   later `9021-` numbered revision.** So on this brand, **prefer the `9021-xxxxx-E`
   document over the `AVDS` one**, and a negative in an old revision says nothing about
   the current one. Scope and per-SKU basis in `/tmp/tfas/PACKCOUNT_decisao.csv`.
+- **The pack-count negative is now a rule with a boundary: Honeywell states bulk packs
+  for BASES and for LOW-FREQUENCY SOUNDERS, and for nothing else &mdash; across three
+  sibling brands.** The untried route was the sibling-brand twin, and it was worth
+  running: EDAM turns out to carry a **`datasheets/farenhyt/` subdirectory**, so the
+  same System Sensor L-Series hardware is documented a **third** time under Silent
+  Knight's Farenhyt brand (`hbt-fire-351574-L-Series_Horns_HornStrobes_Wall.pdf`,
+  `hbt-fire-351575-..._Ceiling.pdf`). Nine documents now checked across System Sensor,
+  Fire-Lite and Farenhyt &mdash; `AVDS916-01`, `AVDS865-05`, `AVDS868-02`, `AVDS910-02`,
+  `AVDS871-02` (ECS/MNS speakers), `9021-60928`, `9021-60929`, `AVDS885-01` and the two
+  Farenhyt sheets. **Not one lists any `-BP` number.** Meanwhile `DF-61010:C`
+  (5/28/2020, a newer revision than the `:B` cited earlier) states both base packs
+  outright, and `9021-62013-E` states the LF sounders. So the split is not by brand and
+  not by document age: **Honeywell states a carton quantity for bases and LF sounders
+  and declines to for strobes, horn strobes and speakers.** That converts
+  &quot;six documents checked&quot; from a bounded negative into a positive finding
+  about how this manufacturer documents, which is the bar the `SPCWL` case set &mdash;
+  *a mechanism beats a missing row.* The 22 remaining titles rest on convention, and
+  **the cheapest authoritative fix is still a purchase order or a carton label**, not a
+  tenth document.
+- **The pack-count audit itself had the wrong document family &mdash; sixth instance.**
+  Two of the 22 open rows are **Gamewell-FCI**, not System Sensor: `AOM-2RF-BP` and
+  `MS-7AF-BP`. Both were recorded as &quot;six documents checked&quot; where all six
+  were System Sensor L-Series appliance sheets that could not mention a Gamewell relay
+  module or pull station under any circumstances. Checked properly now:
+  `9020-0625` Rev I 04/19 lists only `AOM-2RF` in Ordering Information with zero
+  occurrences of BP/bulk/pack, and `9020-0616` Rev F 11/17 lists twelve MS-7 variants
+  and no `-BP`. Both are still negatives &mdash; but they are *now* negatives, and were
+  not before. **A negative result is only worth what the document family is worth; an
+  audit that carries one brand's citation list across a vendor boundary is asserting
+  something it never checked.**
 - **Pack counts in this catalogue rest on convention, not on documents, and the
   distinction is now measured.** Three `-BP10` SKUs came through v2b13 and **not one
   manufacturer document states the carton quantity.** The current L-Series datasheet
