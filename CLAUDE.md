@@ -28,21 +28,31 @@ Description and title corrections need no approval.
 Goal: replace thin product descriptions with verified copy, working down a
 priority list ranked by six-month Search Console impressions.
 
-**Scope ends at position 654 of `ranked.json`**, the last product with any
-Search Console impressions. The list nominally holds 805 candidates, but
-positions 655–804 recorded zero impressions over six months, so the owner cut
-them: writing pages nobody searches for does not pay for itself in organic
-search. Finishing position 654 covers 100% of the priority group's 165,818
-impressions.
+**The live queue is `ranked_v2_byscore.json`, not `ranked.json`.** See *The
+priority list was defective* below: `ranked.json` was built with two
+undocumented filters that hid the highest-traffic thin pages, and it is retired.
+Its first 555 positions were published (18-21 Sep 2026) and are excluded from
+the v2 list; **positions 555-654 of the old list were deliberately abandoned**,
+because those 100 products carry 2,888 impressions between them against
+1,424,884 still waiting in v2. Do not resume the old list.
 
 Working files live outside the repo, in `/tmp/tfas/enrich/`:
 
-- `ranked.json` — the 805 candidates in priority order. Record shape:
-  `{"id","handle","title","vendor","type","desc","qty","sku","price","pn","impr","clicks","pos"}`
-- `bN/slice.json` — the 18-product slice for batch N
-- `bN/agent{1,2,3}.json` — per-agent research output
-- `bN/varsA.json`, `bN/varsB.json` — validated publish payloads, 9 products each
+- `ranked_v2_byscore.json` — **the live queue**, 5,074 candidates sorted by
+  `impressions x (1 - chars/700)`. Record shape:
+  `{"id","handle","title","vendor","type","sku","price","vis","inv","impr","rev","created","score"}`
+- `ranked.json` — retired. Kept only as the record of what was published first,
+  and as the baseline source for `/tmp/tfas/BASELINE_555_publicadas.csv`.
+- `catalogo_full.json` (in `/tmp/tfas/`) — all 16,031 active products with their
+  full descriptions, from `bulkOperationRunQuery`. Re-pull it before rebuilding
+  the queue; it is a snapshot, not live.
+- `v2bNN/slice.json` — the 18-product slice for batch NN
+- `v2bNN/agent{1,2,3}.json` — per-agent research output
+- `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
+
+**Progress: 573 pages published** — 555 from the old list plus 18 from v2b01 —
+covering 275,119 impressions.
 
 Batch loop: slice 18 products → split 6/6/6 across three concurrent
 `general-purpose` research agents → validate → merge → publish in two aliased
