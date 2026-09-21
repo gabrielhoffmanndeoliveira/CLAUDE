@@ -135,7 +135,10 @@ Revisit after the high-impression band is done.
   current datasheets that are not otherwise linkable, and it settled the 4081
   end-of-line range in one call after four other documents had left a gap.
 - **Supersession claims have their own source: Honeywell product-announcement
-  bulletins.** `buildings.honeywell.com/content/dam/hbtbt/...` hosts bulletins that
+  bulletins.** The filename is a **descriptive slug with the bulletin number
+  appended**, not the bare number: `.../downloads/M23.2SS.pdf` 404s, while
+  `.../downloads/System-Sensor-L-Series-LED-Announcement-23.2SS.pdf` returns 200 &mdash;
+  find the slug by search rather than constructing the path. `buildings.honeywell.com/content/dam/hbtbt/...` hosts bulletins that
   are **not** on `prod-edam`, and they carry an explicit three-column
   MODEL / DESCRIPTION / **REPLACES** table. Bulletin M23.2SS settled PC2WL in one
   fetch. **Try this first whenever a title claims "replaced by" or "replaces"** &mdash;
@@ -186,6 +189,24 @@ Revisit after the high-impression band is done.
   PDFs have to come from verbatim mirrors, so cross-check two documents of different
   dates against each other. Finding the real Edwards LifeLines library URL is worth
   doing before the next Edwards-heavy batch; several SIGA parts are still in the queue.
+- **Gentex serves datasheets directly** from `fireprotection.gentex.com/files/<Model>-Series<n>.pdf`,
+  with no bot protection. Beware though: one Gentex revision has a **blank Part Number
+  column** while another populates it, so confirm the catalogue number on the revision
+  you actually have.
+- **EDAM paths cannot be constructed from the document number**, and a failed EDAM
+  fetch has a fingerprint: **`application/javascript`, about 8,047 bytes, every time**.
+  `AVDS916-01.pdf` exists under no `products/` tree; the file is published as
+  `.../literature-and-specs/datasheets/L-Series-LED-Indoor-Horns-Strobes-and-Horn-Strobes-Data-Sheet.pdf`.
+  Search for the slug, do not build it.
+- **EDAM has dropped some Notifier documents entirely.** `DN-7045` 404s under both
+  `notifier-us/` and the flat datasheets directory. `honeywellbuildings.in` is a
+  Honeywell-operated regional site that still serves them &mdash; first-party, but
+  older revisions, so cross-check against a current datasheet before using it.
+- **Resideo literature path details that cost fetches:** the working path is
+  `/resources/Techlit/TechLitDocuments/<prefix>s/<file>.pdf` &mdash; **capital T in
+  `Techlit`**, and the directory is `33-00000s` with **five** zeros. Grepping
+  `customer.resideo.com/en-US/Pages/Product.aspx?cat=HonECC+Catalog&pid=<SKU>` returns
+  the document paths in one fetch, across the `33-` and `50-` prefixes together.
 - **Eaton and Wheelock block `curl`.** Both HTTP/2 and HTTP/1.1 with browser
   headers fail against eaton.com (INTERNAL_ERROR or empty reply) and WebFetch
   gets 503. This is Eaton-side bot protection, not a proxy fault. What works is
@@ -257,8 +278,17 @@ Revisit after the high-impression band is done.
   feed entries. House rules keep lifecycle out of the copy; that leaves the question
   open rather than answered, so it goes to the owner.
 - Unverifiable claims go in an `unverified` array with the reason, never in the copy.
-- Always ask agents to contradict the briefing. Six of the coordinator's own
+- Always ask agents to contradict the briefing. **Seven** of the coordinator's own
   premises have been proven wrong this way; that is the point.
+- **A part's own name can misdescribe its product class, and the store title will
+  inherit the error.** `EOLR-1` was briefed &mdash; by this file's coordinator, as a
+  stated fact &mdash; as an end-of-line resistor, and the store title read "System
+  Sensor EOLR-1 End-Of-Line". System Sensor manual I56-2185-004 calls it an *epoxy
+  encapsulated SPST normally open relay activated by 9 to 40 VDC*. It has **no
+  resistance and no wattage at all**. A buyer searching for an EOL resistor was
+  landing on a relay. Note the Shopify `type` field said "Relays" and was right while
+  the title was wrong: **when a structured field disagrees with the title, that is
+  a signal, not noise.**
 
 ## Conventions
 
