@@ -51,8 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 663 pages published** — 555 from the old list plus v2b01 through
-v2b06 — covering 538,570 impressions.
+**Progress: 675 pages published** — 555 from the old list plus v2b01 through
+v2b06, and two thirds of v2b07.
 
 **Never hand-transcribe product ids into an agent briefing.** On v2b03 all six
 ids typed into the prose of one briefing were wrong &mdash; transcribed by eye
@@ -134,6 +134,11 @@ Revisit after the high-impression band is done.
   (note the `/simplex/` segment; the bare `/api/` path 404s). This reaches
   current datasheets that are not otherwise linkable, and it settled the 4081
   end-of-line range in one call after four other documents had left a gap.
+- **For Resideo and Honeywell Home, the supersession source is the `03-` prefix.**
+  `customer.resideo.com` techlit documents under `03-` are the **sell sheets**, and
+  those carry the manufacturer's own REPLACES table &mdash; that is how
+  `TH1320U4002/U` was confirmed to replace `TH5220D1003/U` and `TH5220D1029/U`.
+  Reach for `03-` before `buildings.honeywell.com` on this brand family.
 - **Supersession claims have their own source: Honeywell product-announcement
   bulletins.** The filename is a **descriptive slug with the bulletin number
   appended**, not the bare number: `.../downloads/M23.2SS.pdf` 404s, while
@@ -229,6 +234,12 @@ Revisit after the high-impression band is done.
   pattern is closed catalogue-wide, but it recurs whenever a new row is copied.
 - **The generation trap:** one document number can cover two product generations
   at different revisions. Confirm the revision covers the part.
+- **The adjacent-row trap, in the other direction: reusing a sibling's spec row.**
+  `SPWL` (speaker only) is rated **79/82/85/88 dBA** at its four taps; `SPSWL`
+  (speaker strobe) is **77/80/83/86**, two dB lower at every tap,
+  in the same two documents. Copying the sibling's row would have published a wrong
+  number on a page that otherwise looked right. Read the row for the exact part, even
+  when the parts differ by one letter and the table looks uniform.
 - **The merged-cell trap.** A vertically merged table cell emits its text at a
   position in the stream that implies the **wrong** grouping, and `find_tables()`
   can fail on the same table without erroring. On Simplex `S4906-0001` plain
@@ -257,6 +268,17 @@ Revisit after the high-impression band is done.
   &mdash; `DN-6643:A1` is from 2008 and is still the newest Notifier publishes for
   the NBG-12 Series.
 - Never state stock, lead time, or condition.
+- **The Siemens coexistence sentence, misread as supersession. Hit twice; assume it
+  is behind every Siemens "Replaces" claim.** Siemens data sheets carry an
+  Installation paragraph of the form *"Model X may be installed on the same SLC with
+  the following &hellip; Y devices"*. That is devices sharing a loop, not one
+  replacing the other. Two store titles were built on it:
+  `XTRI-D "(Replaces HTRI-D)"` and `OH921 "(Replaces HFPT-11)"`, and **neither claim
+  appears in any Siemens document.** The OH921 case is worse than a bad cross-
+  reference: HFPT-11 is the FirePrint *thermal* detector, a heat detector, while
+  OH921 is photo-plus-thermal multi-criteria &mdash; and the store stocks an HFPT-11
+  page separately. The heat-only member of the 921 family is `HI921`. Both titles are
+  corrected, with the interoperability statement moved into the body.
 - **A "Replaces X" claim belongs in a title only when a manufacturer document states
   it.** Three claims in one batch gave three different answers: `PC2WL`&rarr;`PC2WLED`
   is stated outright in a Honeywell bulletin and stays in the title; `SPSCRLED` vs
