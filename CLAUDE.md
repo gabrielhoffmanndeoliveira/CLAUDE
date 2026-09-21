@@ -469,6 +469,20 @@ Revisit after the high-impression band is done.
   a `/U` suffix), were all sound. **Both edits that went wrong were the two where the
   coordinator supplied the substance** &mdash; the RA100Z rewrite and the THM04R3000
   swap. The pattern is clean enough to be a rule.
+- **Every keyword scan over this catalogue has over-fired by one to two orders of
+  magnitude. Assume the next one will too, until a mechanism is stated.** The tally:
+  product types 922 findings &rarr; 11 real; feed titles 1,325 &rarr; 109; cross-page
+  consistency 59 &rarr; 0; punctuation-stripped titles 589 &rarr; 19. The fix is the
+  same every time: **do not scan for a shape, scan for a mechanism.** "Title ends in a
+  bare number" is a shape and catches pack counts, voltages and part numbers. "Slash or
+  hyphen stripped, so `FM/CSA/ATEX/IECEx` reads `FMCSAATEXIECEx` and `0-20 mA` reads
+  `020 mA`" is a mechanism, and it lands on 19 products with almost no false positives.
+  The punctuation case also shows **when to stop**: 19 products carrying 887
+  impressions is 47 each, below the old list's abandoned tail at 29, so it was recorded
+  and **not applied**. And the rows were left marked unverified on purpose &mdash;
+  reading `34 NPT` as `3/4 NPT` is a claim about a thread size and needs a manufacturer
+  document, the same bar as any other spec. A pattern is a reason to check, never a
+  licence to rewrite.
 - **A keyword-based cross-page consistency audit does not work on this catalogue, and
   it is not worth rebuilding.** Attempted 21 Sep 2026: extract every part number
   mentioned in a published page, look up that part's own title, and flag where the
