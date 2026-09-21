@@ -781,6 +781,67 @@ Revisit after the high-impression band is done.
   part number with the `GW` stripped**, and expect the documents to be filed under the
   bare form. Beware the false friends &mdash; of 83 `GW*` SKUs, **50 are Gentex**, where
   `GWHS…` is a genuine Gentex weatherproof horn-strobe family and nothing is hidden.
+- **The conditional-headline rule paid on its first reuse, one batch after it was
+  written.** It was recorded from `D1xB2XH1…`, where the datasheet headlines
+  &quot;86.37cd&quot; flat and only the instruction sheet reveals that is the 1 Hz
+  value. The next E2S part, `D1XS2FDC024CS1A1R`, was briefed with it and **the same
+  shape fired**: the datasheet's headline **123 dB(A)** turns out, in instruction
+  manual `D190-00-101-IS Issue 6`, to be the **maximum at high power on tone 4**, with
+  **118 dB(A) nominal on tone 44** and 120/115 at default power. The copy quotes the
+  figures with their conditions. **A written-down trap that catches its next instance
+  is the whole return on writing traps down**; this one now has two independent
+  confirmations on one brand, so treat any single headline acoustic, candela or current
+  figure on a configurable device as conditional until the instruction sheet's table
+  says otherwise.
+- **A datasheet can contradict itself by three orders of magnitude, and the majority
+  inside the document can be the wrong side.** Potter `8820099 REV A` gives the door
+  holder's current as **&quot;.020 ma @ 24VDC&quot;** in its prose **and again** in its
+  Technical Specifications box, while the model table reads **20 mA**. Two places
+  against one, and the two are wrong &mdash; .020 mA would be a physically absurd
+  holding current for an electromagnet. **Prefer-the-table beat two-against-one**,
+  which is worth knowing: the rule is about *which kind of statement* is reliable, not
+  about counting occurrences. That page also needed a **200 dpi render** to read which
+  cells are shaded, because the note *&quot;holding forces correspond with shaded
+  values&quot;* is invisible in the text layer &mdash; 40 lb with 24 VDC, 35 lb with
+  120 VAC.
+- **When two Honeywell documents disagree, prefer the part-specific manual over a
+  sibling brand's catalogue sheet.** Fire-Lite `DF-60059:G` (a 2015 catalogue sheet)
+  and System Sensor `I56-3737` (the part's own manual) disagree on **five** `B224RB`
+  figures at once &mdash; diameter (6.1 in. against 6.85 in.), standby current
+  (&lt;500 &micro;A against 170 &micro;A), relay set times, AC contact rating (0.9 A
+  against 0.5 A at 125 VAC) and single-gang box compatibility. **Only the intersection
+  was published.** The diameter split may be an old-style/new-style generation
+  difference &mdash; resellers list both &mdash; but no document says so, so nothing
+  was claimed. Five disagreements in one pair is not a typo; it is two generations or
+  two sources, and neither is resolvable from the documents alone.
+- **Tenth coordinator premise wrong: `WG4RF-HVMHC` is not a residential Kidde number.**
+  The briefing warned it &quot;looks like a residential/consumer Kidde number&quot; and
+  told the agent to establish the UL standard first. It is an **85001-series commercial
+  Genesis WG4 outdoor horn strobe**, and the suffix reads straight off the ordering
+  table: **H horn, VM visual multi-candela, HC high candela.** The warning was still
+  worth giving &mdash; it forced the check &mdash; but the guess inside it was wrong.
+  **And the E/K prefix-swap rule is confirmed for a third time:** Kidde `K85001-0628`
+  Issue 1.1 (2020) and Edwards `85001-0628` Issue 2.2 (2013) agree **exactly** on every
+  candela, current, dB, dimension and temperature figure, seven years apart.
+- **An agent report can assert a failure mode that does not exist, and checking costs
+  one command.** A v2b17 agent reported that two Honeywell 404 pages in the scratch
+  directory were &quot;saved as real PDFs&quot; that **&quot;pass the mime check and
+  open cleanly in pymupdf&quot;**, and proposed it as a new trap where
+  `file -b --mime-type` is insufficient. **It is not true.** Both files are the
+  standard 8,047-byte EDAM 404, `file` reports `application/javascript`, and their
+  first bytes are `\n<!DOCTYPE H`. The mime check catches them exactly as documented.
+  Nothing was recorded from it. **Agent findings get the same verification as agent
+  copy** &mdash; especially a finding that would *weaken* an existing safeguard, which
+  is the most expensive kind to accept wrongly.
+  (The same agent did find a genuine new fingerprint:
+  `edwards-signals.com/files/<anything>.pdf` returns **HTTP 200 and 106,271 bytes of
+  `text/html`** &mdash; caught by the mime check, as normal.)
+- **`RSG` is a Potter Electric Signal Company brand**, and Potter serves the document
+  first-party (`8820099 REV A`), so no mirror is needed. Its model-number syntax block
+  decodes `DH24120FB` completely: `DH` door holder, `24120` dual 24 V and 120 V, `F`
+  flush, `B` brass. **Note the four mount styles it lists are Surface, Flush, Ground
+  and Recessed &mdash; there is no &quot;semi-flush&quot;**, which is distributor
+  wording that had reached the store title.
 - **Eighth coordinator premise proven wrong, and this one was stated as &quot;almost
   certainly&quot;. The `R` in `B200SR-LF` is not a relay.** The briefing told an agent
   the `R` was &quot;almost certainly a relay, but verify&quot;; the agent verified and
