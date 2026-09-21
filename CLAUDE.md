@@ -437,9 +437,39 @@ Baseline captured in `/tmp/tfas/BASELINE_555_publicadas.csv`: all 555 published
 pages with their pre-publication six-month impressions (162,930), clicks (2,629)
 and average position, plus batch number and publication date.
 
-**Re-measure at 2026-10-21 (30 days) and 2026-11-20 (60 days)** with the Ahrefs
-GSC tools against project_id **7227233**. Until then the pipeline is running on
-an untested premise, which is acceptable at three days and would not be at sixty.
+**Re-measure at 2026-10-21 (30 days) and 2026-11-20 (60 days)** against
+`BASELINE_555_publicadas.csv`, which holds per-page six-month impressions, clicks
+and average position and is the only durable copy of that data. Until then the
+pipeline is running on an untested premise, which is acceptable at three days and
+would not be at sixty.
+
+### BLOCKED: neither route to fresh GSC data currently works (checked 21 Sep 2026)
+
+Tested a month early, deliberately, rather than discovering it on the checkpoint date.
+
+- **The Ahrefs GSC tools return `No GSC data available for the requested date range`**
+  for project 7227233 on every window tried (Mar&ndash;Sep, Jun&ndash;Sep,
+  Aug&ndash;Sep), via both `gsc-performance-history` and `gsc-pages`. The project
+  itself is fine &mdash; verified, 308 tracked keywords, owned by
+  `gabriel@jemsystems.com` &mdash; so **Search Console is simply not connected inside
+  Ahrefs for it.** The measurement plan named these tools; they do not work.
+- **The Windsor `searchconsole` connector has disconnected** and needs the owner to
+  re-authenticate. That connector is where every GSC figure in this file came from,
+  including the 371,907 organic impressions and the `impr` column of `ranked_v2`
+  (via a `gsc_raw.json` scratch pull that no longer exists on disk).
+- **Ahrefs Site Explorer still works**, but it returns Ahrefs' own *estimated*
+  organic traffic, not GSC impressions. At these per-page volumes &mdash; most
+  products draw a handful of clicks &mdash; it is far too coarse to measure a lift
+  across 645 pages. It is not a substitute.
+
+**Owner action needed, and it is time-sensitive:** either connect Search Console
+inside Ahrefs for project 7227233, or re-authorise the Windsor `searchconsole`
+connector. Without one of them the 30-day checkpoint cannot be measured at all.
+
+**The generalisable lesson: test the measurement instrument long before the
+measurement date.** The plan had been written down for three days and named a tool
+that returns nothing. Had this gone unchecked until 21 October, the 30-day window
+would have closed unmeasured and unrecoverable.
 
 ## Sales data: the ERP export (Jan 2025 to Sep 2026)
 
