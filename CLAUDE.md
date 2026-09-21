@@ -196,59 +196,74 @@ for the owner (vendor/brand, product type, pack counts).
 is the single biggest collection traffic source at 212 visits. A paginated page
 holding a head term is fragile — any catalog reorder moves it.
 
-## The priority list is defective — rebuild it before continuing
+## The priority list was defective — rebuilt as ranked_v2.json
 
 Found 21 Sep 2026 while checking whether the ERP revenue data should reorder
 the queue. It should not, but looking for the answer exposed something worse.
 
 `ranked.json` was built with **two undocumented filters**: a description of
 **50 characters or less**, and **stock greater than zero**. Every entry obeys
-both (max desc 50 chars, min qty 1). Anything in the 51&ndash;700 character band
-was therefore never a candidate, however thin and however much traffic it drew.
-
+both (max desc 50 chars, min qty 1). Anything in the 51-700 character band was
+therefore never a candidate, however thin and however much traffic it drew.
 That band holds the most valuable thin pages in the catalogue.
 
-**6,815 active products carry Search Console impressions. Only 655 are in the
-queue.** Of the 6,160 outside it, the 200 highest by impressions were pulled
-from Shopify and measured: **70 of them (35%) are under 700 visible
-characters, carrying 331,678 impressions** &mdash; almost exactly **twice the
-165,818 impressions of the entire 655-product queue**. Holding the original
-in-stock rule still leaves 46 products and 215,877 impressions. And that is
-from 200 of 6,160; the rest is unmeasured.
+The whole catalogue was then pulled with `bulkOperationRunQuery` (16,031 active
+products, 19 seconds, output in `/tmp/tfas/catalogo_full.json`). **The median
+active product carries 68 visible characters of description; 13,867 of 16,031
+are under 700.**
 
-Worked examples, none of them ever candidates:
+### ranked_v2.json
 
-| product | chars | impressions | revenue |
+Rule: **active, impressions > 0, visible description under 700 characters**,
+sorted by impressions descending, stock as a tiebreaker and never a filter.
+The 555 pages already published are excluded.
+
+**5,074 candidates carrying 1,537,073 impressions and $39.8M of revenue** —
+against the old list's 165,818 impressions. **9.3x larger.** 4,975 of them
+were never in the old list at all. The top 100 alone hold 402,142 impressions,
+2.4x the entire old project.
+
+| band | products | impressions | revenue |
 |---|---|---|---|
-| Notifier AFP-100 | 15 | 10,211 | &mdash; (no stock) |
-| Lenel LNL-1320-S3B | 56 | 8,201 | $92,795 |
-| Gamewell-FCI MS-7LOB | 544 | 13,627 | $21,991 |
-| Napco SLE-MAX2-FIRE | 164 | 6,123 | $201,628 |
-| Fire-Lite MDF-300 | 190 | 2,633 | $215,312 |
+| A, under 120 chars | 3,274 | 867,989 | $23.9M |
+| B, 120-349 chars | 1,322 | 369,054 | $12.1M |
+| C, 350-699 chars | 478 | 300,030 | $3.8M |
 
-MDF-300's 2,633 impressions would rank it **position 3** of the whole list.
-AFP-100 at 15 characters is excluded only by the stock rule.
+Work it by `ranked_v2_byscore.json`, which sorts by `impressions x (1 - chars/700)`
+so effort lands where both traffic and the text deficit are largest. Batches are
+named `v2bNN/`.
 
-**The remaining 100 products of the current queue (positions 555&ndash;654)
-carry 2,888 impressions between them, 29 each. The 70 found in the gap average
-4,738 each — 164x more traffic per product enriched.** Continuing down the
-present list is the worst available use of the next batch.
+Worked examples of what the old filters hid: Notifier AFP-100 (15 chars, 10,211
+impressions, excluded by the stock rule), Lenel LNL-1320-S3B (56 chars, 8,201),
+Gamewell-FCI MS-7LOB (544 chars, 13,627), Napco SLE-MAX2-FIRE (164 chars, 6,123,
+$201,628), Fire-Lite MDF-300 (190 chars, 2,633, $215,312 — its impressions alone
+would have ranked it position 3 of the old list).
 
-### What to do
-
-1. Finish the batch in flight, then stop working `ranked.json`.
-2. Rebuild as `ranked_v2.json`: every **active** product with **impressions > 0**
-   and a **visible description under 700 characters** (the house-style floor,
-   not an arbitrary 50), sorted by impressions descending. Use
-   `bulkOperationRunQuery` for the 6,815-product description pull rather than
-   paginating; `nodes(ids:)` overflows at 50 products per call.
-3. Treat stock as a **sort tiebreaker, not a filter**. A restockable page with
-   10,000 impressions is worth more than an in-stock page with 29.
-4. Carry over the 555 already-published pages so they are not redone.
+**The remaining 100 products of the old queue carried 2,888 impressions between
+them, 29 each. The first v2 batch of 18 products carries 112,189** — 68% of the
+old project's entire impression base in one batch.
 
 **The lesson generalises: never inherit a candidate list without measuring the
-filters that built it.** This list was worked for 33 batches before anyone
-asked what defined membership.
+filters that built it.** This one was worked for 33 batches before anyone asked
+what defined membership.
+
+## Measurement: there is no evidence yet, by design
+
+Checked 21 Sep 2026: **the entire pipeline is three days old.** The first batch
+published 18 Sep, batch 33 on 21 Sep. Google has not recrawled, so **nothing is
+yet known about whether enrichment lifts these pages** — neither for nor against.
+
+This is a reason to work high-traffic pages, not low ones. A page with 29
+impressions can never demonstrate an effect; the variance swamps it. Pages with
+thousands of impressions can.
+
+Baseline captured in `/tmp/tfas/BASELINE_555_publicadas.csv`: all 555 published
+pages with their pre-publication six-month impressions (162,930), clicks (2,629)
+and average position, plus batch number and publication date.
+
+**Re-measure at 2026-10-21 (30 days) and 2026-11-20 (60 days)** with the Ahrefs
+GSC tools against project_id **7227233**. Until then the pipeline is running on
+an untested premise, which is acceptable at three days and would not be at sixty.
 
 ## Sales data: the ERP export (Jan 2025 to Sep 2026)
 
