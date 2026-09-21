@@ -128,6 +128,14 @@ on 21 Sep 2026 found two of 645 "published" pages were never actually written &m
 still counted) and `silent-knight-rbb` (38 chars, a genuine miss). One bulk query
 costs 19 seconds; run it every ten batches.
 
+**Re-run at batch 11 (734 pages): clean.** The only pages under 400 visible
+characters are the two Gamewell-FCI parts that are knowingly unverifiable
+(`90521`, `SM7100-L8`); the RBB miss is fixed and no new silent failure appeared.
+The non-ASCII title check was re-run at the same time: **56 of 16,031 titles**, down
+from 136, and **all 56 carry only `&deg;`, `&reg;` or `&trade;`** &mdash; the three
+characters deliberately left alone. Zero drift across roughly 110 titles written
+since the sweep, which says the ASCII rule is holding at the point of writing.
+
 **House style drifted during the project, and reformatting is not worth it yet.**
 58 of 645 published pages carry a bullet count outside 4&ndash;7, almost all early
 old-list batches written as all-prose before the `<ul>` structure settled. The
