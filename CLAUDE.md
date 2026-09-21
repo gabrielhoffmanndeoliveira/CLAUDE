@@ -196,6 +196,60 @@ for the owner (vendor/brand, product type, pack counts).
 is the single biggest collection traffic source at 212 visits. A paginated page
 holding a head term is fragile — any catalog reorder moves it.
 
+## The priority list is defective — rebuild it before continuing
+
+Found 21 Sep 2026 while checking whether the ERP revenue data should reorder
+the queue. It should not, but looking for the answer exposed something worse.
+
+`ranked.json` was built with **two undocumented filters**: a description of
+**50 characters or less**, and **stock greater than zero**. Every entry obeys
+both (max desc 50 chars, min qty 1). Anything in the 51&ndash;700 character band
+was therefore never a candidate, however thin and however much traffic it drew.
+
+That band holds the most valuable thin pages in the catalogue.
+
+**6,815 active products carry Search Console impressions. Only 655 are in the
+queue.** Of the 6,160 outside it, the 200 highest by impressions were pulled
+from Shopify and measured: **70 of them (35%) are under 700 visible
+characters, carrying 331,678 impressions** &mdash; almost exactly **twice the
+165,818 impressions of the entire 655-product queue**. Holding the original
+in-stock rule still leaves 46 products and 215,877 impressions. And that is
+from 200 of 6,160; the rest is unmeasured.
+
+Worked examples, none of them ever candidates:
+
+| product | chars | impressions | revenue |
+|---|---|---|---|
+| Notifier AFP-100 | 15 | 10,211 | &mdash; (no stock) |
+| Lenel LNL-1320-S3B | 56 | 8,201 | $92,795 |
+| Gamewell-FCI MS-7LOB | 544 | 13,627 | $21,991 |
+| Napco SLE-MAX2-FIRE | 164 | 6,123 | $201,628 |
+| Fire-Lite MDF-300 | 190 | 2,633 | $215,312 |
+
+MDF-300's 2,633 impressions would rank it **position 3** of the whole list.
+AFP-100 at 15 characters is excluded only by the stock rule.
+
+**The remaining 100 products of the current queue (positions 555&ndash;654)
+carry 2,888 impressions between them, 29 each. The 70 found in the gap average
+4,738 each — 164x more traffic per product enriched.** Continuing down the
+present list is the worst available use of the next batch.
+
+### What to do
+
+1. Finish the batch in flight, then stop working `ranked.json`.
+2. Rebuild as `ranked_v2.json`: every **active** product with **impressions > 0**
+   and a **visible description under 700 characters** (the house-style floor,
+   not an arbitrary 50), sorted by impressions descending. Use
+   `bulkOperationRunQuery` for the 6,815-product description pull rather than
+   paginating; `nodes(ids:)` overflows at 50 products per call.
+3. Treat stock as a **sort tiebreaker, not a filter**. A restockable page with
+   10,000 impressions is worth more than an in-stock page with 29.
+4. Carry over the 555 already-published pages so they are not redone.
+
+**The lesson generalises: never inherit a candidate list without measuring the
+filters that built it.** This list was worked for 33 batches before anyone
+asked what defined membership.
+
 ## Sales data: the ERP export (Jan 2025 to Sep 2026)
 
 The owner supplied `MOST_SOLD_ITEMS_FROM_2025_TO_TODAY.xlsx`, a
