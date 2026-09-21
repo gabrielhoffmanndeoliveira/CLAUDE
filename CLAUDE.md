@@ -51,8 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 609 pages published** — 555 from the old list plus v2b01, v2b02 and
-v2b04 — covering 399,434 impressions. v2b03 is sliced and not yet run.
+**Progress: 627 pages published** — 555 from the old list plus v2b01 through
+v2b04 — covering 459,967 impressions.
 
 **Never hand-transcribe product ids into an agent briefing.** On v2b03 all six
 ids typed into the prose of one briefing were wrong &mdash; transcribed by eye
