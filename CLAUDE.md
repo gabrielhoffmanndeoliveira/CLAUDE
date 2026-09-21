@@ -257,6 +257,49 @@ old project's entire impression base in one batch.
 filters that built it.** This one was worked for 33 batches before anyone asked
 what defined membership.
 
+## The thermostat problem: high traffic, almost no revenue
+
+Measured 21 Sep 2026 after noticing six Honeywell Home thermostats in one v2
+slice. The pattern is real and it cuts against a pure impressions sort.
+
+| vendor in the v2 queue | products | impressions | revenue | revenue per impression |
+|---|---|---|---|---|
+| Honeywell Home | 41 | 114,498 | $26,900 | **$0.23** |
+| Resideo | 307 | 36,208 | $6,848 | **$0.19** |
+| System Sensor | 322 | 127,744 | $6,231,749 | $48.78 |
+| Simplex | 467 | 141,783 | $2,983,612 | $21.04 |
+| Vesda | 146 | 42,139 | $5,653,956 | $134.17 |
+
+Honeywell Home draws **2,793 impressions per product**, nine times the queue
+average of 303, and converts at **1/200th** of the fire alarm core per
+impression. Resideo and Honeywell Home together are 348 products and 150,706
+impressions against **$33,748 of total revenue**.
+
+They are not a rounding error in the queue: **13 of the first 100 positions and
+75,312 of the first 100 positions' 361,237 impressions** are thermostats and
+HVAC accessories.
+
+**Two readings, and the available data cannot separate them:**
+
+1. **Wrong audience.** A homeowner searching a thermostat model will not buy
+   from a fire alarm distributor. This is the same shape as the "fire alarm
+   battery" SERP finding above, where the intent was a homeowner with a chirping
+   smoke alarm and TFAS sells SLA panel batteries to contractors.
+2. **The pages are too thin to convert**, and enrichment is exactly the fix.
+
+A 200x gap is too large to be explained by page quality alone, but reading 1
+cannot be proven from this data either.
+
+**Recommended treatment: a bounded experiment rather than a drift.** These pages
+have thousands of impressions each, so unlike the old queue they *can* show an
+effect. Do one batch of thermostats, measure at 30 days against the baseline,
+and continue only if they convert. Do not let them consume a fifth of the next
+five batches by default.
+
+Note this is **not** the earlier rejected idea of sorting by absolute revenue,
+which would have surfaced BDA gear nobody searches for. This is revenue *per
+impression* on traffic the pages already earn, which is a different test.
+
 ## Measurement: there is no evidence yet, by design
 
 Checked 21 Sep 2026: **the entire pipeline is three days old.** The first batch
