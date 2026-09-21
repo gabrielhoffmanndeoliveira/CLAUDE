@@ -51,8 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 723 pages published** — 555 from the old list plus v2b01 through
-v2b09 and a third of v2b10 — plus 80 title-encoding fixes applied
+**Progress: 729 pages published** — 555 from the old list plus v2b01 through
+v2b09 and two thirds of v2b10 — plus 80 title-encoding fixes applied
 catalogue-wide.
 
 **Never hand-transcribe product ids into an agent briefing.** On v2b03 all six
@@ -90,9 +90,25 @@ One single-line string, no newlines.
 
 - 700–1100 visible characters (tags stripped); hard ceiling 1230.
 - Tags allowed: `<p> <ul> <li> <strong> <sub> <em>` only. No headings, links, attributes.
-- Entities allowed: `&mdash; &quot; &times; &deg; &micro; &ndash; &nbsp; &#937;` only.
+- Entities allowed: `&mdash; &quot; &times; &deg; &micro; &ndash; &nbsp; &#937; &amp;` only.
 - No raw `"` or `'` characters. Use `&quot;` for inches.
 - Titles: `Brand PartNumber Descriptive Name, qualifiers`.
+
+**`&amp;` was added to the whitelist on 21 Sep 2026, and the reason is worth keeping.**
+The old list could not express an ampersand at all: `&amp;` was not on it and a bare
+`&` is not an entity, so **`AT&amp;T` was literally unwritable in a description**. An
+agent hit this on a dual-SIM communicator and had to route the carrier names into the
+title instead. Brand names with ampersands recur &mdash; `AT&amp;T`, `Air Products
+&amp; Controls` &mdash; and Shopify decodes `&amp;` to a plain `&` on storage anyway,
+so there was never a reason to exclude it. **A whitelist that cannot express a real
+brand name is a bug in the rule, not a constraint to write around.**
+
+**Titles and descriptions have different character rules, and they do not conflict:**
+a description may use `&deg;` and the rest of the whitelist; a **title must be plain
+ASCII**, because titles are Merchant Center feed attributes. The earlier decision to
+leave `&deg;`, `&reg;` and `&trade;` alone in existing titles was about **not churning
+27 titles for a cosmetic**, not a licence to introduce them. So: never put a non-ASCII
+character in a title you are writing; do not rewrite an old title purely to remove one.
 
 **The entity and newline rules are input discipline, not storage properties.**
 Shopify **decodes HTML entities and re-inserts newlines** when it stores
@@ -263,6 +279,13 @@ Revisit after the high-impression band is done.
   pattern is closed catalogue-wide, but it recurs whenever a new row is copied.
 - **The generation trap:** one document number can cover two product generations
   at different revisions. Confirm the revision covers the part.
+- **Heat detectors have three classes, not two.** Fixed temperature and rate of rise
+  are the obvious pair; **rate compensation** is the third and a whole product line is
+  built on it. A high-expansion shell encases slower struts carrying opposing
+  contacts, so on a fast rise the shell lengthens first and the contacts close *below*
+  the rating, cancelling thermal lag &mdash; and it self-restores on cooling. A
+  briefing that offers only "fixed or rate-of-rise" will push an agent toward the
+  wrong answer; Thermotech's `302-ET-135` is rate compensation and neither of those.
 - **The adjacent-row trap, in the other direction: reusing a sibling's spec row.**
   `SPWL` (speaker only) is rated **79/82/85/88 dBA** at its four taps; `SPSWL`
   (speaker strobe) is **77/80/83/86**, two dB lower at every tap,
