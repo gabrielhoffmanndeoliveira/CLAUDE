@@ -51,8 +51,9 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 717 pages published** — 555 from the old list plus v2b01 through
-v2b09 — plus 80 title-encoding fixes applied catalogue-wide.
+**Progress: 723 pages published** — 555 from the old list plus v2b01 through
+v2b09 and a third of v2b10 — plus 80 title-encoding fixes applied
+catalogue-wide.
 
 **Never hand-transcribe product ids into an agent briefing.** On v2b03 all six
 ids typed into the prose of one briefing were wrong &mdash; transcribed by eye
@@ -125,6 +126,27 @@ Revisit after the high-impression band is done.
   Download the manufacturer PDF with `curl` and extract locally with `pymupdf`.
   For scrambled tables use `page.find_tables()` or `page.get_text("words")` with
   coordinates; when the text layer fails, render the page at 300 dpi and read it.
+- **The JCI hub carries Ansul too, under `specialhazards` &mdash; and the segment is
+  the business unit, not the brand.** `https://docs.johnsoncontrols.com/specialhazards/api/khub/documents?search=<term>`
+  returns a **1,449-document index** in the same shape as the Simplex hub
+  (`id`/`filename`/`title`/`metadata`, `ft:locale`, `ft:lastEdition`, non-English
+  duplicates), and `search` is ignored there too, so grep the JSON. Download via
+  `/specialhazards/api/khub/documents/<id>/content`. The segments `ansul`,
+  `ansul-us`, `tycofs`, `chemguard`, `tyco`, `fire`, `johnsoncontrols`, `jci` and
+  `ansulfire` **all 404**. So **when a JCI brand seems missing, guess the business
+  unit, not the brand name** &mdash; Chemguard, Skum, Pyro-Chem and Williams should
+  sit here too. This unlocks Ansul, 27 products and 14,768 impressions of the v2
+  queue, and settled a part in two fetches that would otherwise have gone to
+  resellers.
+- **`/api/khub/maps` is incomplete for legacy Siemens lines, confirmed.** The index
+  holds the current XMS pull-station line but **not the older MSM line at all**.
+  For a legacy Siemens part, web-search the A6V asset number and go straight to
+  `/go/<AssetID>`. Also note `support.industry.siemens.com/cs/attachments/...`
+  returns `text/html` at ~440 bytes for the same asset that `/go/` serves properly.
+- **Gentex's documented path does not cover the PLACE line.**
+  `fireprotection.gentex.com/files/PLACE-Series1.pdf` and `PL1K-Series1.pdf` both
+  404. PLACE lives on `placehomesolutions.com`, which is Gentex-operated (Zeeland MI
+  footer, Gentex `551-` document numbering) and therefore first-party.
 - **Simplex documents: use the Johnson Controls document hub.** A GET on
   `https://docs.johnsoncontrols.com/simplex/api/khub/documents?search=<term>`
   returns a JSON index of ~961 Simplex documents with `title` and
