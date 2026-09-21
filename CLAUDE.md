@@ -598,6 +598,36 @@ Revisit after the high-impression band is done.
   **The agent found it only by continuing past three negative results** &mdash; the part
   is in none of `S4099-0005`, `S14099-0001` or `S4099-0008`, the three obvious
   manual-station datasheets. **Wrong document family, for the third time.**
+- **A lossy slice file silently disarms the catalogue's best cross-check, and both
+  agents will report the loss as a fact about the catalogue.** Building v2b13 from the
+  revenue CSV, the coordinator wrote `'type': ''` into every `aN_in.json` because that
+  CSV did not carry the field. Two agents then reported, as a finding, that all their
+  products had an empty Shopify `type`. **Only 1 of the 264 is actually empty, and
+  catalogue-wide only 52 of 16,031 (0.3%).** The agents were reporting the input file,
+  faithfully. This is the hand-transcribed-id failure in a new shape: **a briefing that
+  is wrong in a *blank* is harder to catch than one wrong in a value**, because nobody
+  disputes a blank.
+  It cost real signal. Restoring the field and re-reading the 18 products against the
+  agents' own class conclusions immediately produced **two disagreements, both real**
+  &mdash; `HONBDA-7S27B-IB-10` and `OSE-HPW` below. **The rule: any slice file must be
+  built from `catalogo_full.json`, carrying `type` and `handle` verbatim; never
+  default a field the agents are asked to reason about.**
+- **The product-class error has a signature, and it has now fired three times:
+  the type field names a *subcomponent* or a *role*, not the product.** `CPU2-3030D`
+  was typed Annunciators and is the panel CPU; `4100-9701` was typed Annunciators and
+  is the 4100ES master controller; **`HONBDA-7S27B-IB-10` is typed Annunciators and is
+  an $8,948 all-in-one public-safety BDA that happens to contain an annunciator.** Its
+  three siblings in the same family are all typed BDA. So: **&quot;Annunciators&quot;
+  on a part that costs more than an annunciator is a class question every time**, and
+  a family whose members disagree on type is a defect, not a nuance.
+- **Two structured fields wrong the same way corroborate each other.** `OSE-HPW` has
+  vendor `Vesda` and type `Aspirating Smoke Detectors`. VESDA is Xtralis's aspirating
+  line; **OSID (Open-area Smoke Imaging Detection) is a separate Xtralis line**, and
+  every manufacturer document says &quot;OSID by Xtralis&quot;. An OSID emitter is
+  open-area optical imaging, not aspiration. The agent found the brand error from the
+  documents and the restored type field confirmed it from a second direction. Honeywell
+  owns both lines, which is presumably how they merged. **Decide vendor and type
+  together when they are wrong together.**
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
