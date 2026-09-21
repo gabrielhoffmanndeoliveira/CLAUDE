@@ -685,6 +685,67 @@ Revisit after the high-impression band is done.
   20,000 A surge rating and differ in **exactly two rows** &mdash; max continuous current
   **1 A against 5 A**, and failure mode **open circuit against short to ground**. And
   **`WB` is manufacturer-stated**: *&quot;includes single position mounting base&quot;*.
+- **Ninth coordinator premise wrong, and the agent's handling of it is the model.**
+  The briefing called `FSL-E3` a &quot;fiber SLC/loop module&quot;. `9021-60783` Rev F
+  makes it an **ARCNET network module** &mdash; one transmit or receive channel for the
+  `RPT-E3-UTP` repeater and INI-VG voice gateways, not an SLC device-loop card. But the
+  agent did **not** rewrite the class noun out of the title, because
+  **the document is itself titled &quot;FML-E3/FSL-E3 Fiber Loop Modules&quot;** &mdash;
+  that *is* the manufacturer's product name, which house convention explicitly permits.
+  It kept the name in the title, put *&quot;This is a network card, not an SLC device
+  loop card&quot;* as the second sentence of the body, and flagged the `type` to the
+  owner. **That is the right shape for every case where the manufacturer's own name is
+  the confusing thing** &mdash; the opposite handling from `CPU2-3030D`, where the
+  manufacturer's &quot;Primary Display&quot; wording was allowed to set the title and
+  misled. Fiber mode settled positively for the exact part: single-mode, 9/125 &micro;m,
+  LC, 30 dB, 0.079 A, against FML-E3's multi-mode, 62.5/125, ST, 8 dB, 0.053 A.
+- **A stale model list can sit in a PDF's text layer without ever being rendered, and a
+  grep alone reads it as a generation conflict.** Gamewell-FCI `9020-0617`'s text layer
+  opens with `ASD-PL2F/ASD-PTL2F ASD-PL2FR` &mdash; **Series 2** codes &mdash; while a
+  150 dpi render of page 1 shows only *&quot;Velociti Series 3 Detectors /
+  Photoelectric Detectors&quot;*. The Series 2 strings are invisible leftovers. This is
+  the **inverse of the invisible-dimension trap**: there the text layer was missing data
+  that the page showed, here it carries data the page does not. Same remedy both ways.
+  **Render before calling a generation conflict**, not only when a figure seems absent.
+- **Word coordinates are necessary but were not sufficient, for the first time.** On
+  Simplex `S49AVC-0001` Table 1, plain text put `579-1242` after &quot;Blue&quot; and
+  word coordinates put it at y=250.6 next to &quot;Clear&quot; &mdash; but neither
+  settled the *merged* Installation-Instructions cell. A 200 dpi render did
+  (`579-1242` spans rows 1&ndash;6, `579-1279` the last two). So the escalation is three
+  steps, not two: plain text, then `get_text(&quot;words&quot;)` with coordinates, then
+  **render and read**. Also from that sheet: **`-BA` on a Simplex appliance code means
+  &quot;assembled in the USA&quot;**, not a functional variant.
+- **Tenth product-class error, and the type agreed with the wrong title again.**
+  `ASD-PTL3` was titled *&quot;Thermal Sensor&quot;* and typed **Heat Detectors**, while
+  `9020-0617` Rev K's ordering block reads *&quot;ASD-PTL3: **Photoelectric smoke
+  detector** with thermal sensing&quot;* under a heading of &quot;Photoelectric
+  Detectors&quot;, listed to **UL 268 7th Edition**. A buyer filtering for heat detectors
+  gets a smoke detector, and one filtering for smoke detectors never sees it.
+  **Its thermal class is separately contested inside that one document** &mdash; page 1
+  prose says *135 &deg;F **fixed temperature*** and the page 3 spec block says
+  ***Rate-of-Rise**: greater than 15 &deg;F/minute or 135 &deg;F*. Both give 135 &deg;F,
+  so 135 &deg;F is published and neither class word is asserted. It is **not** rate
+  compensation.
+- **Three independent structural reasons can settle a self-contradicting datasheet, and
+  that is stronger than preferring the table by rule.** Gentex's S-Series sheet lists
+  `SHRR` among the models that *&quot;feature electrochemical CO sensing&quot;* in its
+  Standard Features prose, while the ordering table gives the SHRR row **no CO bullet**
+  (word coordinates: bullets at Smoke x=222.7 and Heat x=314.9, nothing at CO x=268.8).
+  Three things side with the table, and none of them is &quot;tables beat prose&quot;:
+  SHRR is a **917-** S-Series number where every CO model is **918-**; the Product
+  Listings give the S Series **ANSI/UL 217 only**, UL 2034 being reserved for SC/C; and
+  the SHRR harness diagram is labelled **HEAT ALARM CONTACTS** where STRR/SCRR says
+  &quot;CO or HEAT&quot;. No CO claim was published either way. **When a document
+  contradicts itself, look for a third and fourth signal rather than applying the
+  table-over-prose rule mechanically** &mdash; the rule tells you which to bet on, the
+  corroboration tells you whether to publish at all.
+- **Gentex path construction failed for the S-Series, so the direct-serve rule has a
+  boundary.** `SHRR-Series1`, `S-Series1`, `STRR-Series1`, `SR-Series1` and `S-Series2`
+  all 404 at 7,264&ndash;7,273 bytes of `text/html`. The real file is
+  **`GN600_S-C-SC-H_Series_FINAL_R1.pdf`** (doc code SCSCH-01), found by search. The
+  `fireprotection.gentex.com/files/<Model>-Series<n>.pdf` pattern works for some
+  families and not this one &mdash; **find the filename, do not build it**, same as EDAM
+  slugs and `qdigital.mx`.
 - **A keyword-based cross-page consistency audit does not work on this catalogue, and
   it is not worth rebuilding.** Attempted 21 Sep 2026: extract every part number
   mentioned in a published page, look up that part's own title, and flag where the
