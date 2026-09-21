@@ -51,8 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 805 pages published** — 555 from the old list plus v2b01 through
-v2b14 — plus 80 title-encoding fixes applied
+**Progress: 823 pages published** — 555 from the old list plus v2b01 through
+v2b15 — plus 80 title-encoding fixes applied
 catalogue-wide. One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
 reseller data.
@@ -413,6 +413,14 @@ Revisit after the high-impression band is done.
   that read like content. `alldataresource.com` does this, and so does
   `myeddie.edwardsfiresafety.com`, which answers **HTTP 200 with an HTML shell** for
   any filename.
+- **The JCI hub has an `autocall` segment too.**
+  `https://docs.johnsoncontrols.com/autocall/api/khub/documents/<id>/content` serves
+  Autocall documents directly, alongside the known `/simplex/` and `/specialhazards/`
+  segments &mdash; more confirmation that the segment is the business unit. Autocall
+  part numbers are Simplex numbers with an `A` prefix. Meanwhile
+  **`autocall.com/uploads/resources/Datasheets/*.pdf` is blocked and returns 103 bytes
+  of `text/plain`** for every request &mdash; a new failure fingerprint alongside EDAM's
+  8,047-byte JavaScript and steelfire's 48,687 bytes.
 - **On the JCI hub, grep the `filename` field, not the title.** The document that
   settled `4906-9101` is titled "Visible Notification Appliances with Synchronized
   Flash" &mdash; containing neither "4906" nor "TrueAlert". Its filename,
@@ -423,6 +431,24 @@ Revisit after the high-impression band is done.
   &mdash; `DN-6643:A1` is from 2008 and is still the newest Notifier publishes for
   the NBG-12 Series.
 - Never state stock, lead time, or condition.
+- **A second innocent origin for a false &quot;replaces&quot; claim: the data-sheet
+  revision line.** Siemens sheets carry `Supersedes sheet dated 5/06 (Rev.1)` in the
+  footer. **That supersedes a *document*, not a product**, and it sits on exactly the
+  older sheets a reseller would be reading. Grepping for `supersed` therefore returns a
+  hit on almost every legacy Siemens sheet that means nothing about the catalogue. Read
+  what the word is attached to before counting it.
+- **Splitting a sibling pair across two agents is worth doing, and the disagreement is
+  the point.** `IO-SDC1` and `IO-SDC2` went to different agents with instructions to
+  establish the real separator and to compare shared figures afterwards. Both
+  independently found the same two differences &mdash; loop count *and* host panel, the
+  iO-SDC1 being the only one that fits an iO64 &mdash; which neither could have guessed
+  from the numeral. **And the cross-check caught a live defect:** one agent published
+  `80 mA alarm` while the other established that `E85001-0135` **contradicts itself on
+  alarm current in both revisions checked** (card table 80/70 mA, panel Loop-circuit
+  block 125/115 mA) and had omitted it. The contradicted figure was removed before
+  publishing, from the bullet **and from the closing paragraph, where it had survived
+  the first pass**. Standby, which agrees across both tables and revisions, was kept.
+  **Pair-split the obvious sibling pairs, and diff the shared numbers at merge.**
 - **The Siemens coexistence sentence, misread as supersession. Hit twice; assume it
   is behind every Siemens "Replaces" claim.** Siemens data sheets carry an
   Installation paragraph of the form *"Model X may be installed on the same SLC with
@@ -627,6 +653,30 @@ Revisit after the high-impression band is done.
   merely unsourced but misleading in a way that costs the buyer. Claim moved to the
   body with the spacing difference stated. **Generalises: when a supersession claim
   cannot be sourced, look for a spec that would have to be equal if it were true.**
+- **Ninth product-class error, and the first where the store contradicts itself.**
+  Gentex `STRR` was titled &quot;Multi-Criteria Smoke **Detector**&quot; and typed
+  &quot;Multi Criteria Detectors&quot;, so the type agreed and raised nothing. Gentex's
+  own document calls the whole family a **&quot;Smoke Alarm&quot;** and lists it under
+  **ANSI/UL 217 9th Edition**: a self-contained 120 VAC dwelling-unit alarm with its own
+  horn and a 9V battery, which is a materially different purchase from a UL 268 system
+  detector on an SLC. **The store's own sibling page for the SR was already titled
+  &quot;Smoke Alarm&quot;**, so the catalogue disagreed with itself and nobody noticed.
+  When two pages in one family use different class nouns, one of them is wrong.
+- **The appliance-only trap: a part that is merchandised as a finished product but
+  ships as bare electronics.** Autocall `A49CMT-APPLW` was titled &quot;Conventional
+  Mount Appliance&quot;, which contains no class noun at all and names a mounting style
+  that does not exist. `AC49CMT-0001` Rev. 7 heads Table 2 *&quot;Separate mounting
+  plate, **required** when ordering model A49CMT-APPLW&quot;* and Table 3 the same for
+  covers; the finished horns `49CMT-WRF` and `49CMT-WWF` *&quot;include cover and
+  matching mounting plate&quot;*. So the buyer receives a horn with no cover, no plate
+  and no lettering. This is the `4099-9015` shape one step worse, and it is the second
+  time in three batches. **Check the ordering table for the word &quot;required&quot;
+  before assuming a catalogue number is a complete product.**
+  **A trap avoided inside it:** the trailing `W` does **not** mean white. Word
+  coordinates show that row's Cover-colour and Wording cells are **empty**, with
+  &quot;Select cover and mounting plate separately&quot; spanning both, while the rows
+  above do carry Red and White. Colour is set by the cover ordered separately, so
+  titling it white would assert what the manufacturer deliberately leaves open.
 - **A part can be merchandised as its general family when it is the special case, and
   that is worse than a wrong class noun.** Simplex `4099-9015` was titled *&quot;Double
   Action Addressable Manual Pull Station&quot;* &mdash; not false, but it is documented
