@@ -51,8 +51,9 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 734 pages published** — 555 from the old list plus v2b01 through
-v2b10 — plus 80 title-encoding fixes applied catalogue-wide. One product,
+**Progress: 740 pages published** — 555 from the old list plus v2b01 through
+v2b10 and a third of v2b11 — plus 80 title-encoding fixes applied
+catalogue-wide. One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
 reseller data.
 
@@ -483,6 +484,22 @@ Revisit after the high-impression band is done.
   asked to rule on the live text. **Put corrected pages back through cross-reference
   review; do not treat a correction as settled because it fixed what it set out to
   fix.**
+- **The product-class error is the most common real defect in this catalogue's
+  titles &mdash; five cases now, and the fifth is the subtle one.** A relay sold as a
+  resistor (`EOLR-1`), a riser monitor as a plain monitor (`SIGA-RM1`), a controller
+  as a detector (`TSD-CJ-C01`), a horn strobe as a horn (`MTH-MC-R`), and a panel CPU
+  as a display (`CPU2-3030D`). **The last one came from the manufacturer's own
+  wording:** "NFS2-3030 Primary Display" is Notifier's verbatim heading in DN-7070,
+  but it names the part's *role* and reads as an add-on annunciator, when the part is
+  the CPU that the panel cannot run without. It is also the first where the Shopify
+  `type` field gave no warning &mdash; it said "Annunciators", leaning the same wrong
+  way. **So the type field is a useful signal when it disagrees and no signal at all
+  when it agrees; verify the class from the document either way.**
+- **Identical third-party listing files prove a single manufacturer.** The MR-relay
+  brand tangle &mdash; one family under four store vendors &mdash; was settled not by
+  any website's claim but by APC's and Space Age's documents citing the **same** UL
+  `S3403`, MEA `73-92-E` and CSFM `7300-1004` files. One listee, one manufacturer,
+  two catalogue numbers. Use this whenever a brand question looks unanswerable.
 - **A part's own name can misdescribe its product class, and the store title will
   inherit the error.** `EOLR-1` was briefed &mdash; by this file's coordinator, as a
   stated fact &mdash; as an end-of-line resistor, and the store title read "System
