@@ -51,8 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 823 pages published** — 555 from the old list plus v2b01 through
-v2b15 — plus 80 title-encoding fixes applied
+**Progress: 832 pages published** — 555 from the old list plus v2b01 through
+v2b15, plus the first nine of v2b16 — plus 80 title-encoding fixes applied
 catalogue-wide. One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
 reseller data.
