@@ -54,6 +54,20 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 **Progress: 609 pages published** — 555 from the old list plus v2b01, v2b02 and
 v2b04 — covering 399,434 impressions. v2b03 is sliced and not yet run.
 
+**Never hand-transcribe product ids into an agent briefing.** On v2b03 all six
+ids typed into the prose of one briefing were wrong &mdash; transcribed by eye
+from a slice listing and scrambled. Two of the wrong ids were *other real
+products in the same batch*, so had the agent trusted the prose it would have
+published thermostat copy onto the wrong thermostat pages: plausible-looking,
+silent, and discoverable only by chance later. Nothing broke solely because the
+briefing also said "read the ids from `aN_in.json`, which is authoritative".
+
+The rule that follows: **a briefing names products by SKU and points at
+`aN_in.json` for every id.** Never paste an id, and never write "id X is NOT
+yours" corrections &mdash; they were themselves wrong. Agents must take `id`
+from the input file and echo it back, and the merge step must assert that each
+returned `id` matches the input file before anything is published.
+
 Batch loop: slice 18 products → split 6/6/6 across three concurrent
 `general-purpose` research agents → validate → merge → publish in two aliased
 `productUpdate` mutations of nine.
