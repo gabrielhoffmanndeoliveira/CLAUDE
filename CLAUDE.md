@@ -300,6 +300,23 @@ Revisit after the high-impression band is done.
   `AVDS916-01.pdf` exists under no `products/` tree; the file is published as
   `.../literature-and-specs/datasheets/L-Series-LED-Indoor-Horns-Strobes-and-Horn-Strobes-Data-Sheet.pdf`.
   Search for the slug, do not build it.
+- **Fiplex public-safety BDA gear IS first-party documented on EDAM, and the
+  coordinator's premise that it was not is wrong.** Two briefings told agents to skip
+  a Fiplex part if no manufacturer document existed; an agent found
+  `prod-edam.honeywell.com` Document **`BD441.1`, 08/01/2023**, which tabulates HONBDA
+  units by ordering part number with frequency plan (downlink and uplink MHz ranges),
+  gain, power, battery, enclosure and UL 2524 2nd Edition listing. Two different EDAM
+  paths served the same revision. An $8,948 unit did not have to be skipped.
+  **The general lesson: &quot;relationship-sold&quot; describes how a category is
+  bought, not whether it is documented.** BDA, flame-detection and Det-Tronics gear
+  draw no search traffic, and it is easy to slide from that into assuming no
+  datasheet exists. Check EDAM before writing off a line.
+- **A table caption can sit *below* its table, which inverts the obvious reading.**
+  Gamewell-FCI `9021-60930` C places captions under the tables they label, so plain
+  reading attributes every caption to the table above it &mdash; one row off, silently.
+  This is the merged-cell trap's cousin: same fix, `page.get_text(&quot;words&quot;)`
+  with y-coordinates, and the same rule &mdash; **never take a row-to-label assignment
+  from reading order alone.**
 - **EDAM has dropped some Notifier documents entirely.** `DN-7045` 404s under both
   `notifier-us/` and the flat datasheets directory. `honeywellbuildings.in` is a
   Honeywell-operated regional site that still serves them &mdash; first-party, but
@@ -409,6 +426,18 @@ Revisit after the high-impression band is done.
   neither stating a replacement in either direction. So "the other part still exists
   and is documented" does **not** disprove a supersession claim, and it does not
   support one either; only a manufacturer statement settles it.
+- **The strongest disproof of a supersession claim is a mechanism, not an absence.**
+  `SPCWL` carried &quot;(Replaced by SPCWLED)&quot;. Bulletin M23.2SS's REPLACES table
+  holds **only horn strobes, strobes and lenses &mdash; no speakers at all**, which by
+  itself is just another negative result. What settled it was positive and structural:
+  `AVDS-62174:A`, dated **08/29/2024 and therefore after the whole LED conversion**,
+  still lists SPCWL under a live &quot;L-Series Speaker&quot; heading, and its
+  &quot;L-Series with LED Speaker Strobes&quot; table contains **SPSCWLED but no
+  SPCWLED**. The reason is obvious once stated: **a speaker has no strobe, so an LED
+  strobe refresh had nothing to change on it.** The claim is SPCWL confused with
+  SPSCWL, whose real successor is SPSCWLED. **When a supersession claim looks wrong,
+  ask what the refresh actually changed &mdash; if the part lacks the component that
+  was refreshed, that is a reason, and a reason beats a missing row.**
 - **A "Replaces X" claim belongs in a title only when a manufacturer document states
   it.** Three claims in one batch gave three different answers: `PC2WL`&rarr;`PC2WLED`
   is stated outright in a Honeywell bulletin and stays in the title; `SPSCRLED` vs
