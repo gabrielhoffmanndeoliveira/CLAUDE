@@ -51,9 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 591 pages published** — 555 from the old list, 18 from v2b01 and 18
-from v2b02 — covering 355,837 impressions. v2b03 and v2b04 are sliced; v2b04 is
-in research.
+**Progress: 609 pages published** — 555 from the old list plus v2b01, v2b02 and
+v2b04 — covering 399,434 impressions. v2b03 is sliced and not yet run.
 
 Batch loop: slice 18 products → split 6/6/6 across three concurrent
 `general-purpose` research agents → validate → merge → publish in two aliased
@@ -96,6 +95,13 @@ One single-line string, no newlines.
   (note the `/simplex/` segment; the bare `/api/` path 404s). This reaches
   current datasheets that are not otherwise linkable, and it settled the 4081
   end-of-line range in one call after four other documents had left a gap.
+- **Eaton and Wheelock block `curl`.** Both HTTP/2 and HTTP/1.1 with browser
+  headers fail against eaton.com (INTERNAL_ERROR or empty reply) and WebFetch
+  gets 503. This is Eaton-side bot protection, not a proxy fault. What works is
+  Python `urllib` through `HTTPS_PROXY` with a Safari user-agent. The Anixter
+  mirror `objects.eanixter.com` serves verbatim Eaton PDFs as a fallback but
+  carries superseded revisions &mdash; it had the 2016 MT4 datasheet describing
+  xenon flashtubes where the current one specifies LED.
 - **The sibling part is the dominant failure mode.** Part numbers differ by one
   character and describe different products. Find the full ordering table and
   confirm which row is this exact part before writing anything.
