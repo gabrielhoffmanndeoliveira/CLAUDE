@@ -51,8 +51,9 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 681 pages published** — 555 from the old list plus v2b01 through
-v2b07 — plus 80 title-encoding fixes applied catalogue-wide.
+**Progress: 693 pages published** — 555 from the old list plus v2b01 through
+v2b07 and two thirds of v2b08 — plus 80 title-encoding fixes applied
+catalogue-wide.
 
 **Never hand-transcribe product ids into an agent briefing.** On v2b03 all six
 ids typed into the prose of one briefing were wrong &mdash; transcribed by eye
@@ -329,6 +330,16 @@ Revisit after the high-impression band is done.
 - Unverifiable claims go in an `unverified` array with the reason, never in the copy.
 - Always ask agents to contradict the briefing. **Seven** of the coordinator's own
   premises have been proven wrong this way; that is the point.
+- **A correction can introduce a new error, so corrections need verifying too.**
+  The RA100Z closing paragraph was rewritten on 21 Sep 2026 to fix two real faults,
+  and the rewrite asserted that *"the RTS151 and RTS151KEY are key-operated remote
+  test stations"*. **The RTS151 is magnet-operated** &mdash; it ships with an M02-04
+  test magnet and has no key at all; the `KEY` suffix on its sibling is the entire
+  difference between the two part numbers, and the sentence collapsed it. Caught two
+  batches later only because the APA151 came through the queue and its agent was
+  asked to rule on the live text. **Put corrected pages back through cross-reference
+  review; do not treat a correction as settled because it fixed what it set out to
+  fix.**
 - **A part's own name can misdescribe its product class, and the store title will
   inherit the error.** `EOLR-1` was briefed &mdash; by this file's coordinator, as a
   stated fact &mdash; as an end-of-line resistor, and the store title read "System
