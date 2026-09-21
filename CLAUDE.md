@@ -51,8 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 840 pages published** — 555 from the old list plus v2b01 through
-v2b16 — plus 80 title-encoding fixes applied
+**Progress: 858 pages published** — 555 from the old list plus v2b01 through
+v2b17 — plus 80 title-encoding fixes applied
 catalogue-wide. One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
 reseller data; the deliberate-skip list is now `SM7100-L8`, `90521`, `BDA-NMP01250`
@@ -842,6 +842,50 @@ Revisit after the high-impression band is done.
   flush, `B` brass. **Note the four mount styles it lists are Surface, Flush, Ground
   and Recessed &mdash; there is no &quot;semi-flush&quot;**, which is distributor
   wording that had reached the store title.
+- **The `-IV` protocol finding was confirmed a second time inside the same batch, by a
+  different agent on a different product line.** Agent 2 had `H365R-IV` and agent 3
+  `SD365T-IV`; both found the note independently, and `DF-61010:C`'s ordering block
+  carries it in the same words as `DF-61011:C` &mdash; *&quot;'-IV' suffix indicates
+  CLIP and LiteSpeed device&quot;*, against white heads listed **&quot;LiteSpeed
+  only.&quot;** Two brands, three product lines, four documents. The routing note above
+  stands, and **any collection logic or copy treating `-IV` as a colour variant is
+  wrong.**
+- **EDAM has BOTH slug orders, so try both before searching.** The briefing gave
+  `<Model>_<DocNum>.pdf` from `SD365_DF-61010.pdf`; an agent found
+  **`DF-61012_ANN-100.pdf`** resolves too &mdash; `<DocNum>_<Model>.pdf`, the reverse.
+  Eight other guesses for that document returned the 8,047-byte fingerprint. And **the
+  bare `<docnum>.pdf` route is stronger than recorded for Gamewell-FCI**:
+  `9021-60758.pdf`, `9020-0649.pdf` and `9020-0541.pdf` all resolved first try, three in
+  a row. For that brand it is the cheapest route, not a long shot.
+- **Two more first-party hosts mapped.** `support.westell.com/documents/<slug>-DS.pdf`
+  serves Westell datasheets directly, no bot protection, mime-clean &mdash; **so the
+  &quot;relationship-sold means undocumented&quot; premise fails for a third category**,
+  after Fiplex and Det-Tronics. And **STI's real document host is
+  `cdn.sanity.io/files/4ikv42xc/production/<hash>.pdf`**, linked from `sti-global.com`
+  product pages; `sti-usa.com` is only the footer address, so paths cannot be
+  constructed &mdash; read the product page. STI publishes three documents per product,
+  and the **sales data sheet carries a Build-Your-Model ordering-syntax block** that
+  decodes the number character by character, the same class of decoder as Edwards
+  catalogue page 5 and Eaton `TD450158EN` Table 3.
+- **Two more self-contradicting documents, both resolved by publishing nothing.**
+  Siemens Data Sheet **6306** says *&quot;Durable metal design&quot;* in its A&amp;E
+  bullets and *&quot;constructed of durable, molded polycarbonate material&quot;*
+  in the Specifications paragraph **immediately below, on the same page**; the
+  installation sheet states no material, and the reseller pages repeat the
+  polycarbonate line, which is the datasheet prose rather than a third source. No
+  material claim published. Two **STI** documents disagree on the polycarbonate
+  temperature range &mdash; sales sheet &minus;40 to 250 &deg;F, installation sheet
+  &minus;40 to 284 &deg;F. No temperature published. **That is now five documents in two
+  batches contradicting themselves on a spec**, which makes it ordinary rather than
+  remarkable: budget for it, and treat &quot;the document says so&quot; as needing a
+  second reading of the same document.
+- **The series-wide spec block is a new shape of the adjacent-row trap.**
+  `DF-61010:C`'s System Specifications prints one thermal line for the whole SD365
+  family &mdash; fixed 135 &deg;F, rate-of-rise 15 &deg;F/min, high-temperature
+  190 &deg;F &mdash; **with no model attribution**, while the Product Line entry for
+  `SD365T-IV` names only a fixed-temperature device. Reading the series block as if it
+  described the part would have published a rate-of-rise claim on a fixed-temperature
+  detector. **A spec block that covers a family is not a spec for any member of it.**
 - **Eighth coordinator premise proven wrong, and this one was stated as &quot;almost
   certainly&quot;. The `R` in `B200SR-LF` is not a relay.** The briefing told an agent
   the `R` was &quot;almost certainly a relay, but verify&quot;; the agent verified and
