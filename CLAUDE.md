@@ -76,6 +76,15 @@ One single-line string, no newlines.
   Download the manufacturer PDF with `curl` and extract locally with `pymupdf`.
   For scrambled tables use `page.find_tables()` or `page.get_text("words")` with
   coordinates; when the text layer fails, render the page at 300 dpi and read it.
+- **Simplex documents: use the Johnson Controls document hub.** A GET on
+  `https://docs.johnsoncontrols.com/simplex/api/khub/documents?search=<term>`
+  returns a JSON index of ~961 Simplex documents with `title` and
+  `documentApiEndpoint`. `search` and `limit` are effectively ignored, so it
+  returns the whole index &mdash; grep the JSON rather than trusting ranking.
+  Download with `https://docs.johnsoncontrols.com/simplex/api/khub/documents/<id>/content`
+  (note the `/simplex/` segment; the bare `/api/` path 404s). This reaches
+  current datasheets that are not otherwise linkable, and it settled the 4081
+  end-of-line range in one call after four other documents had left a gap.
 - **The sibling part is the dominant failure mode.** Part numbers differ by one
   character and describe different products. Find the full ordering table and
   confirm which row is this exact part before writing anything.
