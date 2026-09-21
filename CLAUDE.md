@@ -609,6 +609,31 @@ Revisit after the high-impression band is done.
   reading `34 NPT` as `3/4 NPT` is a claim about a thread size and needs a manufacturer
   document, the same bar as any other spec. A pattern is a reason to check, never a
   licence to rewrite.
+- **The first scan on this catalogue that did NOT over-fire, and the reason is exactly
+  the stated principle.** Run 21 Sep 2026: group active products by vendor plus a
+  part-number stem, keep families of three or more, and flag a family whose members
+  **disagree with each other on the `type` field**. 41 families qualified, 18 members
+  were flagged, 12 were confirmed live, and **8 were real defects** &mdash; roughly 67%
+  precision against 1&ndash;8% for every keyword scan before it. It also
+  **independently rediscovered `P2WLED-P`**, a defect already confirmed and sitting in
+  the owner's file, which is about the best validation a new scan can offer.
+  The difference is not sophistication, it is that &quot;a family contradicts itself&quot;
+  is a **mechanism**: a store cannot be right when two members of one product line carry
+  different class nouns, so every hit is at minimum a real question. Compare
+  &quot;`type` contains a suspicious word&quot;, which is a shape and fires on every
+  correct product too. The catch found: `FST-951-IV` is titled *Plug-In **Thermal**
+  Detector* and typed **Smoke Detectors**; `SCRLED-BP10` is a strobe typed
+  **Accessories**; `SPSCWLED-P`, `SPSWLED-P` and `ELMTSR-A` each drop the speaker or
+  horn from a combination appliance; `P2RLED-LF` and `P2WLED-LF` are typed Strobes
+  while their own sibling `PC2RLED-LF` is correctly typed Sounder Strobes.
+  **Two limits worth stating so the next person does not overclaim it.** First, the
+  stemming is conservative &mdash; only 41 families of 16,031 products qualified &mdash;
+  so this is a floor on the defect count, not a census. Second, and more important,
+  **the outlier is not always the wrong member.** In the low-frequency families the
+  minority typed *Sounder Strobes* was the correct one and the majority typed *Horn
+  Strobes* was the loose one, because an LF device is a sounder by NFPA 72's 520 Hz
+  requirement and not a horn. The scan reports **that a family disagrees**, never
+  **which member is wrong**; deciding that still takes reading the part.
 - **A keyword-based cross-page consistency audit does not work on this catalogue, and
   it is not worth rebuilding.** Attempted 21 Sep 2026: extract every part number
   mentioned in a published page, look up that part's own title, and flag where the
@@ -755,8 +780,8 @@ Revisit after the high-impression band is done.
   HCRL-LF, HCWL-LF and their ULC variants. **That settles 5 of the 27 asserting titles
   and $2,054,439 of the $3.45M, including the largest single one, `HWL-LF-BP10` at
   $1,842,048** (plus `B300-6-BP` and `B501-WHITE-BP` via Fire-Lite `DF-61010:B`).
-  **22 titles and $1,393,609 remain open** across the LED, strobe and speaker families
-  &mdash; and that is now a *mechanism*, not an absence. See the next entry.
+  **25 titles and $1,403,392 remain open** across the LED, strobe, speaker and
+  detector families &mdash; and that is now a *mechanism*, not an absence. See below.
   **Two lessons, and the second is the transferable one.** First, the wrong-document
   -family failure again, for the fifth time &mdash; the agents searched the datasheets
   for the *product*, and the statement sits in the ordering block of a *different
@@ -781,9 +806,30 @@ Revisit after the high-impression band is done.
   and declines to for strobes, horn strobes and speakers.** That converts
   &quot;six documents checked&quot; from a bounded negative into a positive finding
   about how this manufacturer documents, which is the bar the `SPCWL` case set &mdash;
-  *a mechanism beats a missing row.* The 22 remaining titles rest on convention, and
+  *a mechanism beats a missing row.* The remaining titles rest on convention, and
   **the cheapest authoritative fix is still a purchase order or a carton label**, not a
   tenth document.
+- **The boundary is now proved on a single page, which is as clean as this gets.**
+  Notifier `DN-62046:C` lists the 951 self-test detectors in its Product Line
+  Information block with **no `-BP` variant of any kind**, and immediately beneath, in
+  the Intelligent Bases sub-block on the same page, states
+  **&quot;B300-6-BP: Bulk pack of B300-6, package contains 10&quot;** and
+  &quot;B501-WHITE-BP: Bulk pack of B501-WHITE contains 10&quot;. Not two documents
+  disagreeing, not two revisions, not two brands &mdash; **one page, one author, one
+  date, stating the carton quantity for the base and declining to for the detector
+  sitting above it.** So the rule is: **Honeywell states a carton quantity for bases,
+  and for the low-frequency sounders via the `9021-62013-E` footnote, and for nothing
+  else.** Detectors and notification appliances both fall outside it.
+- **The pack-count census itself matched a phrase, not a mechanism, and missed three
+  titles.** The 27 were found by the wording *&quot;Bulk Pack with N Units&quot;*;
+  `FST-951-BP`, `FSP-951-BP` and `FSP-951R-BP` read *&quot;White Bulk Pack 10&quot;*
+  and were invisible to it. Re-run as a mechanism &mdash; *a `-BP` SKU whose title puts
+  an integer next to a pack word in any order* &mdash; over all **66** `-BP` SKUs, it
+  returns **28 asserting titles** with almost no false positives. **30 rows now, 25 of
+  them convention-only, $1,403,392.** Note the shape: the over-firing rule
+  (&quot;scan for a mechanism, not a shape&quot;) has an **under-firing twin**, and a
+  phrase match is the purest example of it. A scan that returns a suspiciously tidy
+  number deserves the same scepticism as one that returns 1,325.
 - **The pack-count audit itself had the wrong document family &mdash; sixth instance.**
   Two of the 22 open rows are **Gamewell-FCI**, not System Sensor: `AOM-2RF-BP` and
   `MS-7AF-BP`. Both were recorded as &quot;six documents checked&quot; where all six
