@@ -51,8 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 627 pages published** — 555 from the old list plus v2b01 through
-v2b04 — covering 459,967 impressions.
+**Progress: 645 pages published** — 555 from the old list plus v2b01 through
+v2b05 — covering 505,308 impressions.
 
 **Never hand-transcribe product ids into an agent briefing.** On v2b03 all six
 ids typed into the prose of one briefing were wrong &mdash; transcribed by eye
@@ -109,6 +109,32 @@ One single-line string, no newlines.
   (note the `/simplex/` segment; the bare `/api/` path 404s). This reaches
   current datasheets that are not otherwise linkable, and it settled the 4081
   end-of-line range in one call after four other documents had left a gap.
+- **Siemens: the document index is down, but two ways in work.**
+  `https://sid.siemens.com/api/khub/documents` returns HTTP 504 after ~60 s, every
+  time. Two proven workarounds: (1) `https://sid.siemens.com/api/khub/maps` **does**
+  respond and returns the whole index (~1,276 entries, 8.5 MB JSON) &mdash; grep the
+  blob as with the JCI hub, then fetch HTML topic books via
+  `/api/khub/maps/<id>/topics` and `/api/khub/maps/<id>/topics/<topicId>/content`.
+  (2) **The pretty URL resolves the opaque document id even while the index is down:**
+  `curl -D - https://sid.siemens.com/go/<AssetID>` returns `303` with
+  `location: .../v/u/<hashId>`, and `/api/khub/documents/<hashId>/content` then serves
+  the PDF. So **any Siemens A6V asset number can be fetched directly.** This unblocks
+  Siemens, 189 products and 82,982 impressions of `ranked_v2`, and it is what cost
+  `SL2HSWR-F` its candela values in an earlier batch.
+- **Protectowire blocks `curl` too, but differently from Eaton.** Most
+  `protectowire.com/wp-content/...` paths return HTTP 202 with an `sgcaptcha`
+  meta-refresh (Sucuri), and the Eaton `urllib`-plus-Safari-UA workaround does **not**
+  defeat it; some paths pass intermittently. What works reliably is
+  `prod-edam.honeywell.com`, which mirrors Protectowire PDFs verbatim. Given the
+  Anixter lesson, cross-check the mirrored revision against any Protectowire-hosted
+  document that does come through &mdash; a 2012 mirror and a 2022 original agreed
+  exactly on the PHSC temperatures, so there was no generation gap there.
+- **Edwards documents are not on edwardsfiresafety.com.** Every `/documents/`,
+  `/products/` and `/literature` path 404s, and `est.net` and
+  `edwardsfiresafety.com/files/import/` return an HTML shell for any filename. Edwards
+  PDFs have to come from verbatim mirrors, so cross-check two documents of different
+  dates against each other. Finding the real Edwards LifeLines library URL is worth
+  doing before the next Edwards-heavy batch; several SIGA parts are still in the queue.
 - **Eaton and Wheelock block `curl`.** Both HTTP/2 and HTTP/1.1 with browser
   headers fail against eaton.com (INTERNAL_ERROR or empty reply) and WebFetch
   gets 503. This is Eaton-side bot protection, not a proxy fault. What works is
