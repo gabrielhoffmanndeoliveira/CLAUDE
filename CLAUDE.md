@@ -196,6 +196,69 @@ for the owner (vendor/brand, product type, pack counts).
 is the single biggest collection traffic source at 212 visits. A paginated page
 holding a head term is fragile — any catalog reorder moves it.
 
+## Sales data: the ERP export (Jan 2025 to Sep 2026)
+
+The owner supplied `MOST_SOLD_ITEMS_FROM_2025_TO_TODAY.xlsx`, a
+sales-by-item export covering **all channels, including the email, phone and
+chat orders Shopify never sees**. Saved as `/tmp/tfas/sales_joined.json`.
+
+7,578 items, **$137.7M revenue, 1.6M units**. Joined to the catalogue on a
+normalised SKU (strip non-alphanumerics; strip the `/u` `/b` `/e` `/a`
+suffixes; strip the Autocall `A` prefix, e.g. `A4098-9714` to `4098-9714`):
+**5,406 items matched, carrying 95.6% of the revenue.**
+
+Revenue is concentrated: the top 100 items are 45.7% of it, the top 500 are
+76.8%. Top vendors differ sharply from the search-demand ranking &mdash; Vesda
+$25.4M, System Sensor $20.9M, Simplex $13.8M, Fire-Lite $11.3M, Notifier
+$11.0M.
+
+### What it changes for archiving: the question is closed
+
+Added as a fourth filter after no-stock, no-impressions, no-Ahrefs-demand:
+
+| filter | remaining |
+|---|---|
+| no stock | 12,977 |
+| + no GSC impressions | 9,496 |
+| + no Ahrefs demand | 8,604 |
+| + **no sale since Jan 2025** | 8,235 |
+
+**369 products worth $1,018,601 were rescued by the fourth filter alone** &mdash;
+they would have been archived on the old three-filter rule. The list is in
+`/tmp/tfas/RESGATADOS_do_arquivamento.csv`; it is dominated by Fiplex, Westell
+and Comba public-safety BDA gear, exactly the relationship-sold categories the
+Det-Tronics lesson already warned about.
+
+Of the 8,235 that survive all four filters, only **4 are mature** (created
+before April 2026). All four were then checked directly against Shopify
+analytics and **all four have transacted**, so **zero products in the catalogue
+currently qualify for archiving**.
+
+That includes a correction: Honeywell CPR14 (id 7758172979424), previously
+named here as the single archivable product in the catalogue, **sold 2 units
+for $122** through a non-Shopify channel. It was only ever a candidate because
+the Shopify-only view could not see that order.
+
+**Never run the archive filter without the ERP sales export.** Shopify
+analytics alone systematically over-flags the categories that sell offline.
+
+### What it changes for enrichment: less than the headline suggests
+
+The naive read is that the 655-product queue covers only **3.0%** of matched
+revenue and should be re-sorted by revenue. That is wrong. 1,438 active
+products sell while carrying under 50 impressions, but most have no search
+demand either &mdash; they are BDA, flame-detection and Det-Tronics gear bought
+through relationships, not Google. Enriching them buys no organic traffic.
+
+The defensible target is the **intersection** of the three signals: sells, has
+Ahrefs US search demand, and has few impressions. That is **86 products,
+$672,002 in revenue and 4,430 searches per month**, of which **81 sit outside
+the current queue**. List in `/tmp/tfas/ALVO_enriquecimento_vendas.csv`.
+
+So sales data is a **second frontier after position 654, not a reordering of
+the existing one**. Impressions stay the primary sort inside the current scope,
+because a page that already earns impressions is the one enrichment can lift.
+
 ## Archiving: the wave is finished
 
 Applying the full filter to the live catalog — no stock, no GSC impressions, no
