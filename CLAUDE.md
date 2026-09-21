@@ -51,8 +51,9 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 699 pages published** — 555 from the old list plus v2b01 through
-v2b08 — plus 80 title-encoding fixes applied catalogue-wide.
+**Progress: 711 pages published** — 555 from the old list plus v2b01 through
+v2b08 and two thirds of v2b09 — plus 80 title-encoding fixes applied
+catalogue-wide.
 
 **Never hand-transcribe product ids into an agent briefing.** On v2b03 all six
 ids typed into the prose of one briefing were wrong &mdash; transcribed by eye
@@ -342,6 +343,15 @@ Revisit after the high-impression band is done.
   **A negative result bounds the search, not the catalogue.** Removing a live part
   number is a claim and needs positive evidence, the same bar as adding one; and
   check the generation before the part number.
+  **It has now happened twice in one day, and the second time it came from an agent,
+  not the coordinator** &mdash; so state this rule in every briefing. A v2b09 agent
+  reported that the live `SS-CO` page's reference to `SS-PHOTO-CO` was unsupported,
+  because neither part appears in `SPDS-62165`, the SS-Series ordering table. That is
+  the **smoke and heat** datasheet; the CO products are a separate document family.
+  `SS-PHOTO-CO` has its own datasheet (`SPDS-62171` Rev. B, 5/7/2024: *"Combination
+  smoke and CO detector"*, UL 268 7th edition and UL 2075) and its own installation
+  guide. Verified positively, nothing changed, one search and one download.
+  **Wrong document family both times.**
 - **The coordinator may tighten or soften agent copy, but must not introduce a new
   factual claim without agent-grade research.** Every inline edit made during
   publishing on 21 Sep 2026 was checked afterwards. The ones that restated an agent's
