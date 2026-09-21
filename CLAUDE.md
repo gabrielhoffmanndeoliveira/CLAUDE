@@ -651,6 +651,28 @@ Revisit after the high-impression band is done.
   Center feed attribute. **The cheapest authoritative fix is a purchase order or a
   carton label, not another search** &mdash; and the decision generalises, because the
   store's whole &quot;Bulk Packs&quot; collection runs on the same convention.
+- **Never audit for defects against `catalogo_full.json`. It is a snapshot, and a
+  snapshot finds defects that were fixed hours ago.** A title scan over the 264
+  ad-labelled products flagged five non-ASCII titles and, worse, appeared to show that
+  the `OH921` supersession correction recorded in this file had been reverted. **All of
+  them were already correct in the live store**; the snapshot predated the fixes by a
+  few hours. The scan is still fine for finding *enrichment candidates* &mdash; title
+  length, missing class noun, description size do not flip back &mdash; but **every
+  defect finding must be confirmed live before it is reported or acted on.** This is
+  the same shape as the entity audit that flagged 655 of 663 pages: measuring the wrong
+  artefact, confidently.
+- **The pack-count question is 27 titles and $4.6M, not three &mdash; and there is a
+  research route nobody had tried.** Measured 21 Sep 2026: **67 SKUs carry a `-BP`
+  suffix**, **27 assert a quantity in the title**, and the family holds **$4,602,239 of
+  ERP revenue**. 25 of the 27 are System Sensor, worth $3.37M, and the largest single
+  one is `HWL-LF-BP10` at **$1,842,048**. The route: **System Sensor does not state pack
+  counts in its own datasheets, but Honeywell states them for the identical part in a
+  sibling-brand document** &mdash; Fire-Lite `DF-61010:B` says *&quot;B300-6-BP: Bulk
+  pack of B300-6, package contains 10&quot;*, and `B300-6-BP` sits in this catalogue
+  under vendor System Sensor. So for several of these the answer may be in the
+  **Fire-Lite twin**, not the System Sensor sheet. Test that on the five largest before
+  falling back to a purchase order or a carton label. Scope and per-SKU documentary
+  basis in `/tmp/tfas/PACKCOUNT_decisao.csv`.
 - **The Sucuri fingerprint has a second host, and a blocked site is not an undocumented
   one.** `trilogycoax.com` answers **HTTP 202, 169&ndash;193 bytes, with a
   `/.well-known/sgcaptcha/` meta-refresh** on `/`, `/products/`, `/robots.txt` and
