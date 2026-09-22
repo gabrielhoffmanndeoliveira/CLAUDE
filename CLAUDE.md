@@ -136,8 +136,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,109 pages published** — 555 from the old list plus v2b01 through
-v2b30, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,115 pages published** — 555 from the old list plus v2b01 through
+v2b30 and six of the twelve in v2b31, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -3332,6 +3332,72 @@ Revisit after the high-impression band is done.
   marks the S1209 Series **DISCONTINUED but names no successor** &mdash; a lifecycle fact
   that does not license a supersession claim, and it went to the owner's file rather than
   the copy.
+- **The 185 frequency titles are settleable after all, and the evidence was inside the
+  titles the whole time.** This file records them as flagged-and-unapplied because one of
+  twelve broken values disagreed with a Fiplex document &mdash; the whole set held back by
+  its worst member, which is the bounded-negative over-reach this file warns about three
+  times. Measured properly on 22 Sep: **275 of the 288 broken runs carry their own
+  evidence.** 267 have the word **VHF, UHF or Band immediately before the number**
+  (*&quot;VHF 136174MHz UHF 450512MHz&quot;* &mdash; the title labels which band each run
+  is), and 8 have the range **inside the part number itself** (`BDA-YDA450470-9-1`,
+  `PDS2E-555/6000`). **That is not domain knowledge about standard public-safety bands; it
+  is the title explaining itself**, which is a different and much better kind of evidence.
+  Corroborated against a document where one was reachable: `HON-62101` states
+  *&quot;450 - 470 MHz&quot;* four times.
+  **13 runs across 11 products stay open, and each for a stated reason**: `136960` on
+  `BDA-TP24-L2` conflicts with the Fiplex `BD500` document's 138-960; **`460462465467` is
+  not a range at all** but four sub-bands (the same titles also carry `453454458459`), so
+  the lost separator may be a slash; `1251000` on the Polyphaser `IS-50NX-C2` needs that
+  series' sheet; and a handful lost their VHF/UHF label in the same truncation. Readings in
+  `/tmp/tfas/FREQ_leituras_sustentadas.json`, each row carrying the basis for its own
+  reading.
+- **The two-word-vendor bug bit the COORDINATOR's own scan about an hour after it was
+  written into this file.** Measuring the above, the first pass took the part number as
+  `title.split()[1]`, which is **&quot;by&quot;** for *&quot;Fiplex by Honeywell
+  BDA-OIA-350600-2-1&quot;* &mdash; so seventeen rows whose band sits in their own part
+  number came back as unevidenced. The fix is the one already recorded: **use the real
+  `sku` field, or match the run inside a hyphenated model token in the title.** Worth
+  keeping because the lesson is not &quot;parse titles carefully&quot;; it is that **a rule
+  written down is not a rule applied**, and the coordinator is not exempt from the traps it
+  records for agents.
+- **Twenty-first product-class case, and it is the private-mode shape rather than a wrong
+  noun: an MRI-room extinguisher sold as an ordinary one.** `443479` ($1,033) was titled a
+  CLEANGUARD+ clean agent extinguisher, which is true. Ansul's own document is titled
+  *&quot;Clean Agent **MR Conditional** Portable Extinguisher&quot;* (`F-2022058-01`): a
+  **stainless steel shell with MR Conditional valve, hose and nozzle, tested to 7.0 tesla**,
+  which Ansul says *&quot;can be mounted within the MRI room&quot;*. That is what explains
+  the price against the ordinary CA13, and it is the `SPSWLED-ALERT` shape &mdash; a
+  materially different purchase behind a correct class noun. **Manufacturer-stated, so it
+  went into the title** rather than only the body.
+  **The briefing pointed at the wrong document family again and the agent caught it:**
+  `F-96111-17` is the **older HFC-236fa** CLEANGUARD sheet, where `FK-5-1-12` appears **zero
+  times** and `CA14` appears **zero times**. Ninth instance.
+- **The borrowed-copy signature threw its second false positive, on the same shape as the
+  first.** `4098-9788`'s live body was briefed as self-contradictory (two-wire-with-remote-
+  LED against heat detectors needing `4098-9684`). It is neither contradictory nor borrowed:
+  `S4098-0043 Rev. 2` states **all three scopes in one entry** &mdash; smoke detectors get
+  the remote-LED connections, **heat detectors and QuickConnect2 get a plain two-wire base
+  with no options** &mdash; and the live sentence is near-verbatim Simplex `574-709 Rev. AP`
+  §3.3. **One part, three scopes by head type.** After `4100-9706` this is the second time
+  what read as a sibling's text was the manufacturer's own text about the right part; the
+  discriminator remains *whose row it is*, which only the ordering table answers.
+  A method note from it worth more than the part: `S4098-0014-10` says *&quot;2-Wire Base,
+  no options&quot;* and `S4098-0017-4` says *&quot;with connections for Remote Alarm
+  LED&quot;* &mdash; **two Simplex sheets three months apart that appear to contradict**,
+  and only a third, the 2023 dust-boot sheet, reconciles them. Reading either alone gives a
+  false negative or a false positive.
+- **The Gentex coexistence sentence, confirmed independently from the other side of the
+  pair.** `S1209`'s title asserted *&quot;Replaced by S&quot;* with **no class noun at
+  all**. Searched in the S1209 data sheet `551-0001-02`, the S1209 manual `550-0008-AAC`
+  and the S/C/SC/H sheet `SCSCH-01`: **replac, supersede, discontinu and obsolete connect
+  the two nowhere**, and the only documented link is the tandem-interconnect compatibility
+  list. That is the Siemens *&quot;same SLC&quot;* failure on a **third brand**, and both
+  halves of this pair were researched by different agents in consecutive batches, each
+  reaching it independently.
+  **And the disproof here is a mechanism, not an absence:** the S is multi-criteria,
+  **5.5 in.** across, UL 217 **9th Edition**, 0.045 &rarr; 0.055 A; the S1209 is
+  **photoelectric, 6.25 in.** across. A successor three-quarters of an inch smaller **leaves
+  a ring on every retrofit**, so it is not a drop-in even if someone wanted it to be.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
