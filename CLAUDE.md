@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,167 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,189 pages published** — 555 from the old list plus v2b01 through
 v2b32, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
@@ -4049,6 +4049,214 @@ Revisit after the high-impression band is done.
   their slashes** (`CM-45/4`, `QAA-5230S-70/25`, `1032/81`), so the import did not strip
   them globally; it lost them on some rows. That matters for any fix: it is not a
   reversible transformation applied uniformly, so each row needs its own evidence.
+
+- **CORRECTION to this file's own Scene7 note, and the correction matters more than the
+  error: `?wid=2048` PADS THE CANVAS, it does not stretch, and `?scl=1` is how you get
+  the master.** The coordinator recorded &quot;the parameter does not fetch a master, it
+  **stretches**&quot; after measuring `2048&times;280` from a `320&times;280` bare asset.
+  An agent measured it properly and the coordinator then verified directly on
+  `HBT-Fire-WSK-HEAT-ROR-WSK-HEAT-CEILING-HiRes`: **bare 576&times;576, `?scl=1`
+  1500&times;1500 at the identical 1.000 ratio, `?wid=2048` 2048&times;1500 &mdash; ratio
+  1.365, content unchanged at 1500 px inside a wider empty frame.** So the rejection of
+  those 127 images was right and the reason given for it was wrong, which is exactly the
+  shape this file warns about in titles: a plausible description of a correct conclusion,
+  never checked.
+  **The practical consequence is larger than the semantics. The bare Scene7 URL is a
+  ~576 px PRESET, not the master**, so a bare-URL harvest fails a 600 px floor on most
+  assets and publishes a quarter of the available detail on the rest. Measured across the
+  125 Scene7 rows already in the delivery: **33 get a genuinely larger image at `?scl=1`
+  with the aspect ratio preserved exactly** &mdash; long edges going 576 &rarr; 1500, 864
+  &rarr; 3072, 1053 &rarr; 3284 &mdash; the rest are already at their master, and 10 return
+  403 to `?scl=1` and keep the bare URL. Upgraded in place.
+  **So the rule is: `?scl=1` for the master, bare as the fallback, `?wid=` never.** And
+  the fingerprint is sharper than recorded: a Scene7 miss is **HTTP 403, 20 bytes,
+  `text/plain`, body `Unable to find image`** &mdash; this file had the size right and
+  called it a 200.
+- **The PIF endpoint in this file's own route note is the WRONG INDEX.**
+  `joule-bt-hbt-meta-prod` is a **Salesforce support-case index**: it returns
+  `case_number`, `contact_name`, `account_name`, `status`. No products, no assets. The
+  product index is **`joule-bt-hbt-epim-product-prod`**, same path shape. The earlier
+  Notifier harvest used the right one and the note recorded the wrong one, so every
+  briefing since has been sending agents at support tickets.
+  Two more Scene7 facts worth keeping: **asset ids carry no file extension** &mdash;
+  `HBT-Fire-TRCW-LEFT-HiRes.png` 403s while the same id without `.png` serves, and the
+  API's `name` field has the extension where `url` does not, **so build from `url`**; and
+  **pooling assets by FILENAME across all records is a second, independent route** to the
+  `sku_list` join, which surfaced 23 SKUs the join missed, including one whose correct
+  asset hangs on a record whose `sku_list` does not contain it.
+- **Eaton's own filenames name the wrong product five times in 61, and every one would
+  have published a visibly different appliance.** `ELMTSR-A`, a multitone strobe **horn**,
+  is served `ELSPSTR-C`, a **speaker** strobe; `ELSTW-NG`, a **white wall strobe**, is
+  served `ELHSR_NG_*`, a **red horn strobe**; `EL3RMTSTA-ALW` (ALERT lettering, amber) is
+  served `EL3RMTSTANW_C` (no lettering, white); plus `ELMTW`&rarr;`ELFHNW-C` and
+  `STH-2R-ELSTC-N`&rarr;the `-F` variant. **All five were caught by the token-boundary
+  rule.** After Power-Sonic naming another product and Secutron mislabelling its own
+  correct photograph, that is a third manufacturer whose filenames are unreliable &mdash;
+  **this is now the norm, not the exception.**
+  Route: `https://www.eaton.com/us/en-us/skuPage.<SKU>.html` carries
+  `https://www.eaton.com/mdmfiles/<contentId>/<ASSET>/<size>`, sizes `500x500_72dpi`
+  through `2000x2000_72dpi`. **The asset id is not derivable** &mdash; 29 unmatched SKUs
+  probed across three constructed shapes returned **0 hits, all 403**. `curl` fails as
+  documented and **`urllib` plus a Safari UA worked first try on ~120 fetches in one
+  process**, the per-connection intermittency in the lucky direction for once. Its miss
+  is a clean 403 with no body.
+- **The look pass rejected a row that passed every mechanical check, on a countable
+  feature, for the second time.** `STH-2R-ELSTC-F` is served an asset named for itself,
+  from its own SKU page, at 1600&times;1600 &mdash; **and the photograph shows four horns
+  on the cluster box.** The store's own sibling `STH-4R` is titled &quot;Speaker Cluster,
+  **4** STH 15 SR&quot;, so the numeral is a horn count and a `2R` part must show two.
+  That is the `MS-4E`/`MS-2` shape exactly (a four-zone SKU on a two-zone panel's photo),
+  and it says something this file should state plainly: **where a part number contains a
+  quantity, the photograph can be checked against it, and that is the strongest
+  verification available short of a printed label.**
+  Conversely the same pass **confirmed 14 Eluxa rows no filename check could have**: the
+  lens colour is visible and matches the suffix every time (`-NA` amber, `-NB` blue,
+  `-NR` red, `-NG` green), ceiling models are round where wall models are rectangular,
+  and `ELSTRC-*` lacks the louvered horn grille `ELHSRC-*` has.
+- **The Notifier photo zero is 299 SKUs to 2, and only one of its three causes is a
+  routing failure.** **21 are software licences** &mdash; Honeywell attaches
+  `hbt-icon-licenses-and-agreements` to all of them and **no photograph can exist**, the
+  same category as the FireWorks licences already on record. **49 are European numeric
+  parts** (`020-xxx`, `002-xxx`), of which only 7 have any asset at all and **every one of
+  those 7 is under 600 px at `?scl=1`** &mdash; a native-master size ceiling, not a
+  matching problem. The rest sit in family records of 6 to 32 SKUs under one shot.
+  **And a generic icon is doing most of the apparent coverage:** of 44 single-SKU records
+  with no filename evidence, **30 resolve only to
+  `hbt-icon-parts-and-accessories-primaryimage`, one icon attached to 1,677 records and
+  1,916 SKUs.** That is the shared-identifier signature again, and without counting
+  products per asset those 30 would have looked like hits.
+- **A new category for the denominator audit: a SKU that is a CABINET photographed with a
+  populated panel.** `006820CB` is the Silent Knight 6820 **cabinet**, and its only asset
+  is a red enclosure containing a fully populated 6820 panel with the door silkscreened
+  &quot;Model 6820 Fire Alarm Control Communicator&quot;. That is the incomplete-product
+  trap in picture form &mdash; the inverse of the thirteen text cases, where a bare
+  component was *described* as a complete product. Here a complete product is *pictured*
+  on a bare component's page. It is also the brand's only SKU, which is why Silent Knight
+  reads 0%.
+- **Two more live title defects, both in the Shopify `title` field and both costing two
+  channels.** `ELTP-SG-W-R-10PK` is titled *&quot;Eluxa Trim Plate **Ceiling** &hellip;
+  **White** (Pack of 10)&quot;* and the manufacturer's own photograph shows a **red**
+  plate; its sibling `ELTP-4S-W-W-10PK` (&quot;**Wall Single Gang** &hellip; White&quot;)
+  photographs as white, **so the trailing letter is the colour code, proven by the pair**
+  &mdash; and the two titles also appear to have swapped their form factors, since `SG` is
+  single gang and `4S` is 4-inch square. And `ELSTW-N`'s title carries
+  **`153075110135185`**, the candela ladder 15/30/75/110/135/185 with its separators
+  stripped &mdash; the punctuation-loss import again, one product at a time, after the 185
+  frequency ranges, `ZR-MC-R`, `QAA-5415-70/25` and `FDX-008WKI`.
+
+- **THE COORDINATOR SPLIT A BATCH BY EYE AND HALF A BRIEFING WENT TO THE WRONG AGENT.
+  This is the v2b03 hand-transcription failure in its third and worst form, and this
+  file's existing rule was too narrow to catch it.** Building v2b34, the slice script
+  wrote `a1_in.json` and `a2_in.json` correctly. The coordinator then read the script's
+  **printed listing** and assigned products to the two briefings **from the screen**,
+  getting three of six wrong in each direction. Agent 2 was briefed at length on
+  `SIGA-CRH`, `PAD300-DD` and `2099-9139` &mdash; including the whole
+  `S2099-0010` break-rod-versus-breakglass paragraph &mdash; **and held none of them**,
+  while the three it did hold (`FSP-851R`, `PRO5`, `P2GWKLED-P`) got no routing notes at
+  all. The briefing also called `SIGA-CRH` *&quot;the batch's biggest at 1,934
+  impressions&quot;*, a figure belonging to a product outside that agent's slice.
+  **Nothing was published wrongly, and the reason is the rule that did hold:** the
+  briefing says the file is authoritative and the prose is a hypothesis, so the agent
+  worked its file, flagged the mismatch as its headline finding, and wrote six correct
+  products. The cost was research effort, not a defect.
+  **The rule generalises past ids, again.** This file already says *never type an id
+  anywhere &mdash; briefing, query, mutation or note*, written after ids were typed into
+  a live query. That is still too narrow: **the id was never the thing transcribed here.
+  The product-to-agent ASSIGNMENT was.** So: **build each briefing from its own
+  `aN_in.json`, programmatically, and never from a listing of the whole slice.** A
+  coordinator reading a twelve-row table and writing two six-row briefings is doing
+  manual transcription whatever the field is called.
+- **Fifteenth incomplete-product case, and the housing proves it from the other side.**
+  `FSP-851R` was typed Duct Detectors and titled a sensor. Notifier `DN-6935:E` calls it
+  *&quot;a remote test capable detector for use with DNR(A)/DNRW duct detector
+  housings&quot;*, **and the housing sheet `DN-60429:C2` closes the loop**: the DNR and
+  DNRW housings *&quot;Require photoelectric smoke detector (sold separately)&quot;*, with
+  a features bullet reading *&quot;code wheels on sensor head (sold separately)&quot;*.
+  **Neither half is a duct detector**, and each document says so about the other &mdash;
+  which is a stronger proof than the `PAD200-DD` and `D4S` cases, where only the complete
+  unit's sheet named the head. **When a part looks like half a product, read the other
+  half's data sheet.**
+  A real purchasing trap came with it: a DNR or DNRW with **date code 0012 or earlier
+  needs a DCOIL and auxiliary 24 VDC** before the remote-test feature the `R` buys works
+  at all.
+  Note the `type` field was judged **defensible rather than a defect** here: the `-R`
+  variant exists only for duct service, so &quot;Duct Detectors&quot; is arguable even
+  though the buyer receives a bare head. Flagged as a categorisation question, not
+  counted as the ninth type-agrees-with-wrong-title case &mdash; **a judgement this file
+  should make more often than it does.**
+- **A carrier with no LEDs, named &quot;LED Support Module&quot;.** `3-LDSM` reads as a
+  display and is not one. `E85010-0055`: EST3 Control Display modules normally mount over
+  a local rail module, which feeds them power and drivers by ribbon cable, and *&quot;when
+  a display module is required where no local rail module exists, an LED Display Support
+  Module 3-LDSM mounts to the local rail providing support for one Control Display
+  Module.&quot;* **Its Technical Specifications row gives N/A for number of LEDs, N/A for
+  LED colors and N/A for switches** &mdash; the manufacturer states the absence outright.
+  **Series-block trap avoided in the same document:** Note 1 reads *&quot;All Control
+  Display Modules are UL and ULC listed&quot;*, and the 3-LDSM is **not** a Control
+  Display Module but the thing that carries one, so **no UL or ULC listing was claimed
+  for it** &mdash; only the page-1 approvals block. That is the `SD365T-IV` rule applied
+  to a listing rather than a temperature.
+- **Two releasing-gear parts in a row that were NOT mis-merchandised, which is worth
+  recording because the pattern was four for four.** `4004-9302`'s live title already
+  said &quot;Basic Releasing Panel&quot; and Simplex's own document is titled *&quot;4004R
+  Suppression Releasing Panel&quot;*. The coordinator's hypothesis &mdash; that
+  &quot;Basic&quot; hid a label-kit equivalent, as on `4099-9015` and `2099-9149` &mdash;
+  was **half right in a more useful way**: there is no label kit, and what is missing is
+  **two 12 V batteries, a 2081-9046 coil supervision module required one per releasing
+  circuit, and a maintenance switch required per circuit under NFPA 72**. Table 1 never
+  says what &quot;Basic&quot; excludes and there is no non-basic model in it, so the word
+  was kept and nothing inferred from it.
+- **An unsourced claim in a title, and the only document naming the part is a REGIONAL
+  one.** `SW-OW-CON`'s title asserted *&quot;Includes 5 Year&quot;* maintenance. The part
+  number appears in **zero US Notifier documents** &mdash; not `DN-7048:Q`, not rev N, not
+  the UK sheet &mdash; and turns up only in the **New Zealand/Australia** sheet
+  `DOC-02-080 Rev E`, whose entire entry is *&quot;SW-OW-CON &mdash; ONYXWorks Software,
+  View + Control&quot;*. **No term, no maintenance period, nothing.** Every source
+  asserting five years is a distributor repeating one string. Dropped from the title and
+  flagged, on the Trilogy &quot;Reel&quot; precedent: a price list settles it, another
+  search will not.
+  **And the coordinator misfiled the defect before the agent corrected it.** The briefing
+  said that title *&quot;ends mid-phrase&quot;*, treating it as one of the ~300&ndash;400
+  truncated titles. It is **103 characters**, well under the 150 cap, and ends on a
+  complete word. What is wrong with it is an unsourced claim and a duplicated word, which
+  is a different defect with a different fix. **Saying which defect a title has matters
+  as much as saying which field it is in.**
+  Route fact from it: **`prod-edam` carries a `notifier-nz/` tree** (and a
+  `notifier-nz-2026/`), alongside the recorded `notifier-us/`, `-aus/`, `-uk/` and
+  `farenhyt/`.
+- **`P2GWKLED-P` settled character by character, and the `K` import was declined a second
+  time.** `AVDS-62173:A` p4 reads *&quot;P2GWKLED-P &mdash; 2-Wire, Compact Horn Strobe,
+  Wall, White, Plain&quot;* with the note *&quot;All -P models have a plain housing (no
+  'FIRE' marking on cover).&quot;* So **G = compact wall, K = outdoor, -P = no FIRE
+  lettering**, and the old title, while not false, dropped the two facts that decide the
+  purchase. **The sheet names no UL standard anywhere** &mdash; not 464, 1971 or 1638,
+  only file numbers &mdash; so the outdoor brochure's &quot;K means UL 1638&quot; sentence
+  was offered and **declined for the second time on wrong-document-family grounds.** Two
+  preventive refusals now, on two parts, by two agents.
+  The caption defect on that page fired exactly as briefed and word coordinates settled
+  it: three captions emit in reading order over the left-hand table, and coordinates show
+  **x 54&ndash;235 is the strobe-only table and x 276&ndash;540 the horn-only one**, so
+  the stray &quot;Horn Current Draw&quot; caption at x=57 belongs to the right-hand body.
+  **Strobe-only currents were deliberately not published on a horn strobe.** The
+  horn-strobe table below it pairs wall and ceiling candela across ten columns
+  (110 WALL/115 CEILING, 135 WALL/150 CEILING, 177 CEILING/185 WALL), which reads as an
+  incoherent ladder in plain text; only the WALL columns were quoted.
+- **&quot;ABC&quot; on an extinguisher was right this time, and the pair is the lesson.**
+  `PRO5` is **monoammonium phosphate**, so ABC dry chemical is the correct trade term and
+  the live title stood. Compare `429022`, where &quot;ABC&quot; sat on a **clean agent**
+  extinguisher whose UL rating happens to cover A, B and C. **The rating describes fire
+  test performance; the agent is a separate fact**, and the copy now says so explicitly
+  on both pages. Route: `customer.resideo.com/resources/Techlit/TechLitDocuments/` has a
+  **`BRK-First Alert/`** subdirectory &mdash; a brand-named one, where this file's
+  recorded Resideo shapes are all numeric (`33-00000s`, `50-`). Worth knowing because
+  **`brkelectronics.com` product URLs now 404 at 210,566 bytes `application/javascript`**
+  and `firstalert.com` at 222,672 bytes, so the `digitalassets.resideo.com/damroot/` route
+  recorded here **could not be exercised at all** &mdash; the shell pages no longer
+  resolve. Another recorded route decaying inside a week.
+- **`S3000` confirmed a FOURTH time, by a fourth reader on a fourth document.**
+  `E85010-0055` page 1 prints it in the approvals block beside CSFM 7165-1657:0186/0193
+  and the EN 54 marks. The &quot;bogus S3000&quot; note this file once carried is
+  disproved four times over; leave it settled.
 
 ## Conventions
 
