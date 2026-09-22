@@ -16,7 +16,33 @@ files tracked here are this guidance file and `.gitignore`.
 stop between batches to ask permission, and do not sit idle waiting.** When a
 batch of research agents is running, use that time to prepare the next slice,
 run audits, or apply queued fixes. Report findings as they land; do not pause
-for approval to continue.
+for approval to continue. The owner restated this on 22 Sep 2026 as
+**&quot;segue sempre&quot;** &mdash; keep going, always.
+
+### How &quot;continuously&quot; actually works, and the one way it breaks
+
+Learned by breaking it on 22 Sep 2026. **A research agent finishing wakes this
+session automatically** &mdash; that is the mechanism the whole batch loop runs on,
+and it is why v2b16 and v2b17 advanced through validate, publish and re-launch with
+no user message in between. What does *not* happen is a timer: nothing wakes the
+session on a schedule unless one is deliberately armed.
+
+**So the loop has exactly one failure mode: ending a turn with no agent in flight.**
+That turn's last words become the last words, because there is nothing left to
+trigger the next one.
+
+It failed that way once, and the shape is worth keeping because it is this project's
+own recurring error wearing different clothes. The coordinator wrote
+*&quot;Sigo para v2b18 agora&quot;* as closing text **without having launched the
+agents**. The sentence occupied the position where the action belonged &mdash; a
+statement that reads like a result and is not, which is the same defect as a title
+asserting a spec nobody sourced.
+
+**The rule: launch before you write.** Build the slice and start the agents as the
+first act of the turn, then report. A turn that reports progress while holding no
+running work has stopped the pipeline, whatever its prose says. If a batch genuinely
+cannot start &mdash; a blocked host, an exhausted queue &mdash; say that plainly
+instead, because an explicit stop is recoverable and a silent one is not.
 
 The one standing exception: changes to **structured product data** that feed
 Google Merchant Center (the `vendor`/brand field, product type, pack counts
