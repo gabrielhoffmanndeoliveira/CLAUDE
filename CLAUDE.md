@@ -295,12 +295,35 @@ Revisit after the high-impression band is done.
   is what a search for "SuperDuct datasheet" lands on first; the **four-wire** family
   is documented by bulletin `3100685` and installation sheets `3100686` (sensor) and
   `3100687` (controller).
-- **Edwards documents are not on edwardsfiresafety.com.** Every `/documents/`,
-  `/products/` and `/literature` path 404s, and `est.net` and
-  `edwardsfiresafety.com/files/import/` return an HTML shell for any filename. Edwards
-  PDFs have to come from verbatim mirrors, so cross-check two documents of different
-  dates against each other. Finding the real Edwards LifeLines library URL is worth
-  doing before the next Edwards-heavy batch; several SIGA parts are still in the queue.
+- **SUPERSEDED 22 Sep 2026: Edwards IS first-party, and the LifeLines library is
+  found.** This file said for four days that &quot;Edwards documents are not on
+  edwardsfiresafety.com&quot; and that PDFs had to come from verbatim mirrors. That is
+  wrong, and it was wrong because nobody had looked for the library the file itself
+  flagged as worth finding. An agent found it; the coordinator verified all three
+  claims directly, because it overturned a recorded rule.
+  **Route 1: `https://www.edwardsfiresafety.com/lifelines/<category>`** &mdash; e.g.
+  `/lifelines/speakers-strobes-horns-bells-and-chimes`. Plain HTML, HTTP 200, no bot
+  protection, ~108 KB, and it embeds direct links to roughly 35 catalogue sheets per
+  category. **Route 2: those PDFs live on
+  `https://myeddie.edwardsfiresafety.com/PublicMedia/Catalog%20Sheets/`** with the slug
+  form `E85001-NNNN -- <Descriptive Title>.pdf`, mime-clean `application/pdf`.
+  **The old `myeddie` shell fingerprint was right about the wrong path, and the
+  distinction is the whole finding.** A control with a bogus filename returns:
+  **`/PublicMedia/Catalog Sheets/` &rarr; a clean HTTP 404 at 1,245 bytes**, while
+  **`/Media/Catalog Sheets/` &rarr; HTTP 200 with an 8,909-byte shell.** So `/Media/`
+  is the poisoned path and `/PublicMedia/` is the real library. **The mirrors &mdash;
+  lsicloud, unilogcorp, steelfire, qdigital, savemoreonfirealarmparts &mdash; are no
+  longer needed for Edwards catalogue sheets.** This unblocks the SIGA parts still in
+  the queue. `est.net` and `edwardsfiresafety.com/files/import/` remain shells.
+  **Kidde has the same library and it is machine-readable**: `kidde-esfire.com`'s own
+  JavaScript discloses `POST /LiteratureLibrary/GetCategoryNavigation` with
+  `categoryName=<name>`, returning JSON with every PDF URL for that category. Its JS
+  namespace is literally `EdwardsPublic` &mdash; one codebase, two brands, which is the
+  thread that led to the Edwards library in the first place.
+  **The lesson is about this file, not about Edwards. A recorded negative decays.**
+  &quot;Not on their site&quot; was true when tested and stayed in force as fact long
+  after; the note even carried its own to-do and nobody ran it. **Re-test a
+  host-level negative before building a batch around the workaround.**
 - **Functional Devices publishes first-party PDFs through Salesforce CMS, and the path
   is derivable.** Their site is a JS shell and every guessed `/pdf/`, `/downloads/` and
   `/documents/` path 404s, but `robots.txt` discloses `/document/`, and
@@ -1361,6 +1384,45 @@ Revisit after the high-impression band is done.
   &minus;40 to 185 &deg;F against **&minus;31 to 104 &deg;F**, the wrong depth, and
   40&ndash;400 Hz against **50/60 Hz**. They copy each other, not the datasheet, so
   agreement among them carries no independent weight at all.
+- **The Windsor `google_ads` connector serves TWO businesses, and a query without an
+  account filter silently blends them.** `151-468-5549` is **TFAS SHOPIFY**;
+  `192-200-0533` is **The House Supplier**, a heating-supplies business. Earlier work
+  in this file correctly scoped to `151-468-5549`; a query on 22 Sep dropped the filter
+  and returned both, and the coordinator read a House Supplier Shopping campaign
+  (`SHOPPING GABRIEL 8-3-2026`) as if it were TFAS's, complete with a recommendation
+  built on it. **The owner caught it.** It is the same shape as auditing against the
+  stale snapshot: measuring the wrong artefact, confidently, and reporting a
+  conclusion from it. **Always pass `accounts: [&quot;151-468-5549&quot;]`.**
+- **TFAS has no Standard Shopping campaign running, and its own history says not to
+  start one.** Active in `151-468-5549`: the Performance Max 9-11-2024 (Product Only)
+  campaign and a small `TFAS - Search`. Every Shopping campaign in the account is
+  paused or removed. **Three of them did run over the last two years and together lost
+  money:**
+
+  | campaign | spend | clicks | CPC | conv | CVR | value | ROAS |
+  |---|---|---|---|---|---|---|---|
+  | US SHOPPING GABRIEL OCT 24 | $33,280 | 28,541 | $1.17 | 108 | 0.38% | $30,546 | **0.92** |
+  | INTER SHOPPING OCT 24 | $15,057 | 77,829 | $0.19 | 21 | **0.027%** | $7,792 | **0.52** |
+  | GABRIEL CPC MAY 2025 | $5,881 | 7,265 | $0.81 | 34 | 0.47% | $14,823 | **2.52** |
+  | **total** | **$54,218** | 113,635 | $0.48 | 163 | 0.14% | **$53,161** | **0.98** |
+
+  **$54,218 spent to recover $53,161**, against PMax's blended 9.25 over twelve months.
+  The international campaign is the clearest case: 77,829 clicks at $0.19 and twenty-one
+  conversions &mdash; cheap clicks that are not buyers.
+- **So the 264 go into a dedicated PMax, and the coordinator's own argument against
+  that was wrong.** The objection recorded earlier was *&quot;a second PMax asks the
+  same algorithm the same question&quot;*. **It is not the same question.** The
+  incumbent campaign was asked *&quot;where do I spend $100k across 16,031
+  products?&quot;* and with 16,000 better-signal alternatives it never reached these
+  264 &mdash; which is precisely why they show zero spend in twelve months. A campaign
+  filtered to those 264 and nothing else asks *&quot;spend this budget here&quot;*, and
+  **with no alternative inventory the algorithm has nowhere else to go.** That is the
+  mechanism the `custom_label_0` asset group exists to create.
+  Still required: **exclude the same 264 from the incumbent PMax** by listing group, so
+  the measurement stays clean if it ever does start bidding on them. And the
+  **$500/day the owner chose is defensible for PMax** in a way it would not be for
+  Shopping &mdash; PMax needs conversion volume to leave learning, and starving the
+  budget is its own failure mode. Two to three weeks with no tROAS, then set one.
 - **The pack-count census itself matched a phrase, not a mechanism, and missed three
   titles.** The 27 were found by the wording *&quot;Bulk Pack with N Units&quot;*;
   `FST-951-BP`, `FSP-951-BP` and `FSP-951R-BP` read *&quot;White Bulk Pack 10&quot;*
