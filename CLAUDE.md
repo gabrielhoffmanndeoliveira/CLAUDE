@@ -2761,6 +2761,52 @@ Revisit after the high-impression band is done.
   Before handing over any such CSV, **HEAD every URL in it**: the 60-row Rath file was
   checked end to end (HTTP 200 and a `content-type` of `image/*` on all 60) in about
   fifteen seconds, which is cheap against an import that half-fails.
+- **An exact match on a structured SKU field is still not enough, and the Notifier harvest
+  proved it three ways.** The briefing said that because Honeywell's product search returns
+  an explicit `sku_list`, an exact string join needs no boundary rule. **Wrong on every
+  count.** (a) **Family records:** only 1,662 of 4,433 records carry a single SKU; the rest
+  bundle up to **160** catalogue numbers under one image, so an exact match hands you a
+  sibling's photo &mdash; `ABB-2`, an empty annunciator **back box**, matched a photo of the
+  **module that mounts inside it**, and one Fiplex record covers a NEMA cabinet and a rack
+  chassis together, so its single image is necessarily wrong for one of them. (b) **The
+  manufacturer attaches the wrong asset outright:** `002-474`, correctly matched and
+  correctly titled &quot;ID3002 Fire Alarm Panel&quot;, carries an asset named
+  `ba-bms-V5049A1565-right` &mdash; **a photograph of a building-management globe valve**,
+  confirmed by rendering it. The asset-name prefix encodes Honeywell's business unit and has
+  to be gated against the product's own domain. (c) **The SKU is not the second whitespace
+  token:** wrong on 15 of 387 Notifier titles, eleven of which carry a real trailing
+  `&quot; A&quot;` in the SKU (`SD-851E A`, `ECO1002 A`).
+  **So the photo pipeline's boundary rule is not a filename-matching quirk to be skipped
+  when a structured field exists.** It is the same sibling-part failure this file records
+  fifteen times in the text pipeline, and a structured field can be *wrong* as easily as a
+  filename can be *ambiguous*.
+- **The generic-placeholder mechanism generalises, and it is the same trick that found
+  TFAS's own grey box.** A manufacturer's image library has its own placeholders, and a
+  hand-written reject list (`hbt-icon-`) misses most of them: `ba-fire-DAS-Cabinets` is
+  attached to 12 products and reachable by **108 of the 224 Fiplex SKUs**,
+  `hbt-fire-Passive-DAS-Devices` to 22, `hon-ba-fire-notifier-general` to 11. **Count
+  distinct products per image URL instead** &mdash; 6,353 of 6,674 images are used exactly
+  once, and essentially everything shared is generic. That is precisely how the TFAS
+  placeholder was found, by counting products per `MediaImage` id rather than looking for a
+  null. **A shared identifier is the signature of a placeholder, in any catalogue.**
+  **One evasion worth knowing: byte-identical images under two different asset names.**
+  Five rows survived the URL-sharing check and were caught only by MD5 &mdash; `020-573` and
+  `020-574` shared one group shot of four different boards. Add an MD5 pass to every brand.
+- **Fiplex is a genuine zero, and that is a finding rather than a failure.** The route
+  reaches the brand perfectly (723 English records); **Honeywell publishes no per-part
+  photography for the line at all.** The complete asset pool reachable by all 224 SKUs is
+  **thirteen images**, every one a family or cabinet shot. So Fiplex joins Kidde Fenwal and
+  Amerex as a brand needing a different route &mdash; a dealer image pack from the
+  manufacturer &mdash; not a different filter.
+- **Correct photograph, unusable framing: a third answer beside hit and miss.** 58 of the 88
+  verified Notifier images are **2048 &times; 280** strips &mdash; genuine, manufacturer-
+  published, correct-product renders in which the subject occupies about a tenth of the
+  frame. They are not wrong, so rejecting them as defects would be false; they are also not
+  what a buyer wants in a grid thumbnail. Scene7 crop parameters did **not** fix it
+  (`crop`, `cropN` and `wid` in either order all returned the original aspect), so the
+  honest handling is to **split the CSV** and let the owner choose a small-but-correct photo
+  over a grey box. Cut used: aspect ratio 3:1. **Record framing as a third outcome
+  alongside `null`**, because collapsing it into either one misreports the work.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
