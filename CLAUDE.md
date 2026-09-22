@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,275 enrichment pages published** (555 old list + 708 v2 through v2b45, verified live), plus 214 title-only products — 555 from the old list plus v2b01 through
+**Progress: 1,287 enrichment pages published** (555 old list + 720 v2 through v2b46, verified live), plus 214 title-only products — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -7248,6 +7248,59 @@ Revisit after the high-impression band is done.
   visually identical. **Where two product classes are physically indistinguishable, one
   photograph will be published for both and no image check can separate them.** That is a
   reason to reject, not to choose.
+
+- **A SUPERSESSION THE MANUFACTURER STATES AND A SUCCESSOR THAT LOSES A FEATURE, ON ONE PAIR
+  IN ONE BATCH &mdash; and the feature loss is the thing nobody would have checked.** Notifier
+  bulletin **M22.1 discontinues `MODBUS-GW` on 28 Feb 2022** and points at the CLSS Gateway
+  Modbus feature `MODBUS-CGW`. The store carries both, the discontinued one live at
+  **$1,982.30**. The successor is *better* on the obvious axis &mdash; ten monitored nodes
+  against four, two Modbus masters against one &mdash; **and it does NOT read 4 to 20 mA analog
+  values, which the legacy gateway does.** So a migration that looks like an upgrade silently
+  drops analog reporting, and the register map and device codes differ, so it is not a
+  drop-in either.
+  **The rule this sharpens: when a supersession IS manufacturer-stated, the work is not
+  finished.** This file's existing test asks for a spec that would have to be equal if the
+  claim were true, and uses it to *disprove* unsourced claims (`SIGA-HRS`, 70 ft to 50 ft).
+  Run the same test on a **sourced** claim and it stops being a disproof and becomes a
+  migration warning. Both products' copy now names the split; the lifecycle question went to
+  the owner, because discontinuation is a feed decision.
+- **A purchased software activation merchandised as hardware.** `MODBUS-CGW` is a **feature
+  license** applied in the CLSS App against the account's token balance &mdash; no hardware is
+  shipped, and the gateway (`HON-CGW-MBB`, or `CGW-MB` board plus `CGW-BB` enclosure) is a
+  separate purchase. Every hardware specification a reader would take from its page belongs to
+  the gateway. That is the incomplete-product trap with **nothing physical in the box at all**,
+  which is a category beyond the fourteen recorded cases, and it joins the FireWorks licences
+  and `TRNG-F-EST4-CERTIF` in the not-photographable population from the other direction.
+- **Two bare service-part numbers, two `null`-shaped answers, and the second one is the
+  stronger.** `565-831` is a 4098 Series duct PCB assembly whose **housing Simplex never names
+  in any document read**; what the copy could do was give the buyer the discriminator &mdash;
+  **Simplex splits Duct SENSOR (`4098-9755`/`-9756`, addressable on MAPNET II or IDNet) from
+  Duct DETECTOR (`4098-9685`/`-9688`, conventional two-wire IDC)**, so the label on the housing
+  decides the board. `650-440` went further: **the live title &quot;CPU Board LCD&quot; was left
+  exactly as it was and the body says plainly that no Simplex publication names the number.**
+  The prefix proves nothing &mdash; in the 4017ES list `650-2702` is a frame assembly and
+  `650-1192` a wire-entry cover, while board assemblies carry `566-` numbers, and in the 4100ES
+  list `650-450` is a box hinge. Every source calling it a CPU board is a distributor.
+  **Not called invented, not corrected, and the page now tells the buyer to read the panel's
+  service parts list** &mdash; which is the `THM04R3000` rule applied to a title rather than a
+  part number: removing a live claim is itself a claim.
+- **A reel length inside a SKU, read as a catalogue suffix by my own validator.** The agent
+  titled `ICA12-50JPLLR-500` as `ICA12-50JPLLR ... (500 ft)`, deliberately keeping `-500` out
+  of the part number because **RFS catalogues `ICA12-50JPLLR` and the 500 is the reel**. My
+  schema check flagged it as a title not containing its own SKU. **The validator was right to
+  fire and wrong to be obeyed** &mdash; this is the `AS-75-R-WP` and `PDC-12xxxx` shape (a
+  number inside a model number that is not part of the model number), and the correct handling
+  is the one taken: the quantity in parentheses, the part number clean, the SKU untouched and
+  the question flagged.
+  The sibling trap on that part is one letter and it is not colour: **`ICA12-50JPLR` is the same
+  1/2 in. red plenum ClearFill Line cable with a corrugated COPPER outer conductor** &mdash;
+  1,112 N tensile against 549 N &mdash; where this one is aluminum. **Both jackets are red.**
+- **The `-IV` finding held on its first use after the correction, which is what a corrected rule
+  should do.** `FSV-951R-IV` was titled with **Ivory** in it and that is right: Notifier's
+  ordering table has an ivory column, `FSV-951R` being the white model. This is the batch after
+  `DN-60979:B` forced this file to stop saying *&quot;`-IV` is a protocol, not a colour&quot;*,
+  and the copy now states the finish from the ordering table and the protocol support from the
+  device's own row, with neither standing in for the other.
 
 ## Conventions
 
