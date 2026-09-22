@@ -22,6 +22,18 @@ later the same day, unprompted, after six batches had already run**. Treat it as
 standing order that does not expire and does not need re-confirming: **never end a turn
 asking whether to continue.**
 
+**Restated a THIRD time on 22 Sep 2026, and this time with an instruction attached:
+&quot;segue sempre, grava isso no seu claude.md&quot;** &mdash; keep going always, and
+*write that down*. It came immediately after a status report, with ten batches, six photo
+harvests and 585 photographs already delivered that day, so it is not a nudge to start
+&mdash; it is the owner telling the coordinator to stop needing to be told. **The
+instruction to record it is the operative part.** A standing order that lives only in a
+conversation dies with the context window; the owner has now had to give this one three
+times, and the reason it needed repeating is that it was being treated as encouragement
+rather than as configuration. It is configuration. **Anyone reading this file starts
+already authorised: slice the next batch, launch the agents, publish what validates, flag
+what is the owner's to decide, and do not ask.**
+
 **What it looks like in practice, measured on the day it was restated.** Six batches
 (v2b20&ndash;v2b25), 108 products sliced, 90 published, four live title corrections
 outside any batch, a catalogue-wide verification sweep, 29 rows consolidated into the
