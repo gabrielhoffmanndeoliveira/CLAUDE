@@ -1892,6 +1892,82 @@ Revisit after the high-impression band is done.
   `PACKCOUNT_decisao.csv` are a question about Honeywell's documentation habits and must
   not be generalised to any other brand** &mdash; and for a non-Honeywell part, the
   carton quantity is probably findable rather than unsourceable.
+- **A summarising fetch can shift a table by one row, and the shift is invisible because
+  the output looks tidy.** WebFetch on the Space Age category page returned a clean model
+  table giving `SSU00651` **32** termination points. The manufacturer's own `LT10221
+  Rev. J` says **64**, as does the product URL slug. The summary had not hallucinated a
+  number &mdash; it had **misaligned the rows**, so every value was some other model's.
+  This is the SWIFT lifecycle-label lesson one layer over: that one warned against taking
+  a *lifecycle claim* from a summarising fetch, and this shows the same tool failing on
+  *numeric table data*, where the result reads as authoritative because it is
+  well-formatted. **A summarising fetch is not evidence about a table. Download the
+  document.**
+- **A new extraction shape: a genuine PDF whose text layer is unusable.** Space Age
+  install sheet `LT10322` downloads as real `application/pdf`, opens in pymupdf, and
+  `get_text()` returns **custom-encoded punctuation soup** &mdash; not navigation chrome,
+  just garbage. **This is distinct from the EDAM and systemsensor.com traps, where
+  `file -b --mime-type` is the tell.** Here the mime check *passes* and the document is
+  still unreadable without a render. So the check separates a fake PDF from a real one and
+  says nothing about whether the real one can be read; **if extracted text looks like
+  noise rather than prose, render, do not conclude the document is wrong.**
+- **On the JCI hub an accessory may appear in NO index entry at all.** `2975-9206` is in
+  no filename and no title across the 961-entry Simplex index; grepping `2975` returns
+  one unrelated Canadian bells-and-chimes sheet from 11/00 that does not contain the part.
+  It was found by grepping the **downloaded text of the parent annunciator data sheets**.
+  **So the rule &quot;grep the `filename` field, not the title&quot; has a boundary: it
+  works for documents, and an accessory is usually not a document.** For an accessory,
+  identify the parent product and grep its PDF text. Two smaller notes from the same work:
+  the index `metadata` is a **list of `{key,label,values}` dicts, not a dict**, so
+  `.get()` on it raises; and filtering `ft:locale` to `en-US` collapsed one family's hits
+  from 11 to 7.
+- **`sid.siemens.com/go/` resolves A6V ASSET numbers only, never part numbers.**
+  `/go/FC901-U3` 303s to an `unresolved` deeplink. Web-search the A6V number first, then
+  call `/go/<A6V>`; that worked first try on two documents. Also confirmed, and worth
+  knowing before spending the fetch: `/api/khub/maps` contains the string `FC901`
+  **zero times** &mdash; its Cerberus entries are DMS, PACE and PRO Modular only &mdash;
+  and `file -b --mime-type` reports **`text/plain`** for that 8.5 MB JSON.
+- **The robots-and-sitemap route has now paid on a third brand, and the host was wrong in
+  the catalogue.** `www.spaceagelectronics.com` fails at the proxy with
+  **`CONNECT tunnel failed, response 502`, zero bytes**, on `/robots.txt` and
+  `/sitemap.xml` alike &mdash; a new fingerprint. The real host is **`www.1sae.com`**,
+  whose product pages are a Magento JS shell with **zero PDF links in the HTML** and whose
+  `robots.txt` is a **1-byte file** &mdash; but `/sitemap.xml` is a live 260 KB index that
+  led to the category page and three documents under `/media/assets/product/documents/`.
+  After Functional Devices and HyperSpike that is three brands recovered this way.
+- **Ninth incomplete-product case, and the priciest yet in proportion: `FC901-U3` is
+  panel electronics with nothing to mount them in.** Siemens Data Sheet `9813`'s
+  Electronics Package block lists the kit as exactly two items &mdash; `FCM901-U3` main
+  board and `FP2011-U1` 170 W supply &mdash; while the Specifications paragraph on the
+  same sheet says the FC901 FACP *&quot;consists of a main board, a 170-Watt power supply,
+  **and a Model FH901-U3 / R3 system enclosure**&quot;*. Three components; the kit is two
+  of them. **At $911.90 the buyer receives no enclosure**, and separately no battery
+  bracket (required for seismic certification), no trim kit, no batteries.
+  The `type` field said **Boards** and agreed with the raw-ERP title, raising nothing
+  &mdash; fifth instance. It is not a board: a buyer filtering for boards gets a two-part
+  kit, and a buyer filtering for control panels never sees it. Note the sibling
+  `FCM901-U3` genuinely *is* a board, which is presumably how the field was set.
+- **The coordinator's scepticism was the error again, for the second time.** A briefing
+  flagged the live `TH4210U2002/U` stage claim &mdash; *&quot;up to 2 Heat/1 Cool heat
+  pumps; up to 1 Heat/1 Cool conventional&quot;* &mdash; as the kind of claim that is
+  usually wrong. **Two independent Resideo documents confirm it**, submittal
+  `33-00285----04` and the `03-00306` comparison chart, and the only thing the live copy
+  had omitted was the qualifier *with electric aux heat*. That is the `ATD-L3R-IV` shape
+  exactly: **&quot;that kind of claim is usually wrong&quot; is a prior, not evidence, and
+  it has to lose to a document like any other prior.** Worth stating as a count now: twice
+  the coordinator has predicted a live claim was wrong and twice the page was right.
+- **A model-number syntax block can have more tokens than it looks like, and this file's
+  own decode was one short.** It recorded Potter `DH24120FB` as `DH` door holder /
+  `24120` voltage / `F` flush / `B` brass. The syntax block in `8820099 REV A` is
+  **six** tokens &mdash; `DH (24120) (S) (P) (C) (1)` = Door Holder / Model-Voltage /
+  **Mount Style** / **Powdercoated** / **Finish** / Coils &mdash; so in `FPC` the `P` is a
+  standalone *powdercoated* token and only `C` is the finish. Corroborated by the
+  accessory tables, where `PC` suffixes are chrome and bare `B` is brass, brass not being
+  powdercoated. The mount-style finding held exactly: **there is no &quot;Semi-Flush&quot;**,
+  and the live `<h2>` also carried **&quot;Box&quot;**, which is not part of this
+  catalogue number at all &mdash; the surface back box is `DHBBPC`, a separate accessory a
+  flush unit does not use. **Distributor consensus split rather than failing together
+  here**, one saying Semi-Flush and another Flush Mount, which is the first time in five
+  instances that they disagreed with each other.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
