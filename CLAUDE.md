@@ -666,7 +666,7 @@ Revisit after the high-impression band is done.
   something unsourced. Titles feed Merchant Center, so an unverified claim there
   costs money in two channels.
 - **The owner's structured-data decisions are consolidated in
-  `/tmp/tfas/DECISOES_DO_DONO.csv`** &mdash; 29 items as of 21 Sep 2026, each with
+  `/tmp/tfas/DECISOES_DO_DONO.csv`** &mdash; **190 rows as of 22 Sep 2026** (29 when this note was written), each with
   the current value, a recommendation, the reasoning, and a confidence column that
   separates **10 demonstrably wrong** values from **6 judgement calls**, **4 feed /
   lifecycle decisions** and **3 unsourceable pack counts**. Append to that file
@@ -2151,7 +2151,8 @@ Revisit after the high-impression band is done.
   not a keyword &mdash; there is no legitimate title that opens a bracket and never closes
   it. **102 of 16,031 titles qualify, and inspecting all 102 found no false positive**,
   against 1&ndash;8% precision for every keyword scan in this file and 67% for the
-  family-disagreement scan.
+  family-disagreement scan. **Precision only &mdash; its recall was measured seven
+  batches later and is about 25&ndash;30%; see the re-measurement in the batch-25 sweep.**
   They split into two different defects:
   - **79 with an unclosed `(`** &mdash; cut off mid-phrase: *&quot;&hellip;Temporal 4
     Capabilities Plain (no&quot;*, *&quot;&hellip;(Availability Limited to Quantity&quot;*,
@@ -2301,6 +2302,41 @@ Revisit after the high-impression band is done.
   landing on a relay. Note the Shopify `type` field said "Relays" and was right while
   the title was wrong: **when a structured field disagrees with the title, that is
   a signal, not noise.**
+- **Half the catalogue has no product photograph, and the first scan for it returned
+  zero. 22 Sep 2026, and the owner found it before any scan did.** He sent a screenshot
+  of an admin list showing grey placeholder icons and asked for photos. A bulk pull of
+  `featuredMedia` and `media` over all 16,031 active products reported **zero products
+  with no image** &mdash; true, and useless. **Every product has a media record; three
+  of them are TFAS placeholder images shared across the catalogue.** Counting products
+  per `MediaImage` id is what finds it:
+  `43649142325472` on **7,738** products, `38254642888928` on 127, `41631160795360` on 35.
+  **7,900 of 16,031 active products (49%) carry no real photograph** &mdash; 30,608
+  six-month impressions and **$1,520,466 of ERP revenue**. Of those, **7,113 also have a
+  description under 120 characters** and **1,376 have all three defects at once**
+  (placeholder, thin description, bare `Brand PartNumber` title). Top vendors: Kidde
+  Fenwal 1,508, Hochiki 798, Rath 708, Amerex 629, Space Age 480. Ranked list in
+  `/tmp/tfas/SEM_FOTO_REAL_ranked.json`; the top 200 carry 21,300 of the 30,608
+  impressions and $703,245.
+  **The method lesson is the sharp one, and it is a new shape for this file.** Every
+  previous scan here failed by **over-firing** &mdash; matching a shape and returning
+  hundreds of correct products. This one failed by **measuring the wrong property**:
+  it asked *is there an image* when the question was *is the image of this product*.
+  A presence check cannot see a wrong value, and a placeholder is a wrong value that
+  passes every presence check there is. **Before running a scan, say out loud what a
+  defective product would look like in the data &mdash; not what a defective product
+  looks like on the page.** Here the signature is not a null, it is a **shared id**,
+  and nothing about "no photo" suggests looking for duplicates.
+  **The working rule for the photo pipeline: a wrong photo is worse than a placeholder.**
+  A grey box tells a buyer nothing; the adjacent catalogue row's photo tells them
+  something false, looks entirely convincing, and is discoverable only by accident. That
+  is the sibling-part failure mode with no textual trace at all, so it gets the strictest
+  handling in the project: the image must be served by the manufacturer's own domain, the
+  source page or document must name the **exact** part number, the agent must measure the
+  real mime type and pixel dimensions of the downloaded file rather than trust the page,
+  and **`image_url: null` is an accepted answer**. No reseller, Amazon, eBay or
+  image-search asset &mdash; that is a rights rule as well as a correctness one, since a
+  manufacturer image on a distributor page is ordinary channel practice and a scraped
+  reseller photo is not. Batches live in `/tmp/tfas/foto/fotoNN/`.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
