@@ -95,8 +95,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,004 pages published** — 555 from the old list plus v2b01 through
-v2b25, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,022 pages published** — 555 from the old list plus v2b01 through
+v2b26, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -2302,6 +2302,73 @@ Revisit after the high-impression band is done.
   landing on a relay. Note the Shopify `type` field said "Relays" and was right while
   the title was wrong: **when a structured field disagrees with the title, that is
   a signal, not noise.**
+- **Seventeenth product-class error, and the first where the live copy was ANOTHER
+  PRODUCT'S copy end to end.** The `INX-10A` page described the **INX-10AC** in every
+  sentence: *&quot;The INX-10AC provides 10 amperes of power and mounts inside the
+  BB-5014 enclosure.&quot;* Mircom `CAT. 5321 Rev. 9` Ordering Information separates them
+  outright &mdash; `INX-10A` is *&quot;Intelligent NAC Expander, 10 Amps **c/w backbox and
+  red door**&quot;* while `INX-10AC` is *&quot;**Addressable Chassis. Mounts into BB-5008
+  or BB-5014 enclosure**&quot;*, and there is a third, `INX-10ADS`, for a BBX-1024DS.
+  **So the enclosure sentence was false for the part it sat on**, and in the direction
+  that costs the buyer least but confuses most: the INX-10A *ships with* backbox, door,
+  transformer, charger and battery leads.
+  **This is the incomplete-product trap read backwards**, and worth naming as such: every
+  previous instance was a bare component sold as a complete product, and here a complete
+  product was described as a bare chassis. The signature is the same &mdash; **copy
+  borrowed from a sibling's ordering row** &mdash; which is the third time that exact
+  signature has fired (`PAD200-DD`, `4-NET-SM`, now this).
+  One bounded negative came with it: the live *&quot;FM Approved&quot;* is **unsourced**
+  &mdash; `CAT-5321` lists UL, ULC and an NYC Fire Department mark only, and the string
+  &quot;FM&quot; appears **zero times in the 130-page `LT-899` manual**. Not denied, not
+  repeated.
+- **The `-IV` protocol convention is now documented outright on a THIRD brand, in the
+  manufacturer's own words.** Notifier `DN-62004:B` (7/15/2019) Ordering block:
+  ***&quot;'-IV' suffix indicates support of FlashScan and CLIP.&quot;*** That follows
+  Gamewell-FCI (`9020-0620 Rev G`, Velociti-or-CLIP) and Fire-Lite (`DF-61011:C` and
+  `DF-61010:C`, LiteSpeed-or-CLIP). **Three brands, five documents, one convention:
+  ivory is legacy service stock carrying the dual-protocol build.** The `FPTI-951-IV`
+  live title already said &quot;(FlashScan and CLIP)&quot; and was right. Also
+  manufacturer-stated on the same sheet, and unusually: the FPTI-951 Series **replaces
+  the FAPT-851 Series** &mdash; a sourced supersession, which is rare enough to note.
+- **Amber is encoded by POSITION on the Eluxa line, and that is why `-A` does not mean
+  amber.** `ELHSR-A` is **AGENT lettering**, confirmed in `TD450157EN` Table 4 by word
+  coordinates and a 200 dpi render. On this line amber is a **trailing** A *after* the
+  lettering code: `-N` unlettered, `-NA` unlettered amber, `-AL` ALERT, `-ALA` ALERT
+  amber. So `ELHSR-A` and `ELHSR-NA` are one character apart and are AGENT-clear against
+  unlettered-amber. **A suffix letter means nothing without its position in the syntax.**
+  **A new document defect on that sheet, and it is the conditional-headline rule a fourth
+  time on this brand.** `TD450157EN` p2 Features prints *&quot;Sound pressure (Anechoic)
+  dBA &mdash; Low 78, High 91&quot;*, **pairing a reverberant low with an anechoic high**:
+  installation sheet `P85750D` Table 2A, model-attributed and coordinate-verified, gives
+  **reverberant 80 H / 78 L per UL 464** and **anechoic 91 H / 86 L per ULC S525**. The
+  anechoic low is 86, not 78. Anyone quoting the datasheet bullet publishes a wrong
+  number. Also on that sheet, Table 3's second body is labelled **ELHNC**, a ceiling
+  *horn*, while carrying ceiling *strobe* candela and currents &mdash; nothing published
+  from it.
+- **The owed `P85756F` verification is NOT discharged, and saying so is the point.**
+  A v2b27 agent reported it as discharged, having read the **wall** sheet `P85750D` and
+  found Note 5 verbatim. But the published `ELSTWC-ALA` sentence cites the **ceiling**
+  sheet `P85756F`, and this file already recorded that the note appears word for word in
+  the wall sheet &mdash; so the agent independently re-confirmed a fact already on record
+  rather than the one outstanding. **That is genuine corroboration** (two independent
+  readers now on `P85750D`, and &quot;private&quot; still appears zero times in it) and it
+  raises confidence, but the document the copy cites remains unread by anyone but its
+  original agent. The coordinator's own attempt failed: four constructed
+  `eaton.com/.../eluxa/` paths for `P85756F` all returned HTTP 404 &mdash; **find the
+  slug, do not build it**, again. Debt stands.
+- **A supersession that the manufacturer does state, and a battery-box colour that it
+  does not: two claims, opposite handling, same batch.** See the `FPTI-951-IV` and
+  `BB-55F` entries above. The pair is worth keeping together because it shows the rule is
+  not scepticism &mdash; it is the source. A sourced claim goes in the title; an unsourced
+  one goes in the body or nowhere.
+- **A Simplex title lost a slash in the same import that truncated the others, and only
+  the title.** `4100-5113` read `220240V` while its own description `<h2>` still read
+  `220/240V`. **The defect was in the Shopify title field alone**, which is the Merchant
+  Center attribute, so it cost the feed channel and not the page. Same shape as
+  `3-ZA40A`, whose 150-character title ends mid-sentence at *&quot;Has Built in
+  Class&quot;* while the description carries the full text. **When a defect appears in one
+  field and not the other, say which** &mdash; it decides whether it costs one channel or
+  two.
 - **The micro-sign trap: a cousin of the Omega trap, and the first one found.**
   Notifier `DN-2243:B` prints the ISO-X standby current as **&quot;450 A&quot;** &mdash;
   the `&micro;` is dropped in extraction exactly as `&#937;` becomes `W`. 450 amperes on
