@@ -2017,6 +2017,48 @@ Revisit after the high-impression band is done.
   built-in isolator, which is correlated distributor consensus and was neither repeated
   nor contradicted. **Flagged to the owner, because an unsourceable suffix is still a
   Merchant Center title attribute.**
+- **A number inside a model number can look like a spec and be denied by the
+  manufacturer in the same document. New shape, and the strongest title defect yet.**
+  `AS-75-R-WP` was titled *&quot;AS Horn 75CD Red Weatherproof&quot;*. Siemens Data Sheet
+  2578 (Rev. 5, Sept 2015), read directly by the coordinator, carries **Note 1 verbatim:
+  &quot;Models AS-75-WP and AS-75-R-WP do not provide a 75cd setting.&quot;** Note 2 gives
+  the real ratings &mdash; **115 cd per UL 1638 outdoor and 30 cd per UL 1971 indoor**
+  &mdash; and the ratings table row agrees (115 | 30/180 | 30).
+  **The document contradicts itself and the note wins**: the ordering row does read
+  &quot;AS Horn | Strobe: 75CD Weatherproof, Red&quot;, which is the shorthand the store
+  title inherited, while the note on the same page denies it and the ratings table
+  corroborates the note. Two signals against one piece of shorthand.
+  **So the `75` is a series designator, not a candela value**, and the live title was
+  asserting a setting that does not exist, in a Merchant Center feed attribute, on a
+  product where candela is exactly what a specifier filters by.
+  **Fifteenth product-class error came free with it:** the sheet is headed *&quot;AS &amp;
+  AH &mdash; **Audible Horn | Strobe** / Audible Horn Appliances&quot;*, so **AS is the
+  horn-strobe line and AH is the horn-only line**. The title said Horn and the `type` says
+  Horns, agreeing with the wrong title and raising nothing &mdash; the signature again.
+  **Generalises: when a title's number matches a fragment of the model number, check
+  whether it is a spec at all.** The briefing had already flagged &quot;a horn has no
+  candela&quot; as a class question; the answer turned out to be both that *and* a
+  phantom figure.
+- **Plain extraction can emit two tables in the wrong order, so the CAPTIONS attach to
+  the wrong bodies.** On `TD450157EN` page 3, `get_text()` hands back &quot;Table 2.
+  Strobe Ratings&quot; joined to the ELHS/ELHNC body and &quot;Table 3. Horn-Strobe,
+  Current Ratings&quot; joined to the ELST/ELSTC body &mdash; the two swapped. Word
+  coordinates show the ELST table physically **above** the ELHS one, and a 220 dpi render
+  settles it. **Anyone trusting plain text would have read strobe currents out of the
+  horn-strobe table**, and would have concluded the briefing's warning about that table
+  was wrong.
+  This is the caption-below-its-table trap (`9021-60930`) one level up: there a caption
+  attached to the wrong table *within* reading order, here two whole tables are
+  interleaved. Same remedy, same rule &mdash; **never take a caption-to-body assignment
+  from reading order alone.**
+- **EDAM case and root are independent axes, and the underscore rule is per-document.**
+  Measured this batch: `DF_52004.pdf` (underscore) resolves while `DF-52004.pdf` and
+  `df-52004.pdf` both return the 8,047-byte fingerprint under **both** roots; meanwhile
+  `AVDS870-03.pdf` resolves **bare and correctly cased under the `honeywell-edam` root
+  only**, with the `hon/hbt-fire` root, the lowercased form and the underscore form all
+  failing for that same document. So the shapes do not compose into a rule &mdash; try
+  bare, lowercased and underscore **against each root separately**, and accept that it is
+  per-document.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
