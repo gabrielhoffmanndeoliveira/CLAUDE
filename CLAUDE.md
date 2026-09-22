@@ -6219,6 +6219,48 @@ Revisit after the high-impression band is done.
   failure as an id, in a new field, one turn after patching the builder against exactly that
   class of accident.
 
+- **THE DELIVERY-WIDE dHASH PASS FOUND SEVEN DEFECTS NO PER-LOT CHECK COULD SEE, AND THE
+  LOOK PASS THEN RESOLVED THREE OF THEM &mdash; ONE IN THE *KEEP* DIRECTION, WHICH IS NEW.**
+  Every image in the delivery was downloaded fresh and hashed: **1,481 of 1,506** (the 25
+  failures are all Eaton `RemoteDisconnected`, the recorded per-connection intermittency, not
+  a defect). **28 MD5 groups and 31 dHash-0 groups**, of which **11 were already known from
+  URL counting** &mdash; so **20 groups are pairs serving identical content under different
+  URLs**, invisible to the URL check and, where the bytes differ, invisible to MD5 too.
+  **Most were correct and had to be kept**, which is why this can never be a filter: eleven
+  Amerex pack groups (`-P006`/`-P024`/`-P500`, the same part in a different carton), four
+  Secutron `-PK10` pairs and one `-PK15`, two Fireray EN-against-UL approval pairs, two
+  Macurco LADBS pairs, and two Power-Sonic `- ECOM` pairs &mdash; the last settled outright by
+  the store's own ERP string, **`Battery+ind.box`**, an individual retail carton of the
+  identical battery. `SSU00481` against `SSU00481BP` is the same shape: one TCC rail, a 5-pack
+  and a 100-pack.
+  **Seven rows were dropped, and each names its contradiction.** Two Rath pairs straddled
+  *two different lots*, so neither lot's own check had ever compared them:
+  `2100-956SIP` (VoIP phone) against `2100-956SS` (ADA smartphone), and `2100-ALARM-S`
+  (**Surface** MT) against `2100-ALARM` (**Flush** MT) &mdash; mounting is visible, so one
+  photograph cannot be both, and nothing in either image says which. **Both members of both
+  pairs dropped**, because the failure here is not *which one is wrong* but that the image
+  attributes to neither.
+  **And three Power-Sonic pairs were settled by reading the label at 3&times;**, each keeping
+  one member and dropping the other: `PG-12V28H M5` keeps its photo (label
+  *`PG-12V28H M5 / Terminal Type: M5 / UL94 HB / 28 Ah @ 20-hr, 26 Ah @ 10-hr`*) and
+  `PS-12280 NB2` loses it; `PSH-1280 F2 FR` keeps its photo (label *`PSH-1280 FR F2 /
+  UL94 V0 / 8.5 Ah`*) and `PS-1290 F2` loses it; and `PDC-12260 NB2` loses its photo to
+  `PG-12V28 M5 FR`, which this file already recorded and which had come back.
+  **The new thing is the MMF-302-6 case, where looking said KEEP BOTH.** Fire-Lite
+  `MMF-302-6` and Silent Knight `SK-ZONE-6` are served **byte-identical** Scene7 assets under
+  two different asset names, across two lots &mdash; the shape that has always meant a
+  defect. The coordinator downloaded and enlarged it: it is a **bare green PCB carrying no
+  brand mark and no model number at all**, silkscreened `ZONE MOD`, `SLC`, `EXTERNAL SUPPLY`
+  and **BASE ADDRESS +0 through +5**, with a UL label reading `SEE I56-1799 REV. 006`. Six
+  zones, which is what *both* catalogue numbers claim. That is the recorded `B501` precedent
+  &mdash; one Honeywell board sold under several Honeywell brands &mdash; and **the absence of
+  a silkscreened model number is what makes one photograph legitimately correct for two SKUs.**
+  Every previous look-pass instance in this file is a rejection; this is the first time
+  looking *saved* rows a mechanical rule would have thrown away.
+  **So the pass has to run at the scope of the whole delivery and its output is a question,
+  not a verdict.** Final: **1,499 rows, 1,499 distinct handles, every handle present in a live
+  pull, and 84 of 84 URLs in the four new lots returning 200 and `image/*`.**
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
