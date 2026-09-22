@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,189 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,195 pages published** — 555 from the old list plus v2b01 through
 v2b32, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
@@ -4257,6 +4257,114 @@ Revisit after the high-impression band is done.
   `E85010-0055` page 1 prints it in the approvals block beside CSFM 7165-1657:0186/0193
   and the EN 54 marks. The &quot;bogus S3000&quot; note this file once carried is
   disproved four times over; leave it settled.
+
+- **Twenty-third product-class error: the `PAD200-DD` shape repeats exactly one series
+  up, and this time the store's two fields contradicted EACH OTHER.** `PAD300-DD` was
+  titled an &quot;In-Duct Smoke Detector&quot; and typed **Smoke Detectors**. Potter
+  `8830208 Rev D` gives the PAD300-DUCT's Detector Head Model as **PAD300-DD**, its
+  Engineering Specifications read *&quot;The housing shall contain a detector base and
+  PAD300-DD duct smoke detector head&quot;*, and its feature bullet is **&quot;Ships
+  Complete with Housing and Head&quot;** &mdash; the same sentence that was borrowed onto
+  the PAD200-DD page. At $75.05 the buyer gets a twist-on head; bases (`PAD300-4DB`,
+  `PAD300-6DB`) and STN sampling tubes carry their own stock numbers.
+  **Carry the exception, because it is not the same as PAD200-DD:** Potter **does**
+  approve this head for direct in-duct plenum mounting, UUKL listed. It is not useless
+  alone &mdash; it is **baseless** alone, which is a narrower claim and the one the copy
+  makes.
+  **And the parent's spec is not the child's, which inverts a rule in this file.**
+  Listed air velocity is **300&ndash;3,000 ft/min for the head against 300&ndash;4,000
+  for the PAD300-DUCT housing**, with humidity splitting too (0&ndash;93% against
+  10&ndash;85% RH). This file records that *accessory specs often live in the parent's
+  data sheet*; here the parent's figure would have been **wrong** on the child. Both
+  directions are real: read the parent to find the number, then check whether it is
+  attributed to the part.
+- **The `2099-` series is THREE sheets, not two, and the accessory pairing is
+  line-specific.** This file records `S2099-0007` (moulded) with `S2099-0010` (releasing)
+  as the exception inside it. `2099-9139` is in **neither**: it is in **`S2099-0009`,
+  &quot;Non-Coded Manual Stations, Cast Metal Construction&quot;**, Rev 7 09/2020, row
+  coordinate-verified as *&quot;Dual Action Station with PUSH Lever; SPST, N.O.&quot;*
+  **So the lesson that produced the &quot;carry the exception&quot; rule needed one more
+  exception carried** &mdash; and the compression failure it warns about is fractal.
+  **The break-rod/breakglass accessory rule does NOT cross lines, and following it here
+  would have cross-sold the wrong part.** Measured in both documents: `S2099-0007`
+  Table 3 carries `2099-9803` breakglass and `2099-9804` break-rod and contains
+  `2099-9829` **zero** times; `S2099-0009` is the converse &mdash; `2099-9829` (twelve
+  replacement break rods) present, `2099-9803`/`2099-9804` **absent**, the word
+  &quot;breakglass&quot; **absent**. **The cast-metal line has no breakglass option at
+  all.** The live title was also missing both **dual action** and **cast metal**, and
+  `2099-9138` one digit away is the single-action version of the same casting.
+  Dimensions came from a 200 dpi render: page 3 is pure vector linework with no text
+  layer, the invisible-dimension trap firing as briefed.
+- **The `SPCWL` supersession finding runs the OTHER way for `SPSCWL`, and the claim still
+  does not survive &mdash; which is the mechanism working in both directions.**
+  `AVDS-62174:A` (08/29/2024): **`SPSCWL` appears 0 times and `SPSCWLED` 8 times**, while
+  on the same page, under a live &quot;L-Series Speaker&quot; heading, the strobe-less
+  `SPCWL`, `SPCRL`, `SPWL` and `SPRL` keep their original numbers. One page, one date:
+  **the strobe got refreshed and the speaker did not**, which is exactly the reason this
+  file gives for why `SPCWL` was NOT replaced.
+  **But it is still not manufacturer-stated.** `M23.2SS`'s REPLACES table holds only
+  horn strobes and strobes, and the bulletin says in words that speaker strobes
+  *&quot;will convert to the new L-Series with LED platform in early 2024&quot;* &mdash;
+  pointing at a **future** announcement that five constructed slugs failed to find.
+  Claim moved to the body, same handling as `SPSCRLED`; the title gained the class noun
+  it completely lacked (it was `Brand PartNumber (Replaced by X)`, the `ZH-MC-W` shape).
+  **The specs are the XENON row and that distinction now has a second confirmation.**
+  77/80/83/86 dBA at the four taps, coordinate-verified with captions *above* their
+  tables and no swap &mdash; which independently reproduces on the **ceiling** pair the
+  2 dBA speaker-versus-speaker-strobe gap this file recorded on the **wall** pair.
+- **A recorded negative decayed again, and it was one this file states flatly.**
+  &quot;EDAM has dropped some Notifier documents entirely &mdash; `DN-7045` 404s under
+  both `notifier-us/` and the flat datasheets directory.&quot; It does not:
+  **`datasheets/hon-ba-fire-dn-7045.pdf` under the `honeywell-edam` root returns 417,057
+  bytes, mime-clean.** The old negative was reached before the `hon-ba-fire-` prefix was
+  known. That is the third recorded negative overturned in two days, after Edwards
+  first-party and &quot;bogus S3000&quot;. **A negative in this file is only as good as
+  the route list that was current when it was written** &mdash; and this file's route
+  list has grown five times since.
+  Three more route facts from the same batch: a **new EDAM slug form**,
+  `<Descriptive>_DataSheet_<DocNum>.pdf` (`L-Series_Spkrs_SpkrStrobes_Ceiling_DataSheet_AVDS866.pdf`),
+  which none of the bare, lowercase or underscore shapes reach; **`AVDS-62174` resolves
+  under two names 267 bytes apart** (`AVDS-62174-A.pdf` and `BA-Fire-AVDS-62174-A.pdf`);
+  and **Potter's category URL recorded here is wrong** &mdash; the working form has no
+  `/product/category` segment, it is
+  `pottersignal.com/addressable-fire-alarm-system/smoke-detector/<model>`.
+  Also: **a search-indexed EDAM URL can 404.** The exact installation-guide URL a search
+  returned for manual `52411` 404s at every variant; the document came from a distributor
+  mirror, imprint-verified and flagged as mirror-sourced.
+- **A clean complete-product NEGATIVE, stated as such.** `SIGA-CRH`: all four
+  &quot;required&quot; hits in `E85001-0644` are ordinary usage (*&quot;twisted wire is
+  not required&quot;*, *&quot;minimum load required&quot;*), **`SIGA-MP` appears 0
+  times**, and there is no separate plate catalogue number &mdash; where the plain
+  `SIGA-CR` needs a 1-gang box **with** a SIGA-MP plate. So the `H` is settled and is not
+  a naming trap: one relay, **two identical Form C sets that transfer together**, **7 A
+  at 120 V against SIGA-CR's 0.5 A**, on a double-gang or 4 in. square box.
+  **A free generation check worth copying:** Issue **1.0** was pulled from a second
+  mirror and its Specifications block is **byte-identical to Issue 1.1** after whitespace
+  normalisation, 1,554 characters each. Every figure published is stable across both.
+  One lead deliberately not published: the mirrored installation sheet `3102238-EN`
+  carries **&quot;Current, 8.4 A max. (AC or DC)&quot;**, a row the first-party datasheet
+  lacks. Every other figure on it matches exactly, but that one is in no first-party
+  document read. **One first-party fetch settles it.**
+- **A second Secutron/Mircom title defect where two SKUs carry the IDENTICAL title.**
+  `MRI-4045-M-PK8` and `MRI-4070-M-PK8` both read *&quot;4000 Series Multi (8) Isolator
+  Module - Package of 8&quot;*, verified live. Three independent confirmations settle the
+  first: the label in Secutron's own photograph reads **`MRI-4045-M MULTI-RELAY MODULE`**
+  with Relay 1&ndash;8 groups, Secutron's catalogue page is titled &quot;MRI-4045-M MULTI
+  RELAY MODULE&quot;, and the single-module siblings agree (`MRI-4045` Dual Relay,
+  `MRI-4070` Isolator). **A buyer specifying short-circuit isolators received relay
+  modules.** Corrected; the `type` still reads Isolator Modules and went to the owner.
+- **The `BAD` filename word-list in the CSV builder is a SHAPE, and it rejected five real
+  photographs.** `MRI-4045-M-Secutron-with-UL-logo.png` is a product photograph with a
+  brand mark **added to it**, not a logo image &mdash; and three of the five were parts
+  whose model number an agent had read off the label at 3&times; zoom. The mechanism the
+  filter actually wants is *&quot;the asset IS a logo&quot;*, so the fix is: **when the
+  filename stem starts with the SKU, the token-boundary match already proves the asset
+  belongs to this part and the word-list must not override it** &mdash; with a trailing
+  `-PK\d+` stripped from the SKU first, since a pack suffix is a carton quantity and the
+  manufacturer files the photo under the bare number. 17 of 17 Secutron rows then pass.
+  **This is the over-firing lesson inside my own tooling**, which is where it is hardest
+  to see: the filter had been silently correct for 1,300 rows because no earlier brand
+  put a brand mark in a filename.
 
 ## Conventions
 
