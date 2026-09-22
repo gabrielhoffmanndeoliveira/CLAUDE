@@ -4942,19 +4942,27 @@ Revisit after the high-impression band is done.
   15) and numbers **no detector**, on the same page. That is the `DN-62046:C` proof
   reproduced on a different sheet of a different family &mdash; bases and accessories
   numbered, the detector above them not.
-- **THE SLICE FILE HAS BEEN SHIPPING AN EMPTY `live_desc` FOR SEVERAL BATCHES, AND
-  THIS IS THE LOSSY-SLICE-FILE FAILURE FOR THE FOURTH TIME &mdash; structurally, silently,
-  and caused by the coordinator.** `build33.py` read the live copy as
-  `p.get('descriptionHtml','')[:1400]` where `p` came from **`catalogo_full.json`, which
-  carries no `descriptionHtml` field at all** &mdash; its keys are id, handle, title,
-  vendor, type, vis, inv, created, sku, price, impr, rev. So every `aN_in.json` built that
-  way carried `live_desc: ""`, and the agents were asked to rule on live claims they had
-  never been shown.
+- **THE SLICE FILE SHIPPED AN EMPTY `live_desc` FOR FOUR BATCHES, AND IT IS THE
+  LOSSY-SLICE-FILE FAILURE FOR THE FOURTH TIME &mdash; a silent REGRESSION introduced by
+  an unrelated change.** Measured exactly across all 53 slice directories rather than
+  estimated: batches before **v2b26** have no `live_desc` key at all, which is honest
+  &mdash; the briefing was openly the only source of live text. **v2b26 through v2b32
+  carried the field POPULATED**, seven batches of real live copy. **v2b33, v2b34, v2b35 and
+  v2b36 carried it PRESENT AND EMPTY** &mdash; 48 products whose agents were promised the
+  live description and handed `&quot;&quot;`.
+  **The cause is the interesting part: the regression rode in on the batch-size change.**
+  `build33.py` was written to implement the owner's 12-products-and-two-agents instruction,
+  and in the rewrite it took the live copy as `p.get('descriptionHtml','')[:1400]` where
+  `p` comes from **`catalogo_full.json`, which carries no `descriptionHtml` field at all**
+  &mdash; its keys are id, handle, title, vendor, type, vis, inv, created, sku, price,
+  impr, rev. The previous builder had sourced it elsewhere and nobody diffed the output.
   **Note how it hid.** The two earlier instances were a blank `type` and a human-readable
-  note in a field; both were *visible* in the file and an agent reported each one. This was
-  visible too and nobody looked, because an empty string in a field nobody is disputing
-  reads as &quot;this product has a thin description&quot; &mdash; which is exactly what
-  every product in this queue has. **The defect wore the shape of the expected value.**
+  note in a field; both were *visible* in the file and an agent reported each one within
+  the batch. This was visible too and four batches of agents said nothing, because an empty
+  string in that field reads as &quot;this product has a thin description&quot; &mdash;
+  which is exactly what every product in this queue has. **The defect wore the shape of the
+  expected value**, which is why it survived four batches where a blank `type` survived
+  one.
   The fix is a join, not a default: `build37.py` takes `type` from `catalogo_full.json`
   (verbatim, as the rule requires) and `handle`, `title`, `vendor` and `descriptionHtml`
   from the **live** bulk pull `live.jsonl`, whitespace-collapsed to 1,600 characters, and
