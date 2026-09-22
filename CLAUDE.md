@@ -136,8 +136,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,271 pages published** — 555 from the old list plus v2b01 through
-v2b38 agent 1, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,277 pages published** — 555 from the old list plus v2b01 through
+v2b38, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -5328,7 +5328,67 @@ Revisit after the high-impression band is done.
   `datasheets/notifier-us/hon-ba-fire-dn-7045.pdf` under the `honeywell-edam` root &mdash;
   with bare and revision-letter forms all returning the 8,047-byte fingerprint under both
   paths. And **Amerex's `/learning-center/product-brochures/` raw markup lists 60 PDFs**
-  under `/upl/downloads/content-blocks/`, mime-clean, confirmed by the coordinator.
+  under `/upl/downloads/content-blocks/`, mime-clean, confirmed by the coordinator.- **Seventeenth incomplete-product case, manufacturer-stated verbatim, and it is an
+  &quot;Addressable FACP&quot; that cannot address anything out of the box.** Verified
+  directly by the coordinator in Gamewell-FCI `9021-60730` Rev H Ordering Information:
+  ***&quot;SLP-RED: SLP addressable FACP with red door and black S3, SLP-BB backbox.
+  Requires either an SLC-PM or an SLC95-PM for SLC loops.&quot;*** The card that gives the
+  panel its addressable loop is a separate catalogue number, and the same page defines both
+  (`SLC-PM` System Sensor protocol, `SLC95-PM` Apollo). **The condition is now in the
+  title**, because a buyer specifying an addressable panel and receiving one with no loop
+  card is the most expensive version of this trap yet.
+  **And the coordinator's routing caution was disproved in the same fetch:** the briefing
+  warned that an `SLP-` prefix might hide the real catalogue number, as `GW` does on this
+  brand. `SLP-RED` is **verbatim** in Gamewell-FCI's own ordering block.
+- **A document that contradicts itself on a candela set, where the agent had a strong
+  inference and PUBLISHED NOTHING &mdash; which is the right call and worth recording as
+  such.** Eaton `TD450087EN` has **no row at all** for `ASB-24MCW-NW` (its own footnote
+  says the model list &quot;is not all inclusive&quot;), and elsewhere disagrees with
+  itself: page 1 gives the coloured-lens multi-candela set as **15/30/75/95** while Table 7
+  splits by suffix &mdash; **all eight `MCC` rows at 15/30/75/95 and five of six `MCW` rows
+  at 15/30/75/110** &mdash; re-checked row by row with word coordinates, so there is **no
+  row shift and the document really is inconsistent**.
+  The tiebreaker favours the table and is arithmetic: page 1's amber figure
+  **11/22/56/82 is exactly 15/30/75/110 derated 25%**, i.e. the derate footnote applied to
+  the *wall* set. So the live title's `15/30/75/95` looks like the MCC/MCW adjacent-row
+  trap &mdash; **but that is a pattern inference, and candela in a title is a Merchant
+  Center attribute**, so the figure was removed and **nothing asserted in its place**.
+  Flagged; a carton or a price list settles it.
+  **The bigger find on that sheet: Eaton lists the whole coloured-lens line to UL 1638
+  general signaling, tests UL 1971 light distribution for AMBER ONLY, and derates blue by
+  about 70%.** That is lens colour as a listing class on a fifth brand line, after Eaton
+  Eluxa, System Sensor, Gentex and Siemens &mdash; and a blue unit here is a general
+  signaling appliance, not a fire one. **A candela switch setting is not the delivered
+  output on a coloured lens.**
+  Also contradicting the briefing in the useful direction: **&quot;Blue&quot; and
+  &quot;White&quot; in the live title are not in conflict** &mdash; Eaton has separate Lens
+  Color and Base Color columns.
+- **A suffix documented ONLY by pairing, and the agent said so instead of papering over
+  it.** `NFW-50XR` appears **exactly once** in each revision of `DN-60955` &mdash; in
+  *&quot;DP-ES-R: Optional dress panel for the NFW-50XR (red)&quot;* against
+  *&quot;DP-ES-B: &hellip; for NFW-50X (black)&quot;* &mdash; and has **no Product Line
+  entry of its own**. What licenses &quot;Red&quot; is the predecessor sheet `DN-7102:E`
+  using the identical two-line construction and defining it outright:
+  *&quot;NFW-50R: Same as NFW-50, with red backbox and door.&quot;* Kept, because it was
+  already live and is now supported; the communicator was deliberately left out of the
+  title and described as an NFW-50X Series feature.
+- **`DN-60955` serves two revisions under two DESCRIPTIVE slugs, which is the `DN-61092`
+  trap on a different document.** `...intelligent-addressable-facp-with-communicator-datasheet.pdf`
+  is rev C and `...fire-alarm-control-panel-data-sheet.pdf` is rev E. **A successful EDAM
+  fetch is not evidence you have the current revision** &mdash; check the header line. Two
+  independent instances in two days makes this a property of the host, not a one-off.
+- **The Napco tag-index false negative reproduced exactly, and only a control reveals it.**
+  `tech.napcosecurity.com/techlibrary/tagresults/tag/GEM_P3200` returns 475,901 bytes while
+  the hyphenated `GEM-P3200` returns 343,340 &mdash; **byte-identical to the bogus
+  control**. This file already records the underscore/hyphen split; what is new is the
+  measurement showing the failing form is indistinguishable from an empty host without a
+  known-good control beside it.
+- **Eaton's two failure modes are per-ROUTE, not only per-connection.** In one agent
+  session `eaton.com` **without the `www`** served the PDF first try through
+  `urllib` with a Safari UA, while the `www.eaton.com` **HTML SKU pages**
+  `RemoteDisconnected` on all eleven attempts. This file records the intermittency as
+  per-connection; add that the PDF route and the HTML route can fail differently in the
+  same process.
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
