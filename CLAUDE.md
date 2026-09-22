@@ -6836,6 +6836,36 @@ Revisit after the high-impression band is done.
   Where a suffix encodes something visible, the photograph is evidence about the SUFFIX and not only
   about the product, and one sheet settles a whole family.
 
+- **THE 75-TITLE DEDUP WAS CASE-SENSITIVE AND LEFT SIX BEHIND, AND THE LAST TWO SWEEPS BOTH
+  REPORTED ZERO.** Re-run against a live pull with a **case-insensitive** comparison, the
+  brand-and-SKU-repeated mechanism returns **6**, not 0:
+  `Hochiki CWSB-E BACKBOX Hochiki CWSB-E **Backbox** &hellip;`,
+  `Ultratech IM-12180 **UltraTech** IM-12180 &hellip;`, and four more. In every one the second
+  copy differs from the first **only in capitalisation** &mdash; `BACKBOX` against `Backbox`,
+  `Ultratech` against `UltraTech` &mdash; so the original fix's own verification, which is
+  what the batch-40 and batch-43 sweeps reproduced, could not see them.
+  **The lesson is not &quot;lowercase your comparisons&quot;. It is that a fix and its
+  verification shared a defect**, so the check confirmed the fix on exactly the population
+  the fix could reach and was blind on exactly the population it missed. **Two clean sweeps
+  in a row measured the same blind spot twice.** Where a mechanism is used both to *apply* a
+  change and to *verify* it, a second, differently-written check is the only thing that can
+  find what both missed &mdash; and the cheapest version is to vary one parameter, here case.
+  All six fixed under the same no-claim guards as the 75 (the new title a literal prefix
+  removal, strictly shorter, ASCII, &le;150, balanced parentheses, SKU still present).
+  **Two riders went to the owner rather than into the edit**, because the dedup is a no-claim
+  edit and these are not: `IM-1272F1` carries an **unverified &quot;(Replaces IM-1270)&quot;**
+  and `HCP CALL POINT KEY` carries an **unverified &quot;10 Pack&quot;**. Removing either is
+  a claim; the duplication fix is not. **Fix only the part of a defective title that decides
+  nothing.**
+- **The nameless-title census re-run live: 94, down from 180**, after title lots 7&ndash;17.
+  Power Sonic 35, Mircom 30, Rath 9, TCS Basys 5, then a tail of ones and twos. Recorded
+  because this file's own rule is *a census is re-run, never decremented* &mdash; and the
+  re-run also picks up the six titles above, which become countable only once their
+  duplication is gone. Other checks on the same 16,031-product pull: **non-ASCII titles 47,
+  every one `&deg;` (23), `&reg;` (22) or `&trade;` (5), zero outside that set**; **zero**
+  titles carrying a literal HTML entity; unbalanced parentheses **102, unchanged**. List in
+  `/tmp/tfas/TITULOS_SEM_NOME_v3.json`.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
