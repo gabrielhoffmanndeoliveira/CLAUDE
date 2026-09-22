@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,206 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,212 pages published** — 555 from the old list plus v2b01 through
 v2b32, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
@@ -4451,6 +4451,109 @@ Revisit after the high-impression band is done.
   vendor field is not stale for the 2500 series. **A brand-vanished finding is per
   document line, not per brand** &mdash; the same scope error as the pack-count rule that
   had to be confined first to a category and then to a vendor.
+
+- **A supersession proved by ONE DOCUMENT NUMBER CARRYING TWO PRODUCT HEADINGS, and it
+  is the cleanest proof of this kind the project has had.** `PSE-10`'s title asserted
+  *&quot;(Replaced by HPF-PS10)&quot;* &mdash; a part number, a parenthetical and no class
+  noun, the `ZH-MC-W` shape. This time the claim is **manufacturer-stated**, and the
+  coordinator verified it directly because a supersession going *into* a feed title is
+  rare here.
+  **`DN-61092:C` (3/10/2021) is headed &quot;PSE-6/PSE-10 Series&quot;; `DN-61092:D`
+  (8/15/2023) is headed &quot;HPF-PS6/HPF-PS10 Series&quot;** and its General paragraph
+  reads verbatim: *&quot;The HPF-PS Series is a remote power supply line from Honeywell
+  and is a **direct replacement for the PSE and FCPS Series**.&quot;* Its agency block
+  then says it four more times &mdash; `S635, S674 (PSE Series, discontinued)`,
+  `S635 (PSE-6C/PSE-10C discontinued)`, `7315-0028:0513 (PSE Series, discontinued)`,
+  `2021-TMCOAP-001761-CERT (PSE Series, discontinued)`. **The document did not get a new
+  number when the product line was replaced; it got a new revision.** No bulletin needed,
+  and the claim stays in the title.
+  **But the live title named the wrong successor, and that is the real defect.** Notifier
+  states the replacement at **series** level only and publishes no part-for-part map, and
+  the colour convention inverts across the generations: rev C has `PSE-10` plain with
+  `PSE-10R` red, while rev D has **`HPF-PS10` RED and `HPF-PS10B` BLACK**. A buyer sent
+  from PSE-10 to HPF-PS10 may receive a red cabinet where the outgoing part was not.
+  Title now says **&quot;Replaced by HPF-PS Series&quot;**, which is exactly what Notifier
+  says, with the colour trap in the body.
+  **And two revisions are live at once under different slugs**, which is the sharp
+  operational point: `hon-ba-fire-dn-61092.pdf` serves **rev C** while
+  **`DN-61092-D.pdf`** &mdash; bare, uppercase, revision letter appended, under the
+  `honeywell-edam` root &mdash; serves rev D. This file records that appending a revision
+  letter *fails* (`9021-62013-E.pdf` returns the fingerprint). Both are true: it is
+  per-document. **So a successful EDAM fetch is not evidence that you have the current
+  revision** &mdash; check the header line, because the recorded route may hand you the
+  superseded one.
+- **The `3X-FIB` fibre-mode answer is &quot;neither&quot;, and that is a class of answer
+  this file did not have.** Fibre mode is recorded here as one of the three highest-risk
+  title fields. `E85005-0133` p9: *&quot;3X-FIB &mdash; Fiber motherboard&hellip; **Used
+  with MMXVR, SMXHI2 and SMXLO2**&quot;* &mdash; **the card carries no optics at all.**
+  Mode is set by a separately catalogued transceiver: SMXLO2/SMXHI2 single mode with
+  Duplex SC, MMXVR multimode with ST. **Any copy qualifying this card with a mode asserts
+  something Edwards deliberately leaves open**, and nothing in the live title did.
+  &quot;Fiber Motherboard&quot; is verbatim Edwards ordering wording, so this is the
+  `FSL-E3` shape &mdash; keep the manufacturer's name, put the class detail in the body
+  &mdash; not the `3-LDSM` carrier error.
+  **Three document defects on one page of that sheet, nothing published from any.**
+  `E85005-0133` p6, confirmed by word coordinates and a 400 dpi render: the **diagram
+  callouts are swapped**, each illustration labelled with the other product's card; the
+  **Cable type row is empty** while the string `50/125, 62.5/125, or 100/140 for` has
+  landed on the **Connectors** row truncated after &quot;for&quot;, and the same string
+  occupies the **MMXVR optical Budget cell** where a dB figure belongs, so **MMXVR's
+  budget is unstated**; and p9 gives **`3X-NET` and `3X-NET8` the identical
+  description**. The first two reproduce identically in the adjacent 3X-FIB8 table, which
+  rules out extraction error. **No cable core size was published, and 50/125 was
+  specifically not attributed to the single-mode transceivers.**
+- **The type-disagrees-with-a-CORRECT-title case, second instance.** `EPS40-2` is typed
+  **Power Supplies** and is a sprinkler pressure supervisory switch &mdash; but its live
+  title was **already correct and verbatim System Sensor ordering wording**. That is the
+  `ELFHNW-N` shape, not the usual signature where the type agrees with a wrong title and
+  raises nothing. Worth stating as a pair now: **the type field disagreeing tells you to
+  check, and says nothing about WHICH field is wrong.**
+- **Two long-range prism kits, one part number in every reseller's copy.** `1010-000`
+  serves the **Fireray One and Hub Reflective** at 50&rarr;120 m; **`5000-004`** is a
+  different part number for the **Fireray 5000** at 50&rarr;100 m (FFE assembly sheet
+  `24-0090-03`). Every distributor merges them and quotes both ranges under `1010-000`.
+  **And the trap was structural, not just textual: FFE files `24-0090 Fireray Long Range
+  Prism Kit Installation Guide` under `Fireray_Accessories/Fireray_5000/`** &mdash; so
+  reading the folder name as the product would have crossed the two kits. **A directory
+  path is not an attribution**, which is the URL-contains-a-part-number lesson one level
+  over.
+  Route: **`ffeuk.com` is first-party, unprotected and mime-clean, and is HubSpot CMS,
+  not WordPress** &mdash; `/wp-json/` returns a **122,693-byte `text/html` 404**, a new
+  fingerprint &mdash; while **`ffeuk.com/resources` is a single page carrying 358 PDF
+  links**, so one fetch enumerates the whole library. `ffeus.com/sitemap.xml` returns
+  **zero bytes**. FFE is a Halma company, like Avire/RATH and SDi.
+- **Three first-party documents of one manufacturer disagreeing with each other, and
+  publishing nothing from any of them.** Macurco's 2018 `GD-6` manual against the current
+  macurco.com page: DC supply **12&ndash;48 VDC** (manual, stated twice) against
+  **12&ndash;32** (site); listing **UL 61010-1** against **UL 2075 and ULC 588**;
+  coverage **900 sq ft** against **1,257**. No DC limit, no standard number and no
+  coverage figure went into the copy. **The listing one is worth the owner's attention:
+  UL 2075 is a materially stronger claim than UL 61010-1**, and a distributor quoting
+  either has a first-party source for it. The manual separately prints
+  `4-1/2 x 4 x 2-1/8 in.` against `11.4 X 11.4 X 5.3 cm`, which does not convert.
+  Route: **`macurco.com` has an open WordPress REST media API** serving first-party PDFs
+  from `wp-content/uploads/`, which **bypasses the `docs.macurco.com` bubble.io shell
+  entirely** &mdash; that shell's fingerprint reproduced at 15,547&ndash;15,548 bytes
+  `text/html` for two different file ids.
+- **`53080`'s ABC claim checked out, which completes a three-case set on extinguishing
+  agents.** `F-7547-09` (2024) states FORAY is **monoammonium phosphate based**, covers
+  Class A, B and C, and is **yellow to distinguish it from the other ANSUL agents**;
+  FORAY is Ansul's own registered mark, not distributor wording. So: `429022` had
+  &quot;ABC&quot; on a **clean agent** and was wrong; `PRO5` had it on monoammonium
+  phosphate and was right; `53080` likewise. **The trap here is the siblings** &mdash;
+  `415788` (Industrial FORAY) and `434906` (Modified Industrial FORAY) are **also 45 lb
+  yellow pails**, so weight and colour together do not identify the standard agent.
+- **A document naming the wrong models in one row while the prose on the same page names
+  the right ones.** System Sensor `WFDS518` covers only the EPS40 line, and its Switch
+  Contact Ratings row is labelled **`EPS10-1` and `EPS10-2`**. The A/E paragraph on that
+  page gives the same figures against the correct models, **so the numbers are safe and
+  only the labels are wrong** &mdash; the inverse of the usual prose-versus-table
+  conflict, where the numbers differ. Also two dimension statements that disagree, so no
+  width was published.
+  EDAM slug confirmed for that sheet: `WFDS518.pdf` and its lowercase form both return
+  the fingerprint under both roots, while
+  **`EPS40_Sup_Pressure_Switch_DataSheet_WFDS518.pdf` resolves under the
+  `honeywell-edam` root only** &mdash; the `<Model>_<Description>_<DocNum>.pdf` shape.
 
 ## Conventions
 
