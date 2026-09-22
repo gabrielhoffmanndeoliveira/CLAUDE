@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,293 enrichment pages published** (555 old list + 726 v2 through v2b47A, verified live), plus 237 title-only products — 555 from the old list plus v2b01 through
+**Progress: 1,299 enrichment pages published** (555 old list + 732 v2 through v2b47, verified live), plus 237 title-only products — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -7559,6 +7559,88 @@ Revisit after the high-impression band is done.
   the 12&ndash;13 Ah class at 3x PS-630's.** Not called invented, SKU untouched, and the agent
   explicitly declined to read across to `PS-630`. **One carton label or one price-list line
   settles which of the three it is; more searching will not.**
+
+- **THE SIBLING-SKU CHECK FIRED AGAIN, ONE LOT AFTER IT WAS WRITTEN DOWN, AND THIS TIME IT
+  SAVED A TITLE RATHER THAN A CLASS NOUN.** The `SIGA-OSHD-IN` agent proved the `-IN` suffix is
+  in **no** Edwards document &mdash; zero occurrences across `E85001-1003` Issue 1.6,
+  `E85001-1001` Issue 1.5 and both Submittal Guides, with the Ordering block listing only
+  `SIGA-OSHD`, `-NL` and `-B` &mdash; correctly declined to call it invented, left the SKU
+  alone, and **dropped it from the title**, writing `Edwards SIGA-OSHD ...`.
+  **The store sells `SIGA-OSHD` as a separate product.** So the new title would have been
+  indistinguishable from another live SKU's. The `-IN` was restored, and the body now says
+  plainly that no Edwards document read defines it.
+  **The general rule is the `PTS-C CABLE` one, and it now has both directions:** *before
+  writing a title, ask whether the store already sells something under that exact name.* There
+  it stopped a $78 cable being titled as the $280 switch its documents describe; here it
+  stopped a suffix being dropped off a part whose bare number is a different product.
+  **And it sharpens the recorded `ICA12-50JPLLR-500` precedent**, which is the case that looks
+  identical and is not: there the trailing token was **proven** to be a reel length, so keeping
+  it out of the part number asserted something sourced. Here the suffix is **unsourced**, so
+  dropping it asserts that it is not part of the catalogue number &mdash; which is exactly the
+  kind of claim this project does not make from an absence. **An unsourced suffix stays in the
+  title; a sourced non-suffix comes out.**
+- **`-RB` does NOT mean &quot;replacement board&quot;, and the disproof is a cabinet.** The live
+  `FLPS-7-RB` read as a replacement board; the same suffix sits on **`S3BB-RB`, which
+  `9021-60730` Rev H describes as an SLP red cabinet with an inner door.** A cabinet is not a
+  board. Across the family the suffix marks the replacement/retrofit **ordering variant**:
+  `SLP-RB` motherboard, `FLPS-7-RB` power supply, `S3BB-RB` cabinet. Gamewell never expands the
+  letters &mdash; recorded as a bounded negative, not guessed.
+  What settles the relationship positively is **Table 8.2.1 of the S3 UL Listing Document,
+  whose columns are Accessory/Sub-Assembly then Part Number**: the row reads
+  `FLPS-7 | FLPS-7-RB | Power Supply`, so the assembly has one name and the orderable thing
+  another. **And it is the incomplete-product trap inverted for the second time**: this number
+  appears inside *two other products'* &quot;Requires the following:&quot; lists
+  (`SLP-RETROFIT` and `S3BB-RB`), render-confirmed at 300 dpi because those lines were orphaned
+  in plain extraction. The live &quot;120V AC, 7A&quot; was correct and the `type` is correct.
+- **An ordering-syntax block with OVERLAPPING BRACKETS, which is a new shape of the extraction
+  trap and the first one that is a drafting error rather than a layout artefact.** Rendered at
+  280 dpi: on the Edwards GC sheet the Genesis Series bracket spans exactly `GC` and the
+  Functions bracket spans `AV`. On the G4S sheet **the Series bracket spans `G4S` while the
+  Functions bracket underneath spans `SV` &mdash; the two overlap on the `S`**, assigning one
+  character to two tokens. The ordering table settles it (`G4SWF` under Speakers, `G4SVWF`
+  under Speaker-strobes): the parse consistent across both sheets is series `G4`/`GC`, then
+  function `S`/`SV`/`A`/`V`/`AV`, then colour, then marking.
+  **So `S` is the speaker-only function token and the part has no strobe.** This file elsewhere
+  calls the manufacturer syntax block *the best decoder there is*; it has now been shown to
+  carry a typo in one field (HyperSpike's 200 V) and here to be **geometrically ambiguous**.
+  Read it against the ordering table like any other prose.
+- **Edwards prints reverberant and anechoic dBA IDENTICAL at all four taps, which is the
+  opposite of two brands this file records.** On the G4S line UL 1480 reverberant and
+  CAN/ULC-S541 anechoic are both **78/81/84/87**, coordinate- and render-confirmed with the
+  25V/70V cell vertically merged. Eaton's Eluxa splits 80/78 reverberant against 91/86
+  anechoic, and System Sensor splits by 2&ndash;3 dBA. **Do not assume a gap on this brand, and
+  do not assume its absence elsewhere** &mdash; it is a per-brand measurement, not a physical
+  law.
+- **A live body naming a product that is a DIFFERENT CATALOGUE ITEM, and the document defines
+  the right one twice.** `ZB-4-QC-MP`'s copy said *&quot;PWSC compression terminals&quot;*.
+  **PWSC is a splicing connector** &mdash; DS 6592W calls PWS Splicing Sleeves and PWSC Splicing
+  Connectors *&quot;the only approved methods of splicing the Detector&quot;*, and `A05-0288`
+  files it under a Splicing Connector heading. **No document calls any terminal a PWSC
+  terminal.** The live *&quot;NEMA 6P (IP67)&quot;* has the same status: the only enclosure
+  rating in either document belongs to the fiberglass `ZB-HD-4-QC` and it is **NEMA 4X**. Both
+  removed &mdash; a weakening, not a new claim &mdash; and both sit in the **description**, so
+  they cost one channel.
+  **The dedicated sheet could not be read and the block is total**, which is worth recording as
+  a bounded negative rather than a gap: twelve consecutive attempts across two protectowire.com
+  paths returned HTTP 202 with a 221&ndash;236 byte Sucuri `sgcaptcha`, defeating curl on both
+  HTTP versions, a Safari UA, `urllib` through the proxy and WebFetch; EDAM mirrors only two
+  Protectowire documents; and **archive.org has a snapshot but `web.archive.org` returns 403
+  with a 24-byte egress-policy body.** Also: the EDAM Protectowire mirror is
+  **`DS 6592W-1012` (2012)**, not the 2022 `DS6592AA-0622` revision this file cites &mdash; so
+  the recorded 2022 finding cannot be reproduced from EDAM.
+- **A break-rod documented in a FIREFIGHTER TELEPHONE CABINET sheet, found by text rather than
+  by index metadata.** `2099-9804` is in six served PDFs, one of them `2084-0001` Rev. 11,
+  **2084 Series telephone cabinets**, which lists it under a *Firefighter Phones Accessories*
+  heading &mdash; and the JCI index `prodname` literally reads &quot;2099-9804 Firefighter Phone
+  Break Rod&quot;. The live page named only pull stations, so it **understated the scope**, and
+  the missing family is not a pull station at all.
+  The recorded line-specific accessory rule held exactly: `S2099-0009` Rev 7 (cast metal)
+  contains `2099-9804` **zero** times, `2099-9803` zero times and &quot;breakglass&quot; zero
+  times, carrying `2099-9829` instead. **And the rod is supplied with the station and optional**
+  &mdash; the opposite of the incomplete-product shape, which is worth saying because every
+  other accessory finding in this file runs the other way. The live *&quot;3.5-inch long&quot;*
+  is unsourced and was removed; five sheets call the rod **plastic** while `2084-0001` calls its
+  door option a **glass** break-rod, so no material was published.
 
 ## Conventions
 
