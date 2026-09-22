@@ -44,6 +44,35 @@ fetching a document to check an agent's strongest claim, or writing up what the 
 batch proved. **Idle coordinator time is the only waste in this loop**, because the
 agents are the long pole and nothing the coordinator does is on their critical path.
 
+**The agent mix, set by the owner on 22 Sep 2026 after asking whether eight were worth
+it: TWO text agents and FOUR photo agents.** The answer came from measuring the nine
+agents completed that day &mdash; 2.69M tokens total, and the yield is not comparable
+across the two frontiers:
+
+| frontier | tokens | output | per unit |
+|---|---|---|---|
+| photographs | 844,394 | 583 rows | **1,448 tokens/photo** |
+| text | 1,577,392 | 30 pages | **52,580 tokens/page** |
+
+**Photographs are ~36x cheaper per delivered item, which is why the mix tilts that way.**
+The text figure looks damning until you count what it bought: those 30 pages produced
+**six title-level defects, one in five** &mdash; a $8,595 detector sold as having the
+display that distinguishes the model it is not, a $2,657 speaker asserting a line voltage
+its manufacturer does not make, a sensing component sold as a finished detector, an
+agent-release panel sold as an ordinary one. Measured as pages written it is expensive;
+measured as feed errors found it is cheap.
+
+**And the real ceiling is not the agents, it is the coordinator.** Nine agents ran 2.8
+hours of work in about 40 minutes of wall clock, because they parallelise and nothing the
+coordinator does is on their critical path. But the coordinator is **serial**: every
+returning batch costs 10&ndash;15 minutes to validate against the schema, fetch and read
+the strongest claim personally, publish, record and commit. **Above about six concurrent
+they queue behind the coordinator, and a waiting agent burns tokens at the same rate as a
+working one.** Six is the number; the mix is what to tune.
+**Batches are therefore 12 products, 2 agents of 6** &mdash; not 18 split 9/9. Six products
+per agent is what the quality of this work rests on, so shrink the batch, never the
+agent's share.
+
 **One thing the owner does NOT want interrupted for: findings.** Report them as they
 land, in the same turn as the work. The exception in the next paragraph &mdash; structured
 data that feeds Merchant Center &mdash; is a *flag*, not a *pause*: write it to
