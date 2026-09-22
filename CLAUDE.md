@@ -136,8 +136,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,115 pages published** — 555 from the old list plus v2b01 through
-v2b30 and six of the twelve in v2b31, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,121 pages published** — 555 from the old list plus v2b01 through
+v2b31, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -3453,6 +3453,53 @@ Revisit after the high-impression band is done.
   **no class noun at all**; and `-KL`'s title carries a stray `)` from the truncated
   import. Queued in `pending_fixes.md` to be **pair-split across two agents**, which has
   paid three times here.
+- **Thirteen titles assert a REGULATORY APPROVAL with no manufacturer source, and the
+  agent found it by failing to source one of them.** An agent could not document the
+  `-LADBS` suffix on `CX-6-LADBS` and said so; checking the live catalogue for the string
+  returns **13 Macurco SKUs carrying `LADBS` in the title** &mdash; `CM-6`, `CM-12`, the
+  whole `CX-6`/`CX-12` family and five `DVP-` panels. **LADBS is the Los Angeles Department
+  of Building and Safety: an approval designation, not a product variant.** The suffix
+  appears nowhere in Macurco's Rev 2.1.0 manual; macurco.com asserts *&quot;City of Los
+  Angeles Approval&quot;* first-party, but the approval document sits behind
+  `docs.macurco.com/file/<id>`, a ~15.5 KB JS shell.
+  **A regulatory approval in a Merchant Center feed attribute is a different class of claim
+  from a spec**, and this is the first time one has surfaced here. Nothing was changed; all
+  thirteen went to the owner, because the fix is not research &mdash; **one look at the
+  LADBS research-report database, or the report number from Macurco, settles all thirteen
+  at once.**
+- **Twenty-second product-class error, and it is the plug-in-head shape for the THIRD
+  time.** `SD365R-IV` ($220) was titled *&quot;Replacement Duct Smoke Detector&quot;*.
+  `DF-61010:C` Product Line reads **&quot;SD365R-IV: Ivory, low-profile intelligent
+  photoelectric sensor, remote test capable, **for use with DNR/DNRW duct smoke detector
+  housings**&quot;** &mdash; the housing carrying the sampling tubes and duct interface is a
+  separate product. After `PAD200-DD` and `D4S` that is three brands doing the same thing,
+  and **the `type` said Smoke Detectors and agreed with the wrong title, raising nothing**
+  for the eighth time.
+  **The series-block trap fired exactly as briefed and was avoided:** `DF-61010:C`'s System
+  Specifications prints *fixed 135 &deg;F / rate-of-rise 15 &deg;F per minute /
+  high-temperature 190 &deg;F* **with no model attribution**, while this model's Product
+  Line entry names no thermal element at all and `SD365T` is the version that has one. No
+  thermal claim published, and the copy says why.
+- **Three briefing premises wrong in one batch, and the third is a document-family
+  correction worth keeping.** (1) `SSM24-10`'s fire-versus-general-signalling split **does
+  not exist**: `WFDS74501` gives one Service Use line for the whole series &mdash; fire
+  alarm, general signalling *and* burglar alarm &mdash; and `SSM24-10A` is the **ULC
+  Canadian** model of the same bell, not a different listing class. (2) `CX-6` is dual-gas
+  as briefed, but the family is **six parts**, and **the ETL listing to UL 2075 applies to
+  the CX-6 models only** &mdash; the CX-12 line-voltage twins are merely *&quot;designed to
+  meet&quot;* it. (3) **This file's rule &quot;prefer the `9021-` document family over the
+  `AVDS` one&quot; has a boundary**: `9021-60929` is the right family for `P2WL-P` and is
+  **unusable** &mdash; headed *&quot;Wall Horn, Horn Strobe&quot;*, its two ordering blocks
+  list **no P-prefix model at all** (render-confirmed) while its own Note 2 references
+  &quot;P, S, PC, SC products&quot;. `AVDS865-04` carries the row. **Prefer a family only
+  until you have checked that it contains the part.**
+  Also from that part, and the reason its 12 V claim survived: *&quot;12/24 Volt&quot;* is
+  true **only at 15 and 30 cd** &mdash; at 75 cd and above it is 24 V only. Published with
+  the condition rather than dropped.
+- **`S3000` confirmed a third time, independently, on a third document.** The Kidde FX data
+  sheet prints **`Agency Listings: UL864 (S3000), ULC-S527, CSFM, FDNY`** in its panel
+  specification table, render-confirmed. Three agents, three documents, one answer: it is a
+  UL file number. The note calling it &quot;bogus&quot; is disproved, not merely unresolved.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
