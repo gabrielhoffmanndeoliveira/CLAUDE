@@ -136,8 +136,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,103 pages published** — 555 from the old list plus v2b01 through
-v2b29 and twelve of the eighteen in v2b30, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,109 pages published** — 555 from the old list plus v2b01 through
+v2b30, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -3261,6 +3261,77 @@ Revisit after the high-impression band is done.
   validation still earns its place as a *check* &mdash; it confirmed 1,258 and skipped
   exactly the three unrepresentable cases &mdash; but no extraction is needed. **Stop
   parsing titles for part numbers.**
+- **Twentieth product-class error, and the live page was ANOTHER MODEL's copy end to end,
+  separated by one letter.** `SLE-LTEV-CFB-PS` was titled and described as a **dual path
+  cell/IP** communicator with **&quot;Panel-powered Technology&quot;**. Napco's own document
+  library, read directly by the coordinator, titles its wiring diagrams
+  ***&quot;SLE-LTEV-CFB-PS &amp; SLE-LTEA-CFB-PS (Sole Path)&quot;*** &mdash; twice, in the
+  CAD and PDF entries &mdash; and lists the **dual path** models separately as
+  `SLE-LTEVI-CFBPS, SLE-LTEVI-CFB, SLE-LTEVI-FIRE&hellip;`, **the `I` variant**. The
+  datasheet separately says panel power *&quot;excludes Direct AC-Powered '-PS'
+  models&quot;*, so the live page asserted both halves of the sibling's spec and neither of
+  this part's.
+  **The store does not carry the `-I-` variant at all**, which is why nothing ever
+  contradicted it: this is the borrowed-copy signature (`PAD200-DD`, `4-NET-SM`, `INX-10A`)
+  with **no sibling page in the catalogue to disagree**. A buyer specifying a dual-path
+  communicator to satisfy an AHJ received a cell-only one.
+  Suffixes settled from Napco's own text: **LTEV Verizon, LTEA AT&amp;T, CFB commercial and
+  residential Fire and Burglary, PS the SLE-ULPS-R supply and 16.5V transformer mounted
+  inside the red housing.** Those are included; the **4&ndash;7 Ah battery is not**, and the
+  24-hour standby needs it. Route: `tech.napcosecurity.com` gates its PDFs behind a dealer
+  login, **but its tag index is open** &mdash; `/techlibrary/tagresults/tag/<sku_underscored>`
+  lists every document title for a SKU, and the titles alone carried the answer.
+- **The briefing carried the wrong AGENT across a sibling boundary, and the bracket answer
+  inverted with it.** `443475` was briefed from `429022`'s chemistry: it is **FK-5-1-12**,
+  not HFC-236fa. **HFC-236fa is the legacy CLEANGUARD FE line** (FE02VB/FE05S/FE09/FE13)
+  and **CLEANGUARD+ CA03/CA07/CA13/CA25 is a different chemistry in a different document**
+  (`F-2022057-06` against `F-96111-17`). Publishing the sibling's agent on a $252
+  extinguisher would have been the exact error the `429022` &quot;ABC&quot; defect already
+  is, one layer in.
+  **And the bracket is INCLUDED here, which explains the sibling case rather than
+  contradicting it.** Submittal `F-2004117` Rev. 07 footnote reads **&quot;VB: Includes
+  Vehicle Bracket&quot;**, and word coordinates put `24610` and `Included` both inside the
+  CA03VB column. So on `429022` the `(Included)` marker sat in the smallest model's column
+  **because that model is the VB one** &mdash; same rule, opposite outcome, and the suffix
+  was the thing nobody had decoded.
+- **A caption defect where BOTH HALVES OF ONE TABLE CARRY THE IDENTICAL CAPTION.** Eaton
+  `TD450181EN` (April 2025) Table 3 prints as two side-by-side blocks under one caption
+  reading *&quot;Wall / UL Reverberant dBA at 10 Feet &hellip; Ceiling&quot;* &mdash; and
+  the left gives Horn 24V high **91 dBA** while the right gives **99**. Installation sheet
+  `P85862C` settles it: **91 is reverberant per UL 464 and 99 is anechoic per ULC S525.**
+  Anyone quoting the right-hand block publishes an anechoic figure labelled reverberant.
+  **Table 2 on the same page does the same layout correctly**, captioning its halves VDC and
+  FWR &mdash; so this is an omission, not a house convention, which is what makes it
+  catchable. Fourth shape on the caption ladder, after caption-below-table, tables-emitted-
+  swapped and header-contradicts-caption.
+  Two more from that sheet: **Table 4's amber rows invert the C-means-ceiling convention**
+  (`ELMTSWC-NA` listed Wall, `ELMTSW-NA` listed Ceiling) &mdash; recorded, not this part,
+  nothing published; and **`ELSPKBB-R` is confirmed a wall/surface backbox for the third
+  time**.
+- **&quot;Xtralis states carton quantities routinely&quot; now has a boundary of its own,
+  and it is the RFP proof inverted on a vendor this file used as the counter-example.** In
+  one ordering block on one page Xtralis numbers every neighbouring label &mdash;
+  `E700-SP-DCL-PNT` 50 per roll, `E700-SP-DCL` 200 per roll, `E700-SPLR` 10 per sheet,
+  `E700-SPLG` 8 per sheet &mdash; and item 18 reads only **&quot;VSP-950 Test Point Pipe
+  Labels.&quot;** with no quantity. The store's *&quot;12 per sheet&quot;* is distributor
+  convention. **A vendor-level positive is no more transferable than a vendor-level
+  negative**, which is the same over-reach this file already corrected twice at the category
+  boundary and once at the vendor boundary.
+- **The Siemens coexistence sentence has a Gentex twin, and ONE sentence plausibly
+  generated TWO of this catalogue's recorded defects.** All three occurrences of `S1209` in
+  Gentex's current sheet are a single tandem-interconnect instruction: *&quot;use
+  brown/yellow wire to tandem interconnect this device to S, SR &hellip; **as well as the
+  Gentex GN-503 Series, CO1209 Series and S1209 Series**&quot;*. That is devices sharing an
+  interconnect wire, exactly the Siemens *&quot;may be installed on the same SLC&quot;*
+  failure on a different brand. `replac`, `supersed` and `discontinu` each appear **zero
+  times** in the document.
+  **`GN-503` is in that same sentence** &mdash; and this file separately records the
+  `GN-503`&rarr;`SC` &quot;equivalence&quot; as distributor wording Gentex never makes. So
+  **check any Gentex &quot;replaces&quot; claim against that one sentence before spending a
+  search.** Separately confirmed and worth keeping apart from the claim: Gentex's own page
+  marks the S1209 Series **DISCONTINUED but names no successor** &mdash; a lifecycle fact
+  that does not license a supersession claim, and it went to the owner's file rather than
+  the copy.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
