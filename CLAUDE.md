@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,145 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,155 pages published** — 555 from the old list plus v2b01 through
 v2b32, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
@@ -3738,6 +3738,82 @@ Revisit after the high-impression band is done.
   **Pair-splitting paid for the fourth time**, and it is worth noting the failure this
   avoided: had only one agent seen the pair, &quot;Semi-Flush&quot; would have been
   corrected on one page and left standing on its sibling.
+
+- **The MD5 duplicate check was right and its SCOPE was wrong, and eight rounds of
+  verification did not catch it.** Counting image URLs across the **eight photo CSVs
+  together**, immediately before handing them to the owner, found **4 URLs on 11 rows**.
+  Every lot had been MD5-checked against itself and none against the others, so a shared
+  asset that straddled two files passed every check there was. Two were real defects:
+  Avire's **`G2540-or-G2510.png` on five Rath SKUs** &mdash; the filename names *two*
+  models and it was sitting on five &mdash; and Honeywell's
+  **`HBT-Fire-WSK-HEAT-ROR-WSK-HEAT-CEILING-HiRes` on two Silent Knight SKUs**, where the
+  asset name again names two products, a rate-of-rise detector and a fixed one. Seven rows
+  dropped.
+  **The other two were correct and had to be kept, which is the part that needed
+  judgement rather than a filter.** `macurco-cx-12-co` and `macurco-cx-12-co-ladbs` share
+  one photograph legitimately, because **LADBS is an approval designation and not a
+  product variant** &mdash; established by a different agent, in a different workstream,
+  on a different day. A blanket &quot;drop every shared URL&quot; rule would have thrown
+  away four correct rows.
+  **The lesson is not &quot;add a cross-file check&quot;; it is that a duplicate check is
+  a statement about a POPULATION, and the population has to be the whole delivery.** This
+  is the same mechanism that found the grey `MediaImage` on 7,738 products and the generic
+  `ba-fire-DAS-Cabinets` on 108 Fiplex SKUs &mdash; **count products per identifier**
+  &mdash; applied at the wrong scope. Final delivery: 1,370 rows, 1,370 distinct handles,
+  and a HEAD over all 1,368 URLs returning **200 and `image/*` on every one**.
+- **Two more first-party hosts, a new 403 fingerprint, and a `urllib`/`curl` reversal.**
+  **`product.autronicafire.com`** serves datasheets at `/fileshare/fileupload/<id>/<name>.pdf`
+  with no bot protection &mdash; and it matters because **`autronicafire.com` now 301s to
+  `autronicagroup.com`**, whose media API is images only, so the obvious host is the dead
+  one. Hrefs in its markup use **backslashes**, as with BRK.
+  **`det-tronics.com`'s WordPress media API is open** and yields the whole 445-PDF library,
+  but **`urllib` gets 403 where `curl` gets 200** &mdash; the exact reverse of the Eaton
+  case, where `curl` fails and `urllib` succeeds. Neither client is the reliable one; try
+  both.
+  New fingerprint: **`hubbell.com` / `hubbellcdn.com` CloudFront 403 is 919 bytes of
+  `text/html` that pymupdf opens as a clean one-page document** reading *&quot;403 ERROR /
+  The request could not be satisfied.&quot;* Only `file -b --mime-type` caught it. **A
+  Safari UA plus `Referer: https://www.hubbell.com/` defeats it** and the same request
+  then returned the real 699 KB PDF.
+  And **`web.archive.org` is refused by this environment's egress policy outright**
+  (403, 24 bytes, &quot;Blocked by egress policy&quot;) for both the CDX API and snapshot
+  fetches, though `archive.org/wayback/available` still answers. **Wayback is not a
+  fallback here at all**, independent of archive.org's own outage &mdash; worth knowing
+  before a batch is planned around it.
+- **A hazardous-location listing hiding in a suffix every distributor reads as a finish.**
+  Kidde Fenwal `27121-20` was a bare `Brand PartNumber` title. Fenwal 12.01.D Table 2 puts
+  `-20` in **Class I Groups A, B, C and D; Class II Groups E, F and G** (Division 1 and 2)
+  while `27121-0` sits in the row **without Group A**; every distributor calls `-20`
+  stainless steel and `-0` brass, and **the manufacturer states no material at all.**
+  Correlated distributor copy for the sixth time, and the suffix encodes the thing a
+  specifier actually filters by.
+  **Both tables came off a 300 dpi render, because that PDF's text layer emits cells one
+  character per line in reverse** &mdash; `27121` extracts as `1 2 1 7 2` &mdash; with the
+  Contact Operation column vertically merged. Plain extraction is not merely unreliable
+  there, it is unusable. Also settled from the same render: **27121 CLOSES on temperature
+  rise where 27120 opens**, and it is **rate compensation** &mdash; the fifth such part,
+  now across three brands, so the three-class taxonomy is thoroughly not a Thermotech
+  quirk.
+- **A prefix documented on one panel family is not documented on another, and the agent
+  declined the import.** `DR-APF100` was left as a bare `Brand PartNumber` title.
+  Notifier's `DN-6857:C2` does settle the `DR-` prefix &mdash; DR-AA4/A4/B4/C4/D4 are each
+  &quot;Door assembly&quot; &mdash; but **that is the CAB-4 cabinet family**, and no
+  document names `DR-APF100` or `DR-AFP100`: the 142-page AFP-100 manual `51010:A`
+  contains `DR-` **zero times** and calls its only trim part the DP-1-R dress panel, while
+  `DN-6857` contains `AFP-100` zero times. Titling it &quot;door assembly&quot; would
+  carry a convention across a panel-line boundary, which is the `PC2WKLED` case exactly.
+  **Recorded as a bounded negative, not as a claim the part number is invented** &mdash;
+  and note the store spells it `APF` where Notifier's panel is `AFP`, which a purchase
+  order or a carton settles and a search does not.
+- **A wildcard SKU cannot match a query, and it is a feed defect with no research answer.**
+  `2900-XX` contains a literal `XX`. Every route was tried and closed: `2900` appears
+  **zero times** across the entire live AVIRE US site (nine sitemaps, the media API, the
+  search endpoint), the four legacy RATH hosts all fail with connection reset to both
+  `curl` and `urllib`-with-Safari-UA, and Wayback is egress-blocked. Search titles suggest
+  the 2900 series spans pull stations, duty stations, dome lights and three sizes of
+  annunciator console &mdash; **several device classes, so there is no single class noun
+  even if that is right.** Left exactly as it was and flagged: the owner splits it into
+  real part numbers or drops it from the feed.
 
 ## Conventions
 
