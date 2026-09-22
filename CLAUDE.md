@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,218 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,230 pages published** — 555 from the old list plus v2b01 through
 v2b32, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
@@ -4679,6 +4679,105 @@ Revisit after the high-impression band is done.
   &mdash; the whole 313-product no-name census carries only 2,983 impressions &mdash; so
   they should be picked up opportunistically rather than promoted ahead of
   `ranked_v2_byscore.json`.
+
+- **A FOURTH mechanism-based scan, and it took three sharpenings to get from 1,447 to 9
+  &mdash; every one a mechanism, never a threshold.** The question: does the part number
+  in a product's `title` match its `sku` field?
+  **Pass 1, the naive comparison: 1,447 hits, almost all correct.** A catalogue
+  legitimately titles a product by its **model name** while the SKU is an internal stock
+  number &mdash; Amerex `B402` against stock `15280`, Eaton `Eluxa` against `ELCHSR`,
+  Det-Tronics `PIRECLA1A1W1` against `007168-001B`. That is a naming convention, not a
+  defect.
+  **Pass 2, narrowing to a NEAR-MISS** &mdash; high string similarity, within a few
+  characters of the same length, on the reasoning that *a near-miss is a typo where a
+  complete difference is a convention*. **Still 1,402**, and the reason is a convention
+  this file already documents: **Resideo and Honeywell Home SKUs carry `/U`, `/B`, `/E`,
+  `/A` packaging suffixes that titles legitimately strip.** The scan was rediscovering a
+  known rule as a defect.
+  **Pass 3, excluding the four conventions this file already records** &mdash; the
+  Resideo suffixes, the **Gamewell-FCI `GW` prefix** that hides the real catalogue
+  number, the **Autocall `A` prefix** on Simplex numbers, and leading `00` in an ERP
+  code. **Nine hits, and they look real.**
+  **The lesson is not &quot;sharpen until the number is small&quot;** &mdash; that is how
+  you tune a threshold until it tells you what you wanted. Each pass removed a *named,
+  already-documented reason* why a difference is legitimate, and the scan stopped when
+  there were no more known reasons left. **A scan is finished when you have run out of
+  explanations, not when the count looks right.**
+  **And the nine were NOT acted on, because the scan cannot tell which side is wrong.**
+  `EPS10-2` against `ESPS10-2`, `P32-DBB` against `P32-BB`, `MTH-HMC-R-WP` against
+  `MTH-HMC-CR-WP`, `AMS-38B-G` against `AMS-38B`, `ET-1010-W` against `ET-1010`,
+  `WL-11.E1` against `WL-11`, Aiphone `213510` against `213505`, and a **Solo pair that
+  appears to carry each other's suffixes** (`SOLO610-024` titled `-001` and `SOLO602-001`
+  titled `-024`, at $408.80 and $137.25, so a swap costs 3x). **A near-miss is equally
+  the signature of a typo and of a real sibling one character apart** &mdash; which is
+  this catalogue's most common failure mode &mdash; and where both numbers are real
+  products the defect is *worse* than a typo, because nothing on the page looks wrong.
+  Queued to an agent in `/tmp/tfas/SKU_TITULO_DIVERGENTE.json`.
+- **The duplicated-vendor-token scan, and the same over-firing in miniature.** Three
+  Macurco Cal-Kit titles read *&quot;Macurco **Macurco** Cal-Kit 1&quot;* because
+  **the Shopify `sku` field is itself `Macurco Cal-Kit 1`** and the title is vendor plus
+  SKU. Scanning for it by normalised prefix returned **314 hits, nearly all false**:
+  `STI STI-3150` is correct, because the vendor is `STI` and the part number *begins*
+  with `STI`, and stripping the hyphen makes the two look like one repetition.
+  **The mechanism is whitespace: the vendor repeated as two SEPARATE TOKENS.** That
+  returns **5** &mdash; the three Cal-Kits, `Notifier Notifier NC-100`, and
+  `STI STI EP141207-T`. Fixed on the three published this batch.
+  A second, cleaner mechanism found the related defect: **brand and part number repeated
+  verbatim** (`Mircom ANC-6000 Mircom ANC-6000`) returns **75 products, 57 of them
+  Mircom** &mdash; which matches, exactly, the count a Mircom photo agent reached
+  independently from the other direction. Two routes to the same number is the best
+  validation a scan gets.
+- **`HOP-501-240` and `-480` are WATTS, not volts, and the warning was right to give.**
+  Notifier's ordering table reads `HOP-501-240 | PSU 240W`, corroborated independently by
+  its CONTROL PANELS block (the E10 ships with a 240 W supply, the E15 with a 480 W).
+  **240 V is a real European mains voltage on a European Notifier prefix**, which is
+  exactly what made the wrong reading plausible &mdash; the same shape as `AS-75-R-WP`,
+  where the `75` looked like candela and the manufacturer's own note denies a 75 cd
+  setting exists.
+- **A tag-index query form that returns a false negative, and the control is what caught
+  it.** This file records `tech.napcosecurity.com/techlibrary/tagresults/tag/<sku_underscored>`
+  as the open route. For `SLE-MAX2LCBTFC` the **underscore form returns 0 results** and
+  the **hyphen form returns 2 documents** &mdash; both forms work, depending on how the
+  tag was entered. The agent only knew the zero was false because the underscore form
+  *did* work on the control SKU from the briefing, **which proved the endpoint alive and
+  the query wrong rather than the host empty.** Carry a known-good control into every
+  negative.
+  And the part is not what its SKU suggested: **the series is `MAX2L`, not `MAX2`**
+  (siblings `SLE-MAX2L-C`, `SLE-MAX2L-Z`), where **MAX2 is dual-carrier and MAX2L
+  tri-carrier** &mdash; so carrying MAX2 specs across would have been wrong. It is also
+  **not a fire communicator at all**: Napco files it under *Connected Home &amp; Business*
+  with compliances **UL 1610 and UL 987 and no UL 864**, while the fire products are the
+  separate StarLink Fire MAX2 line. Seventh instance of the recorded &quot;Napco `SLE-*-CB`
+  intrusion devices typed Fire Alarms&quot; family, and this SKU contains `CB`.
+- **Three more JCI hub segments, and the business-unit rule firing again.**
+  **`fireclass`, `zettler` and `tycofire`** all serve (5.1, 16.5 and 7.5 MB indexes);
+  `firedetection`, `minerva`, `emea`, `jcifire`, `fire`, `firealarm` and `tycoemea` all
+  404 at **236 bytes**, and a bogus document id returns **404, 190 bytes,
+  `application/json`**. **And the guess mattered: `517.050.023` is in `zettler`, not
+  `fireclass`** &mdash; the FireClass index of 1,176 documents contains the string zero
+  times, though 81 other dotted codes from the same block are in it. The part is the
+  **5BEx intrinsically safe detector base**, an Ex/hazardous-area part, which is a
+  materially different purchase from an ordinary base.
+- **A host that returns HTTP 200 with a ZERO-BYTE body, second instance.**
+  `cdn.power-sonic.com/documents/` does it for any nonexistent file, and
+  `curl -o /dev/null -w %{http_code}` reads that as success &mdash; an agent &quot;found&quot;
+  three catalogue PDFs that way and all three were empty. Same shape as the DITEK
+  `/products/` case. **Only a byte count or MD5 catches it**, which is the image-side
+  lesson (`1sae.com`'s 3,264-byte real PNG 404) reappearing on documents.
+  Related and sharper: **`interstatebatteries.com/products/<anything>` is a generic JS
+  shell at 233,695 bytes for both a real and an invented SKU, containing zero occurrences
+  of the requested SKU and differing only in a nonce meta tag** &mdash; so **the MD5
+  differs and an MD5-only control wrongly passes it.** Pair it with the Hochiki
+  `productsearch` case: in both, the bytes differ and the content is the same. **The
+  reliable test is not whether the response differs, it is whether it contains what you
+  asked for.**
+- **The same capacity figure belonging to two different batteries at different rates.**
+  `PDC-121000` is **100.0 Ah at 20 hr and 95.0 Ah at 10 hr**; `PDC-121050` is **105.0 Ah
+  at 20 hr and 100.0 Ah at 10 hr** &mdash; so **`PDC-121050`'s 10-hour capacity is exactly
+  `PDC-121000`'s 20-hour figure**, and both are the same physical size. A bare
+  &quot;100Ah&quot; is true of both products. This file already required the rate to be
+  stated; here are two SKUs in one batch where omitting it makes the titles
+  indistinguishable.
 
 ## Conventions
 
