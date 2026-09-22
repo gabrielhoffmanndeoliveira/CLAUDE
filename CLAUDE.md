@@ -1448,6 +1448,32 @@ Revisit after the high-impression band is done.
   &minus;40 to 185 &deg;F against **&minus;31 to 104 &deg;F**, the wrong depth, and
   40&ndash;400 Hz against **50/60 Hz**. They copy each other, not the datasheet, so
   agreement among them carries no independent weight at all.
+- **The incumbent PMax's tROAS went 650% &rarr; 500% on 22 Sep 2026, and the diagnosis
+  behind it is worth more than the number.** The campaign had **not** been throttled by a
+  raised target &mdash; Windsor reports one tROAS value per campaign with no time
+  variation, which is the signature of the *current* setting stamped on every historical
+  row, so the connector cannot tell you when a target changed. The Ads UI screenshot
+  confirmed 650% as the live value and $5,000/day as the budget, and nothing more.
+  **What actually changed is what Ads can see.** Ads-conversions-to-Shopify-orders went
+  0,77 (June) &rarr; 0,56 (4 wk) &rarr; **0,39** (week of 14 Sep) while **MER held at
+  10&ndash;13**. Reported ROAS fell 10,18 &rarr; 4,69; the business did not. With the same
+  6,5 target and predicted values halved, the bidder must bid down to reach it &mdash; and
+  it did: rank-lost impression share 57,9% &rarr; **75,6%**, budget-lost 18,6% &rarr;
+  **0,1%**, and **budget utilisation 101% (10 Aug) &rarr; 42%**, leaving **$20,347 a week
+  of authorised budget unspent**.
+  **Two independent routes gave the same target**, which is why 500 was defensible:
+  rescaling the old target by the visibility loss (6,5 &times; 0,56/0,77 = 4,7; &times;
+  0,48/0,77 = 4,05) and the trailing achieved reported ROAS (5,55 over 4 weeks, 4,69 over
+  2). Both land at 4,0&ndash;4,7.
+  **The method notes worth reusing.** (1) **A hard budget cap bounds the downside of a
+  target cut**, which is what justified moving in one 23% step and reviewing in a week
+  rather than two &mdash; worst case is a return to August's spend at August's efficiency,
+  which was not a disaster. (2) **Review the budget utilisation, not the reported ROAS.**
+  The reported number is depressed by attribution and will mislead. (3) **Lowering a
+  target treats the symptom**; the cure is restoring conversion visibility, after which
+  the original target becomes reachable again. Baseline frozen in
+  `/tmp/tfas/ADS_configuracao_para_o_painel.md` so the 29 Sep read compares against
+  numbers rather than memory.
 - **The Windsor `google_ads` connector serves TWO businesses, and a query without an
   account filter silently blends them.** `151-468-5549` is **TFAS SHOPIFY**;
   `192-200-0533` is **The House Supplier**, a heating-supplies business. Earlier work
