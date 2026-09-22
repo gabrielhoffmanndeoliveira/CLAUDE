@@ -2446,6 +2446,73 @@ Revisit after the high-impression band is done.
   and the flat lowercase `datasheets/df-<num>.pdf` resolved **4 of 4**, while the
   `hon/hbt-fire` root **failed on every probe**. Everything that worked sat under
   `honeywell-edam/hbt/.../documents/`.
+- **The photo pipeline's first batch: 5 real photographs of 8, and the verification
+  chain is the reusable part.** `foto01`, 22 Sep 2026. Rule applied: manufacturer-hosted
+  images only, the source must name the exact part number, and **the coordinator measures
+  the file rather than trusting the agent's numbers.** All five re-fetched independently:
+  mime and pixel dimensions matched the agent's report exactly, and all five were then
+  **looked at**.
+  **Four of the five are self-evidencing, which is the strongest form this can take:**
+  the Power-Sonic labels read `MODEL PS-1290 F2 / 12 Volt 9.0 Amp. Hr.` and
+  `PSL-SC-1270 / 12.8V 7.2AH / 92.16WH` in the photograph, and the RATH unit's front
+  panel reads `BOSS CONTROLLER / AREA OF REFUGE`. **A part number printed on the product
+  in the picture cannot be a sibling's photo.** The fifth, a plain grey enclosure showing
+  nothing, rested on an agent's claim that it is the same photograph the datasheet
+  embeds &mdash; so the coordinator **checked it**: the PDF headed `2500-PWR24U` embeds a
+  520 &times; 520 JPEG that is the identical pose, latch position, cable gland and
+  lighting. Verified, published.
+  **Three nulls, each for a stated reason, and accepting them is the point.** A series
+  image showing the wrong role and the wrong cabinet size; a correct captioned datasheet
+  photo that extracts at **243 &times; 374**, under the 600 px floor; and a brand that
+  publishes no photograph at all (line drawings and page furniture only). **`null` is a
+  correct answer and it was accepted three times out of eight.**
+  **Two mechanical facts for the next batch.** `productCreateMedia` **appends**, so the
+  placeholder stays `featuredMedia` until `productReorderMedia` moves the new image to
+  position 0 &mdash; without that step the work is invisible. And **the placeholder must
+  not be deleted**: the same `MediaImage` id is referenced by 7,738 products, so a
+  delete could strip it from all of them. Reorder, never delete.
+- **The coordinator fed an agent a placeholder in a field it was asked to reason about,
+  and the agent caught it. Third instance of the lossy-slice-file failure.** Building
+  `foto01`, `2500-PWR24U` already had good published copy, so its `live_desc` was written
+  as the literal string *&quot;[ja enriquecida no v2b25 - copia completa presente. FALTA
+  SO A FOTO.]&quot;*. The agent echoed it back verbatim, **flagged it, and told the
+  coordinator not to publish that description** &mdash; which is exactly right and is what
+  stopped a live page being overwritten with a note to self. The recorded rule was
+  *never default a field the agents are asked to reason about*; this adds that **a
+  human-readable note is a default too**, and a more dangerous one than a blank, because
+  it looks deliberate.
+- **A fourth and fifth brand recovered by going at the CMS instead of the page, and one
+  of them is the best document index found on this project.** `rathcommunications.com`
+  is unreachable (connection reset on curl, `urllib` and WebFetch; `rath.com` fails TLS)
+  and it does not matter: **RATH and JANUS are now AVIRE, a Halma company**, and
+  `avire-global.com/en-us` is first-party, with datasheets headed &quot;RATH by AVIRE&quot;.
+  Its **WordPress REST media API is open**:
+  `https://www.avire-global.com/en-us/wp-json/wp/v2/media?search=<term>&per_page=100&_fields=id,source_url,media_details`
+  returns every PDF **and** every image with true pixel dimensions, so one call finds the
+  current datasheet and the product photograph together. **`power-sonic.com` has the same
+  API open.** After Functional Devices, Space Age, HyperSpike and BRK, that is six brands
+  recovered by reading `robots.txt`, the sitemap, the raw markup or the REST API rather
+  than the rendered page. **When a brand's site is a JS shell or unreachable, go at the
+  CMS** &mdash; and check whether the brand still exists under its own name.
+- **A vendor's own product page can describe the successor, which makes it the worst
+  place to take a photo from.** `avire-global.com/.../8100-v4g/` now describes the
+  **8100-V4GS**, a newer model, and every image on it is named `8100-4gvs`. Taking the
+  photo from the URL carrying the part number would have published the successor's
+  picture. The images used are the dated upload files whose **filenames** carry
+  `8100-V4G`. **A URL containing a part number is not evidence that its contents are that
+  part** &mdash; the same lesson as the wrong-document-family rule, applied to a web page.
+- **CORRECTION: this file's own &quot;bogus `S3000`&quot; note is unsourced and may be
+  wrong.** It is recorded above as a defect found on `4-24L24S`. A v2b27 agent reports
+  **`S3000` appears on page 1 of Edwards `E85010-0057` as a listing mark**, alongside a
+  CSFM file number &mdash; i.e. a UL file number, not an invented string. The coordinator
+  could not retrieve that document to settle it (the constructed `myeddie` path returned
+  the clean 1,245-byte 404 and the catalogue's audio-amplifier sheets are a different
+  family). **Nothing live depends on it**: the `4-24L24S` page was rewritten wholesale and
+  the current copy asserts nothing about S3000 either way. But the note stands as written
+  in violation of this file's own rule &mdash; *never conclude a part number is invented
+  from a negative search result* &mdash; and &quot;bogus&quot; was the coordinator's word,
+  not a finding. **Treat S3000 as unresolved, and do not call it invented anywhere on an
+  Edwards part.**
 - **Half the catalogue has no product photograph, and the first scan for it returned
   zero. 22 Sep 2026, and the owner found it before any scan did.** He sent a screenshot
   of an admin list showing grey placeholder icons and asked for photos. A bulk pull of
