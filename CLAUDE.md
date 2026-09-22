@@ -3398,6 +3398,19 @@ Revisit after the high-impression band is done.
   **5.5 in.** across, UL 217 **9th Edition**, 0.045 &rarr; 0.055 A; the S1209 is
   **photoelectric, 6.25 in.** across. A successor three-quarters of an inch smaller **leaves
   a ring on every retrofit**, so it is not a drop-in even if someone wanted it to be.
+- **`polyphaser.com` is Incapsula-gated, which is a new fingerprint and turns one open
+  frequency reading into a BOUNDED negative rather than an unknown.** Both
+  `polyphaser.com/Images/Downloadables/Datasheets/IS-50NX-C2_datasheets_US.pdf` and the
+  series sheet return **~965 bytes of `text/html` containing `_Incapsula_Resource` and
+  `NOINDEX, NOFOLLOW`**, to curl and to a full Safari user-agent alike. Add it beside
+  Sucuri's 202-plus-`sgcaptcha` and Akamai's 456-byte Access Denied.
+  **What that leaves is honest and worth stating precisely.** Search indexes the
+  manufacturer's own datasheet under the page title *&quot;Type N F/F Coaxial RF Surge
+  Protector, **125MHz**&quot;*, and four distributors agree on 125&ndash;1000 MHz &mdash;
+  but distributor agreement is correlated copy and has been wrong five times on this
+  project, and a search-result page title is not a document read. **So `1251000` stays
+  open**, with a named cause rather than a shrug: the document exists, is first-party, and
+  is behind a WAF. One fetch from an unblocked route settles it.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
