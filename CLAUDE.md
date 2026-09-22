@@ -2807,6 +2807,53 @@ Revisit after the high-impression band is done.
   honest handling is to **split the CSV** and let the owner choose a small-but-correct photo
   over a grey box. Cut used: aspect ratio 3:1. **Record framing as a third outcome
   alongside `null`**, because collapsing it into either one misreports the work.
+- **A structured-field join is authoritative about which RECORD an image hangs on and
+  silent about which PRODUCT the photograph shows. This is the sharpest thing the photo
+  work has produced, and it cost 25 wrong photographs to see.** STI's CMS exposes an exact
+  `modelId`, so the raw join hits 335 of 393 &mdash; and **25 of those carry an image whose
+  original filename names a different catalogue number**: `STI-9116` &rarr; `9115.jpg`,
+  `STI-1230CP6` &rarr; `1130CP6.png`, `EP242410-T2` &rarr; `EP242410-T1.png`,
+  `STI-15C20ML` &rarr; `STI-15C10ML-red.jpg`, `UB-2` and `UB-2PN` sharing one
+  `UB-2PN-R.png`, four `NT-SS*-EN` pointing at French and Spanish label files. **The
+  manufacturer reuses one photograph across variants and the filename is the only trace.**
+  So the boundary rule is not a crutch for brands that lack structured data &mdash; it is a
+  second, independent check that must run *alongside* the structured join. Strip a brand
+  prefix (`STI-`, `KIT-`) and decorations (`-red`, `-1`, `-600x600`, `(2)`) before
+  comparing, **testing every stripping level** so a genuine suffix like `KIT-18015-9` is not
+  eaten.
+- **The Edwards photo route is ~4%, not the ~75% this coordinator briefed, and the
+  &quot;403-vs-404 tell&quot; does not exist.** Measured three ways that agree: the whole
+  LifeLines image library is **254 assets in 14 Cloudinary folders**, it overlaps the 206
+  Edwards placeholder products by **8**, and a brute probe of 202 SKUs &times; 14 folders
+  &times; 2 filename shapes &mdash; **5,740 requests** &mdash; returned **2** hits, both
+  already found by the structured route. Every miss was a plain **404 with a zero-byte
+  body**; no 403 appeared in ~5,900 requests. **The ceiling is 8.** The unmatched 197 are
+  EST4/EST3 cards, EDGE modules, cabinets and SIGA international variants, which the
+  gallery simply does not photograph &mdash; a catalogue-coverage gap, not a routing failure,
+  and the same is true of the 84 unmatched STI EuroStopper parts, which are absent from
+  STI's own product index under any `modelId`.
+  Three route facts worth keeping. **The Edwards image host is `images.carriercms.com`**
+  (Cloudinary, Carrier's CMS), not edwardsfiresafety.com, and the version segment is
+  optional. The LifeLines pages are **Yext-built and embed a percent-encoded JSON blob at
+  `document.c_edwardsLifelineResources`**, one record per asset with a curated `title` like
+  `&quot;SIGA-OSD -- Signature Optica Smoke Detector&quot;` &mdash; a structured field, so
+  the filename fallback was never needed. And **Cloudinary transcodes on the extension**, so
+  `.jpg` and `.png` both return 200 for one asset: **the extension is not an identity
+  signal** and cannot be used to infer the stored format.
+- **A recorded negative decayed again, and this time inside a single day.** This file states
+  that `myeddie.edwardsfiresafety.com/Media/` is the poisoned path returning HTTP 200 with
+  an 8,909-byte shell. **It now 302-redirects instead**, while `/PublicMedia/` gives a clean
+  1,245-byte 404. The fingerprint was real when measured and is already stale. Re-measure a
+  host fingerprint before building a filter on it, exactly as the Edwards first-party
+  finding required re-testing &quot;not on their site&quot;.
+- **The handle is a better SKU authority than the title's second token, and the check is
+  mechanical.** Shopify handles here are `<vendor-slug>-<sku-slug>`, so slugifying a
+  candidate token and comparing it to the handle tail **validates the extraction without a
+  human reading samples**. That caught `STI-9623 Beam Smoke&hellip;`, whose title is missing
+  its brand prefix so token 2 is the word &quot;Beam&quot;, and it confirmed the other 597
+  across two brands. Where it cannot confirm &mdash; a SKU spanning two whitespace tokens
+  (`3-IDC 8/4-E`), a duplicated brand token, an underscore the slug cannot represent
+  &mdash; **skip the row rather than guess**; three were skipped on that basis.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
