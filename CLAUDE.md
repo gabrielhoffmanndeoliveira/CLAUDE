@@ -136,8 +136,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,283 pages published** — 555 from the old list plus v2b01 through
-v2b38 and v2b39 agent 2, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,289 pages published** — 555 from the old list plus v2b01 through
+v2b39, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -5504,7 +5504,88 @@ Revisit after the high-impression band is done.
   77/79.5/82.5/85/88 for `SE`, `SEC`, `SE-MC-C` and `SE-HMC` &mdash; and **`SE-MC`, the wall
   multi-candela series, is not in that table at all.** No dBA figure published, and the
   temperature and humidity note was omitted too because it sits under the same table that
-  excludes the part.
+  excludes the part.- **A candela pair in a title that is TWO LISTINGS, not two settings &mdash; the
+  `49AV-WWFO-BA` shape for the second time, and this one under-specifies a fire layout by
+  five times.** `GEC24-1575WR` was titled *&quot;Fixed 15/75 Candela Strobe&quot;*, which
+  reads as a ladder or a selectable range. Gentex `551-0049-03`, **fetched and read directly
+  by the coordinator**, prints the cell as ***&quot;15 (ANSI/UL 1971) / 75 (ANSI/UL
+  1638)&quot;*** &mdash; four times on the sheet. **UL 1971 is the public-mode fire rating
+  and UL 1638 is general signaling**, so a designer taking 75 cd as the fire figure
+  specifies a fifth of the devices actually needed. The appliance is fixed output; neither
+  number is a switch position.
+  Two more things verified in the same fetch. **The catalogue number checks out character by
+  character** &mdash; `904-1127-002`, unlike last batch's `GB10-120` where the store carried
+  `901-` against Gentex's `904-`. And **the model is printed `GEC24-15/75WR`, with a slash
+  the store's SKU has lost** &mdash; the punctuation-stripping import for the **sixth**
+  time, after the 185 frequency ranges, `ZR-MC-R`, `QAA-5415-70/25`, `FDX-008WKI` and
+  `ELSTW-N`. SKU untouched; the manufacturer's form is in the body so either search matches.
+  Also on the face of that sheet: **&quot;24 units per carton&quot;**, so Gentex is the
+  fourth non-Honeywell vendor on record stating carton quantities.
+- **A search endpoint whose MD5 and byte count both differ from a bogus control and which
+  still returns a false negative.** `safefiredetection.com`'s site search gives 144,058
+  bytes for a real query against 144,085 for a bogus one, and the real term appears seven
+  times in the response &mdash; **every occurrence an echo** (title, `og:url`, input value),
+  with **zero product rows**. The part *is* on the site, on its category page. So **a
+  hash-only or byte-only bogus control passes this one**, where it caught Hochiki's
+  `productsearch`. Third instance after Hochiki and Interstate Batteries, and the rule is
+  now unambiguous: **the test is whether the response CONTAINS WHAT YOU ASKED FOR**, not
+  whether it differs from a control.
+- **Two coordinator premises wrong on one part, and the live page was right.** `RP5209` was
+  briefed as probably the `SF-`/Space Age shape &mdash; a SAFE Fire Detection part filed
+  under the wrong vendor. **Edwards catalogues `RP5209` itself**, under ModuLaser, in
+  `E85001-0633`, and **the live description is verbatim Edwards ordering wording**,
+  including the *&quot;English/Spanish&quot;* that reads like ERP junk and is Edwards' own
+  text: the NFPA wording is printed bilingually **along the pipe**. The SAFE RedPipe family
+  really does share the numbering, so the brand link is real &mdash; but **this is the
+  `PIP-018` shape, not the `OSE-HPW` shape, because the store's own brand has a first-party
+  document for the part.** Nothing corrected.
+  One conflict flagged rather than resolved: **Edwards says 7.5 ft and SAFE says 8 ft for
+  the same number**, with the 15 ft variant agreeing. Published Edwards' figure; pipe is
+  bought by the foot, so a carton settles it.
+- **Two routing corrections on Edwards, and one is a part in the wrong panel generation.**
+  There is **no `/lifelines/control-panel/est4x-platform/` page** &mdash; the slash form
+  301s to the bare form and the bare form 404s at 17,844 bytes. And **`4X-LCD-LC` is an
+  EST3X part, not EST4**: EST4's display is the `4-LCD` colour touchscreen in `E85014-0007`,
+  where `4X-LCD-LC` occurs **zero times**. It is in `E85005-0133`, whose Accessories row
+  states the separator outright &mdash; `4X-LCD` *&quot;English language&quot;* against
+  `4X-LCD-LC` *&quot;**Insertable language**, shipped with English inserts. Order alternate
+  languages separately.&quot;* **What `LC` stands for is in no document read**, recorded as
+  a bounded negative rather than guessed.
+  Its live title was a 145-character ERP string cut at the 150 cap (*&quot;&hellip;Shipped
+  with English&quot;*) &mdash; but **unlike the 79 unbalanced-parenthesis cases the missing
+  text is recoverable from the manufacturer's own row**, so a proper short title was written
+  rather than the ending reconstructed. That is the right handling and worth distinguishing:
+  **this project refuses to invent a truncated ending, not to write a new title.**
+- **The merged-cell trap settled a mounting assignment that plain text got wrong.**
+  `S4906-0001` Table 1 emits &quot;Wall&quot; after the `4906-9103` row and
+  &quot;Ceiling&quot; after `4906-9114`; word coordinates put Wall at the midpoint of
+  9101/9103 and Ceiling at the midpoint of 9102&rarr;9117, and a 300 dpi render confirms
+  **wall is 9101 and 9103 only, so `4906-9102` is a CEILING model.** The live title was
+  already right. Table 6 needed the same treatment: **ceiling draws 50/83/155/211 mA against
+  the wall block's 40/63/124/168 mA**, so reading the wrong block understates current by
+  about 25%.
+- **A sibling one letter apart with a different part-number scheme and a different companion
+  module.** Data Sheet 8302 is the first document a search returns for `PSX-12` and it
+  covers **`PSX-12M`** &mdash; it contains &quot;PSX-12&quot; without the M **zero times**,
+  its part number is `S54430-C27-A1` rather than a `500-` number, and it pairs with a
+  **PSFA** where the PSX-12 pairs with a **PTB**. Writing from it would have published the
+  wrong part number *and* the wrong companion. Note also **`TZC-8B` is `500-034110` and
+  `PSX-12` is `500-034120`** &mdash; one digit apart, in the same batch.
+  The &quot;no battery charger&quot; claim was supported **by mechanism**, not absence:
+  `7322`'s A&amp;E list covers both supplies together and gives *&quot;a built-in charger for
+  up to 100AH batteries&quot;* to the **PSC-12 alone**, its PSX-12 prose says the extender
+  *&quot;expands the main Model PSC-12 power supply **and battery charger**&quot;*, and
+  `charg` occurs **zero times** in the extender's own 12-page installation instructions.
+- **Route notes.** **`fireprotection.gentex.com/resources` is a single page listing ~90
+  first-party PDF paths** &mdash; one fetch enumerates the whole Gentex library, which is
+  the answer to that brand's family-by-family path construction (this family failed on four
+  constructed names at 7,270&ndash;7,276 bytes, the second family after the S-Series against
+  the GB bells where it worked first try). **`sid.siemens.com/go/<A6V>` resolved first try
+  on all six Siemens assets**, while two `api/khub/documents/<hash>/content` URLs taken from
+  search results served **the wrong document entirely** &mdash; resolve the A6V number
+  first. And **a Siemens installation document may resolve as a MAP rather than a
+  document**: `/r/<hash>/root` means use `/api/khub/maps/<id>/topics` then
+  `/topics/<topicId>/content`.
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
