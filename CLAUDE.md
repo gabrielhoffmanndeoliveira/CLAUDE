@@ -5774,6 +5774,38 @@ Revisit after the high-impression band is done.
   42 mm`, and 7 3/8 in. is 187 mm, not 139 &mdash; **no dimension published**. A document that
   contradicts itself three ways on one part is now ordinary rather than remarkable; budget for it.
 
+- **The photo delivery measured per vendor for the first time, and the gap is concentrated in
+  exactly one brand.** 1,418 distinct handles delivered across thirteen CSV lots, counted against
+  the 7,900-product placeholder census:
+
+  | vendor | placeholders | delivered | left |
+  |---|---|---|---|
+  | **Kidde Fenwal** | 1,508 | **0** | 1,508 |
+  | Hochiki | 798 | 22 | 776 |
+  | Rath | 708 | 44 | 664 |
+  | Amerex | 629 | **408** | 221 |
+  | Space Age | 480 | 80 | 400 |
+  | Mircom | 410 | 42 | 368 |
+  | STI | 394 | **305** | 89 |
+  | Notifier | 387 | 90 | 297 |
+  | Westell | 371 | 82 | 289 |
+  | Fiplex | 224 | 0 | 224 |
+  | Monaco / Fireray / Aiphone | 166 | 0 | 166 |
+
+  **Kidde Fenwal is 19% of the whole problem and has never been attempted**, because this file
+  records it, in one sentence with Amerex and Fiplex, as *&quot;a brand needing a dealer image pack
+  from the manufacturer, not a different filter.&quot;* **Amerex was in that same sentence and
+  subsequently yielded 408.** So one of the three names in that recorded negative was simply wrong,
+  and nobody re-tested the other two.
+  **That is the recorded-negative-decays rule for the fifth time**, after Edwards
+  &quot;not on their own site&quot;, the &quot;bogus&quot; `S3000`, `DN-7045` &quot;dropped
+  entirely&quot; from EDAM, and the `apcfire.com` path. A harvest agent is now re-testing Kidde
+  Fenwal against the current route list, which has grown five times since that note was written.
+  **The general point is about how this file records negatives: a brand-level zero should name the
+  routes that were tried**, because a bare &quot;needs a different route&quot; cannot be audited and
+  therefore never gets re-run. The three brand names sitting in one sentence is what let a wrong one
+  hide next to two that may be right.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
