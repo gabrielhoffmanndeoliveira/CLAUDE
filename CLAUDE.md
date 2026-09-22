@@ -3500,6 +3500,54 @@ Revisit after the high-impression band is done.
   sheet prints **`Agency Listings: UL864 (S3000), ULC-S527, CSFM, FDNY`** in its panel
   specification table, render-confirmed. Three agents, three documents, one answer: it is a
   UL file number. The note calling it &quot;bogus&quot; is disproved, not merely unresolved.
+- **The look pass produced its best catch yet, and neither of the other two checks could
+  have made it: a four-zone panel SKU carrying a photograph of a two-zone panel.**
+  `MS-4E`'s best candidate was Honeywell's own Scene7 asset
+  `HBT-Fire-MS-2-RIGHT-HiRes`, and **Honeywell's own `sku_list` carries `MS-4E` on that
+  record**. The coordinator downloaded it and zoomed the front panel: it is silkscreened
+  **MS-2** and shows exactly **ZONE 1 and ZONE 2**. A four-zone panel has four.
+  **Look at what each check would have said.** The structured field says MS-4E. The
+  filename says MS-2. A reader trusting the structured field publishes a two-zone panel on
+  a four-zone page; a reader trusting the filename rejects a row that Honeywell itself
+  asserts. **Only the product in the photograph settles it, and here it is settled twice
+  over &mdash; by the printed model name and by a countable feature.** That is the
+  strongest form this rule takes: **prefer a photograph whose own content can be counted
+  against the spec.**
+  Seven more rejected in the same pass, including `90518` matched to
+  `ba-fire-90510-primaryimage` (a different Gamewell SKU, and the photo is a firefighter
+  telephone cabinet), `006820CB` &mdash; **a bare cabinet SKU shown with a fully populated
+  panel**, the incomplete-product trap in picture form &mdash; and `AM100`/`BTB65`, whose
+  best files are **operating-manual covers** that pass mime, size and every filename filter.
+- **A category nobody had anticipated: 16 products for which no photograph can exist in
+  principle.** FireWorks `FW-*` seats and servers, `4-CUSWL`, `TRNG-F-EST4-CERTIF` and five
+  Universal items are **software licences and a training certification**. With 41 generic
+  bulk goods (Genesis Cable, Reliablewire, Casil, Windy City Wire, Interstate, Yucel) that
+  is **57 products that must come out of the denominator before any coverage rate is
+  computed.** The recorded rule is that a denominator has to travel with a rate; this adds
+  that **the denominator itself needs auditing for things that are not photographable.**
+- **And the &quot;196 of 710 behind WordPress&quot; figure does not survive a change of
+  definition &mdash; only 113 of 502 do.** The two agents used different tail boundaries
+  (one took vendors with 60 products or fewer, the other excluded every brand being worked
+  elsewhere), and the headline number moved by 40% without either being wrong. **A tail
+  statistic is a statement about a cut, not about the catalogue**, and this file should
+  carry the cut with the number every time.
+  Three corrections worth keeping from the same work: **&quot;probe at `per_page=100`&quot;
+  is necessary but not sufficient** &mdash; Apollo returns `[]` on an unfiltered page 1 and
+  real rows on page 2, so **probe with `search=<term>`**; **title token 2 is wrong on 22.7%
+  of tail rows**, not the ~4% measured on the big brands, because the tail is full of
+  multi-word vendors (`E2S by The Signal Source`); and **three hosts return HTTP 200 for a
+  file that does not exist** (`diteksurgeprotection.com` 151,291 B `text/html`,
+  `honeywell.scene7.com` 20 B `text/plain`, `sdifire.com` 146 B `text/html`), so the mime
+  check is what separates them &mdash; and DITEK's 404 measured **151,291 bytes here
+  against the 152,678 this file has on record**, which is the host-fingerprint decay rule
+  firing again.
+- **A brand field so wrong it looked like a missing route.** 31 of the 44 products under
+  vendor **`Fireray`** are **Edwards/EST** &mdash; EST4 cabinets and annunciators (`4-*-E`),
+  Signature closets (`3-RCC*`) and FireWorks licences; only about 13 are genuine FFE beam
+  detectors. The agent could not find photographs for them **because the brand is wrong,
+  not because the photographs are missing.** Flagged to the owner. Related and useful:
+  `sdifire.com` now serves Detectortesters/XTR2 content, because **SDi and No Climb are
+  both Halma**, so one host covers SDI, TruTest, SCORPION, Detector Testers and Urban.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
