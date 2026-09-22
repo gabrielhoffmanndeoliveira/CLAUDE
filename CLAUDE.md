@@ -7089,6 +7089,92 @@ Revisit after the high-impression band is done.
   **pages 2 and 4 disagree** (2-5/8 in. against 2-9/16 in.); only the figures both pages agree
   on were published.
 
+- **A NEW RULE, DECIDED AGAINST AN AGENT'S DEFENSIBLE JUDGEMENT CALL: AN ASSET NAMED FOR A
+  BASE MODEL IS NOT EVIDENCE FOR A VARIANT SKU, EVEN WHEN THE DIFFERENCE IS INVISIBLE.**
+  Two Fire-Lite rows arrived with the reasoning stated openly and the call left to the
+  coordinator, which is the right way to hand up a judgement. `ES-200XC` was served
+  `HBT-Fire-ES-200X-STRAIGHT-HiRes` and `MS-5UD-3E` was served `HBT-Fire-MS-5UD-RIGHT-HiRes`;
+  zoomed, the panels are silkscreened **`ES-200X`** and **`MS-5UD`**. The agent's argument was
+  that the photograph *confirms the model line* and is *silent* on a suffix that is not a
+  visible attribute &mdash; a ULC listing and an export voltage &mdash; the opposite of the
+  `MS-4E` case in the same lot, where the photograph **contradicts** a countable feature.
+  **That reasoning is sound and the rows were still dropped, because all three independent
+  signals name the base model**: the filename, the silkscreen, and a family `sku_list`
+  bundling both. Nothing points at the variant. &quot;The difference is invisible&quot; is an
+  **inference about what the variant looks like**, not evidence about what is in the frame
+  &mdash; and this project does not publish an inference into a field a buyer reads.
+  **The converse still holds and must not be collapsed with this**: an asset with an internal
+  or descriptive name on a **single-SKU** record is fine (`hbt-Fire-P1906458-primaryimage` for
+  `H355`), and so is a photograph whose subject genuinely carries no model marking &mdash; the
+  `MMF-302-6`/`SK-ZONE-6` bare PCB that is correct for two SKUs at once.
+  **Handled as a merchandising decision rather than a research one**, which is what keeps it
+  consistent: both went to the owner beside the pending E2S question, where accepting a family
+  render for a configuration SKU would recover about 20 of 25. **If the owner accepts a base
+  render for a listing or voltage variant, these come back.**
+- **A NEW IMAGE-SIDE 404 FINGERPRINT, WORSE THAN THE RECORDED `1sae.com` ONE.**
+  `detectortesters.com/media/catalog/product/…` returns **HTTP 200, `image/jpeg`, 1,692 bytes,
+  md5 `c0459a796c5b8ee74254472c235a7460`** for any nonexistent path &mdash; a real JPEG **on
+  the exact Magento path where every genuine product image also lives**. Status passes, mime
+  passes, PIL opens it. `1sae.com`'s 3,264-byte PNG at least sits on a host this project
+  already distrusted; this one is indistinguishable from a hit without an MD5 or byte
+  comparison. **Every photo route needs its bogus-SKU control measured at download time.**
+- **A SECOND HOST THAT RE-ENCODES ON SERVE, so `md5` and `bytes` are a measurement and not an
+  identity.** `apcfire.com` served one file at 21,056 bytes on a first fetch and stably at
+  18,877 on three later ones, **same photograph, dHash Hamming 0, 158&times;600 both times**.
+  After mircom.com that is two, so it is a property of image-optimising CMSes rather than a
+  quirk. **Record the stable value with a note, and let the perceptual hash carry identity.**
+- **A shell whose MD5 varies because it echoes the path, so an MD5-only control passes it.**
+  `genesiscable.com` is now a Southwire storefront returning an identical **75,721-byte HTML
+  shell with a different MD5 every time**; **the byte count is the only tell.** That is the
+  fourth distinct way a bogus control can be defeated, after the query-echo (byte drift), the
+  CSRF token (invisible variation) and the constant-length ignore (near-identical bytes).
+  The parts do resolve first-party at `southwire.com/p/<sku>` &mdash; **and those pages carry
+  no product photograph at all**, so Genesis is a **measured** zero rather than an assumed
+  one, and the Edwards-Genesis hypothesis in the briefing was wrong: all 21 are Genesis Cable.
+- **Det-Tronics re-confirmed a true zero, and the boundary rule is precisely what does it.**
+  The media API works via **`curl -L` against the `www.` host** &mdash; and note **`urllib`
+  now gets an HTML shell where this file records a 403**, so that reversal has reversed again.
+  326 images across four pages, and **not one filename contains any catalogue SKU or ordering
+  code**: only `X5200a.png`, `x5200-ultraviolet-infrared-flame-detector.png`, `X2200a.png`.
+  **`X5200` followed by `a` is alphanumeric**, so the rule refuses exactly the family match
+  the discredited 89% figure was built on. **A zero that the rule produces on purpose is a
+  result, not a failure.**
+- **The look pass caught the APC filename trap, and the sibling files convict it.**
+  `T-PB-202-0.jpg` shows a chassis whose label reads **&quot;POWER SUPPLY MODEL NO. T-PB
+  202-1&quot;**. Its siblings `T-PB-303-0.jpg` and `T-PB-303-1.jpg` carry the **same
+  photograph** and *do* carry an overlay saying &quot;(Model 202-1 shown here)&quot;. So all
+  three are the 202-1, **two admit it and one silently does not** &mdash; which is stronger
+  than the Power-Sonic case, because the manufacturer demonstrates on its own neighbouring
+  files that it knows the disclaimer is needed.
+- **The perceptual hash caught a pair MD5 could not, across two different product classes.**
+  `HBT-Fire-W-H355R-W-H355-CEILING-HiRes` and `HBT-Fire-W-SD355-CEILING-HiRes` are **dHash
+  Hamming 0 with different MD5s** &mdash; one photograph re-encoded, published for a SWIFT
+  **heat** detector and a SWIFT **smoke** detector. And `HBT-Fire-W-GATE-W-DIS-D-CEILING-HiRes`
+  is the thumbnail for **both** the gateway record and the display-driver record, where the
+  visible object is the round gateway housing and Honeywell publishes a separate asset for the
+  equivalent driver assembly. **Two more reasons a `sku_list` hit is not an attribution.**
+- **Three brand vendor-field errors found by a photo agent, which is becoming a routine
+  by-product.** Four `Universal` SKUs are **Neomounts (ex-NewStar)** AV mounts and one is a
+  Kalatel/UTC supply &mdash; the three hits were harvested from neomounts.com, the actual
+  manufacturer. Three `Federal Signal by The Signal Source` SKUs are **E2S part numbers**, and
+  `FSEX-*`, `FHEX-24SMR` and `K8550C095A-02` appear **nowhere** in Federal Signal's own
+  426-URL catalogue. After `SF-`/Space Age and `Fireray`/Edwards that is a third and fourth
+  umbrella vendor string hiding another manufacturer's namespace. **A photo harvest reaches
+  the manufacturer's own site, which is exactly the check a catalogue audit cannot do from
+  inside Shopify.**
+- **And a live TITLE defect found by looking at a correct photograph.** `FPMA-W25`'s title
+  says **Black**; Neomounts states **&quot;Color: Silver&quot;** for that article number with
+  Black as a separate variant, and the render is silver. **The photograph is right and the
+  title is the defect** &mdash; the reverse of every look-pass case on record, where the title
+  was the fixed point and the image was judged against it.
+- **Four part numbers refused as adjacent-row substitutions, none called invented.**
+  `AOR-5-DSL` against Talkaphone's catalogued `AOR-5-DKL` (the bogus path returns the honest
+  102-byte 404 while `-DKL` returns a real 3.6 MB image); `MSR-100W/W` against APC's
+  `MSR-100R/W`; `STS-1.5`/`STS-2.0` against APC's 2.5/5.0/10.0 range; `SPARE1046` against
+  Detector Testers' 1002&ndash;1060 with no 1046. **In all four the near neighbour was
+  available and was not taken**, which is the rule working at the point where it costs
+  something.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
