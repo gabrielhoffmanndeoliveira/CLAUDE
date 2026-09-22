@@ -2301,6 +2301,61 @@ Revisit after the high-impression band is done.
   landing on a relay. Note the Shopify `type` field said "Relays" and was right while
   the title was wrong: **when a structured field disagrees with the title, that is
   a signal, not noise.**
+- **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
+  time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
+  present in the active catalogue, **zero missing**. Exactly **four** pages under 400
+  visible characters and all four are the deliberate skips (`SM7100-L8`, `90521`,
+  `BDA-TP10-L2`, `BDA-NMP01250`). The ASCII title check: **50 of 16,031**, down from 56
+  at batches 14 and 19, and **every one is still `&deg;`, `&reg;` or `&trade;`** &mdash;
+  25, 23 and 5, zero outside that set. **The drop is the rule working twice over:** six
+  of those 56 came through the queue and were rewritten in ASCII, so the count falls as
+  the pipeline touches them, and no new one has been introduced across roughly 330
+  titles written since batch 14. Cost: one bulk query, 16,031 products, about 40 seconds.
+- **The truncation scan re-measured on a second pull, seven batches later, and the
+  numbers hold &mdash; but the recall estimate is now measured rather than argued.**
+  102 unbalanced-parenthesis titles, unchanged. The 150-character ceiling is confirmed
+  catalogue-wide: **749 titles sit at 140&ndash;150, exactly 0 at 151&ndash;155**, and
+  the six above 150 are Resideo and Aiphone products from a different import entirely.
+  Against a background of ~85&ndash;105 titles per 5-character band from 125 to 139, the
+  140&ndash;149 bands hold **238 and 493** &mdash; a 3.6x pile-up against the cap.
+  A random sample of 30 from the band, read one by one, found **roughly half clearly cut
+  mid-sentence** (*&quot;&hellip;Space for Up to 12Ah Batteries. H:355mm W:436mm&quot;*,
+  *&quot;&hellip;Has Built in Class&quot;*, *&quot;&hellip;Replacement Detector Only, Does
+  NOT&quot;*). So the real count is **300&ndash;400, and the parenthesis scan's recall is
+  about 25&ndash;30% at 100% precision.** Worth stating plainly: **that scan is recorded
+  in this file as the cleanest ever run here, and it is &mdash; on precision. Its recall
+  was never measured and is poor.** A scan is two numbers, and this project has only ever
+  reported one of them.
+  **The upstream cause is visible in the same band: 350 of the 749 contain a sentence
+  break.** Marketing prose was written into the `title` field, which is why titles reach
+  a 150-character cap at all. Fixing the cap without fixing that produces 749 long titles
+  instead of 749 truncated ones.
+- **Third mechanism-based scan that did not over-fire, and the first one whose defect is
+  RECONSTRUCTABLE: 185 titles lost the hyphen inside a frequency range.** Mechanism:
+  **a digit run of five or more immediately before `MHz` is not a frequency** &mdash;
+  `450512MHz` is 450&ndash;512 MHz with the separator gone, `136174MHz` is
+  136&ndash;174 MHz, `758869MHz` is 758&ndash;869 MHz. 185 products, **179 of them
+  Fiplex by Honeywell**, plus RFS Technologies, Comprod and Polyphaser: 482 six-month
+  impressions and **$317,378 of ERP revenue**.
+  **The striking part is the closed set: 185 titles carry only TWELVE distinct broken
+  values**, and eleven of the twelve are recognisable US public-safety bands
+  (`450512`&times;135, `136174`&times;124, `470512`, `450470`, `758869`, `350600`,
+  `470490`, `150175`, `136960`, `5556000`, `1251000`, `460462465467`). So unlike the
+  truncated titles, **the text is not missing &mdash; only the separator is** &mdash; and
+  twelve substitutions would fix all 185.
+  **It still went to the owner unapplied, and the reason is one row.** `136960 MHz`
+  disagrees with the Fiplex document this file already names, `BD500-High_Power_Tapper_
+  **138**-960MHz`. One of the twelve is not obvious, which is exactly the punctuation-scan
+  precedent: *reading `34 NPT` as `3/4 NPT` is a claim about a thread size and needs a
+  document.* A split point is a claim about a frequency band and needs the same bar.
+  List in `/tmp/tfas/FREQ_hifen_perdido.csv`; the readings are marked unverified on
+  purpose.
+  **And the first attempt at this scan over-fired 30x, which is worth keeping.** Widening
+  it to voltage, current and candela with a 3-digit threshold returned **570 hits, almost
+  all correct values** &mdash; `120 VAC`, `177 cd`, `185 cd` are real. The threshold was
+  domain knowledge pretending to be a mechanism. Only the frequency case is a true
+  impossibility, because no real value has six digits before `MHz`. **Narrowing to the one
+  genuinely impossible shape is what took it from 570 noisy to 185 clean.**
 - **Addressing method can split a model line, and it changes the current draw.**
   `KIR-OSD` is the **rotary-addressed** Optica detector at 43 &micro;A standby and
   70 &micro;A alarm; the electronically-addressed twin draws 32 and 45 &micro;A. Two
