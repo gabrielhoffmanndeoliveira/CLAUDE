@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,161 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,167 pages published** — 555 from the old list plus v2b01 through
 v2b32, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
@@ -3942,6 +3942,113 @@ Revisit after the high-impression band is done.
   `/wp-content/uploads/**2026/01/**`. After the `myeddie /Media/` redirect and DITEK's
   151,291-against-152,678 bytes, this is the rule firing a third time in two days:
   **re-measure a recorded path or fingerprint before building a batch on it.**
+
+- **MD5 IS NOT SUFFICIENT FOR IMAGES EITHER, and a perceptual hash found 29 wrong
+  photographs that eight rounds of verification had passed.** An agent proposed it from
+  the Westell library and the coordinator ran it over the **whole 1,370-row delivery**,
+  downloading every image fresh. Two checks, and the second is the new one:
+  **MD5 across the whole delivery** found 16 groups where a URL-count found 4, because
+  the earlier pass compared *URLs* and these are **different URLs serving identical
+  bytes**. **A 16&times;16 dHash at Hamming 0** then found 13 more groups &mdash; *the same
+  photograph re-encoded*, which MD5 cannot see at all.
+  **What made it usable was stopping at Hamming 0.** At &le;10 the pass returns **280
+  pairs**, almost all correct: Amerex's small-parts catalogue is full of O-rings, valve
+  stems and gauges that genuinely look alike, and Power-Sonic batteries differ mainly in
+  a label. That is the over-firing signature this file records for every keyword scan
+  &mdash; **&quot;visually similar&quot; is a shape**. **&quot;Pixel-identical content
+  under two asset names&quot; is a mechanism**: it proves one photograph, and then the
+  only question is whether the two products are the same product.
+  **And that question still needed reading, which is why it is not a filter.** Of the 29
+  groups, **16 were correct and kept**: every Amerex `-P006`/`-P024`/`-P500` set is the
+  *same part in a different carton* (&quot;Seal Tamper (yellow) Sales Pack of 6 / 100 /
+  500&quot;), and the two Macurco pairs share a photo legitimately because **LADBS is an
+  approval designation, not a variant**. **13 were real and 29 rows were dropped**:
+  STI `7520OB`/`7521OB` and `7522`/`7523` are **key lock against thumb lock**, visible on
+  the cabinet; Power-Sonic `PDC-12260 NB2` shares a photograph with `PG-12V28 M5 FR`,
+  **a flame-retardant part**, which is the `UL94 HB` trap already on record; four Amerex
+  rivets (`AL Lever`, `AL Handle`, `BR Lever`, `BR Handle`) share one picture; two gauges
+  reading **200 BCF and 240 DC** share one, and the dial reading *is* the product; two
+  nameplates whose printed text is the entire difference share one; and Mircom
+  `TX3-CSR-35` (13.56 MHz smartcard) and `TX3-PCR-35` (125 kHz) share one byte for byte.
+  **Add a dHash pass at Hamming 0 beside the MD5 pass, over the whole delivery, on every
+  brand.** Ten lines, no numpy.
+- **A host can serve recompressed bytes per request, which silently disables MD5
+  de-duplication.** Measured on mircom.com by an agent re-fetching four accepted images:
+  one matched, and `1150` came back 41,939 &rarr; 36,222 bytes, `RTI-1` 85,713 &rarr;
+  62,535, `EC-220A` 57,647 &rarr; 53,671 &mdash; **different bytes and different MD5 for
+  the same URL**. So on an image-optimising host the `md5` and `bytes` in a harvest are
+  **a measurement at download time, not an identity**, and every collision check built on
+  them returns a clean result for the wrong reason. The perceptual hash is the
+  replacement, and it is the second independent argument for the pass above.
+- **Upscaling: a 600 px file is not proof of a 600 px master, and the floor was measuring
+  the wrong thing.** Westell's CDN serves `image_large.png` as a resize-to-600-long-edge
+  derivative that **upscales when the master is smaller** &mdash; proved both ways, since
+  for one SKU the master is 750&times;321 and `image_large` is *smaller* at 600&times;257,
+  while for another the master is 211&times;134 and `image_large` is 600&times;381
+  carrying no extra detail. **Six of eight Westell rows reach 600 px only that way.**
+  They are correct photographs of the right products, so rejecting them would be false
+  and publishing them asserts a detail that is not there. Handled as the Notifier framing
+  case was: **split the CSV and let the owner choose** &mdash; `lote9b` is the upscaled
+  six, on its own, said plainly. `image_original.png` returns **403, 243 bytes,
+  `application/xml`**; 600 is the ceiling.
+- **Three photo brands measured, and in all three the ceiling is CATALOGUE COVERAGE, not
+  matching or routing.** Westell **8 of 297 (2.7%)**: 216 SKUs have no page on
+  westell.com at all, and **62 of the 81 that do carry no product photograph** &mdash;
+  logo and category icons only. RFS **2 of 28**, and it is a *resolution* ceiling: 17 of
+  28 have a first-party page at the exact part number, but RFS's main image is usually a
+  `_ti` thumbnail at **320&times;200** with no larger rendition, so eight otherwise
+  perfect matches died on size alone. Comba **3 of 28**, on **combausa.com** &mdash; not
+  comba-telecom.com, which is a solutions site with no per-SKU catalogue at all &mdash;
+  and the gap is on the expensive half: no per-part record for **any** CriticalPoint NG
+  BDA. Mircom **14 of 380 (3.7%)**, where **only 146 of our 380 SKUs are named anywhere
+  on the site**, giving 9.6% of what the site actually covers.
+  **Three denominators for one brand is the point.** Mircom is 3.7% raw, 4.5% excluding
+  69 `RPL-`/`RB-` raw-material SKUs no manufacturer photographs, and 9.6% of SKUs the
+  site mentions. **A coverage rate without its denominator is not a number**, and this
+  file has now had to correct five of them.
+- **Three more open CMS routes, and one throttle worth knowing before the next brand.**
+  **`combausa.com`** is WordPress + WooCommerce with an open **Store API**
+  (`/wp-json/wc/store/v1/products`, 140 products) and an open media API.
+  **`mircom.com`** is the same shape: `wp/v2/media` is **401**, but
+  `/product-sitemap.xml` carries 328 product URLs with Yoast `<image:loc>`, and
+  `/wp-json/wc/store/v1/products?per_page=100` returns the catalogue with `sku`,
+  `permalink` and an `images[]` array carrying **`alt`** &mdash; a genuine second
+  structured field, which is what supplied `KF-101` where the page body never names it.
+  **`rfsworld.com/products_sitemap.xml`** lists 1,514 products and **the URL is the part
+  number**. But **mircom.com sets `Crawl-delay: 10` and enforces it**: a parallel probe
+  drew **HTTP 429** almost at once. Serial with backoff, not eight workers.
+  New fingerprints: `westell.com/products/<bogus>` &rarr; **HTTP 302, ~40,567 bytes**,
+  and its **MD5 varies because the slug is echoed &mdash; the byte count is the tell**;
+  the Westell CDN &rarr; 403, 243 bytes `application/xml`; `rfsworld.com` &rarr; 404 at
+  ~290,470 bytes; `combausa.com/wp-content/uploads/<bogus>` &rarr; 404 at ~76,530;
+  `mircom.com` image miss &rarr; an honest 404 at **146 bytes**, byte-identical for two
+  invented numbers. Comba also ships its own placeholder,
+  `coming-soon-image-300x300-1.jpg`, on 5 products.
+- **The coordinator's scepticism was the error for the THIRD time, and this one was an
+  agent catching itself.** A Mircom file named `FX-400R_front_sm.jpg` shows a panel
+  **silkscreened &quot;3318&quot;**, and mircom.com's own FX-3318 page shows the same
+  faceplate &mdash; the exact shape of the Power-Sonic `PGFT-12V180.jpg` / `FT-12V160`
+  case, where a manufacturer filename named one product over a photograph of another.
+  It is not that. Datasheet **`CAT-5981`** embeds this exact red panel on page 1 while
+  page 5 reads `FX-400R &mdash; Addressable Fire Alarm Control Panel - Red door`:
+  **3318 is the shared display-bezel designation of the RAM-3318-LCD family, not a panel
+  model.** *&quot;That kind of claim is usually wrong&quot; is a prior, not evidence* —
+  and a document, not a suspicion, settled it. Third instance.
+- **The no-name title census under-counted, and the mechanism that fixed it also found a
+  second defect nobody had named.** The recorded census found **22** nameless Mircom
+  titles; stripping the vendor string *and* the SKU and asking whether anything remained
+  gives **71 of 380 (18.7%)**. And **57 of those 71 repeat the brand and part number
+  twice** &mdash; the literal title is `Mircom FX-6000MNS-CH Mircom FX-6000MNS-CH`. That
+  is a **distinct import defect from truncation and from namelessness**, it is
+  mechanically detectable in one line, and a v2b33 agent independently found the same
+  shape on `PE-STWC`. Worth a catalogue-wide scan.
+- **A fourth punctuation-loss instance, and it is per-row rather than global.**
+  `FDX-008WKI`'s own description body reads *&quot;the FDX-008W/**KI** Connects&quot;*
+  while its Shopify title has lost the slash &mdash; the same mechanism as the 185
+  frequency ranges, `QAA-5415-70/25` and `ZR-MC-R`. **But seven Mircom SKUs do retain
+  their slashes** (`CM-45/4`, `QAA-5230S-70/25`, `1032/81`), so the import did not strip
+  them globally; it lost them on some rows. That matters for any fix: it is not a
+  reversible transformation applied uniformly, so each row needs its own evidence.
 
 ## Conventions
 
