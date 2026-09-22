@@ -6389,6 +6389,95 @@ Revisit after the high-impression band is done.
   useful shape to expect: **the sweep's job has become defining its own population correctly,
   and the page-level result has been clean seven times running.**
 
+- **THE `SS` SUFFIX IS TWO TOKENS, AND THIS FILE'S OWN NOTE WAS HALF THE ANSWER.** This file
+  records that `MX16RSF-US`'s ERP string reads `SS` where Eaton's ordering table says
+  **Silver**, and warns against reading it as stainless. That is right and incomplete.
+  `TD450190EN` p4, model-attributed: `MX16RSS-US` &mdash; **Call Station USA Silver Surface**
+  against `MX16RSF-US` **Silver Flush**, `MX16RRS-US` **Red Surface** and `MX16RRF-US`
+  **Red Flush**. **The grammar is `MX16R` + Silver/Red + Flush/Surface**, so the `SS` in this
+  SKU is *Silver + Surface*, **two independent tokens that happen to be the same letter**, and
+  `MX16-SSC` remains a separate stainless-steel panel front. **A suffix decode recorded from
+  one member of a family is not the family's grammar** &mdash; read enough rows to see which
+  letters vary independently.
+- **A suffix confirmed manufacturer-stated where this file had only an inference, and it
+  independently vindicated a photo rejection.** `TD450184EN` (Feb 2026) Table 1 is
+  model-attributed: `STH-2R-ELSTC-F | Red | Strobe Plate FIRE` and `STH-2R-ELSTC-N | Red |
+  no ltr`, under a group heading reading **&quot;2 Horn&quot;**, with prose *&quot;Supplied
+  with two STH-15SR horns and one ELSTC strobe&quot;*. So the numeral is a horn count, as
+  recorded &mdash; **and this is the document that proves the look-pass rejection of a `2R`
+  photograph showing four horns was correct.** A verification run months apart on a different
+  workstream confirming an image decision is the strongest form of corroboration this project
+  gets.
+  **Document defect on the same sheet, nothing published from it:** its plain-speaker block
+  says *&quot;**STH-2R** &mdash; Supplied with **four** horns&quot;*, the STH-4R sentence
+  pasted onto the STH-2R entry. The `-ELSTC-` variant's own paragraph correctly says two.
+- **&quot;A null may well be the right answer&quot; was wrong, and the honest search endpoint
+  is what disproved it.** The briefing predicted `COP-IXDVF-NR1G` would be unfindable, since
+  **zero Aiphone product slugs and zero media filenames begin with `cop-`**. Aiphone publishes
+  a first-party spec sheet for it (11/24) plus a price-list row, and
+  **`know.aiphone.com/search?query=` discriminates** (bogus &rarr; `[]`, 2 bytes) where
+  `aiphone.com/?s=` does not. Note Aiphone spells it **two ways in its own literature** &mdash;
+  `COP-IXDVF-NR1G` in the price list, matching the store SKU, and `COP-IX-DVF-NR1G` in the
+  knowledge base. Neither is a defect. **`COP` = Custom Order Product.**
+- **A derivable library path that does not cover every model in its own series, proved by a
+  bogus control.** This file records `altronix.com/library/pdf/data_sheets/DS_<MODEL>.pdf` as
+  *fully derivable inside the library*. `DS_AL300ULPD8.pdf`, `DS_AL300ULX.pdf` **and a bogus
+  control** all returned the identical stable **13,828-byte** `text/html` 404 &mdash; so the
+  model-level path does not exist for this family and the real document is the **series** sheet
+  `DS_AL300ULXseries.pdf`. **A route that is derivable for the models it covers is not thereby
+  derivable for the series**, and only the bogus control distinguishes &quot;this model has no
+  sheet&quot; from &quot;this route is dead&quot;.
+  From that sheet, a scoping distinction worth copying: its agency block is explicitly headed
+  **&quot;All Models:&quot; for UL 294 / UL 603 / UL 1069 / UL 1481**, while **CSFM is
+  separately scoped to &quot;AL300ULX, AL300ULXX and AL300ULXJ only&quot;**. UL 1481 went in
+  the title and CSFM deliberately did not. **A listings block can carry two scopes on one
+  page**, which is the series-wide-block trap with the manufacturer doing the attribution
+  correctly for once &mdash; so read the scope line, do not assume the block is uniform.
+- **A part in NEITHER obvious document, found in an installation sheet's figure callout.**
+  `4-CABL0505` appears **zero times** in `E85014-0004` *&quot;EST4 Cabinets and Chassis&quot;*
+  (fetched first-party, bogus control = the documented 1,245-byte 404), whose only `4-CABL`
+  row is `4-CABLUSBLG`. It is in the **4-CAB16D Series Door Assembly Installation Sheet**
+  `3102273-EN REV 001`, as **callout (10) of Figure 5**, read off a 300 dpi render: a UI flex
+  cable running J1&rarr;J2 between two `4-8ANNFA` frame assemblies on the inner door. **Eleventh
+  wrong-document-family instance, and the second where the answer was a figure callout rather
+  than a table** &mdash; for an accessory, go to the parent's *installation* material and read
+  its exploded diagram, not its catalogue sheet.
+- **A FIFTH non-discriminating search endpoint, and the byte count is the tell for the fifth
+  time.** `hochikieurope.com/?s=` returned **exactly 39,632 bytes** for a real term, a second
+  real term and a bogus term, differing in MD5 only because the page echoes the query. After
+  `hochikiamerica.com/ecom/productsearch`, `pottersignal.com/search`, Interstate Batteries,
+  safefiredetection and Napco's tag index, this is now a *category* of host rather than a
+  quirk. **The reliable test remains whether the response contains what you asked for.**
+  And the same brand confirms the converse from the other side: **Hochiki America has two
+  search routes and only one is honest** &mdash; `/products-search?qs=` discriminates and
+  prints *&quot;There are no results for this search&quot;*, and it is what produced both
+  Hochiki positives here.
+  New first-party routes mapped: **Hochiki Europe's document library is open and enumerable**
+  through `hochikieurope.com/product/<range>`, which embeds
+  `assets.hochikiglobal.com/assetbank-hochikieurope/assetfile/<id>.pdf` links &mdash;
+  `assetfile/16132.pdf` is the 56-page **Product Guide ISS33:MAR26** carrying a model-attributed
+  entry for every ESP part **plus a colour-swatch legend and the parenthetical colour
+  convention** (`YBO-R/3(WHT)`, `CHQ-CB (WHT)/WL`). And **Hochiki America serves datasheets at
+  `hochikiamerica.com/img/product/description/<Name>_<MM-YYYY>.pdf`**, honest 302-byte 404,
+  with product URLs of the form slug-plus-code (`/ms-ra-remote-alarm-led-0400-01270`).
+- **A `null` whose value is that it names the ONE request that settles three products.**
+  `DHS40-HG-SCH-1-A` was left untitled on a bounded negative: Fiplex `BD376.12`, Honeywell
+  `BD376 7.0` and manual `UM-0909` all read in full and **none contains the string
+  &quot;DHS40&quot;**; `fiplex.com` is Akamai-blocked as recorded; and **every FCC route is
+  blocked from this environment** &mdash; fccid.io, fcc.report, device.report, electric.garden,
+  usermanual.wiki and manualzz all 403, fccid.report and fcc.io 404, and the FCC's own
+  `apps.fcc.gov/oetcf/eas/` 503 on two query shapes.
+  **Two suffix tokens have competing readings and either would be expensive in a feed title:**
+  `-A` is *AC power* in Fiplex's own DH7S ordering block but *Class A* in the FCC index title
+  for the sibling `DHS40-HG-A`; and `-SCH-1` is described by distributors as an 806&ndash;824 MHz
+  **uplink** unit &mdash; on a **different part number**, which is the correlated-consensus
+  failure exactly.
+  **The useful output is the ask, not the gap: one Fiplex Document Center login settles this,
+  `BDA-TP10-L2` and `BDA-NMP01250` together.** Three products, one request, and the documents
+  are named and findable (DHS40 / Single Carrier Amplifier datasheet, or `UM-0914`).
+  **A bounded negative earns its keep when it converts research into a purchase-order
+  question**, which is the same shape as the pack-count rows and the Trilogy ordering unit.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
