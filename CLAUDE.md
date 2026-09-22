@@ -95,8 +95,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 986 pages published** — 555 from the old list plus v2b01 through
-v2b24, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,004 pages published** — 555 from the old list plus v2b01 through
+v2b25, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -2301,6 +2301,40 @@ Revisit after the high-impression band is done.
   landing on a relay. Note the Shopify `type` field said "Relays" and was right while
   the title was wrong: **when a structured field disagrees with the title, that is
   a signal, not noise.**
+- **Addressing method can split a model line, and it changes the current draw.**
+  `KIR-OSD` is the **rotary-addressed** Optica detector at 43 &micro;A standby and
+  70 &micro;A alarm; the electronically-addressed twin draws 32 and 45 &micro;A. Two
+  parts under one family name, differing in how the address is set, with a ~50%
+  current difference that lands straight in a battery calculation. **The rotary /
+  electronic split is a real separator on this brand** &mdash; do not read a shared
+  family name as a shared spec sheet row.
+- **A brand word in a store title that the manufacturer has never written.**
+  A Simplex page carried &quot;Digitalflex&quot;. The manufacturer's name for that
+  line is **Flex-50**; &quot;Digitalflex&quot; appears in no Simplex document. This is
+  a different failure from a wrong class noun &mdash; the noun was right and the
+  *proper name* was invented &mdash; and it is invisible to every scan this project
+  runs, because a made-up brand word has no shape and no sibling to disagree with. The
+  only thing that catches it is an agent reading the live title against the ordering
+  block.
+- **A trailing numeral can be a count, not a model distinction.** `PCVS-2`'s `2`
+  records **how many switches the unit contains**, not which model it is. So the
+  sibling-part rule has a third form alongside &quot;one character apart&quot; and
+  &quot;suffix encodes a protocol&quot;: **the number may be a quantity inside the
+  product**, and a title that reads it as a generation number asserts something the
+  manufacturer does not.
+- **Three supersession claims in one batch, and the split was two to one again.**
+  `SCWLED-CLR-ALERT`'s &quot;replaced by&quot; **is** manufacturer-stated &mdash;
+  bulletin `M23.2SS`'s REPLACES table &mdash; so it stayed in the title. `KIR-OSD`'s
+  and `GCSVWN`'s are unsourced and were moved to the body. That is now the settled
+  handling and it has held across four batches: **the bulletin is the source, the
+  datasheet almost never is, and an unsourced claim costs money in two channels if it
+  sits in a feed attribute.**
+- **A required accessory sold only in a carton of ten is a purchasing fact, not a
+  spec.** Edwards states the **GRSW** wiring plate is required for `GCSVWN` and sells
+  it **only as a 10-pack**. A buyer ordering one appliance cannot order one plate. That
+  belongs in the closing paragraph next to the sibling parts, because it is the thing
+  the buyer gets wrong &mdash; and it is the `4099-9015` / `A49CMT-APPLW` incomplete-
+  product trap with a quantity attached.
 
 ## Conventions
 
