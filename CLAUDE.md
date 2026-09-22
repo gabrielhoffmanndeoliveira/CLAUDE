@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,301 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,313 pages published** — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -5805,6 +5805,76 @@ Revisit after the high-impression band is done.
   routes that were tried**, because a bare &quot;needs a different route&quot; cannot be audited and
   therefore never gets re-run. The three brand names sitting in one sentence is what let a wrong one
   hide next to two that may be right.
+
+- **The owner asked for ten more agents, and the right answer was to change the MIX rather than
+  argue the ceiling.** This file records six concurrent as the limit, measured &mdash; and the
+  measurement is about the *coordinator*, who is serial: every returning batch costs 10&ndash;15
+  minutes to validate against the schema, read the strongest claim personally, publish, record and
+  commit. **But that cost is not the same per workstream**, and the file had never said so:
+  a photo harvest returns a JSON the coordinator processes by script at ~1,448 tokens per delivered
+  row; a title-only lot returns one line per product, validated by script and published in one
+  aliased mutation; an enrichment batch returns six 1,100-character bodies that must each be read.
+  **So fourteen agents were launched with only three on enrichment** &mdash; six photo, four
+  title-only, one forensic &mdash; and the queue behind the coordinator stays roughly where six
+  enrichment agents would have put it. **State the constraint, then engineer around it; do not
+  refuse the number.**
+- **Verified before publishing, and both were live title changes resting on an absence.**
+  `4901-9820` was titled *&quot;Logo Only&quot;*: Simplex `S4901-0010 Rev. 10 01/2020`, fetched and
+  read by the coordinator, contains **`Logo` zero times**, heads Figure 1 *&quot;Red Cover with
+  White Lettering&quot;*, and lists only two covers, `4905-9988` and `4905-9989`, **both lettered
+  FIRE**. And `TG-7FE-V`'s new title asserts a **listing scope**, the most expensive claim class in
+  a feed attribute: Telguard install guide `56052601`, fetched from EDAM, tabulates
+  **`TG-7FE-V` (Verizon) | Systems in United States | UL 1610, UL 864** against
+  **`TG-7FE-A` (AT&amp;T) | United States and Canada | UL 1610, ULC-S304, UL 864, ULC-S559**.
+  The Verizon model has no Canadian listing and the store sells into a market where that matters.
+- **Two more coordinator premises wrong, and one of them was wrong on every letter.** The briefing
+  decoded `GCHFWF-S7VMC` as *H horn, S7 a 7 W tap, C ceiling*. Edwards `E85001-0641` Issue 2.3:
+  **`HF` is High Fidelity** (520 Hz &mdash; there is no horn on the appliance at all), **`S7` is the
+  70 Vrms speaker input** (the taps are 1/4 to 2 W), and **`C` is the clear lens** &mdash; ceiling is
+  the leading `GC`. `S7` read as a wattage would have put a wrong electrical spec in a feed title.
+  Separately, **&quot;a power supply for fire is UL 864&quot; is wrong**: UL 864 covers control
+  units and **UL 1481** is the standard for a fire-signalling *power supply*, and the `AL600ULXB`
+  carries **UL 294, UL 603 and UL 1481 at once** &mdash; there was no either/or to resolve.
+- **A recorded contradiction did not reproduce, and the honest finding is that it belongs to a
+  different product.** The briefing told an agent to publish nothing if it hit this file's recorded
+  STI polycarbonate split (&minus;40 to 250 &deg;F against &minus;40 to 284 &deg;F). Measured on
+  `STI-7520`: **`284` appears zero times** in the English sales sheet, the French sales sheet and the
+  installation sheet, and **the install sheet states no temperature at all**. Two documents do not
+  disagree &mdash; one is silent, and 250 &deg;F is corroborated verbatim across two languages.
+  **A contradiction recorded on one product of a brand is not a standing rule for the brand**, which
+  is the pack-count scope error (category &rarr; vendor &rarr; document line) firing a fourth time.
+- **The `Q` prefix is not a family and an agent proved it by finding the accessory inside it.**
+  The briefing assumed Mircom's `QAA`/`QCC`/`QBB`/`QAD`/`QMT` middle letters encode a device class.
+  **`QAA` alone spans two classes**: `QAA-5415`/`-5160`/`-5230` are audio amplifiers at ~$1,500,
+  and **`QAA-4CLA` is a $134 Class A converter &mdash; a 16-terminal block that replaces the
+  amplifier's own terminal strip.** `LT-859` is headed *&quot;QAA-4CLA CLASS A CONVERTER FOR
+  QAA-5415 AMPLIFIER&quot;*, and **`4CLA` appears zero times in both QAA amplifier sheets** &mdash;
+  an accessory is usually not a document, for the second time.
+  **Six of that lot's twelve are enclosures, chassis or cards, and four are priced like panels.**
+  `FX-6000MNS-CH` at **$2,037** is typed **Control Panels** and is *&quot;a backplate&hellip; mounted
+  into the BBX-FXMNS-6000 backbox&quot;* &mdash; **and that backbox is a separate $1,999 SKU in this
+  same store.** `QBB-6001` at $1,136 is an empty cabinet whose sheet uses the word **required**
+  twice. **Eleven of twelve `type` values are wrong or useless**, and on the chassis the field
+  pointed the wrong way rather than staying silent.
+- **A positive control is what reveals an endpoint that returns a false negative, and a bogus-only
+  control reads it as honest.** Mircom's WooCommerce Store API returns **0 rows for
+  `search=BBX-1024`**, a product that certainly exists, and 0 for the bogus term as well &mdash; so
+  a bogus-only control concludes *&quot;honest endpoint, part absent&quot;* and is wrong on five of
+  twelve. The `?s=` route does discriminate, and **the tell is the byte count, not the MD5**, since
+  the page echoes the query. **Carry a known-good control as well as a bogus one.**
+  Route worth keeping: **`mircom.com/product-documents/` is a single 939 KB page listing all 2,132
+  product PDFs**, so one fetch enumerates the library and filename construction is unnecessary; a
+  document miss there is an honest 404 at **146 bytes**.
+- **A fifth mechanism-based scan, clean on its first run: a page that spells its own part number two
+  different ways.** Mechanism: **a title token of six or more alphanumerics that the description
+  writes WITH a separator** &mdash; the product contradicting itself about punctuation, which cannot
+  be correct in either direction. **21 hits, no false positives**: Simplex `49049176` against
+  `4904-9176`, Det-Tronics `006300001` against `006300-001` (six of them), Apollo `ORBOP42003MAR`
+  against `ORB-OP-42003-MAR`, RFS `5556000MHz` against `555-6000MHz`, BRK `SMCO100VAC` against
+  `SMCO100V-AC`. That is the punctuation-stripping import found **by mechanism** for the first time,
+  after six instances found one page at a time by agents reading. List in
+  `/tmp/tfas/PONTUACAO_autocontradicao.json`; **not applied**, because choosing which spelling is
+  right is a claim about a part number and needs the manufacturer, exactly as `34 NPT` did.
 
 ## Conventions
 
