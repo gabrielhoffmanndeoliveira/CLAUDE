@@ -5926,6 +5926,105 @@ Revisit after the high-impression band is done.
   its trailing `-L`** or it returns 302 with zero bytes, and **`PS-12260`'s slug is
   `ps-12260-12261`**, a combined page &mdash; the slug is not derivable from the SKU.
 
+- **Kidde Fenwal re-tested: the recorded negative was roughly right about the NUMBER and wrong
+  about the REASON, and the difference decides what to do next.** This file called it &quot;a brand
+  needing a dealer image pack&quot;, which reads as *undocumented*. It is the opposite:
+  **344 first-party datasheets, openly served, no bot protection, and 131 of 400 SKUs named
+  verbatim in them.** What is missing is **per-part imagery above the size floor**, and the ceiling
+  is size and attribution, not routing. **5 of 399 photographable, 1.25%.**
+  **The denominator is the finding.** Of 400: 138 Kidde electronics, 98 cylinders and heads,
+  **97 CARDOX low-pressure-CO&#8322; storage hardware** &mdash; the ERP-string liquid-level gauges,
+  R404A condensers and valves already recorded here &mdash; which appear **zero times in all 344
+  documents** because they are third-party OEM components inside a Kidde vessel. **No route will
+  ever reach those 97.** And a population correction worth keeping: **zero of the 400 are
+  Edwards/kidde-esfire lineage**, so the two-lineage hypothesis is right in general and that route
+  does not apply to this brand at all.
+  **Route A, better than the one on record:** `kiddefenwal.com/wp-json/wp/v2/wpdmpro?per_page=100`
+  enumerates the library exactly &mdash; **350 documents with titles** &mdash; against the 206 the
+  recorded `?wpdmdl=` id-sweep found. **Route B dies on one number:** the site media API is open at
+  763 images and **every per-product image is 485&times;400**; product images at or above 600 px are
+  **zero**. The two pools are disjoint, measured: a dHash of 157 datasheet-extracted images against
+  703 site images returns **0 matches at Hamming &le;6**.
+  **And the five delivered have NO URL** &mdash; they are embedded in PDFs and published nowhere as
+  standalone assets, so they cannot enter the Matrixify pipeline, which keys on `Image Src`. Left as
+  `image_url: null` with the local path recorded. **The reason to care is not the five: the
+  datasheet-extraction route is the only route that ever clears 600 px on this brand**, so a
+  bytes-upload path is the prerequisite for the brand at all.
+- **The &quot;dealer image pack&quot; this file speculated about EXISTS, is public, and is thirty-nine
+  photographs &mdash; three of them reachable.** An agent found it while proving the Kidde-ES route
+  does *not* apply; the coordinator then downloaded and measured all five packs directly, because
+  the framing was doing a lot of work. `kidde-esfire.com`'s literature library has two categories
+  this file never recorded, **`Images` and `CAD Drawings`**, and `Images` serves exactly five open
+  ZIPs from `myeddie.edwardsfiresafety.com/PublicMedia/Images/` (bogus control: the documented
+  1,245-byte 404).
+  **Measured, because the sizes mislead.** *Genesis Photography* (3.6 MB) is the prize: **12 images
+  filed per catalogue number** &mdash; `EG4SVRF - Wall Speaker-Strobe.jpg`, `EGCSVWA - Ceiling
+  Speaker-Strobe ALERT.jpg` &mdash; at 1,044&times;1,079 to 2,400&times;2,500, far above the floor.
+  *Optica* (32 MB) is five images at up to 6,799&times;4,275, **none of whose models are in this
+  catalogue**. *FX Panels* is four, filed by marketing name rather than catalogue number.
+  **And *Evolve Series* is 131 MB of THIRTEEN marketing renders by colour and angle, with no
+  catalogue number anywhere** &mdash; the family-asset pattern this project rejects.
+  **Cross-matched against the catalogue: 16 numbers, 5 already have a photograph, 5 are not in the
+  store, and THREE are reachable placeholder products** (`EG4SVWA`, `EGCSVWA`, `EWGSVMRF`).
+  **Individual files do not resolve** &mdash; three probes, all the 1,245-byte 404 &mdash; so this
+  is a ZIP-only pool and needs the same bytes-upload path as the Fenwal five.
+  **The transferable lesson is about sizing a find from its bytes.** 131 MB read as a trove and is
+  thirteen renders; 3.6 MB read as trivial and is the only per-SKU pool in the set. **Enumerate and
+  measure before valuing a route** &mdash; the same discipline this file demands of a scan's
+  precision, applied to a download.
+- **A look-pass rejection that is the Power-Sonic shape on an extinguishing agent, which is the
+  worst place for it.** `45-550451-901` had the best paper case in its batch: its Kidde datasheet
+  states verbatim *&quot;The part number for ordering the ECS-500 System 450 lb. cylinder with
+  liquid level indicator is 45-550451-901&quot;*, the sheet is titled **Fluoro-K**, and page 1
+  carries a cylinder photograph with the subject filling the frame. Every mechanical check passes.
+  **Zoomed 6&times;, the cylinder's own label reads &quot;Fire Suppression System with HFC-227ea
+  Agent&quot;** &mdash; Kidde reused the HFC-227ea photograph on the Fluoro-K sheet. **On an
+  extinguishing product the agent IS the distinction**, which is the `429022` &quot;ABC on a clean
+  agent&quot; defect waiting to happen in a picture rather than a word.
+- **The `RMS-1T` family resolved, and it is a case where THREE of six pages were right and the two
+  worst defects are the owner's to settle, not research's.** Six live pages contradicting each
+  other on action count, class, vendor and type. The decoder is
+  `pottersignal.com/product/tool/rms.pdf`, which **has no text layer at all** and was read entirely
+  off a 200 dpi render.
+  **The decode, and it kills the obvious wrong reading:** the digit before `T` is the **switch
+  function** (1 SPST, 2 DPST, 3 SPDT, 6 DPDT), and **`T` is the TERMINAL BLOCK variant** &mdash;
+  the Model table gives `1P` terminal block &quot;None&quot; with leads against `1T` terminal block
+  &quot;A&quot;. **`T` is not the T-handle**: the engineering spec calls for a &quot;T type pull
+  handle&quot; on *every* model including `1P`. `LP` is **Dual Action**, cast **&quot;LIFT &amp;
+  PULL&quot;** on the cover in the installation drawing; `KL` is the key-lock reset; `KO` is
+  **key operated, no pull**, verbatim in the Contact Type cell. **`RMS` is expanded nowhere** and
+  was recorded as a bounded negative rather than guessed.
+  **Four of the six are definitively NOT releasing equipment, decided by the ordering line.** Potter
+  splits the family across two bulletins &mdash; `8900097` standard die-cast stations and `8910014`
+  special application &mdash; and in the special-application bulletin a releasing unit **always
+  carries a colour word AND a Wording** plus a stock number in the 10006xx band. The four sit in
+  `8900097` as bare model strings.
+  **The two that remain are the interesting ones and both went to the owner.**
+  `RMS-1T-WP YELLOW`: **two Potter stock numbers share the identical model string and differ only
+  in the Wording column &mdash; 1000682 HAZ MAT and 1000620 PREACTION RELEASE** &mdash; and the
+  store SKU carries the colour but not the wording, so **it is not a complete Potter order code.**
+  The title was corrected only where demonstrable (the live one said *Dual-action* where both
+  candidates read SPST Single Action, and glossed HAZ MAT lettering as a hazardous-*location*
+  rating, which is the separate `RMS-6T-EXP`) and **deliberately asserts no wording**.
+  `RMS-1T-KL`: **the title and the SKU name two different products** &mdash; SKU in `8900097` as
+  stock 1000451, a standard single-action station, against a title claiming Pre-Action Release with
+  stock `1000688`, which appears **zero times in every Potter document read** though it falls inside
+  the observed special-application band. **No title proposed**, and the stray `)` from the
+  truncation import was **deliberately not fixed alone**, because fixing it would leave a
+  tidy-looking title asserting the wrong product.
+  **And the merged-cell trap fired twice on one table with three methods giving three answers.**
+  `8900097` merges &quot;Single Action&quot; down five rows and &quot;SPST&quot; down three; plain
+  text attached that SPST to one model, **word coordinates attached it to a different one**, and
+  **only the 300 dpi render showed it spans all three.** First recorded instance of coordinates
+  being not merely insufficient but actively wrong where plain text was also wrong &mdash; the
+  three-step ladder earning its third step outright.
+  **Colour encodes nothing about class, on a second brand.** Potter release stations exist in blue,
+  red and yellow, and yellow exists in non-release wordings (EMERGENCY, GAS, HAZ MAT). After
+  SigCom's *&quot;There is no agency standard, outside of red for fire&quot;*, the yellow-means-
+  releasing convention is now disproved twice.
+  Route: **`pottersignal.com/sitemap.xml` enumerates 625 document URLs in one fetch**, which is how
+  all four bulletins were found, and `/product/tool/` is a directory this file did not record.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
