@@ -3207,6 +3207,60 @@ Revisit after the high-impression band is done.
   adjusting is the family, not the eight. **The scan reports that a family disagrees, never
   which member is wrong**, for the fourth time.
   Full list in `/tmp/tfas/SCAN_familia_type_REAIS.json`.
+- **THE MIME CHECK IS NOT SUFFICIENT FOR IMAGES, and this is the first host that proves
+  it.** `1sae.com` (Space Age) answers a miss with **HTTP 200, `image/png`, 3,264 bytes,
+  md5 `74471fe1e675f0eef008b3980535c469`** &mdash; **byte-identical for every bogus path**,
+  verified by the coordinator against two invented part numbers. It is a *real PNG*. Status
+  passes, `file -b --mime-type` passes, PIL opens it and reports dimensions. **Only an
+  MD5 or byte-length comparison discriminates.**
+  This file has treated `file -b --mime-type` as the non-optional gate since the
+  `systemsensor.com` trap, and for documents it still is. For images it is not: **a host can
+  serve a genuine image as its 404.** That is the image-side twin of the genuine-PDF-with-
+  unusable-text-layer finding &mdash; in both cases the check that separates fake from real
+  says nothing about whether the real thing is the thing you asked for. **So every photo
+  route needs a bogus-SKU control measured by MD5, not by mime**, and the control must run
+  at download time rather than on a HEAD. Checked on the 80 Space Age rows: **zero are the
+  placeholder.**
+- **The MD5 pass is not a nicety; it caught nine rows the URL-reuse count could not see.**
+  URL counting isolated the obvious generics exactly as designed (Mircom's `ul.jpg` on 60
+  pages, `csfm-1.jpg` on 59, Westell's logo on all 420). **MD5 then dropped 24 more
+  candidate rows**: `T12-DG`/`T32-DG`/`T48-DG`/`T90-DG` are **one byte-identical family
+  photo published under four different filenames**, and `IGB1B` &equiv; `IAVHORN` are two
+  **unrelated** products sharing one image. Without it those ship looking perfect.
+- **Filename evidence can be structurally unavailable, and the substitute has to be
+  measured rather than assumed.** Every Westell product photo is served as
+  `&hellip;/westell/db/348/<numeric-id>/image.png` on an investor-relations CloudFront
+  &mdash; **no part number anywhere in the path**, so the boundary rule cannot run at all.
+  The agent substituted the `alt` attribute, which carries the exact part number on all 395
+  image elements, **and then measured the substitute's risk directly: zero of 395 alts
+  disagree with their page slug**, i.e. zero instances of the `8100-V4G`/successor shape on
+  that host. **That is the right shape for replacing a safeguard** &mdash; name the
+  replacement, then measure the failure mode the original existed to catch. Also recorded:
+  `image_medium.png` is the ~12 KB thumbnail and **`image.png` is the full-size original**,
+  eight times the pixels.
+- **Wide aspect is about FRAMING, not about shape, and a blanket ratio filter gets it
+  wrong.** 28 Westell rows are 2.5:1 or wider and all 28 are correct &mdash; 1RU breaker,
+  fuse and transition panels, which genuinely are that shape, with the subject filling the
+  frame. The Notifier strips rejected earlier were the opposite: a small subject adrift in a
+  2048 &times; 280 canvas. **Same ratio, opposite meaning.** So the third outcome recorded
+  last batch needs restating: it is *&quot;subject too small in the frame&quot;*, which a
+  ratio only hints at, and the resolution is to look.
+- **Three coverage estimates corrected, each for a different reason, which is why the
+  denominator has to travel with the number.** Space Age 32% &rarr; **16.7%**, and the
+  binding constraint is not matching but **image size**: 107 of 190 candidates die on the
+  300 px floor because 1sae originals are routinely 200 &times; 200. Westell 29% &rarr;
+  **19.9%**, because **216 of our 371 SKUs have no page on westell.com at all** &mdash; the
+  site carries 420 products total. Mircom 16% &rarr; **7.3%**, and that gap is *rule
+  strictness*: **26 of the 49 earlier hits fail the full boundary rule**, being group shots
+  (`MIX-4001-4002-group_sm.jpg`) or longer-SKU-owns-file (`MIX-4040-M` owning `MIX-4040`).
+  **Matching, sizing and catalogue coverage are three different ceilings and they do not
+  substitute for one another.**
+- **`catalogo_full.json` carries Shopify's real `sku` for all 16,031 products, and that
+  ends the SKU-extraction problem.** Joining on `id` gave 1,261 of 1,261 rows with zero
+  handle mismatches and zero disagreement with the partial `skus_B.json`. The handle-tail
+  validation still earns its place as a *check* &mdash; it confirmed 1,258 and skipped
+  exactly the three unrepresentable cases &mdash; but no extraction is needed. **Stop
+  parsing titles for part numbers.**
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
