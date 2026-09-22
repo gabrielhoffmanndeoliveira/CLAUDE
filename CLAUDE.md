@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,212 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,218 pages published** — 555 from the old list plus v2b01 through
 v2b32, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
@@ -4554,6 +4554,131 @@ Revisit after the high-impression band is done.
   the fingerprint under both roots, while
   **`EPS40_Sup_Pressure_Switch_DataSheet_WFDS518.pdf` resolves under the
   `honeywell-edam` root only** &mdash; the `<Model>_<Description>_<DocNum>.pdf` shape.
+
+- **The vendor field looked wrong and was RIGHT, and knowing which shape you are in
+  takes reading the document.** `XCL-VEA-H2-RA` sits under vendor **Vesda** and is a
+  Sensepoint XCL gas detector, which is a Honeywell Analytics line &mdash; so the
+  briefing called it the `OSE-HPW` case (a Vesda-vendored OSID part) and told the agent
+  to flag it. **It is not.** The manufacturer's own product name for that order code is
+  **&quot;VESDA Sensepoint XCL&quot;**, and Xtralis doc `33770_02` opens *&quot;Xtralis
+  the manufacturer of the market leading VESDA Aspirating Smoke Detection technology has
+  developed **with its sister company Honeywell Analytics** a new concept of aspirated
+  gas detectors&quot;*, with the approvals footnote *&quot;These Listings/Approvals are
+  owned by Xtralis, a Honeywell company.&quot;* **Vendor untouched, and it needs no owner
+  flag.** This is the `PIP-018` shape, not the `OSE-HPW` shape: **the brand looks wrong
+  until you read the document**, and the two shapes are indistinguishable from outside.
+  Also settled there: **1000 ppm is the RANGE, not a set point** &mdash; it sits in the
+  Available Sensors list beside *&quot;CO: 300ppm (adjustable 50&ndash;1000ppm)&quot;*,
+  where the adjustable ones say so and H2 does not. And **the H2 variant is NOT UL 2075
+  listed**: the sheet states UL 2075 for &quot;(CO and CH4)&quot; only, a variant
+  boundary inside one family.
+- **An ERP assembly prefix read as a product attribute, and the correction is a positive
+  one.** `SLM-318`'s title is the raw ERP string *&quot;Assembly, FNL, Loop Card,
+  CLP&quot;*, and the briefing guessed `FNL` was a panel family and `CLP` a protocol.
+  **`FNL` appears zero times in three Honeywell documents** and turns up on the entirely
+  unrelated `NFN-GW-PC-HNSF` gateway (*&quot;Assy, FNL, HS NFN GW SGL, Fiber&quot;*), so
+  it is a Honeywell ERP token. **`CLP` is settled positively**: `HON-62115:A`'s footnote
+  reads *&quot;SLM-318 version identifier is printed on the PC board: **CLP-PCB or
+  CLP2-PCB**&quot;* &mdash; the protocols are FlashScan and CLIP, and CLP names the board.
+  **That distinction is not academic: the two boards carry different self-test loop
+  limits** (CLP-PCB 7,200/4,500/2,800/1,800 ft at 23 &#937;; CLP2-PCB
+  11,000/6,900/4,350/2,700 ft at 35 &#937;). The agent published the CLP2 figures because
+  that is what the current datasheet prints, and **refused to read the ERP token as a
+  board revision** &mdash; correctly, since that would be a claim off an ERP string.
+  Third instance of the raw-ERP-title shape after `010254-008` (&quot;DISPLAY, DCU&quot;)
+  and `MX16RSF-US`'s &quot;SS&quot;.
+- **A bracket that is a VEHICLE bracket, and a material claim removed by the inverted
+  proof.** Amerex `818`'s title read *&quot;Steel Fire Extinguisher Bracket (Red)&quot;*
+  and **never said vehicle or marine**; Amerex's parts book gives `01211-P` as
+  *&quot;Vehicle/Marine Bracket (Red) &mdash; All 5 lb., 5&frac12; lb. Aluminum Valve
+  Models&quot;* and files it under Vehicle/Marine/Aviation in three documents. A buyer
+  wanting a wall hanger receives a vehicle bracket, and the reverse.
+  **&quot;Steel&quot; was dropped, and the reason is the `DN-62046` inverted proof in
+  miniature: Amerex states a material when it means to** &mdash; the wall-hanger list on
+  the same page carries *&quot;Wall Hanger Bracket (Stainless Steel)&quot;*. It is very
+  likely steel and it is not stated; **if TFAS can read it off a carton it should go back
+  in.** The separator no distributor states: **`821` covers the same 5 lb. and 5&frac12;
+  lb. sizes but is listed for aluminum AND brass valve models**, so the valve and not the
+  cylinder weight decides.
+  Route: **Amerex's product pages are useless and its document library is enumerable.**
+  `/products/fire-extinguisher-brackets/` **404s**, the category page is a JS shell with
+  zero PDF links and `robots.txt` is a 10-byte comment &mdash; but the raw markup of
+  **`/learning-center/product-brochures/`** discloses **60 PDFs** under
+  `/upl/downloads/content-blocks/<slug>.pdf`, mime-clean, no bot protection. Fourth brand
+  recovered by reading markup rather than the rendered page.
+- **`?download=false` is a SIXTH EDAM axis and it flips a 404 into a 200.** Measured
+  reproducibly: `.../hon-ba-fire-dn-62112-l-ulc-n16-datasheet-19-feb-2026.pdf` returns
+  the 8,047-byte fingerprint **2 of 2 tries**, and the identical path with
+  `?download=false` returns **HTTP 200, 366,470 bytes, clean PDF, 2 of 2**;
+  `?download=true` returns the fingerprint. So **a search result showing EDAM content at
+  a path that 404s for curl may simply need the query parameter.** Not universal &mdash;
+  it did not rescue the SLM-318 English slug. Also new: a dated subdirectory
+  `datasheets/gamewell-101625/`, same shape as the recorded `flexbda-050526/`.
+- **The &quot;prefer 9021- over AVDS&quot; rule has now failed twice, and the boundary is
+  the same both times.** `9021-60931` is the right-sounding Gamewell-FCI L-Series wall
+  speaker-strobe sheet and contains **zero occurrences of &quot;LED&quot;**, so it cannot
+  carry an LED part; `AVDS-62174:A` is the only sheet that does. That repeats the
+  `P2WL-P` / `9021-60929` case exactly. **Prefer a document family only until you have
+  checked that it contains the part** &mdash; and the cheapest check is a grep for a word
+  the part's own number implies.
+- **A suffix-family list in my own briefing was wrong, and the agent corrected it from
+  the ordering table.** I wrote that `-CLR-ALERT` is the amber alert model.
+  `AVDS-62174:A` gives **`SPSWLED-ALERT` = AMBER lens** and **`SPSWLED-CLR-ALERT` =
+  CLEAR lens** &mdash; `-CLR-` is the clear one, which is what the letters say once you
+  read them. Worth recording because this file now carries several suffix decodes, and
+  **a decode repeated from memory into a briefing is exactly the hand-transcription
+  failure in a new field.**
+- **`S3000` confirmed a FOURTH time, on the document the coordinator could not
+  previously retrieve.** This file records that a v2b27 agent read it off `E85010-0057`
+  and that the fetch failed at the time. That document is now in hand: **`S3000` is
+  printed in its page-1 Approvals block beside `7165-1657:0186/0306`, the ULC mark, CE
+  and the EN 54 lines.** So the ULC-file-number finding has confirmations on
+  `E85010-0130`, the Kidde FX sheet, and **its own original source**. The old
+  &quot;bogus S3000&quot; note is disproved on the document that produced it. Leave it
+  settled; the slug is `E85010-0057 -- EST3 Zoned Audio Amplifiers.pdf`, built by hand
+  after a search gave both the number and the title.
+- **Three more self-contradicting documents, nothing published from any.** `DN-62112:L`'s
+  replacement-parts block calls the SLM-318 *&quot;a Signaling Line Circuit of 159
+  addressable points&quot;* while a feature bullet on the same sheet says *&quot;Up to
+  159 detectors and 159 modules per SLC; 318 devices per loop&quot;* &mdash; and its own
+  N16x total of 3,180 is ten times 318, so the attributed bullet wins and 159 is the
+  detector half. `E85010-0057`'s Engineering Specification asks for an *&quot;integral
+  backup **1000 KHz** temporal tone generator&quot;* where page 1, page 2 and the specs
+  table all give 1 kHz. And `HON-62115:A` writes the board version as `CLP-2PCB` in its
+  column headers and `CLP2-PCB` in its own footnote. **Five documents in two batches:
+  budget for it.**
+
+- **Verification sweep at batch 35 (1,218 pages, 22 Sep 2026): clean a SIXTH time
+  &mdash; and the sweep's own raw number was wrong for a new reason, which is the
+  finding.** One bulk query, 16,031 active products, under a minute. **All 1,195 tracked
+  ids present in the active catalogue, zero missing**, with the in-flight v2b36 excluded
+  before reading the number as the method note requires.
+  **But the thin-page count came back as 45 where every previous sweep returned 4**, and
+  the cause is not a failure: **the title-only workstream creates products that are
+  TRACKED without being ENRICHED.** Those 41 products got a corrected title and their
+  description was never written, by design &mdash; they came from the no-product-name
+  census, not from the impressions queue. Split properly: **1,154 enrichment pages, of
+  which exactly 4 sit under 400 visible characters, and all four are the deliberate
+  skips** (`SM7100-L8` 22 chars, `90521` 30, `BDA-TP10-L2` 74, `BDA-NMP01250` 96). The 41
+  title-only products are 41 of 41 under 400, exactly as expected.
+  **That is the same shape as the recorded &quot;exclude the in-flight batch&quot; note,
+  on an axis that did not exist when it was written.** The sweep measures *&quot;did a
+  page this project claims to have written actually get written&quot;*, and a second
+  workstream that deliberately writes only one field breaks the equation between
+  &quot;tracked&quot; and &quot;should have a body&quot;. **Define what the denominator
+  means before reading the number** &mdash; the generalised version of the rule this file
+  has now had to apply to coverage rates, tail statistics and scan precision.
+  Other checks on the same pull: **non-ASCII titles 49 of 16,031, every one `&reg;` (24),
+  `&deg;` (23) or `&trade;` (5), zero outside that set** &mdash; unchanged from batch 29
+  across roughly 90 further titles written since. **Zero titles contain a literal HTML
+  entity.** Unbalanced parentheses **102, unchanged**, which is expected: those are
+  truncated titles whose text is missing and which this project deliberately does not
+  reconstruct.
+  **And the title-only products are now a small, honest queue of their own:** 41 pages
+  with a good title and a body under 400 characters. They are not queue-worthy by score
+  &mdash; the whole 313-product no-name census carries only 2,983 impressions &mdash; so
+  they should be picked up opportunistically rather than promoted ahead of
+  `ranked_v2_byscore.json`.
 
 ## Conventions
 
