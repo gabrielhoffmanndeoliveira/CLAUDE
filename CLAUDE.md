@@ -6093,6 +6093,132 @@ Revisit after the high-impression band is done.
   the `www.` host 301s to zero bytes &mdash; while its WP REST `product` endpoint is honest and its
   CM page is a **combined CM-6 / CM-12 page** at `/product/cm-6/`, with `/product/cm-12/` a 404.
 
+- **THE CSV BUILDER DESTROYED THREE HARVEST FILES, AND THEN SILENTLY REJECTED EVERY ROW OF
+  THE REBUILDS &mdash; two failures in one tool, both wearing the shape of a legitimate
+  result.** The first was argument order: `build_csv.py` takes **OUTPUT FIRST**, and calling
+  it `build_csv.py <harvest.json> <out.csv>` overwrote `HARVEST_rath2.json`,
+  `HARVEST_powersonic2.json` and `HARVEST_monaco_aiphone_fireray.json` with a 70-byte CSV
+  header. **All three were recovered in full from the agents' scratch directories** &mdash;
+  nothing re-harvested, every id re-asserted against the input file, every hit's MD5 and
+  byte count re-measured from retained local downloads.
+  **The second failure is the instructive one.** Re-run correctly, the builder reported
+  `0 rows, 450 rejected` with the reason **&quot;url not https&quot;** on rows carrying a
+  perfectly good https URL &mdash; because the harvest schema had moved to `image_url` and
+  `width`/`height` while the builder still read `url` and `w`/`h`. **A rejection with a
+  stated reason reads as a finding**, and &quot;this brand yielded nothing&quot; is exactly
+  what several brands legitimately yield here, so the output was plausible. That is the
+  empty-`live_desc` failure in tooling rather than in data: **the wrong value wore the shape
+  of the expected one.**
+  Both fixed as mechanisms rather than as discipline: the builder now **refuses any output
+  path not ending in `.csv`** and any file that is both a source and the output (tested, it
+  refuses), and it accepts either key spelling rather than rejecting silently. **The general
+  rule: a tool that can destroy its input should make that unrepresentable, and a
+  zero-row result should be read as a question about the tool before it is read as a fact
+  about the data.**
+- **Destroying a file and rebuilding it found a defect in the version that was lost.** The
+  Power-Sonic rebuild replaced `NO.get(sku) or '<generic fallback>'` with a hard `NO[sku]`
+  lookup, which raised on exactly one SKU: **`PG-12V28 M5` had been recorded as
+  &quot;no token-boundary match anywhere in the media library&quot; and that was false.** It
+  is a look-pass rejection &mdash; its only asset shows a label reading `PG-12V28 FR` with
+  `UL94 V0`, the flame-retardant build, on a SKU carrying no `FR` &mdash; the same shape as
+  five of its siblings. So the true count is **25 look-pass rejections, not 24**.
+  **A `.get()` with a fallback is a silent `else` branch**, and a plausible fallback text is
+  the hardest kind to catch. The rebuild also caught the agent's own verification over-firing
+  in the same breath: counting look-pass rejections by keyword regex gave 26, one of them a
+  genuine no-candidate row whose reason merely *mentioned* an asset. Counting by mechanism
+  &mdash; the row's own verdict field &mdash; gives 25. **Scan for a mechanism, not a shape,
+  applies to your own checks.**
+- **Eleven shared image URLs across the 1,506-row delivery, and ALL ELEVEN are correct
+  &mdash; which is why this check can never be a filter.** Counted at the only scope that
+  works, the whole delivery rather than per lot. Four Secutron `-PK10` pairs and one `-PK15`
+  are **the same part in a different carton**; two Fireray pairs are **one product with two
+  approvals** (EN against UL/FM, stated in FFE `24-0461`, and FFE publishes one render per
+  product type); two Macurco pairs share a photograph because **LADBS is an approval
+  designation, not a variant**; and the two Power-Sonic `- ECOM` pairs are settled by the
+  store's own ERP string, which spells it out: **`Battery+ind.box`, an individual retail
+  carton of the identical battery.** A blanket drop-every-shared-URL rule would have thrown
+  away eleven correct rows. **The duplicate check tells you two products share one
+  photograph; whether that is a defect is a question about the two products.**
+- **A failed disproof, reported as such, and it sharpens the recorded 1sae finding rather
+  than overturning it.** This file records *&quot;1sae originals are routinely 200&times;200,
+  and 107 of 190 candidates died on the pixel floor&quot;*. An agent tried to overturn it:
+  the bare path serves 200&times;200 while a Magento cache rendition serves **700&times;875**,
+  which looks exactly like the recorded note measuring the wrong artefact. **It is not.
+  The 700&times;875 frame is padding and adds zero product pixels** &mdash; measured on one
+  asset, the subject is 104&times;160 at 200&times;200 and 103&times;159 at 700&times;875, and
+  on three delivered rows the rendition actually *loses* subject pixels.
+  **So the mechanism is sharper than the recorded number: the binding constraint is the
+  PRODUCT'S OWN PIXELS INSIDE THE CANVAS, which no rendition improves.** Across 103
+  candidates the best subject long edge available at any of seven cache hashes was
+  **100&ndash;199 px on 92 of them**. A harvest measuring the *file* would have shipped all
+  92 as 700 px hits carrying 150 px of product &mdash; a new shape of &quot;passes every
+  mechanical check&quot;, and the reason the delivered rows now carry `subject_w`/`subject_h`.
+  **An agent reporting that its own correction failed is worth more than one that quietly
+  drops it.**
+- **Three brand zeros, each with a measured mechanism, and two of them are ceilings no route
+  can lift.** **Aiphone 0 of 27**: the brand's entire product-photo convention is
+  `<model>_500x375.jpg` &mdash; 650 such files, `full` size 500&times;375 &mdash; so it is
+  **below the 600 px floor by construction**, and even a perfect match fails. 24 of the 27
+  are spare handsets, screws, connectors, a capacitor and `COP-` custom-order numbers, of
+  which **zero product slugs and zero media filenames begin with `cop-`**. **Monaco 0 of 95**:
+  the brand's complete media library is ~88 items of which **exactly one is a product
+  photograph**, at 500&times;374; its 168-page catalogue *does* carry per-part photographs,
+  embedded at ~195 px with no hosted URL. **Space Age 7 of 400**, where 84 non-SF products
+  are &quot;correct photograph, under the floor&quot;. **Kidde Fenwal 5 of 399** by
+  extraction, **and those five have no URL at all** &mdash; embedded in PDFs, published
+  nowhere as standalone assets, so they cannot enter a Matrixify import that keys on
+  `Image Src`. **Fourteen verified photographs across three brands now exist and cannot be
+  delivered**, which makes a bytes-upload path the prerequisite for those brands rather than
+  a nicety.
+- **A vendor mis-filing corroborated from the opposite direction, which is the best
+  validation a census gets.** The live-catalogue scan found **161 `SF-` SKUs filed under
+  vendor Space Age** and all of them SAFE Fire Detection parts. A photo agent working a
+  400-product slice of that same vendor, with no access to that census, independently
+  counted **157 of its 400 (39%)** and mapped the families &mdash; SafeCable 39, RedPipe 39,
+  numeric Hybrid/PPP/Cirrus spares 37, RedGear 31. Two routes, two populations, one answer.
+  **And it found the useful corollary: SAFE publishes per-part photography for ten RedPipe
+  fittings and nothing else**, so that brand's 1.3% is a documented near-zero rather than a
+  routing failure.
+- **An accessory documented in a MOUNTING GUIDE, which is the JCI-hub lesson on a new host.**
+  `SUBPNBX` appears **twice in 798 Avire PDFs and both times in `AOR_Mounting_Guide.pdf`**:
+  *&quot;Flush Mount Call Boxes: 2100-958NSR, 2400-808NSP, 2100-958NMBR, 2400-808NMP,
+  **SUBPNBX (back box only)**&quot;*. The datasheets never mention it. This file already
+  records *an accessory is usually not a document &mdash; grep the parent's material*; add
+  that the parent's **mounting or installation guide** is where a back box lives, not its
+  datasheet. Note the store's ERP wildcard `(958S__)` **understates** it: the manufacturer
+  lists 2400-808 models too, so the title follows the document and not the ERP.
+- **A title drafted and then killed by an IN-FAMILY suffix proof, which is the right
+  standard.** `RP7700100BR` was about to be titled from its base number, which is documented
+  four times first-party as a RATH battery-backed-up mains supply. Then
+  `RP8500080-Solar-Tower.pdf` turned up reading *&quot;connected to RATH&reg; **Charger**
+  #RP7700100AV&quot;* &mdash; **one suffix on this exact stem already denotes a different
+  class of product.** With in-family proof that the suffix is load-bearing, carrying the base
+  number's class noun onto `-BR` is the sibling trap, so nothing was written. **A suffix is
+  load-bearing until a document says otherwise, and the cheapest proof is another suffix on
+  the same stem.**
+  Two Avire route facts came with it: the complete document library is enumerable at
+  `wp-json/wp/v2/media?media_type=application` (**826 PDF URLs, 798 distinct files**), and
+  **`wp/v2/product?search=` matches post META the rendered page does not contain** &mdash;
+  `RP7700107` returned two SmartView products whose HTML contains the string zero times,
+  which reads as a hit until you find the real source elsewhere.
+- **The STI Build-Your-Model block is model-attributed and the manufacturer's own web copy
+  is not.** `STI-751` + **`0` Key Lock / `1` Thumb Lock** + back-box letter + `-OW` white
+  polycarbonate, confirmed three ways (plain text, word coordinates with the digit and its
+  label on one y-line, and a 300 dpi render showing the arrows). Meanwhile STI's two product
+  pages describe the *identical* back box differently, one saying &quot;Open White Back Box
+  for Flush Mount Applications&quot; and the other only &quot;Open Back Box&quot;. Same lot,
+  same price: **the separator is the lock and nothing else**, the 7520/7521 finding
+  generalised. Also on that sheet, an approvals line naming **exactly these two SKUs**:
+  *&quot;UL **Recognized Component**&quot;*, which is a weaker claim than Listed and is what
+  the titles say.
+- **The `_IN_` prefix, and a wrong filename in my own message.** The Rath agent was asked to
+  re-assert against `IN_rath2.json`; the file on disk is **`_IN_rath2.json`**, with a leading
+  underscore, and the agent said so rather than quietly using the file it had. It also noted
+  that a builder pointed at a nonexistent input is one plausible way a header-only file gets
+  written. **The coordinator named a file from memory** &mdash; the same hand-transcription
+  failure as an id, in a new field, one turn after patching the builder against exactly that
+  class of accident.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
