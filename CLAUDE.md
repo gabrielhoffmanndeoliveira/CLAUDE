@@ -136,8 +136,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,289 pages published** — 555 from the old list plus v2b01 through
-v2b39, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,294 pages published** — 555 from the old list plus v2b01 through
+v2b39 and five of v2b40, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -5585,7 +5585,84 @@ Revisit after the high-impression band is done.
   search results served **the wrong document entirely** &mdash; resolve the A6V number
   first. And **a Siemens installation document may resolve as a MAP rather than a
   document**: `/r/<hash>/root` means use `/api/khub/maps/<id>/topics` then
-  `/topics/<topicId>/content`.
+  `/topics/<topicId>/content`.- **A supersession HELD at the coordinator's own gate, and the reason is worth more than
+  the row.** `BEAM1224S`'s live title carries *&quot;(Replaced by OSI-R-SS)&quot;* and an
+  agent reported finding the **System Sensor Product Announcement, February 2019**, on
+  letterhead, with an explicit *&quot;New Model No. OSI-R-SS | **Replaces** BEAM1224 and
+  BEAM1224S&quot;* table &mdash; and proposed keeping the claim in the title, which this
+  file's rule permits when a manufacturer states it.
+  **The coordinator could not retrieve that document.** A web search returns only
+  distributor pages &mdash; ADI, Anixter, Silarius and **this store's own listing** &mdash;
+  which is the correlated-consensus problem exactly, and five constructed EDAM slugs for an
+  OSI-R datasheet all returned the 8,047-byte fingerprint. So the page was **held, alone,
+  while the other five published**, and the agent was asked for the URL, host, byte size,
+  mime, document number and the verbatim row.
+  **Holding cost nothing, and that is the point of doing it here rather than arguing.** The
+  live title already carries the claim, so not publishing leaves the status quo; publishing
+  would newly rest a feed attribute on a document nobody but its finder has seen. **A claim
+  that is already live is not thereby verified, but it is also not made worse by waiting.**
+  Recorded as an open verification debt, the way the `P85756F` debt was carried for five
+  batches before a search closed it.
+  Worth keeping from the same row anyway: the agent ran the **mechanism check in the
+  favourable direction** and said so. This file's `SIGA-HRS` test asks for a spec that would
+  have to be equal if a supersession were true, and there it *fell* (70 ft to 50 ft),
+  disproving the claim. Here it **improves**: `BEAM1224(S)` reaches 328 ft only with the
+  `BEAMLRK` kit required beyond 230 ft, where the successor is stated as 16&ndash;328 ft
+  standard with no kit. **A mechanism check that corroborates is as informative as one that
+  refutes**, and this file had only recorded the refuting case.
+- **Twenty-first coordinator premise wrong: the Amerex `810` is a different BRACKET FAMILY,
+  not a variant.** The briefing asked what separates it from `818`/`821`/`817`/`818S` and
+  carried over the rule learned on the 818 &mdash; *the valve, not the cylinder weight,
+  decides*. **That rule is a fact about the STRAP group only.** A 200 dpi render puts `810`
+  under **&quot;Heavy-Duty Box-Type Vehicle Brackets&quot;** while 818 and 821 sit under
+  **&quot;Vehicle/Marine/Aviation Brackets&quot;**; the parts book's Vehicle/Marine page
+  lists 818 and 821 and **does not contain `810` at all**; and `810` has its own hole-pattern
+  drawing headed &quot;AMEREX BOX TYPE BRACKETS&quot;. **Box brackets are selected by
+  CYLINDER DIAMETER**, a labelled column, and every row containing `810` reads 7.
+  So the live &quot;7-inch cylinder&quot; claim was right, and the page had missed that it
+  is a **USCG** bracket on nine models. **A decode learned on one family of a brand does not
+  cross to another family of the same brand** &mdash; the same shape as the `9021-`/`AVDS`
+  boundary and the System Sensor `K` suffix, now on a mechanical accessory.
+  Material deliberately not claimed: the sheet's *&quot;(Red Brackets are Galvanized)&quot;*
+  note attaches to `810NM`/`809G`/`810G`/`811G`, which render **red**, while the plain `810`
+  renders black.
+- **A listing claim wrong two ways, and the newer revision is what shows it.** The live
+  Kidde copy said *&quot;UL Listed, ULC Listed and FM Approved for the Kidde ECS, ADS,
+  ECS-500 and FE-13 systems&quot;*. In the compatibility table **the two FE-13 rows carry UL
+  only**, and **Rev AF adds a row Rev AE does not have** &mdash; *Natura Inert Gas System
+  (N2 pilot cylinders), FM only*. **Three distinct approval patterns on one part**, and
+  reading Rev AE alone &mdash; the first search hit &mdash; would have missed both. This is
+  the two-live-revisions problem for the third time this week, after `DN-61092` and
+  `DN-60955`, and here the revisions differ in *content* rather than only in slug.
+  An unsourced claim removed alongside it: *&quot;wire pairs about 30 inches long&quot;*
+  appears in **no revision**, and a 260 dpi render of Figure 2 dimensions only the body and
+  carries no wire length.
+- **The `9021-`/`AVDS` boundary failed for the THIRD time, on a third document.** The
+  obvious sheet for a ceiling strobe, `AVDS868`, contains **zero occurrences of
+  &quot;LED&quot;** &mdash; it is the xenon ceiling sheet &mdash; and `AVDS-62173:A` is the
+  weatherproof one, also zero. Only `AVDS916-01` carries the part. **Prefer a document
+  family only until you have grepped it for a word the part number implies**; that check
+  costs one grep and has now saved three parts.
+  New document defect from it: `AVDS916-01` prints *&quot;SCRLED-P | Strobe, Ceiling,
+  **White**, Plain&quot;* on an **SCRLED** number whose own neighbours read Red. The agent
+  named the sibling in the closing rather than repeat the colour.
+- **The Napco tag-index form inverted, and an MD5 control would have passed the empty
+  result.** On `GEM-TOUCH` the **hyphenated** form returned 343,340 bytes &mdash; *the same
+  length as the bogus control* &mdash; while the **underscored** form returned 352,634 and
+  six real documents. That is the opposite way round from the recorded `SLE-MAX2LCBTFC`
+  case, so **neither form is the right one; carry both and a control.** And all three MD5s
+  differ because the page echoes the search term, **so an MD5-only control wrongly passes
+  it** &mdash; the byte count is the tell. Fourth instance of a search endpoint that defeats
+  the obvious control, after Hochiki, Interstate Batteries and safefiredetection.
+  Also measured: `napcosecurity.com`'s product-page 404 is **30,439 bytes against the 30,430
+  on record** &mdash; host-fingerprint decay again &mdash; and
+  `tech.napcosecurity.com/techlibrary/downloadfile/id/<n>` returns an identical
+  340,811-byte shell for every id, confirming that only the tag index titles are usable.
+- **`kidde-fenwal.com/Media/Data Sheets/` is a new trap of the REDIRECT kind**: it 301s to
+  the site root, **byte-identical for a real and an invented filename**, so no first-party
+  copy is retrievable there. The mime check alone does not catch it &mdash; the bogus
+  control does. That is a third distinct Kidde-Fenwal failure shape after the
+  1,279,593-byte `LocalMedia` HTML and the ordinary 404.
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
