@@ -95,8 +95,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,073 pages published** — 555 from the old list plus v2b01 through
-v2b28, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,079 pages published** — 555 from the old list plus v2b01 through
+v2b28 and the first six of v2b29, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -2854,6 +2854,72 @@ Revisit after the high-impression band is done.
   across two brands. Where it cannot confirm &mdash; a SKU spanning two whitespace tokens
   (`3-IDC 8/4-E`), a duplicated brand token, an underscore the slug cannot represent
   &mdash; **skip the row rather than guess**; three were skipped on that basis.
+- **Nineteenth product-class error, and it is the most expensive single word yet: the
+  title named the one feature that DISTINGUISHES the model it is not.** `VES-A00-P-UL`
+  ($8,595) was titled *&quot;Scanner LED Display&quot;*. Xtralis's Ordering Information
+  (Doc. **36105_05**, Nov 2024, `xtralis.com/file/12016`), **fetched and read directly by
+  the coordinator because this changed a live title**, reads:
+  `VES-A00-P-UL | VESDA-E VES **with LEDs**, Plastic Enclosure - UL` against
+  `VES-A10-P-UL | VESDA-E VES **with 3.5&quot; Display**, Plastic Enclosure - UL`.
+  **The display is exactly what separates the two models**, so a buyer who wanted a screen
+  was pointed at the one without it, $336 cheaper. Corroborated twice more on the same
+  page: the spare-parts rows give `VSP-968` &quot;Front Cover - Plastic - **LEDs**&quot;
+  against `VSP-969-04-S` &quot;Front Cover - Plastic - **LCD - 3.5&quot; Display**&quot;.
+  **Three things make this worth keeping beyond the one page.** (a) The datasheet's prose
+  *does* say &quot;intuitive touch screen display&quot; &mdash; it covers both models, so
+  this is the series-wide-block trap and the model-attributed table wins. (b) **The `type`
+  field was CORRECT and disagreed with the title** (&quot;Aspirating Smoke Detectors&quot;
+  against a title with no class noun at all), the type-as-signal rule firing as documented
+  rather than staying silent. (c) **The description body was already verbatim-correct
+  Xtralis wording** and only the Shopify title was wrong, so this cost the Merchant Center
+  channel specifically &mdash; say which field before sizing it.
+  **The innocent origin is findable and is Honeywell's house wording:** Notifier `DN-7070:S`
+  p6 writes *&quot;VEP-A00-P-NTF: &hellip; with **LED display**&quot;* against
+  *&quot;VEP-A10-P-NTF: &hellip; with LED **and LCD** display&quot;*. Not a screen.
+  **And the store carries the superseded SKU beside it**, confirmed live: `VES-A00-P` at
+  $7,753 is the UL 268 **6th Edition** part that Xtralis Product Bulletin Doc **37870_01**
+  (May 2024) discontinues, naming `VES-A00-P-UL` as its replacement &mdash; a
+  manufacturer-stated supersession, so it went in the body, and the EOL page went to the
+  owner's file. **Generation trap avoided inside it:** the 6th-Edition product guide gives
+  1,837 ft of pipe and 0&ndash;39 &deg;C where the `-UL` sheet gives 1,706 ft and
+  32&ndash;100 &deg;F. Wrong document family for this SKU.
+- **Three coordinator premises wrong in one briefing, and all three were warnings that
+  fired on correct pages.** (1) The briefing said *&quot;Exceder is not Eluxa, do not import
+  a candela figure&quot;* &mdash; `LHSW3`'s live `15/30/75/110 cd` **is Exceder's own set**,
+  in `TD450117EN` Table 4, and the white finish was confirmed by x-coordinate (the X sits
+  in the White column at x=341.8 against Red at x=303.4). (2) It said the `R` in
+  `PAD200-DUCTR` was the obvious guess and that this project had been wrong about an `R`
+  before &mdash; here it **is** a relay, manufacturer-stated: *&quot;Analog Addressable Duct
+  Detector W/Relay&quot;*. (3) It warned that `PAD200-DD`'s bare-head defect might extend to
+  `PAD200-DUCTR` &mdash; it does not; that unit *&quot;ships complete with housing and
+  head&quot;*. **A warning that forces a check and turns out to be wrong is still worth
+  giving**, which this file has now said three times; what is not acceptable is stating the
+  guess inside it as fact.
+  The `IPA-4000` arithmetic checked out exactly too: *&quot;thirty-one additional SLCs each
+  with a maximum of 127 devices&quot;* is verbatim Potter and **32 &times; 127 = 4,064**.
+- **Fourth instance of releasing gear merchandised as ordinary fire equipment, and this one
+  turned on the ORDERING line rather than the page heading.** `IPA-4000` was titled
+  &quot;Fire Alarm Control Panel&quot;, which is Potter's own page heading and therefore not
+  false &mdash; but its **Ordering line reads &quot;Fire Alarm *Releasing* Control
+  Panel&quot;**, releasing is standard (Pre-Release and Release indicators fitted, I/O
+  circuits built for manual release stations and abort switches), and the title now says so.
+  After `4099-9015`, `2099-9149` and `RP-2002` this is a settled pattern. **Also corrected in
+  the same title: &quot;4,064 Points&quot; &rarr; &quot;4,064 Addresses&quot;**, because
+  &quot;addresses&quot; is Potter's word in every occurrence and this panel separately has
+  **200 logic points**, so &quot;points&quot; names two different things on one page.
+- **Route notes from v2b29.** A **new EDAM path shape**: the `hon-ba-fire-` prefix extends
+  beyond `datasheets/` into `manuals-and-guides/**installation-guides**/`, where
+  `hon-ba-fire-52544.pdf` resolved at 2.15 MB after the bare, `hbt-fire-` and
+  `user-manuals/` forms all returned the 8,047-byte fingerprint. **Potter's real path is
+  `pottersignal.com/product/datasheet/<docnum>-<REV>-<MODEL>_DATASHEET.pdf`** for current
+  sheets and `<docnum>_<MODEL>.pdf` for older ones &mdash; find it from the product page,
+  do not build it, because `8830102_IPA-4000.pdf` 404s while Rev K is
+  `8830102-K-IPA-4000_DATASHEET.pdf`. And **`xtralis.com/file/<id>` is not uniformly PDF**:
+  `/file/12021` returned 226,238 bytes of `text/html` where `/file/12016` and `/file/12064`
+  served clean PDFs, caught only by the mime check &mdash; enumerate the file ids from the
+  `xtralis.com/product/<id>` page. `sid.siemens.com/go/<A6V>` worked first try on both
+  assets, and **the sibling check paid again: the SL ceiling series is 15/30/75/95 cd
+  against the wall's 15/30/75/110**, so the two sheets cannot be crossed.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
