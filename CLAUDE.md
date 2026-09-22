@@ -6700,6 +6700,142 @@ Revisit after the high-impression band is done.
   a configuration SKU, about 20 of the 25 become reachable.** That is a merchandising decision,
   not a research one, and it is the first brand where relaxing the rule has a named price.
 
+- **The Scene7 `sku_list` is authoritative about which RECORD an image hangs on and silent about
+  which PRODUCT it shows &mdash; and a mixed lot of 448 products put a number on how often that
+  matters.** Of the rejections, a large share read *&quot;the `sku_list` contains this SKU but the
+  record bundles N catalogue numbers and none of its assets names this SKU&quot;*: `SPXCDULNG1` sits
+  in a record bundling **242** catalogue numbers under two assets both named `Sensepoint_XCD`;
+  `DNRA` in one bundling 4 under 20 assets, none naming it; `CCM2-ANTKIT-EXT2` in one bundling 5.
+  **A family record is not a per-part attribution**, so the structured join has to be gated by the
+  filename rule and not trusted in its place. This file already records that principle from the STI
+  `modelId` case; the new part is the scale &mdash; the bundling is the normal shape of Honeywell's
+  index, not an edge case.
+- **Two new generic-placeholder shapes, both caught by counting products per identifier rather than
+  by a word list.** Eaton serves **`WHEELOCK-COLLAGE-C`** as the only asset on several SKU pages
+  (`PS-KEY`, `STH-4R`) &mdash; a family collage, not a product. And Gentex publishes **one family
+  render per series page**: 34 product pages carry 74 distinct non-generic images across a
+  95-product placeholder set, so **Gentex is a documented zero on per-SKU photography**, with
+  constructed `/images/uploads/<SKU>.(png|jpg)` returning **7,276&ndash;7,291 bytes of `text/html`,
+  the size drifting with filename length** &mdash; the one-byte-drift tell recorded for
+  gamewell-fci.com, on an image host. Resideo returned a documented zero on the same lot.
+- **Eaton `mdmfiles` URLs already carry a size segment, and appending another silently serves the
+  WRONG SIZE rather than failing.** The path shape is
+  `eaton.com/mdmfiles/<contentId>/<ASSET>/<size>` with sizes `500x500_72dpi` through
+  `2000x2000_72dpi`. Appending a new size to a path **already ending** `/1000x1000_300dpi` returned
+  a file &mdash; at the old size. **Strip the trailing size segment before appending one.** A
+  request that succeeds and returns something other than what you asked for is the same failure
+  class as the redirect that discards the path and the search endpoint that ignores the query: the
+  test is whether the response is what you asked for, not whether it is a 200.
+- **Potter serves per-SKU images at a 330 px preset with no larger rendition**, so that brand fails
+  the 600 px floor on matching rather than on routing. Third brand where the binding ceiling is
+  **image size** rather than filename matching or catalogue coverage (after Space Age's 200&times;200
+  originals and RFS's `_ti` 320&times;200 thumbnails). **Say which of the three ceilings a coverage
+  number hit**, every time.
+- **Macurco's two open endpoints, with honest controls:** the WordPress media API carries **1,633
+  items** and the WooCommerce Store API **85 products**, the latter returning `[]` for a bogus term
+  &mdash; so a miss there is a real negative. Use `macurco.com` **without** the `www.`; the `www.`
+  host 301s to zero bytes.
+- **`mircom.com/product-documents/` is a SECOND-CLASS index, not the library, and this file has been
+  recommending it as though it were complete.** Four of one lot's twelve products are absent from
+  its 2,132 filenames. **There is a second, undocumented directory:
+  `mircom.com/wp-content/uploads/pdf/`**, serving `CAT-5620` (FA-1000 series), `CAT-5301` (Fire Alarm
+  Accessories), `LT-600` and `LT-894`, with the same 146-byte `text/html` 404. **Probe both
+  `/product_documents/` and `/pdf/`.** Also measured on that host: **`?s=` IS honest** (a real term
+  returns search-results, an invented one returns no-results) **and still returns a false negative
+  for `FX-LOC`, a product that certainly exists** &mdash; so a zero from it is uninformative in
+  either direction, and the WooCommerce Store API 403s without a browser UA. Serial at 4 s across
+  ~30 fetches drew no 429.
+- **A suffix rule stated in an ordering table settles a model that has no row of its own.**
+  `FX-LOCB` appears in no ordering row; CAT-5985 Rev. 7 reads *&quot;FX-LOC | Local Operating Console
+  enclosure&hellip; **Add suffix 'R' for red door. Add suffix 'B' for black doors.**&quot;*, and
+  CAT-5669 independently spells the red model `FX-LOCR`, **which proves the concatenation form**. So
+  `FX-LOC`+`B` is black, sourced. That is a different and better thing than inferring a suffix from
+  a pattern across siblings: **a stated rule plus one worked example of the rule is a manufacturer
+  statement about the unlisted member.**
+- **Five incomplete-product cases in ONE lot of twelve, all manufacturer-stated.** `FX-4000MNS` is a
+  main network **board** that *&quot;mounts in the BBX-FXMNS enclosure&quot;* &mdash; and **that
+  enclosure is a separate ~$1,999 SKU in this same store**; `FX-LOC`/`-LOCB`/`-LOCR` are console
+  **housings** (*&quot;consists of backbox, inner door and outer door&quot;*, with the installation
+  sheet showing the installer fastening the RAXN-LCD and RAX-1048TZDS **to** the inner door);
+  `INX-10AC` *&quot;mounts into backboxes BB-5008 or BB-5014 instead of it's own enclosure&quot;*;
+  `MCC-1024-12XTDS` bolts into a separately ordered BBX-1024XT(R). **Mircom merchandises chassis and
+  enclosures at panel prices**, and ten of those twelve carry the generic `type` &quot;Fire
+  Alarms&quot;, so neither field warns the buyer.
+- **The series-block trap fired on `INX-10AC` and was avoided, and it is the mirror of the recorded
+  `INX-10A` defect.** CAT-5321's Features bullet reads *&quot;Unit includes power supply, charger,
+  red door, black backbox, transformer and battery leads&quot;* &mdash; that describes the
+  **INX-10A**, whose ordering row says *&quot;c/w backbox and red door&quot;*. This file already
+  records the live `INX-10A` page carrying the `-AC`'s chassis sentence; here the same document
+  would have put the `-A`'s carton onto the `-AC`. **One Features bullet, two products, wrong in
+  both directions.**
+- **Two more documents pasting a sibling's model name into their own opening sentence.** CAT-5335,
+  the `IPS-4848DS` sheet, opens *&quot;The **IPS-2424DS** Programmable Input Switches
+  Module&hellip;&quot;* while every figure in that paragraph is 48/48/48 and matches the ordering
+  row &mdash; **and LT-6022 Rev 0 carries the identical sentence with the correct model name**,
+  which is what settled it. CAT-5620 pastes `FX-2003-12NXTDS` into its RM-1008A and UDACT-300A
+  descriptions. **When a document names the wrong model, look for the same sentence in a second
+  document of the same family**; the one that differs is the typo.
+- **The stale-figure mechanism again, with the losing side matching a DIFFERENT MODEL's value.**
+  CAT-5620's specification block headed `MCC-1024-12ADS/MCC-1024-12XTDS` gives *&quot;Power Supply
+  Ratings: **6 Amps** max&quot;* &mdash; **exactly the `MCC-1024-6ADS` value** &mdash; while the
+  model number, the ordering row and the body all say 12 A and the same block gives 10 A indicating.
+  Same sheet, same part: the ordering row says it *&quot;Mounts in BBX-1024**DS**(R)&quot;* where the
+  body, both enclosure rows and LT-600 throughout say **BBX-1024XT(R)**, and `BBX-1024DS` is not a
+  model in the document. **Checking whether the losing figure is correct somewhere else identifies
+  the mechanism and settles it**, for the third time on this project.
+- **A part documented ONLY in wiring-diagram callouts, and the agent claimed no form factor.**
+  `MP-301` appears verbatim twice, in two independent documents, as *&quot;10K, 2W ELR / MODEL MP-301
+  / MANUFACTURED BY MIRCOM&quot;* on audio speaker circuits &mdash; and in **no** Mircom ordering
+  table, including the Fire Alarm Accessories catalogue, which lists only `MP-300`/`-300R`/`-300S`
+  &quot;End Of Line **Plates**&quot;. Distributors call it a resistor plate; that catalogue rates the
+  plate *&quot;up to 47K @ **1W**&quot;* against MP-301's **2W**, **a mechanism arguing it is not
+  that plate** &mdash; and an inference either way, so the title says resistor and asserts no form
+  factor. Sibling trap: `MP-302` is 22K 1W on the QAA amplifiers.
+- **`DS` is undecoded on Mircom and the tempting cross-family import was declined.** It sits on
+  modules, on enclosures and on panels, so it is not a finish code. **`BB-1001DS` *is*
+  &quot;Stainless Steel&quot;** &mdash; but that is the `BB-1001 D/DR/DS/DB` **door**-code family, a
+  different scheme, and carrying it across would be the `PC2WKLED` case again. Fifth preventive
+  refusal of a cross-family import on this project.
+
+- **The look pass rejected a row on the PHYSICS of the product class, which is a stronger check
+  than a printed label and it is available more often.** `5251B` &mdash; System Sensor's own title
+  is *&quot;Heat Detector Head, 135 Fixed, Requires Base&quot;* &mdash; was served
+  `HBT-Fire-5251B-5251RB-5151-CEILING-HiRes` from Honeywell's own Scene7, at 1500&times;768,
+  mime-clean, **with the SKU first in the filename and present in the record's `sku_list`.** Every
+  mechanical check passes. Zoomed, the unit in the photograph carries a **black louvred optical
+  labyrinth with vertical insect-screen fins and a flat sensing disc** &mdash; a photoelectric smoke
+  chamber. A heat detector has no chamber of that kind at all. Rejected.
+  **Two independent grounds, and the second generalises:** the filename names **three** catalogue
+  numbers (`5251B`, `5251RB`, `5151`), which is the `G2540-or-G2510.png` family-asset shape; and the
+  SKU is a **bare head that requires a base**, while the picture shows head, base and ceiling skirt
+  assembled &mdash; the incomplete-product trap in picture form, after `006820CB`. **So when a
+  photograph cannot be checked against a printed model number, check it against what the product
+  class physically IS**: a heat detector has no smoke chamber, a strobe has no horn grille, a
+  visible-only appliance has neither.
+- **28 of 36 rows in one harvest were products ALREADY DELIVERED, and the delivery-wide MD5 pass is
+  what found it &mdash; by a marker, not by a hash.** A mixed-brand slice was built before the
+  delivered-handle exclusion existed in the slice builder, so the agent re-researched 25 Eaton and 3
+  System Sensor products whose CSVs had already shipped. The duplicate surfaced because the prior
+  delivery's hash file carries **`md5: 'ERR'` for the 25 Eaton rows that failed to download** during
+  an earlier pass, and grouping by md5 put all 25 in one bucket that intersected the new lot.
+  **That is a false-positive collision doing real work**, and it is worth saying plainly: a sentinel
+  value in a hash column will group everything that carries it, so a collision report must be read
+  for *why* the group formed. Here the wrong reason found the right defect.
+  **The rows were not simply dropped as duplicates &mdash; they were compared.** The new URLs are
+  the same Eaton assets at **2000&times;2000** where the delivered ones are **1600&times;1600**: a
+  genuine upgrade, and still dropped, because re-importing a handle whose placeholder MERGE has
+  already run adds a second image rather than replacing the first. **A better version of a delivered
+  row is a separate decision from a new row**, and it is the owner's.
+  The lot shipped as **7 rows**, and the slice builder's delivered-handle check is the guard that
+  should have run on its input.
+- **A contact sheet confirmed six suffix decodes at once, which is the cheapest verification in this
+  project.** The six L-Series low-frequency sounders photograph exactly as their letters predict:
+  `HWL2` white **rectangular wall**, `HGWL2` white **visibly narrower** wall, `HRL2` red wall,
+  `HGRL2` red narrow wall, `HCWL2` white **round ceiling**, `HCRL2` red round ceiling. **`C` is
+  ceiling, `W`/`R` is the colour and `G` is compact &mdash; all three readable off the picture.**
+  Where a suffix encodes something visible, the photograph is evidence about the SUFFIX and not only
+  about the product, and one sheet settles a whole family.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
