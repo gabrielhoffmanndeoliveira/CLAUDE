@@ -107,8 +107,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,097 pages published** — 555 from the old list plus v2b01 through
-v2b29 and six of the eighteen in v2b30, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,103 pages published** — 555 from the old list plus v2b01 through
+v2b29 and twelve of the eighteen in v2b30, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -3095,6 +3095,55 @@ Revisit after the high-impression band is done.
   `ELSPKBB-R` case. And the incomplete-product trap ran **backwards**: Eaton states the
   outdoor appliances *include* a mounting accessory from the factory, so a separately
   bought back box is a spare or a pre-wire box, not a missing piece.
+- **THIRD instance of the coordinator briefing a description defect as a title defect, and
+  this file already records the rule against it.** The `HCWL-LF` briefing said *&quot;the
+  live title lists candela values&quot;*. It does not: the title is
+  *&quot;System Sensor HCWL-LF Low-Frequency Compact Sounder&quot;* and the candela list
+  sits in the description `<h2>`, which the agent saw because **`aN_in.json` carries both
+  fields and the prose only claimed one**. The recorded rule is *&quot;say which field a
+  defect is in before sizing it&quot;*, written after making this same error twice in one
+  batch. **Writing a rule down does not stop it recurring; the input file is what stopped
+  it**, which is the whole argument for the slice file being the authority.
+  **And the real title defect was a different one.** `9021-62013:C`, read directly by the
+  coordinator, gives `HCWL-LF&dagger;: Low frequency sounder, **ceiling**, white` against
+  `HGWL-LF&dagger;: **Compact** low frequency sounder, **wall**`. So **&quot;Compact&quot;
+  in the live title is the sibling's attribute** &mdash; and that sibling is a *wall*
+  device, so the one word imported the wrong form factor and the wrong mounting at once.
+  `C` is ceiling and `W` is white, confirming the title's &quot;Ceiling&quot; was right all
+  along.
+  **The candela list is the wall sounder-strobe row on a device with no strobe.** The same
+  sheet's A/E section splits them: *&quot;Wall units: 15, 30, 75, 95, 110, 135, and 185.
+  Ceiling units: 15, 30, 75, 95, 115, 150, and 177.&quot;* The live description carried the
+  **wall** set, on a **ceiling** part, that is a **sounder only**. Three errors in one
+  string, and the corrupt `95,N110` inside it was merely the visible one.
+  A document defect found and not published from: that sheet's page-1 feature bullets call
+  `HGRL-LF`/`HGWL-LF` *&quot;Compact **ceiling**-mount sounders&quot;* while its own
+  ordering block and dimension table make them **wall**, and the same bullet mangles the
+  ceiling line as `HCRL-LF, HCWLA-LF, HCRL-LF, HCWLA-LF`, **omitting `HCWL-LF` entirely**.
+  So the store's wrong word has an innocent origin in the manufacturer's own bullet.
+- **The `DN-62046` inverted proof fired again, on one ordering block.** `E85001-0279`
+  Issue 1.1 marks the `276-K1` reset key *&quot;Supplied with all Key Reset Stations&quot;*
+  and marks the **general alarm key `276-K2` (USA) / `32997` (Canada)** with nothing. Same
+  page, same author, same date: a manufacturer that states what is supplied when it means
+  to, declining to state it for the adjacent part. **A buyer of a two-stage presignal
+  station gets no GA key**, which is the key the second stage needs.
+  Also settled on that part, and left open by the briefing: `SIGA-270P` is **single action,
+  two stage (presignal)** &mdash; not double action &mdash; and it **uses two module
+  addresses** where `SIGA-270` and `SIGA-278` each use one. It also needs a **different
+  back box** from its siblings: a 1-1/2 in. deep 4 in. square with a 1-gang raised cover,
+  not the 2-1/2 in. deep 1-gang box.
+- **A brand can vanish from its own current documents, which is a vendor-field signal
+  stronger than a rebrand notice.** This file records Avire datasheets headed *&quot;RATH
+  by AVIRE&quot;*. On `3300FSN` the two **current** sheets are Avire-branded and the string
+  **`RATH` appears zero times in either**. So the transitional heading is gone on this line
+  and the store's vendor field is the only place the old name survives. Flagged, title
+  untouched &mdash; brand is a feed attribute.
+- **The CK300-BL pack count is the Honeywell mechanism reproducing on a third document
+  family, which is as clean a confirmation as the rule has had.** `SPDS899-01`, `SPDS901`
+  and `SPDS-62169-B` all describe the kit as *&quot;Color Kit (includes cover and trim
+  ring)&quot;* with **no quantity**, and **each of the three states the bulk packs for
+  `B501-WHITE-BP` and `B300-6-BP` in the same table**. Bases numbered, accessory not, three
+  times over. Title left exactly as it was; flagged.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
