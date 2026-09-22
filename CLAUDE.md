@@ -2237,6 +2237,56 @@ Revisit after the high-impression band is done.
   appliance &mdash; does not occur. Two carry the wrong `type`: `G4AVRF-CVR` is typed
   **Horn Strobes** and `G4VRF-CVR` **Strobes**, where the other eight are typed Covers.
   Titles right, structured field wrong, which is the milder half of the usual signature.
+- **Sixteenth product-class error, and it is the releasing-gear shape for the THIRD time
+  in six batches.** `RP-2002` was titled *&quot;Fire Alarm Control Panel&quot;*. Notifier's
+  own title is **&quot;Agent Release Control Panel&quot;**. That follows `4099-9015` (a
+  releasing station sold as an ordinary double-action pull station) and `2099-9149` (a
+  manual release station typed Pull Stations). **Releasing equipment is consistently
+  merchandised in this catalogue as ordinary fire equipment**, which is now a pattern
+  rather than three coincidences, and it is the kind that costs a buyer the most: someone
+  specifying a fire alarm panel receives a panel that discharges an agent.
+  Everything else on that page verified, six zones included, and the panel **is** complete
+  &mdash; but the IBC seismic claim it makes is only realisable with `SEISKIT-COMMENC`,
+  *&quot;required for seismic-certified installations&quot;*, which is not supplied.
+- **The coordinator offered a cross-family import and the agent refused it. First time
+  the wrong-document-family rule has fired PREVENTIVELY.** The briefing offered a System
+  Sensor outdoor brochure sentence defining the `K` suffix (*&quot;models with a 'K'
+  suffix are outdoor-rated products listed to UL 1638&quot;*) as a possible answer for
+  `PC2WKLED`, whose own L-Series documents do not define it. The agent checked
+  `AVDS-62173:A`, `I56-0040-000` and `A05-0456`, found that **none defines the letter**,
+  observed that every outdoor-table model carries `K` and no indoor-table model does
+  &mdash; *an inference from two ordering tables, not a manufacturer statement* &mdash;
+  and **put nothing about the letter in the copy.** Recorded because every previous
+  instance of this rule in this file is a post-mortem; this is the first where the import
+  was offered and declined before it reached a page. A convention documented on one
+  product line is not documented on another.
+- **A table can carry the WRONG HEADER INSIDE ITSELF, which defeats caption-matching
+  entirely.** `AVDS-62173:A` p2: the left table is captioned *&quot;UL/ULC Maximum
+  **Strobe** Current Draw&quot;* above it, while its own blue in-table header reads
+  *&quot;UL/ULC Maximum **Horn** Current Draw and Sound Output&quot;* &mdash; on a body
+  that is candela against current. So the caption above and the header inside disagree,
+  and plain extraction additionally emits three captions in an order that attaches each
+  to the wrong body. **Render was the only resolution.** Add it to the ladder: caption
+  below its table (`9021-60930`), two tables emitted in swapped order (`TD450157EN`), and
+  now a header that contradicts its own caption.
+- **&quot;Platinum&quot; is a colour, and a merged cell hid it.** `4007-9102` was a
+  three-way question &mdash; finish, feature tier or model designation. `S4007-0001`
+  Rev. 22 Table 3 lists `4007-9101` **Red** and `4007-9102` **Platinum** against one
+  vertically merged Description cell, confirmed at 250 dpi. Also settled: the panel is a
+  **complete enclosed unit** including one `4007-9801` zone/relay card, and the two 12 V
+  batteries are not in it.
+  By contrast `FCI2016-U1` is a **bare board**: installation instructions `A6V10356958`
+  show the FC922 built from **eleven separately located items**, and the box holds none
+  of the back box, doors, operating unit, supply, trim kit, battery bracket or batteries.
+  **Two Siemens panel-family parts in one batch, opposite answers** &mdash; which is why
+  the complete-product question has to be asked per part and never inferred from the
+  family.
+- **Two more index and path facts.** The JCI Simplex hub has a **`product_code` metadata
+  field**, and grepping `filename` alone missed `4100-5451` entirely &mdash; the four
+  documents carrying it expose it only there, so grep `filename`, `prodname` **and**
+  `product_code`. And on EDAM, **prefix and case are independent axes**:
+  `BA-Fire-AVDS-62173-A.pdf` works while `ba-fire-DN-60240.pdf` 404s and
+  **`hon-ba-fire-dn-60240.pdf`** serves the PDF. Try the `hon-ba-fire-` prefix lowercased.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
