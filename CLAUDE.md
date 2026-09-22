@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,195 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,206 pages published** — 555 from the old list plus v2b01 through
 v2b32, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
@@ -4365,6 +4365,92 @@ Revisit after the high-impression band is done.
   **This is the over-firing lesson inside my own tooling**, which is where it is hardest
   to see: the filter had been silently correct for 1,300 rows because no earlier brand
   put a brand mark in a filename.
+
+- **An entire BRAND is mis-filed, 161 SKUs of it, and the agent's own estimate of the
+  scope was four times too small.** `SF-RP5204X` and `SF-RP5206X` carried raw ERP
+  descriptions (*&quot;3/4 TEE 10/PK&quot;*) under vendor **Space Age**. They are
+  **SAFE Fire Detection, Inc.** parts &mdash; that company's own RedPipe data sheet
+  states `RP5204 = 3/4&quot; TEE` and `RP5204X = 10 pack`.
+  **The negative was validated before it was trusted**, which is what makes it evidence:
+  1sae.com's catalogue search returns a real result page for `MR-101` and its no-results
+  page for `SF-RP5204X`, `SF-RP5209` **and** `redpipe`, so the query is honoured and the
+  miss is real.
+  **The agent sized it at ~39 SKUs from the `SF-RP*` family. The live catalogue holds 161
+  SKUs with an `SF-` prefix and every single one is under vendor Space Age** &mdash; 146
+  six-month impressions and $16,932 of ERP revenue, spanning RedPipe, RedGear, Safecable,
+  Cirrus, ProPoint, ProLocator and the Hybrid/PPP aspirating line. Confirmed directly on
+  `safefiredetection.com`'s WordPress search (bogus control `ZZQQXX999` &rarr; **0 rows**,
+  so the endpoint is honest): **RedPipe and RedGear return their own product pages**, and
+  ProPoint Plus and Hybrid return **SAFE's own training exams** &mdash; supporting rather
+  than conclusive for those two, and the remaining families were not checked.
+  **So `SF-` looks like a whole manufacturer's namespace filed under the wrong brand.**
+  Nothing was changed: vendor is a Merchant Center attribute. **And the method lesson is
+  to check the scope of a brand finding against the live catalogue rather than against
+  the family that surfaced it** &mdash; a prefix is a census question, and the agent could
+  only see its own six.
+- **A pack count the manufacturer DOES state, and the store contradicting itself about
+  it.** `RP5204X`/`RP5206X` are stated as 10-packs by SAFE Fire Detection &mdash; and
+  **six siblings in this catalogue already carry &quot;10/PK&quot; in their titles while
+  these two carry nothing.** That is the inverse of the usual pack-count problem: not an
+  unsourced claim to remove, but a sourced fact the store states inconsistently. Still
+  not applied, because adding one is a new feed claim and the decision is the owner's.
+- **Yellow is NOT the release-station colour, and the manufacturer says so in words.**
+  The briefing warned that `SG-WP-YL` might be a release station, since yellow is the
+  release convention this catalogue has flagged before on `RMS-1T-WP YELLOW`. SigCom's
+  own sheet states: *&quot;There is no agency standard, outside of red for fire, that
+  dictates what color is to be used for a specific application.&quot;* Its yellow labels
+  span HAZMAT, EVACUATE, MEDICAL, TORNADO, DOOR RELEASE, FOAM **and** a release set. So
+  the colour carries no class information at all, and the part is a **weatherproof cast
+  metal back box** for SG-42 stations. **The warning still earned its place &mdash; it
+  forced the check &mdash; but the convention it rested on is not a convention.**
+- **Two wrong-document-family instances in one batch, and one of them would have read as
+  an invented part number.** `EWGSVMRF` appears **zero** times in `K85001-1031`
+  (&quot;Outdoor Speakers and Speaker-Strobes&quot;) and **zero** in `K85001-1030`
+  (&quot;Outdoor Horns, Strobes and Horn-Strobes&quot;) &mdash; the two obvious sheets.
+  It is in `K85001-1056`, the outdoor **Extended Candela** sheet. And `6820UEVS` appears
+  **zero times in the 6820EVS datasheet and zero times in its 170-page installation
+  manual**; it is real and documented on Honeywell's own product pages. **Two more
+  reasons the rule holds: a negative bounds the search, not the catalogue.**
+  The `E/K` prefix rule was also confirmed again in the form this file already states:
+  **the `E` is inside the series code**, Kidde's being `EWG` where Edwards' is `WG`, and
+  the syntax block splits `EWGSVMRF` as `EWG` outdoor Genesis + `SV` speaker-strobe +
+  `M` extended candela + `R` red + `F` FIRE. The coordinator's guess that `VM` meant
+  visual multi-candela was wrong.
+- **An ERP string would have imported another part's material.** `MX16RSF-US`'s ERP reads
+  *&quot;TYPE B CALL STATION **SS** FLUSH MOUNT&quot;*. Eaton's ordering table says
+  **Silver**, and `MX16-SSC` is separately *&quot;Stainless steel flush mount panel
+  front&quot;* &mdash; so reading `SS` as stainless would have taken a different
+  catalogue number's material onto this page. **An ERP description is a source of
+  candidate words, never of facts**, which is the third time this file has had to say it
+  (after the lossy `type` field and the `live_desc` placeholder).
+- **`U` = ULTRA Series across Honeywell and Silent Knight**, manufacturer-stated:
+  6808U, 6820U, IFP-300U, IFP-1100U, FCP-300U, with Honeywell's own firmware page listing
+  the conversions (`6820 -> 6820U`). A one-letter suffix that names a product generation,
+  and none of the affected titles said so.
+- **A usable new Honeywell fingerprint, where the recorded one is useless.**
+  `buildings.honeywell.com/us/en/products/.../<slug>` returns **`text/html` for a real
+  slug and `application/javascript` (~225 KB) for a bogus one**, so **the mime check
+  discriminates there** &mdash; unlike `/search?q=`, which this file records as returning
+  byte-identical 219,852-byte 404s for every term, now confirmed a second time on two
+  different queries. **The same host can be honest on one route and useless on another.**
+  Also: **a new DITEK failure shape &mdash; HTTP 200 with a ZERO-byte body** on
+  `/products/<sku>/`, distinct from the ~151&ndash;152 KB shell on record; the **series
+  page** works and carries the model descriptions and PDF links, which is this file's
+  &quot;filenames are linked from the series page&quot; rule paying again. And **the bare
+  host `diteksurgeprotection.com` fails at the proxy where `www.` works.**
+- **A manufacturer naming a product as its own predecessor.** Honeywell's 6820UEVS page
+  reads *&quot;are direct replacements for the **6820UEVS**/5820XL-EVS FACP&quot;*.
+  Nothing was published from it. Worth keeping beside the self-contradicting-document
+  entries: a supersession sentence can be circular, and grepping for &quot;replacement&quot;
+  would have returned it as a hit.
+- **A correction to this file: RATH has NOT vanished from current Avire documents.**
+  This file records, from the `3300FSN` work, that the two current sheets are
+  Avire-branded and `RATH` appears zero times in either. **That does not generalise to
+  the line.** The 5.26.2026 series datasheet writes *&quot;RATH&reg; 2500-PWR24U&quot;*
+  and the 2023 sheet *&quot;an additional interface device from RATH&reg;&quot;*, so the
+  vendor field is not stale for the 2500 series. **A brand-vanished finding is per
+  document line, not per brand** &mdash; the same scope error as the pack-count rule that
+  had to be confined first to a category and then to a vendor.
 
 ## Conventions
 
