@@ -3173,6 +3173,40 @@ Revisit after the high-impression band is done.
   ring)&quot;* with **no quantity**, and **each of the three states the bulk packs for
   `B501-WHITE-BP` and `B300-6-BP` in the same table**. Bases numbered, accessory not, three
   times over. Title left exactly as it was; flagged.
+- **The family-disagreement scan re-run on a live pull, 22 Sep 2026 &mdash; and it
+  over-fired for the first time, with a mechanism behind it worth fixing.** 16,031 active
+  products, 131 families of three or more, **54 families disagreeing on `type`, 94
+  divergent members**. But **25 of those 94 are one defect repeated: the stem rule
+  collapses a product LINE into a family.** `PAD100` (7 members: bases, heat detectors,
+  relay modules, CO detectors, speakers), `PAD300` (8), `SIGA` (13: bases, duct detectors,
+  kits, mounting plates, smoke detectors) are **series prefixes, not families** &mdash; a
+  catalogue of different device types sharing a prefix cannot &quot;agree&quot; on a type
+  and it is not a defect when it does not.
+  **The guard is a mechanism, not a threshold: a family is variants of ONE product, and a
+  line is a catalogue under a prefix. Drop any group whose flagged members span three or
+  more distinct types, or that has eight or more members spanning two or more.** That
+  removes all 25 and leaves **69 real divergences across 49 families**, which is the number
+  to work from.
+  **The scan independently rediscovered two already-confirmed defects** &mdash;
+  `FST-951-IV` (thermal detector typed Smoke Detectors) and `P2WLED-P` (horn strobe typed
+  Strobes) &mdash; which is the strongest validation this kind of scan can offer, and it
+  did the same thing on its first outing.
+  **The clearest new finds, all structured data and therefore flagged rather than applied:**
+  `TX3-WRT-2H` is a **key fob transmitter typed Batteries**; six Napco `GEMC-*` and
+  `SLE-*-CB` **commercial burglary devices are typed Fire Alarms, Sensors, Enclosures and
+  Carbon Monoxide Detector**; `GBC-120-2` is a **gas boiler controller typed Fire Alarms**;
+  `FSP-951R-BP` is a remote-test photo detector **typed Duct Detectors**; and two Westell
+  `CS40-` amplifiers are typed Fire Alarms while their own sibling is correctly typed BDA.
+  Note the owner's standing rule is about **titles** &mdash; no &quot;(Security)&quot; or
+  &quot;Non-Fire&quot; in a title &mdash; and says nothing about the `type` field, which is
+  a separate Merchant Center attribute. A burglary device typed Fire Alarms is a
+  categorisation error, not a warning label.
+  **And the outlier-is-not-the-defect caveat fired again, on eight products at once:** the
+  `LENS-A2/B2/G2/R2/A3/B3/G3/R3` lens attachments are typed **Lens** inside families typed
+  **Strobes**. The minority is right &mdash; a lens is not a strobe &mdash; so what needs
+  adjusting is the family, not the eight. **The scan reports that a family disagrees, never
+  which member is wrong**, for the fourth time.
+  Full list in `/tmp/tfas/SCAN_familia_type_REAIS.json`.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
