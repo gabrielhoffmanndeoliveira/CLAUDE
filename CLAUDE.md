@@ -2302,6 +2302,83 @@ Revisit after the high-impression band is done.
   landing on a relay. Note the Shopify `type` field said "Relays" and was right while
   the title was wrong: **when a structured field disagrees with the title, that is
   a signal, not noise.**
+- **The micro-sign trap: a cousin of the Omega trap, and the first one found.**
+  Notifier `DN-2243:B` prints the ISO-X standby current as **&quot;450 A&quot;** &mdash;
+  the `&micro;` is dropped in extraction exactly as `&#937;` becomes `W`. 450 amperes on
+  an SLC isolator module is absurd, which is the tell, and two independent documents
+  settle it: installation sheet `I56-3624-001` prints **450 &micro;A** and `DN-60844:A`
+  prints **&quot;450 &micro;A per circuit&quot;**. **So the Omega rule generalises to any
+  prefix symbol** &mdash; &micro;, &#937;, &deg; &mdash; and the check is the same one:
+  ask whether the bare number is physically possible for that quantity before writing it.
+- **A search-engine result is not evidence about the catalogue, and it cost one query to
+  prove.** A v2b26 agent flagged what looked like **duplicate product pages** &mdash;
+  `/products/bb-55f` alongside `/products/fire-lite-bb-55f-battery-box`, and
+  `/products/notifier-dp-disp2` alongside `/products/notifier-dp-disp2-dress-plate`
+  &mdash; and correctly told the coordinator to verify live rather than against a
+  snapshot. **Both short handles return `null`**: `productByIdentifier` finds neither,
+  and a product search returns exactly one active SKU each. The URLs exist only in a
+  search index. **That is the snapshot rule with a new artefact in the slot**: a search
+  result is a cache of something that may never have been current, and it is one degree
+  staler than the snapshot this file already warns about. The agent's handling was right
+  &mdash; flag it, do not act on it &mdash; and the check cost one query.
+- **`DP-DISP` and `DP-DISP2` are different parts for different panels, and the store
+  carries both correctly.** `DN-7111:O`: *&quot;DP-DISP2: Dress panel for top row in
+  cabinet with CPU2-640/640E installed&quot;*; `DP-DISP` (no 2) serves a CPU2-3030D top
+  row (`DN-7070:S`) and an NCA-2 on a CHS-M3 chassis (`DN-7047:H`), and **`DP-DISP2`
+  appears zero times in `DN-7047:H`**. A one-character sibling pair separated by which
+  CPU sits in the cabinet, both real. Both also require **two BMP-1 blanks** alongside
+  them, which is the useful thing on a sheet-metal page.
+- **Tenth incomplete-product case, and the `CM` suffix is the whole warning.**
+  `HPFF8CM` ships as a **bare chassis**: Honeywell Power `53499 Rev B4` &sect;1 reads
+  *&quot;The HPFF8CM is a chassis-mount model &hellip; These separately sold cabinets are
+  also referred to as the large equipment enclosure&quot;*, and `DH-60541:C1` marks the
+  enclosure **&quot;Order separately.&quot;** At $819.90 a buyer expecting a boxed supply
+  like the plain `HPFF8` receives a chassis with no backbox, no door and no batteries.
+  **`CM` = chassis mount and `HPFF` = Honeywell Power FireForce**, both manufacturer-
+  stated. The live copy named &quot;SBBD4 or EQBBB4&quot; where Table 2.1 lists **eight**
+  cabinets across one-, two-, three- and four-unit sizes &mdash; an arbitrary pair, and
+  **Honeywell hyphenates them** (`SBB-D4`, `EQBB-B4`), so the unhyphenated forms in the
+  live copy would not match a search either.
+- **A ULC suffix can shift every figure in a table, which is the sibling trap across
+  listings rather than across parts.** Simplex `S4902-0003` Rev 11: `4902-9716` is
+  **80/83/85/88 dBA at 25 VRMS** and **79/82/85/88 at 70.7 VRMS**, while `4902-9716CA`,
+  the **ULC** variant, is **77/80/83/86** &mdash; two to three dBA lower at every tap.
+  **`CA` is the only suffix on this series; `-BA` appears nowhere in it**, so the
+  assembled-in-the-USA reading recorded from `S49AVC-0001` does not transfer here.
+  Two further points from the same table. **The merged-cell trap fired as briefed and
+  needed the render**: the Model cell holding `4902-9716` and `4902-9717` is merged
+  across two Input-voltage rows, so y-coordinates alone assign 25 VRMS to one and 70.7 to
+  the other &mdash; wrong, both are dual-voltage and carry both rows, confirmed at
+  300 dpi. And **the two voltage rows are not identical**: 25 V is 1 dBA louder at the
+  two lower taps and converges at 1 W and 2 W, so **quoting one set of four figures
+  quotes one voltage only.**
+  Also a document defect published from: Table 3's general-signalling frequency response
+  reads **&quot;125 kHz to 12 kHz&quot;**, not a coherent range. Nothing quoted from it.
+- **A colour claim with no positive source, handled by naming the sibling instead of
+  asserting or denying.** The live `BB-55F` copy said **Red**. Fire-Lite `DF-52220:A1`
+  reads *&quot;**BB-55FR**: Same as BB-55F above but painted red&quot;*, and Notifier runs
+  the identical convention cross-brand in `DN-7111:O` (*&quot;NFS-LBB &hellip; NFS-LBBR:
+  Same as above but red&quot;*) &mdash; so the `R` is the red marker and the plain part is
+  something else. **But no document states what the plain part's finish is**, and every
+  distributor says red, which is correlated consensus for the fifth time. **Nothing was
+  asserted either way**: the closing paragraph names `BB-55FR` and tells the buyer to
+  confirm the finish. Note the defect is in the **description**, not the Shopify title,
+  so it costs one channel.
+- **A new first-party route for BRK and First Alert, found by reading a JS shell's markup
+  rather than trying to extract it.** `brkelectronics.com` product pages return
+  `application/javascript` at ~441 KB &mdash; the familiar shell &mdash; but the **raw
+  HTML discloses the asset URLs**: `digitalassets.resideo.com/damroot/Original/<n>/<file>.pdf`,
+  mime-clean PDFs with no bot protection. **Backslashes in the hrefs must be swapped for
+  forward slashes.** That is the robots-and-sitemap lesson in a third form: when a site is
+  a JS shell, **read its markup for links** instead of treating the shell as a document.
+  Also worth keeping from the same batch: Honeywell **installation manuals** resolve under
+  `manuals-and-guides/installation-guides/<docnum>.pdf` and `.../user-manuals/<docnum>.pdf`
+  &mdash; and for `HPFF8CM` the manual was both **newer and more authoritative** than the
+  datasheet, which is the go-to-installation-instructions rule paying again.
+  Route counts from that batch: `notifier-us/hon-ba-fire-<docnum>.pdf` resolved **4 of 4**
+  and the flat lowercase `datasheets/df-<num>.pdf` resolved **4 of 4**, while the
+  `hon/hbt-fire` root **failed on every probe**. Everything that worked sat under
+  `honeywell-edam/hbt/.../documents/`.
 - **Half the catalogue has no product photograph, and the first scan for it returned
   zero. 22 Sep 2026, and the owner found it before any scan did.** He sent a screenshot
   of an admin list showing grey placeholder icons and asked for photos. A bulk pull of
