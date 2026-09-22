@@ -5876,6 +5876,56 @@ Revisit after the high-impression band is done.
   `/tmp/tfas/PONTUACAO_autocontradicao.json`; **not applied**, because choosing which spelling is
   right is a claim about a part number and needs the manufacturer, exactly as `34 NPT` did.
 
+- **A recommended sweep run, and it closed as a NEGATIVE &mdash; which is the useful outcome,
+  because it stops a mass edit.** An agent removed *&quot;Logo Only&quot;* from `4901-9820` as
+  contradicted by its datasheet and recommended checking other Simplex appliance titles for the
+  phrase, since it looked import-derived. **It is not.** Of **nine** live titles containing
+  &quot;logo&quot;, seven are plainly legitimate (VESDA blank plates *with* and *without* the VESDA
+  logo, Hochiki glass elements with the Hochiki logo, a Rath acrylic piece) &mdash; and the two
+  Simplex covers are **manufacturer-stated**: the coordinator fetched `S49VO-0001` Rev. 7 (3/2018)
+  and `S49VOC-0001` Rev. 17 (01/2026) and both print **&quot;Simplex logo only&quot;** as a cover
+  option, with `49VOC-WWS` and `49VOC-CWS` against it. Only `49VO-WRSO` is unresolved &mdash; it
+  appears zero times in either sheet and its suffix has a different shape &mdash; and it was left
+  untouched.
+  **So the `4901-9820` defect is a single page, not an import class.** Worth recording precisely
+  because the opposite conclusion was the plausible one: this file's own history is full of defects
+  that *did* cluster in one import (the 80 non-ASCII titles, the ~300&ndash;400 truncations, the 75
+  duplicated brand tokens), and the reflex after finding one is to assume a family. **A
+  recommendation to sweep is a hypothesis; run it before believing it, and record the negative so
+  nobody runs it again.**
+- **The Power-Sonic model number is the 20-hour capacity on only 4 of 12, and the ERP string was
+  wrong on 5 of 12 &mdash; both measured on one batch.** Three models carry the **10-hour** figure
+  in the number (`PS-121400` 147.0/140.0, `PS-122000` 226.0/200.0, `PS-122500` 265.0/250.0) and
+  five match **no rate at all** (`PHR-12400` 113.8, `PHR-1290` 20.0, `PS-1220` 2.9, `PS-12200HD`
+  22.0, `PS-1230` 3.4). Every title states the rate and the three 10-hour cases state **both**, so
+  a buyer who ordered expecting 140 Ah can see why the sheet says 147.
+  **What makes this batch's numbers trustworthy is the third check, and it is reusable:
+  arithmetic.** Beyond word coordinates and a 300 dpi render, the agent multiplied each sheet's
+  own stated discharge current by its hours and got the stated capacity on all twelve at both
+  rates &mdash; `PS-1220` at 0.14 A &times; 20 h = 2.8 &asymp; 2.9, where a 2.0 Ah cell would draw
+  0.10 A. **A datasheet that states a current and a capacity states its own checksum.**
+  Two live sibling traps came with it. **`PS-1220` and `PS-1229L` carry the SAME 20-hour capacity,
+  2.9 Ah**, with identical dimensions, internal resistance and short-circuit current, differing
+  only in weight &mdash; so **capacity alone cannot distinguish two SKUs the store carries**, and
+  `L` is defined in no document. And `PS-12200HD`'s case line reads **&quot;ABS Plastic Rated to
+  UL94:HB&quot;** closed, where the other eleven read &quot;HB or V-0 optional&quot;: **there is no
+  FR version of the HD.**
+  **`FR` is manufacturer-defined and `UL94 V-0` is not.** The SLA Technical Manual says *&quot;Flame
+  Retardant (FR) battery cases and lids are available&hellip;&quot;*, so &quot;Flame Retardant
+  Case&quot; is publishable &mdash; but no document equates FR with V-0, so joining the two is an
+  inference and no V-0 claim was made. The ERP's &quot;V0 case&quot; rests on that same inference.
+- **The `cdn.power-sonic.com` zero-byte question is SETTLED, and the correcting agent was right.**
+  With filenames **found** (linked from a product page) it serves real PDFs &mdash;
+  `SLA_Technical_Manual.pdf` at 2,167,620 bytes, mime-clean. A **bogus** name returns **HTTP 200,
+  0 bytes, `inode/x-empty`**. The coordinator's failed reproduction used a *constructed* filename,
+  which is the very thing this file forbids, so the failure was the path and not the host. **The
+  byte guard stays mandatory** &mdash; the miss is a 200 &mdash; but the host is usable.
+  *And the datasheets are not there at all*: they live on
+  `power-sonic.com/wp-content/uploads/datasheets/<slug>.pdf`, whose 404 is `text/html` at
+  280,472&ndash;280,481 bytes, matching the recorded drifting shape. Also: **a product page needs
+  its trailing `-L`** or it returns 302 with zero bytes, and **`PS-12260`'s slug is
+  `ps-12260-12261`**, a combined page &mdash; the slug is not derivable from the SKU.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
