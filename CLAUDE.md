@@ -3411,6 +3411,48 @@ Revisit after the high-impression band is done.
   project, and a search-result page title is not a document read. **So `1251000` stays
   open**, with a named cause rather than a shrug: the document exists, is first-party, and
   is behind a WAF. One fetch from an unblocked route settles it.
+- **313 products have no product NAME at all &mdash; the title is brand plus part number
+  and nothing else. The owner found them, twice, before any scan did.** He sent an admin
+  screenshot of rows reading *&quot;TCS Basys TS3030&quot;*, *&quot;Silent Knight
+  6820UEVS&quot;*, *&quot;Mircom MGC-4050&quot;* and asked when they would be fixed.
+  **The mechanism, once stated, is trivial and had never been run: strip the vendor string
+  and the SKU out of the title and see whether anything is left.** 313 of 16,031 have
+  nothing left. **156 of the 313 are additionally typed the generic &quot;Fire Alarms&quot;**,
+  so the class noun is absent from *both* fields and the product is invisible to anyone who
+  does not already know its part number &mdash; which is the whole population a descriptive
+  title exists to reach.
+  **This is the third time the owner has found a defect class before the pipeline did**,
+  after the photo placeholders and the photo queue's wrong sort, and the pattern in all
+  three is the same: **the scans looked for wrong values and never for missing ones.** The
+  entity audit, the truncation scan and the family-type scan all test something the title
+  *says*; none of them tests whether it says anything.
+  Concentration: **Kidde Fenwal 107, Power Sonic 88, Rath 24, Mircom 22**, then a long tail.
+  Only 2,983 six-month impressions and $57,895 of ERP revenue across all 313, so the
+  traffic case is weak &mdash; **and that is exactly the circularity the photo work already
+  corrected: a page with no product name cannot rank for a product name.** Ranked list in
+  `/tmp/tfas/TITULOS_SEM_NOME.json`. A dedicated title-only agent is now working the top
+  twelve at the owner's instruction.
+- **A narrow, document-grounded scan for the releasing-gear defect, and three of five
+  families came back clean.** Releasing equipment merchandised as ordinary fire equipment
+  has fired four times here, so the live catalogue was checked against the part-number
+  families whose documents this project has **actually read**: `RP-2002*`, `IPA-*`,
+  `4099-9015`, `2099-91*`, `RMS-1T*`. **`RP-2002` and `RP-2002E` both now say &quot;Agent
+  Release Control Panel&quot;** &mdash; the correction propagated to the 240 V sibling
+  without anyone doing it separately, which is the first time a fix here has been observed
+  to carry across a family. `IPA-100`/`IPA-4000` and `4099-9015` are clean too. **And the
+  seven `2099-91xx` stations that do NOT say releasing are almost certainly right**,
+  because `2099-` is the non-coded manual station line with releasing as one sheet inside
+  it &mdash; the exception a coordinator summary once dropped, now protecting seven titles
+  from a wrong flag.
+  **`RMS-1T` is the outlier and it is incoherent across six members**: `-KL` is a
+  Pre-Action Release station while `-WP` is a plain &quot;Single Action&quot; one on the
+  same stem; `-WP YELLOW` says **Dual-action** where `-WP` says Single, and yellow is the
+  release-station colour convention; `-KO` sits under vendor **Kidde** where all five
+  siblings are Potter; `-KO` is typed **Keys** and titled a Station while `-WP-KL` is typed
+  a Pull Station and titled a **Key**, so one of those two pairs is inverted; `-WP-LP` has
+  **no class noun at all**; and `-KL`'s title carries a stray `)` from the truncated
+  import. Queued in `pending_fixes.md` to be **pair-split across two agents**, which has
+  paid three times here.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
