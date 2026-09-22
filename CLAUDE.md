@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,293 enrichment pages published** (555 old list + 726 v2 through v2b47A, verified live), plus 226 title-only products — 555 from the old list plus v2b01 through
+**Progress: 1,293 enrichment pages published** (555 old list + 726 v2 through v2b47A, verified live), plus 237 title-only products — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -7493,6 +7493,72 @@ Revisit after the high-impression band is done.
   **Recorded as a non-reproduction rather than a correction**, on the `cdn.power-sonic.com`
   precedent &mdash; the earlier measurement may have been on a different article shape, and
   saying so honestly is what lets the next person test it properly.
+
+- **I NAMED AN INPUT FILE THAT DID NOT EXIST, AND THE AGENT FOUND THE REAL ONE AND SAID SO
+  BEFORE USING IT.** `build_titulos.py` prepends `lote` to its argument; I passed `lote21`, so
+  it wrote **`_TITULOS_lotelote21.json`** while the briefing named `_TITULOS_lote21.json`. The
+  agent reported the discrepancy, **verified the file it found was the right lot before
+  working it**, and wrote its output to the name the briefing asked for.
+  **This is the `_IN_rath2.json` incident again, and that is the point:** the recorded rule is
+  *never type a value from memory*, and both instances are a coordinator naming a **file** from
+  memory rather than an id. The fix this time is a mechanism rather than discipline &mdash; the
+  builder now **refuses any argument beginning with `lote`** and names the mistake. Tested; it
+  refuses.
+  **And the recovery mattered more than the bug**: a sibling lot was in flight under the same
+  wrong name, so the correction went to that agent mid-run with the filename and the two
+  terminal decodes this lot had just settled. **A briefing is correctable while the agent is
+  still working**, which is cheaper than letting it return a lot built on a guess.
+- **On this 6 V family the model number matches NO RATE seven times out of eleven, and ZERO
+  times is it the 10-hour figure** &mdash; which is the opposite distribution from the 12 V
+  lots, where several were the 10-hour capacity. Every figure read off that model's own current
+  datasheet and arithmetic-checked; **the two costliest verified directly by the coordinator on
+  one y-line each**:
+  `PS-62000` is **190.8 Ah at 20 hr (9.54 A) and 180.0 at 10 hr (18.0 A)** where the model
+  number says 200 **and the store's ERP says 210** &mdash; a standby calculation sized on either
+  over-claims. `PS-630` is **3.5 Ah, not 3.0**, a 17% under-read and the largest relative gap.
+  **So the instruction to state the rate in every title is not a house preference, it is the
+  only form in which the family is comparable** &mdash; and this lot contains the proof:
+  **`PS-6100` and `PS-6120` are the same physical box** (5.94 &times; 1.97 &times; 3.7 in.,
+  12.0 m&#937; both) and **PS-6100's 20-hour capacity, 12.0 Ah, is exactly the number inside
+  PS-6120's model number.** A buyer comparing &quot;PS-6120 = 12 Ah&quot; against
+  &quot;PS-6100 = 12.0 Ah&quot; cannot separate them; the real answer is 12.0 against 13.0 Ah at
+  20 hr in an identical case.
+  **Two terminal codes this file recorded as undecoded are stated verbatim**, off 400 dpi
+  renders of the models' own Available Terminals panel: **`SP` = Spring**, *&quot;Fully
+  collapsible spring type terminals&quot;* &mdash; independently corroborated by the store's ERP
+  string `PS-650LS 6V5.0AH SPRING`, **the one place the ERP added information rather than
+  removing it** &mdash; and **`FP` = FASTON POLARIZED**, *&quot;Positive: 'F2', Negative:
+  'F1'&quot;*, a wide 0.250 in. positive and narrow 0.187 in. negative, i.e. a keyed pair that
+  resists reverse connection. That is a real buying attribute and it is in the title.
+- **The terminal DRAWING gallery is a superset of the ORDERING list, and only one of them is
+  authority.** The `PS-6100` sheet draws F1, F2 **and** FP while its Configuration Options block
+  lists only `F1 / F1 VDS / F2 / FR F1`. **The Configuration Options block is the ordering
+  authority**; the drawing shows what the factory can fit, not what the catalogue sells. Same
+  shape as the recorded Altronix case where a derivable library path covers the models it covers
+  and not the series.
+- **The series-boilerplate page PROVED byte-identical rather than asserted, which is the right
+  standard for a negative.** The approvals page of `ps-610` (1.0 Ah) and `ps-62000` (190.8 Ah)
+  is **byte-identical, md5 `c8446543a5b8`**; `ps-650ls` and `ps-6360` share `a3d1ea6dad7b`, the
+  two variants differing only by a **one-minute export timestamp**. It is a glossary of what the
+  standards mean, attached to no model &mdash; so no certification, CE, IEC 60896, RoHS,
+  &quot;sealed&quot;-as-certified or UN2800 non-spillable claim is in any title.
+  **And the one document that looks like it would settle a certification does not.**
+  `cdn.power-sonic.com/documents/UL1989_DoC_S0.pdf` is a **self-signed Declaration of
+  Compliance**, scoped at *series* level across ten product lines, containing **zero model
+  numbers**, saying *&quot;designed, manufactured, and evaluated to comply&quot;*. That is not a
+  per-model UL Listing. The `SLA_Technical_Manual.pdf` likewise **contains no model numbers at
+  all**. **A document can be first-party, current and mime-clean and still be unable to answer a
+  per-model question** &mdash; check what it is scoped to before quoting it.
+- **A `null` with THREE incompatible readings, and naming them is what makes it useful.**
+  `PS-632 F1` ($27.35) was left untouched. It is in no first-party route &mdash; the honest REST
+  endpoint returns `[]`, and **the 329-product sitemap, a literal enumeration rather than a
+  search, carries the entire 6 V range and no 632.** The three readings: the digits imply
+  **3.2 Ah**, which exists in this family but as **`PS-630ST`**; the store's ERP reads
+  `PS-632 6V3.5AH F1`, **byte-identical to PS-630's string except the model number** &mdash; the
+  borrowed-sibling-row signature, and note it does not say 3.2 either; and **the price sits with
+  the 12&ndash;13 Ah class at 3x PS-630's.** Not called invented, SKU untouched, and the agent
+  explicitly declined to read across to `PS-630`. **One carton label or one price-list line
+  settles which of the three it is; more searching will not.**
 
 ## Conventions
 
