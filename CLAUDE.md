@@ -77,8 +77,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 896 pages published** — 555 from the old list plus v2b01 through
-v2b19, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) — plus 80
+**Progress: 914 pages published** — 555 from the old list plus v2b01 through
+v2b20, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) — plus 80
 title-encoding fixes applied
 catalogue-wide. One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
@@ -1540,6 +1540,72 @@ Revisit after the high-impression band is done.
   `BDA-NMP01250`, is a Trilogy product sold under a Honeywell SKU, and the Honeywell
   **Fiplex Document Center requires sign-in**. That is a **bounded** negative: one
   owner login would settle it. Recorded as a retry, not a permanent skip.
+- **A stale figure can be proved stale by the PREVIOUS revision, which is a third
+  signal rather than a coin flip.** Eaton `TD450158EN` (May 2025) prose says the Eluxa
+  speaker has a &quot;listed sound output of up to **87 dB** at 10 feet&quot; while its
+  own Table 2 runs to **90 dBA**. 87 dBA is *exactly* the maximum of the September 2021
+  revision, whose taps stopped at 2 W where the 2025 taps run to 8 W. So this is not
+  prefer-the-table-by-rule: the prose is a **carry-over from the superseded revision**,
+  and knowing that is what settles it. **When a document contradicts itself, pull the
+  previous revision &mdash; the stale side often matches it exactly.**
+  The same sheet has a **row-label defect**: the 2025 Table 2 labels its rows
+  &quot;(Wall) **ELSPT**&quot; and &quot;(Ceiling) **ELSPTC**&quot;, neither of which is
+  a model in the document. The 2021 revision prints the same table with explicit
+  `ELSPK/ELSPKC` and `ELSPST/ELSPSTC` rows carrying **identical values** &mdash; which is
+  what licensed quoting a wall row for a wall speaker. **Note this is the exact opposite
+  of the System Sensor `SPWL`/`SPSWL` case**, where speaker and speaker strobe differ by
+  2 dBA at every tap. Two brands, opposite behaviour, so neither can be assumed.
+  Also recorded: the filename this file carried for that document is dead, the live one
+  is `eaton-eluxa-speaker-and-speaker-strobe-clear-and-amber-lens-td450158en-us.pdf`
+  under `/lsmns/eluxa/`, and **`web.eaton.com` returns HTTP 200 with 86,227 bytes of
+  `text/html`** for the old name &mdash; another host that pymupdf opens happily and only
+  the mime check catches.
+- **Bosch is a blocked brand with a 128-byte fingerprint, and the sitemap route does not
+  reach it.** `resources.boschsecurity.com` and the Azure CDN are **refused at the proxy
+  gateway with 502 to CONNECT**; `resource.boschsecurity.com` (singular) 301s every
+  `/documents/` path to the site root; and `cdn.commerce.boschsecurity.com`,
+  `cdn2.commerce...`, `commerce...` and `catalog.boschbuildingtechnologies.com` all answer
+  **HTTP 200 with a 128-byte `text/html` body** for every path, including URLs taken
+  straight from search results. **128 bytes joins EDAM's 8,047, steelfire's 48,687,
+  autocall's 103 and lenel's 371 on the fingerprint list.** The robots/sitemap route this
+  file recommends *does* resolve (`catalog.boschbuildingtechnologies.com/sitemap-products.xml`,
+  10.7 MB) but carries only the &quot;lifesafetysystems&quot; storefront with **no US fire
+  products at all** &mdash; so that route has a boundary, and this brand is outside it.
+  `D296` was written from two Bosch-authored documents reached through mirrors three
+  years apart, agreeing exactly on every figure quoted.
+- **A carton-contents change between revisions is a real product change, and the older
+  document is the trap.** Bosch's 2014 `D296` manual says a **D306** remote indicator
+  plate ships with each detector and that the **D308 test kit is not supplied**; the 2017
+  data sheet's Parts Included list gives a **D344-RL** plate **and** the D308 kit, and
+  never mentions the D306. Anyone reading only the manual would tell a buyer to order a
+  test kit they already have. **Prefer the newer revision for carton contents
+  specifically** &mdash; it is the field most likely to change without any spec changing.
+- **The type field's silence has an inverse case worth naming.** `ELFHNW-N` is typed
+  **Horn Strobes** and has **no strobe** &mdash; `TD450159EN` Table 5 lists it under
+  Sounders with an empty Strobe Candela column and draws its current from the
+  &quot;Horn Only&quot; table. But the **title was already correct**, so the type agreed
+  with nothing and still raised nothing; the mismatch surfaced only from the ordering
+  table. The recorded rule is &quot;the type field is a signal when it disagrees with the
+  title and no evidence when it agrees&quot;; this is the case where it disagrees with a
+  *correct* title, which is the same defect pointing the other way. **Check the type
+  against the document, not against the title.**
+- **Det-Tronics is first-party and unprotected, which breaks the relationship-sold
+  premise for a fourth category.** `det-tronics.com/wp-content/uploads/sites/8/2025/04/`
+  serves current documents directly; the older `det-tronics.com/content/documents/` path
+  now 404s. Its model matrix decodes a SKU completely, the Edwards-page-5 class of
+  decoder: `UD10S5N28W2C` = **S** 316 stainless, **5N** five 3/4 in. NPT ports, **28**
+  EQP/DCU emulator, **W** FM/CSA/ATEX/CE/IECEx, **2** Ex d flameproof, **C** CGS board.
+  After Fiplex, Westell and STI that is four categories where &quot;nobody searches for
+  it&quot; was mistaken for &quot;nobody documents it&quot;.
+  Two flags from it: `010254-008` is typed **Annunciators** and is a $4,294 Ex d gas
+  display/controller &mdash; the CPU2-3030D signature, where the type names a role rather
+  than the product &mdash; and its title was the **raw ERP string &quot;DISPLAY,
+  DCU&quot;** with no class noun. **Worth a sweep for other Det-Tronics SKUs carrying raw
+  ERP descriptions as titles.** Also a bounded negative recorded rather than acted on:
+  the string `010254` appears in neither `95-8656` nor `90-1209`, so the
+  `010254-008` &harr; `UD10S5N28W2C` pairing rests on resellers &mdash; but the ordering
+  code decodes correctly against the manufacturer's own matrix, which is what the copy
+  rests on, so **neither number was touched**.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
