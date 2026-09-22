@@ -6543,6 +6543,163 @@ Revisit after the high-impression band is done.
   **404 at 38,814 B**, and the AJAX endpoint returns **HTTP 500** with every field its own
   JavaScript sends. A 126-term vocabulary sweep built the census instead.
 
+- **CORRECTION, AND THIS FILE WAS OVERCONFIDENT: `-IV` IS BOTH A PROTOCOL AND A COLOUR, AND
+  NOTIFIER SAYS SO ON ONE PAGE.** This file states that *&quot;the `-IV` suffix encodes a
+  PROTOCOL, not a colour&quot;* and, more strongly, that **&quot;any collection logic or copy
+  treating `-IV` as a colour variant is wrong.&quot;** An agent contradicted it and the
+  coordinator fetched `DN-60979:B` directly, because it overturns a rule this file asserts
+  across three brands and five documents. **Both halves are printed on the same sheet:**
+  the note reads verbatim ***&quot;&lsquo;-IV&rsquo; suffix indicates CLIP and FlashScan
+  device&quot;***, and **every one of the fourteen `-IV` Product Line entries opens with the
+  word Ivory** &mdash; `NP-200-IV: Ivory, low-profile intelligent photoelectric sensor`,
+  `B300-6-IV: Ivory, 6&quot; base`, `B501-IV: Ivory color`, against `NP-200R` listed as
+  **White, FlashScan only**.
+  **What settles it beyond doubt is the members that have no protocol at all.**
+  `TR300-IV` is a **replacement flange** and `CK300-IV` is a **colour kit**, and both carry
+  the suffix. A flange has no communication protocol, so on those parts `-IV` can only be the
+  finish. **So the suffix names the finish, and on devices that speak a protocol the ivory
+  stock is also the dual-protocol build** &mdash; which is exactly what the original Gamewell
+  finding said (*&quot;ivory is a service-stock designation that carries a dual-protocol
+  build&quot;*) before this file compressed it into &quot;not a colour&quot;.
+  **That compression is this project's own recurring error:** the `2099-` case is recorded
+  here as a nuanced finding flattened into a false general rule, and this is the same failure
+  on a suffix instead of a product line. The live `NP-200R-IV` title said *&quot;in Ivory
+  Color&quot;* and **was correct**; the file's framing would have pushed an agent to delete a
+  true claim. What the title actually lacked was the functionally important half. **Carry the
+  exception, and when a rule says &quot;X, not Y&quot;, check whether the manufacturer says
+  both.**
+- **A live claim that is CONTRADICTED rather than merely unsourced, which is a stronger finding
+  and a rarer one.** The `NP-200R-IV` page said the detector *&quot;is only compatible with
+  Notifier's FireWarden **and ONYX** Series panels&quot;*. Verified by the coordinator in the
+  same fetch: **`ONYX` appears 0 times and `NFS` 0 times in `DN-60979:B`**, whose own text reads
+  ***&quot;Exclusively for use with NOTIFIER's FireWarden Series addressable fire alarm control
+  panels&quot;***. So this is not the usual unsourced-claim case where the document is silent
+  &mdash; **the document says the opposite word, &quot;exclusively&quot;.** A buyer with an
+  ONYX panel could have ordered it. Removed, and the exclusivity promoted into the title.
+  **Defect field: the description body, not the Shopify `title`** &mdash; one channel, not two.
+- **A borrowed dimension row settled by a THIRD signal, on a round appliance that cannot have
+  one.** Simplex `S4903-0019-5` prints *&quot;Housing Dimensions (including lens) 7-1/4 in. H
+  &times; 5 in. W &times; 2-5/8 in. D&quot;* for `4903-9197`, a **round ceiling** speaker
+  strobe. Three signals against it, and the third is the one that settles it: a round housing
+  cannot have H &ne; W; the document's own title and page-1 photograph say Round, Ceiling
+  Mount; and **7-1/4 &times; 5 in. is verbatim the wall-series cover row (`4905-9996`/`9997`)
+  in sibling sheet `4903-0015`.** That is the recorded *&quot;check whether the losing figure
+  is correct somewhere else&quot;* rule firing for the second time, after the Potter
+  `PAD200-PCD` case &mdash; and it converts &quot;the document contradicts itself&quot; into
+  &quot;this row was pasted from that document&quot;. No dimension published.
+  **Its candela table has no text in its cells at all** &mdash; the marks are 6.9 pt filled
+  rectangles, so the assignment was made by column x-span (30 cd spans 186.3&ndash;261.1 and
+  the mark sits at 220.0&ndash;226.9) and render-confirmed. A table whose cells contain no
+  characters is a new extraction shape: plain text returns nothing to be wrong about, which is
+  more dangerous than returning something wrong.
+- **Three briefing warnings that pointed at the wrong document and were still worth giving.**
+  The v2b44 briefing carried this file's `S4902-0003`/`S4906-0003` warnings &mdash; the
+  incoherent &quot;125 kHz to 12 kHz&quot; frequency response, the 25 V against 70.7 V dBA
+  split, the `CA` ULC suffix &mdash; to `4903-9197`. **None applies to `S4903-0019-5`**, which
+  prints a coherent 400&ndash;4000 Hz, gives **one** speaker dBA row with no voltage split, and
+  has no `CA` member. The warnings still forced the checks that found the real defect above.
+  Two other premises wrong in the same briefing, both of which would have produced a **false
+  correction**: `SLE-ANTEX` is **Napco's own series name**, not a truncated SKU, so the live
+  title was brand + SKU + series and entirely legitimate; and `COSMO-4W` and `COSMOD4W` are
+  **two different catalogue numbers in one ordering table**, not a lost hyphen. **A
+  punctuation-stripping catalogue makes every unusual spelling look like a defect** &mdash;
+  check the ordering table before calling one.
+- **The tag-index separator has no right answer, measured a third time.** On `SLE-ANTEXT50` the
+  **underscored** form returned 348,719 bytes with two real results while every **hyphenated**
+  form returned 343,341&ndash;343,345 against a bogus control of **343,340** &mdash; empty, and
+  indistinguishable without the control, with all three MD5s different. And the same session
+  found `SLE_MAX2LCBTFC` **empty in the underscored form**, the opposite of what this file
+  records for that SKU. **Neither separator is &quot;the&quot; right one; carry both and a
+  known-good control every time.** Useful tell: the bogus control prints *&quot;of 0
+  Results&quot;* in words, which is worth grepping for rather than comparing sizes.
+
+- **THE TITLE-ONLY SLICE FILE SHIPPED NO `type` FIELD FOR SIXTEEN LOTS, AND AN AGENT HAD TO
+  TELL ME.** The lot-16 input carried `id`, `vendor`, `sku` and `title` and nothing else, so
+  **the catalogue's single most productive structured-field signal was unavailable for every
+  one of the 148 titles written so far.** That is the lossy-slice-file failure for the fifth
+  time &mdash; after the blank `type` in v2b13, the human-readable note in `live_desc`, the
+  empty `live_desc` across four batches, and the ERP string read as fact &mdash; and this time
+  in the workstream nobody had guarded, because the guards were all written for the
+  *enrichment* builder.
+  **The cost is invisible and therefore worth naming:** ten recorded product-class errors in
+  this catalogue had a `type` that agreed with a wrong title and raised nothing, and two had a
+  type that disagreed and was right. On a title-only lot the type is the *only* second opinion
+  available, since there is no live description to read. Fixed in `build_titulos.py`, which
+  joins `type` and `handle` from `catalogo_full.json` verbatim and **asserts that no field an
+  agent is asked to reason about comes back empty**. Note what the assertion cannot do: nine
+  of lot 17's twelve are typed the generic &quot;Fire Alarms&quot;, which is present and
+  carries no information &mdash; **a non-empty field is not thereby a signal.**
+- **A CROSS-LOT COLLISION THAT THE LOOK PASS RESOLVED THREE WAYS AT ONCE, AND IT IS THE
+  CLEANEST INSTANCE THIS PROJECT HAS.** The delivery-wide dHash found STI `13310FR` (already
+  delivered in lote2), `13310NR` and `13320NR` serving **pixel-identical content under three
+  different asset URLs** &mdash; invisible to URL counting, invisible to MD5, and invisible to
+  each lot's own within-lot check because the members sat in two different lots.
+  Their titles: `13310FR` *&quot;Red Housing, F&hellip;&quot;*, `13310NR` *&quot;Red Housing,
+  N&hellip;&quot;*, `13320NR` *&quot;**Horn**, Red Housing, N&hellip;&quot;*. The render, read
+  once, shows a Universal Stopper dome cover with **a blank red band carrying no lettering and
+  no horn grille**. So one photograph **positively confirms** the no-label, no-horn member and
+  **positively contradicts** the other two. `13310NR` kept; `13320NR` and `13310FR` dropped.
+  **That is better than the usual outcome.** The recorded ladder's step (d) is *nothing
+  distinguishes &rarr; drop both*, which is what the two Rath pairs got. Here the image itself
+  adjudicated, so the answer is not a cautious withdrawal but a decision with evidence.
+  **Where a shared render shows an externally visible feature, the feature IS the
+  discriminator** &mdash; and a horn grille, a label, a lock type, a terminal shape and a
+  countable zone are all externally visible.
+- **My photo-slice builder did not exclude products already DELIVERED, only products already
+  adjudicated, and it cost an agent ~22 products of wasted research on one 549-product slice.**
+  The builder excluded ids appearing in any `HARVEST_*.json`; but a harvest rebuilt under a new
+  name no longer covers rows whose CSV had already shipped, so **the delivered CSV rows are a
+  different population from the adjudicated harvest rows.** Fixed in
+  `/tmp/tfas/foto/build_in.py`, which now excludes on three grounds in order &mdash; not in the
+  placeholder census, already adjudicated by a harvest, **already delivered in a CSV lot** &mdash;
+  and prints all three counts so the exclusion is auditable. **The delivered file is the
+  authority on what is done, not the working file that produced it.**
+- **STI: the product record is the WRONG primary route and the asset library is the right one,
+  which inverts what this file records.** The recorded finding is that STI's CMS `modelId` join
+  is authoritative-but-silent and the filename rule is a *second* check. Measured on 85
+  products: **only 26 have a product record at all, and 23 of those 26 carry a `featuredImage`
+  whose `originalFilename` names a different catalogue number** &mdash; `STI-9116`&rarr;`9115.jpg`,
+  `STI-13720FR`&rarr;`STI-13710FR.png`, `STI-14300NC`&rarr;`STI-14300NY.png`, four `NT-SS*-EN`
+  pointing at French and Spanish label files.
+  **The Sanity dataset is publicly queryable by `originalFilename` and that route hits 76 of
+  85.** `https://4ikv42xc.api.sanity.io/v2021-10-21/data/query/production?query=` with
+  `*[_type=="sanity.imageAsset" && originalFilename match "STI-13*"]` &mdash; 47,809 image
+  assets against 1,280 product docs, bogus pattern returns `[]`, and **the `url` field is the
+  native-resolution original with no transform needed.** So: **when a structured field is
+  wrong, the filename index may still be right, and on this brand it is the better primary
+  route.** 78.8% delivered against a documented 4% ceiling on Edwards &mdash; the difference is
+  entirely which index you query.
+  Selection rule that made it usable, worth copying: after stripping a trailing `-N` duplicate
+  counter, **the normalised filename stem must EQUAL the normalised SKU, or SKU+`-en`** &mdash;
+  which rejects the language variants, the combination shots naming a second catalogue number,
+  the state variants (`-triggered`, `-rest`, `-no-power`) and the bare colour letters.
+- **A contact-sheet artefact that nearly read as an image defect, and the fix is one line.**
+  Several STI PNGs showed a black bar in the contact sheet; it was `convert('RGB')` dropping
+  the alpha channel, not the image. **Composite onto white before looking.** Recorded because
+  the failure mode is worse than a wasted rejection: a reviewer who sees black regions often
+  enough **learns to ignore them**, which is exactly the habit the look pass exists to prevent.
+- **Two more non-discriminating search endpoints, and on one of them the BOGUS control alone
+  would have passed it.** `e2s.com/?s=` returns 18,507 / 18,551 / 18,628 bytes and **zero
+  product rows** for a real term, a bogus term *and* a family name alike &mdash; so a
+  bogus-only control reads &quot;different bytes, endpoint works, part absent&quot; and is
+  wrong. **Only the known-good control exposed it.** And `xtralis.com`'s `/sitemap.xml` and
+  `/sitemap_index.xml` both return `text/html` at 229,957&ndash;233,962 bytes, so that brand has
+  no sitemap route at all. Seventh and eighth instances.
+- **Three brand zeros and one near-zero, each with its mechanism, and only one is a routing
+  failure.** **Napco 0 of 164**, established three ways: 0 of 130 site images carry any SKU, a
+  constructed probe of 656 requests returned 0 hits against a clean control pair, and **only 26
+  of 164 SKUs are named anywhere on napcosecurity.com** &mdash; the site has no per-product
+  pages at all, its category pages link PDFs. **RFS 0 of 26 is a resolution ceiling**: every
+  boundary-matching image is a `_ti` thumbnail at 320&times;200 **and the no-`_ti` form is the
+  same 320&times;200**, so there is no larger rendition to find. **Comba 0 of 25**: only 4 of 28
+  have any media, the two not already delivered are 433&times;433 and 528&times;528, and their
+  larger siblings are **outline drawings and antenna patterns, not photographs**.
+  **E2S 0 of 25 is the one that is the owner's call rather than a ceiling**: e2s.com publishes
+  per-colour **family** renders up to 1000 px and our 25 SKUs are full configuration order
+  codes, so nothing passes the boundary rule &mdash; **if the owner accepts a family render for
+  a configuration SKU, about 20 of the 25 become reachable.** That is a merchandising decision,
+  not a research one, and it is the first brand where relaxing the rule has a named price.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
