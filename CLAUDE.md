@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,313 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,325 pages published** — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -6024,6 +6024,74 @@ Revisit after the high-impression band is done.
   releasing convention is now disproved twice.
   Route: **`pottersignal.com/sitemap.xml` enumerates 625 document URLs in one fetch**, which is how
   all four bulletins were found, and `/product/tool/` is a directory this file did not record.
+
+- **TWENTY-SECOND coordinator premise wrong, and it was wrong twice in one sentence about a defect
+  this file itself defined.** The `PCAM` briefing called its title *&quot;one of the ~300&ndash;400
+  titles truncated at 150 characters&quot;* and said it *&quot;ends in an unclosed
+  parenthesis&quot;*. Measured straight out of `a1_in.json`: the title is **85 characters** and its
+  parentheses are **balanced**. It is in neither population. What it actually is: brand, SKU,
+  product name and **the first marketing bullet of the description**, cut at the period inside
+  `for max.` &mdash; the full sentence still live in the body. **Different mechanism, different
+  fix, and both halves were checkable for free against the input file the briefing was written
+  from.** This file's own rule is *say which defect a title has, not only which field it is in*;
+  the coordinator broke it while citing the population it defines.
+- **Twenty-third product-class error, and the wrong title names precisely the single-gas sibling.**
+  `CX-12` was titled *&quot;Nitrogen Dioxide Gas Detector&quot;*. **The bare `CX-12` is Macurco's
+  dual-gas CO *and* NO&#8322; monitor.** Verified by the coordinator against Macurco's own WordPress
+  product index with an honest bogus control (0 rows): `CX-6 / CX-12`, `CX-6-NO2 / CX-12-NO2` and
+  `CX-6-CO / CX-12-CO` are **three separate product records**. So a buyer filtering for carbon
+  monoxide never saw a $1,041 product, and a buyer wanting NO&#8322; alone could be sent the
+  dual-gas one. Also settled: **in this family the 6/12 is the SUPPLY, not the gas** &mdash; CX-6
+  low voltage, CX-12 line voltage.
+  **And the UL 2075 split is a Macurco BRAND CONVENTION, confirmed on a second family in the same
+  batch.** The CX manual reads *&quot;CX-6, CX-6-CO, CX-6-NO2 &ndash; ETL LISTED: Conforms to Std.
+  UL 2075&quot;* against *&quot;CX-12, CX-12-CO, CX-12-NO2 &ndash; **Designed to meet** UL Std. UL
+  2075&quot;*, and macurco.com's CM page carries **&quot;ETL Listed to UL 2075 (CM-6 Only)&quot;**
+  twice. **The line-voltage 12-series models are not UL 2075 listed**, on either family. Worth
+  having on file before another 6/12 pair comes through.
+- **A series-wide block is how a wrong class noun SURVIVES, and `49VO-WRF` shows the mechanism
+  exactly.** The part was titled and typed a **Horn Strobe** and is **visible only**: `S49VO-0001`
+  Rev. 7 heads the series *&quot;Visible Notification Appliances&hellip; V/O (visible only)&quot;*
+  and lists UL 1971 and ULC S526, with **`464` occurring zero times in the document**. What would
+  have kept the wrong title alive is that **`horn` and `audible` each occur exactly once, both in
+  platform-level sentences** &mdash; *&quot;detect its own strobe and/or horn output&quot;* &mdash;
+  which read as model-specific appear to license it. Neither is attributed to a 49VO model.
+  **Tenth instance of the type agreeing with a wrong title and raising nothing.**
+- **A datasheet's own Description and Features assert a strobe the ordering table denies.** Eaton
+  `TD450198EN` (Oct 2025) says the MT4 series has an *&quot;integrated 15 candela LED strobe&quot;*
+  and carries UL 1638 / ULC S526 visual listings &mdash; while **Table 3 gives `MT4-115-R` a Strobe
+  Candela of `n/a`, no lens and no lettering**, coordinate- and render-confirmed. Only the two
+  `-WH-V` members have strobes. That is the `ELFHNW-N` shape on a brand that states it in prose
+  rather than by omission.
+  **And the conditional-headline rule fired as briefed:** the A&amp;E paragraph's *&quot;99 dBA
+  minimum&quot;* is **anechoic on one tone at one setting** &mdash; every distributor headlines it
+  &mdash; where Table 2's **reverberant** rating per UL 464 for the same tone is **89 dBA HIGH /
+  86 STANDARD**, with Bell at STANDARD the quietest at 74. Published with conditions; 99 excluded.
+  Separately, **the `115` in the SKU is a series designator and not a voltage** (the table gives
+  120 VAC by model), so the live title's &quot;120VAC&quot; was right &mdash; the `AS-75-R-WP`
+  shape, benign this time.
+- **A distributor supersession killed by a MECHANISM rather than by an absence, on Apollo.**
+  ADI lists `SA4700-102APO` as *&quot;(Replaces 55000-847SIL, 55000-847APO)&quot;*. `replac` and
+  `supersed` appear **zero times across five Apollo documents**, and both legacy numbers are still
+  **current rows** in PP2090 Issue 29 and on the live BRE/LPCB certificate &mdash; which alone is
+  only the `4099-9005` shape, proving nothing either way. What settles it is that
+  **`SA4700-102APO` carries the 20C isolator at Equivalent Detector Load 1 and `55000-847APO` the
+  older 20D at EDL 4**, so they are not interchangeable for loop-isolator design regardless of
+  intent. Not in the live title, so nothing was removed; recorded so nobody adds it.
+- **`742-351` and `742-590` are adjacent rows in one service parts list, and a distributor
+  collapsed them.** `579-1006 Rev. A` page 14, coordinate-verified: `742-351` Power Distribution
+  Interface, `742-394` Master Controller PC Assembly, `742-590` 2X40 Master Operator Interface.
+  A search result describes `742-351` as a *&quot;4100 Master Controller upgrade board for ES 2X40
+  systems&quot;* &mdash; **three rows of that table welded into one sentence.** The store title was
+  right all along. Note also `742-396` is the Power Distribution **MODULE**, a different item from
+  the **INTERFACE**, and that **the JCI hub carries data sheets, not service parts lists**, so a
+  `742-` number appearing zero times in its 961-record index is a bounded negative about the index.
+- **Two route corrections.** **`apollo-fire.co.uk`'s 404 is 77,747 bytes of `text/html`** &mdash;
+  and **three PDF URLs published on Apollo's own product page return it**, the recorded Resideo
+  `68-0135` shape of a page linking a document it does not serve; the working files are the
+  `F00…_0001.pdf` names on the same page. And **`macurco.com` must be used WITHOUT `www.`** &mdash;
+  the `www.` host 301s to zero bytes &mdash; while its WP REST `product` endpoint is honest and its
+  CM page is a **combined CM-6 / CM-12 page** at `/product/cm-6/`, with `/product/cm-12/` a 404.
 
 ## Conventions
 
