@@ -2577,6 +2577,24 @@ Revisit after the high-impression band is done.
   Also: `macurco.com` links a first-party `docs.macurco.com`, a bubble.io app whose
   `/file/<id>` route returns a **~15,548-byte `text/html` JS shell**, while the underlying
   `*.cdn.bubble.io/<fileid>/<name>.pdf` serves real PDFs on **searched** paths.
+- **Twelfth coordinator premise wrong, and it breaks a signature this file had been
+  treating as reliable.** The `4100-9706` briefing flagged its live sentence &mdash;
+  *&quot;Same as 4100-9701 above except with Color ES Touchscreen Display user
+  interface&quot;* &mdash; as **copy borrowed from an adjacent catalogue row**, the tell
+  recorded three times here (`PAD200-DD`, `4-NET-SM`, `INX-10A`). It is not borrowed.
+  **It is Simplex's own Table 8 row for this exact model**, almost word for word, in
+  `S4100-1031 Rev. 22`.
+  **So the borrowed-copy signature has a false positive, and it is a common one: a
+  manufacturer catalogue that itself writes rows as &quot;same as the one above,
+  except&quot;.** Every previous instance was a store page carrying a *sibling's* text;
+  here the store faithfully carried the *manufacturer's* text about the right part. The
+  discriminator is not the phrasing &mdash; it is **whose row it is**, which only the
+  ordering table answers. The real defect left is small and different in kind: **the word
+  &quot;above&quot; dangles** on a product page where `4100-9701` does not appear.
+  Worth pairing with the outcome on the class question: `4100-9706` **is** the 4100ES
+  Master Controller, and its `type` of Control Panels is correct &mdash; so this page
+  does *not* repeat the `4100-9701` error where the same controller was typed
+  &quot;Annunciators&quot;. The premise was wrong twice over.
 - **The photo work was sorted by the wrong metric, and the owner's second screenshot
   proved it. 22 Sep 2026.** After the first photo batch the owner sent **the same admin
   screenshot again** and asked whether it had been fixed. It had not, and none of the
