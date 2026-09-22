@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,155 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,161 pages published** — 555 from the old list plus v2b01 through
 v2b32, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
@@ -3814,6 +3814,134 @@ Revisit after the high-impression band is done.
   annunciator console &mdash; **several device classes, so there is no single class noun
   even if that is right.** Left exactly as it was and flagged: the owner splits it into
   real part numbers or drops it from the feed.
+
+- **The identical-listing-files rule run IN REVERSE, and it reassigns a manufacturer.**
+  This file records that *identical* third-party listing files prove a single
+  manufacturer, which is how the MR-relay brand tangle was settled. `SSU-PAM-1` is the
+  same argument backwards: **different listing files prove different manufacturers.**
+  CSFM listing **`7300-1555:0101`** (07/12/2024), covering SSU-PAM-1/-2/-4/-EOLR/-SD,
+  names the listee as **FUNCTIONAL DEVICES, INC., Sharpsville IN**, and the UL letter
+  gives Functional Devices **file S7312** (UUKL). Air Products and Controls' PAM-1 sits
+  under **file S3403**, MEA 73-92-E, CSFM 7300-1004. **Both documents were fetched and
+  read by the coordinator directly**, because this overturns a recorded route note.
+  The specs differ in three measured ways &mdash; **depth 1.2 in. against 0.77**,
+  **&minus;30 to 104 &deg;F against 32 to 120**, **30 mA against 50 mA at 120 Vac** &mdash;
+  so it is not a relabel either.
+  **Fourteenth coordinator premise wrong, and wrong twice over in one sentence:** the
+  briefing said *&quot;the `PAM-1` is an Air Products and Controls part, and Space Age
+  sells it under an `SSU-` prefix inside their own enclosure&quot;*. There **is** no
+  enclosure &mdash; Space Age's own table gives Enclosure type as **Encapsulated**, a
+  potted 1.5 &times; 1.2 &times; 1.2 in. body with six flying leads &mdash; and it is not
+  an APC part.
+  **The new trap shape is the sharpest thing here: a first-party host serving somebody
+  else's listing document.** `1sae.com` itself serves `/pam-ul.pdf`, which is a **2005 UL
+  directory page for Air Products and Controls file S3403**, listing PAM-1/-2/-4/-SD and
+  containing **no `SSU-` model at all**. A reader taking &quot;the manufacturer's own site
+  serves this UL document&quot; as evidence reaches exactly the wrong conclusion. **Check
+  whose name is on a listing document, not whose site served it.** The copy states only
+  that the APC PAM-1 is a different part under a different listing file; the vendor field
+  went to the owner.
+- **The route note in this file named the wrong document, and the right one is one digit
+  away.** The briefing pointed at `DF-61010:C` as the SD365/H365 family sheet. **`H365`
+  appears zero times in it** &mdash; that is the SD365 *photoelectric smoke* sheet, and
+  the heat sheet is **`DF-61011:C`**, slug `H365_DF-61011.pdf`. Bare, lowercase,
+  underscore, `hon-ba-fire-` and the `hon/hbt-fire` root all returned the 8,047-byte
+  fingerprint for it. Also worth knowing before it costs a fetch: **`I56-6525-000` is the
+  H365 installation sheet**, served from EDAM's `user-manuals/` directory, while
+  `DF-61011:C` separately cites `I56-6525` as the *Applications Manual for System Smoke
+  Detectors* &mdash; a document-number collision on one brand.
+- **The catalogue number sets a DEFAULT, not the hardware, and the datasheet alone would
+  have published an incomplete answer.** `H365R`'s `R` **is** rate of rise, stated and
+  model-attributed in `DF-61011:C`. But installation sheet `I56-6525-000` adds two things
+  the datasheet does not: Note 4 says H365R defaults to **a 135 &deg;F fixed element *and*
+  rate of rise**, and the General Description says **all six H365 models are field
+  programmable from the panel** to any of the three behaviours. So the part number picks
+  the fall-back, and the sensing circuit is one thermistor in every model. **That is the
+  go-to-installation-instructions rule paying for the fourth time**, and it is a different
+  shape from the usual one &mdash; not a missing electrical rating, but the *scope* of
+  what the catalogue number is claiming.
+  **The series-block trap fired as briefed and was avoided:** `DF-61011:C`'s System
+  Specifications prints fixed 135 &deg;F / RoR 15 &deg;F per minute / high-temp 190 &deg;F
+  as one unattributed family line, and every thermal figure published is model-attributed
+  instead.
+  **Unresolved and flagged rather than guessed:** `DF-61011:C` says
+  *&quot;Mounting: B300-6(A) flanged base, **included**&quot;* while `I56-6525-000` step 1
+  says *&quot;Wire the sensor base **(supplied separately)**&quot;*. Two Fire-Lite
+  documents, one part, contradicting on the carton, and the SD365 sheet carries no
+  Mounting line so there is no third signal. The copy tells the buyer to confirm.
+  **And that contradiction has a live cost the batch found on its own:** the `H365HT`
+  **title** read *&quot;Addressable Heat Detector **Includes Base**&quot;* &mdash; the
+  only one of six family members asserting it, and asserting exactly what Fire-Lite's own
+  two documents cannot agree on. The same title **omitted the 190 &deg;F rating**, the one
+  thing that distinguishes the HT, while its sibling `H365` does carry its 135 &deg;F.
+  Corrected to `Fire-Lite H365HT Addressable High Temperature Heat Detector, 190F,
+  LiteSpeed Only` &mdash; the unsourced claim removed, which is a weakening, and the two
+  restatements taken from `DF-61011:C`'s own model-attributed rows.
+- **&quot;Nursery&quot; is a FEATURE SET, and the ordering table says so where the prose
+  does not.** `PL1N` was a nameless `Brand PartNumber` title. Gentex's model matrix in
+  first-party `551-0085-AAA`, read by word coordinates and confirmed at 300 dpi, gives
+  PL1N **Smoke and CO and neither Heat nor Natural Gas**, and makes it **the only one of
+  the four PLACE models** carrying air quality monitoring, video with intercom and a white
+  noise generator. So the qualifier names capabilities, not a tone, a lens or a listing.
+  **Class noun defended rather than assumed:** it is a self-contained 120 VAC dwelling-unit
+  alarm to **ANSI/UL 217 9th Edition and ANSI/UL 2034 4th Edition**, so &quot;Alarm&quot;
+  is right and &quot;Detector&quot; would be the `STRR` error again.
+  **A coordinator premise wrong in the cheapest possible way:** the briefing said the live
+  title looked truncated. It is complete in `a2_in.json` &mdash; **the ellipsis was in the
+  briefing's own prose**, where the coordinator had trimmed it to fit. That is the
+  `PAD100-6DB` snapshot error with the snapshot replaced by the briefing itself.
+  Gentex also states **12 units per carton**, a fourth vendor outside Honeywell doing so.
+  Not added to the title; flagged.
+- **A part documented in exactly one place, and it is not a catalogue sheet.** `3-LRMF`
+  is **absent from every current EST3 catalogue sheet and from the Submittal Guide**; the
+  only Edwards statement naming it is in the **EST3 Installation and Service Manual
+  `270380-EN`**, verbatim in revisions 016 and 017 from two unrelated mirrors: *&quot;If
+  there are empty rail spaces in a cabinet, you should consider installing 3-LRMF blank
+  plates to fill up the spaces.&quot;* **LRM = Local Rail Module**, manufacturer-stated in
+  `E85010-0099`. **Check the installation and service manual before writing off a legacy
+  Edwards accessory as undocumented** &mdash; and note the resellers asserting EST3X fit
+  are unsupported: EST3X does use LRMs but `3-LRMF` appears zero times in `E85005-0134`.
+  Route: **Edwards LifeLines has a level deeper than its index shows.**
+  `/lifelines/control-panel` is empty, but the percent-encoded nav JSON inside the index
+  HTML discloses **`/lifelines/control-panel/est3-platform/`** &mdash; follow the 301
+  &mdash; which lists **40 EST3 PDFs** including the Submittal Guide. Same for
+  `est3x-platform`.
+- **The Potter PE series is Wheelock-derived, which imports a whole set of known traps
+  across a brand boundary.** Its wall installation sheet is **`P85750-005C`** against
+  Eaton Eluxa's `P85750D`, the dBA figures match Eluxa's recorded 80/78 reverberant and
+  91/86 anechoic, and **Note 5 is the same amber sentence** this file records from Eaton.
+  `PE-HSW` is clear-lens and unaffected, but this catalogue carries `PE-HSW-NA` and
+  `PE-STW-NA`, which are amber &mdash; **so the amber listing question applies to Potter
+  too**, on a brand nobody had connected to it.
+  **And the installation sheet again carried what the datasheet did not**: agency split,
+  anechoic dBA, FWR currents, the 105-strobe NAC cap, the 35 &#937; line limit and the
+  factory setting. Two document defects found in `8830229 REV D` and published around:
+  its two current blocks are captioned *&quot;At Anechoic High/Low Continuous&quot;* when
+  `P85750-005C` Table 4 shows they are **DC currents at the high/low horn setting across
+  continuous, T3 and T3/T4** &mdash; the figures agree and the caption does not; and
+  **`PE-STRC-N` is listed twice** (4871141 and 4871142) with the second row's X in the
+  White column, so it is almost certainly `PE-STWC-N` mislabelled.
+  A live title defect found beside it: **`PE-STWC` carried its brand and SKU twice**
+  &mdash; *&quot;Potter PE-STWC Potter PE-STWC PE Series LED Strobe&hellip;&quot;* &mdash;
+  in the Shopify `title` field, so it cost the feed as well as the page. Corrected.
+- **The class noun was right and the buying decision was still missing.** `SA-CLA` really
+  is a &quot;Class A adapter module&quot; in Kidde's own words, so this is not a
+  product-class error &mdash; but it is a **bare option card** that mounts on plastic
+  standoffs and a plug connection directly on the panel main board, and it fits **only the
+  two-NAC FX-64 and VS1**. The four-NAC FX-1000 and VS4 are Class A ready and take no
+  adapter at all. **The panel family is what a buyer gets wrong**, so it went in the
+  title. Thirteenth incomplete-product case, and the first where the existing class noun
+  needed no correction.
+  Route: **the Kidde literature library reaches Edwards' `myeddie` PublicMedia store** —
+  `POST kidde-esfire.com/LiteratureLibrary/GetCategoryNavigation` with
+  `categoryName=Small Building Life Safety Solutions` returns the FX and VS catalogue-sheet
+  URLs directly.
+- **Host-fingerprint decay, third instance, on a path this file recommends by name.**
+  `apcfire.com/wp-content/uploads/DS-RL-1-G25-PAM-Series.pdf` **now 404s at 146 bytes
+  `text/html`**; the live path carries the dated subdirectory,
+  `/wp-content/uploads/**2026/01/**`. After the `myeddie /Media/` redirect and DITEK's
+  151,291-against-152,678 bytes, this is the rule firing a third time in two days:
+  **re-measure a recorded path or fingerprint before building a batch on it.**
 
 ## Conventions
 
