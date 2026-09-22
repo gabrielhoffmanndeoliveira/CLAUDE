@@ -3032,6 +3032,22 @@ Revisit after the high-impression band is done.
   Sonic titles. **`catalogo_full.json` carries a real `sku` field** &mdash; join on `id` and
   use it. It also carries the variant (`PS-1290 F2`, `CX-12-CO LADBS`), which is exactly
   what the terminal-type and housing-colour rejections above turn on.
+- **Verification sweep at batch 29 (1,091 pages, 22 Sep 2026): clean a FIFTH time, and the
+  non-ASCII count is still falling on its own.** One bulk query, 16,031 active products.
+  All **1,076** tracked ids present in the active catalogue &mdash; **zero missing**, with
+  the in-flight batch excluded before reading the number, as the method note requires.
+  Exactly **four** pages under 400 visible characters and all four are the deliberate
+  skips: `SM7100-L8` (22 chars), `90521` (30), `BDA-TP10-L2` (74) and `BDA-NMP01250` (96).
+  Non-ASCII titles: **49 of 16,031**, down 56 &rarr; 50 &rarr; 49 across batches 14, 24 and
+  29, and **every one is still `&reg;` (24), `&deg;` (23) or `&trade;` (5), zero outside
+  that set**. **Zero titles contain a literal HTML entity.** The unbalanced-parenthesis
+  count is **102, unchanged** &mdash; expected, because those are truncated titles whose
+  text is missing and which this project deliberately does not reconstruct.
+  **A new use for the same pull, and it is worth making routine: validate the photo CSVs
+  against it.** A Matrixify image import keys on `Handle`, so a handle that has changed
+  since the harvest fails silently or lands nowhere. All **643** rows across the four photo
+  CSVs were checked against the live handle list: **zero invalid**. That costs one pass
+  over a file already on disk and it protects an import the owner runs by hand.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
