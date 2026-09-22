@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,325 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,251 enrichment pages published** (555 old list + 684 v2 through v2b43, verified live) — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -6260,6 +6260,134 @@ Revisit after the high-impression band is done.
   **So the pass has to run at the scope of the whole delivery and its output is a question,
   not a verdict.** Final: **1,499 rows, 1,499 distinct handles, every handle present in a live
   pull, and 84 of 84 URLs in the four new lots returning 200 and `image/*`.**
+
+- **TWENTY-THIRD COORDINATOR PREMISE WRONG, AND IT WOULD HAVE CREATED A DEFECT RATHER THAN
+  FOUND ONE.** The v2b43 briefing said `GEM-P1632` is *&quot;almost certainly a Napco Gemini
+  INTRUSION panel, not a fire panel&quot;* and predicted a ninth instance of the recorded
+  `GEM-*`/`SLE-*-CB`-typed-Fire-Alarms error. **It is a combination unit.** Napco's own UL
+  block in `WI808F` lists **UL 1023 Household Burglar *and* UL 985 Household Fire Warning**,
+  CSFM listing `7167-0992:0118` calls the family *&quot;combination fire and burglary alarm
+  control units&quot;*, and **zones 7 and 8 are two-wire smoke detector zones**. The Shopify
+  `type` of Control Panels is **correct and needs no owner flag**.
+  **What disproved it was the briefing's own instruction** &mdash; *the listing is what settles
+  the class*. Worth stating because every other entry in this file is a premise that would have
+  *missed* a defect; this one would have **manufactured** one, by flagging a correct structured
+  field on a catalogue where a burglary device typed Fire Alarms is a known real error. **A
+  pattern with eight confirmed instances is still a reason to check and not a licence to
+  conclude.**
+- **A TWO-DOCUMENT TRANSPOSITION, LOCALISED BY A NEIGHBOURING COLUMN THAT AGREES.** Gentex
+  data sheet `551-0032-04` gives the `GX93` 12 VDC as 81/86 dBA and 24 VDC as 78/83 &mdash; the
+  12 V unit louder, which is already odd. Installation manual `550-0176-KAE` gives the **exact
+  opposite**: 24 VDC 81/86, 12 VDC 78/83. Both rendered at 300 dpi, both read as extracted.
+  **What makes this diagnosable rather than a coin flip is that the CURRENT columns of the two
+  documents agree exactly** (24 V: 18 / 21.1 mA; 12 V: 13 / 7 mA). That pins the transposition
+  to the decibel columns alone and **rules out a whole-table swap or a row shift.** No dBA was
+  attached to any voltage; only the model table's range, 78&ndash;86 reverberant and 90
+  anechoic, was published. A third figure exists in the manual's prose (&quot;75-85dBA&quot;).
+  **Generalises: when two documents disagree on one column, check whether an ADJACENT column
+  agrees. If it does, the defect is local and you know exactly what not to publish; if it does
+  not, you are looking at two different products or two generations.**
+- **Three model-attributed signals against one series-wide row, and the series-wide row lost.**
+  Simplex `S4906-0010 Rev. 7` gives `4906-9131` a candela ladder of **15/60/75 cd** in page-1
+  prose, in Table 1 (its own model-attributed row) and in Table 8 (whose middle current column
+  is *headed* &quot;60 cd&quot;) &mdash; and **15/30/75 cd** in Table 6, the generic
+  Specifications block. Both render-confirmed. 60 was published because the dissenter is the
+  unattributed family row, which is the `SD365T-IV` rule applied to a ladder rather than a
+  temperature. **Flagged to the owner anyway**, because candela in a title is a feed attribute
+  and the manufacturer's own general table disagrees.
+- **A series-wide LISTING block where three of the listed standards belong to a component the
+  part does not have.** Edwards `E85001-0283` gives the whole 964/965 family *&quot;UL 1971,
+  UL 1638, UL 1480, ULC S526, ULC S541, CE, FM, CSFM, MEA&quot;* &mdash; and **UL 1971, UL 1638
+  and ULC S526 are strobe standards while `965-1A-4RW` has no strobe**, `1A` being the
+  speaker-only code (proven against the `-5A`/`-7A`/`-3A`/`-8A` candela codes in the same
+  ordering table). That is the `3-LDSM` shape: a family listing line is not a listing for a
+  member that lacks the listed component. The closing paragraph says so explicitly.
+  Also settled there, manufacturer-stated: **964 Series is 25 Vrms and 965 Series is 70 Vrms**,
+  and the final letter is the finish, proven by the `965-1A-4RR` &quot;Speaker, Red&quot; /
+  `965-1A-4RW` &quot;Speaker, White&quot; pair on one y-line.
+- **The page-chrome lifecycle trap, FOURTH instance &mdash; and this time it reached a search
+  summary as a fact.** A web search reported that Fire-Lite `FM900` *&quot;is a discontinued
+  product on Honeywell's website&quot;*. Curling that URL returns **HTTP 404, 219,857 bytes of
+  `text/html`**, and the only occurrence of the word is the JS UI label
+  `&quot;discontinuedText&quot;:&quot;Discontinued&quot;`, attached to nothing &mdash; on a page
+  that does not exist. No lifecycle claim published. **A summarising layer can turn page
+  furniture into a sourced-sounding sentence, and a 404 is not an obstacle to it.**
+- **The inverse case: the STORE was right and the distributors were repeating a series-wide
+  block.** `VER-A30`'s datasheet prose headlines a 3.5 in. touchscreen for the whole VESDA-E
+  remote family, and **two web searches repeated it back as a fact about the VER-A30
+  specifically**. Three signals say otherwise: Xtralis names the A10 models **Remote Display**
+  and this one **Access Point** in its own ordering block; the datasheet lists
+  VESDAnet/Ethernet/USB as a *separate configuration* from the display one; and max power is
+  **1.159 W against 2.112 W for the VER-A10-0**, column-verified by x-coordinate. At $1,450.95
+  with 35 characters of live copy, a buyer wanting a screen could easily have bought this.
+  **The display fact went in the body and deliberately NOT the title**, because Xtralis writes
+  &quot;(No Relays)&quot; and never writes &quot;no display&quot; &mdash; so asserting the
+  absence in a feed attribute would go further than the manufacturer does.
+- **Plain text, word coordinates and the render each gave a DIFFERENT answer, and only the
+  render was right. Second instance, and this one would have split a part's harnesses.** In
+  Simplex `579-1006`'s Operator Interfaces table, plain text reads the `742-590` row as a flat
+  list; **word coordinates put `734-033` in the 742-590 row and `734-026` in the 742-740 row**,
+  which would have given the US and Canadian-French assemblies different harnesses; a **250 dpi
+  render** shows the cell holding **both** numbers is vertically merged across all three rows.
+  Both harnesses belong to this part. The three-step ladder earning its third step outright,
+  after the Potter `8900097` case.
+- **Two parts lists of one manufacturer use DIFFERENT COLUMN ORDERS for the same data.**
+  Simplex `579-1006` runs PC Board &rarr; Installation Instruction; `579-330` runs Installation
+  Instructions &rarr; PC Board. Reading one onto the other swaps `566-284` and `574-925`. **The
+  tie-break is self-proving: `574-925` is the document number printed on the Replacement
+  Instructions PDF itself.** This file records the same shape *within* one Kidde document
+  (`K85005-0129`, two tables leading with different models); here it is across two documents of
+  one brand, which is harder to notice because nothing on either page looks wrong.
+  **And the coordinator conflated those two lists last batch**: this file's claim that
+  `579-1006` page 14 tabulates `742-590` and `742-394` together is wrong &mdash; **`742-394`
+  appears zero times in `579-1006`** and the `742-590` row is on page 3. `742-394` is in `579-330`.
+- **Two revisions of one sheet carry DIFFERENT AGENCY FILE NUMBERS, which is a new reason to
+  publish none.** Fire-Lite `DF-51410` (2005) gives UL **R11746** and CSFM **3550-0075:173**;
+  its Notifier issue `DN-5286:A1` (2010) gives UL/ULC **R4869** and CSFM **3550-0028:210**.
+  Only the MEA number agrees. They also disagree on punctuation (`FM-900-100` against
+  `FM900-100`). No file number was published. **A listing file number is exactly the kind of
+  figure that looks safe to copy because it is not a spec.**
+- **The dropped word was the one that separates two stocked catalogue numbers.** The live
+  `HTRI-M` title said *&quot;Single Interface Module&quot;*. Siemens' own Industry Mall calls
+  `HTRI-M` the **&quot;Mini Single Input Module&quot;** and `HTRI-S (500-033370)` the
+  **&quot;Single Input Module&quot;** &mdash; and the store carries both. **The missing word is
+  &quot;Mini&quot;.** Note the routing trap that made it findable: Data Sheet `6304 Rev. 8` is
+  titled *HTRI-Series Interface Modules* and lists **only** HTRI-D/-R/-S &mdash; `HTRI-M` and
+  `500-034000` appear **zero times in it** &mdash; so the obvious document is the wrong family,
+  and every spec in it belongs to the full-size modules that take a 4 in. box and ship with a
+  faceplate. New route: **`mall.industry.siemens.com/mall/en/buildingtechnologiesusa/Catalog/Product/<number>`
+  is a usable first-party endpoint** &mdash; 403 to WebFetch, **HTTP 200 to `curl` with a Safari
+  UA** &mdash; giving the market-facing number, the description, the **PLM lifecycle status**
+  and net weight, and it discriminates (bogus article &rarr; 33,648 bytes, no `productMfn`).
+  It records `HTRI-M` as **&quot;Product phase-out since 05-16-19&quot;**, which explains its
+  absence from the current sheet; flagged to the owner, nothing published.
+- **The coordinator read a number out of the WRONG FIELD of its own slice file.** The v2b43
+  briefing told an agent that `TH6100AF2004/U` had *&quot;1,148 characters of live title&quot;*.
+  The live title is **65 characters**; **1148 is the value of the `impr` field**, sitting two
+  keys away in the same JSON object. There was no title-length defect at all.
+  This file already records the rule that produced the fix for this class &mdash; *build each
+  briefing from its own `aN_in.json`, programmatically* &mdash; and the briefing **was** built
+  from the right file; the coordinator then read the wrong key out of it. **So the rule needs
+  its last inch: reading a value by eye out of a correct file is still transcription.** Fourth
+  instance in this family, after the scrambled ids, the typed-from-memory query and the
+  by-eye batch split.
+- **Verification sweep at batch 43 (22 Sep 2026): clean, and the denominator question is now
+  routine rather than a surprise.** One bulk pull, 16,031 active products. On the audited
+  enrichment population &mdash; v2 slices plus the old-list batches actually published, minus
+  the in-flight batch **and minus the 177 title-only products, which are tracked-but-not-enriched
+  by design** &mdash; **zero missing** and exactly **four** pages under 400 visible characters,
+  all four the deliberate skips (`SM7100-L8` 22 chars, `90521` 30, `BDA-TP10-L2` 73,
+  `BDA-NMP01250` 95).
+  Catalogue-wide on the same pull: **47 non-ASCII titles, every one `&deg;` (23), `&reg;` (22)
+  or `&trade;` (5), zero outside that set** &mdash; 56 &rarr; 50 &rarr; 49 &rarr; 47 across
+  batches 14, 24, 29 and 43, still falling on its own. **Zero** titles carrying a literal HTML
+  entity. **Zero** titles repeating brand and SKU as separate tokens, so the 75-title fix has
+  held. Unbalanced parentheses **102, unchanged**, as expected for truncated titles this
+  project deliberately does not reconstruct.
+  **Three sweeps in a row have now had a denominator correction rather than a finding**
+  (batch 35 title-only, batch 40 abandoned-tail slices, batch 43 both at once). That is the
+  useful shape to expect: **the sweep's job has become defining its own population correctly,
+  and the page-level result has been clean seven times running.**
 
 ## Conventions
 
