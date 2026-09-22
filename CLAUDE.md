@@ -3548,6 +3548,67 @@ Revisit after the high-impression band is done.
   not because the photographs are missing.** Flagged to the owner. Related and useful:
   `sdifire.com` now serves Detectortesters/XTR2 content, because **SDi and No Climb are
   both Halma**, so one host covers SDI, TruTest, SCORPION, Detector Testers and Urban.
+- **A search endpoint that SILENTLY IGNORES THE QUERY, on a host whose sibling endpoint
+  honours it &mdash; and it would have matched all 798 SKUs.** Verified by the coordinator:
+  `hochikiamerica.com/ecom/productsearch?searchterm=` returns **143,192 bytes for `SLR`,
+  143,192 for `ALK` and 143,216 for `ZZZQQQ999XX`** &mdash; the same 24 products for every
+  term, real or invented. The sibling route `/products-search?qs=` does honour it: 92,565
+  bytes for a real term against **46,729 for the bogus one**.
+  **The ignoring endpoint is the one the site's own product-search page links to**, which
+  is what makes it dangerous. This is the JCI-hub *&quot;search is ignored, grep the
+  blob&quot;* shape, except there the whole index came back and was useful; here a
+  *truncated* list comes back and looks like a result.
+  **And note precisely what catches it, because the obvious check does not.** The three
+  responses have **different MD5s**, since the page echoes the search term &mdash; so
+  hashing the bogus control against a real one says &quot;different, therefore the query
+  works&quot;. What gives it away is the **byte count being near-constant across a real and
+  an invented term**, and the product list being identical. **A bogus-query control must
+  compare what came back, not whether the bytes differ.**
+- **A placeholder that says so in words, and passes every mechanical check.** Hochiki's
+  derived image path served `0300-03230` an **&quot;IMAGE COMING SOON&quot; graphic**:
+  HTTP 200, `image/jpeg`, 900 &times; 900, on the manufacturer's own CDN at a path built
+  from Hochiki's own product code. Status, mime, size and dimensions all pass. It was
+  caught **by eye**, then corroborated by MD5 &mdash; the same bytes sit under 11 other
+  codes. Add it to the placeholder shapes beside the 3,264-byte PNG and the grey
+  `MediaImage` this catalogue started from.
+- **URL-counting cannot work at all on a derived-path host, and MD5 is what replaces it.**
+  Every Hochiki product has **its own** derived URL, so URL reuse is zero by construction
+  and rule 6's counting method returns nothing. MD5-ing the indexed library &mdash; 519
+  codes, 562 images &mdash; found **139 codes (27%) serving bytes identical to another
+  product's**. That killed two rejections the counting method could never have seen:
+  `0600-01440` (HPS-D**BB**, the *deep* back box) is byte-identical to `0600-01430` (the
+  standard one), **and depth is the entire difference between the two products**; and
+  `HCVX8-R`, an **8**-zone panel, is byte-identical to the **4**-zone `HCVX-4R`.
+  **The converse also held, which is why both checks are needed:** MD5 called
+  `0500-06180` unique and only looking caught that the unit in the photograph is **white**
+  where the SKU's own sibling naming fixes the trailing letter as **red**.
+- **A brand can be two companies, and the coverage number is meaningless until you split
+  them.** Of 798 Hochiki SKUs, **369 are Hochiki *Europe* part numbers** (`1226370-00`
+  shape), and **Hochiki Europe publishes no per-part images at all** &mdash;
+  `hochikieurope.com/images/products/` is keyed by *range* (`esp-intelligent-`,
+  `cdx-conventional-`), the same family-asset pattern that made Det-Tronics a true zero,
+  and its AssetBank DAM returns **the identical 14,749-byte login page for a real and a
+  bogus keyword**. Every one of the 22 hits is Hochiki **America**. So &quot;Hochiki
+  2.8%&quot; is really *a usable route on 429 products and a documented zero on 369*.
+  Three more recon corrections from the same run: Secutron **16% &rarr; 6.1%**, Napco
+  **&quot;no&quot; &rarr; 1.8%** (bounded by probing all 167 SKUs across 7 filename
+  spellings and 2 extensions, 1,568 requests, against a clean 280-byte 404), and Hochiki
+  **3&ndash;15% &rarr; 2.8%**, at or below its own floor.
+- **Reading the label paid on parts where the riskiest token was the one confirmed.**
+  Secutron `FH-400-LF-*` badges read **`MGC 520 Hz`** &mdash; **520 Hz confirms the `-LF`
+  low-frequency suffix on the product itself**, which is the highest-risk token in those
+  SKUs. `RAM-1032TZDS` and `RAX-1048TZDS` were settled by **counting windows on an
+  enlargement**: 4 &times; 8 = 32 with system controls (main chassis) against 6 &times; 8 =
+  48 with none (adder), matching both titles exactly. And one Hochiki label carries a
+  **moulded number that is not the catalogue number** (`712400334` against `1217170-00`),
+  recorded in the row rather than treated as a mismatch.
+  Two catalogue defects fell out in passing: **`QAA-5415-70` has lost a `/25`** &mdash;
+  Secutron's own media title is `QAA-5415-70/25` &mdash; which is the punctuation-stripping
+  import again, after the 185 frequency ranges and `ZR-MC-R`; and **Secutron's own filename
+  calls an *adder* chassis &quot;Main&quot;** on `RAX-1048TZDS`, where the image is right
+  and the filename is wrong. **A manufacturer filename has now been wrong in both
+  directions** &mdash; naming another product entirely on Power-Sonic, and mislabelling its
+  own correct photograph here.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
