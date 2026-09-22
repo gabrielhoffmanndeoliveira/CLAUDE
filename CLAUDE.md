@@ -136,8 +136,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,265 pages published** — 555 from the old list plus v2b01 through
-v2b37, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,271 pages published** — 555 from the old list plus v2b01 through
+v2b38 agent 1, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -5272,7 +5272,63 @@ Revisit after the high-impression band is done.
   title's ladder was already right. The index also returned `S49VOC-0002` for the same part;
   it contains the exact string **zero** times and its models are all weatherproof
   `49VOH-APPLC-O`, so the hit was a substring artefact. **A search hit on an index is not
-  evidence the document contains the part.**
+  evidence the document contains the part.**- **THE COORDINATOR ALMOST STRIPPED A CORRECT, MANUFACTURER-STATED CLAIM OUT OF A TITLE
+  BY READING HALF A TABLE HEADER.** Verifying `15271`'s title claim *&quot;Vehicle Bracket
+  Included&quot;*, the coordinator pulled Amerex's *Fire Extinguishers at a Glance* sheet,
+  read the header row by coordinates, and got `TYPE | (CAPACITY) | MODEL | (INCH) |
+  BRACKET | BRACKET | BRACKETS | BRACKETS | OPTION`. No &quot;included&quot; anywhere &mdash;
+  so the plan was to weaken the title, on the precedent of Ansul `429022`, where exactly
+  that claim was unsourced and removed.
+  **The header is TWO LINES.** The line above reads `AGENT | SIZE | DIAMETER | **INCLUDED**
+  @289 | USCG@361 | OPTIONAL@427 | RUBBER STRAP@504 | DOLLY@548`, and the B386T row carries
+  `818@289 Vehicle@300` &mdash; **dead centre in the column headed INCLUDED BRACKET.** The
+  claim is manufacturer-stated, corroborated by the parts book (818 = `01211-P`
+  Vehicle/Marine bracket, all 5 lb and 5-1/2 lb aluminum valve models), and it was published.
+  **This is the caption and merged-cell family of traps firing on the COORDINATOR'S OWN
+  VERIFICATION rather than on an agent's extraction**, which is a first. This file records
+  the escalation ladder &mdash; plain text, word coordinates, render &mdash; as a rule for
+  agents reading datasheets; the lesson here is that **a spot-check is an extraction too**,
+  and a single-line coordinate read of a multi-line header is the same error as trusting
+  plain text. It is also the coordinator's scepticism being wrong for the fourth time, after
+  `ATD-L3R-IV`, `TH4210U2002/U` and the Mircom `FX-400R` photograph.
+- **A wrong voltage in a feed title, and the store's own description already had it right.**
+  `APS10A/230` was titled **115VAC**. Edwards `E85005-0127` Issue 1.6 Ordering Information
+  reads *&quot;APS10A/230 | 10-Amp Auxiliary Power Supply (**220V**)&quot;* and the
+  Specifications give *&quot;120VAC **or 220-240VAC**&quot;*. **The live description body
+  said 230Vac and was right** &mdash; the page contradicted itself and the wrong half sat in
+  the Shopify `title`, so it cost two channels while the correct value cost none.
+  **The whole title is a distributor catalogue string pasted from the sibling**:
+  *&quot;Auxiliary/Booster Power Supply 10A Total Expanded Cabinet 26A/H Capacity
+  115VAC&quot;* appears verbatim on third-party sites **under the plain `APS10A` SKU**. That
+  is the borrowed-copy signature (`PAD200-DD`, `4-NET-SM`, `INX-10A`, `SLE-LTEV-CFB-PS`) with
+  a new origin: **borrowed from a distributor rather than from a sibling's own row**.
+  **And the bogus &quot;26A/H&quot; has a findable origin too**, which is the useful half:
+  both revisions say the cabinet takes **two 24 Ah** batteries, and the string `26` occurs
+  once in either document &mdash; as the APS6A's **shipping weight, 26 lb**, in the column
+  beside the model rows. An adjacent-cell error made at the distributor and inherited whole.
+- **A live page describing the wrong half of an assembly, caught by the manufacturer's own
+  FAQ.** `VSP-965`'s copy said the sampling module *&quot;continuously draws air from a
+  protected area through an air sampling pipe network&quot;*. Xtralis FAQ `Doc. 26841_15`
+  answers the exact question: the sampling module **ensures a representative sample is taken
+  BEFORE the aspirator**, so the chamber sees particles unaffected by the aspirator's
+  scrubbing. **The part that draws the air is the `VSP-963`.** Same family, adjacent number,
+  opposite function &mdash; and an FAQ document, not a datasheet, is what settled it.
+- **A search summary attributed a sentence to the wrong sibling and the agent caught it.**
+  A summary claimed `DPA-1` is used when the `CMIC-1` is *not* used. That is `DN-7045`'s row
+  for the **`DPA-1A4`**; the live sentence was verbatim Notifier for the correct part. The
+  live copy was **incomplete, not wrong** &mdash; the `4100-9706` shape for the third time,
+  where what reads as borrowed text is the manufacturer's own text about the right part.
+- **Route notes.** **`xtralis.com/file/<id>`'s miss fingerprint is a drifting RANGE, not one
+  number**: `text/html` at **226,237&ndash;226,241 bytes**, drifting a byte or two with the
+  id &mdash; this file records a single 226,238, which is the gamewell-fci one-byte-drift
+  tell again. **Xtralis product pages enumerate their own file ids with titles**, so
+  `grep -oE 'href=&quot;[^&quot;]*/file/[0-9]+&quot;'` plus the anchor text on
+  `xtralis.com/product/<id>/<slug>` gives a titled document list in one fetch.
+  **`DN-7045` is reachable at exactly one shape** &mdash;
+  `datasheets/notifier-us/hon-ba-fire-dn-7045.pdf` under the `honeywell-edam` root &mdash;
+  with bare and revision-letter forms all returning the 8,047-byte fingerprint under both
+  paths. And **Amerex's `/learning-center/product-brochures/` raw markup lists 60 PDFs**
+  under `/upl/downloads/content-blocks/`, mime-clean, confirmed by the coordinator.
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
