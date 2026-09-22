@@ -95,8 +95,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,085 pages published** — 555 from the old list plus v2b01 through
-v2b28 and twelve of the eighteen in v2b29, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,091 pages published** — 555 from the old list plus v2b01 through
+v2b29, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -2977,6 +2977,49 @@ Revisit after the high-impression band is done.
   `control-panels-and-accessories`, `signature-series` and `fire-alarm-control-panels` all
   **404 at 17,844 bytes**; recover the 20 real slugs with
   `grep -o 'lifelines/[a-z0-9-]*'` on `edwardsfiresafety.com/lifelines`.
+- **THE PHOTO RULE, FOUND BY LOOKING: a manufacturer's own filename can name a different
+  product from the one in the photograph.** Power-Sonic publishes
+  `power-sonic.com/wp-content/uploads/2025/08/PGFT-12V180.jpg`. **The printed label on the
+  battery in that image reads `FT-12V160`** &mdash; verified by the coordinator, who
+  downloaded the file and looked at it. First-party host, exact filename match, clean mime,
+  600 &times; 552 px: **every mechanical check passes and the photograph is of another
+  product.**
+  This is the last defence of filename matching falling over. The project's boundary rule
+  exists because a filename can be *ambiguous*; the STI batch showed a structured `modelId`
+  can be *silent* about which product the photo shows; and this shows a filename can be
+  **wrong at the source**. **So the only sufficient check is reading the part number off the
+  product in the image** &mdash; which is exactly what the text pipeline's best cases do
+  (`TM8-PCA REV` silkscreened on the board, `PSL-SC-1270 / 12.8V 7.2AH` on the label).
+  **Build contact sheets and look.** Nothing cheaper catches it. Tesseract is installed and
+  is useless here &mdash; it reads synthetic text fine and returns nothing on angled,
+  low-contrast product renders &mdash; so this is a human-eye step, not an OCR step.
+  Thirteen further rejections came from the same pass and each names a specific
+  contradiction: `T-PB-303-0`/`-1` carry a printed overlay reading *&quot;(Model 202-1 shown
+  here)&quot;*; `PG-12V65 M6 FR` shows a label reading **UL94 HB**, the non-flame-retardant
+  case, on an FR part number; `PS-1270 F2`, `PS-1280 F2` and `PS-6100 F2` show **F1**
+  terminals; `CM-6 WHITE` is shown in **gray**. And the check cuts both ways: the PHR
+  series labels read *&quot;UL94 V-0 flame retardant&quot;*, **positively confirming** eight
+  FR part numbers.
+- **Two recon coverage figures were not reproducible, and the corrections are instructive
+  rather than embarrassing.** Recon reported Det-Tronics at **89%**; the true answer is
+  **zero**. The 801-item library holds only family-level assets (`X5200a.png`,
+  `x2200-ultraviolet-flame-detector.png`), **no filename contains any of the 23 catalogue
+  SKUs**, and REST searches for the bare part numbers return 0 rows. Recon's hits were
+  family-level matches, which the boundary rule correctly forbids &mdash; `X5200` followed
+  by `a` is alphanumeric. Recon reported Macurco at **48%**; that was measured on the
+  *detector subset*. Of the brand's 91 products **51 are cal-gas cylinders, VRF replacement
+  sensors, cal-kits and calibration fees**, for which no per-SKU asset exists and should
+  not. **A coverage figure is meaningless without the denominator it was measured on.**
+- **`X-WP-Total` over-reports what a WordPress media API will actually serve**, measured on
+  four hosts: power-sonic claims 2,035 and yields **1,766**; apcfire 536 &rarr; 499; macurco
+  1,664 &rarr; 1,633; det-tronics 801 &rarr; 786. Re-paginating under three different
+  `orderby`/`order` combinations recovered **zero** extra items, so those are ceilings, not
+  pagination bugs. Do not treat the header as a completeness target.
+  Related, and it cost a briefing: **the vendor string is two words on some brands**, so
+  &quot;the SKU is the second whitespace token&quot; returns `Sonic` on 232 of 232 Power
+  Sonic titles. **`catalogo_full.json` carries a real `sku` field** &mdash; join on `id` and
+  use it. It also carries the variant (`PS-1290 F2`, `CX-12-CO LADBS`), which is exactly
+  what the terminal-type and housing-colour rejections above turn on.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
