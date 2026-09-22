@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,230 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,241 pages published** — 555 from the old list plus v2b01 through
 v2b32, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
@@ -4778,6 +4778,73 @@ Revisit after the high-impression band is done.
   &quot;100Ah&quot; is true of both products. This file already required the rate to be
   stated; here are two SKUs in one batch where omitting it makes the titles
   indistinguishable.
+
+- **SEVENTEENTH coordinator premise wrong, and it would have put a wrong capacity in a
+  feed attribute on the one field a battery buyer filters by.** The briefing told an
+  agent that on the Power-Sonic PDC line *&quot;the number is the 20-hour capacity&quot;*,
+  generalising from two SKUs settled in an earlier batch. **Measured across all eleven
+  datasheets, four diverge.** Verified directly by the coordinator on two of them:
+
+  | model | number implies | 20-hr | 10-hr |
+  |---|---|---|---|
+  | `PDC-121300` | 130 | **128.0** | 120.0 |
+  | `PDC-12480` | 48 | **45.4** | 43.2 |
+  | `PDC-122000` | 200 | **215.0** | **200.0** |
+  | `PDC-122500` | 250 | **265.0** | **250.0** |
+
+  **On two of them the model number is the TEN-hour figure and the 20-hour capacity is
+  15 Ah higher; on two it matches no rate at all.** Corroborating that the number is not
+  a capacity: **`PHR-12400` is 113.8 Ah at 20 hr** &mdash; the same `12400` token, a
+  different series, nothing like 40 or 400.
+  **So this is the `AS-75-R-WP` shape on a whole product family**: a number inside a
+  model number that looks like a spec. The instruction to state the rate in every title
+  was right for a stronger reason than the one given &mdash; **it is not a nicety, it is
+  the only way these titles can be correct**, because `PDC-122000` at 200 Ah and
+  `PDC-121300` at 130 Ah are not comparable claims. The two 10-hour parts were published
+  with **both** rates so a buyer who ordered expecting 200 Ah can see why the sheet says
+  215.
+- **A held title, and the reasoning is the model for this class of hold.**
+  `PDC-12400 M6` ($187.90) was left exactly as it was. The SKU is **not in Power-Sonic's
+  current 15-member PDC catalogue**, established three independent first-party ways each
+  with its own bogus control: the WP product REST API, the product sitemap, and the
+  derivable datasheet path. **It was not called invented and the SKU was not touched**
+  &mdash; a negative bounds the search, not the catalogue, and distributors stock legacy
+  parts. But a mechanism came with it: **`PS-12400` is a current 40 Ah part whose case
+  dimensions are identical to `PDC-12480`'s**, same box different series, and the store
+  prices PDC-12400 **above** PDC-12480 despite the lower number. Flagged; a purchase
+  order or a carton settles it.
+  **And the distributors were available and were refused on evidence.** Three of them
+  give PDC-12400 as &quot;40Ah&quot;, and **the same page that does calls `PDC-122000`
+  214 Ah where the manufacturer says 215.0** &mdash; wrong on a sibling in the same
+  breath. Eighth instance.
+- **A terminal-code taxonomy that enumerates codes and carries no semantics, and the
+  correction to this file's own note.** Batch 5 recorded that Power-Sonic's
+  `wp-json/wp/v2/ps_terminal_type` lists `U` with an **empty description**. True but
+  understated: **all 29 descriptions are empty**, so the route confirms which codes are
+  real and decodes none of them. **The datasheet drawing is the only decoder** &mdash;
+  and it has no text layer, so all six codes here were read off **300 dpi renders**:
+  `F2` Faston 0.250 &times; 0.032 in. tabs, `M5` T15 threaded insert 5 mm stud, `M6`
+  threaded insert 12 mm body, `M8` labelled verbatim *&quot;T11 THREADED INSERT &mdash;
+  8mm STUD&quot;*, `NB2` and `NB3` *&quot;TERMINAL POSTS with nut &amp; bolt
+  connectors&quot;* on 14 and 16 mm plates. **`NB2`/`NB3` were a coordinator guess and
+  are now manufacturer-confirmed.**
+  **And batch 5's bounded negative on `U` can be closed**: the PDC-12600 sheet draws it
+  &mdash; **tapered terminal posts with separate positive (17.4 mm) and negative
+  (15.9 mm) profiles, torque 11.0&ndash;14.7 N&times;m.** Not &quot;universal&quot;.
+- **Datasheet page 3 is series boilerplate, byte-identical across models of different
+  capacity.** PDC-122500's and PDC-12140's page 3 are the same bytes, and its *&quot;UL
+  1989 certified for valve-regulated&hellip;&quot;* and *&quot;Sealed lead-acid&hellip;
+  UN2800 non-spillable&quot;* lines are a **certification glossary attached to no
+  model** &mdash; the series-wide-block trap in its purest form, because those sentences
+  would have read perfectly naturally in any of the eleven titles. **No certification,
+  &quot;sealed&quot; or &quot;non-spillable&quot; claim went into any of them.**
+- **The `cdn.power-sonic.com` zero-byte trap is worse than recorded: it returns HTTP 200
+  and 0 bytes for parts that genuinely exist**, not only for misses. So it is not a
+  404-in-disguise &mdash; **it serves nothing for anything**, and a &quot;hit&quot; there
+  means nothing in either direction. The byte guard is mandatory. Also measured: the
+  datasheet-path 404 shape **drifts a few bytes with the filename** (280,493 for a bogus
+  name against 280,471 for a real-looking one), so compare the shape and not an exact
+  byte count &mdash; the same one-byte-drift tell recorded for gamewell-fci.com.
 
 ## Conventions
 
