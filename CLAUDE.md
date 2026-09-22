@@ -136,8 +136,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,253 pages published** — 555 from the old list plus v2b01 through
-v2b36, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,265 pages published** — 555 from the old list plus v2b01 through
+v2b37, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -5162,7 +5162,117 @@ Revisit after the high-impression band is done.
   grows from 313 to roughly 370**, and those 57 are now correctly visible to the title
   workstream instead of hiding behind a repetition. A fix that makes a defect *countable*
   is worth it even when it does not make the product findable.
-
+- **The Kidde Fenwal ERP codes decoded, 96 titles written, and the `T` is TONS &mdash;
+  the coordinator's inch reading was wrong and the agent proved it with a SET MATCH.**
+  The briefing read `GAUGE-LL_60T-HORZ` as a 60-inch dimension. It is **60 tons**: the
+  hardware is **Kidde/Chemetron CARDOX Low Pressure CO&#8322;**, a refrigerated ASME vessel
+  holding CO&#8322; at about 0 &deg;F and 300 psi with an R-404A package, and the
+  manufacturer prints its range in the ERP's own notation.
+  **What settles it is not the bullet, it is the set.** Computed first-hand from the store's
+  own ERP strings: the horizontal tonnages are **{2.75, 3.75, 4, 6, 8, 10, 12, 14, 18, 22,
+  26, 30, 34, 38, 42, 46, 50, 60}** &mdash; eighteen values &mdash; and the vertical ones
+  **{6, 14, 26, 30}**, four. The agent reports those are exactly Kidde's eighteen horizontal
+  and four vertical tank sizes, zero extras and zero missing, and the **endpoints 2.75 and
+  60 are the manufacturer's own stated range**. A 2.75-inch-to-60-inch gauge ladder is not a
+  thing, and a four-value vertical subset nested inside the horizontal set is a tank-size
+  pattern, not a dimension. **`DC` is manufacturer-decoded too** &mdash; Kidde's option list
+  offers exactly two, *&quot;Liquid Level Gauge with Dual (NO/NC) Contacts&quot;* and
+  *&quot;with 4-20mA Output Signal&quot;*, against exactly two ERP tokens, and
+  `0200-9275W-DC-CH` spells `DC` in its own part number.
+  **The nozzles are the big catch and they went the other way.** The briefing offered
+  &quot;Kidde CO&#8322; nozzles&quot;; Kidde's own CO&#8322; nozzle sheet `K-81-1170` tabulates every
+  CO&#8322; nozzle as `803xxx`/`842xxx`/`9xxxxx`, **identified by orifice code and never by a
+  degree pattern**, and nothing of the `85-1944xx` form appears. The mechanism is the
+  document-series prefix: `K-81-` documents 81-series CO&#8322; parts, `K-85-107` documents
+  **`85-`** ADS fan nozzles at 180&deg; and 360&deg;. So **180/360 as a discharge pattern is
+  right and &quot;CO&#8322;&quot; is wrong**, and the twenty published titles carry the class,
+  the degree, the size, the thread and the material and **deliberately assert no agent.**
+  That is a product-class error avoided in a feed attribute, on the coordinator's premise.
+  **Two SKU defects, one of which the coordinator missed:** the `-2xx` wildcard is confirmed,
+  **and there is a stray leading `1-`** &mdash; Kidde's number is `85-1944xx-2XX` and the
+  store's SKU is `1-85-1944xx-2xx`. Neither touched.
+  **`1090-4` was HELD and it is the sharpest row in the set: three fields, three products.**
+  Its Shopify title reads *&quot;Cylinder ARG 110 Filled YL&quot;* (a filled argon cylinder),
+  its ERP reads `CONTROLLER-TEMP_NEMA1-DISPLAY`, and its `type` is Annunciators. The live
+  title is certainly wrong &mdash; and **replacing one unsourced claim with another is not an
+  improvement**, so nothing was written and it went to the owner.
+  Published: **96 of 121**, in four aliased mutations of 24, every `userErrors` empty. 24 were
+  returned unchanged because they already had a product name &mdash; **the coordinator's
+  &quot;all 121 are nameless&quot; was wrong, only 96 were.**
+  Route: **`kiddefenwal.com/?wpdmdl=<id>` serves the file and a plain HEAD returns
+  `content-disposition: filename=&quot;<docnum>_print.pdf&quot;`**, so sweeping ids builds the
+  whole 206-document index. **New fingerprint, reproduced by the coordinator:
+  `kiddefenwal.com/LocalMedia/Data Sheets/<anything>.pdf` returns HTTP 200 with
+  1,279,593 bytes of `text/html`** &mdash; byte-identical for a real and an invented filename,
+  and every `LocalMedia` URL still in Google's index is dead.
+- **A correction to this file that the coordinator could NOT reproduce, recorded as
+  unsettled rather than accepted or rejected.** This file states that
+  `cdn.power-sonic.com/documents/` returns HTTP 200 and **zero bytes for everything, real
+  filenames included**. An agent reported that as wrong &mdash; that real names serve real
+  PDFs and only a bogus name gives 0 bytes. The coordinator tested it and got **0 bytes and
+  `inode/x-empty` for BOTH** a real-looking path and a bogus control.
+  **That does not disprove the correction, and saying why is the point: the coordinator's
+  probe used a CONSTRUCTED filename**, which is the exact thing this file says not to do.
+  So the failure may be the path, not the host. **Neither the original note nor the
+  correction is settled**, and the next person should test it with a slug found by search.
+  Recording a failed reproduction as a failed reproduction, rather than as a result in
+  either direction, is the honest form here.
+- **The Power-Sonic model number means a different thing on every series, and the ERP is
+  wrong roughly half the time.** Two title batches, 23 SKUs, with the load-bearing figures
+  **read directly by the coordinator off each datasheet by word coordinates**:
+  `PG-12V103` is **110.0 Ah at 20 hr and 100.0 at 10 hr**, matching neither; its neighbours
+  `PG-12V55` (60.0/56.0) and `PG-12V55S` (56.6/55.0) are **two adjacent part numbers where
+  the same two digits mean different things**; `PG-2V600` is **636.0/600.0**, so the number
+  is the 10-hour rate; `PGFT-12V180` is **180.0/170.0**, so there the number is the 20-hour
+  rate &mdash; *the opposite of its own sibling series*; and on **PHR the number is not a
+  capacity at all** (`PHR-12100` is 28.0 Ah).
+  **The store's ERP string was wrong on six of eleven checkable rows in one batch**,
+  including four capacities, and its rate *labels* were wrong too (`PGFT-12V180 ... @10hr`
+  where 180 is the 20-hour figure). **So the ERP is a candidate, never a fact** &mdash; the
+  third distinct way this file has now had to say that, after the lossy `type` field and the
+  `live_desc` placeholder. Every published title states both rates where they differ, which
+  is not a nicety: without the rate, `PG-12V103` and `PG-2V600` are simply not comparable
+  claims.
+  **A `null` returned for the right reason:** `PGFT-12V125` is absent from the datasheet path
+  in five spellings, from the product REST API (bogus control returns `[]`, so the endpoint
+  is honest) and from the product sitemap &mdash; the PGFT series has six members and this is
+  not one. **Not called invented, SKU untouched, and the agent explicitly declined to read
+  across to the real sibling `PGFT-12V150`.**
+  Two more measured facts: **`power-sonic.com/?s=` is non-discriminating** (one product hit
+  for a real term *and* for a bogus one), so use `wp/v2/product?search=`; and **`AGM` appears
+  zero times in the PHR datasheets**, so the agent used Power-Sonic's own headline
+  &quot;High-Rate Discharge Battery&quot; rather than importing the class word from the PG and
+  PGFT sheets &mdash; a cross-series import declined, the fifth time on this project.
+- **The type field disagreed with the title and THE FIELD WON, which is the rule's other
+  half finally firing.** `4906-9132` was titled a **speaker strobe** and typed **Horn
+  Strobes**. Simplex `S4906-0010`, fetched and read directly by the coordinator, settles it
+  three ways: the document's own title is *&quot;Weatherproof Notification Appliances
+  (non-addressable) Wall Mount Visible Only (V/O) and **Audible/Visible (A/V)**&quot;*; its
+  Table 1 row reads, by word coordinates, `4906-9132 | (A/V) | White | Red`; and page 3 heads
+  a current block **&quot;A/V Models 4906-9131 and 4906-9132&quot;**. It is a horn strobe.
+  **And the live title omitted &quot;weatherproof&quot;** &mdash; it is a **NEMA 3R** unit
+  requiring a separate weatherproof box, so a buyer specifying an indoor appliance received
+  an outdoor one needing a part they did not order. **Both defects sat in the Shopify
+  `title`, so both cost two channels.**
+  This file's rule is *&quot;the type field is a signal when it disagrees with the title and
+  no evidence when it agrees&quot;*, and nine recorded cases are the type agreeing with a
+  wrong title. **This is the first published case where it disagreed and was right**, which
+  is what makes the rule worth keeping rather than a post-hoc excuse.
+- **A metadata hit is not a text hit, and the JCI index is broader than the documents it
+  describes.** The hub's `product_code` field lists `4100-5125` against `S4100-1031` &mdash;
+  and the strings `4100-5125` and `RPS` each appear **zero times in that document**, which is
+  the current 4100ES sheet covering the ES-PS/ES-XPS instead. The real rows are in the legacy
+  `S4100-0031` Rev. 42, `S4100-0103` Rev. 11 and `S4100-0038` Rev. 15. **Grep the served PDF,
+  not the index entry** &mdash; and this file already records the same hub disagreeing with
+  its own served document on the revision number.
+- **A candela split that is not wall-versus-ceiling but a letter in the model number.** The
+  briefing assumed the 49VO ladder differed by mounting. `S49VOC-0001` Table 9 gives the
+  **49VO** model 15/30/75/110 cd and the **49VOH** model 110/135/185 cd, **both ceiling
+  mount, in one document** &mdash; so the `H` is the high-candela variant and the live
+  title's ladder was already right. The index also returned `S49VOC-0002` for the same part;
+  it contains the exact string **zero** times and its models are all weatherproof
+  `49VOH-APPLC-O`, so the hit was a substring artefact. **A search hit on an index is not
+  evidence the document contains the part.**
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
