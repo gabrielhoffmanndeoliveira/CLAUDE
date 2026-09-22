@@ -51,8 +51,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 858 pages published** — 555 from the old list plus v2b01 through
-v2b17 — plus 80 title-encoding fixes applied
+**Progress: 876 pages published** — 555 from the old list plus v2b01 through
+v2b18 — plus 80 title-encoding fixes applied
 catalogue-wide. One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
 reseller data; the deliberate-skip list is now `SM7100-L8`, `90521`, `BDA-NMP01250`
@@ -886,6 +886,81 @@ Revisit after the high-impression band is done.
   `SD365T-IV` names only a fixed-temperature device. Reading the series block as if it
   described the part would have published a rate-of-rise claim on a fixed-temperature
   detector. **A spec block that covers a family is not a spec for any member of it.**
+- **A load-bearing restriction can live in an asterisk footnote hanging off the
+  ordering table, where grepping the body returns a false negative.** The live
+  `WAV-CWL` page claims the wall bases fit only L-Series devices *&quot;manufactured
+  after 26 April 2019, date code 9045 and later&quot;* while the ceiling bases are
+  unrestricted. **Confirmed in three documents** &mdash; `SPDS902-04` (3/10/2022, a
+  revision newer than the `SPDS902-01` the sibling page used), `SPDS902-01` and
+  Gamewell-FCI `9021-61070:C` &mdash; in almost the page's own words. **But the note is
+  a footnote on the table, not prose.** Anyone checking that claim by searching the
+  datasheet text would have found nothing and called it unsourced, which is the
+  wrong-document-family failure in miniature: right document, wrong part of it.
+  **Read ordering-table footnotes before declaring a compatibility claim unsupported.**
+- **Eleventh product-class error, and the giveaway was a new one.** `3-SDC1` was titled
+  *&quot;Signature Driver Controller Module&quot;*. Edwards heads its Ordering
+  Information **&quot;3-SDC1: Signature Device Card &ndash; upgrades a 3-SSDC1 to a
+  3-SDDC1&quot;**, and lists the controllers separately: *&quot;3-SSDC1: Single
+  Signature Driver Controller. **Comes with one 3-SDC1 Device Card**&quot;* and
+  *&quot;3-SDDC1: Dual … **Comes with two 3-SDC1s**&quot;*. A buyer ordering a loop
+  controller received a plug-in card that does nothing without a controller already in
+  the cabinet. That is the `4099-9015` / `A49CMT-APPLW` incomplete-product shape, but
+  **the tell here is not the word &quot;required&quot;** &mdash; it is **the sibling
+  rows stating what they come with**. Add that to the checklist: when a catalogue
+  number appears inside another product's &quot;comes with&quot; clause, it is a
+  component, not the product. The `type` field said Modules and agreed with the wrong
+  title, so it raised nothing again.
+- **The E/K prefix rule reaches down into part numbers, not just document numbers.**
+  Same document number, different brand: `K85001-0667` is titled *&quot;Genesis LED
+  **EG1** Series&quot;* and `E85001-0667` *&quot;Genesis LED **G1** Series&quot;*, with
+  every spec matching (16&ndash;33 VDC/VFWR, 15/30/75 cd, 20 &#937; sync,
+  3 &times; 4-5/8 &times; 1-1/8 in., &minus;0.71 in. box offset, 32&ndash;122 &deg;F).
+  Trim rings follow it too: `EG1TR`/`EG1TW` against `G1TR`/`G1TW`. **So a Kidde
+  catalogue number on this line is the Edwards number with an `E` prefix** &mdash;
+  search both forms, and reach for Kidde's first-party host rather than an Edwards
+  mirror. An MD5 check also proved verbatim mirroring the cheap way again: `K85001-0640`
+  came back byte-identical from two unrelated mirrors.
+- **Every distributor wrong together, for the second time in three batches.**
+  `ELSPKBB-R` is a **wall** back box: Eaton `TD450158EN`'s backbox table, confirmed on
+  one y-line by word coordinates, reads `ELSPKBB-R` &rarr; Wall, `ELSPKBB-W` &rarr;
+  Wall, `LSPKBB-CR`/`LSPKBB-CW` &rarr; Ceiling &mdash; **the `C` in the sibling number
+  is the ceiling marker.** ADI and Telcom-Data both list it as ceiling. After the
+  51-inch Fiplex jumper this is a pattern worth naming: **distributor consensus is not
+  evidence, and it fails in a correlated way**, because they copy each other rather
+  than the datasheet.
+- **A corroborating diagram can argue for the wrong reading, and only the render
+  settles it.** On `E85001-0640` p6 plain text gives *&quot;Base height from box:
+  0.8 in. | 1.4 in.&quot;* across three model columns. Word coordinates put both at
+  cell-centre, and a 200 dpi render shows **0.8 in. spans the AB4G *and* AB4GT columns
+  while 1.4 in. is AB4G-LF alone.** The page-3 exploded diagram groups
+  &quot;SIGA-AB4GT(-LF)&quot; together, **which argues the other way** &mdash; so the
+  one piece of apparent corroboration was the trap. Same merged structure on the
+  Listings and Resonant-frequency rows. **When a merged cell and a diagram disagree,
+  the render of the table wins.**
+- **`RFP`'s &quot;5-Pack&quot; is unsourced, and this is the pack-count mechanism from
+  the other side.** `AVDS870-03` (10/10/2023) **states pack quantities when it means
+  to, on the same page, in the same Ordering Information block** &mdash; `TR-2`,
+  `TRC-2`, `TR-2W`, `TRC-2W` each marked &quot;(5-pack)&quot;, `TRCWLA-10` and
+  `TCRLA-10` &quot;(10-pack)&quot;, plus a footnote about bezel packs &mdash; and the
+  two retrofit-plate rows carry **nothing**. `AVDS882-03` (2020) and `AVDS4004` (2015)
+  do the same. **Three revisions across ten years, numbering RFP's neighbours and
+  declining to number RFP.** That is exactly the `DN-62046:C` proof inverted, and it
+  makes the negative positive. Title left untouched; flagged to the owner.
+- **Correction: the Eaton `urllib` workaround is alive again.** This file records it as
+  having worked on 21 Sep and failed later the same day. On 22 Sep `curl` still failed
+  with an empty reply on both HTTP versions, and **Python `urllib` through
+  `HTTPS_PROXY` with a Safari user-agent pulled both Eaton PDFs first try.** So it is
+  intermittent rather than dead: **still worth one attempt, and now worth it before
+  falling back to alarmax.**
+- **A document defect can persist across revisions and across brands, which tells you
+  it is the source and not your extraction.** `E85001-0640` and its Kidde twin
+  `K85001-0640` both print the CAN/ULC-S525 row with **low dBA louder than high**
+  (Temporal 24 VDC: 95 low, 91 high) &mdash; the same inversion, 2.5 years apart, under
+  two brands. Nothing published from that row. Likewise all three SWIFT AV base
+  datasheets print &quot;RF Operating Voltage Range 3.3 VDC&quot; and, two rows later,
+  &quot;RF Operating Voltage 12 VDC&quot;. **Reproducing across revisions rules out
+  extraction error and rules in a real document defect &mdash; which is a reason to
+  publish nothing, not a reason to pick one.**
 - **Eighth coordinator premise proven wrong, and this one was stated as &quot;almost
   certainly&quot;. The `R` in `B200SR-LF` is not a relay.** The briefing told an agent
   the `R` was &quot;almost certainly a relay, but verify&quot;; the agent verified and
@@ -1175,6 +1250,91 @@ Revisit after the high-impression band is done.
   sitting above it.** So the rule is: **Honeywell states a carton quantity for bases,
   and for the low-frequency sounders via the `9021-62013-E` footnote, and for nothing
   else.** Detectors and notification appliances both fall outside it.
+- **CORRECTION, 22 Sep 2026: that boundary was wrong. BATTERIES are a third category,
+  and the quantities are not 10.** An agent found it and the coordinator verified it
+  directly rather than taking the report on trust, because the claim overturned a rule
+  this file states twice. Fire-Lite **`DF-52397:C1`** and its Notifier twin
+  **`DN-6933:D`** each state five carton quantities verbatim in Ordering Information:
+  `BAT-1250-BP: 10-unit bulk pack`, `BAT-1270-BP: 5-unit`, `BAT-12120-BP: 4-unit`,
+  `BAT-12180-BP: 2-unit`, `BAT-12260-BP: 2-unit`. **So the rule becomes: Honeywell
+  states carton quantities for bases, low-frequency sounders and batteries, and not for
+  detectors or notification appliances.**
+  **The sharper half of the finding is the one the agent did not draw: the quantity
+  varies inversely with capacity &mdash; 10, 5, 4, 2, 2.** This catalogue's whole
+  working assumption has been that `-BP` means ten, which is why the census phrase was
+  *&quot;Bulk Pack with 10 Units&quot;*. On batteries that assumption is wrong four
+  times out of five. **Checked against the live catalogue immediately: 18 `BAT-*` SKUs,
+  two of them `-BP`, and neither asserts any quantity in its title** &mdash; so there is
+  no live error, only an unclaimed documentary basis. Nothing was changed; both went to
+  the owner's file.
+  **The method lesson is the transferable one.** The rule was built from a genuinely
+  strong proof &mdash; `DN-62046:C` stating a base's carton quantity and declining to
+  state a detector's **on one page** &mdash; and it was still too broad, because the
+  evidence covered bases against detectors and the conclusion said *&quot;and nothing
+  else&quot;*. **A mechanism confirmed on two categories does not license a claim about
+  every category.** The same over-reach the Protectowire spacing rule made when it
+  broke at 220 &deg;F.
+- **EDAM paths are case-sensitive, and this cost the verification a round trip.**
+  `.../datasheets/DF-52397.pdf` returns the 8,047-byte fingerprint; **`df-52397.pdf`,
+  lowercase, returns a 261 KB PDF.** An agent separately found the same for separators:
+  **`DF_52004.pdf` (underscore) resolves where `df-52004.pdf` (hyphen) 404s.** So the
+  path shapes to try, each one fetch, are now: bare `<docnum>.pdf`, **lowercased**,
+  **underscore-for-hyphen**, `<Model>_<DocNum>.pdf` and `<DocNum>_<Model>.pdf`. Also
+  recorded: `9020-0616.pdf` 404s under the flat directory while
+  `datasheets/MS-7AF-Datasheet.pdf` serves that exact document, so **the bare-docnum
+  route is strong for Gamewell-FCI but not universal &mdash; a model slug can be the
+  filing key instead.**
+- **&quot;Find the slug, do not build it&quot; has a boundary worth using.** EDAM holds
+  two subdirectories this file had not recorded &mdash; `datasheets/flexbda-050526/`
+  and `datasheets/fiplex-02022026/` &mdash; whose Fiplex passive-device slugs are long
+  and descriptive. An agent found `HON-62071` by search and then **constructed the
+  `HON-62072` sibling slug from it, and it resolved.** So: **within one document family
+  in one dated subdirectory, the slug IS derivable from a sibling you already hold.**
+  Eight guesses made without such a sibling all returned the fingerprint. Build from a
+  known neighbour; never build from the document number alone.
+- **Twelfth product-class error, and it is the incomplete-product trap for the fourth
+  time.** `PAD200-DD` was titled and sold as a duct smoke detector, and its 616-character
+  page said *&quot;The unit comes complete with housing and head&quot;* &mdash; a
+  sentence lifted from the **PAD200-DUCT** feature list (*&quot;Ships complete with
+  housing and head&quot;*) and applied to a bare head. Potter `8830167 Rev B` and
+  `8830166 Rev A` both name `PAD200-DD` as the **Detector Head Model** inside the
+  complete units, and their Engineering Specifications read *&quot;The housing shall
+  contain a detector base and PAD200-DD duct smoke detector head.&quot;* At $81 the
+  buyer received a sensing head with no housing, no base, no exhaust tube and no
+  sampling tubes. The complete units are `PAD200-DUCT` and `PAD200-DUCTR`. **The type
+  field said Duct Detectors and agreed with the wrong title, raising nothing &mdash;
+  fourth instance.** Note the tell here was not the word &quot;required&quot; and not a
+  &quot;comes with&quot; clause but **existing copy borrowed from the sibling's feature
+  list**, which is a third signature for this trap.
+- **`DACT-UD2` was typed &quot;Cellular Communicators&quot; and reports over telephone
+  lines.** Manual `53037:B` &sect;1: *&quot;transmits system status to UL listed Central
+  Station Receivers via the public switched telephone network&quot;*; two modular phone
+  jacks, RJ31X, REN 0.0B, FCC Part 68, **no radio in the product at all**. DACT stands
+  for Digital Alarm Communicator/Transmitter. The briefing predicted this from the
+  acronym alone and the document confirmed it &mdash; **an expansion of the part's own
+  initialism is a free class check worth running before any fetch.**
+- **Two agents described the same E/K fact and one of them explained it wrongly; the
+  sharper version wins.** Agent 2 reported *&quot;the Kidde catalogue number is the
+  Edwards number with an `E` prefix&quot;* from `K85001-0667` (&quot;EG1 Series&quot;)
+  against `E85001-0667` (&quot;G1 Series&quot;). Agent 1, reading each document's own
+  syntax block, found the mechanism: **Edwards' series code is `GC` and Kidde's is
+  `EGC`** &mdash; the `E` is *inside the series code*, not a prefix bolted onto a part
+  number. Descriptively the two agree; mechanistically only one is right, and the wrong
+  framing would mispredict any part whose series letters differ some other way.
+  **Also found: a real product difference under one document number** &mdash; Kidde
+  lists the GP10 wiring plate as *&quot;required, included with device&quot;* and
+  Edwards as *&quot;required, ordered separately&quot;*, and Kidde's sheet drops the
+  FEU/FUEGO and ALERT variants Edwards carries. **So the prefix-swap rule means the
+  same hardware, not necessarily the same carton.**
+- **Distributor consensus fails in a correlated way, which is why it is not evidence.**
+  Third instance in four batches. `ELSPKBB-R` is a **wall** box (Eaton's backbox table,
+  confirmed on one y-line by coordinates: the `C` in `LSPKBB-CR` is the ceiling marker)
+  and ADI and Telcom-Data both call it ceiling. `BDA-NM-RG8-13-NM` is 51 in. and every
+  reseller says 48. And **every reseller copy of the DITEK `120S` sheet is stale on four
+  figures at once** &mdash; UL 1449 4th against the current **5th** Edition,
+  &minus;40 to 185 &deg;F against **&minus;31 to 104 &deg;F**, the wrong depth, and
+  40&ndash;400 Hz against **50/60 Hz**. They copy each other, not the datasheet, so
+  agreement among them carries no independent weight at all.
 - **The pack-count census itself matched a phrase, not a mechanism, and missed three
   titles.** The 27 were found by the wording *&quot;Bulk Pack with N Units&quot;*;
   `FST-951-BP`, `FSP-951-BP` and `FSP-951R-BP` read *&quot;White Bulk Pack 10&quot;*
