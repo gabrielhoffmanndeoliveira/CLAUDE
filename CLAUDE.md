@@ -77,8 +77,9 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 876 pages published** — 555 from the old list plus v2b01 through
-v2b18 — plus 80 title-encoding fixes applied
+**Progress: 896 pages published** — 555 from the old list plus v2b01 through
+v2b19, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) — plus 80
+title-encoding fixes applied
 catalogue-wide. One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
 reseller data; the deliberate-skip list is now `SM7100-L8`, `90521`, `BDA-NMP01250`
@@ -173,6 +174,26 @@ holding at the point of writing.
 those were the slice of the batch *currently being researched* &mdash; sliced, not yet
 written. Exclude the in-flight batch before reading the number, or the sweep looks
 like it found sixteen failures every time.
+
+**Re-run at batch 19 (896 pages, 22 Sep 2026): clean again, and the sweep has now
+found nothing three times running.** All 896 tracked ids are present in the active
+catalogue &mdash; **zero missing** &mdash; and exactly **four** pages sit under 400
+visible characters, all four being the deliberate skips (`SM7100-L8`, `90521`,
+`BDA-TP10-L2`, `BDA-NMP01250`). The ASCII title check over the same live pull:
+**56 of 16,031 titles carry non-ASCII characters and every one is `&deg;`, `&reg;`
+or `&trade;`** &mdash; 26, 25 and 5 respectively, **zero outside that set**, unchanged
+from the batch-14 count across roughly 220 further titles written since. **Worth
+noting what the clean run costs: one bulk query, 16,031 products, under a minute
+end to end.** At that price the argument for running it every ten batches is weak;
+run it every five.
+**And a flag of the coordinator's own died in it.** `PAD100-6DB` was noted as a
+non-ASCII title defect while building the v2b21 slice, from the curly `6&rdquo;` in
+`FRONTEIRA_receita.json`. The live title carries a **plain** `6&quot;`; the curly
+form survives only in the description body and in a working file built before the
+80-title normalisation pass. **That is the snapshot rule firing on a file nobody
+thinks of as a snapshot** &mdash; `FRONTEIRA_receita.json` is derived data, frozen at
+the moment it was built, and a title defect read out of it is a defect that may
+already be fixed.
 
 **House style drifted during the project, and reformatting is not worth it yet.**
 58 of 645 published pages carry a bullet count outside 4&ndash;7, almost all early
