@@ -2184,6 +2184,59 @@ Revisit after the high-impression band is done.
   **model numbers** (`IX-EA`, `ATJ-EA`, `GWBDA-EA-AU-MDA`). Both fixes were mechanisms,
   not thresholds: require a non-digit after the comma, and require the token not be inside
   a hyphenated run.
+- **The A&amp;E paragraph quoting a DIFFERENT ROW, and this one understates a design
+  calculation by a factor of two.** Gentex `551-0045-04` page 4 specifies *&quot;an
+  operating current of **47 mA** or less at 24 VDC for the 15 Cd strobe circuit **with an
+  amber lens**&quot;*. The blue, green and red lenses share a different row entirely:
+  **105 mA at 15 cd rising to 310 mA at 110 cd**, against amber's 47/64/113/145/178.
+  **Anyone quoting the A&amp;E headline for a blue unit understates NAC load by roughly
+  2x**, and NAC load is what sizes a power supply and a circuit.
+  This is a third distinct shape of the same family. The recorded ones are
+  *prose-contradicts-table* (Eaton's mangled candela set) and *series-wide block with no
+  member attribution* (`DF-61010:C`). **This one is neither: the A&amp;E paragraph is
+  correct, specific and attributed &mdash; to the wrong lens.** So the check is not
+  &quot;does the prose disagree with the table&quot; but **&quot;which row is the prose
+  talking about&quot;**, and an A&amp;E paragraph naming a variant is quoting one row of
+  several.
+- **Coloured lens is a listing class on a THIRD brand, and it is not just amber.** Gentex
+  lists the GE3 Colored Lens Series to **ANSI/UL 1638 and ANSI/UL 464, CAN/ULC S525/S526,
+  and explicitly NOT UL 1971**, with the note that *&quot;ANSI/UL 1971 is not applicable to
+  emergency communications devices, but readings were obtained using the measurement
+  procedure specified under ANSI/UL 1971.&quot;* So the candela are rated output with no
+  derating, but **the appliance is an emergency-communications device, not a fire
+  strobe** &mdash; Gentex names severe weather and emergency response as the applications.
+  After Eaton (amber forbidden as a public-mode fire appliance) and System Sensor (amber
+  ALERT is private mode, UL 1638), that is **three brands and the finding now extends
+  from amber to blue, green and red**. Treat any non-clear lens as a listing question.
+- **The E/K carton split is confirmed on a second document number, so it is a rule and
+  not a one-off.** `E85001-1021` Issue 1.2 marks the GP10 wiring plate *&quot;required,
+  ordered separately&quot;* while `K85001-1021` Issue 1 marks it *&quot;required, INCLUDED
+  WITH DEVICE&quot;* &mdash; same two places in the document, same hardware on every
+  figure (candela set, 20 &#937; sync, 6.8 &times; 1.82 in., UL files S218/S5389).
+  Identical to the `85001-0667` finding on a different number. **A prefix swap means the
+  same hardware and not necessarily the same carton**, and Edwards again carries `-FR`
+  and `-SP` variants Kidde drops.
+  Route note worth keeping: **Kidde uses the Edwards slug form**, so the Kidde URL builds
+  from the Edwards LifeLines filename with the `E` swapped for `K` &mdash;
+  `kidde-esfire.com/Content/Documents/K85001-1021%20--%20Genesis%20LED%20GC%20Series...pdf`
+  resolves where the bare `K85001-1021.pdf` 404s at 1,245 bytes.
+- **`NCM-F` is MULTIMODE, and there is no single-mode NCM at all.** `DN-6861:D` (3/5/19):
+  62.5/125 or 50/125 &micro;m multimode, **ST connectors**, 820 nm, 8 dB budget on 62.5 and
+  4.2 dB on 50. That is the **opposite** of `FSL-E3` (single-mode, 9/125, LC), so the
+  fibre-mode field cannot be guessed from the brand or the letter.
+  **And the 3,000 ft figure on that same data sheet belongs to the NCM-W twisted-pair
+  board** &mdash; the adjacent-row trap, avoided. `DN-6861` publishes an optical loss
+  budget and no distance for the fibre part, so no distance was published.
+  The live page also said the NCM-F *&quot;connects FACPs to Network Control
+  Annunciators&quot;*. It does not: the NCM is **each node's own interface to a peer
+  network**, and panels and NCA annunciators alike carry one.
+- **A scan suggested by an agent, run, and mostly negative &mdash; recorded because the
+  negative is the useful part.** An agent noticed `GCAVWF-CVR` is a replacement cover and
+  asked whether any `-CVR` SKU is merchandised as a device. **Ten `-CVR` titles exist and
+  all ten say &quot;Cover&quot;**, so the dangerous form &mdash; a bare cover sold as an
+  appliance &mdash; does not occur. Two carry the wrong `type`: `G4AVRF-CVR` is typed
+  **Horn Strobes** and `G4VRF-CVR` **Strobes**, where the other eight are typed Covers.
+  Titles right, structured field wrong, which is the milder half of the usual signature.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
