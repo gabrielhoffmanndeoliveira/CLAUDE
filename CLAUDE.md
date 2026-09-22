@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,241 pages published** — 555 from the old list plus v2b01 through
+**Progress: 1,247 pages published** — 555 from the old list plus v2b01 through
 v2b32, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
@@ -4845,6 +4845,103 @@ Revisit after the high-impression band is done.
   datasheet-path 404 shape **drifts a few bytes with the filename** (280,493 for a bogus
   name against 280,471 for a real-looking one), so compare the shape and not an exact
   byte count &mdash; the same one-byte-drift tell recorded for gamewell-fci.com.
+
+- **A WRONG CATALOGUE NUMBER in a feed title, and the innocent origin was visible on the
+  same page.** `GB10-120`'s title carried **`(901-1281-002)`**. Gentex `551-0042-04`,
+  fetched and read directly by the coordinator: **`904-1281-002` appears once and
+  `901-1281-002` appears zero times.** The origin is right there &mdash; **`901-0242-000`
+  is the GBBB back box**, so `901-` is a real Gentex prefix and the digit swap produces a
+  string that looks entirely plausible. A catalogue number that does not match itself is
+  the `868STRC-AQ` and `ZR-MC-R` shape for the third time, and it costs both channels.
+  Corrected. Its sibling `GB10-24` separately **duplicated the model token** &mdash;
+  *&quot;Gentex GB10-24 GB10-24 (904-1279-002)&hellip;&quot;* &mdash; with a correct part
+  number; that is the 75-product brand-plus-SKU-repeated family found by scan this
+  session. Both also carried a literal `&quot;` inch mark. All fixed.
+  **And the check that mattered was doing it per model rather than per family.**
+  `GB6-24` is on record here for a live title claiming **85 dBA** where the document says
+  **95**. The briefing told the agent to check `GB6-120`'s dBA **against the document
+  rather than against the sibling's corrected value** &mdash; and `GB6-120` asserts no
+  dBA at all, so there was nothing to correct. A corrected sibling is not evidence about
+  its neighbour.
+- **Nineteenth product-class error, and the mechanism is an ABSENT LISTING rather than an
+  absent word.** `49VO-WWF` was titled a **Horn Strobe** and typed **Horn Strobes**, the
+  type agreeing with the wrong title and raising nothing &mdash; ninth instance of that
+  signature. Simplex `S49VO-0001` Rev. 7 classes the series as **V/O, visible only**, and
+  lists it to **UL 1971 and ULC S526 only, with no UL 464 anywhere in the document.**
+  **That absence is the proof**: UL 464 is the audible-appliance standard, so a device
+  listed without it has no horn, and that is stronger than noting the word
+  &quot;horn&quot; is missing. Where an audible device is wanted the wall horn strobe is
+  the separate 49AV series.
+  **Exception carried rather than flattened:** the candela ladder is 15/30/75/110/135/185
+  on **IDNAC** circuits but **only 15/30/75/110 on legacy TrueAlert addressable SLCs**,
+  at 17 VDC minimum. Both are in the copy.
+- **Sixteenth incomplete-product case, proved by an INVERTED come-with clause.**
+  `3-ANNCPU3` ($1,232.25) was titled &quot;Annunciator CPU&quot; and typed Annunciators.
+  `E85010-0069` files it under *&quot;CPU, Support Module, &amp; LCD Displays&quot;*, and
+  the heading above the finished units reads **&quot;Base Annunciators (Come with two
+  3-ANNSM annunciator support modules, a CPU, and doors&hellip;)&quot;**. Ship weight
+  **1 lb against 6&ndash;10.5 lb** for a base annunciator; mounting space **two**. So the
+  buyer receives a board &mdash; no cabinet, wallbox, doors or display modules. That is
+  the `3-SDC1` shape: **a catalogue number appearing inside another product's come-with
+  clause is a component.**
+  **Handled per the `FSL-E3` precedent**: &quot;Annunciator CPU&quot; is Edwards' own
+  ordering description, so it was kept and **&quot;Module&quot; added** rather than the
+  class noun rewritten.
+  Its Specifications table is the worst merged cell of the batch: **Agency Listings
+  &quot;UL, ULC, FM, CE, LPCB EN54&quot; spans three columns and renders visually under
+  the `3-ANNSM` header**, so naive pairing gives `3-ANNCPU3` the wrong listing set.
+  Settled by column-centre arithmetic cross-validated on a four-distinct-value row, then
+  by render.
+- **Two more wrong-document-family instances, and one of them carried a CORRECT warning
+  attached to the wrong number.** `4906-9153` is **not** in `S4906-0001` &mdash; that is
+  the strobe-only sheet &mdash; but in **`S4906-0003`**, the speaker-and-strobe one.
+  **The merged-cell warning that travelled with the wrong document number was right
+  anyway and paid twice**: Table 1 merges Listings, Description and Housing dimensions
+  across `4906-9151` and `4906-9153` with no row rule, and Table 9 names `4906-9153` by
+  model in the **anechoic ULC-S541** row (77/80/83/86 dBA) while the **UL 1480
+  reverberant** row (76/79/82/85) is labelled only *&quot;UL listed models&quot;*, with
+  the ceiling model two rows below at 81.6&ndash;90.2. **A warning can be transferable
+  even when the routing attached to it is not.**
+  Second instance: the `125 kHz to 12 kHz` frequency-response defect this file records in
+  Simplex `S4902-0003` **reproduces verbatim in `S4906-0003`**. Two documents makes it a
+  **house template defect**, not a typo &mdash; and the rule that reproduction across
+  documents rules out extraction error and rules in a document defect holds. Nothing
+  published from it.
+- **The `-IV` dual-protocol convention does NOT reach the FSP-851 series.** `DN-6935:E`
+  says the plain series is *&quot;Compatible with FlashScan and CLIP protocol
+  systems&quot;* with **no `-IV` variant in the sheet at all**. That convention was built
+  on the 951 self-test line across three brands and **must not be imported here** &mdash;
+  the fourth preventive refusal of a cross-family import, after two on the System Sensor
+  `K` suffix and one on Notifier's `DN-7048` view-only sentence.
+- **A byte and MD5 difference across two EDAM slugs is NOT evidence of two revisions.**
+  `DN-6935` served at **88,456 and 88,321 bytes with different MD5s** from
+  `notifier-us/hon-ba-fire-dn-6935.pdf` and the flat form &mdash; **identical text, same
+  revision `DN-6935:E`.** This file recorded yesterday that `DN-61092` serves rev C and
+  rev D from different slugs, which is real; this is the same observation with the
+  opposite cause. **Check the header line, not the hash.**
+- **Resideo's residential combustion line uses a different prefix AND a different
+  directory depth.** The sell sheets are **`63-`/`67-`**, not the recorded `03-`, and
+  the directory is **`63-0000s` with FOUR zeros**, not the five-zero `33-00000s` form
+  this file documents. The `pid=` endpoint still needs `/U` kept and encoded, exactly as
+  recorded &mdash; bare `S8610U3009` 302s.
+  **And a Resideo product page can link a document it does not serve**: `68-0135.pdf` is
+  listed on the page by its own `CheckDocExists` call and 404s at the path the page
+  gives, across six variants. The installation instructions carried the specs instead
+  &mdash; the go-to-installation-instructions rule paying for the fifth time.
+  Two conflicts on that part, resolved rather than dropped: the page's marketing prose
+  says a **6 minute** retry delay while **its own structured field and the installation
+  table both say 5**, so 5 was published and the outlier recorded; and the page says
+  **60 Hz** where the installation sheet says **50/60 Hz**, so **no frequency was
+  published at all**.
+  The live title's *&quot;Multi-System&quot;* is also **not Resideo's word** and appears
+  in no document read &mdash; their name is *Universal* Intermittent Pilot Gas Ignition
+  Module &mdash; and the title dropped the `/U`, so it did not match its own SKU. Both
+  corrected.
+- **A fourth document confirming the Honeywell pack-count boundary, on one page.**
+  `DN-6935:E` numbers **bases** (`B210LPBP` 10, `B501BP` 10) and a **flange** (`F110BP`
+  15) and numbers **no detector**, on the same page. That is the `DN-62046:C` proof
+  reproduced on a different sheet of a different family &mdash; bases and accessories
+  numbered, the detector above them not.
 
 ## Conventions
 
