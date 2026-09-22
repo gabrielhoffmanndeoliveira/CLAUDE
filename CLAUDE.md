@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,287 enrichment pages published** (555 old list + 720 v2 through v2b46, verified live), plus 226 title-only products — 555 from the old list plus v2b01 through
+**Progress: 1,293 enrichment pages published** (555 old list + 726 v2 through v2b47A, verified live), plus 226 title-only products — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -7398,6 +7398,101 @@ Revisit after the high-impression band is done.
   and, where they differ, both rates** &mdash; without it these are not comparable claims.
   Also settled from the terminal renders: **`F1` is the 0.187 in. Faston and `F2` the 0.250 in.**,
   which is a real difference between two connectors a buyer cannot interchange.
+
+- **ONE DOCUMENT NUMBER, FOUR BRAND ISSUES, THREE DIFFERENT SUPERSESSION STATEMENTS, ALL
+  DATED THE SAME DAY &mdash; and this file's own note recorded one of them as the answer.**
+  This file records `DN-61092:D` (8/15/2023) stating that the HPF-PS Series *&quot;is a direct
+  replacement for the PSE and FCPS Series&quot;*, and the v2b47 briefing carried that as the
+  fact to correct a live page by. The live page said **&quot;direct replacement for the
+  5495/5499&quot;** and **it is also manufacturer-stated**:
+
+  | issue | document | names as replaced |
+  |---|---|---|
+  | Notifier | `DN-61092:D` 8/15/2023 | PSE and FCPS Series |
+  | Silent Knight | `SK-61095:D` 8/15/2023 | **5495/5499** |
+  | Farenhyt | `FH-62003:D` 8/15/2023 | **5495/5499** |
+  | Gamewell-FCI | `9021-61096:B` 1/25/2021 | **nothing at all** |
+
+  **Verified directly by the coordinator**, because it corrects a recorded note: `SK-61095-D.pdf`
+  under the `honeywell-edam` root opens *&quot;The HPF-PS Series is a remote power supply line
+  from Honeywell and is a direct replacement for the 5495/5499&quot;* &mdash; and **`PSE` and
+  `FCPS` appear ZERO times in it**, the exact inverse of the Notifier issue.
+  **So a &quot;direct replacement for X&quot; sentence on a Honeywell multi-brand product is a
+  statement about the READER'S INSTALLED BASE, not about the product.** Grepping only the
+  Notifier issue would have called a correct live claim unsourced and removed it &mdash; the
+  wrong-document-family failure where the *family* is the brand imprint rather than the product
+  line. Both claims are in the body, attributed by brand issue, and **neither went into the
+  title**: a single predecessor in a Merchant Center attribute is wrong for three quarters of
+  the audience.
+  Note the sibling slugs are derivable once the document number is known &mdash; `SK-61095`,
+  `FH-62003`, `9021-61096` all resolved first try &mdash; which is the rare case where building
+  a path works, because the *number* came from a search.
+- **A supersession that WAS manufacturer-stated and was sitting in the wrong field, earning
+  nothing.** `SCRL`'s replacement by `SCRLED` is in bulletin **M23.2SS**'s MODEL / DESCRIPTION /
+  **REPLACES** table outright &mdash; and it was living in the description `<h2>` while the
+  Shopify title said nothing. **This file records the opposite case repeatedly** (an unsourced
+  claim sitting in a title and needing to move down); this is the first where a *sourced* claim
+  was sitting in the body and needed to move **up**. Moved. The adjacent `SCRLED-P`/`SCRL-P` row
+  is separately what proves the plain `SCRL` carries FIRE marking.
+  **And the document-family grep works in reverse for a legacy part**: `AVDS868-02` contains
+  &quot;LED&quot; **zero** times and &quot;xenon&quot; twice, so for a xenon part the *absence*
+  of &quot;LED&quot; is the confirmation rather than the disqualification. The recorded
+  `AVDS916-01` &quot;SCRLED-P ... White&quot; defect is in the **LED** document and does not
+  touch this one.
+- **The Amerex two-line header paid a second time, and the product-photo captions invert in
+  plain text.** Page 19's header is two lines plus a fragment: reading one line alone gives
+  `INCLUDED / USCG / OPTIONAL / STRAP / DOLLY` with no noun, or
+  `BRACKET / BRACKET / BRACKETS / BRACKETS / OPTION` with no qualifier. And the photo captions
+  extract as `397 P/N 15509 / 398 P/N 15510 / ALUMINUM VALVE`, **attributing aluminum to the two
+  brass models** &mdash; coordinates put ALUMINUM VALVE at x 97&ndash;190 under the left cluster
+  and BRASS VALVE at x 304&ndash;375 under 397/398.
+  **The `B` prefix does NOT mean brass valve on the Halotron line**: A384T, B385TS, B386T and
+  B394TS all carry **anodized aluminum** valves, corroborated by the parts book filing their
+  brackets under *&quot;Aluminum Valve Models&quot;*. What A and B do encode is **stated in no
+  Amerex document read**, and so is `TS` &mdash; both recorded as bounded negatives rather than
+  guessed. This also bounds the recorded Amerex rule *&quot;the valve, not the cylinder weight,
+  decides&quot;*: that was derived on the **strap** brackets, and the parts book scopes these by
+  **both** weight class and valve type.
+  A per-model inversion a reader would get backwards: **the 1.4 lb A384T runs at 125 PSIG and
+  the larger 2.5 lb B385TS at 100.** And a live title defect fixed in the Shopify `title` field,
+  so it cost the feed too: `15231` read *&quot;Amerex **Fire** B385TS&quot;*, a stray token from
+  the amerex-fire.com domain slug.
+- **All three documents the briefing named for a Simplex part were the wrong family, and the
+  right one is found only in the index's `product_code` metadata.** `4906-9140` is in neither
+  `S4906-0001`, `S4906-0003` nor `S4906-0010`; it is in **`S4906-0011` Rev. 4, 10/2018**, whose
+  index filename is **`4906-0011.pdf` with no `S` prefix** and whose title and filename both
+  omit the model. **Grep the whole blob, not one field.**
+  Two consequences worth keeping: the recorded `125 kHz to 12 kHz` house-template defect **does
+  not exist in this document** (a coherent 2400&ndash;3700 Hz sweep), and there is **no
+  prose-versus-table candela conflict** &mdash; page 1, Table 2 and Table 5 all give
+  135/177/185. **A warning is about a document, not about a brand**, which is the third time
+  this file has had to say it.
+  The merged-cell warning did fire and **all three rungs agreed for once**: plain text emits
+  Wall/Ceiling after the wrong rows, word coordinates put &quot;Ceiling&quot; at y-centre 216.25
+  against a merged block centred 216.3, and a 300 dpi render confirms Ceiling spans 9140 and
+  9142. The `FIRE` lettering came from the **figure**, not the Lettering column, which says only
+  &quot;White&quot;.
+- **A pack count that is manufacturer-stated in the body text AND both ordering tables, and it
+  is the first such row that is a candidate to ADD rather than to remove.** Siemens `ID-SP` is
+  **two blank plates per package**, in Data Sheet `8327` and `6327` alike. Every open row in
+  `PACKCOUNT_decisao.csv` is a title asserting a count on convention; this is the inverse &mdash;
+  the live title asserts nothing and the documentation supports a count. It went to the owner
+  rather than into the title, because **adding a pack count to a feed attribute is a new claim
+  and that decision is the owner's even when the documentation is good.**
+  The briefing flagged it as the `FC901-U3` bare-electronics shape and **it is the opposite
+  case**: an accessory, complete as sold. The A&amp;E listings block (UL 864 / ULC / FM / CSFM /
+  NYCFD) is scoped to the *enclosure family*, and **a blank plate has no function to list**, so
+  no listing was claimed &mdash; the `3-LDSM` precedent on a sheet-metal part.
+- **A new Siemens route that sidesteps the recorded 504 entirely, and a failed reproduction
+  recorded as such.** `cache.industry.siemens.com/dl/files/<n>/<id>/att_<n>/v<r>/A6V*.pdf`
+  serves A6V assets first-party and mime-clean with **no `/go/` round trip and no khub call**,
+  where `support.industry.siemens.com/cs/attachments/...` returns **403 at 442 bytes**.
+  Against that, this file records `mall.industry.siemens.com/.../Catalog/Product/<article>` as
+  answering HTTP 200 to curl with a Safari UA; it returned **HTTP 302 with a 235-byte
+  &quot;Object moved&quot;** for two real article numbers **and an invented one alike**.
+  **Recorded as a non-reproduction rather than a correction**, on the `cdn.power-sonic.com`
+  precedent &mdash; the earlier measurement may have been on a different article shape, and
+  saying so honestly is what lets the next person test it properly.
 
 ## Conventions
 
