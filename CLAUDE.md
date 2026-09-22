@@ -95,8 +95,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,022 pages published** — 555 from the old list plus v2b01 through
-v2b26, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,047 pages published** — 555 from the old list plus v2b01 through
+v2b27, plus seven from the first photo batch (`foto01`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -2446,6 +2446,74 @@ Revisit after the high-impression band is done.
   and the flat lowercase `datasheets/df-<num>.pdf` resolved **4 of 4**, while the
   `hon/hbt-fire` root **failed on every probe**. Everything that worked sat under
   `honeywell-edam/hbt/.../documents/`.
+- **THE `P85756F` DEBT IS DISCHARGED, and the coordinator read it directly.** This file
+  has carried an outstanding verification since v2b22: the `ELSTWC-ALA` copy cites Note 5
+  of Eaton ceiling installation sheet `P85756F`, and no one but its original agent had
+  read that document. **A v2b27 agent found the slug by search** &mdash;
+  `eaton.com/content/dam/.../eluxa/eaton-eluxa-installation-instructions-p85756f-elhsc-clear-amber-lens.pdf`
+  &mdash; and the coordinator then fetched it independently: **859,067 bytes,
+  `application/pdf`, 2 pages.** Item 5 of its sheet-level `NOTES:` block reads verbatim
+  ***&quot;Amber strobes are not to be used as a Visual Public Mode alarm notification
+  appliance.&quot;*** and **&quot;private&quot; and &quot;Private&quot; each appear zero
+  times**, so the published sentence &mdash; which states the prohibition and adds that
+  no document states the complement &mdash; stands exactly as written.
+  **Note what closed it: a search, not a construction.** The coordinator's four attempts
+  to build the path all returned HTTP 404. This is the fifth or sixth time on this project
+  that *find the slug, do not build it* has been the difference between a document and a
+  dead end.
+- **An agent reported a document defect as a &quot;typo&quot;, and it is really two
+  separate facts.** `TD450157EN` Table 3's second body is labelled **ELHNC** while
+  carrying ceiling *strobe* candela and currents. The agent called the label a typo for
+  ELHSC, which is right about the datasheet &mdash; but **`ELHNC` is a real and distinct
+  product**, and `P85756F` says so in its own General paragraph: *&quot;The Wheelock Eluxa
+  **ELHNC horn**, ELSTC multi-candela strobe, and ELHSC horn/strobe appliances&hellip;&quot;*,
+  with **ELHNC also for 12 V operation** and **ELHNC the only one of the three that may be
+  wall or ceiling mounted**, and its own **Table 5: ELHNC Horn, Current Ratings**. So the
+  datasheet mislabelled an ELHSC row; it did not invent a part. Two things that read as
+  one, and worth separating before anyone concludes a catalogue number does not exist.
+  **The dB pairing is now confirmed by the coordinator with word coordinates**, on
+  `P85756F` Table 2: row (H) reads 80 | 80 | 85 | **91** and row (L) reads 78 | 78 | 79 |
+  **86**, across the columns ELHNC@12V and ELHNC/ELHSC@24V for reverberant then anechoic.
+  **Reverberant 80 H / 78 L per UL 464; anechoic 91 H / 86 L per ULC-S525.** The
+  datasheet's Features bullet *&quot;Sound pressure (Anechoic) dBA &mdash; Low 78, High
+  91&quot;* really does pair a reverberant low with an anechoic high.
+  **And a supersession sat underneath it that would have poisoned the page.** `P85756E`
+  (2022) gives the same model **0.037 / 0.046 / 0.077 / 0.109 / 0.146 / 0.208 A** DC where
+  `P85756F` (2025) gives **0.035 / 0.042 / 0.069 / 0.096 / 0.124 / 0.177** &mdash; Eaton
+  lowered every DC current in the newer revision. Reading the 2022 install sheet against
+  the 2025 datasheet produces a two-document contradiction and the correct response of
+  publishing nothing; **only the 2025 install sheet resolves it.** Pull the current
+  revision of the *installation* sheet before concluding a datasheet contradicts itself.
+- **Coloured lens is a listing class on a FOURTH brand, and Siemens treats amber the
+  opposite way to Eaton.** Siemens Data Sheet 2625 states the blue, green and red lens
+  strobes are *&quot;solely used for visual **Private Mode** alarm notification&quot;*,
+  each with its own candela ladder (blue 15/30/75/95/135/150, green 15/30/60/75/115/125,
+  red 10/20/40/50/75/80), while **amber is 15/30/75/95/150/177 and is &quot;certified as
+  an Emergency Warning Visual Signal&quot;**. Eaton forbids amber as a public-mode fire
+  appliance; Siemens certifies amber for emergency warning and puts blue, green and red
+  in private mode. **Same underlying Wheelock hardware** &mdash; the Siemens installation
+  sheet is `P85827-001A`, a Wheelock P-number. So after Eaton, System Sensor, Gentex and
+  now Siemens: **a non-clear lens is a listing question on every brand, and the answer is
+  not the same on every brand.**
+  Eaton's own document pair shows it internally too: the coloured-lens ceiling sheet
+  `P85756-002F` lists the strobe agency as **UL1638 and ULC526 only**, where the
+  clear/amber `P85756F` lists **UL1638, UL1971 and ULC526**.
+- **A part number that does not match itself, in a feed attribute, for the second time.**
+  The live `ZR-MC-R` title rendered the Siemens catalogue number as **`Part 500636169`**
+  with the hyphen stripped, while its own description body had it correctly as
+  `(500-636169)`. Siemens prints `500-636169`. That is the `868STRC-AQ` shape in
+  miniature &mdash; a part number in a title that cannot match a search for itself &mdash;
+  and it is the same punctuation-stripping mechanism as the 185 frequency ranges, showing
+  up one product at a time. Corrected in the title.
+- **The queued `ZH-MC-W` title defect now has its missing class noun, from a sibling's
+  research.** That title is a part number plus an unsourced supersession parenthetical
+  with **no class noun at all**. Data Sheet 2584 describes `ZH-MC-W | 500-636162` as
+  *&quot;Z Horn: Multi Candela (Wall), White&quot;* and `P84860-001C` Table 1 gives
+  `ZH-MC` an **X in the Horn column plus a 15/30/75/110 cd strobe** &mdash; so
+  **`ZH-MC-W` is a horn strobe**, and **`ZR` is the strobe-only half of the Z Series while
+  `ZH` is the half with a horn**. Siemens' own &quot;Z Horn&quot; wording is itself the
+  misleading part, which is the `FSL-E3` situation: keep the manufacturer's name and put
+  the class in the body.
 - **Eighteenth product-class error, and it is a fire extinguisher sold as the wrong
   AGENT.** Ansul `429022` was titled *&quot;FE13 Cleanguard 13 lb **ABC** Fire
   Extinguisher&quot;*. It is a **clean agent** extinguisher &mdash; Ansul's own class noun
