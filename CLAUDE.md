@@ -136,8 +136,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,247 pages published** — 555 from the old list plus v2b01 through
-v2b32, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,253 pages published** — 555 from the old list plus v2b01 through
+v2b36, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -4942,6 +4942,81 @@ Revisit after the high-impression band is done.
   15) and numbers **no detector**, on the same page. That is the `DN-62046:C` proof
   reproduced on a different sheet of a different family &mdash; bases and accessories
   numbered, the detector above them not.
+- **THE SLICE FILE HAS BEEN SHIPPING AN EMPTY `live_desc` FOR SEVERAL BATCHES, AND
+  THIS IS THE LOSSY-SLICE-FILE FAILURE FOR THE FOURTH TIME &mdash; structurally, silently,
+  and caused by the coordinator.** `build33.py` read the live copy as
+  `p.get('descriptionHtml','')[:1400]` where `p` came from **`catalogo_full.json`, which
+  carries no `descriptionHtml` field at all** &mdash; its keys are id, handle, title,
+  vendor, type, vis, inv, created, sku, price, impr, rev. So every `aN_in.json` built that
+  way carried `live_desc: ""`, and the agents were asked to rule on live claims they had
+  never been shown.
+  **Note how it hid.** The two earlier instances were a blank `type` and a human-readable
+  note in a field; both were *visible* in the file and an agent reported each one. This was
+  visible too and nobody looked, because an empty string in a field nobody is disputing
+  reads as &quot;this product has a thin description&quot; &mdash; which is exactly what
+  every product in this queue has. **The defect wore the shape of the expected value.**
+  The fix is a join, not a default: `build37.py` takes `type` from `catalogo_full.json`
+  (verbatim, as the rule requires) and `handle`, `title`, `vendor` and `descriptionHtml`
+  from the **live** bulk pull `live.jsonl`, whitespace-collapsed to 1,600 characters, and
+  **asserts the slice is 12 long and prints which rows came back with an empty
+  `live_desc`**. On v2b37 that list was empty and the live bodies immediately paid: they
+  surfaced `SIGA-HRD-FCN`'s *&quot;FCN: Manufactured in China&quot;* (the `SIGA-OSD-IN`
+  shape exactly), `49VO-APPLC`'s *&quot;order cover separately&quot;* and a shipping notice
+  inside a description, none of which the coordinator would have known to brief.
+  **The general rule this sharpens: assert on the slice, do not eyeball it.** Every input
+  field the agents reason about should be checked for emptiness by the builder, because the
+  coordinator reads a slice listing for *products* and never for *missing fields*.
+- **A recorded negative decayed for the second time on the same document, and a new EDAM
+  prefix came with it.** This file states that &quot;EDAM has dropped some Notifier
+  documents entirely&quot;, naming `DN-7045`. **`notifier-us/hon-ba-fire-dn-7045.pdf`
+  returns a 416,302-byte real PDF.** And a shape not previously recorded:
+  **`hon-ba-<docnum>.pdf`, the `hon-ba-` prefix WITHOUT `-fire-`**, resolved
+  (`hon-ba-dn-60726.pdf`) where the `-fire-` form did not. Add it to the per-document path
+  list beside bare, lowercased, underscore-for-hyphen, `<Model>_<DocNum>`, `<DocNum>_<Model>`
+  and `hon-ba-fire-`. **Re-test a host-level negative before building a batch around the
+  workaround** &mdash; that instruction is already in this file and this is its second
+  confirmation in a week.
+- **Eighteenth coordinator premise wrong: `napcosecurity.com` DOES serve per-product
+  PDFs.** The briefing said the brand's documents were reachable only through the open tag
+  index at `tech.napcosecurity.com/techlibrary/tagresults/tag/<sku_underscored>` (titles
+  only, PDFs behind a dealer login). **`napcosecurity.com/media/pdfs/<DOCNUM>-<slug>.pdf`
+  serves them directly**, and its 404 is a stable **30,430-byte** fingerprint. The tag
+  index is still the way to *find* the document number; it is not the only way to read the
+  document.
+- **A manufacturer contradicting itself on the product CLASS, and the right answer was to
+  publish both.** Napco's `FLX2-255` specification block calls the panel
+  **Addressable** and its own Ordering line calls it **Conventional**. The agent declined
+  to pick a side and the published copy says so in one sentence: conventional zones on the
+  fire bus, addressable devices once a `GEMC-FW-SLC` module is fitted, which is what makes
+  both statements true. **This is the shape to copy when a document disagrees with itself
+  about what a thing IS** &mdash; the prefer-the-table rule settles a *number*, and a class
+  question sometimes has a both-are-true resolution that neither statement states.
+- **A third first-party document for the Thermotech 302 family, and it is the only one
+  that splits the listings per model.** Gamewell-FCI **`CS-2519 Rev. B`** is headed
+  *&quot;302 Series Rate-Compensation Heat Detector&quot;* &mdash; a third independent
+  confirmation of the rate-compensation class finding, on a third brand's letterhead
+  &mdash; and its listing rows differ by model: **`302-EPM-135` and `302-EPM-194` read UL
+  alone where the `302`, `-ET` and `-AW` rows read FM and UL.** Anyone quoting a
+  family-level agency line onto an EPM part asserts an FM approval that document does not
+  give it. Same series-wide-block trap, on an *approval* rather than a spec.
+- **Twelfth incomplete-product case, manufacturer-stated in a single sentence, and the
+  consequence is that the product cannot do the thing it is named for.** `DVC-RPU` is
+  Notifier's Digital Voice Command **remote paging unit** &mdash; and at $2,300.75 the
+  carton holds the keypad and display module only. Notifier orders the `CMIC-RP`
+  microphone and well and the `CAB-RP`/`CAB-RPR` cabinet separately. **A paging station
+  with no microphone cannot page.** The `type` said Annunciators and agreed with a title
+  that named no missing part, raising nothing.
+- **On the Eluxa line the trailing `C` IS the ceiling marker, and this must not be read
+  as contradicting the `ELSPKBB-R` finding.** `ELSPSTWC` was settled three ways &mdash;
+  `TD450158EN` Table 3 by render, Table 4 prose, and installation sheet `P85968A` whose
+  own heading is CEILING MOUNT. The `ELSPKBB-R` case is about **back boxes**, where the
+  ceiling marker sits in the sibling's number (`LSPKBB-CR`) and `-R` is a colour; on the
+  **appliances** the `C` after the mounting letter is ceiling. **Same brand, two different
+  naming schemes, and which one applies depends on whether the part is an appliance or an
+  accessory.** Also recorded: the Eaton **ceiling** install-sheet slug carries a
+  **literal space** (`installation%20instructions-p85968a-...`) where the **wall** sheet
+  uses a hyphen in the same position &mdash; find the slug, do not build it, for the sixth
+  or seventh time.
 
 ## Conventions
 
