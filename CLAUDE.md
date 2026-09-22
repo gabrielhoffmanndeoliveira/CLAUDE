@@ -5388,7 +5388,46 @@ Revisit after the high-impression band is done.
   `urllib` with a Safari UA, while the `www.eaton.com` **HTML SKU pages**
   `RemoteDisconnected` on all eleven attempts. This file records the intermittency as
   per-connection; add that the PDF route and the HTML route can fail differently in the
-  same process.
+  same process.- **A syntax block found, twelve titles written from it, and the one suffix it does NOT
+  cover was left blank rather than guessed.** The Mircom `BB-10xxD*` enclosures were twelve
+  bare `Brand PartNumber` titles whose entire description was the same string again.
+  **Verified first-hand by the coordinator in `LT-617` Rev. 20**, the RA-1000 installation
+  manual: *&quot;**No suffix R is for white door. Suffix R is for red door. Suffix S is for
+  stainless steel door.**&quot;* &mdash; printed twice &mdash; plus
+  *&quot;The finish of all enclosures is painted semi-gloss off white, the backbox is
+  black.&quot;* The capacity is Mircom's own words too: *&quot;Backbox for **one / two /
+  three / eight / twelve** annunciator chassis with&hellip;&quot;*, so **the digits are the
+  chassis count**, corroborated four ways.
+  **The `B` suffix is the interesting part, because it is sourced for exactly one model and
+  the other four titles therefore carry no finish at all.** `DB` appears **zero times in
+  LT-617** &mdash; confirmed by the coordinator &mdash; and Mircom's own BB-1001 page says
+  *&quot;BB-1001DB &ndash; Black door&quot;* and nothing else does. The agent then measured
+  the site search **with a bogus control and two positive controls** and found
+  `BB-1002DB`, `BB-1003DB`, `BB-1008DB` and `BB-1012DB` all return the **no-results
+  baseline byte count**. And there is a live alternative reading: Mircom sells *&quot;Painted
+  **Beige** Metal Door&quot;* accessories on another line. **So four titles are correct and
+  not distinguishable from their siblings in the feed**, which is the honest outcome; one
+  price list settles all four.
+  **A marketing-versus-installation contradiction, resolved by publishing no mount style.**
+  Four Mircom marketing sources call these *&quot;Semi-Flush Enclosure&quot;*, while
+  `flush` appears **zero times** in both installation documents &mdash; and `LT-934`
+  documents a **separate** `BB-1001SSF/WF/RF` family headed **FLUSH MOUNT**. A distinct
+  `-F` family argues the plain `D(R)(S)` models are not the flush ones. That is the Potter
+  `DH24120FB` &quot;semi-flush&quot; case with **the brand's own marketing on the wrong
+  side**, which is new: there the wrong word came from distributors.
+  Route, and it is the best Mircom finding: **`mircom.com/product-documents/` is a single
+  page listing all 2,132 product PDFs** under `wp-content/uploads/product_documents/`, so
+  one fetch enumerates the whole library. Also measured: the **WooCommerce Store API search
+  covers titles and SKU only, not description text**, while the WP `?s=` search does cover
+  bodies &mdash; and **that site's WC `sku` field is unreliable** (the BB-1001 record carries
+  `sku: &quot;BB-1002&quot;`), so **join on the product name, not the SKU**. The bare
+  `www.mircom.com` 301s to zero bytes; use the apex host.
+  Two document defects recorded and not published from: `LT-617` Table 2 gives Mounting B
+  **greater than** the enclosure height on the BB-1008 and BB-1012 rows where B &lt; H on
+  all three smaller sizes; and `CAT. 5504`, **the stainless sheet**, repeats a boilerplate
+  note that *&quot;All BB-1000D Series Enclosures are available in a white colour&hellip;
+  and a red exterior&quot;* on a page whose only three models are stainless &mdash; a
+  series-wide note that cannot describe its own members.
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
