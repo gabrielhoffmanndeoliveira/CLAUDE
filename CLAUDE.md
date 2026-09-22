@@ -77,10 +77,12 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 914 pages published** — 555 from the old list plus v2b01 through
-v2b20, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) — plus 80
-title-encoding fixes applied
-catalogue-wide. One product,
+**Progress: 932 pages published** — 555 from the old list plus v2b01 through
+v2b21, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+title corrections — plus 80 title-encoding fixes applied
+catalogue-wide. **The revenue frontier is exhausted at v2b22**: all 170 of the
+`FRONTEIRA_receita.json` products are sliced, and v2b22 is the first batch to
+top up from `ranked_v2_byscore.json` again (8 frontier plus 10 by score). One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
 reseller data; the deliberate-skip list is now `SM7100-L8`, `90521`, `BDA-NMP01250`
 and `BDA-TP10-L2`, all four blocked by a host or a login rather than by absent
@@ -1707,6 +1709,27 @@ Revisit after the high-impression band is done.
   direction: the candela values were published as **switch settings** rather than as a
   rated output, because UL 1638 private mode is not the UL 1971 basis on which a
   clear-lens candela is rated, and neither current document states UL 1971 for any model.
+- **The coordinator typed product ids from memory into a live query, one batch after
+  writing the rule against it.** Building v2b22, the slice file was already on disk with
+  every id in it, and the ids that went into the Shopify query were **invented** &mdash;
+  seven of eight returned `null` and the eighth returned a completely unrelated product
+  (`G1TW`, a trim ring). Nothing was written, because it was a read.
+  **The near-miss is the point.** Had that been a publish rather than a query, one real
+  product would have received another product's copy, silently, exactly as in the v2b03
+  briefing incident. The existing rule says *never hand-transcribe an id into a
+  briefing*; this shows the rule is too narrow. **Never type an id anywhere &mdash;
+  briefing, query, mutation or note. Read it from the file, every time, even when the
+  file is open and the id feels familiar.** The cost of reading it is one command.
+- **A live page can describe a different product entirely, and the tell is that the part
+  number appears nowhere in its own body.** `A050-9101`'s 481-character page describes a
+  **2050FS** panel &mdash; 50 MX devices, 4x40 LCD, IP-DACT &mdash; and never names
+  `A050-9101` at all. That is the third instance of this shape in three batches, after
+  `4-NET-SM` (titled a dialer, actually an SFP transceiver) and `PAD200-DD` (copy lifted
+  from the complete unit's feature list). **It is worth a mechanical scan**: a published
+  or unpublished description whose body never contains its own SKU or a recognisable
+  form of it. Unlike the keyword scans this file warns about, that is a mechanism &mdash;
+  a page that cannot name its own product is at minimum a real question &mdash; and it
+  should be run before the next batch rather than discovered one product at a time.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
