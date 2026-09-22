@@ -6478,6 +6478,71 @@ Revisit after the high-impression band is done.
   **A bounded negative earns its keep when it converts research into a purchase-order
   question**, which is the same shape as the pack-count rows and the Trilogy ordering unit.
 
+- **A RECORDED NEGATIVE DECAYED FOR THE SIXTH TIME, AND THE SHAPE IS NEW: THE NEGATIVE WAS
+  ABOUT ONE DIRECTORY AND WAS SILENTLY GENERALISED TO THE HOST.** This file states that
+  *&quot;Hochiki Europe publishes no per-part images at all&quot;* because
+  `hochikieurope.com/images/products/` is keyed by **range**. The range keying is true; the
+  conclusion is false. **`hochikieurope.com/casestudies/` carries high-resolution per-part
+  studio renders human-named with the catalogue number** &mdash; `ALN-EN-WHT.png`,
+  `ATJ-EN(WHT)_plan.png`, `CHQ-POM (cmyk300dpi).jpg` at 3008&times;2000,
+  `CCP-W-IS CALL POINT 3060 V2.1106.png`. **Five of the batch's six hits came from a directory
+  called &quot;casestudies&quot;**, which nobody had opened.
+  Every previous instance of this rule was a negative that *expired* &mdash; a host changed, a
+  path moved. **This one was never true as stated**: the measurement was correct and its scope
+  was widened by a sentence. So the rule needs a second half: **when recording a host-level
+  negative, record the path you actually tested**, because a bare &quot;this brand publishes
+  nothing&quot; cannot be audited and therefore never gets re-run.
+  **And the complementary rule held exactly:** a construction probe of
+  `/casestudies/<sku>.png|.jpg` over all 776 SKUs in six normalisations &mdash; **~3,100
+  requests against a clean 1,027-byte 404 control** &mdash; returned **one hit, already known**.
+  The filenames are human-authored prose. What worked was crawling the sitemap and matching
+  longest-SKU-owns-file. **Find the filename, do not build it**, for the eighth or ninth time.
+- **A bogus control that is defeated by a CSRF token, which is the subtlest instance yet.**
+  Hochiki's AssetBank returns **14,749 bytes for a real keyword, a bogus keyword and no keyword
+  at all &mdash; with three DIFFERENT MD5s**, because the page embeds a per-request CSRF token.
+  **An MD5-only control passes it and a byte-count control catches it**, which is the inverse
+  of the usual case where the page echoes the query and the bytes drift. Sixth non-discriminating
+  endpoint on this project, and the first where the varying element is invisible to a reader.
+  Also: `assetfile/<id>.pdf` serves real PDFs but carries **no `content-disposition`**, so an id
+  sweep yields anonymous files with no attribution &mdash; the Kidde-Fenwal problem, no route to
+  evidence.
+- **The shared-identifier placeholder signature, at 1/60th the scale of the one this catalogue
+  started from.** Hochiki Europe's BIM icons at `images/resources/*-bim-object-*.png` are all
+  **71&times;93**, with **17 files byte-identical** at one md5 and 3 more at another &mdash; a
+  per-SKU *filename* over one icon. That is the grey `MediaImage` mechanism exactly (7,738
+  products, one id), and it would pass any check that looked for a null or a missing file.
+  **Count products per identifier, whatever the scale.**
+  New fingerprint from the same host family: the Azure CDN derived path
+  `hochikiamerica-1.azureedge.net/img/product/<CODE>_1-Z.jpg` 404s at **302 bytes `text/html`,
+  md5 `62aae8b5…`**, identical for three invented codes &mdash; **and the path is
+  case-insensitive**, so `_1-Z.JPG` returns byte-identical bytes and a naive shape sweep
+  double-counts its own hits.
+- **The colour convention was PROVEN rather than asserted, which is the right handling for a
+  look-pass contradiction.** `0500-06180` passed MD5 and dHash as unique and the photograph is
+  **white**, while the SKU `HSSPK24-1575WLPPR` and the store title both end in **R**. Instead of
+  invoking the recorded convention, the agent rendered the catalogue pair side by side:
+  `0500-06210 HSSPK24-1575WLP**W**` is white with FIRE lettering and
+  `0500-06200 HSSPK24-1575WLP**R**` is red. **So either the colour letter or the manufacturer's
+  own asset is wrong**, and one carton settles it &mdash; flagged, nothing published. The same
+  pass re-measured `0600-01440` rather than trusting the record: byte-identical to `0600-01430`
+  at 35,042 B, HPS-BB standard against HPS-DBB deep, **and depth is the entire difference
+  between the two products.**
+- **Hochiki measured properly: 6 of 776 (0.77%), and the denominator is the full 776.** A regex
+  sweep for licence, software, training, certification, freight, calibration and service over
+  all 776 titles returns **zero** &mdash; this brand has no non-photographable rows, so unlike
+  Notifier, Space Age or Kidde Fenwal the rate is not hiding a padded denominator.
+  **The binding ceiling is catalogue coverage: 745 of 776 (96%) own no asset of any kind on
+  either Hochiki host**, because 368 are Hochiki *Europe* numeric codes (`1212300-00`) that
+  Hochiki America's catalogue cannot contain. Of the 26 SKUs that *do* own a filename,
+  **19 die on image size** &mdash; seven have a genuinely per-part Europe image at **100&times;90**
+  with no larger rendition, and twelve resolve only to the 71&times;93 BIM icon. **Matching was
+  never the constraint**: every one of the 26 was resolved. Three ceilings, and only the
+  smallest of them is the one a better matching rule could move.
+  Paging is broken three ways on that site and is worth not chasing: `&page=N` is **silently
+  ignored** (byte-identical 143,361 B for pages 2 and 3), the `href` the page prints returns
+  **404 at 38,814 B**, and the AJAX endpoint returns **HTTP 500** with every field its own
+  JavaScript sends. A 126-term vocabulary sweep built the census instead.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
