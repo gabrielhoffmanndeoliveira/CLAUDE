@@ -5077,6 +5077,69 @@ Revisit after the high-impression band is done.
   impressions is not evidence that these pages do not matter, because **a page with no
   product name cannot rank for a product name.** The traffic case was always going to be
   nil by construction.
+- **The SKU-versus-title scan came back, and its nine hits split three ways &mdash; which
+  is exactly why the scan was queued to an agent instead of applied.** Six titles were
+  corrected and three were left alone, and the three left alone are the valuable ones.
+  **Three are one product with one field wrong**, and the fix is a title. `ESPS10-2` is a
+  transposition of `EPS10-2` &mdash; **confirmed directly by the coordinator, because
+  removing a part number from a live title is a claim**: Safe Signal's own `sitemap.xml`
+  enumerates the whole pressure-switch range (EPS10, EPS40, EPS120, EPSA10/40/120, EPSEXP
+  and the EXP variants) and **`ESPS` appears zero times in it**. Note what makes that
+  stronger than the usual negative: **a sitemap is a literal enumeration, not a search
+  endpoint that can silently ignore the query** &mdash; the failure mode this file records
+  for `hochikiamerica.com` and now `pottersignal.com/search`. `AMS-38B-G`'s `-G` is
+  distributor syntax for the grey finish (Potter's catalogue gives one model number against
+  four stock numbers, and the live body already names stock `4370015`), and `WL-11.E1`'s
+  `.E1` is **load-bearing**, not noise: Aiphone's own manual prints *&quot;Device No.
+  WL-11.En / n : Destination No&quot;* and tabulates `.E1` as US and Canada at +18 dBm
+  against five other regions, with the bare `WL-11` appearing zero times un-suffixed.
+  **Three are two real products one character apart, and no title was proposed for any of
+  them.** That is the outcome the scan was built to reach: a near-miss is equally the
+  signature of a typo and of a sibling, and where both numbers are real the defect is worse
+  than a typo because nothing on the page looks wrong.
+  **`MTH-HMC-R-WP` is the dangerous one and it is worse than the flag suggested: the page's
+  three fields name two different products.** Siemens' ordering table, coordinate-verified
+  one y-line each, gives `MTH-HMC-CR-WP | 500-636185 | Hi Multi-Candela **Ceiling**
+  Weatherproof, Red` against `MTH-HMC-R-WP | 500-636187 |` the same with **no Ceiling**. The
+  live page carries the **ceiling** catalogue number and the word **&quot;Wall&quot;** in
+  its body. **A buyer reading the words gets one unit and a buyer matching the part number
+  gets the other**, at $147.95. `P32-DBB` is the same shape with the vote 3&ndash;1: title,
+  description wording and Potter stock number `1000444` all say the **shallow** box while
+  only the SKU says **deep**. And `213505`/`213510` are Aiphone's black and white handsets,
+  where the SKU, the body and both stations named in the title are the **white** one and
+  only the title's number is black.
+  **The rule this sharpens: a third identifier is what breaks a two-field tie.** On all
+  three the SKU and the title disagree and neither is self-evidently right; what settles
+  each is a *catalogue number, a stock number or a colour word already on the page*, and in
+  two of the three it sides against the SKU. **Look for the third field before ruling on
+  the first two** &mdash; and where the answer depends on which unit is physically in
+  stock, that is the owner's, not research's.
+- **Three more search endpoints that silently ignore the query, and one that returns 406 to
+  everything.** `pottersignal.com/search?q=` gives a **byte-identical 80,279-byte response
+  with one md5 for a real and a bogus term** &mdash; the `hochikiamerica.com/productsearch`
+  shape exactly, second instance. `aiphone.com/?s=` renders client-side and returns ~3,565
+  characters of text with no result list for every probe including the control.
+  `detectortesters.com/catalogsearch/result/?q=` returns **HTTP 406 to every query**,
+  control included. Against those, `know.aiphone.com/search?query=` **does** discriminate
+  (bogus &rarr; empty array) but indexes documents only, so a numeric query returns spurious
+  hits &mdash; `213505` matched a French install manual whose whole indexable body is the
+  word &quot;download&quot;. **Carry a known-good control into every negative**, which is
+  also what told one agent that a Napco tag query returning zero was the wrong query form
+  rather than an empty host.
+- **`https://eaton.com` WITHOUT the `www.` is a cheap new lever on this project's worst
+  host.** An agent hit ~100 consecutive failures against `www.eaton.com` &mdash; urllib read
+  timeouts, curl `INTERNAL_ERROR` on HTTP/2 and `Empty reply` on HTTP/1.1, WebFetch 503
+  &mdash; then dropped the `www.` and got the PDF first try. Another document had come back
+  from `www.` an hour earlier, so this is the recorded per-connection intermittency again
+  and not a fix; but it is one fetch. **Try the bare host before concluding the Eaton route
+  is down.**
+  Two more route facts: **Potter's Security catalogue** at
+  `pottersignal.com/product/literature/PotterSecurity_catalog.pdf` carries a complete stock
+  number / model number / description list and decoded two rows of that task in one fetch;
+  and **Detector Testers puts its product code in four independent places on one page**
+  &mdash; a `scrolforsku` block, `window.dataLayer`, the quote-request link and the Magento
+  `catalog_product_view_sku_<CODE>` cache handle &mdash; so a JS shell can carry a
+  structured field four times over while its search endpoint is useless.
 
 ## Conventions
 
