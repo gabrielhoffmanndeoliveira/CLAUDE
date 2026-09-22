@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,251 enrichment pages published** (555 old list + 684 v2 through v2b43, verified live) — 555 from the old list plus v2b01 through
+**Progress: 1,275 enrichment pages published** (555 old list + 708 v2 through v2b45, verified live), plus 214 title-only products — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -6948,6 +6948,146 @@ Revisit after the high-impression band is done.
   OpenGN`) so no `OGN-*` SKU is a separate WooCommerce product; and the live OpenGN product
   page contains **zero `OGN-` tokens**. Two filenames of `CAT-5323` differing by a `-1` suffix
   are **byte-identical, one document, not two revisions.**
+
+- **A RECORDED RULE DECAYED IN THE DOCUMENT ITSELF, NOT ON A HOST &mdash; the Protectowire
+  &quot;breaks at 220 &deg;F&quot; finding is a fact about the 2012 revision.** This file
+  records, as a worked example of *a generalisation that survives one test still needs its
+  boundary found*, that PHSC-220-EPC and -220-XCR **have no UL spacing at all**. That is true
+  of the sheet it was measured on and **not of `DS6592AA-0622`, June 2022**, where both rows
+  carry **UL 50 ft / 15.2 m** and the string `N/A` appears **zero times**.
+  Every previous decay recorded here is a *route* going stale &mdash; a path moved, a
+  fingerprint drifted, a host changed. **This is the first where the manufacturer changed the
+  answer**, and the note that decayed was not a route note but one of this file's better
+  method lessons. So the rule needs restating: **a recorded spec finding carries the revision
+  it was measured on, or it is not a finding.** The boundary the original note found was real;
+  it has simply moved.
+  **And the same pair of revisions turned a bounded negative into a positive.** This file
+  records `2W` as *&quot;two-wire, read the surrounding rows&quot;* &mdash; an inference from
+  the TRI-Wire row below it. The 2022 sheet **renames that same row `PHSC` with the identical
+  value**, 0.185 ohms/ft. The manufacturer renamed the label to the product line, which
+  settles it outright. **When a reading rests on an inference, check whether a later revision
+  states it.**
+  A load-bearing footnote came with it, absent from the 2012 sheet: **the recommended UL 521
+  maximum ambient for open-area layouts is 100 &deg;F for all 155 models**, while the table's
+  115 &deg;F is the **Special Application** figure. A designer reading only the table works to
+  the wrong limit.
+- **ONE SIEMENS DATASHEET, THREE INCOMPATIBLE STATEMENTS, AND THE INSTALLATION SHEET RESOLVED
+  IT BY ARITHMETIC RATHER THAN BY AUTHORITY.** Data Sheet `7322`: page 1 A&amp;E says
+  *&quot;PSC-12 and PSX-12 **each include** a PTB&quot;*; page 2 prose says *&quot;when **more
+  than one** PSX-12 is used, a second PTB is required&quot;*; the page 3 parts table says
+  *&quot;only required for applications with **more than two** PSX-12 extenders&quot;*. Both of
+  the latter render-confirmed at 300 dpi, and **`8322` reproduces the identical pair** &mdash;
+  a house-template defect, not extraction error.
+  **The resolution is a mechanism and it is better than picking a side.** Installation
+  instructions `315-034877-4` label **P4 and P5, each &quot;To PSC-12 or PSX-12&quot;**, so one
+  board serves **two** supplies. With up to three PSX-12s per system, the &quot;more than
+  two&quot; threshold is arithmetically impossible. **The copy publishes the two connections
+  and neither sentence**, which lets a buyer count their own supplies.
+  **And the page-1 A&amp;E bullet is disproved by Siemens' own kit table**, read off a 260 dpi
+  render because the rotated column headers extract one character per line: the columns are
+  *PSC-12 / PTB Kit*, *PSX-12* and *PTB (Only)*, and **the PSX-12 column contains no PTB**. The
+  *PTB (Only)* column holds exactly one entry, **&quot;Four #10 Hex Nuts&quot;** &mdash; so the
+  bare PTB SKU ships as a board and four nuts. That is the carton question answered from a
+  table nobody would think to open.
+- **Two Altronix product families conflated in one briefing, and the listings do not
+  transfer.** I told an agent that a fire-signalling power supply is UL 1481 rather than
+  UL 864, citing `AL600ULXB`'s UL 294 + 603 + 1481. In `DS_AL602ULADA.pdf` the strings `1481`,
+  `294` and `603` appear **zero times each**; its only listing is **UL 864, &quot;Control Units
+  and Accessories for Fire Systems&quot;**, plus FM, CSFM and NYC DOB. `AL600ULXB` is an
+  access-control/burglary/fire **board** at 7.1 &times; 4.5 in. and 0.8 lb; this is a 9.6 lb
+  unit in a **red BC400 enclosure**, manufacturer-stated. **A listings set belongs to a product
+  family, and two Altronix numbers three characters apart are not one family.**
+  Also: **the live title understates the rating** &mdash; 6 A against the datasheet's and
+  Altronix's own headline **6.5 A**, render-confirmed &mdash; and the siblings match their
+  numerals exactly (AL802ULADA 8 A, AL1002ULADA 10 A), so **only the 602 runs above its own
+  number**. `ADA` is defined in no Altronix document read; recorded as a bounded negative.
+- **A TEXT GREP CANNOT PROVE A REBRAND, AND THIS FILE'S OWN BRAND-VANISHED NOTE WOULD HAVE
+  FIRED A FALSE FLAG.** This file records, from `3300FSN`, that Avire's current sheets are
+  Avire-branded and `RATH` appears zero times &mdash; offered as a vendor-field signal. On the
+  `8100-V4G` datasheet, **`RATH`, `Rath`, `AVIRE` and `Avire` each appear zero times in the
+  text layer of both revisions**, and a **220 dpi header render shows the logo reads
+  &quot;RATH&trade; by AVIRE&quot;**. The branding is logo art. So the store's vendor field is
+  correct and needs no flag. **Take a brand-vanished finding from a render, never from a
+  grep** &mdash; the same escalation ladder this file demands for tables, applied to a
+  letterhead.
+  The recorded Avire URL trap was also confirmed **with both controls**:
+  `/product/8100-v4g/` returns HTTP 200 with `<title>8100-V4GS</title>`, **seven occurrences of
+  V4GS and zero bare V4G**; bogus `?s=` returns 0 of each and the known-good `?s=8100-V4G`
+  returns 2. **The endpoint is honest and the product URL is not.**
+  **And the real separator is not hardware, which is the finding.** V4G and V4GS agree on every
+  published figure &mdash; dimensions, weight, LTE Cat-4 150 Mb/s, the same eleven bands, the
+  same battery, ports, antennas and temperature range. What differs is the **service bundle**:
+  the V4GS sheet requires the `8100-12VDS` prepaid SIM, and the V4GS *installation manual*
+  carries the only first-party sentence naming the bare part &mdash; *&quot;If purchasing the
+  8100-V4G without an AVIRE SIM, a separate Verizon Voice and Data SIM card will need to be
+  obtained.&quot;* No supersession is stated in four documents.
+- **A live page telling the buyer to order a cable the manufacturer says this model does not
+  need &mdash; the inverse of the incomplete-product trap.** The `3-4ANN` body ended
+  *&quot;or one 3-LCDXL1 (Order 3-LCDXL1KBL Separately)&quot;*. Edwards `E85010-0069` says the
+  opposite **in two places in one ordering block**: the 3-LCDXL1 row scopes the cable to
+  *&quot;3-6ANN or 3-10ANN annunciator boxes&quot;* with 3-4ANN absent, and the cable's own row
+  reads ***&quot;Not required with 3-4ANN and 3-LCDXL1 applications.&quot;***
+  **Every recorded instance of this family costs the buyer a missing part; this one costs them
+  an unnecessary one**, which is milder and much harder to notice, because nobody complains
+  about a part they did not need.
+  The real omission on that page was elsewhere and larger: **the wallbox is a separate
+  catalogue number** (`4ANN/B` flush, `4ANN/B-S` surface), so at $2,797.50 the buyer gets an
+  annunciator with nothing to mount it in and nothing on its four positions. **Sixteenth
+  incomplete-product case** &mdash; and note it is *not* the `3-ANNCPU3` bare-board shape: this
+  one genuinely is a finished Base Annunciator with CPU, two support modules and doors. My
+  inference was half right, which is the useful half to record.
+- **A family LISTINGS bullet that would have published an audible listing on a device with no
+  horn, and two model-attributed signals separate the pair.** Gentex `551-0050-07`'s Product
+  Listings gives **ANSI/UL 464 and 1971 to &quot;the GE3 Series appliances&quot;** &mdash; a
+  family containing both `GEC3-24WW`, a horn strobe, and `GES3-24WW`, strobe only. What
+  separates them: the manual attributes UL 1971 to *&quot;the GEC24, GES24, GEC3-24, **GES3-24**
+  strobe&quot;* and UL 464 to *&quot;your **horn and horn/strobe**&quot;*; and **the CSFM
+  listing prefixes differ &mdash; 7125-0569:123 for the GES3-24 against 7135-0569:122 for the
+  GEC3-24**. A listing *number* is a per-class identifier and is therefore better evidence than
+  a family bullet. Both catalogue numbers checked character by character after the `GB10-120`
+  901-/904- swap and **both are correct**.
+  `GEC3-24WW`'s live title **had no class noun at all** &mdash; `Gentex GEC3-24WW (904-1315-002)
+  Wall Mount` &mdash; the `ZH-MC-W` shape, in the Shopify title field, so it cost the feed too.
+  Document defects on that sheet, nothing published from either: the 15 cd / 12 VDC cell gives
+  **106 mA nominal against a UL maximum of 92**, a maximum below its own nominal and unique to
+  that cell; and the ordering table gives all four GEC3 models a single **62&ndash;82 dBA**
+  range matching neither the 24 V column (66&ndash;82) nor the 12 V (60&ndash;79). The
+  **100 dBA** headline is anechoic.
+- **The E/K carton split confirmed on a THIRD document number, and a route correction with
+  it.** Edwards `E85001-0668` marks the GP10 wiring plate *&quot;required, **ordered
+  separately**&quot;* and *&quot;in **packs of 10**&quot;*; Kidde `K85001-0668`, same number,
+  marks it *&quot;required, **included with device**&quot;*. Same hardware, opposite carton,
+  after `85001-0667` and `85001-1021`. It also confirms **the `E` is inside the series code**
+  (Kidde's title is &quot;**EG4** Series&quot;) and that Kidde drops the `-FR`/`-SP` variants.
+  **Route correction: `kidde-esfire.com/Content/Documents/` returned the 1,245-byte 404 for
+  all three constructed names.** The literature API &mdash; POST, **`www.` host required**, the
+  bare host 301s &mdash; returns hrefs pointing at **`myeddie.edwardsfiresafety.com/PublicMedia/Catalog Sheets/`**.
+  **Kidde sheets are served from the Edwards store**, which is the one-codebase-two-brands
+  finding reaching the asset layer.
+- **The merged-cell trap on `E85010-0069` p2, where word coordinates give a confident wrong
+  answer.** The Agency Listings cell `UL, ULC, FM, CE, LPCB EN54*` sits at x=235&ndash;345;
+  against column centres at 157 / 271 / 386 / 488 that reads cleanly as the second column's
+  value. A 260 dpi render shows it **merged across three columns**, and that `UL, ULC, FM`
+  belongs to **`3-LCDXL1` alone** &mdash; so that display carries no CE or LPCB EN54 listing,
+  which decides whether it may go in a `3-4ANN-E`. Third instance of coordinates being not
+  merely insufficient but actively misleading.
+  Also on that sheet: **`3-4ANN` and `3-4ANN-E` have genuinely BLANK ship-weight cells**
+  (coordinate- and render-confirmed, where 3-6ANN reads 6.28 lb), so no weight was published;
+  and **catalogue number `3-CPUDR` is listed twice with two descriptions and two weights.**
+- **An EDAM document unreachable by every recorded shape built from a GUESSED document
+  number.** Seven probes for `DH-60541` across both roots all returned the 8,047-byte
+  fingerprint; the working slug is `notifier-us/hon-ba-fire-dn-60229.pdf` under the
+  `honeywell-edam` root, **found by search**, identical 365,567 bytes with and without
+  `?download=false`. *Find the number, then build the slug* &mdash; the path shapes are a way
+  of trying a **known** number, not a way of finding one.
+  From that document, the `EQBB-D4` answer and a trap larger than the one asked about:
+  Notifier states *&quot;a complete cabinet assembly consists of a door, a backbox, and an
+  optional semi-flush trim ring&quot;*, so the matching door is `EQDR-D4` &mdash; **and the EQ
+  door is a vented blank taking no dress plate, so Notifier states these cabinets are &quot;not
+  appropriate for control equipment, annunciators, or remote microphones.&quot;** A buyer
+  sizing a cabinet by tier count could put a panel in one. Its dimensions are printed twice and
+  **pages 2 and 4 disagree** (2-5/8 in. against 2-9/16 in.); only the figures both pages agree
+  on were published.
 
 ## Conventions
 
