@@ -100,6 +100,36 @@ yours" corrections &mdash; they were themselves wrong. Agents must take `id`
 from the input file and echo it back, and the merge step must assert that each
 returned `id` matches the input file before anything is published.
 
+**The same failure has a second form, and v2b20 produced four instances of it in
+one batch: the briefing was wrong about what the product IS.** Not the id &mdash;
+the brand and the class. In **every one of the four the slice file was right and
+the coordinator's prose was wrong**:
+
+| part | the briefing said | the document says |
+|---|---|---|
+| `MPS-100` | Mircom power supply; establish output current and battery charging | **Eaton Wheelock single-action manual pull station** (`TD450082EN`) |
+| `NIC-C` | Mircom; route to mircom.com | **Siemens** FireFinder XLS network interface card (`500-033240`) |
+| `TC840C3206` | Honeywell commercial controls, not fire &mdash; maybe a thermostat | **addressable multi-criteria fire/CO detector** on the XLS FlashScan SLC |
+| `2099-` series | Simplex releasing / agent-release modules | Simplex **non-coded manual pull stations**; releasing is one sheet inside it |
+
+`MPS-100` is the one that shows the cost. Had the agent trusted the prose it would
+have researched and published **a power supply that does not exist** &mdash; output
+current, battery charging capacity, enclosure, all of it invented off a premise,
+on a page that would have looked entirely normal. The `2099-` error is subtler and
+would have been worse to catch: releasing stations use **break rods**, ordinary
+stations **breakglass**, so the wrong premise points at the wrong sibling and the
+copy comes back plausible.
+
+**So the rule generalises past ids: the slice file is the authority on vendor,
+type, title and id together, and the briefing prose is a hypothesis.** State
+routing guesses as guesses (&quot;this looks like X, verify before using it&quot;),
+never as fact, and **when the prose disagrees with `aN_in.json`, the file wins
+without argument**. Three of these four were catchable for free &mdash; the input
+file already said Eaton Wheelock / Pull Stations, Siemens, and a fire detector
+type &mdash; which is the same lesson the lossy-`type` incident taught from the
+other direction: **the structured fields in the slice are evidence, and the
+coordinator is the least reliable source in the loop.**
+
 Batch loop: slice 18 products → split 6/6/6 across three concurrent
 `general-purpose` research agents → validate → merge → publish in two aliased
 `productUpdate` mutations of nine.
