@@ -95,8 +95,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,079 pages published** — 555 from the old list plus v2b01 through
-v2b28 and the first six of v2b29, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,085 pages published** — 555 from the old list plus v2b01 through
+v2b28 and twelve of the eighteen in v2b29, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -1859,8 +1859,9 @@ Revisit after the high-impression band is done.
   copied from a *sibling* or an *adjacent row in the same table*; this one crossed a
   vendor boundary, which no amount of reading Eaton documents would have caught. It was
   found by checking the one number that looked out of pattern.
-  **A precision worth keeping about where such errors live.** Both this and the bogus
-  &quot;S3000&quot; on `4-24L24S` sat in the description `<h2>`, **not** in the Shopify
+  **A precision worth keeping about where such errors live.** Both this and the
+  &quot;S3000&quot; on `4-24L24S` (**which turned out NOT to be bogus &mdash; see the
+  resolution below**) sat in the description `<h2>`, **not** in the Shopify
   `title` field, which was clean in both cases. Titles are Merchant Center feed
   attributes and descriptions are not, so an error in the body costs one channel and an
   error in the title costs two. **Say which field a defect is in before sizing it** &mdash;
@@ -2692,18 +2693,21 @@ Revisit after the high-impression band is done.
   picture. The images used are the dated upload files whose **filenames** carry
   `8100-V4G`. **A URL containing a part number is not evidence that its contents are that
   part** &mdash; the same lesson as the wrong-document-family rule, applied to a web page.
-- **CORRECTION: this file's own &quot;bogus `S3000`&quot; note is unsourced and may be
-  wrong.** It is recorded above as a defect found on `4-24L24S`. A v2b27 agent reports
-  **`S3000` appears on page 1 of Edwards `E85010-0057` as a listing mark**, alongside a
-  CSFM file number &mdash; i.e. a UL file number, not an invented string. The coordinator
-  could not retrieve that document to settle it (the constructed `myeddie` path returned
-  the clean 1,245-byte 404 and the catalogue's audio-amplifier sheets are a different
-  family). **Nothing live depends on it**: the `4-24L24S` page was rewritten wholesale and
-  the current copy asserts nothing about S3000 either way. But the note stands as written
-  in violation of this file's own rule &mdash; *never conclude a part number is invented
-  from a negative search result* &mdash; and &quot;bogus&quot; was the coordinator's word,
-  not a finding. **Treat S3000 as unresolved, and do not call it invented anywhere on an
-  Edwards part.**
+- **RESOLVED 22 Sep 2026: `S3000` is a ULC file number, and this file's own &quot;bogus
+  S3000&quot; note was wrong.** The coordinator fetched Edwards `E85010-0130` from
+  `myeddie.../PublicMedia/Catalog Sheets/` (866,133 bytes, mime-clean) and read page 1
+  directly: **`S3000` occurs twice, in the Approvals block, printed under the ULC mark**
+  &mdash; once under the EST4 column and once under EST3, beside CE, FM and EN54. A
+  v2b27 agent had reported the same thing from `E85010-0057` and the coordinator could not
+  retrieve that document at the time; a second agent found it on a second sheet and it now
+  has two independent readings plus a direct one.
+  **Nothing live ever depended on it** &mdash; the `4-24L24S` page was rewritten wholesale
+  &mdash; but the episode is the cleanest instance in this file of its own rule being
+  broken by the person who wrote it: *never conclude a part number is invented from a
+  negative search result.* &quot;Bogus&quot; was the coordinator's word for a string it had
+  not looked up, it survived in this file for a day and a half, and it was overturned by an
+  agent both times it was tested. **A recorded negative that was never positively checked
+  is a claim, and it decays the same way a host fingerprint does.**
 - **Half the catalogue has no product photograph, and the first scan for it returned
   zero. 22 Sep 2026, and the owner found it before any scan did.** He sent a screenshot
   of an admin list showing grey placeholder icons and asked for photos. A bulk pull of
@@ -2920,6 +2924,59 @@ Revisit after the high-impression band is done.
   `xtralis.com/product/<id>` page. `sid.siemens.com/go/<A6V>` worked first try on both
   assets, and **the sibling check paid again: the SL ceiling series is 15/30/75/95 cd
   against the wall's 15/30/75/110**, so the two sheets cannot be crossed.
+- **Eleventh incomplete-product case, and it is a SENSING HALF sold as a finished duct
+  detector.** `D4S` was titled &quot;Duct Smoke Detector&quot;. System Sensor installation
+  instructions **`I56-2967-002R`**, fetched and read directly by the coordinator, say it in
+  one sentence: ***&quot;The D4120 duct detector consists of D4P120 Power Board component
+  and the D4S Sensor component.&quot;*** The D4S has **four wiring terminals** (Tamper Y,Y
+  / +R / &minus;B) and **no power board**, so it carries **none of the alarm-initiation,
+  auxiliary or supervisory relay contacts** a complete detector has and cannot work alone;
+  it wires to the Sensor 2 terminals of a D4120 or D4P120. The ordering table files it
+  under **Accessories** as *&quot;4-wire photoelectric sensor component only&quot;*. **The
+  `type` said Duct Detectors and agreed with the wrong title, raising nothing** &mdash; the
+  signature for the seventh time. Also corrected: the D4S/D4P120 footprint is
+  **7.75 &times; 5 &times; 2.5 in.**, not the D4120's 14.38 &times; 5 &times; 2.5.
+- **A catalogue number under the wrong brand, proved by counting occurrences in the two
+  brands' own manuals.** `N-FPJ` sits in this store under vendor **Fire-Lite**. It is a
+  **Notifier** number: `DN-60779:C` (Notifier NFC-FFT FirstCommand) names it, and the
+  Fire-Lite twin `DF-60735:C` (ECC-FFT) names **`FPJ-F`** in exactly the same slots. What
+  settled it is a count, not an absence: **`N-FPJ` appears ZERO times in the 32-page
+  Fire-Lite ECC-FFT manual `LS10031-000FL-E:C`, where `FPJ-F` appears 43 times.** Brand is
+  a Merchant Center feed attribute, so the title was left alone and the flag went to the
+  owner, with the relationship stated in the body. **Wrong-document-family avoided twice
+  inside this one part:** the agent fetched and then *rejected* `54418:C` and `351204 B`,
+  which cover the IFP-FFT and SK-FFT systems and contain zero `N-FPJ` &mdash; their
+  single-gang box dimensions were deliberately not imported.
+- **Two tables on ONE datasheet using DIFFERENT column orders. New shape, and it would have
+  published wrong currents.** Kidde `K85005-0129` Issue 1.3: the **Features by model**
+  table leads with `K-RLCD-2` while the **Specifications** table leads with `K-RLCD-C-2`.
+  Reading the current draw off the features order gives **61/90 mA** where the correct
+  figures are **62 mA standby and 91 mA alarm**. Both tables had to be rendered (280 and
+  260 dpi) because plain text returns bare tick glyphs. Add it to the caption ladder
+  alongside caption-below-table, tables-emitted-swapped and header-contradicts-caption:
+  **column order is not a property of the document, it is a property of each table.**
+  The `-C-` is settled as **common controls** (Reset, Signal Silence and Drill added to the
+  Ack/Silence and Lamp Test every model has); **the trailing `-2` is not decoded in any
+  document read** and was recorded as a bounded negative rather than guessed.
+- **The series-wide-block trap again, and this time a web summary repeated the wrong figure
+  for the specific part.** `E85010-0130`'s page-1 feature bullet reads *&quot;Supports up
+  to 250 intelligent Signature detectors and 250 Intelligent Signature Modules&quot;* &mdash;
+  that is the **two-circuit** figure belonging to the `3-SDDC2`, while the model-attributed
+  specifications table gives **125 detectors and 125 module addresses per 3-SDC1 card**.
+  Confirmed by the coordinator in the same fetch. **And the briefing's hypothesis was wrong
+  in the safe direction:** the live sentence *&quot;Comes with one 3-SDC1 Device Card&quot;*
+  is **verbatim** Edwards Ordering Information for the `3-SSDC2`, so the page was right and
+  the danger was the headline nobody had questioned.
+- **A `myeddie` PublicMedia path CAN be constructed, which narrows the rule rather than
+  breaking it.** `E85010-0130 -- Signature Driver Controller Modules.pdf` resolved at
+  866 KB, mime-clean, built by hand. The difference from every failed construction is that
+  **the document number AND its title came from a search first**; the slug is then
+  buildable from those two. So: *find the number and title, then build the slug* &mdash;
+  never build from a document number alone. Related: the Edwards `/lifelines/control-panel`
+  category carries **zero** catalogue sheets (only four policy PDFs), while
+  `control-panels-and-accessories`, `signature-series` and `fire-alarm-control-panels` all
+  **404 at 17,844 bytes**; recover the 20 real slugs with
+  `grep -o 'lifelines/[a-z0-9-]*'` on `edwardsfiresafety.com/lifelines`.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
