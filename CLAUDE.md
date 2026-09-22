@@ -2059,6 +2059,58 @@ Revisit after the high-impression band is done.
   failing for that same document. So the shapes do not compose into a rule &mdash; try
   bare, lowercased and underscore **against each root separately**, and accept that it is
   per-document.
+- **A wrong dBA figure in a live title, verified by the coordinator, and the document
+  never contained the wrong number at all.** `GB6-24` was titled *&quot;85 Dba at 10
+  Feet&quot;*. Gentex `551-0042-04`, fetched and read directly: the model table row reads
+  `GB6-24 | 904-1278-002 | 24 VDC | 6&quot; | 100 mA | **95 dBA**`, and the A&amp;E
+  paragraph independently specifies *&quot;peak sound output of **95 dBA** or
+  greater&quot;*. **`85 dBA` occurs zero times in the document.** Not a
+  prose-against-table conflict and not an extraction artefact &mdash; the figure was
+  simply never there, which is the cheapest kind of defect to confirm and the easiest to
+  miss, because 85 dBA is the plausible number a reader expects on a notification
+  appliance.
+  Two things came with it. **Gentex path construction worked first try here**
+  (`fireprotection.gentex.com/files/GB-Series1.pdf`, 538 KB, mime-clean) where it failed
+  for the S-Series &mdash; so that route is family-by-family, not broken. And **Gentex
+  states a carton quantity for a notification appliance** &mdash; *&quot;20 units per
+  carton&quot;* on the datasheet face &mdash; which is the category Honeywell declines to
+  state. Third vendor outside Honeywell doing so.
+- **The page-chrome lifecycle trap has now fired three times, on three pages, and the
+  mime check caught the hosts.** `SRK`'s live copy said &quot;(Discontinued)&quot;. Both
+  `buildings.honeywell.com` and `systemsensor.com` return **`application/javascript`**
+  shells (225 KB and 112 KB), and the only occurrences of the word are the JS UI label
+  `&quot;discontinuedText&quot;:&quot;Discontinued&quot;` and a nav entry &mdash; attached
+  to nothing, as in the two earlier cases. **Positive evidence pointed the other way:**
+  the 23 Feb 2022 outdoor brochure lists SRK, SRK-R and SRK-P as current wall-mount
+  strobes. Nothing published; flagged as a lifecycle/feed decision.
+  **And the `K` suffix IS decoded here**, unlike `PC2WKLED-P` where no document defined
+  it: the same brochure states *&quot;model numbers with a 'K' suffix are outdoor-rated
+  products listed to **UL 1638** and rated from &minus;40 &deg;F to 151 &deg;F, with a
+  NEMA 4X or 3R rating&quot;*. So the convention is real and documented on System Sensor;
+  it simply was not stated in the document family the other part sat in. **A bounded
+  negative in one document family says nothing about the convention.**
+- **A merged cell that changes whether a device may be installed at all.** `A05-0456`'s
+  Candela Derating table merges *&quot;Do not use below 32 &deg;F&quot;* across the
+  **15, 15/75 and 30 cd** rows &mdash; confirmed by word coordinates at y=618.9 and a
+  300 dpi render. `SRK` is a standard-candela device, so it falls inside that cell. **A
+  designer laying out on 15 cd in an unheated space would be specifying a device the
+  manufacturer says must not be used there**, and no plain-text read of that table would
+  show it. Published for exactly that reason. (75 derates to 44 cd and 95 to 70 cd at
+  &minus;40 &deg;F; 110 and 115 unchanged.)
+- **`trilogyrf.com` is the same Sucuri block as `trilogycoax.com`, so the whole brand is
+  walled.** HTTP 202, **221 bytes**, `/.well-known/sgcaptcha/` meta-refresh, on every
+  path; the `urllib`-plus-Safari-UA workaround returns the same 221-byte block, confirming
+  it does not defeat Sucuri. `trilogycoax.com` still 202s at 190 bytes.
+  `trilogycomms.com` 301s to a different company entirely. **Wayback is no help this week
+  &mdash; `archive.org` is returning a site-wide &quot;temporarily offline&quot; page to
+  both the availability API and CDX.**
+  The page was still written, from Trilogy's own AirCell product specification served
+  intact by a mirror, **read entirely off a 260 dpi render because its text layer is
+  scrambled** &mdash; the genuine-PDF-unusable-text-layer shape for the second time.
+  **What could not be sourced was the ordering unit.** The title's *&quot;1 ft (0.304m),
+  Reel&quot;* is Honeywell catalogue-feed wording repeated verbatim by every distributor:
+  correlated repetition, not evidence. Dropped from the title and flagged &mdash; a price
+  list or a purchase order settles it, not another search.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
