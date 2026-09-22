@@ -2446,6 +2446,69 @@ Revisit after the high-impression band is done.
   and the flat lowercase `datasheets/df-<num>.pdf` resolved **4 of 4**, while the
   `hon/hbt-fire` root **failed on every probe**. Everything that worked sat under
   `honeywell-edam/hbt/.../documents/`.
+- **Eighteenth product-class error, and it is a fire extinguisher sold as the wrong
+  AGENT.** Ansul `429022` was titled *&quot;FE13 Cleanguard 13 lb **ABC** Fire
+  Extinguisher&quot;*. It is a **clean agent** extinguisher &mdash; Ansul's own class noun
+  in `F-96111-17` is *Clean Agent Hand Portable Extinguishers*, the agent is **HFC-236fa**,
+  and the UL rating is **2-A:10-B:C**. So the rating genuinely covers A, B and C, which is
+  presumably how &quot;ABC&quot; got written &mdash; but **&quot;ABC&quot; in the trade
+  means ABC dry chemical**, the corrosive-residue agent that is the exact opposite of what
+  a clean-agent buyer is paying $1,750 to avoid. A data room or a switchgear cabinet
+  specified for clean agent and given dry chemical is a real mis-sale in both directions.
+  **The `type` field said Fire Extinguishers, agreed with the wrong title, and raised
+  nothing &mdash; the signature for the sixth time.** Airgas repeats the same
+  &quot;ABC&quot; wording, which is correlated distributor copy and not a second source.
+  Two more from that sheet. **`FE13` is Ansul's own model designation**, not a mangled
+  &quot;FE-36&quot;: the part-number row runs FE02VB / FE05S / FE09 / **FE13** against
+  429107 / 442255 / 429021 / **429022**. And **&quot;DuPont FE-36&quot; is not Ansul's
+  wording at all** &mdash; `FE-36`, `FE36`, `DuPont` and `Chemours` appear **zero times**
+  in both revisions, which Ansul writes as HFC-236fa throughout.
+  **The incomplete-product trap fired on the bracket, and only a render found it.** The
+  bracket row reads `24610 (Included) | 429146 | 422737 | 30937`, and word coordinates
+  plus a 250 dpi render put the **`(Included)` marker in the FE02VB column alone**. The
+  FE13's bracket `30937` carries no included marker in either revision, while the live
+  copy asserted *&quot;with bracket&quot;*. Claim removed, flagged to the owner &mdash;
+  if TFAS assembles the bracket itself that is a stock fact and belongs in the copy said
+  that way.
+- **A pack count that IS manufacturer-stated, in two independent places, and it further
+  confines the Honeywell rule.** `VP-ELB-90`'s live title claims *&quot;Box with 20
+  Units&quot;*. Xtralis `Doc. 17748_12` (Part No. 29813, June 2024) ordering block reads
+  **`VP-ELB-90 | 90&deg; Elbow - 3/4&quot;, 20 per box`**, and independently the product
+  bulletin's discontinued-alternative table gives `P-ELB-90 &quot;QTY 20&quot;` &rarr;
+  `VP-ELB-90 &quot;20 PER PK&quot;` &mdash; which is also a **manufacturer-stated
+  supersession**, rare enough to note. Second documented pack count outside Honeywell
+  after `PIP-018`.
+  **But the same block shows why a sourced count cannot be generalised:** within this one
+  range the 45&deg; elbow and union are **10**, the coupling and tee **15**, the end cap
+  **25**. A pack count is a per-SKU fact even inside one family from one vendor.
+  The regional rule fired both ways a third time: `VP-ELB-90` is **Americas-only**, and
+  the Europe edition has no `VP-*` parts at all &mdash; its 90&deg; elbow is the 25 mm ABS
+  `PIP-017` at ten per pack.
+- **Three live defects in one batch that all sit in the DESCRIPTION and not the title,
+  and one that sits in the title alone.** `FSL100-IR3-W`'s certification string
+  (`Div2EN54-10` is two approvals joined at a lost bullet &mdash; substantively correct,
+  just unreadable), `DVP-120M`'s *&quot;120V&quot;* (it is a **90&ndash;250 VAC universal
+  input** panel, stated identically in a 2016 manual and a 2025 data sheet), and
+  `FN-PS776`'s *&quot;220V&quot;* (Hochiki documents **120 or 240 VAC selected by jumper
+  R72** &mdash; fitted is 120, removed is 240, and **there is no 220 V setting**). Against
+  those, `429022`'s wrong agent class sits in the **title**. **Saying which field each one
+  is in is what sizes it**: three cost the page, one costs the page and the Merchant
+  Center feed.
+  `FN-PS776`'s *&quot;9th Edition&quot;* was **confirmed** as UL 864 9th Edition rather
+  than a product revision, by a replacement-parts table listing `FN-PS4` as 8th Edition
+  against `FN-PS402` as 9th &mdash; **one character changes the UL edition on this brand**,
+  which is a sibling trap worth keeping.
+- **Three more first-party hosts, and a new failure fingerprint.**
+  `honeywellanalytics.com/~/media/honeywell-analytics/products/<line>/documents/` serves
+  Honeywell gas and flame PDFs directly with no bot protection &mdash; the FSL100 needed
+  no EDAM probing at all. `docs.johnsoncontrols.com/specialhazards` reaches **Ansul hand
+  portable extinguishers** cleanly (`F-96111` is the CLEANGUARD family sheet). And
+  `altronix.com/library/pdf/data_sheets/DS_<MODEL>.pdf` is **fully derivable inside the
+  library**, so pulling five siblings to find a separator costs five fetches &mdash; its
+  404 is a stable **13,828-byte `text/html`**, confirmed against a control.
+  Also: `macurco.com` links a first-party `docs.macurco.com`, a bubble.io app whose
+  `/file/<id>` route returns a **~15,548-byte `text/html` JS shell**, while the underlying
+  `*.cdn.bubble.io/<fileid>/<name>.pdf` serves real PDFs on **searched** paths.
 - **The photo pipeline's first batch: 5 real photographs of 8, and the verification
   chain is the reusable part.** `foto01`, 22 Sep 2026. Rule applied: manufacturer-hosted
   images only, the source must name the exact part number, and **the coordinator measures
