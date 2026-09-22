@@ -2577,6 +2577,48 @@ Revisit after the high-impression band is done.
   Also: `macurco.com` links a first-party `docs.macurco.com`, a bubble.io app whose
   `/file/<id>` route returns a **~15,548-byte `text/html` JS shell**, while the underlying
   `*.cdn.bubble.io/<fileid>/<name>.pdf` serves real PDFs on **searched** paths.
+- **The photo work was sorted by the wrong metric, and the owner's second screenshot
+  proved it. 22 Sep 2026.** After the first photo batch the owner sent **the same admin
+  screenshot again** and asked whether it had been fixed. It had not, and none of the
+  eleven products on it would have been fixed for a very long time. The reason is the
+  sort: the photo queue was ranked by `impressions x 30 + revenue / 50`, the same shape
+  as the text queue. **7,384 of the 7,900 products without a photograph have ZERO
+  impressions**, and every product on the owner's screen was one of them. So **93% of the
+  problem was ranked below everything else** and the visible catalogue never moved.
+  **Impressions are the right sort for text and a circular one for photographs.** A thin
+  page with traffic is one that copy can lift &mdash; that is why the text queue is built
+  that way. A photograph is not competing for an organic ranking: it is a Merchant Center
+  feed attribute and the thing a buyer sees after they arrive. Ranking it by the traffic
+  the page already earns asks the wrong question, and it systematically protects the
+  products that look worst.
+  **The second error was rate.** Eight products per agent run against 7,900 is roughly a
+  thousand agent runs. That was never going to finish, and it should have been obvious
+  from the first batch rather than from the owner asking twice.
+- **The fix is to work by BRAND, not by product, and the structure supports it:
+  7,190 of the 7,900 sit in 20 brands.** Kidde Fenwal 1,508, Hochiki 798, Rath 708,
+  Amerex 629, Space Age 480, Mircom 410, STI 394, Notifier 387, Westell 371, Power Sonic
+  232, Fiplex 224, Edwards 206. A route mapped once per brand pays back hundreds of
+  times, where a route found per product pays back once. The remaining **710 sit in 59
+  small brands** and are a separate question &mdash; the one that decides it is how many
+  of those 59 hosts answer the WordPress REST media API, because if most do, one script
+  covers the whole tail.
+  **Proven on the first brand within minutes of the redirect.** `avire-global.com`'s open
+  media API was run over all 708 Rath SKUs by script, matching SKU to filename, at a hit
+  rate around **36&ndash;46%** &mdash; call it 250 photographs from one script run against
+  five from one agent run.
+- **The bulk match needs a token-boundary rule, and the test that proved it also caught
+  the trap.** A naive substring match of SKU against filename scored 6 hits in 12 on the
+  Rath sample &mdash; **and one of the six was wrong**: `8100-V4G` matched a file named
+  `16x9-Training-Image-8100-V4G**S**.png`, which is the **successor model**, exactly the
+  trap an agent had flagged on that same part a batch earlier. Substring matching
+  publishes the successor's photograph onto the predecessor's page.
+  **The fix is a mechanism: the SKU must be followed by a non-alphanumeric character or
+  end of token.** On a 14-SKU sample it **rejected 32 near-matches** and dropped the hit
+  rate from 50% to 36%. It also rejected some legitimate files (`2500-205FM.png` for SKU
+  `2500-205`), which is the correct direction to err: **a missing photograph is a
+  placeholder, and a wrong photograph is a lie that looks convincing.** Any brand whose
+  part numbers carry option suffixes &mdash; batteries, BDA gear, notification appliances
+  &mdash; needs this rule, and the naive match must never be used to publish.
 - **The photo pipeline's first batch: 5 real photographs of 8, and the verification
   chain is the reusable part.** `foto01`, 22 Sep 2026. Rule applied: manufacturer-hosted
   images only, the source must name the exact part number, and **the coordinator measures
