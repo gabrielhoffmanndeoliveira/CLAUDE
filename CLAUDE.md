@@ -6866,6 +6866,89 @@ Revisit after the high-impression band is done.
   titles carrying a literal HTML entity; unbalanced parentheses **102, unchanged**. List in
   `/tmp/tfas/TITULOS_SEM_NOME_v3.json`.
 
+- **CORRECTION, VERIFIED BY THE COORDINATOR: `QAA-5415-70/25` DOES NOT EXIST, AND THE
+  &quot;RESTORE THE LOST SLASH&quot; FIX WOULD HAVE MERGED TWO REAL PRODUCTS INTO A PART
+  NUMBER THE MANUFACTURER DOES NOT MAKE.** This file records, from a Secutron photo harvest,
+  that *&quot;`QAA-5415-70` has lost a `/25`&quot;* and lists it beside the 185 frequency
+  ranges and `ZR-MC-R` as punctuation-stripping. A title agent contradicted it and the
+  coordinator fetched both first-party catalogue sheets, because it overturns a recorded
+  finding and would have changed a live SKU.
+  **Measured on `CAT-9521` and `CAT-9626X`, both mime-clean, both 2 pages:**
+  `QAA-5415-70/25` occurs **0 times in each**, while `QAA-5415-70` and `QAA-5415-25` each
+  occur **5 times in each** &mdash; two separate single-voltage models, stated outright in
+  `LT-6751`: *&quot;the QAA-5415-70 is a 70 Volt amplifier and the QAA-5415-25 is a 25 Volt
+  amplifier&quot;*, and the instruction sheet's own filename is
+  `LT-6751-QAA-5415-70-QAA-5415-25-Instructions.pdf`.
+  **And the proof is positive rather than an absence, which is what settles it.** The same
+  two sheets carry `QAA-5230-70/25`, `QAA-5230S-70/25` and `QAA-5160-70/25` at four to five
+  occurrences each &mdash; **the manufacturer writes the dual-voltage suffix when it means to,
+  on three neighbouring models in the same table, and declines to on the 5415 pair.** That is
+  the `DN-62046` inverted proof on a model-number separator.
+  **The live catalogue confirms it from the third direction: the store carries BOTH**
+  `QAA-5415-25` (vendor Mircom) **and** `QAA-5415-70` (vendor Secutron) **as separate
+  products**, matching the two models exactly. So restoring the slash would have asserted a
+  non-existent catalogue number on one page and left its real sibling orphaned.
+  **The lesson is about where the wrong note came from.** It was read off a *sibling brand's
+  media title*, which is a filename, and this file separately records three manufacturers
+  whose filenames name the wrong product. **A punctuation-stripping catalogue makes every
+  unusual spelling look like a defect** &mdash; and the check that distinguishes them is
+  whether the *ordering table* writes the separator on that model, not whether some other
+  artefact does. Nothing was changed; the `PONTUACAO_autocontradicao.json` list stands as
+  unapplied for exactly this reason.
+  Flagged to the owner and not acted on: the pair sits under **two different vendor strings**,
+  Mircom and Secutron, which are sibling brands &mdash; the `B501` shape, where no brand is
+  wrong and the store disagrees with itself inside one family.
+- **&quot;MONITOR&quot; means a computer display, and the briefing read it as supervisory
+  monitoring.** `OGN-MONITOR-UL` is *&quot;Comark UL/ULC 24&quot; Monitor&quot;* for the
+  `OGN-UL-STD` rack appliance, and **`OGN-UL-STD` is not a licence at all** &mdash; it is a
+  $19,861.90 Xeon E5-2609v4 server with 16 GB, 2 TB and a UL 864 listing. Both senses of the
+  word sit on one sheet whose own headline is *&quot;centralized event monitoring
+  solution&quot;*. Only three of the seven `OGN-` products are licences.
+  **`STD` is polysemous inside this one product line** &mdash; the 10&ndash;99 connection band
+  in `OGN-FLSLIC-STD` and the hardware tier (against PRO/ENT) in `OGN-UL-STD` &mdash; which is
+  precisely what blocked writing a title for `OGN-MONITOR-STD`. **Returned `null` with the ask
+  named**: zero hits across all three language editions of `CAT-5323 Rev 10`, `LT-6674`,
+  `LT-6701`, the brochure, the legacy `CAT-5325` and the live product page; **one Mircom price
+  list settles it and more searching will not.** The plausible reading (a non-UL companion
+  monitor, $739 against $5,396) was deliberately not written.
+  **A price inversion checked and found coherent rather than flagged:** the FLSLIC rows are
+  marked *&quot;(Price per connection)&quot;*, so $3,549 for ONE against $2,160 for 10&ndash;99
+  is a volume-discount curve, not a defect. **Checking a suspicious number and reporting that
+  it is fine is worth as much as finding one that is not.**
+- **The sibling trap fired on a one-letter accessory pair, and both members are in this
+  catalogue.** `QAA-4CLAS` &ne; `QAA-4CLA`: `LT-872` routes the **S** version to `QAA-5230S`
+  amplifiers at **5 W max per zone**, `LT-859` routes the plain one to `QAA-5415` at
+  **15 W** &mdash; and `QAA-5415-25`, the plain converter's host, was in the same lot.
+  Cross-selling either is a live mis-sale.
+  **A mechanism cross-check came back clean and is worth copying:** `CAT-9521` lists exactly
+  two QAA amplifiers as Class B only &mdash; the QAA-5415 pair and the QAA-5230S &mdash; and
+  those are exactly the two with Class A converters, while the non-`S` QAA-5230 and QAA-5160
+  do Class A natively and have none. **A converter exists only where the amplifier cannot do
+  it natively**, which predicts the accessory list from the amplifier table.
+  This also narrows a note recorded last batch: *&quot;`4CLA` appears zero times in both QAA
+  datasheets, an accessory is usually not a document&quot;* &mdash; on this brand **both
+  converters have their own document**, filed under `LT-` instructions rather than in the
+  `CAT-` amplifier sheets. The accessory is not in the *catalogue sheet*; it is not
+  undocumented.
+- **A genuine PDF with an ASCII-shifted text layer, which is a new shape of the unusable-text
+  trap.** `LT-931` page 2 extracts as `4%,%0(/.% #)2#5)4` and `1!-4` &mdash; a font encoding
+  offset by 0x20, so &quot;TELEPHONE CIRCUIT&quot; and &quot;QAMT&quot; come back as
+  punctuation soup. Mime passes, the document is real, and **page 1 extracted cleanly**, so a
+  reader checking only the first page would never see it. Separately `LT-872`'s **entire text
+  layer is 107 characters**, the title line alone: its 16-terminal block, four circuit groups
+  and the 5 W per zone note are all vector, and **nothing signals the data is missing.**
+  Add both to the ladder beside Space Age's `LT10322`.
+- **A ninth non-discriminating search endpoint, and again only the KNOWN-GOOD control exposed
+  it.** `mircom.com/?s=` returned 166,818 bytes for a bogus term, **166,770 for
+  `OGN-MONITOR-UL`, a part proven present in the manufacturer's own catalogue sheet**, and
+  166,786 for `OGN-MONITOR-STD` &mdash; three different MD5s, no result rows in any, only
+  echoed occurrences. A bogus-only control reads *&quot;different bytes, endpoint works, part
+  absent&quot;* and is wrong. Excluded as evidence entirely. Also measured: the WooCommerce
+  Store API is honest but useless here, because **OpenGN is a single product record** (`sku:
+  OpenGN`) so no `OGN-*` SKU is a separate WooCommerce product; and the live OpenGN product
+  page contains **zero `OGN-` tokens**. Two filenames of `CAT-5323` differing by a `-1` suffix
+  are **byte-identical, one document, not two revisions.**
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
