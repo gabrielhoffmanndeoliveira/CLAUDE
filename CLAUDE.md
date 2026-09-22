@@ -5140,6 +5140,28 @@ Revisit after the high-impression band is done.
   &mdash; a `scrolforsku` block, `window.dataLayer`, the quote-request link and the Magento
   `catalog_product_view_sku_<CODE>` cache handle &mdash; so a JS shell can carry a
   structured field four times over while its search endpoint is useless.
+- **75 titles repeated their own brand and part number verbatim, and fixing them was the
+  rare case where a scan CAN be applied unilaterally.** The literal title was
+  *&quot;Mircom ANC-6000 Mircom ANC-6000&quot;*. Mechanism: **the live title opens with
+  `vendor + &quot; &quot; + sku` twice, adjacently** &mdash; built from the real `sku`
+  field, never parsed out of the title &mdash; which cannot fire on a correct product and
+  cannot be a coincidence. 75 hits, **Mircom 57**, Talkaphone 6, Potter 4, Det-Tronics 3,
+  System Sensor 2, Napco, STI and Genesis one each. All 75 pushed in three aliased
+  mutations of 25, every `userErrors` empty.
+  **Why this one did not need the owner and the SKU-vs-title nine did.** Removing a
+  duplicated substring **adds no claim and removes no information** &mdash; the new title
+  is a literal substring of the old one, asserted by the builder before the mutation went
+  out, along with ASCII, the 150-character cap and no-op guards. Compare the nine
+  near-misses, where every candidate fix was *choosing between two real part numbers*.
+  **The distinction is not &quot;title versus structured data&quot;; it is whether the
+  edit decides anything.**
+  **And the honest consequence: 57 of the 75 become a bare `Brand PartNumber`**, because
+  the duplicated string was the entire title. That is still strictly better &mdash; a
+  repeated part number in a Merchant Center attribute reads as spam and dilutes matching,
+  where a thin title is merely thin &mdash; but it means **the no-product-name census
+  grows from 313 to roughly 370**, and those 57 are now correctly visible to the title
+  workstream instead of hiding behind a repetition. A fix that makes a defect *countable*
+  is worth it even when it does not make the product findable.
 
 ## Conventions
 
