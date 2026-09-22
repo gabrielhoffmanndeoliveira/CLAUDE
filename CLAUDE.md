@@ -1303,7 +1303,7 @@ Revisit after the high-impression band is done.
   together when they are wrong together.**
 - **The pack count IS manufacturer-stated &mdash; in a document nobody had opened.
   Four searches across two batches concluded &quot;unsourceable&quot; and all four were
-  bounded wrong.** System Sensor document **`9021-62013-E`** (L-Series Low Frequency)
+  bounded wrong.** System Sensor document **`9021-62013:C`, 9/25/2020** (L-Series Low Frequency)
   carries, in its Ordering Information block, the footnote
   **&quot;&dagger;Add -BP10 to order bulk pack of 10 units&quot;**. The dagger is
   attached to the sounder-only models &mdash; HRL-LF, HWL-LF, HGRL-LF, HGWL-LF,
@@ -1315,11 +1315,20 @@ Revisit after the high-impression band is done.
   **Two lessons, and the second is the transferable one.** First, the wrong-document
   -family failure again, for the fifth time &mdash; the agents searched the datasheets
   for the *product*, and the statement sits in the ordering block of a *different
-  family's* sheet. Second, and new: **`AVDS910-02` (2020) is the earlier revision of
-  the very same product and does NOT carry the footnote &mdash; it was added in the
-  later `9021-` numbered revision.** So on this brand, **prefer the `9021-xxxxx-E`
-  document over the `AVDS` one**, and a negative in an old revision says nothing about
-  the current one. Scope and per-SKU basis in `/tmp/tfas/PACKCOUNT_decisao.csv`.
+  family's* sheet. Second, the document families differ: **`AVDS910-02` covers
+  the same product and does NOT carry the footnote**, so on this brand **prefer the
+  `9021-` document family over the `AVDS` one**.
+  **CORRECTED 22 Sep 2026, twice over, and both corrections came from an agent
+  contradicting this file.** (a) The document number is **`9021-62013`, with no `-E`
+  suffix** &mdash; verified by the coordinator directly, where the bare name returns a
+  206 KB PDF and `9021-62013-E.pdf` returns the 8,047-byte fingerprint. The `E` was
+  never a revision letter; the revision is **`:C`**. (b) **The old/new framing was
+  wrong on the dates.** `AVDS910-02` is **11/02/2020** and `9021-62013:C` is
+  **9/25/2020**, so the `AVDS` sheet is the *later* document and still lacks the
+  footnote. **The difference is between document families published weeks apart, not
+  between an old revision and a new one** &mdash; which makes the rule stronger, not
+  weaker: it is not that System Sensor added carton quantities over time, it is that
+  one family states them and the other does not. Scope and per-SKU basis in `/tmp/tfas/PACKCOUNT_decisao.csv`.
 - **The pack-count negative is now a rule with a boundary: Honeywell states bulk packs
   for BASES and for LOW-FREQUENCY SOUNDERS, and for nothing else &mdash; across three
   sibling brands.** The untried route was the sibling-brand twin, and it was worth
@@ -1331,7 +1340,7 @@ Revisit after the high-impression band is done.
   `AVDS871-02` (ECS/MNS speakers), `9021-60928`, `9021-60929`, `AVDS885-01` and the two
   Farenhyt sheets. **Not one lists any `-BP` number.** Meanwhile `DF-61010:C`
   (5/28/2020, a newer revision than the `:B` cited earlier) states both base packs
-  outright, and `9021-62013-E` states the LF sounders. So the split is not by brand and
+  outright, and `9021-62013:C` states the LF sounders. So the split is not by brand and
   not by document age: **Honeywell states a carton quantity for bases and LF sounders
   and declines to for strobes, horn strobes and speakers.** That converts
   &quot;six documents checked&quot; from a bounded negative into a positive finding
@@ -1348,7 +1357,7 @@ Revisit after the high-impression band is done.
   disagreeing, not two revisions, not two brands &mdash; **one page, one author, one
   date, stating the carton quantity for the base and declining to for the detector
   sitting above it.** So the rule is: **Honeywell states a carton quantity for bases,
-  and for the low-frequency sounders via the `9021-62013-E` footnote, and for nothing
+  and for the low-frequency sounders via the `9021-62013:C` footnote, and for nothing
   else.** Detectors and notification appliances both fall outside it.
 - **CORRECTION, 22 Sep 2026: that boundary was wrong. BATTERIES are a third category,
   and the quantities are not 10.** An agent found it and the coordinator verified it
@@ -1550,11 +1559,27 @@ Revisit after the high-impression band is done.
   previous revision &mdash; the stale side often matches it exactly.**
   The same sheet has a **row-label defect**: the 2025 Table 2 labels its rows
   &quot;(Wall) **ELSPT**&quot; and &quot;(Ceiling) **ELSPTC**&quot;, neither of which is
-  a model in the document. The 2021 revision prints the same table with explicit
-  `ELSPK/ELSPKC` and `ELSPST/ELSPSTC` rows carrying **identical values** &mdash; which is
-  what licensed quoting a wall row for a wall speaker. **Note this is the exact opposite
-  of the System Sensor `SPWL`/`SPSWL` case**, where speaker and speaker strobe differ by
-  2 dBA at every tap. Two brands, opposite behaviour, so neither can be assumed.
+  a model in the document.
+  **CORRECTION, same day, and it is the &quot;a correction can introduce a new error&quot;
+  rule firing on this file's own newest entry.** The first version of this note said the
+  2021 revision prints the same table with `ELSPK/ELSPKC` and `ELSPST/ELSPSTC` rows
+  carrying **identical values**, and called that the licence for quoting a 2025 wall row.
+  The next agent was briefed with it, checked, and **it is not true**: the 2021 Table 2
+  has **five** tap columns reading 75/79/82/85/87 and separates neither wall from ceiling
+  nor 25 from 70.7 VRMS, while the 2025 table runs seven columns and separates both.
+  What actually licenses the row is a **third document**: installation sheet
+  **`P85967A` (2025)**, whose Table 2A is **explicitly headed for models
+  &quot;ELSPK (Speaker), ELSPST (Speaker-Strobe), ELSPST-A (Amber)&quot;** and reproduces
+  the 2025 wall values cell for cell. The 2021 revision corroborates only the weaker
+  claim &mdash; that speaker and speaker strobe carry identical numbers as separate rows.
+  **So the instruction sheet is model-attributed where the datasheet is not**, which is
+  the conditional-headline rule pointing across documents for the third time.
+  The speaker-equals-speaker-strobe result still stands and is still the **opposite** of
+  the System Sensor `SPWL`/`SPSWL` case, where the two differ by 2 dBA at every tap. Two
+  brands, opposite behaviour, neither assumable. **And the System Sensor figures have a
+  generation boundary this file did not state:** 77/80/83/86 is the **xenon** `SPSWL`;
+  `AVDS-62174:A` gives the **LED** line 76/79/82/83 for speaker strobes against
+  79/82/85/88 for speakers, a 3 dBA gap. Do not reuse the xenon row on an LED part.
   Also recorded: the filename this file carried for that document is dead, the live one
   is `eaton-eluxa-speaker-and-speaker-strobe-clear-and-amber-lens-td450158en-us.pdf`
   under `/lsmns/eluxa/`, and **`web.eaton.com` returns HTTP 200 with 86,227 bytes of
@@ -1639,6 +1664,49 @@ Revisit after the high-impression band is done.
   New fingerprint from the same work: **`pottersignal.com` 404s return
   `application/javascript` at 78,087 bytes**; `brooksequipment.com/files/Thermotech/`
   served the legacy sheet clean at 7.6 MB, mime-checked.
+- **The pack-count boundary is a fact about HONEYWELL, not about manufacturers, and
+  Xtralis proves it by stating carton quantities routinely.** `PIP-018`'s title asserts
+  **PK10**, and unlike every Honeywell `-BP` case that claim is **manufacturer-stated**:
+  Xtralis's own *VESDA Pipes and Fittings &mdash; Europe* catalogue (`xtralis.com/file/495`,
+  p. 11) lists **&quot;PIP-018 &mdash; 25mm Air Sampling Test Point, Pack of 10, Red&quot;**,
+  and `PIP-007`, `PIP-004`, `144-013`, `222-059` and many others carry &quot;Pack of
+  10&quot; in the same catalogue. **This is the first documented pack count in the project
+  outside Honeywell bases, LF sounders and batteries.**
+  The correction that matters is to how the rule was phrased. This file worked toward
+  &quot;bases, low-frequency sounders and batteries, and nothing else&quot; as though it
+  were a fact about how *manufacturers* document. It is a fact about **Honeywell**. A
+  different vendor states carton quantities as a matter of course, so **the convention
+  question has to be asked per brand**, and a Honeywell-derived negative says nothing
+  about Xtralis, STI, Potter or anyone else. That is the same over-reach as the battery
+  correction &mdash; evidence covering two categories, conclusion covering all of them
+  &mdash; one level further out, at the vendor boundary instead of the category boundary.
+  Two more results on that part, both from deliberately checking rather than assuming:
+  it is **VESDA, not OSID** (it sits in Xtralis's own VESDA pipe range, so the vendor
+  field is right and this is not the `OSE-HPW` case), and although it appears **inside an
+  End-of-Life bulletin** it is there as the **surviving alternative** to a discontinued
+  PVC adapter, not as a discontinued product. A part named in an EOL bulletin is not
+  thereby end-of-life &mdash; read which side of the table it is on.
+  **The title's PK10 was left exactly as it was** and went to the owner's file anyway,
+  because a pack count in a title is a feed attribute and the decision is the owner's
+  even when the documentation supports it. Route recorded: `xtralis.com/file/<id>` serves
+  PDFs directly with no bot protection, and **the metric 25 mm range is in the Europe
+  edition only** &mdash; the Americas sheet (`file/623`) does not list `PIP-018` at all,
+  which is worth knowing before writing off any other `PIP-*` part as undocumented.
+- **A private-mode appliance sold as an ordinary one: the class error at the listing
+  level rather than the noun level.** `SPSWLED-ALERT` is titled and typed as a speaker
+  strobe, and it is one &mdash; but `I56-0024-000` (4/15/2024) &sect;1.4 says in the
+  manufacturer's own words that the **amber lens ALERT** models are *&quot;**private
+  mode** notification appliances intended to alert **trained personnel**&quot;*, with the
+  speaker listed to ANSI/UL 1480 (public mode) and the strobe to **ANSI/UL 1638 (private
+  mode)**, where the clear-lens models in the same manual are public mode throughout.
+  Nothing in the title is false, so this is not one of the fourteen product-class errors;
+  it is a **materially different purchase hiding behind a correct class noun**. Per house
+  rules it went in the body and not the title, and to the owner as a possible Merchant
+  Center category question.
+  Consequence for the copy, worth stating because it is easy to get wrong in the other
+  direction: the candela values were published as **switch settings** rather than as a
+  rated output, because UL 1638 private mode is not the UL 1971 basis on which a
+  clear-lens candela is rated, and neither current document states UL 1971 for any model.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
