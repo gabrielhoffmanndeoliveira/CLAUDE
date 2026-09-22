@@ -7175,6 +7175,80 @@ Revisit after the high-impression band is done.
   available and was not taken**, which is the rule working at the point where it costs
   something.
 
+- **TWO DELIVERED PHOTOGRAPHS ARE THE WRONG DOOR FINISH, AND THE MANUFACTURER'S OWN MEDIA
+  TITLE IS WHAT PROVES IT &mdash; a structured field that is MORE reliable than the
+  filename, which is the reverse of everything this file records.** A later Mircom harvest
+  measured the delivered `BB-1002DS.png` and `BB-1003D.png` as red-doored, and the
+  coordinator verified both independently: among saturated pixels, **`BB-1002DS.png` is
+  93.5% red** and **`BB-1003D.png` 38.8%**, against **0.3%** for `BB-1002DS-1.png` (visibly
+  brushed stainless) and **0.0%** for `BB-1003D_White.png`. Looked at directly, the first two
+  are plainly red doors. `LT-617` states the convention twice: **`S` = stainless, no suffix =
+  white.** Both files sit on the same Mircom pages as their correct alternatives.
+  **Mircom's FILENAMES are wrong here and its WordPress media TITLES are right** &mdash;
+  `BB-1002DS.png` is titled `BB-1002DR` and `BB-1003D.png` is titled `BB-1003DR`, both naming
+  the red variant the picture actually shows. Two more on the same host run the same way
+  (`FXD-008WKI-front.jpg` titled `FDX-008WKI`, `KB-10_backbox_left.jpg` titled `KB-101`), and
+  one runs the other way (`products-mir6s-mir6b-…` alt-titled `CX-91S-12TDS`, where the
+  filename is right and the alt is wrong). **So on this host the media `name`/`alt` is a
+  genuine second structured field, it must be matched ALONGSIDE the filename, and where the
+  two disagree the photograph decides.** That won two of seven hits and refused one.
+  **The correction ships as a MERGE at position 1, not a REPLACE.** This file records that a
+  `REPLACE` which removed the shared placeholder could strip it from 7,738 products &mdash; a
+  concern recorded and never tested, and not worth testing on a live import. A MERGE puts the
+  correct photograph first and leaves the wrong one at position 2, which is a safe, reversible
+  improvement; **the leftover has to be removed by hand on two products, and saying so is part
+  of the delivery.**
+  **The general point: a delivered lot is not closed.** These two passed every check the
+  pipeline had at the time &mdash; first-party host, exact filename match, clean mime, above
+  the floor, no URL or MD5 collision &mdash; and were caught only because a *later* harvest of
+  the same brand measured colour. **A later pass over the same brand is a check on the earlier
+  one**, and it is cheaper than it sounds.
+- **A rejection message that named a plausible wrong reason, fixed in the builder.** Rows with
+  `image_url: null` were reported as **&quot;url not https&quot;**, which reads as *a good URL
+  we refused* rather than *there was no candidate*. That is the same defect class as the
+  builder's earlier silent zero-row run: **a stated reason reads as a finding**, and a
+  misleading one costs a reader the truth about their own tool. Now prints
+  `no image_url (deliberate null)`.
+- **Three corrections to this file from one Mircom harvest, and the honest one is the failed
+  reproduction.** (a) **The per-request recompression did NOT reproduce**: four accepted
+  images re-fetched byte-identical with identical MD5s, on plain `/uploads/products/` URLs
+  with a Safari UA and no query string. **Reported as a failed reproduction rather than a
+  refutation** &mdash; the earlier observation may have been on a different URL shape, and
+  recording that honestly is what the `cdn.power-sonic.com` precedent requires. (b) **`?s=` is
+  honest but this file's tell for it is wrong**: it discriminates on result links while
+  **every response, control included, is 164&ndash;170 KB**, so the byte count carries nothing
+  here. **Count the result `<a href>` links.** It also matches substrings, so it over-fires
+  &mdash; and a `?s=` zero is **not** evidence of no asset, proven by `KB-101`, which returns
+  zero while owning a correctly-titled asset in the media library. (c) **The REST lockdown is
+  broader than recorded**: `wp/v2/posts`, `wp/v2/pages` and `wp/v2/search` are **401** as well
+  as `media`, while `wp/v2/product`, `wp/v2/mir_literature` and `wc/store/v1/products` are
+  open &mdash; and the Store API `sku` field is not merely unreliable, it is **absent on 118
+  of 327 records**.
+  **A new route that paid and would not have been guessed:** Mircom's **product-release recap
+  posts** (`/products-released-in-2021/`, `/2025-product-releases/` and ~20 more) yielded 140
+  additional assets and are **the only place three SKUs appear at all**. And the **NitroPack
+  CDN mirror** on WP Engine enumerates every rendition in its srcset, which established the
+  400 px and 125 px ceilings **without probing for them**.
+- **Mircom measured properly: 7 of 296, and matching was not the constraint on any axis.**
+  **215 of 296 (72.6%) are named nowhere** on either mircom.com or secutron.com &mdash;
+  corroborated by a 30-SKU random search sample returning effectively 30/30 zero. Of the 81
+  that are named, only 34 have any candidate asset; of those 34, **20 failed the look pass or
+  the boundary rule and 7 more are the correct product below 600 px**. **Secutron adds
+  nothing**: 10 of our 366 are named there and **zero only there**.
+  **One owner decision covers five products at once**, which is the useful shape: nine
+  rejections are the populated-enclosure trap (`006820CB` precedent), and **three of them are
+  otherwise perfect** &mdash; the BB-100x doors, where the finish is measurable and identifies
+  the right file. If the owner accepts a manufacturer's own populated illustration for a bare
+  enclosure, those three become hits **and the two wrong-colour rows above get fixed in the
+  same pass**.
+- **The shared-asset trap on a second TX3 pair, which makes it a house pattern rather than a
+  coincidence.** `TX3-CSR-6.2`/`6.4` and `TX3-PCR-620`/`640` are served **the same two image
+  files across two different product pages** &mdash; exactly the recorded `TX3-CSR-35` /
+  `TX3-PCR-35` case, where a 13.56 MHz smartcard reader and a 125 kHz proximity reader are
+  visually identical. **Where two product classes are physically indistinguishable, one
+  photograph will be published for both and no image check can separate them.** That is a
+  reason to reject, not to choose.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
