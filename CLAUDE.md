@@ -170,7 +170,16 @@ brand name is a bug in the rule, not a constraint to write around.**
 
 **Titles and descriptions have different character rules, and they do not conflict:**
 a description may use `&deg;` and the rest of the whitelist; a **title must be plain
-ASCII**, because titles are Merchant Center feed attributes. The earlier decision to
+ASCII**, because titles are Merchant Center feed attributes.
+**Clarified 22 Sep 2026, because the old wording was pushing agents to mangle real brand
+names.** &quot;Plain ASCII&quot; is a rule about *characters*, not about *entities*, and
+the two were being conflated. **`&` is ASCII (0x26) and a title is plain text, not
+HTML** &mdash; so **`AT&T` is a perfectly legal title** and so is `Air Products & Controls`.
+What is wrong is writing the literal six characters `&amp;` into a title, which is exactly
+the defect this file already records for the two titles containing a literal `&nbsp;`.
+So: **in a title write `&`; in a description write `&amp;`.** A briefing that told an
+agent &quot;`AT&amp;T` is not writable in a title&quot; was wrong, and the agent caught
+it. The earlier decision to
 leave `&deg;`, `&reg;` and `&trade;` alone in existing titles was about **not churning
 27 titles for a cosmetic**, not a licence to introduce them. So: never put a non-ASCII
 character in a title you are writing; do not rewrite an old title purely to remove one.
@@ -1848,6 +1857,41 @@ Revisit after the high-impression band is done.
   **The general rule this sharpens: when a restriction is found, look for its complement
   before writing the sentence.** A prohibition without a permitted use is hard to phrase
   without inventing one.
+- **The coordinator compressed a nuanced agent finding into a flat rule, and the flat
+  rule was wrong for the very next instance. This is the lossy-slice-file failure moved
+  into prose.** A v2b20 agent reported, correctly and completely, that the Simplex
+  `2099-` series is the **non-coded manual station line** and that releasing stations are
+  **one data sheet inside it**, `S2099-0010`. Writing the next briefing, the coordinator
+  compressed that to *&quot;`2099-` is the non-coded manual pull station line, **not** a
+  releasing line&quot;* &mdash; dropping the exception. The next `2099-` part to come
+  through, `2099-9149`, **is in `S2099-0010`**: *&quot;Non-Coded Manual Stations for
+  Releasing Applications&quot;*, Table 1, UL 38 listed for releasing service, and absent
+  from `S2099-0007` entirely.
+  **So it is a product-class error in a feed title** &mdash; a release station sold as a
+  pull station &mdash; and the `type` field said **Pull Stations** and agreed with the
+  wrong title, raising nothing. That is the recurring signature again.
+  **And it is the incomplete-product trap for the eighth time:** the sheet says *&quot;a
+  blank area on the front of the station allows the selection of a label&hellip; (label
+  kit is ordered separately)&quot;* and Table 1 notes **&quot;requires label kit
+  4099-9802&quot;** &mdash; six labels covering clean agent, extinguishing, CO&#8322;, foam,
+  sprinkler and manual. At $38 the buyer receives an unmarked releasing station. This is
+  the `4099-9015` case almost exactly, one series over.
+  A third thing the compression would have cost: the coordinator asked the agent to diff
+  against `2099-9803`, the replacement **breakglass** published the day before. Wrong
+  accessory &mdash; `2099-9149` is a **break-rod** station and takes `2099-9804`. Acting
+  on the briefing would have cross-sold the wrong part.
+  **The rule: when an agent's finding carries an exception, carry the exception.** A
+  summary that drops the &quot;except&quot; is not a shorter version of the finding, it is
+  a different and false one &mdash; and it is harder to catch than a wrong value, because
+  it reads as a clean general rule.
+- **Gentex is a third manufacturer that states carton quantities, which further confines
+  the pack-count rule to Honeywell.** The S/C/SC/H series sheet prints **&quot;24 units
+  per carton, 28 pounds per carton&quot;**. With Xtralis already established as stating
+  them routinely, that is two vendors outside Honeywell documenting what Honeywell
+  documents only for bases, LF sounders and batteries. **The open pack-count rows in
+  `PACKCOUNT_decisao.csv` are a question about Honeywell's documentation habits and must
+  not be generalised to any other brand** &mdash; and for a non-Honeywell part, the
+  carton quantity is probably findable rather than unsourceable.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
