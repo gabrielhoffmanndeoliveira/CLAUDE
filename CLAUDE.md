@@ -136,8 +136,9 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,294 pages published** — 555 from the old list plus v2b01 through
-v2b39 and five of v2b40, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,301 pages published** — 555 from the old list plus v2b01 through
+v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
+body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -5663,6 +5664,116 @@ Revisit after the high-impression band is done.
   copy is retrievable there. The mime check alone does not catch it &mdash; the bogus
   control does. That is a third distinct Kidde-Fenwal failure shape after the
   1,279,593-byte `LocalMedia` HTML and the ordinary 404.
+- **Verification sweep at batch 40 (1,215 pages, 22 Sep 2026): clean a SEVENTH time &mdash; and the
+  denominator was wrong for a SECOND new reason, which is the finding.** One bulk query, 16,031
+  active products. The raw count of thin pages came back as **110** where every sweep before batch 35
+  returned 4. Split properly it is **4**, and the extra 99 are not failures at all: they are the
+  **deliberately abandoned tail of the retired old queue**. Directories `b34`&ndash;`b39` hold
+  `slice.json` files that were built and then dropped when `ranked.json` was retired &mdash; sliced,
+  never researched, never published, and correctly excluded from the queue ever since. A sweep that
+  defines &quot;tracked&quot; as *anything with a slice file* reads 99 deliberate abandonments as 99
+  silent failures.
+  **That is the batch-35 lesson on a new axis, and it should have been anticipated.** Batch 35 found
+  that the title-only workstream creates products that are *tracked without being enriched*; this
+  finds that a *retired queue* leaves slices that were tracked without ever being started. Both are
+  the same defect: **the sweep measures &quot;did a page this project claims to have written actually
+  get written&quot;, and any artefact that records intent rather than work breaks the equation.**
+  The correct denominator is **the v2bNN slices plus the old-list batches actually published**
+  (`b01`&ndash;`b33`), minus the in-flight batch. On it: **1,215 ids, zero missing**, and exactly
+  **four** pages under 400 visible characters &mdash; the four deliberate skips (`SM7100-L8` 22 chars,
+  `90521` 30, `BDA-TP10-L2` 73, `BDA-NMP01250` 95). Seven more read as thin in the snapshot and were
+  **published minutes after the pull**; all seven confirmed live afterwards by direct query, which is
+  the snapshot rule firing on a file one hour old.
+  Other checks on the same pull: **non-ASCII titles 47 of 16,031**, every one `&deg;` (23), `&reg;`
+  (22) or `&trade;` (5), **zero outside that set** &mdash; 56 &rarr; 50 &rarr; 49 &rarr; 47 across
+  batches 14, 24, 29 and 40, still falling on its own as the queue rewrites titles for substantive
+  reasons. **Zero titles contain a literal HTML entity.** Unbalanced parentheses **102, unchanged**,
+  as expected for truncated titles this project deliberately does not reconstruct.
+
+- **The nameless-title census re-run: 180, not 98 &mdash; and the brand-duplication fix CREATED some
+  of them.** This file's running figure was &quot;98 remain of the original 313&quot;, with a caveat
+  already attached that the 57 products which became bare `Brand PartNumber` *after* the dedup were
+  not in that file. Re-run properly against a live pull &mdash; strip the vendor string and the real
+  `sku` field and ask whether anything is left &mdash; the answer is **180**: Mircom 65, Power Sonic
+  47, Rath 19, Kidde Fenwal 10, then a tail.
+  **Mircom is the whole mechanism in one vendor.** Its titles read `Mircom FX-6000MNS-CH Mircom
+  FX-6000MNS-CH`; the fix collapsed them to `Mircom FX-6000MNS-CH`, which is *correct* and is also a
+  title with no product name in it. **Fixing one import defect exposed another that was hiding
+  underneath it**, and a count of the second defect taken before the first was fixed was necessarily
+  too low.
+  **So the rule is: a census is re-run, never decremented.** Subtracting what you fixed from an old
+  census assumes the population is static, and every fix in this project that rewrites a title moves
+  products into and out of these classes. Current list in `/tmp/tfas/TITULOS_SEM_NOME_v2.json`.
+
+- **The coordinator typed a placeholder id into a LIVE mutation. Third instance, and the first that
+  reached the API.** Publishing eight titles, the variables object was hand-assembled in the tool call
+  instead of being pasted from the file the builder had just written, and one entry read
+  `gid://shopify/Product/9840961946: PLACEHOLDER`. **Nothing was written** &mdash; GraphQL rejected the
+  whole document, so all eight aliases failed together &mdash; but that is luck of a specific kind:
+  **the placeholder happened to be syntactically invalid.** A plausible-looking wrong id would have
+  been accepted and would have published one product's title onto another, silently, which is exactly
+  the v2b03 briefing incident and the v2b22 query incident.
+  This file already says *never type an id anywhere &mdash; briefing, query, mutation or note* and
+  *build each briefing from its own `aN_in.json`, programmatically*. The gap it leaves is the
+  **publish step**: the rule was written about briefings and queries and the mutation payload was
+  still being assembled by hand. **So: emit the variables object with a script, `cat` it, and paste
+  that output unmodified.** Three incidents, three different fields, one cause &mdash; a human reading
+  a value off a screen and retyping it.
+
+- **A manufacturer-authored document with NO document number, reachable only from a distributor:
+  a new shape for the supersession rule, and it was resolved by holding.** The live `BEAM1224S` title
+  claimed &quot;(Replaced by OSI-R-SS)&quot;. The announcement is real and is System Sensor's own:
+  **February 2019**, imprint verified on a 150 dpi render (swirl logo, `3825 Ohio Avenue, St. Charles,
+  IL 60174`), PDF metadata naming an author and `Acrobat PDFMaker 19 for Word` at a Central-time
+  offset, and a **MODEL / REPLACES / DESCRIPTION table read by word coordinates** &mdash; header
+  columns at x=48/156/322, the row reading `OSI-R-SS | BEAM1224 and BEAM1224S | Conventional Beam
+  Detector with Reflector` &mdash; plus the prose *&quot;This new offering directly replaces the
+  BEAM1224(S)&quot;*.
+  **It still failed two tests the `M23.2SS` precedent passed.** It carries **no document or bulletin
+  number of any kind** (searched for every numbering shape this project knows; the only 5-digit run in
+  the file is the ZIP code), and the only reachable copy sits on **anixter.com**, a distributor, under
+  a `/content/dam/Suppliers/Honeywell/` literature tree. Five constructed EDAM slugs returned the
+  8,047-byte fingerprint and no second mirror exists.
+  **Claim moved to the body; the title now carries none of it.** The body states it as System Sensor's
+  own February 2019 announcement, which is true and sourced, and the owner's file records that **one
+  first-party retrieval promotes it back to the title**. Worth stating the principle plainly: this is
+  **not** correlated distributor consensus &mdash; a manufacturer-authored REPLACES table is a
+  different and much better thing &mdash; but *where a document is served* and *who wrote it* are
+  separate questions, and a Merchant Center attribute needs both. Note also a fingerprint drift on the
+  way: the `systemsensor.com` JS shell measured **136,651 bytes** here against the ~112 KB on record.
+
+- **The legacy RATH document estate is not merely unreachable &mdash; it is reachable and it lies.**
+  `rathcommunications.com`, `rathnursecall.com`, `area-of-refuge.com` and `januselevator.com` all
+  answer **HTTP 301 to `avire-global.com/en-us/` and serve the identical 442,703-byte Avire US home
+  page for every URL**. Over HTTPS they fail at the proxy (`ws_closed_mid_exchange`); **over plain HTTP
+  they return 200**, and that 200 is the home page rather than the page asked for. This file records
+  the host as &quot;unreachable&quot;, which is the wrong and more dangerous description: a redirect
+  that discards the path passes a status check, passes a byte-length check against itself, and returns
+  content. **The reliable test is whether the response contains what you asked for**, and the redirect
+  is a new fingerprint for that list.
+  Against it, the Avire `?s=` site search is **honest** &mdash; controls: `SmartRescue` 8 product
+  pages, `Pana40` 2, `2500` 14, invented term **0** &mdash; which is what made five deliberate nulls
+  in that lot worth anything. Also confirmed there: **`urllib` gets 403 where `curl` gets 200** on the
+  Avire media API, the Det-Tronics reversal on a second brand, so neither client is the reliable one.
+
+- **Three contradictions inside ONE Simplex datasheet, and publishing nothing from any of them was
+  the whole job.** `S49SVW-0001` Rev. 16, 06/2024 &mdash; fetched and read by the coordinator directly
+  because the batch's title rested on it. **Table 13 is headed &quot;Weatherproof wall mount
+  addressable speaker S/V appliances, NEMA 3R&quot; and lists `49SV-APPLW-O` with &quot;S/V appliance
+  only. Select cover, mounting plate and surface or WP back box separately&quot;**, which settles both
+  halves of the title: `-O` is the outdoor marker (not a colour or lettering code) and the part is the
+  appliance alone. Table 14 independently marks covers *&quot;required when ordering APPLW-O
+  models&quot;*. Fourth Simplex `APPL` incomplete-product instance.
+  The three defects, none published from: (a) **Table 8 and Table 19 both claim to cover S/V models
+  and disagree at every tap** &mdash; 79/83/86/89 dBA reverberant against 78/81/84/87 at 25 V and
+  76/80/84/87 at 70.7 V &mdash; so **no dBA figure was published at all**; (b) **Table 12's
+  &quot;outdoor private mode&quot; row prints CANDELA under a milliamp heading** (69/240/300/445 are
+  exactly the typical candela of WP15/WP75/WP110/WP185 in Table 21, where Table 22 gives the real
+  maximum RMS currents as 81/187/230/298 mA) &mdash; the Table 22 currents were published and Table
+  12's row was not; (c) Tables 5 and 6 give `7 3/8 in. x 5 in. x 1 3/4 in. or 139 mm x 128 mm x
+  42 mm`, and 7 3/8 in. is 187 mm, not 139 &mdash; **no dimension published**. A document that
+  contradicts itself three ways on one part is now ordinary rather than remarkable; budget for it.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
