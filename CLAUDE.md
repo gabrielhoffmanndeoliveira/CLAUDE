@@ -77,8 +77,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 968 pages published** — 555 from the old list plus v2b01 through
-v2b23, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 986 pages published** — 555 from the old list plus v2b01 through
+v2b24, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -237,6 +237,21 @@ form survives only in the description body and in a working file built before th
 thinks of as a snapshot** &mdash; `FRONTEIRA_receita.json` is derived data, frozen at
 the moment it was built, and a title defect read out of it is a defect that may
 already be fixed.
+
+**Re-run at batch 24 (986 pages, 22 Sep 2026): clean a fourth time, and the non-ASCII
+title count is falling on its own.** All 986 tracked ids present &mdash; **zero
+missing** &mdash; and exactly **four** pages under 400 visible characters, all four the
+deliberate skips. Non-ASCII titles: **50 of 16,031, every one `&deg;`, `&reg;` or
+`&trade;`, zero outside that set**, and a **new check added this session returns zero
+titles containing a literal HTML entity** (`&amp;`, `&nbsp;`, `&quot;`), confirming the
+two `&nbsp;` titles stayed fixed and none have reappeared.
+**The count went 56 &rarr; 50 without anyone churning a title for cosmetics**, which is
+worth understanding rather than celebrating: the rule says *do not rewrite an old title
+purely to remove a degree sign*, and that does not stop the number falling, because
+enrichment rewrites titles for **substantive** reasons and the replacement is written
+under the plain-ASCII rule. Six Thermotech titles carrying `135&deg;F` became `135F` as a
+side effect of the rate-compensation correction. **So the deliberate-leave-alone set
+drains as the queue advances, and needs no separate project.**
 
 **House style drifted during the project, and reformatting is not worth it yet.**
 58 of 645 published pages carry a bullet count outside 4&ndash;7, almost all early
