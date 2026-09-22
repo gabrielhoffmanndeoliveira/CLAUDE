@@ -77,8 +77,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 950 pages published** — 555 from the old list plus v2b01 through
-v2b22, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 968 pages published** — 555 from the old list plus v2b01 through
+v2b23, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -1991,6 +1991,32 @@ Revisit after the high-impression band is done.
   the attempt failed on the route above. The published sentence is deliberately weaker
   than the finding (it states the prohibition and that no document states the complement),
   so the exposure is small. **Re-check `P85756F` when the Eaton route next answers.**
+- **Fourteenth product-class error, and the first where a listing code explained an
+  apparent nonsense in the title.** `49AV-WWFO-BA` asserts **15/75/WP75/WP185 cd**, which
+  reads as a broken candela ladder with 75 appearing twice. It is not: **15 and 75 cd are
+  the UL 1971 settings and WP75 and WP185 are the UL 1638 settings**, two listings on one
+  appliance with **different temperature ranges** (32 to 120 &deg;F against &minus;31 to
+  150 &deg;F) and different humidity limits. 75 cd appears twice because it is rated twice.
+  **Every element of that title checked out.** Generalises: a candela set that looks
+  malformed may be two listings concatenated, and the temperature ranges are the tell.
+  Two routing corrections came with it. The part is **not** in `S49AV-0001` and **not** in
+  the `S4906-0001` family the briefing pointed at; the weatherproof wall models are in
+  **`S49WP-0001-5`**, and `S49WP-0002` is the parallel **ULC** document with a *different*
+  candela set (20/30/75) &mdash; so mixing the two would attribute a ULC figure to a UL
+  model. Wrong document family again, and the `-BA` suffix is confirmed a second time as
+  **assembled in the USA**.
+- **A live page can be right and the catalogue still wrong, when a suffix is unsourceable.**
+  `SIGA-OSD-IN` carried *&quot;Note: Manufactured in India&quot;* in its body. The `-IN`
+  suffix appears in **none** of five Edwards documents &mdash; `E85001-1001` Issue 1.5
+  (which lists `SIGA-OSD` and `SIGA-OSD-NL` only), installation sheet `3102595-EN`,
+  `E85001-1002`, `E85001-1004` or the Signature Factbook `E85000-0371` &mdash; and
+  &quot;India&quot; appears zero times in all five. **The suffix was not called invented
+  and the SKU was not touched**, which is the `THM04R3000` lesson holding; the country
+  claim was removed because it is unsourced and is not a spec; and the page now says
+  plainly that no Edwards document read defines `-IN`. One reseller says it means a
+  built-in isolator, which is correlated distributor consensus and was neither repeated
+  nor contradicted. **Flagged to the owner, because an unsourceable suffix is still a
+  Merchant Center title attribute.**
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
