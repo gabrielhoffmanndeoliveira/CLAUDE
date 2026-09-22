@@ -2144,6 +2144,46 @@ Revisit after the high-impression band is done.
   Reel&quot;* is Honeywell catalogue-feed wording repeated verbatim by every distributor:
   correlated repetition, not evidence. Dropped from the title and flagged &mdash; a price
   list or a purchase order settles it, not another search.
+- **An import truncated titles at 150 characters, and the cliff in the histogram proves
+  it. Second mechanism-based scan on this catalogue that did not over-fire, and the
+  cleanest yet.** Run 22 Sep 2026 against a live pull while agents were working.
+  **The mechanism: a title with unbalanced parentheses cannot be correct.** Not a shape,
+  not a keyword &mdash; there is no legitimate title that opens a bracket and never closes
+  it. **102 of 16,031 titles qualify, and inspecting all 102 found no false positive**,
+  against 1&ndash;8% precision for every keyword scan in this file and 67% for the
+  family-disagreement scan.
+  They split into two different defects:
+  - **79 with an unclosed `(`** &mdash; cut off mid-phrase: *&quot;&hellip;Temporal 4
+    Capabilities Plain (no&quot;*, *&quot;&hellip;(Availability Limited to Quantity&quot;*,
+    *&quot;&hellip;(Notifier Marketing PN:&quot;*.
+  - **23 with a stray `)`** &mdash; a different mechanism, where the opener and part of its
+    content were lost: `Potter PE-LFHNW 4871013) Low Frequency Sounder`,
+    `Resideo 900748 BP10) Seal Ring`, `Simplex 4098-9784 discountinued)true Alarm Base`.
+  **The proof of the cause is the length histogram, not the sample.** Across the newest
+  product-id blocks, title lengths climb to a plateau at 145&ndash;149 characters
+  (107, 97, 88, 88, 76) and then go to **17 at exactly 150 and ZERO at 151 and above**.
+  A natural distribution does not end in a cliff. **Titles in the new blocks land at
+  145&ndash;150 at 5.51%, against 0.51% in the older blocks** &mdash; an 11x difference,
+  and every one of the 79 broken titles sits in a new block, none in an old one. This is
+  the same shape as the Aiphone non-ASCII finding: **the defect clusters in one import,
+  so it is fixable at the source rather than one product at a time.**
+  **The 79 are the detectable tail, not the whole problem.** Roughly **456 new-block
+  titles sit in the truncation band**; the 79 are merely the ones whose cut happened to
+  fall inside a bracket. The rest were cut too and end at a word boundary, so they look
+  fine and are invisible to any scan.
+  **Not fixed, and deliberately so.** The truncated text is *missing*, so reconstructing
+  79 endings would be inventing them &mdash; the one thing this project never does. This
+  is a data question for the owner: re-import the affected block with the full titles.
+  Ids saved in `/tmp/tfas/TITULOS_TRUNCADOS_ids.json`. Titles are Merchant Center feed
+  attributes, so a title ending mid-word costs money in two channels.
+  **Two mechanism flaws found and fixed while building this scan, worth keeping because
+  they are the general failure mode of such rules.** A first pass flagged
+  &quot;comma with no following space&quot; as an ERP field separator &mdash; it fires on
+  every **thousands separator** (`1,000'`, `4,064 Points`, `3,000 Hz`), including a title
+  written the same day. And it flagged `EA` as an ERP abbreviation &mdash; it fires inside
+  **model numbers** (`IX-EA`, `ATJ-EA`, `GWBDA-EA-AU-MDA`). Both fixes were mechanisms,
+  not thresholds: require a non-digit after the comma, and require the token not be inside
+  a hyphenated run.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
