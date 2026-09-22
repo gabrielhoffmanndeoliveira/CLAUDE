@@ -1606,6 +1606,39 @@ Revisit after the high-impression band is done.
   `010254-008` &harr; `UD10S5N28W2C` pairing rests on resellers &mdash; but the ordering
   code decodes correctly against the manufacturer's own matrix, which is what the copy
   rests on, so **neither number was touched**.
+- **The Thermotech 302 family: a whole product line mislabelled with a class word that
+  is not a class, and the fix generalised from one SKU to five.** `302-135` came through
+  v2b21 titled *&quot;Rate-Anticipation Heat Detector&quot;*. An agent found that
+  **&quot;rate-anticipation&quot; appears zero times** in Potter `8820047 REV B` *and*
+  zero times in the legacy Thermotech (Ogden, Utah) sheet, while &quot;rate
+  compensation&quot; appears three times in each. The coordinator then fetched the legacy
+  sheet directly &mdash; because this was about to change live titles &mdash; and it says
+  it outright: *&quot;All models operate on the principles of a rate compensation
+  detector&quot;* and *&quot;These rate compensation type detectors are available in
+  either 135&deg; F. or 194&deg; F. ratings. All four basic models&hellip;&quot;*
+  **Note why this is not the series-wide-spec-block trap.** That trap is about an
+  unattributed *measured value* in a family block. This is a statement of **operating
+  principle explicitly quantified as &quot;all models&quot;** &mdash; the definition of
+  the class, not a number. Those are different kinds of statement and only one of them
+  transfers to a member.
+  The store disagreed with itself across eight SKUs: two said Rate Compensation, three
+  said Rate-Anticipation, three named no class at all. **Five titles corrected**, which
+  the family-disagreement scan would have flagged and a keyword scan never would.
+  The document also settles the suffixes, and two were carrying real information no
+  title mentioned: **`EPM` is Explosion Proof Mounting** (Fig. 4, *&quot;for
+  installation in hazardous locations&hellip; **For Interior use**&quot;*, Killark series
+  JL hub) and **`ET` is `AW` plus a plastic hexagonal grip bushing with 1/2 in. conduit
+  threads** &mdash; both figures otherwise read identically as &quot;hermetically sealed,
+  no special back box, indoor and outdoor&quot;. Two explosion-proof-mount detectors were
+  being sold without the words &quot;explosion proof&quot; anywhere in the title.
+  **And a cross-link between two products in one batch, which is the argument for
+  batching related parts together:** the Solo 423 tester's manufacturer claim list names
+  fixed temperature, rate-of-rise and combination detectors and **does not name rate
+  compensation** &mdash; so the store sells a tester and a detector class the tester's own
+  documentation does not claim to cover. Recorded, nothing asserted either way.
+  New fingerprint from the same work: **`pottersignal.com` 404s return
+  `application/javascript` at 78,087 bytes**; `brooksequipment.com/files/Thermotech/`
+  served the legacy sheet clean at 7.6 MB, mime-checked.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
