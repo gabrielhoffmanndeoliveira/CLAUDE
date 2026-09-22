@@ -95,8 +95,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,047 pages published** — 555 from the old list plus v2b01 through
-v2b27, plus seven from the first photo batch (`foto01`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,073 pages published** — 555 from the old list plus v2b01 through
+v2b28, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -2739,6 +2739,28 @@ Revisit after the high-impression band is done.
   image-search asset &mdash; that is a rights rule as well as a correctness one, since a
   manufacturer image on a distributor page is ordinary channel practice and a scraped
   reseller photo is not. Batches live in `/tmp/tfas/foto/fotoNN/`.
+- **The publishing route for photographs is a CSV, not GraphQL, and the owner was right
+  to ask.** The GraphQL route costs two calls per product &mdash; `productCreateMedia`
+  **appends**, so the TFAS placeholder stays `featuredMedia` until a second
+  `productReorderMedia` call moves the new image to position 0 &mdash; and roughly 20k
+  tokens of coordinator context per batch of thirty. A Matrixify import CSV carries
+  `Handle, Command, Image Src, Image Position, Image Alt Text, Image Command` and **sets
+  the position directly, so there is no reorder step at all**, at any row count. Against
+  7,900 placeholder products that is the difference between ~260 paired mutations and one
+  file. Builder: `/tmp/tfas/csv/build_csv.py`, which takes any harvest JSON and emits the
+  CSV.
+  **Two safety properties are built into the builder rather than left to discipline.**
+  First, **the handle is read from the placeholder census by id and never taken from the
+  harvest file** &mdash; a harvest row whose id is not in the census is rejected outright,
+  so a hallucinated or stale handle cannot reach the import. Second, `Image Position: 1`
+  with `Image Command: MERGE` **pushes the placeholder to position 2 rather than deleting
+  it**, which matters because a single MediaImage id (`43649142325472`) is referenced by
+  7,738 products: a `REPLACE` that removed it could strip the image from all of them.
+  **Reorder, never delete** &mdash; and dropping the placeholder afterwards is a separate,
+  deliberate decision, not a side effect of publishing a photo.
+  Before handing over any such CSV, **HEAD every URL in it**: the 60-row Rath file was
+  checked end to end (HTTP 200 and a `content-type` of `image/*` on all 60) in about
+  fifteen seconds, which is cheap against an import that half-fails.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
