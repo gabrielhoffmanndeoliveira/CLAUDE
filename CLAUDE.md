@@ -136,8 +136,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,277 pages published** — 555 from the old list plus v2b01 through
-v2b38, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,283 pages published** — 555 from the old list plus v2b01 through
+v2b38 and v2b39 agent 2, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -5427,7 +5427,84 @@ Revisit after the high-impression band is done.
   all three smaller sizes; and `CAT. 5504`, **the stainless sheet**, repeats a boilerplate
   note that *&quot;All BB-1000D Series Enclosures are available in a white colour&hellip;
   and a red exterior&quot;* on a page whose only three models are stainless &mdash; a
-  series-wide note that cannot describe its own members.
+  series-wide note that cannot describe its own members.- **THE COORDINATOR'S TOP-RISK WARNING WAS BACKWARDS, AND THE REAL DEFECT WAS A DIFFERENT
+  ONE ON THE SAME PAGE.** `FSD-751P` was briefed as *&quot;the highest-risk part in the
+  batch&quot;* and as the probable **fourth** instance of the bare-sensing-head trap after
+  `PAD200-DD`, `D4S` and `SD365R-IV`. It is not: Notifier `DN-6821`, **fetched and read
+  directly by the coordinator**, calls it *&quot;The FSD-751P **air duct smoke
+  detector**&quot;* throughout, its Product Line block reads *&quot;Duct detector **housing
+  with** FlashScan photoelectric smoke detector&quot;*, and two panel sheets say
+  *&quot;FSD-751P: FlashScan photo duct detector **with housing**&quot;*. **The live title's
+  class noun and the `type` field were both already right.**
+  **But the briefing's keyword found a real incomplete-product fact one line lower**, and
+  the coordinator confirmed it verbatim: ***&quot;NOTE: Inlet tube is required and must be
+  purchased separately. Order one inlet tube for each duct smoke detector ordered.&quot;***
+  The buyer gets housing and detector and no tube, and `ST-1.5`/`ST-3`/`ST-5`/`ST-10` are
+  sized to duct width. **So the pattern-matching premise was wrong and the discipline it
+  imposed &mdash; check the ordering table for the word &quot;required&quot; &mdash; paid
+  anyway.** This file has now said three times that a warning which forces a check is worth
+  giving even when its guess is wrong; this is the first time the guess was the *top-risk*
+  one and still wrong.
+  Also worth keeping: **reseller copy split both ways on this exact question** (one says
+  &quot;Housing&quot;, another &quot;Photoelectric **Head**&quot;), which is precisely why
+  distributor consensus settles nothing.
+  **And the wrong-document-family signature was MEASURED rather than assumed.** No search
+  reached `DN-6821`; every query returned the low-flow `DN-6955` family, where `FSD-751P`
+  occurs 18 times and `FSD-751PL` 18 times &mdash; **every occurrence is inside
+  &quot;PL&quot;**. What found the right document was **a sweep of
+  `notifier-us/hon-ba-fire-dn-<6850..6960>.pdf`, one request per number**, grepping each hit
+  for a standalone `FSD-751R?P(?!L)`. **A numeric EDAM sweep is cheap and it works.**
+- **A supersession disproved in BOTH directions across four documents, with the innocent
+  origin identified &mdash; and the origin is the coexistence trap on a new brand pair.**
+  `SS-FIRE-CO`'s title asserted *&quot;(Replaces SK-FIRE-CO-W)&quot;*. Measured: `SK-FIRE-CO`
+  occurs **0** times in `SPDS-62170` Rev B and **0** in manual `I56-1409-001`; `SS-FIRE-CO`
+  occurs **0** times in the SK-FIRE-CO-W sheet and **0** in `351181`, where `replac`,
+  `supersed` and `discontinu` are each 0 as well.
+  **The origin: `SPDS-62170` says the SS-Series detectors support current &quot;SK,
+  LiteSpeed and SS Protocol&quot; systems &mdash; where `SK` is a PROTOCOL name**, not the
+  sibling part number. That is the Siemens *&quot;may be installed on the same SLC&quot;*
+  failure on a third brand pair, and the two parts really are near-identical four-sensor
+  detectors under different Honeywell brands, which is what makes it plausible. Removed from
+  the title and **not asserted in the body either**, since nothing sourced connects them.
+- **A back-box answer that runs OPPOSITE to the Gentex and System Sensor pattern, and it is
+  manufacturer-stated.** This file records two brands where an appliance's outdoor listing
+  is **conditional on a separately ordered box** (Gentex's GBBB, System Sensor's MWBB). On
+  Siemens the MSM line inverts it: DS 6184 p1 reads ***&quot;Both the weatherproof and
+  explosion-proof models are shipped complete with backbox. (Backbox is optional with other
+  models&hellip;)&quot;*** &mdash; so `MSM-BOX` exists **for the models that lack one**.
+  **Do not carry a back-box convention across brands in either direction.**
+  Two things the agent declined to assert on that part, both right: **&quot;single
+  action&quot; is nowhere in the sheet** (Siemens distinguishes models only by adding
+  *Double Action* to `MSM-KD`), so the copy names the double-action sibling and lets the
+  table speak; and **`NEMA` and `outdoor` each occur zero times**, so no NEMA type was
+  claimed on a part titled weatherproof.
+- **A featured photograph on a series sheet is captioned for ANOTHER model, and a
+  summarising fetch fell for it.** DS 6184's page-1 image is captioned `MSM-INST` and page 2
+  `MSM-KD-WP`; a web summary duly reported that `MSM-K-WP` *&quot;appears to be a
+  double-action model based on the Siemens data sheet&quot;*. That is the page-chrome
+  lifecycle trap's cousin: **the image, not the text, is what misled**, and it is a live
+  mis-assignment trap for any summarising tool on a multi-model sheet.
+- **A live body error inherited from the MANUFACTURER's own website, not written by the
+  store.** `059-007`'s copy said *&quot;1.5 m suction hose&hellip; T-piece
+  **02-1007-25**&hellip;&quot;*. The Xtralis Europe catalogue says **2 m**, red &mdash; and
+  **`buildings.honeywell.com` carries that identical wrong sentence on its own product page
+  while its own product title says 2 m.** So Honeywell contradicts itself and the store
+  inherited it whole. `02-1007-25` occurs **0 times** in both regional catalogues and the
+  bulletin; dropped, and **deliberately not called invented**.
+  **The `DN-62046` inverted proof fired again on the pack count:** neighbours `144-013` and
+  `PIP-018` say *&quot;Pack of 10&quot;* in the same ordering block and `059-007` says
+  nothing, so it is not a multi-pack &mdash; and the title asserts none, so there was
+  nothing to flag.
+- **Two document defects worth the file.** `DN-6821` misprints a metric conversion as
+  *&quot;5.500 in. (**13.970 mm**)&quot;* &mdash; 5.5 in. is 139.70 mm &mdash; while
+  14.375 in. and 2.750 in. on the same line convert correctly, **and it reproduces in both
+  the FSD-751P and FSD-751RP blocks**, which rules out extraction error. Inches only
+  published. And **Siemens DS 2580 contradicts itself on dBA while omitting the part
+  entirely**: prose gives wall-mount SE up to 89 dBA and ceiling 87, the table gives
+  77/79.5/82.5/85/88 for `SE`, `SEC`, `SE-MC-C` and `SE-HMC` &mdash; and **`SE-MC`, the wall
+  multi-candela series, is not in that table at all.** No dBA figure published, and the
+  temperature and humidity note was omitted too because it sits under the same table that
+  excludes the part.
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
