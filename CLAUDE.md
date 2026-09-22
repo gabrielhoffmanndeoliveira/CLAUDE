@@ -5025,6 +5025,58 @@ Revisit after the high-impression band is done.
   **literal space** (`installation%20instructions-p85968a-...`) where the **wall** sheet
   uses a hyphen in the same position &mdash; find the slug, do not build it, for the sixth
   or seventh time.
+- **THE DESCRIPTION FIELD IS CARRYING THE ERP'S OWN STOCK CODES, AND THOSE CODES SAY
+  WHAT THE PRODUCT IS WHERE NO OTHER FIELD DOES.** Found 22 Sep 2026 while asking why the
+  remaining nameless titles are so heavily Kidde Fenwal. The live body of
+  `Kidde Fenwal 0200-260W-CH` is, in its entirety, **`GAUGE-LL_60T-HORZ`**. Its sibling
+  `0200-IT12-260W-CH` is **`GAUGE-LL+4-20MA_60T-HORZ`**. `0354-16-CH` is
+  **`VALVE-BALL_1.00NPT`**; `0800-1-62` is **`CONDENSER-R404A_230V_1P_1HP`**;
+  `1-85-194425-2xx` is **`Nozzle_360_1&quot; NPT Stainless Steel`**.
+  **The mechanism that finds them is an underscore.** No English product description
+  contains one; it is the ERP's own field separator leaking through. **123 of 16,031
+  products, 121 of them Kidde Fenwal, and inspecting all 123 found no false positive.**
+  **The first attempt over-fired at 3,222 and the reason is the usual one.** It tested
+  &quot;all capitals, short, no lowercase word&quot;, which is a *shape*, and it fires on
+  every terse but perfectly correct ERP-derived description in the catalogue
+  (`8 POINT ZONE/RELAY MODULE`, `RELAY MODULE WITH 10 FORM C RELAYS`). Those are English.
+  The underscore is a *mechanism*, and it cut 3,222 to 123 with no loss.
+  **What the 123 turn out to be is the finding.** Liquid-level gauges (67), stainless
+  discharge nozzles in NPT and BSP (20), R404A condensing units (12), relief, ball,
+  solenoid and thermostatic expansion valves (14), 9 kW heating elements, a manway gasket:
+  **the hardware of a Kidde low-pressure CO&#8322; storage unit and its piping.**
+  **93 of the 123 are typed &quot;Fire Alarms&quot;**, every gauge and every nozzle among
+  them. And **97 of the 123 are also on the nameless-title list &mdash; 42% of the 229 that
+  remain** &mdash; so one family accounts for nearly half of that workstream.
+  **Two things make this cheap rather than merely embarrassing.** First, the codes are
+  internally self-consistent and read like a key: `GAUGE-LL` against `GAUGE-LL+DC` against
+  `GAUGE-LL+4-20MA`, where the 4&ndash;20 mA option appears in the catalogue number as an
+  inserted **`IT12`** token; `HORZ` against `VERT`; and a dimension before `T` whose
+  implied decimal moves (`0200-1375W-CH` &rarr; `03.75T`, `0200-2220W-CH` &rarr; `22T`).
+  Second, the twenty nozzles need no decode at all &mdash; their codes are already plain
+  English.
+  **But the code is the store's own data, not a manufacturer document, so reading it is a
+  claim.** This file already decided that case: `34 NPT` &rarr; `3/4 NPT` was left
+  unapplied because a thread size needs a document. An inch dimension and the expansion of
+  `T` and `DC` need the same bar, and an agent is verifying the key against Kidde's own
+  parts list rather than publishing an inference. **A `null` title is the right answer if
+  the key cannot be sourced**, because it tells the owner the fix is a parts list and not
+  more searching.
+  Recorded separately as a data defect: the twenty nozzle SKUs literally end in **`-2xx`**,
+  an ERP wildcard that has leaked into the Shopify SKU field.
+- **The nameless-title queue's sort is now degenerate, and that settles how to batch it.**
+  Of the 229 titles still carrying only `Brand PartNumber`, **every single one has zero
+  six-month impressions and zero ERP revenue** &mdash; the first six batches took
+  everything with any signal at all. So `impressions x 30 + revenue / 50` is a tie across
+  the whole remaining population and cannot order anything.
+  **Sort by brand instead, for the same reason the photo work does**: 199 of the 229 sit in
+  four vendors (Kidde Fenwal 104, Power Sonic 57, Mircom 20, Rath 18), and a route or an
+  ordering-syntax block mapped once pays back across the whole family. Batch 7 came out as
+  twelve Power-Sonic batteries from one datasheet family, which is not a coincidence of the
+  sort so much as the only thing left for it to do.
+  **And it is the photo-queue circularity argument again, one workstream over**: zero
+  impressions is not evidence that these pages do not matter, because **a page with no
+  product name cannot rank for a product name.** The traffic case was always going to be
+  nil by construction.
 
 ## Conventions
 
