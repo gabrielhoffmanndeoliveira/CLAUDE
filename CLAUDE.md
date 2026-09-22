@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,287 enrichment pages published** (555 old list + 720 v2 through v2b46, verified live), plus 214 title-only products — 555 from the old list plus v2b01 through
+**Progress: 1,287 enrichment pages published** (555 old list + 720 v2 through v2b46, verified live), plus 226 title-only products — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -7301,6 +7301,103 @@ Revisit after the high-impression band is done.
   `DN-60979:B` forced this file to stop saying *&quot;`-IV` is a protocol, not a colour&quot;*,
   and the copy now states the finish from the ordering table and the protocol support from the
   device's own row, with neither standing in for the other.
+
+- **A SECOND, DERIVABLE, FIRST-PARTY EDWARDS IMAGE LIBRARY, AND THE RECORDED 4% CEILING WAS
+  MEASURED ON THE WRONG LIBRARY.** This file states the Edwards photo route is ~4%, with a
+  measured ceiling of **8 products**, proved three ways including a 5,740-request brute probe.
+  Every one of those measurements was correct **about the LifeLines/Cloudinary gallery**, and
+  the sentence that recorded them did not say so. There is another:
+  **`https://myeddie.edwardsfiresafety.com/PublicMedia/ProductImages/<SKU>.{png|jpg}`** &mdash;
+  a **derivable per-SKU path**, multi-megabyte masters up to 3783 &times; 5675, honest 404
+  (the documented 1,245-byte `/PublicMedia/` miss). **110 of 198 SKUs resolved first try**, and
+  the lot delivered **84 Edwards photographs against a recorded ceiling of 8**.
+  `/PublicMedia/Images/`, `/Product Images/`, `/ProductImage/` and `/Media/ProductImages/` all
+  404 for a known-good SKU, so `ProductImages` is the only spelling.
+  **The failure was not the measurement, it was the write-up.** This file already says a
+  brand-level zero must name the routes that were tried, because a bare &quot;needs a different
+  route&quot; cannot be audited and never gets re-run. The Edwards note named its evidence in
+  detail and still generalised a *library* result to a *brand* &mdash; the same shape as
+  &quot;Hochiki Europe publishes no per-part images&quot;, which was a statement about one
+  directory while `casestudies/` sat unopened. **Two instances in two days: when recording a
+  negative, name the PATH, and when reading one, ask what it was measured on.**
+  The route reaches **Kidde `E`-prefix Genesis numbers** too (`EG1VWN`, `EG4SVWA`, `EWGSWN`).
+  Probed against the 400 Kidde **Fenwal** placeholder SKUs it returns **2 hits** &mdash; so this
+  file's &quot;zero of the 400 are Edwards/kidde-esfire lineage&quot; is very nearly right and
+  not exactly right, and the two exceptions cost 800 requests to find.
+- **Being derivable, first-party and exactly named is STILL not evidence about what is in the
+  frame: 20 rejections after every mechanical check passed.** On that route, four Edwards
+  module renders carry **another product's catalogue number printed on the label** &mdash;
+  `SIGI-CC1I` and `SIGI-CC2I` both read `CAT. NO. SIGA-MAB / CLASS A/B MODULE`, `SIGI-CRI`
+  reads `CAT. NO. TCDR / TEMPORAL PATTERN GENERATOR`, and **`SIGI-IOI` serves a wildcard
+  mock-up label** reading `CAT. NO. SIGA-Mxx / XXXXXP / YYYYY / COMPATIBILITY I.D. #0.0`.
+  A fifth, `SIGI-CC1SI`, is captioned DUAL INPUT on a single-input SKU. One serialised unit
+  carrying barcode `4800000772` is served for **four** different catalogue numbers.
+  So the ladder is now complete and each rung has failed in the wild: a **filename** can name
+  the wrong product (Power-Sonic), a **structured `modelId`** can be silent about it (STI),
+  Honeywell's own **`sku_list`** can assert the wrong record (`MS-4E`), and now a
+  **path derived from the catalogue number itself** can serve another part. **Nothing short of
+  reading the label or counting a feature in the photograph is sufficient.**
+- **A derivable path can be variant-BLIND on one sub-family and variant-AWARE on another, on
+  one host &mdash; and the boundary is findable mechanically once you have seen one case.**
+  Found by eye (`EG4SVWA` claims ALERT marking and its render shows none), then bounded by
+  probing every hit's lettering and colour siblings and comparing bytes:
+  `EG4SVWA` &equiv; `EG4SVWN` &equiv; `EG4SVWF` &mdash; **one unlettered render standing for
+  ALERT, none and FIRE** &mdash; and `G4SRF` &equiv; `G4SRN`, `G4SWF` &equiv; `G4SWN`,
+  `G4LFVRF` &equiv; `G4LFVRN` &equiv; `EG4SVRF`. But `EGCSVWA`/`EGCSVWN`/`EGCSVWF` are **three
+  distinct files**, and `GCSWN` &ne; `GCSWF`, `G1ARF-E` &ne; `G1ARN-E`.
+  **The sweep over all 110 hits returned exactly the three groups found by eye and no others.**
+  Blanket trust publishes three wrong lettering variants; blanket distrust throws away the whole
+  G1 family. Corroborated by the Kidde ZIP's own human-written filenames, which distinguish
+  `&quot;EG4SVWA - Wall Speaker-Strobe.jpg&quot;` (no ALERT) from
+  `&quot;EGCSVWA - Ceiling Speaker-Strobe ALERT.jpg&quot;`. **Look once, then bound it by
+  probing siblings** &mdash; that converts an anecdote into a measured boundary for a few
+  hundred requests.
+- **dHash at Hamming 0 over-fires on tall narrow objects of identical silhouette, so even the
+  strict setting needs the look pass.** This file recommends stopping at Hamming 0 precisely
+  because &le;10 returns 280 mostly-correct pairs. At **0** it still collided three times here:
+  two SFP transceiver pairs differing only in label text, and **`4-24L18S-E` against
+  `4-24L24S-E`, which are visibly different** &mdash; 18 larger switches against 24 one-per-LED.
+  Hamming 0 proves *identical bytes after re-encoding*, which is a mechanism; it does not prove
+  the products differ, and on a family of near-identical faceplates it does not even prove the
+  images are the same. **The hash narrows the question; only looking answers it.**
+- **A THIRD IDENTIFIER, and for the first time it was the EXISTENCE OF A SIBLING SKU IN THIS
+  STORE &mdash; which stopped a product-class error the documents would have caused.**
+  `PTS-C CABLE` was about to be titled a plug-type sprinkler valve supervisory switch, and every
+  Potter document supports that: catalogue `8900063-AC`'s stock table reads
+  `1010201 | PTS-C | Plug type supervisory switch` and datasheet `5401078 REV J` is headed
+  `PTS-C PLUG TYPE SUPERVISORY SWITCH`. **The store already sells that switch separately**
+  &mdash; confirmed live by the coordinator: SKU `PTS-C`, typed Supervisory Switches,
+  **$279.65**, against this one at SKU `PTS-C CABLE`, typed Cables, **$78.30**.
+  This file's recorded rule is *&quot;a third identifier is what breaks a two-field tie&quot;*,
+  written where a SKU and a title disagreed. **Here the manufacturer's documents and the
+  store's own fields disagreed**, and the tie-breaker was neither: it was **another product in
+  the same catalogue at a different price**. The generalisation is cheap and new:
+  **before titling a part from its manufacturer document, ask whether the store already sells
+  that exact thing under another SKU. If it does, the one you are holding is something else.**
+  One Shopify query.
+  The bounded negative that came with it is the good kind, because it converts research into a
+  purchase order: **no Potter document catalogues a PTS-C cable at all.** The word
+  &quot;cable&quot; appears **zero times** in the 36-page catalogue, and the two datasheets each
+  name exactly three stock numbers (`1010201` switch, `5490344` tamper screws, `5250062` hex
+  key) and no cable &mdash; the `DN-62046` inverted proof, Potter numbering replacement stock
+  when it means to. The 8 ft / 18 Ga figures describe the cable **as supplied on the switch**
+  and were deliberately kept out of the title. A price list settles it; another search will not.
+- **An index FILENAME produced a false negative on the one document that settles two parts.**
+  Mircom's document index files `LT-674` as `LT-674_QMT-5300_and_QZT-5301_...`, so grepping the
+  index for `QZT-5302` returns **zero hits** &mdash; while the document's own **title page reads
+  &quot;QMT-5300A, QMT-5302 and QZT-5302&quot;**. This file already records the JCI-hub rule to
+  grep the `filename` field rather than the title; this is that rule's failure mode, and the
+  remedy is the same one recorded for accessories: **grep the served document's text, not the
+  index entry.**
+- **The Power-Sonic model number matched NEITHER rate on a third series, and one 5 Ah gap sits
+  between two stocked SKUs.** Measured with the arithmetic check (stated discharge current
+  &times; hours must equal stated capacity): `PS-12550` is **56.6 Ah at 20 hr / 55.0 at 10 hr**
+  and `PS-12750` is **80.0 / 75.0**, so on both the number is the **10-hour** figure;
+  `PS-1238` is **4.0 / 3.72** and matches neither. `PS-445` is a **4 VOLT** battery whose title
+  carried no voltage at all while its four lot-mates are 12 V. **Every title now states the rate
+  and, where they differ, both rates** &mdash; without it these are not comparable claims.
+  Also settled from the terminal renders: **`F1` is the 0.187 in. Faston and `F2` the 0.250 in.**,
+  which is a real difference between two connectors a buyer cannot interchange.
 
 ## Conventions
 
