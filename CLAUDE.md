@@ -136,8 +136,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,121 pages published** — 555 from the old list plus v2b01 through
-v2b31, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,145 pages published** — 555 from the old list plus v2b01 through
+v2b32, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -3698,6 +3698,46 @@ Revisit after the high-impression band is done.
   belongs in the closing paragraph next to the sibling parts, because it is the thing
   the buyer gets wrong &mdash; and it is the `4099-9015` / `A49CMT-APPLW` incomplete-
   product trap with a quantity attached.
+
+- **Thirteenth coordinator premise wrong, and this one would have published a candela
+  setting that does not exist.** The v2b32 briefing told an agent the Siemens SL2
+  ceiling set was **15/30/75/95 cd**. Siemens Data Sheet 2600 gives
+  **15, 30, 75, 110, 150 and 177 cd** on a six-position slide adjuster, and **there is
+  no 95 cd setting on the series at all.** Note where the wrong number came from: 95 cd
+  **is** a real ceiling setting &mdash; on the System Sensor L-Series. This is the
+  `ELSTWC-ALA` cross-brand adjacent-row trap operating one level up, **inside the
+  coordinator's own briefing** rather than inside a live page. Same mechanism, same
+  brand pair, second instance.
+- **A supersession claim disproved in BOTH directions, which is stronger than a bounded
+  negative.** The live `HFPT-11` title carried *&quot;(Replaced by OH921)&quot;*. The
+  agent searched both HFPT-11 documents for `OH921`, `HI921`, `replac`, `supersed` and
+  `discontinu` &mdash; **zero hits** &mdash; and then searched Siemens' own **OH921**
+  installation document for `HFPT` &mdash; **zero hits**. Every previous supersession
+  disproof on this project searched the *claimed predecessor's* documents only, which
+  leaves open that the successor's sheet states it. Checking the other side costs one
+  fetch and closes that gap. This file already records the same claim being wrong once
+  before, from the Siemens coexistence sentence; it is now wrong in both directions.
+  Claim moved to the body with the class difference stated: **OH921 is multi-criteria
+  smoke, HFPT-11 senses heat alone, and the heat-only 921 is `HI921`.**
+- **A FOURTH rate-compensation part, found by an agent that was not told to look for
+  one.** `HFPT-11` is rate compensated at 135 &deg;F &mdash; stated in its own document
+  &mdash; and **neither the title nor the live copy said so**, both reading as a plain
+  thermal detector. The Thermotech 302 family was the first line found this way, and
+  that was a title-level correction across five SKUs. **So the three-class taxonomy is
+  not a Thermotech quirk**: it spans at least two brands and a second panel ecosystem,
+  and any briefing that offers an agent only &quot;fixed or rate-of-rise&quot; is
+  pushing it toward a wrong answer on a field that is otherwise invisible.
+- **Two agents in one batch converged on the same sibling separator from opposite ends,
+  and the earlier of them had already been published.** Agent 1 corrected `1505-AQN5`'s
+  title from *&quot;Semi-Flush&quot;* to flush wall mount; agent 2, working `1504-AQN5`
+  independently, found the same Kidde document and established that **the pair differs
+  by catch plate length alone** &mdash; 2-5/8 in. against 1-5/8 in., render-quantified
+  &mdash; which is also why the 1504 alone takes the long `CS2598-5` armature where the
+  1501, 1502, 1505, 1508 and 1509 take the short `CS2595-5`. Checked live after both
+  published: the two titles agree and neither asserts a mount style the other denies.
+  **Pair-splitting paid for the fourth time**, and it is worth noting the failure this
+  avoided: had only one agent seen the pair, &quot;Semi-Flush&quot; would have been
+  corrected on one page and left standing on its sibling.
 
 ## Conventions
 
