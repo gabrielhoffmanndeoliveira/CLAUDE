@@ -1720,16 +1720,67 @@ Revisit after the high-impression band is done.
   briefing*; this shows the rule is too narrow. **Never type an id anywhere &mdash;
   briefing, query, mutation or note. Read it from the file, every time, even when the
   file is open and the id feels familiar.** The cost of reading it is one command.
-- **A live page can describe a different product entirely, and the tell is that the part
-  number appears nowhere in its own body.** `A050-9101`'s 481-character page describes a
-  **2050FS** panel &mdash; 50 MX devices, 4x40 LCD, IP-DACT &mdash; and never names
-  `A050-9101` at all. That is the third instance of this shape in three batches, after
-  `4-NET-SM` (titled a dialer, actually an SFP transceiver) and `PAD200-DD` (copy lifted
-  from the complete unit's feature list). **It is worth a mechanical scan**: a published
-  or unpublished description whose body never contains its own SKU or a recognisable
-  form of it. Unlike the keyword scans this file warns about, that is a mechanism &mdash;
-  a page that cannot name its own product is at minimum a real question &mdash; and it
-  should be run before the next batch rather than discovered one product at a time.
+- **A proposed scan died on its own worked example, before it was built. Worth keeping
+  because the reasoning failed in the way this file warns about, one paragraph after
+  citing that warning.** The coordinator saw that `A050-9101`'s page described a
+  &quot;**2050FS**&quot; panel and never named `A050-9101`, called it a third instance of
+  the wrong-product shape after `4-NET-SM` and `PAD200-DD`, and proposed a catalogue-wide
+  scan for **descriptions whose body never contains their own SKU**.
+  **`A050-9101` IS the 2050FS.** Autocall `AC4098-0060` Rev. 4, 05/2025, Table 1, read
+  directly by the coordinator after the agent contradicted the briefing: *&quot;A050-9101
+  | Red | 2050FS FACU with 4 x 40 LCD display, single MX addressable initiating loop with
+  50 devices maximum and 2 conventional NAC circuits | 175 mA | 215 mA&quot;*. The
+  catalogue number appears **once** in its own datasheet and `2050FS` appears **23
+  times**, because the ordering number and the marketing model name are different strings
+  and the datasheet is written around the latter. The live copy was substantively right.
+  **So the scan is a shape, not a mechanism, and would have over-fired exactly as every
+  keyword scan on this catalogue has.** &quot;The body does not contain the SKU&quot;
+  fires on every page correctly written around a model name &mdash; which is most panel,
+  appliance and series pages in the store. Sharpening it to &quot;the body names a
+  *different* model number&quot; does not save it either: this page names 2050FS and is
+  correct. What separates `4-NET-SM` from `A050-9101` is whether the named thing **is the
+  same product**, and no scan can know that. **Do not build it.**
+  The two real cases stand on their own and were both found by an agent reading the page
+  against the ordering table, which is the method this file already records as the one
+  that works for cross-references.
+- **EDAM has a SECOND datasheets root, and a document declared gone may simply be in the
+  other tree.** The System Sensor 5600 series is not under the known
+  `content/dam/hon/hbt-fire/en-us/products/literature-and-specs/datasheets/` &mdash;
+  `5600.pdf`, `5624.pdf` and `A05-1004.pdf` all return the 8,047-byte fingerprint there.
+  It lives under **`content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/`**
+  as `5600-Series_DataSheet_SPDS3001.pdf`. **Try the second root before concluding a
+  Honeywell document has been dropped** &mdash; this file already records `DN-7045` as
+  &quot;dropped entirely&quot;, and that conclusion was reached without it.
+  (`SPDS300.pdf` in the same directory is byte-for-byte the same text as `SPDS3001.pdf`:
+  two filenames, one document, not two revisions.)
+- **The Kidde literature API's category names are enumerable, which removes its one silent
+  failure.** A wrong `categoryName` returns the top-level nav in `Markup` with `Content`
+  **empty** rather than an error, so a bare category looks identical to a typo. The fix:
+  any request returns that nav, and `re.findall(r'>([^<>]+)</a>', Markup)` yields the 20
+  real names. Note SuperDuct sits under &quot;Intelligent Initiating Devices&quot; and
+  &quot;Conventional Initiating Devices&quot; &mdash; **not** under any name containing
+  &quot;Duct&quot;. Also: `myeddie.edwardsfiresafety.com/**PrivateMedia**/Catalog Sheets/`
+  serves real PDFs too, so `/PublicMedia/` is not the only live path and only `/Media/` is
+  poisoned.
+- **&quot;Check the other regional edition&quot; runs in both directions.** Last batch
+  `PIP-018` was documented in the Xtralis **Europe** catalogue and absent from the
+  Americas sheet; this batch `E700-SP-DCL-PNT` is in the **Americas** sheet
+  (`xtralis.com/file/623`, Doc. 17748_12, June 2024) and absent from Europe. Neither
+  edition is the superset, so a miss in one is not a negative until the other is checked.
+  And a second **positive** pack count from that source: *&quot;50 per roll&quot;* is
+  manufacturer-stated verbatim for `E700-SP-DCL-PNT` &mdash; it is **not** currently in
+  the title, so unlike the Honeywell cases this is a claim the owner could now add rather
+  than one resting on convention. The colour &quot;White&quot; in the live body has no
+  basis: the only stated label colours are red and grey, and the &quot;ABS white
+  colour&quot; phrase in the EOL notice attaches to the sampling point, not the label.
+- **A spec that belongs to the parent, not the accessory, and differs by parent family.**
+  Duct air velocity is a property of the **detector**, not of the sampling tube: 100 to
+  4,000 ft/min for SuperDuct and Optica but **300 to 4,000 ft/min for the KI-SDH
+  housing**. A tube page serves several families, so one velocity figure on it would be
+  wrong for one of them. This inverts the recorded rule that *accessory specs often live
+  in the parent's data sheet* &mdash; they do, and that is exactly why they may not be
+  the accessory's specs at all. Check whether the figure varies across the parents the
+  accessory fits before carrying it over.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
