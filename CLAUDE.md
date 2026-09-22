@@ -1968,6 +1968,29 @@ Revisit after the high-impression band is done.
   flush unit does not use. **Distributor consensus split rather than failing together
   here**, one saying Semi-Flush and another Flush Mount, which is the first time in five
   instances that they disagreed with each other.
+- **The Eaton route's intermittency is PER CONNECTION, not per host per day, and the
+  evidence is two processes disagreeing within the same hour.** On 22 Sep a v2b23 agent
+  pulled `TD450157EN` **first try**, 519,514 bytes, mime-clean, from
+  `www.eaton.com/content/dam/eaton/products/safety-security-emergency-communications/lsmns/eluxa/eaton-eluxa-horn-strobe-and-strobe-clear-and-amber-data-sheet-td450157en-us.pdf`
+  &mdash; while the coordinator, using **that same URL** in the same hour, got
+  `RemoteDisconnected` **50 times in a row** across two files, and `curl` failed to
+  connect at all. Same host, same path, same proxy, opposite outcomes.
+  **Two consequences.** First, this file's advice to &quot;keep hammering&quot; is right
+  but has a limit: 25 attempts per file is enough to establish that *this* process is not
+  getting through, and the next move is to have a different one fetch it, not to keep
+  going. Second, **distinguish the failure modes before diagnosing** &mdash; the agent
+  separately burned 25 attempts on clean **HTTP 404s** from a wrong slug, which is a
+  *connected* failure and reads nothing like `RemoteDisconnected`. A 404 means find the
+  slug; a disconnect means try another route or another process.
+  Also recorded from that success: **the working slug puts the document number lowercase
+  and at the end**, so it cannot be built from `TD450157EN`.
+  **And one verification is still owed.** The `ELSTWC-ALA` copy published in v2b22 cites
+  Note 5 of installation sheet `P85756F`. It rests on one agent reading it, quoting it
+  verbatim, confirming its placement on a 170 dpi render, and re-checking the surrounding
+  word counts when challenged &mdash; but **the coordinator has not read it directly**, and
+  the attempt failed on the route above. The published sentence is deliberately weaker
+  than the finding (it states the prohibition and that no document states the complement),
+  so the exposure is small. **Re-check `P85756F` when the Eaton route next answers.**
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
