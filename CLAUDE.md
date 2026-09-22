@@ -17,7 +17,25 @@ stop between batches to ask permission, and do not sit idle waiting.** When a
 batch of research agents is running, use that time to prepare the next slice,
 run audits, or apply queued fixes. Report findings as they land; do not pause
 for approval to continue. The owner restated this on 22 Sep 2026 as
-**&quot;segue sempre&quot;** &mdash; keep going, always.
+**&quot;segue sempre&quot;** &mdash; keep going, always &mdash; and **said it again
+later the same day, unprompted, after six batches had already run**. Treat it as a
+standing order that does not expire and does not need re-confirming: **never end a turn
+asking whether to continue.**
+
+**What it looks like in practice, measured on the day it was restated.** Six batches
+(v2b20&ndash;v2b25), 108 products sliced, 90 published, four live title corrections
+outside any batch, a catalogue-wide verification sweep, 29 rows consolidated into the
+owner's decision file, and the Google Ads target changed and its baseline frozen. The
+shape that made that possible is **three research agents always in flight while the
+coordinator does something else** &mdash; validating the previous batch, running a sweep,
+fetching a document to check an agent's strongest claim, or writing up what the last
+batch proved. **Idle coordinator time is the only waste in this loop**, because the
+agents are the long pole and nothing the coordinator does is on their critical path.
+
+**One thing the owner does NOT want interrupted for: findings.** Report them as they
+land, in the same turn as the work. The exception in the next paragraph &mdash; structured
+data that feeds Merchant Center &mdash; is a *flag*, not a *pause*: write it to
+`DECISOES_DO_DONO.csv` and keep going.
 
 ### How &quot;continuously&quot; actually works, and the one way it breaks
 
