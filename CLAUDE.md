@@ -107,8 +107,8 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,091 pages published** — 555 from the old list plus v2b01 through
-v2b29, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 1,097 pages published** — 555 from the old list plus v2b01 through
+v2b29 and six of the eighteen in v2b30, plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
 catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
 `FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
@@ -3048,6 +3048,53 @@ Revisit after the high-impression band is done.
   since the harvest fails silently or lands nowhere. All **643** rows across the four photo
   CSVs were checked against the live handle list: **zero invalid**. That costs one pass
   over a file already on disk and it protects an import the owner runs by hand.
+- **A voltage in a live title that the manufacturer does not make, and the mechanism is a
+  typo in ONE line of ONE revision that every distributor copied.** `90215A-801-06-L`
+  ($2,657) was titled *&quot;Distributed Audio (25/70/**200V**)&quot;*. HyperSpike's
+  Installation and Mounting Manual `98030A-MAN-TCPA10 Rev G`, **downloaded and read
+  directly by the coordinator**, says *&quot;five field-selectable power taps that run off
+  of **25 V, 70 V, and 100 VRMS** audio systems&quot;* &mdash; and the string `200` appears
+  **zero times in its fourteen pages**. In spec sheet `TCPA-10 SS Rev. F` it appears
+  **exactly once**, in the model-syntax line, against **five** places saying 100 V: the Key
+  Features bullet, the A&amp;E paragraph, the tap-table column headings and the sound-output
+  table, whose own columns read *Watts @ 25V / @ 70V / @ 100V*.
+  **This is the stale-figure rule with a new origin.** The recorded cases are prose carried
+  over from a superseded revision (Eaton's 87 dB) and an A&amp;E paragraph quoting the wrong
+  row (Gentex's amber current). Here it is **one field of a model-number syntax block**,
+  which is the very thing this file elsewhere calls the best decoder there is. A syntax
+  block decodes reliably and is not thereby immune to a typo &mdash; **cross-check its
+  fields against the spec tables like any other prose.** The same title also carried an
+  orphan word **&quot;ohm&quot; with no number**; it is 8 ohm, stated in the syntax block
+  and the A&amp;E paragraph together.
+- **The same batch produced a fourth signal for prefer-the-table, and it is the strongest
+  shape yet: the stale side matches a DIFFERENT MODEL's sheet.** Potter `8830197 Rev C`
+  gives the PAD200-PCD sensitivity as **1.1&ndash;3.5 %/ft (3.6&ndash;11 %/m)** in its table
+  and **1.0 to 3.7 %/foot** in its Description paragraph and a Features bullet. Three things
+  side with the table and none is &quot;tables beat prose&quot;: its metric conversion is
+  coherent (1.1 %/ft = 3.6 %/m, where 1.0 %/ft would be 3.28); the sibling `PAD200-PCHD`
+  sheet at the **same revision and date** carries the identical table value; and **the prose
+  figure is word-for-word the value on the `PAD200-PD` sheet**, where it appears in both
+  prose *and* table. So the prose was pasted from another product's document. **When a
+  document contradicts itself, check whether the losing figure is correct somewhere else**
+  &mdash; that identifies the mechanism and settles it.
+- **Two more route corrections, both narrowing rules this file states too confidently.**
+  Potter's working path is **`pottersignal.com/product/datasheet/<docnum>_<MODEL>.pdf`**,
+  not the `<docnum>-<REV>-<MODEL>_DATASHEET.pdf` form recorded last batch &mdash; and the
+  whole category is enumerable from `.../addressable-fire-alarm-system/smoke-detector`,
+  **30 datasheet paths in one fetch**, which beats guessing either form. Also: the reseller
+  spelling `PAD200-PHCD` is wrong; Potter publishes **`PAD200-PCHD`**. And the Eaton
+  `urllib`-plus-Safari-UA route worked **first try on every file** in this session's agent
+  while failing for another process in the same hour &mdash; per-connection intermittency
+  confirmed a third time.
+- **`EL4XBB-R`: the wall-versus-ceiling question was the wrong question, and the live title
+  was right.** `TD450188EN` (July 2025) lists it as *&quot;NEMA 4X SURFACE BACKBOX,
+  RED&quot;* with **no orientation in the row**, and the install sheets say all Eluxa 4X/3R
+  models are listed for wall *or* ceiling. **The real distinction on this line is surface
+  against flush** &mdash; `EL4XBB` gives Type 4X/IP66, `EL3RMP` gives Type 3R/IP54 &mdash;
+  so **the accessory sets the NEMA rating, not the appliance.** Nothing like the
+  `ELSPKBB-R` case. And the incomplete-product trap ran **backwards**: Eaton states the
+  outdoor appliances *include* a mounting accessory from the factory, so a separately
+  bought back box is a spare or a pre-wire box, not a missing piece.
 - **Verification sweep at batch 25 (1,004 pages, 22 Sep 2026): clean for the fourth
   time running, and the non-ASCII title count is now FALLING.** All 1,004 tracked ids
   present in the active catalogue, **zero missing**. Exactly **four** pages under 400
