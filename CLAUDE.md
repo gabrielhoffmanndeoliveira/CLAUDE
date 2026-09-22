@@ -77,12 +77,14 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 932 pages published** — 555 from the old list plus v2b01 through
-v2b21, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
+**Progress: 950 pages published** — 555 from the old list plus v2b01 through
+v2b22, plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
-catalogue-wide. **The revenue frontier is exhausted at v2b22**: all 170 of the
-`FRONTEIRA_receita.json` products are sliced, and v2b22 is the first batch to
-top up from `ranked_v2_byscore.json` again (8 frontier plus 10 by score). One product,
+catalogue-wide. **The revenue frontier is exhausted**: all 170 of the
+`FRONTEIRA_receita.json` products are published, v2b22 was the transitional batch
+(8 frontier plus 10 by score) and **v2b23 is the first drawn entirely from
+`ranked_v2_byscore.json` again** &mdash; 19,975 impressions and $885,277 in one slice,
+which is a better batch on both axes than most of the frontier run. One product,
 `SM7100-L8`, was deliberately skipped as unverifiable rather than written from
 reseller data; the deliberate-skip list is now `SM7100-L8`, `90521`, `BDA-NMP01250`
 and `BDA-TP10-L2`, all four blocked by a host or a login rather than by absent
@@ -1781,6 +1783,45 @@ Revisit after the high-impression band is done.
   in the parent's data sheet* &mdash; they do, and that is exactly why they may not be
   the accessory's specs at all. Check whether the figure varies across the parents the
   accessory fits before carrying it over.
+- **A cross-BRAND adjacent-row trap: a live page asserted a candela value its
+  manufacturer does not make.** `ELSTWC-ALA` claimed **15/30/75/95/150/177 cd**. Eaton's
+  ceiling set is 15/30/75/**110**/150/177, consistent in five places in `TD450157EN`.
+  **95 cd is not an Eluxa setting at all, wall or ceiling &mdash; it is a System Sensor
+  L-Series ceiling setting.** Every previous instance of this trap in this file is a row
+  copied from a *sibling* or an *adjacent row in the same table*; this one crossed a
+  vendor boundary, which no amount of reading Eaton documents would have caught. It was
+  found by checking the one number that looked out of pattern.
+  **A precision worth keeping about where such errors live.** Both this and the bogus
+  &quot;S3000&quot; on `4-24L24S` sat in the description `<h2>`, **not** in the Shopify
+  `title` field, which was clean in both cases. Titles are Merchant Center feed
+  attributes and descriptions are not, so an error in the body costs one channel and an
+  error in the title costs two. **Say which field a defect is in before sizing it** &mdash;
+  the coordinator briefed both as title defects and both were not.
+- **Amber lens is a listing class, not a colour option, and it is now proven on two
+  brands.** Note 5 of Eaton ceiling installation sheet `P85756F`, word for word in the
+  wall sheet `P85750D`: *&quot;Amber strobes are not to be used as a Visual Public Mode
+  alarm notification appliance.&quot;* Last batch System Sensor documented its amber
+  ALERT models as **private mode**, UL 1638 rather than UL 1971. Two manufacturers, same
+  idea, so treat an amber lens as a class question every time.
+  **Three things about how that one was handled are the reusable part.** (1) The note is
+  item 5 of a **sheet-level `NOTES:` list**, not a footnote on a table row &mdash;
+  confirmed by render &mdash; so it is a class statement; but the class it names is
+  &quot;amber strobes&quot;, and `TD450157EN` Table 4 assigns **Strobe Color: Amber** to
+  this part by name. That is what distinguishes it from the `SD365T-IV` series-block trap,
+  where the family statement named no property that could be assigned to the member.
+  (2) **The complement is not documented.** &quot;Private&quot; appears **zero times** in
+  all three Eaton documents. The agent's first draft wrote *&quot;so this is private mode
+  signalling&quot;* and, challenged, traced it to a **web-search snippet about the ELSA
+  speaker-strobe line** &mdash; a different product family. Wrong document family for the
+  eighth time, and the first caused by an agent inside its own copy. The published
+  sentence now states the prohibition and adds that neither document says what amber may
+  be used for instead. (3) **The sheet grants the amber model the same UL 1638/1971/ULC
+  listing line as the clear one and then forbids the public-mode use**, which is odd and
+  unresolved; the copy reports the listing as a family line and the prohibition as the
+  part-level fact.
+  **The general rule this sharpens: when a restriction is found, look for its complement
+  before writing the sentence.** A prohibition without a permitted use is hard to phrase
+  without inventing one.
 - **Identical third-party listing files prove a single manufacturer.** The MR-relay
   brand tangle &mdash; one family under four store vendors &mdash; was settled not by
   any website's claim but by APC's and Space Age's documents citing the **same** UL
