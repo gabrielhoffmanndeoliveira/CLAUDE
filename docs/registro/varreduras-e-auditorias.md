@@ -521,3 +521,13 @@
   - WHES24-75WR: $139.00 vs $82.80
   - FN-PS776: $664.70 vs $417.30
 - All 32 pairs were written to `DECISOES_DO_DONO.csv`: which listing to keep is the owner's call (duplicate listings are an open ask).
+
+### m01 (23 Sep 2026): 11 mechanical title fixes from the truncation queue, no agent needed (owner's usage-budget rule)
+
+- **Scope:** of the 290 still in `FILA_titulos.json`, 177 are flagged "truncated". Scanning them for a *mechanism* found:
+  - 8 with a dangling end (`, 1`, an open `(… +`, `(… &`, or `(Availability Limited to Quantity on Hand, See`, which is also a stock claim the house style bans);
+  - 3 with a repeated SKU.
+- **Prefix cuts (9)** to the last complete phrase: the new title is a literal prefix of the old, the SKU is still present, and parentheses balance. The nine: four ARIES MLX control units, 06-220197-001, 06-129882-001, 06-231866-696, 06-231867-615 and Space Age DA-003.
+- **Brand+SKU dedup (2):** HON-AOR-5-DKL-ETL-R and HON-AOR-CSE-NM-1RO-ETL ("Honeywell SKU Honeywell Area of Refuge SKU …" → "Honeywell SKU Area of Refuge …"), under the 75+6 dedup precedent.
+- Every live title was confirmed identical to the snapshot before applying; all 11 returned `userErrors: []`.
+- **Most of the "truncated" 177 are not mechanically fixable:** the title simply runs to ~150 characters and ends plausibly. Those need an agent, or no action.
