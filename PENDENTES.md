@@ -4313,3 +4313,70 @@ Rollback nos `titulo_*_rollback.csv`, se precisar.
 **Ainda em aberto do §62**: os ~11 titulos truncados na origem, o `Moen 8884`
 com dois part numbers, 6 SharkBite com `- ()` vazio, 5 Viega com `Press Press`,
 `Sloan 3335149` que e so codigo, e os `seo.title` truncados no meio da frase.
+
+## §69 — Sugestao de "sale price" do Merchant Center: nao aplicar; e produto nao se julga sozinho
+
+Arquivo do Gabriel: *Sale price suggestions with highest performance impact*,
+Merchant Center, 23/09/2026, filtro Effectiveness = High. **496 produtos**,
+desconto sugerido de 16% a 20% (mediana 18%). Resideo lidera (58).
+
+### Por que nao aplicar os precos sugeridos
+
+Contribuicao por unidade, com markup 50% e ~3% de cartao
+(`= 0,97(1-d) - 0,6667`, em fracao do preco original):
+
+| Desconto | Contribuicao | Queda |
+|---|---|---|
+| 0% | 30,3% | — |
+| 18% | 12,9% | -58% |
+| 20% | 10,9% | -64% |
+
+- A 18% off, precisa vender **2,36x** so para empatar, antes de anuncio.
+- **ROAS de equilibrio sobe de 3,30 para ~6,4.** Shopping pago roda 3,4–4,3:
+  toda venda paga a esse preco da prejuizo.
+- **Desconto maximo para o anuncio ainda empatar com ROAS ~3,85: ~6%.**
+- **Quebra a regua de frete gratis**: λ ≤ 0,0337 foi derivada com margem 0,303.
+  A 18% off, item no limite da regua custa $0,185 de frete por dolar vendido
+  contra $0,157 de margem — prejuizo em qualquer carrinho com frete gratis.
+
+O modelo do Google maximiza clique e conversao; nao conhece a margem da loja.
+**O valor do arquivo e outro: e um mapa de onde a THS esta acima do mercado.**
+Proximo passo, se quiser: amostra de ~20 contra os concorrentes liberados.
+
+"Click uplift 1,30" lido como **+130%**, nao 1,3x — ha valores de 0,44, e
+0,44x significaria perder clique ao baixar preco.
+
+### Cruzamento com o gasto por produto do Google Ads (Windsor, 24/08–22/09)
+
+13.386 linhas, lidas 100% em disco. Gasto total $3.252,84 em **9.491 produtos**.
+
+- Os 496 da lista **todos** tiveram impressao; consumiram $1.167,96 (36%).
+- 487 com zero conversao ($1.029,13) — **mas o grupo tem ROAS 5,99**, porque 9
+  produtos trouxeram $6.999,73. Tirar a lista inteira do pago jogaria fora os 9.
+
+### Produto individual NAO se julga em 30 dias nesta conta
+
+- **~120 cliques por conversao** na conta (5.299 cliques, 44 conv, CPC $0,61).
+- Para zero conversao deixar de ser azar (p < 5%): **~359 cliques**.
+- **Nenhum dos 9.491 produtos chegou nem a 180.**
+- Gasto medio: **~$0,34 por produto por mes.** A campanha espalha verba demais
+  para aprender qualquer coisa por produto.
+
+**Regra**: nao excluir produto do pago por "zero conversao" nesta conta sem
+antes checar se ele passou de ~3x os cliques por conversao da conta. Julgar por
+**grupo** (marca, linha, tipo).
+
+### O sinal que existe e em grupo — Navien
+
+| Navien | Gasto 30d | Conv | Valor |
+|---|---|---|---|
+| NHW | $65,22 | 2 | $4.470,00 |
+| **Outros (NPN, NPE...)** | **$269,88** | 2 | **$132,50** |
+
+80% do gasto de Navien vai para os modelos que nao vendem, ROAS 0,49 contra ~68
+no NHW. Confirma com numero do mes o que o CLAUDE.md ja dizia ("o lance esta no
+NPE-240A2; quem vende e o NHW-SU"). Os tres primeiros da lista do Merchant
+(NPN-160U, NPE-150S2, NPN-180E) sao desse grupo.
+
+**Acao proposta**: tirar Navien nao-NHW do Shopping pago ou baixar prioridade;
+~$270/mes que hoje retornam $132. Pendente do Gabriel.
