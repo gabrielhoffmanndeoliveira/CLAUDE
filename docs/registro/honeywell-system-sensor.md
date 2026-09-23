@@ -494,3 +494,5 @@
   family &mdash; `AVDS871-02` p1 puts amber-lens ALERT strobes *and speaker strobes* under
   **ANSI/UL 1638 general signalling**, with candela published as **switch settings**. Same
   conclusion, sourced from the right generation.
+
+- **`SCWLED-BP10` (v2b52):** M23.2SS p2 REPLACES row `SCWLED | LED STROBE; CEILING; WHITE; FIRE; 2-WIRE | SCWL` (coordinator-verified) &mdash; supersession into the title. The live body's &quot;Replaces SCWL-BP10&quot; overreached: the bulletin names SCWL only. Three more `-BP10` negatives (M23.2SS, AVDS916-01 10/03/2023, I56-0022-000 8/25/2023), each with the bezel-pack-of-5 known-good control: the Honeywell pack rule holds for LED strobes. The briefing premise that the title asserted a pack was wrong &mdash; only the SKU and body did.

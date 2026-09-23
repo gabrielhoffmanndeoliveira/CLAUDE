@@ -269,3 +269,5 @@
   &mdash; so neither artefact is reliable by type: **check whether the sitemap is current before
   treating its absence as evidence.** One document, `TS_Series-Product-Data-Sheet.pdf`, settles
   three of the four TCS products.
+
+- **Westell `CS05-488-429` (v2b52):** product page links `support.westell.com/documents/IBW-CS05-Series-PSG-DC-DS.pdf` (footer dated `-07092024`; bogus = 1,245 B 404). Ordering row (coordinator-verified): `5 dB | N (f) | CS05-488-429 | ClearLink-DC5/340-2.7K/N` &mdash; the digits are catalogue numbering, the band is the sheet's 340&ndash;2700 MHz. **Fingerprint drift:** `westell.com/products/<bogus>` now 200 at 42,310 B (recorded 302 at ~40,567). The data sheet makes `CS05-416-429` the 5 dB 4.3-10 coupler while a westell.com page title says 6 dB &mdash; unresolved. Type BDA on the CS05 family flagged.

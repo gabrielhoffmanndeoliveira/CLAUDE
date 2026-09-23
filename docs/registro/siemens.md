@@ -237,3 +237,5 @@
   precedent &mdash; the earlier measurement may have been on a different article shape, and
   saying so honestly is what lets the next person test it properly.
 
+
+- **`PAD5-6A` (v2b52):** Data Sheet 3364 (A6V11231624) Rev. 4, Sep 2025, from `cache.industry.siemens.com/dl/files/869/109790869/att_1047634/v3/A6V11231624.pdf`. Kit = PAB-ENCL black 1HU enclosure + PAD-5-MB with one adapter plate + FP2011-U1 170 W &mdash; complete, not the `FC901-U3` shape; batteries not in the kit list. The sheet contradicts itself on 1HU battery capacity (18 vs 35 Ah) and 6.5 vs 6 A &mdash; neither battery figure published. Type Kits flagged.
