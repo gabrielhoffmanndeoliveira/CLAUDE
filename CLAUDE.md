@@ -48,6 +48,8 @@ whether to continue.**
 desacelerar um pouco&quot;.** One research agent at a time until the owner changes it.
 The standing order still holds inside that cap.
 
+**Usage budget (owner, 23 Sep 2026): &quot;temos q cuidar com o weekly all models&quot;.** One full day of work (12 agent lots + coordination) consumed ~24% of the weekly all-models limit. Pace to **~10–12% per day** (about 6–8 agent lots/day) until the weekly reset (Tuesday 19:00). Prefer title lots (~150–165k tokens) over enrichment lots (~220–260k); fix mechanically, without an agent, any title whose correction decides nothing; keep spot-checks to the strongest claim and reports short. Using a cheaper model for agents requires the owner&#39;s explicit approval.
+
 **Direction change (owner, 23 Sep 2026): enrichment is PAUSED after v2b52.** &quot;vamos
 pausar tudo entao e focar na auditoria de titulos e dados estruturados&quot;. No new
 `v2bNN` slices. The work is now the title and structured-data audit: mechanism scans on
