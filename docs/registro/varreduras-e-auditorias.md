@@ -573,3 +573,11 @@
   - **robots.txt checked live:** 200 on the apex host (also with a Googlebot UA); www and http 301 to it. The Ahrefs error is presumably on a subdomain (the project covers all subdomains), so not urgent.
   - Warnings: 17,551 "links to redirect", 5,879 short meta descriptions, 3,444 titles too long.
 - **Ahrefs organic traffic, weekly:** 1,911 (31 Aug) → 2,054 → 2,198 → **2,371 (21 Sep, the highest since June)**. Traffic value $2.2k → $2.6k/month. Contaminated as evidence (see the measurement rules), but no alarm.
+- **Applied on owner order (23 Sep): 6 products set to DRAFT via aliased productUpdate, `userErrors: []`.**
+  - VSP-1017-HON ($0.10) and VSP-1017-NTF ($9.55): drafted until the ERP price is fixed.
+  - The 4 SKU duplicates: in each pair the copy is the July 2026 import whose **SKU ends in a trailing space** (the same mechanism as the U+00A0 twins). That copy was drafted and the clean-SKU listing kept:
+    - PRETROFIT: kept $72.60 (Jan 2025, 2 in stock); drafted $82.70.
+    - PSOLAR: kept $44.00 (Jan 2025); drafted $38.15.
+    - 1-06-118537-001: kept $1,720.80; drafted $1,998.85.
+    - 1-B7482-201: kept $3,738.35; drafted $4,830.35.
+  - **The kept prices are the owner's to confirm.**
