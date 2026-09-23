@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,323 enrichment pages published** (555 old list + 756 v2 through v2b49, verified live), plus 249 title-only products — 555 from the old list plus v2b01 through
+**Progress: 1,329 enrichment pages published** (555 old list + 762 v2 through v2b50 half B, verified live), plus 249 title-only products — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -8345,6 +8345,19 @@ Revisit after the high-impression band is done.
   intermittency, and this process lost every draw. The 25 rows stand as delivered and
   **unverified from here**, which the owner has been told; the recorded remedy is a different
   process, and that is now bounded by the owner's three-agent cap rather than by the host.
+
+- **Half a batch published on its own, and it is the right shape for a planned stop.** The
+  owner asked to slow to one agent and to name a pause point while three were in flight.
+  v2b50's agent 2 had already written its output, so those six were validated and published
+  immediately rather than held for their batch-mates &mdash; six aliased mutations, zero
+  `userErrors`. **A batch is a scheduling unit, not a publishing unit**, and treating it as
+  atomic would have left verified work sitting in a file across a session boundary for no
+  reason. The other half's slice stays on disk and re-runs from `a1_in.json` unchanged.
+  **Worth noting as drift rather than a defect:** all six ran **1,135&ndash;1,229 visible
+  characters** against the house range of 700&ndash;1,100, passing only on the 1,230 hard
+  ceiling. The validator accepts it and the copy is sound, but a whole batch sitting against
+  the ceiling means the soft range has stopped binding &mdash; the same shape as the recorded
+  bullet-count drift, and worth a briefing sentence rather than a rewrite.
 
 ## Conventions
 
