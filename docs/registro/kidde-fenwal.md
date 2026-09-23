@@ -68,3 +68,5 @@
   Also: `assetfile/<id>.pdf` serves real PDFs but carries **no `content-disposition`**, so an id
   sweep yields anonymous files with no attribution &mdash; the Kidde-Fenwal problem, no route to
   evidence.
+
+- **ModuLaser electronics are catalogued by Kidde-Fenwal, not by Edwards, and the vendor string is a product line (v2b51).** `9-30783-KID-ULF` sits in `K-76-1500 Rev AD` (effective July 2026), reached as `kiddefenwal.com/?wpdmdl=3120` (713,101 B, `application/pdf`; a bogus `?wpdmdl=` returns 47 B `text/plain`). Ordering row verbatim: *&quot;9-30783-KID-ULF ModuLaser Detector Module (FM/UL/ULC compliant)&quot;*, with `-KID-EN` the EN 54-20 twin and the display modules (`-30780` Minimum, `-30781` Standard, `-30782` Command) separate catalogue numbers. **So the Edwards route in `edwards-kidde.md` fits only the RedPipe/RP fittings sold as ModuLaser; for the electronics go to the Kidde-Fenwal wpdmpro index.** Vendor `Modulaser` flagged. Store titles for `-30780`/`-30781` call both &quot;Control Display Module&quot;; the document distinguishes a colour TFT Standard module from an LEDs-only Minimum module.

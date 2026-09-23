@@ -195,3 +195,6 @@
   REPLACES table with no document number. This is the third shape &mdash; a dated sales letter on
   letterhead &mdash; and it means **&quot;absent from both data sheets&quot; bounds the data
   sheets, not the catalogue.**
+
+- **Commander 5 (GS/GHS/GWS) names no UL 1971 listing, where Commander 2/3/4 do (v2b51).** Data sheet `CDOC-300501 Rev 001` (3/2/2026) and manual `550-0788` list the GS strobes to ANSI/UL 1638; the string `1971` occurs zero times in both, whitespace-normalised. Published as a bounded fact with an AHJ caveat, not as &quot;not UL 1971&quot;. **`GSR` means red FACEPLATE in the data sheet (904-0627-002) and red LENS in the manual** &mdash; one code, two meanings inside one product line. Store `GSPR` (904-1455-002) is titled &quot;Speaker Only&quot; and is a plain red GS strobe per the data sheet; queued in `pending_fixes.md`.
+- **The Gentex `C` title now carries the series-level supersession only** (&quot;Replaces CO1209 Series&quot;), matching `CR`; the ordering-row CO bullet (word x=268.8, render-confirmed) shows no relay on `C`. The store's `CO1209`/`CO1209F` titles still assert one-for-one mappings no retrievable Gentex document makes; queued.

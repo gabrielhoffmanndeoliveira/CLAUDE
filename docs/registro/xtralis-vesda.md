@@ -155,3 +155,5 @@
   **The display fact went in the body and deliberately NOT the title**, because Xtralis writes
   &quot;(No Relays)&quot; and never writes &quot;no display&quot; &mdash; so asserting the
   absence in a feed attribute would go further than the manufacturer does.
+
+- **`VP-ELB-45` pack count is manufacturer-stated: 10 per box (v2b51).** Doc `17748_12` (`xtralis.com/file/623`, June 2024) ordering row *&quot;VP-ELB-45 45&deg; Elbow - &frac34;&quot;, 10 per box*&quot;*, confirmed by the coordinator. Title count unchanged, recorded in the owner's file as documented. UL 1887 / V-0 / 0&ndash;200 &deg;F are range-level statements about the pipe-and-fittings package; the live body's &quot;Socket to Socket&quot; was unsourced and dropped.

@@ -144,3 +144,5 @@
   known-good control every time.** Useful tell: the bogus control prints *&quot;of 0
   Results&quot;* in words, which is worth grepping for rather than comparing sizes.
 
+
+- **`SLE-ANTEXT30` settled from first-party sheet A745 (v2b51).** `napcosecurity.com/media/pdfs/A745-SLE-ANTEX-Sheet10-30-24.pdf` (359,963 B): the digits are cable length (*&quot;SLE-ANTEXT30 As above, with 30&apos; cable&quot;*), 695&ndash;3000 MHz, 50 W, Type N. **The sheet contradicts itself on VSWR** (prose &quot;1:5:1&quot;, spec block both &lt;1.5:1 and &lt;2.0:1) &mdash; none published. Distributor copy (10 W, stainless radiators, SMA adaptor) is an older generation. Tag index: **underscore form `SLE_ANTEXT30` returned 348,719 B with 2 results; hyphen form 343,343 B, 0 results, against a bogus control at 343,340** &mdash; fourth measurement, the separator still has no fixed answer. `downloadfile/id/<n>` is a 340,811 B login shell; a bogus id 404s at 389,249 B. Store types `SLE-ANTEXT50`/`75` as Cellular Communicators while 30/04/100 are Antennas; flagged.

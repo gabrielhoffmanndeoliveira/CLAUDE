@@ -372,3 +372,5 @@
   conditional-headline rule for the fifth or sixth time, and note the shape here is neither the
   reverberant/anechoic split (Eaton) nor a settings-dependent value (E2S) &mdash; **it is one
   device measured under two standards, and the page-1 number is neither of them exactly.**
+
+- **`4903-9148` is in `S4903-0016-5` (5/2014, index filename `4903-0016.pdf`), zero times in `4903-0015` (v2b51).** Found through the JCI index `prodname`/`product_code`. Its candela cells hold **glyph-less vector check marks**: the only reading is x-position against the column edges (120.4 / 163.9 / 207.4 / 250.9), render-confirmed at 250 dpi &mdash; 30 cd. &quot;TrueAlert&quot; appears in the index `prodname` and zero times in the served sheet. **The borrowed-dimension warning recorded for `S4903-0019-5` did not apply here**: 7-1/4 &times; 5 in. is this wall appliance's genuine housing row. A warning is about a document, not a series.
