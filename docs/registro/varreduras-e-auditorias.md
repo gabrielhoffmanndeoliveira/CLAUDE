@@ -531,3 +531,4 @@
 - **Brand+SKU dedup (2):** HON-AOR-5-DKL-ETL-R and HON-AOR-CSE-NM-1RO-ETL ("Honeywell SKU Honeywell Area of Refuge SKU …" → "Honeywell SKU Area of Refuge …"), under the 75+6 dedup precedent.
 - Every live title was confirmed identical to the snapshot before applying; all 11 returned `userErrors: []`.
 - **Most of the "truncated" 177 are not mechanically fixable:** the title simply runs to ~150 characters and ends plausibly. Those need an agent, or no action.
+- m01 (cont.): 2 more prefix cuts: 84-330001-001 (dropped the trailing sentence 'Includes Label Options (KIDDE-FIRE') and 439D-8AW-R (dropped '(with 449 Outdoor'). Kept for an agent rather than cut, because a prefix cut would lose a real fact: 85-220032-001 (ECS 500 Novec listing), 76-600000-200 (back box required).
