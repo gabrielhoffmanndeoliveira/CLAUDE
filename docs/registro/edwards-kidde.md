@@ -789,3 +789,10 @@
 - e09 (23 Sep):
   - **SIGI-271** is a **break-glass call point**, not a pull station. Its only listing is LPCB EN 54-11:2001 + A1 2005; the sheet names no UL listing (flagged, as with the Apollo I.S. items). The ordering row reads "Intelligent Call Point - English Markings". Source: E85001-0349 Issue 2.0 (04-03-23), built from the number and title found in a mirror's metadata on myeddie `/PublicMedia/`; the unprefixed name and the bogus control each gave 1,245 B. The SIGI line is absent from the LifeLines index. Standby current is 250 µA in the 2013 issue and 260 µA in Issue 2.0.
   - **FX-5RD** (K85005-0126 Issue 2.5, 07-18-25, Kidde API category "Small Building Life Safety Solutions"): D = factory DACT. The FX line is Kidde-only, so the E/K rule does not apply. The live title had dropped "5".
+- **t08 (23 Sep): 74347U is RED. This corrects the e08 note above.**
+  - K85001-0628, E85001-0628, K85001-1056 p6, K85001-1030/1031, the quick reference cards (e.g. "74347U Red Weatherproof Box for CS405") and the submittal guides all say red.
+  - **The "Gray" on K85001-0305 p4 is the 449 row carried over from E85001-0305 with only the number swapped**: a row inherited across imprints.
+  - **Second trap:** the WG4 accessory tables in three submittal guides print "74347U (white) | 449 (red)", copying the column layout of the surface-skirt row above. K85005_0134 contradicts itself between p39 and p46.
+  - **Photo trap:** myeddie `ProductImages/74347U.jpg` returns 200 (288 px), but it is a grayscale photo captioned "449".
+  - **Route:** `GetCategoryNavigation` across all 19 nav categories gives 160 PDFs; one grep over them found 74347U in 11 documents.
+  - Lesson for the coordinator: one colour word on one sheet was queued as a defect without looking for a second document. Queue with a count of documents, not a single reading.

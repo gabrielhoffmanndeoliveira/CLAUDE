@@ -237,3 +237,8 @@
   index entry.**
 
 - **FX-4003-12N is chassis-at-panel-price again (audit t02):** CAT-9209 Rev. 10 (Apr 2026) p1 caption *&quot;Display, Backbox and Door are sold separately&quot;* (coordinator-verified); all three required parts are stocked, so the title now says so.
+
+### t08 (23 Sep 2026): MIX-M502MAP
+
+- CAT-5950 Rev. 2 p2: "MIX-M502MAP Zone Interface Module"; "Add suffix A for ULC listed model". It supervises two-wire 24 V smoke detectors on Style D (Class A) or Style B (Class B). **"White", "Universal" and "NO devices" in the old title are unsourced**; the BB-400W white row is a separate back box, not the module colour. The coordinator removed ", UL" from the proposed title (a listing asserted in a title is an owner flag). The family's productType disagrees (Monitor Modules vs Modules), and MIX-M502MA's $28.00 price looks off against $107.55 / $207.05 (flagged).
+- **Store API `search=` gives false negatives:** it returned 0 for M502, for the known-good M500MAP and for a bogus term alike. `wp/v2/product?search=` is honest (known-good 1, bogus 0), and the "MIX-M500 Series" record lists UL/ULC pairs.

@@ -472,3 +472,4 @@
   - The PDF also carries UL fire sheet D190-00-201-IS-UL Issue A, with per-tap UL 1480 dB(A).
   - The filename/header mismatch recurs: `D190-01-201-IS_Issue_5` is really D190-00-201-IS.
   - productType is empty on this product and on the siblings D2XL1FV725CN1A1R and D1XL2FV725CN1A1R (flagged).
+- t08 (23 Sep), **Aiphone DA-4DS:** the store's run-on title was Aiphone's own product-page sentence. `aiphone.com/wp-json/wp/v2/search?search=` is honest (bogus 0, known-good IX-DV 10). The DA-2/4DS installation manual FK0954 is an image-only 2002 scan, so render it.
