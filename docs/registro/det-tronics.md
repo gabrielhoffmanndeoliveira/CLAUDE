@@ -25,3 +25,9 @@
   The live body's *&quot;part of the Det-Tronics **Eagle Quantum**&quot;* was corrected to Eagle
   Quantum **Premier**, every occurrence being in Premier literature.
 
+
+### t09 (23 Sep 2026)
+
+- **EQ2175PS / EQ2130PS (000604-015 / -014):** EQP manual 95-8533 Rev 25.0 (Aug 2025): ordering p.95, specs p.103. These are Eagle Quantum Premier power supply/battery chargers, 75 A / 30 A at 24 VDC. **The 60 Hz models are 120/208/240 VAC; "220/240" is only the 50 Hz EQ2176PS (000604-036).** The store titles' "120/208/220" was wrong and has been fixed.
+- **004000-903 "W867C3001-R":** W867 is Det-Tronics' own UV/IR flame detector test lamp (manual `95-8309-5.1_W867.pdf`, 004000-003 = W867C3001 120 VAC). **004000-903 and the -R suffix are in no document** (SKU flagged). `/legacy-products/` is a first-party lifecycle table (ROS = repair only, OBS = obsolete, factory replacement); it lists W867A/B/C as obsolete, replaced by W867C3004 (the store sells it as 004000-006; lifecycle flagged).
+- **Search endpoints:** site search `?s=` echoes the query and does not discriminate; `wp/v2/pages?search=` does (bogus returns []). The WP media search matches titles only.
