@@ -491,3 +491,5 @@
   warning is what stopped it**, and the check that settled it was counting product rows rather
   than occurrences of the string.
 
+
+- **A UPC can be the third identifier (audit t03):** where an ordering table has no colour column, a manufacturer SKU page whose UPC embeds the table's order code ties the row to the SKU independently (Eaton 3941 &harr; 786697039416).
