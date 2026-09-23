@@ -251,3 +251,10 @@
 ### e06 (23 Sep 2026): MSI-B6F
 
 - Data Sheet 6188 Rev. 3 (Apr 2023, `/go/A6V10238839`, resolved first try), p2: "MSI-B6F 500-895301 Single-Action Addressable Manual Fire-Alarm Box", for FireFinder XLS and MXL. The $1,173 price is not a special variant: the dual-action MSI-20B sibling is $1,124. MS-FB (surface box), MS-FD (double-action adapter, "Supplied Separately") and MS-NY (NYC plate) are separate parts and none is stocked. A bogus A6V redirects (303) to `/r/deeplink/unresolved`, which works as the control.
+
+### e07 (23 Sep 2026): ADBH-11
+
+- Installation Instructions 315-033210-7 (A6V10239111) p3, rendered at 250 dpi: takes HFP-11, HFPT-11 and HFPO-11 (SFP-11 series in Canada), for FireFinder-XLS plus FS-250/FS-250C. The sounder runs on a separate 17–31 VDC supply or NAC and draws 0 A in supervisory. Data Sheet 6305 (A6V10238850, Apr 2012) agrees on the detectors. **Conflicts:**
+  - Alarm current: 6180 Rev. 4 (Jul 2023, A6V10238832) gives 37 mA, the installation sheet 24 mA. The 24 equals the ADB-11/ADBX-11 figure, possibly a sibling template figure (not proven), so no current was published.
+  - Sound level: 6305 gives 85 dB at 10 ft; the installation sheet gives 78 dB minimum with no distance. Both were published, each labelled with its source.
+- The reseller claim "ADBH-11 replaced by ADBX-11" is unsourced and wrong in kind: the ADBX-11 takes FP-series detectors on MXL. 6180 Rev. 4 (2023) still lists the ADBH-11.

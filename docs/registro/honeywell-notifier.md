@@ -479,3 +479,7 @@
 
 - DN-2243:B Product Line Information: "NOTE: 'A' suffix indicates ULC Listed model … ISO-XA: Isolator Module. Canadian (ULC) version." The A marks a listing variant, not a generation. Per the listing-class rule it went into the title ("Canadian ULC Listed Version"). It was also flagged to the owner in case "regulatory approvals in titles" is read as covering ULC.
 - The text layer reads **"450 A"** standby; a 300 dpi render shows **450 µA**. This is the symbol trap, settled by the render. The same text is served byte-different at `buildings.honeywell.com/content/dam/hbtbt/en/documents/downloads/hon-ba-iso-x-sa.pdf`. A 2005 edition on `techcommft.blob.core.windows.net` has different panel and CSFM lists; only rev B was used.
+
+### e07 (23 Sep 2026): DR-AA4
+
+- DN-6857:C2 (6/19/2012) p1: "DR-AA4: Door assembly, window, one tier (no battery compartment), BLACK, 9.8 lbs." **The live title omitted "with Window"**, which is what separates it from DR-AA4B (solid door). It is served at `datasheets/notifier-us/hon-ba-fire-dn-6857.pdf` and at `datasheets/hbt-fire-DN-6857.pdf`: same revision, different bytes. The DR-AA page's schema carries a `discontinued-products` tag and `data-discontinued-countries="id"` (Indonesia): page chrome, flagged low.
