@@ -493,3 +493,7 @@
 
 
 - **A UPC can be the third identifier (audit t03):** where an ordering table has no colour column, a manufacturer SKU page whose UPC embeds the table's order code ties the row to the SKU independently (Eaton 3941 &harr; 786697039416).
+
+### e03 (23 Sep 2026): one document contradicting itself on a listing
+
+- K85001-1021 states both "UL 1971 indoor ceiling-mounted" and "listed wall or ceiling". Under the self-contradiction rule the agent looked for a mechanism, found none, and published the narrower claim (ceiling). It did not publish neither: the narrower claim is contained in both readings. That is the right move whenever one reading is a subset of the other.
