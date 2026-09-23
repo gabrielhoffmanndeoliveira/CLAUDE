@@ -718,3 +718,5 @@
   *filenames* name the wrong product on three brands; here the wrong product is inside the
   manufacturer's own PDF, where there is no filename to disagree with. **The photo pipeline's
   look pass applies to datasheet-extracted images too.**
+
+- **Import reconciliation, 23 Sep 2026 (live bulk pull of featuredMedia):** of 1,743 delivered handles, **1,684 now show a real photo; 59 still show a placeholder.** 25 Eaton (`lote10b`) and 6 Westell (`lote9b`) failed because those hosts block Shopify's fetcher (same blocks this environment hits) &mdash; they need a bytes-upload path, not a URL import. **28 Siemens rows from `lote7` were the 28 warnings of the main import:** `mall.industry.siemens.com/mall/collaterals/...i.jpg` answers 200 to curl here but Shopify's fetch failed, and the files are **300&times;300** &mdash; below the 600 px subject floor adopted after that lot, so they are **retired, not retried**. A delivered lot is only done when a live pull says so. Catalogue-wide placeholders: 6,203 of 16,031.
