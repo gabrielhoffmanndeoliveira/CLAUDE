@@ -136,3 +136,5 @@
   volts and not watts, model-attributed: `MS-10UD-7E (FLPS-7 Power Supply): 240 VAC, 50 HZ, 2.20
   amps`. Defect field: **Shopify `title`**, so two channels.
 
+
+- **BG-12 family separated from `DF-52004:A1` plus three installation sheets (v2b51).** BG-12S single action, pigtails, hex lock; BG-12SL the same with key lock; BG-12/BG-12L dual action, screw terminals; BG-12LO outdoor, no box; BG-12LX addressable dual action (`DF-52013:D`). **Document defect:** DF-52004 reads *&quot;BG-12SL: Same as BG-12 with key lock&quot;* while BG-12 is dual action and `I56-2269-004` makes BG-12SL single action &mdash; the installation sheet wins. The Features list (terminal strip, push-in/pull-down) is series-wide and describes the dual-action models; not imported. Trim ring spelled `BG12TR` in datasheets and `BG-TR` in the install sheet, so not named. Routes: `DF_52004.pdf` (underscore) resolves again; installation sheets resolve at `.../installation-guides/I56-xxxx-xxx.pdf?download=false`. A web summary invented pigtail wiring steps that are not in `I56-2263-005`.

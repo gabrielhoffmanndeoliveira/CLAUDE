@@ -439,3 +439,5 @@
   Fifth umbrella vendor string hiding another manufacturer's namespace, after `SF-`/Space Age,
   `Fireray`/Edwards, `Universal`/Neomounts and `Federal Signal`/E2S. Flagged; vendor is a feed
   attribute.
+
+- **Altronix `AL1002ULADA` matches its own numeral where the 602 did not (v2b51).** `DS_AL1002ULADA` Rev. 06222023: 10 A total, 2.5 A per output, UL 864 only (1481/294/603 zero times, as on the 602). Installation guide Rev. 062320 states the contents: *&quot;power supply, red enclosure, cam lock, and battery leads&quot;* plus an ALEOL2K2 resistor. The datasheet and product page disagree on weight (9.8 against 12 lb), BTU/hr (49 against 31) and humidity, so none was published. **New trap: `altronix.com/products/<bogus>` answers HTTP 200 by serving `/products/index` (870,502 B)** &mdash; a redirect that drops the path; test whether the page contains the SKU. Library 404 still 13,828 B. `ADA` still undecoded.

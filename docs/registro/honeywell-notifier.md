@@ -467,3 +467,6 @@
   serve **413,140 and 412,612 bytes with different MD5s and the same revision `:C2`** &mdash;
   the `DN-6935` shape, not the `DN-61092` two-revision shape. **Check the header line, never the
   hash or the filename.**
+
+- **`FHS` is listed with FPJ and RPJ-1 in `DN-60332:A1` (Canadian FT-300/ONYX sheet), while `DN-60779:C` (NFC-FFT) names only FHS-F (v2b51).** Honeywell's product page carries `&quot;sku&quot;: &quot;FHS,FHS-F&quot;` as one product naming NFC-FFT and ECC-FFT, so that claim is kept and attributed to Honeywell. The two sheets disagree on handset cabinet capacity (five against six), none published. `DN-60332` sits on EDAM as `hbt-fire-473kcn-brg-datasheet.pdf` &mdash; no document number in the slug, found only by search. `securityandfire.honeywell.com/notifier/...` 301s to the brand home page (a path-dropping redirect). The store sells FPJ under vendor Gamewell-FCI; flagged, not researched.
+- **`DCOIL` refined (v2b51):** the D2 needs the coil **unconditionally** for RTS151/RTS151KEY remote test (`A05-0421-002`, `I56-0469`), while DNR/DNRW need it (plus auxiliary 24 VDC) only on housings dated **0012 or earlier** (`350085` Rev J, `DN-60429:C2`). DH400/DH500 take a different part, `COIL`.

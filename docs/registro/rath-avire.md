@@ -108,3 +108,5 @@
   carries the only first-party sentence naming the bare part &mdash; *&quot;If purchasing the
   8100-V4G without an AVIRE SIM, a separate Verizon Voice and Data SIM card will need to be
   obtained.&quot;* No supersession is stated in four documents.
+
+- **A submaster is not a standalone system (`2500-96XB`, v2b51).** The 2023 RC sheet: *&quot;Command Center and Sub-Master Stations are powered from the Distribution Module&quot;*, and the main unit's *&quot;System Includes Phone &amp; Distribution Module&quot;*. The Rev Sep 25 and 9.4.2026 sheets disagree on off-hook voltage, loop current and on-hook range (the newer gives &quot;20 mA typical&quot; outside its own 22&ndash;29 mA range); only agreed figures published. **The 9.4.2026 ordering table drops the 28, 76 and 96-zone rows without saying why** &mdash; flagged as lifecycle, not asserted. **The Avire media search matches FILENAMES only**: `96XB`, which appears only inside documents, returns `[]` (2 B) exactly like a bogus term, so carry a known-good term (`2500`).
