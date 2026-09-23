@@ -38,7 +38,7 @@
   product-id block**, which points at a specific import rather than gradual drift.
   Check titles for non-ASCII after any bulk import, and remember titles are Merchant
   Center feed attributes &mdash; a mangled part number costs money in both channels.
-- **A generalisation that survives one test still needs its boundary found.** The
+- [CORRIGIDO — na revisão 2022 (`DS6592AA-0622`) os modelos 220 °F têm UL 50 ft; ver neste arquivo &quot;decayed in the document itself&quot;] **A generalisation that survives one test still needs its boundary found.** The
   Protectowire rule "listed spacing is a function of temperature, not jacket" was
   derived on the XLT jacket, tested again on EPC, and **breaks at 220 &deg;F** &mdash;
   PHSC-220-EPC and -220-XCR have **no UL spacing at all** and FM 25 ft. Max ambient is

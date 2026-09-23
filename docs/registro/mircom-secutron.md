@@ -8,7 +8,7 @@
   candidate rows**: `T12-DG`/`T32-DG`/`T48-DG`/`T90-DG` are **one byte-identical family
   photo published under four different filenames**, and `IGB1B` &equiv; `IAVHORN` are two
   **unrelated** products sharing one image. Without it those ship looking perfect.
-- **Reading the label paid on parts where the riskiest token was the one confirmed.**
+- [CORRIGIDO — `QAA-5415-70/25` não existe; são dois modelos; ver neste arquivo &quot;QAA-5415-70/25 DOES NOT EXIST&quot;] **Reading the label paid on parts where the riskiest token was the one confirmed.**
   Secutron `FH-400-LF-*` badges read **`MGC 520 Hz`** &mdash; **520 Hz confirms the `-LF`
   low-frequency suffix on the product itself**, which is the highest-risk token in those
   SKUs. `RAM-1032TZDS` and `RAX-1048TZDS` were settled by **counting windows on an

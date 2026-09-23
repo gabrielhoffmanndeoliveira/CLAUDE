@@ -10,7 +10,7 @@
   inconsistent** (its table says the PAM-4 has an LED; APC's says it does not). An
   agent had a correction drafted off that mirror and killed it after reading APC's own
   sheet.
-- **The `-IV` suffix encodes a PROTOCOL, not a colour, and it is a Honeywell-wide
+- [CORRIGIDO — `-IV` é cor E protocolo; ver honeywell-notifier.md, &quot;-IV IS BOTH A PROTOCOL AND A COLOUR&quot;] **The `-IV` suffix encodes a PROTOCOL, not a colour, and it is a Honeywell-wide
   convention rather than a Gamewell quirk. Measured: 52 SKUs, and not one names a
   protocol in its title.** Confirmed independently on a second brand the batch after
   Gamewell: Fire-Lite `DF-61011:C` prints *&quot;NOTE: '-IV' suffix indicates CLIP and
@@ -30,7 +30,7 @@
   protocol in the ordering block** rather than rewriting 51 titles from a pattern. This
   project's own history is unambiguous that a pattern is a reason to check and never a
   licence to rewrite.
-- **The `-IV` protocol finding was confirmed a second time inside the same batch, by a
+- [CORRIGIDO — `-IV` é cor E protocolo; ver honeywell-notifier.md, &quot;-IV IS BOTH A PROTOCOL AND A COLOUR&quot;] **The `-IV` protocol finding was confirmed a second time inside the same batch, by a
   different agent on a different product line.** Agent 2 had `H365R-IV` and agent 3
   `SD365T-IV`; both found the note independently, and `DF-61010:C`'s ordering block
   carries it in the same words as `DF-61011:C` &mdash; *&quot;'-IV' suffix indicates

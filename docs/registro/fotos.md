@@ -168,7 +168,7 @@
   prefix (`STI-`, `KIT-`) and decorations (`-red`, `-1`, `-600x600`, `(2)`) before
   comparing, **testing every stripping level** so a genuine suffix like `KIT-18015-9` is not
   eaten.
-- **The Edwards photo route is ~4%, not the ~75% this coordinator briefed, and the
+- [CORRIGIDO — o teto de 4% vale só para a galeria LifeLines; `/PublicMedia/ProductImages/<SKU>` entregou 84; ver neste arquivo &quot;A SECOND, DERIVABLE, FIRST-PARTY EDWARDS IMAGE LIBRARY&quot;] **The Edwards photo route is ~4%, not the ~75% this coordinator briefed, and the
   &quot;403-vs-404 tell&quot; does not exist.** Measured three ways that agree: the whole
   LifeLines image library is **254 assets in 14 Cloudinary folders**, it overlaps the 206
   Edwards placeholder products by **8**, and a brute probe of 202 SKUs &times; 14 folders

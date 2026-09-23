@@ -6,7 +6,7 @@
   `fireprotection.gentex.com/files/PLACE-Series1.pdf` and `PL1K-Series1.pdf` both
   404. PLACE lives on `placehomesolutions.com`, which is Gentex-operated (Zeeland MI
   footer, Gentex `551-` document numbering) and therefore first-party.
-- **Gentex serves datasheets directly** from `fireprotection.gentex.com/files/<Model>-Series<n>.pdf`,
+- [CORRIGIDO — caminho construído falha por família; use `fireprotection.gentex.com/resources`; ver neste arquivo] **Gentex serves datasheets directly** from `fireprotection.gentex.com/files/<Model>-Series<n>.pdf`,
   with no bot protection. Beware though: one Gentex revision has a **blank Part Number
   column** while another populates it, so confirm the catalogue number on the revision
   you actually have.

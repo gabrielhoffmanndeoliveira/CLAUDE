@@ -6,7 +6,7 @@
   data sheet; Notifier `DN-7070` (the NFS2-3030 sheet) carries dimensions and capacity
   for BB-100, BB-200, NFS-LBB and BB-UZC together. Check the parent panel before
   concluding an accessory is undocumented.
-- **EDAM has dropped some Notifier documents entirely.** `DN-7045` 404s under both
+- [CORRIGIDO — `DN-7045` resolve em `notifier-us/hon-ba-fire-dn-7045.pdf`; ver honeywell-system-sensor.md] **EDAM has dropped some Notifier documents entirely.** `DN-7045` 404s under both
   `notifier-us/` and the flat datasheets directory. `honeywellbuildings.in` is a
   Honeywell-operated regional site that still serves them &mdash; first-party, but
   older revisions, so cross-check against a current datasheet before using it.
@@ -49,7 +49,7 @@
   **treat any &quot;display&quot;, &quot;annunciator&quot; or &quot;interface&quot;
   wording on a panel-family part as a class question until the ordering table settles
   it.**
-- **The boundary is now proved on a single page, which is as clean as this gets.**
+- [CORRIGIDO — baterias também; ver neste arquivo &quot;BATTERIES are a third category&quot;] **The boundary is now proved on a single page, which is as clean as this gets.**
   Notifier `DN-62046:C` lists the 951 self-test detectors in its Product Line
   Information block with **no `-BP` variant of any kind**, and immediately beneath, in
   the Intelligent Bases sub-block on the same page, states

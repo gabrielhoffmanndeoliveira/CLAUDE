@@ -92,7 +92,7 @@
   Reel&quot;* is Honeywell catalogue-feed wording repeated verbatim by every distributor:
   correlated repetition, not evidence. Dropped from the title and flagged &mdash; a price
   list or a purchase order settles it, not another search.
-- **Fiplex is a genuine zero, and that is a finding rather than a failure.** The route
+- [CORRIGIDO — Amerex rendeu 408 fotos e Kidde Fenwal foi re-testado (1,25%); ver fotos.md] **Fiplex is a genuine zero, and that is a finding rather than a failure.** The route
   reaches the brand perfectly (723 English records); **Honeywell publishes no per-part
   photography for the line at all.** The complete asset pool reachable by all 224 SKUs is
   **thirteen images**, every one a family or cabinet shot. So Fiplex joins Kidde Fenwal and

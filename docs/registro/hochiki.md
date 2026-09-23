@@ -27,7 +27,7 @@
   **The converse also held, which is why both checks are needed:** MD5 called
   `0500-06180` unique and only looking caught that the unit in the photograph is **white**
   where the SKU's own sibling naming fixes the trailing letter as **red**.
-- **A brand can be two companies, and the coverage number is meaningless until you split
+- [CORRIGIDO — `hochikieurope.com/casestudies/` tem renders por peça; ver neste arquivo &quot;SIXTH TIME&quot;] **A brand can be two companies, and the coverage number is meaningless until you split
   them.** Of 798 Hochiki SKUs, **369 are Hochiki *Europe* part numbers** (`1226370-00`
   shape), and **Hochiki Europe publishes no per-part images at all** &mdash;
   `hochikieurope.com/images/products/` is keyed by *range* (`esp-intelligent-`,

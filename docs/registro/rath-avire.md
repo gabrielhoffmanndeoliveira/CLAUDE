@@ -27,7 +27,7 @@
   recovered by reading `robots.txt`, the sitemap, the raw markup or the REST API rather
   than the rendered page. **When a brand's site is a JS shell or unreachable, go at the
   CMS** &mdash; and check whether the brand still exists under its own name.
-- **A brand can vanish from its own current documents, which is a vendor-field signal
+- [CORRIGIDO — não generaliza para a linha, e grep não prova rebranding (logo é imagem); ver neste arquivo] **A brand can vanish from its own current documents, which is a vendor-field signal
   stronger than a rebrand notice.** This file records Avire datasheets headed *&quot;RATH
   by AVIRE&quot;*. On `3300FSN` the two **current** sheets are Avire-branded and the string
   **`RATH` appears zero times in either**. So the transitional heading is gone on this line

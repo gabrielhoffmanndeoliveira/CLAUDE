@@ -32,7 +32,7 @@
   give PDC-12400 as &quot;40Ah&quot;, and **the same page that does calls `PDC-122000`
   214 Ah where the manufacturer says 215.0** &mdash; wrong on a sibling in the same
   breath. Eighth instance.
-- **The `cdn.power-sonic.com` zero-byte trap is worse than recorded: it returns HTTP 200
+- [CORRIGIDO — com nome encontrado o CDN serve PDF real; só nome inventado dá 0 bytes; ver neste arquivo &quot;zero-byte question is SETTLED&quot;] **The `cdn.power-sonic.com` zero-byte trap is worse than recorded: it returns HTTP 200
   and 0 bytes for parts that genuinely exist**, not only for misses. So it is not a
   404-in-disguise &mdash; **it serves nothing for anything**, and a &quot;hit&quot; there
   means nothing in either direction. The byte guard is mandatory. Also measured: the

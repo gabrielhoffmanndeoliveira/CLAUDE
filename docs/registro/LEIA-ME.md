@@ -58,3 +58,9 @@ passe o caminho para os agentes.
 | `pipeline-operacao.md` | texto operacional antigo da seção do pipeline (fila, arquivos, estilo) | 17 |
 | `negocio-ads-medicao.md` | Ads, Merchant Center, ERP, demanda, coleções, fila, medição | 16 |
 | `ordem-permanente.md` | ordem permanente, convenções e status do repositório (texto original) | 3 |
+
+## Marcas de correção
+
+19 entradas antigas cujas regras foram derrubadas depois começam com `[CORRIGIDO — …]`,
+apontando para a entrada que as corrige. A marcação não é exaustiva: em caso de dúvida,
+vale a entrada mais recente e, acima dela, o núcleo em `/CLAUDE.md`.

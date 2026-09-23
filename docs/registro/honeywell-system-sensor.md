@@ -117,7 +117,7 @@
   actually stands for is still unsourced across six documents** and is recorded as a
   bounded negative, not guessed &mdash; the functional difference is documented, the
   letter is not, and those are different claims.
-- **The pack count IS manufacturer-stated &mdash; in a document nobody had opened.
+- [CORRIGIDO — preferir `9021-` só depois de grep confirmar que a ficha contém a peça; falhou 3 vezes; ver neste arquivo &quot;prefer the `9021-`&quot;] **The pack count IS manufacturer-stated &mdash; in a document nobody had opened.
   Four searches across two batches concluded &quot;unsourceable&quot; and all four were
   bounded wrong.** System Sensor document **`9021-62013:C`, 9/25/2020** (L-Series Low Frequency)
   carries, in its Ordering Information block, the footnote
@@ -145,7 +145,7 @@
   between an old revision and a new one** &mdash; which makes the rule stronger, not
   weaker: it is not that System Sensor added carton quantities over time, it is that
   one family states them and the other does not. Scope and per-SKU basis in `/tmp/tfas/PACKCOUNT_decisao.csv`.
-- **The pack-count negative is now a rule with a boundary: Honeywell states bulk packs
+- [CORRIGIDO — baterias também têm quantidade declarada, e a regra vale só para Honeywell; ver honeywell-notifier.md &quot;BATTERIES are a third&quot; e xtralis-vesda.md] **The pack-count negative is now a rule with a boundary: Honeywell states bulk packs
   for BASES and for LOW-FREQUENCY SOUNDERS, and for nothing else &mdash; across three
   sibling brands.** The untried route was the sibling-brand twin, and it was worth
   running: EDAM turns out to carry a **`datasheets/farenhyt/` subdirectory**, so the

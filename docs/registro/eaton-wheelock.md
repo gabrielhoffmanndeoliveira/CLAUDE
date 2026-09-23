@@ -13,7 +13,7 @@
   as "15, 20, 110, 150 and 177" &mdash; five values, with 30 and 75 mangled &mdash;
   while Table 4 and page 1 both give the correct six. Anyone quoting the prose
   paragraph publishes a wrong number.
-- **Eaton and Wheelock block `curl`, and the `urllib` workaround has now failed
+- [CORRIGIDO — `urllib` voltou a funcionar; a falha é por conexão/rota; ver neste arquivo &quot;is alive again&quot;] **Eaton and Wheelock block `curl`, and the `urllib` workaround has now failed
   too.** Both HTTP/2 and HTTP/1.1 with browser headers fail against eaton.com
   (INTERNAL_ERROR or empty reply) and WebFetch gets 503. Python `urllib` through
   `HTTPS_PROXY` with a Safari user-agent worked on 21 Sep and **failed later the

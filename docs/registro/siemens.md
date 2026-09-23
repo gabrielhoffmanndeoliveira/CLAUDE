@@ -194,7 +194,7 @@
   `BEAMLRK` kit required beyond 230 ft, where the successor is stated as 16&ndash;328 ft
   standard with no kit. **A mechanism check that corroborates is as informative as one that
   refutes**, and this file had only recorded the refuting case.
-- **The dropped word was the one that separates two stocked catalogue numbers.** The live
+- [CORRIGIDO — não reproduziu: 302 &quot;Object moved&quot; para artigos reais e inventados; ver neste arquivo] **The dropped word was the one that separates two stocked catalogue numbers.** The live
   `HTRI-M` title said *&quot;Single Interface Module&quot;*. Siemens' own Industry Mall calls
   `HTRI-M` the **&quot;Mini Single Input Module&quot;** and `HTRI-S (500-033370)` the
   **&quot;Single Input Module&quot;** &mdash; and the store carries both. **The missing word is

@@ -141,7 +141,7 @@
   handling and it has held across four batches: **the bulletin is the source, the
   datasheet almost never is, and an unsourced claim costs money in two channels if it
   sits in a feed attribute.**
-- **A host can serve recompressed bytes per request, which silently disables MD5
+- [CORRIGIDO — não reproduziu em mircom.com numa medição posterior; ver mircom-secutron.md &quot;did NOT reproduce&quot;] **A host can serve recompressed bytes per request, which silently disables MD5
   de-duplication.** Measured on mircom.com by an agent re-fetching four accepted images:
   one matched, and `1150` came back 41,939 &rarr; 36,222 bytes, `RTI-1` 85,713 &rarr;
   62,535, `EC-220A` 57,647 &rarr; 53,671 &mdash; **different bytes and different MD5 for

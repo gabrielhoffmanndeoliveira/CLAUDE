@@ -2,7 +2,7 @@
 
 # edwards-kidde
 
-- **Mirror paths must be *found*, not *built* &mdash; including `qdigital.mx`.**
+- [CORRIGIDO — Edwards é first-party (LifeLines + myeddie /PublicMedia/); ver neste arquivo &quot;SUPERSEDED 22 Sep 2026&quot;] **Mirror paths must be *found*, not *built* &mdash; including `qdigital.mx`.**
   Calling it "the one path-predictable mirror" was too strong: it worked on paths
   discovered by search and **failed on a constructed one**
   (`/content/Edwards/TSD-CJ/...` returned HTML). Two more hosts that answer with a
@@ -46,7 +46,7 @@
   &quot;Not on their site&quot; was true when tested and stayed in force as fact long
   after; the note even carried its own to-do and nobody ran it. **Re-test a
   host-level negative before building a batch around the workaround.**
-- **Kidde serves its own PDFs and needs no Edwards mirror.**
+- [CORRIGIDO — `kidde-esfire.com/Content/Documents/` dá 404 de 1.245 B; as fichas Kidde vêm do myeddie via API de literatura; ver neste arquivo &quot;Route correction&quot;] **Kidde serves its own PDFs and needs no Edwards mirror.**
   `kidde-esfire.com/Content/Documents/` responds directly with no bot protection.
   And the E/K prefix swap is the same line: **`K85001-1021` (Kidde, Issue 1, 2019) and
   `E85001-1021` (Edwards, Issue 1.1, 2020) agree exactly** &mdash; candela set,
