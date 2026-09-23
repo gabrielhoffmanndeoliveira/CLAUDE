@@ -466,3 +466,9 @@
   - The bare `D2xC1X05` is only the product-type field, so it is a **wildcard SKU**; it was flagged, and the store also sells the configured -DC024CN1A1R/C and /R. Only the D2xC1X05DC024 is UL 464/1638 listed, and in Private Mode only.
   - A file served as `D189-01-501-IS_Issue_3` is really D189-00-501-IS Issue 12: read the header, not the filename.
   - A bogus `/product/99999-zz` returns an honest 404 of 35,499 B.
+- e09 (23 Sep), **E2S D1XL1FV725CN1A1R:**
+  - The part-code table (datasheet 1-22-160, 8 Jul 2026) decodes V725 / C / N / 1 / A / 1 / R.
+  - **The series headline is overridden by the model's own row:** the datasheet p1 says "Class I & II Div 1, T5 to +85 °C", but manual D190-00-201-IS Issue 5, sheet 2, rates D1xL1-V725-A at T4 to 85 °C and T5 to 80 °C. Class II Div 1 belongs to version D only, which excludes the 25/70 V transformer.
+  - The PDF also carries UL fire sheet D190-00-201-IS-UL Issue A, with per-tap UL 1480 dB(A).
+  - The filename/header mismatch recurs: `D190-01-201-IS_Issue_5` is really D190-00-201-IS.
+  - productType is empty on this product and on the siblings D2XL1FV725CN1A1R and D1XL2FV725CN1A1R (flagged).
