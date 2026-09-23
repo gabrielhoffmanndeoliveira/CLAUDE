@@ -497,3 +497,4 @@
 ### e03 (23 Sep 2026): one document contradicting itself on a listing
 
 - K85001-1021 states both "UL 1971 indoor ceiling-mounted" and "listed wall or ceiling". Under the self-contradiction rule the agent looked for a mechanism, found none, and published the narrower claim (ceiling). It did not publish neither: the narrower claim is contained in both readings. That is the right move whenever one reading is a subset of the other.
+- t11 (23 Sep): a Shopify search `sku:81-994706* OR title:*Type I*` did not return the product itself, so an OR search's negative is unmeasured without a known-good control in the same query.
