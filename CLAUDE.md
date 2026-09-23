@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,311 enrichment pages published** (555 old list + 744 v2 through v2b48, verified live), plus 249 title-only products — 555 from the old list plus v2b01 through
+**Progress: 1,323 enrichment pages published** (555 old list + 756 v2 through v2b49, verified live), plus 249 title-only products — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -8082,6 +8082,70 @@ Revisit after the high-impression band is done.
   from one query. Worth stating so nobody is tempted to treat a snapshot as a source of
   truth to be protected: **it is cheaper to re-pull a snapshot than to back one up**, and
   this file's own snapshot rule says a stale one is a hazard anyway.
+
+- **TWO PRODUCTS IN THIS STORE CARRIED THE IDENTICAL TITLE, AND THE MANUFACTURER'S OWN TABLE
+  SAYS THEY ARE DIFFERENT DEPTHS.** `P32-BB` at $27.85 and `P32-DBB` at $35.80 were both titled
+  *&quot;Potter P32-BB ...&quot;*. Potter bulletin **`8900097` Rev N**, fetched and read directly
+  by the coordinator because this changes a live title, lists them one row apart in its
+  Accessories block: **`P32-BB | 1000444 | Surface mount back box`** against
+  **`P32-DBB | 1000445 | Deep surface mount back box`**, and the Description paragraph on the
+  same page independently says the line is *&quot;available with **shallow and deep** surface
+  mount back boxes&quot;*. Price corroborates from a third direction, the deep box costing more.
+  **The `type` field was LITERALLY EMPTY on the `P32-DBB` product while its sibling reads
+  Backboxes** &mdash; one of 52 blank types in 16,031 &mdash; so the structured field could not
+  disagree with the wrong title and the store simply had two identical titles at two prices.
+  **A duplicated title inside one family is a mechanism, not a shape**, and nothing in this
+  file's scan inventory tests for it: the recorded scans test what a title *says* (entities,
+  truncation, unbalanced parens, family `type` disagreement, brand-and-SKU repetition), and
+  none asks whether **two SKUs in one vendor carry the same title string**. That is one group-by
+  and it is worth running.
+  **One question was left to the owner rather than answered, and the distinction matters:** the
+  title was corrected because three signals agree on what `P32-DBB` IS &mdash; but **if the part
+  physically on the shelf under that SKU is the shallow box, then the defect is in the SKU and
+  not in the title.** Research cannot see a carton; that is the `RMS-1T-KL` and `PS-632 F1`
+  shape, and it goes to the owner.
+- **A number inside a catalogue number that is a TERMINAL COUNT, read by the store as a
+  DIAMETER &mdash; and the correction propagates to an untouched sibling.** `KC2-SB4` was titled
+  *&quot;Kidde KC2-SB4 **4&quot;** Standard Base&quot;*. Kidde `K85001-0599`, fetched through the
+  literature API and read by the coordinator with word coordinates, gives four rows on four
+  y-lines:
+  `KC2-SB` Standard base, 4 terminals, **4&quot; dia.** &middot; `KC2-SB4` Standard base
+  **w/trim skirt**, 4 terminals, **6&quot; dia.** &middot; `KC2-RB` Relay base, 4 terminals,
+  aux. relay, 4&quot; dia. &middot; `KC2-RB4` Relay base **w/trim skirt**, 4 terminals, aux.
+  relay, **6&quot; dia.** The token `6&quot;` sits at x=418.9 on the `-SB4` line and `w/trim`
+  appears only on the two `-4` lines.
+  **So the trailing `4` is the terminal count and the skirt marker, and the live title took it
+  for the diameter** &mdash; asserting 4 inches on a 6-inch base, in a Merchant Center attribute,
+  on a brand where the store sells both sizes at the identical $6.70. This is the `AS-75-R-WP`
+  and `PDC-12xxxx` shape (a number inside a model number that is not the spec it resembles) with
+  a new twist: **the resembled spec is a real property of the SIBLING**, so the wrong reading is
+  true of a part the store also stocks.
+  **`KC2-RB4` carries the same defect and was NOT touched**, because it is not in this batch;
+  it went to the owner's file. Worth stating as a rule, because this file records the opposite
+  case: the `RP-2002`/`RP-2002E` correction *propagated* across a family on its own, and that is
+  a property of how Shopify stores titles, not something to rely on. **When a title defect is
+  decoded from an ordering table, check the whole table for siblings carrying it** &mdash; the
+  decode costs nothing extra and the sibling is one row away.
+- **A live body claiming a finish the manufacturer attributes to a DIFFERENT product on the same
+  page.** The `P32-DBB` page said the box is red. Potter's *&quot;High-gloss red enamel
+  finish&quot;* bullet and its *&quot;Red with raised white letters&quot;* specification line
+  both attach to the **pull station**, and the two back-box rows carry no colour at all. Removed
+  &mdash; a weakening, not a new claim. Same shape as `BB-55F`, where every distributor said red
+  and the manufacturer numbered only the `R` sibling.
+- **Three documents in one batch splitting a headline figure by STANDARD, which the headline hides.**
+  Simplex `S4098-0053` Rev. 6 page 1 summarises the 520 Hz sounder as **85 dBA** unqualified;
+  its Table 8, coordinate-verified, gives **79.5 dBA per UL 464** at x=259.8 and **85.5 dBA per
+  UL 268 and CSA 6.19-01** at x=382.2. Both published with their conditions. That is the
+  conditional-headline rule for the fifth or sixth time, and note the shape here is neither the
+  reverberant/anechoic split (Eaton) nor a settings-dependent value (E2S) &mdash; **it is one
+  device measured under two standards, and the page-1 number is neither of them exactly.**
+- **Two Kidde printings of ONE document number disagreeing on a figure that belongs to neither
+  part in question.** The Kidde and Edwards printings of document `0599` give maximum wind
+  velocity as **300 ft/min against 4,000 ft/min** and carry different host-panel lists. Neither
+  was published, and the reason is cleaner than the disagreement: **both figures belong to the
+  detector head, not to the base** this page sells. The `3-LDSM` precedent &mdash; a family
+  listing or rating line is not a property of the carrier &mdash; applied to a document conflict
+  that therefore did not need resolving at all.
 
 ## Conventions
 
