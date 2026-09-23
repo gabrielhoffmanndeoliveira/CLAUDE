@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,299 enrichment pages published** (555 old list + 732 v2 through v2b47, verified live), plus 249 title-only products — 555 from the old list plus v2b01 through
+**Progress: 1,305 enrichment pages published** (555 old list + 738 v2 through v2b48A, verified live), plus 249 title-only products — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -7709,6 +7709,181 @@ Revisit after the high-impression band is done.
   matches its own SKU, with the meaning written out in words so either spelling reads correctly
   &mdash; and the mismatch went to the owner. Also recorded: **`PSH-1280` and `PSH-655` have no
   plain non-FR configuration at all**, while `PSH-1255` lists both.
+
+- **THE PERCEPTUAL HASH DEGENERATES ON WHITE-BACKGROUND PRODUCT PHOTOGRAPHY, AND IT COST SIX
+  CORRECT ROWS. This file recorded two of its own dHash rulings as real defects and BOTH WERE
+  WRONG.** Closing out the held Amerex lot, the within-lot pass returned three dHash-0 groups.
+  Looking at all three &mdash; which is the step this file insists on and which had been skipped
+  for these &mdash; gave two different answers.
+  **The four rivets are four different renders.** `01060-P024` (AL Lever) is matte light grey
+  with a small domed head on a long thin shank; `01064-P024` (AL Handle) has a visibly larger
+  head on a shorter, thicker shank; `01563-P024` and `01564-P024` are the brass versions, whose
+  heads render dark and specular where the aluminium ones are matte. **`23093-P006`, a black
+  dust cap, carried the identical hash and is not a rivet at all.** And **the two gauges are two
+  different dials**: `03523-P001` reads **USE WITH HALON 1211 ONLY** with a 100 mark and
+  `05225-P001` reads **USE WITH DRY CHEMICAL ONLY** with a 140 mark, matching their own ERP
+  strings (`Gauge 200 BR BCF` &mdash; BCF is Halon 1211 &mdash; against `Gauge 240 BR DC`)
+  exactly. Five products and two products, seven correct photographs, all previously ruled
+  duplicates.
+  **The mechanism is visible in the hash itself and is the guard to add.** These images are
+  about 97% white with a narrow subject: mean luminance 247, standard deviation 30. A 16&times;16
+  dHash of such an image collapses to a **repeating column pattern** &mdash;
+  `h=3000300030003000&hellip;` for all five rivet-group members, `h=200060006000e000&hellip;`
+  for both gauges &mdash; with a **popcount of 28 and 31 of 256 bits**. That is almost no
+  information, and two unrelated near-blank images will collide. Against it, the one group that
+  was real carries **popcount 116**: `26909` and `26910`, two Amerex FAST FLOW extinguishers,
+  whose pixel difference maxes out at **5 of 255 with zero pixels differing by more than 30**
+  &mdash; the same render re-encoded, nothing visible to tell the two catalogue numbers apart,
+  so both were dropped on the recorded nothing-distinguishes rule.
+  **So the pass needs a degeneracy guard, and it is one line: ignore a dHash-0 group whose hash
+  popcount is below about 40 of 256, or whose 16-bit rows repeat.** Positive evidence of
+  difference was available the whole time and was not read &mdash; **different MD5s, different
+  byte lengths and different pixel dimensions** (876 against 852 px tall) across all four
+  rivets. A collision between images that are demonstrably different files is a hash failure,
+  not a finding.
+  **The method lesson is the one this file keeps having to relearn, this time about its own
+  tooling: a mechanism is only a mechanism inside its domain of validity.** &quot;Pixel-identical
+  content under two asset names&quot; really is a mechanism, and the recorded warning against
+  running it at Hamming &le;10 was right. What nobody checked is that the *metric itself* stops
+  measuring anything when the image is nearly blank &mdash; so the pass silently changed from
+  proving one photograph to proving one background. **A scan that returns a group is a question;
+  a scan whose statistic has collapsed is not even that.**
+  Lot shipped as 18 rows.
+
+- **The v2b48 slice builder never ran, and both agents caught it &mdash; the fourth lossy-slice
+  failure and the first where the file was ABSENT rather than wrong.** No `v2b48/` directory
+  existed when the agents started; agent 2 polled for two minutes, reported it plainly, and
+  rebuilt its slice programmatically &mdash; filtering `catalogo_full.json` by the six SKUs
+  named in the briefing prose, pulling those products **live** from Shopify by `sku:` search
+  with no ids in the query, and asserting every snapshot id against its live id before writing.
+  **It transcribed nothing.** Agent 1 did the same. The coordinator then re-verified all twelve
+  ids live by `nodes(ids:)`: all twelve active, and **each product's live `sku` appears verbatim
+  in the title the agent wrote for it**.
+  **A missing file is the safe version of this failure and an empty field is the dangerous one.**
+  The recorded instances &mdash; a blank `type`, a human-readable note in `live_desc`, four
+  batches of empty `live_desc` &mdash; all wore the shape of a plausible value and three of them
+  survived because of it. An absent file cannot be mistaken for anything, so the agents stopped
+  and said so. **The builder's assertions protect against a wrong slice; nothing protected
+  against no slice**, and the guard is trivial: the launcher should refuse to start an agent
+  whose `aN_in.json` does not exist.
+  A second thing the briefing got wrong and the file would have settled: it named **both** halves
+  of the `4098-5610`/`4098-5611` split pair in one agent's prose and said &quot;the other is with
+  agent 1&quot;, which disambiguates nothing. Agent 2 researched both, delivered `4098-5610` and
+  put a fully validated `4098-5611` in a clearly named extra file rather than guessing. Agent 1
+  turned out to hold `4098-5611`, so the guess was right and the extra file was not needed.
+  **Naming a pair without saying which half is whose is the by-eye batch split again**, one
+  layer down.
+
+- **A supersession refuted by the mechanism check in the UNFAVOURABLE direction, on both halves
+  of a pair.** `4098-5610` and `4098-5611` carried &quot;(Replaces 4098-9613)&quot; and
+  &quot;(Replaces 4098-9612)&quot;. Neither is manufacturer-stated in either direction &mdash;
+  the new numbers appear zero times in the legacy sheet `S4098-0014-10` and the legacy numbers
+  zero times in the current `S4098-0059 Rev 2`, and across the 961-record JCI index **no single
+  document's metadata lists both generations**. What makes it worse than unsourced is the
+  `SIGA-HRS` test: **UL and ULC listed spacing falls from 70 ft to 50 ft**, render-confirmed on
+  both sheets (the legacy figure in a cell merged across all four legacy models, the new one in
+  each model's own cell). A layout drawn on 70 ft needs more devices when re-equipped, so an
+  unqualified &quot;Replaces&quot; in a Merchant Center attribute is not merely unsourced but
+  costs the buyer. Claims moved to the body with the spacing difference stated.
+  Two further differences argue the same way and none was carried across: the legacy rate of
+  rise is *&quot;Between 15&deg; &amp; 25&deg; F/min&quot;* where the new part is
+  *&quot;&ge;20&deg;F/min, only in effect above 90&deg;F&quot;*, and the legacy sheet carries FM
+  ratings and calls the line **rate compensated** while the current sheet states neither for the
+  56xx parts. **That is a fifth brand on the rate-compensation list and a reason NOT to import
+  it**, since the successor generation does not claim it.
+
+- **The coordinator's scepticism was the error for the FIFTH time, and this one had a plausible
+  adjacent row to blame.** The `4100-9600` briefing flagged the live body's &quot;2,500 ft&quot;
+  as a probable adjacent-row import, because `S4100-1035` p5 carries an IDNet SLC row reading
+  exactly `2500 ft (762 m); 35 ohms`. **It is not an import**: three documents state it of the
+  RUI link in prose, and the live page's four-item component list is **verbatim Simplex**
+  &mdash; *&quot;includes a bay assembly, a power distribution interface module (PDI), a Basic
+  Transponder Interface Module, and an interconnect harness&quot;*, with &quot;bay assembly&quot;
+  and &quot;interconnect harness&quot; being Simplex's own words in the current Rev. 7. **And
+  &quot;Basic Transponder&quot; is Simplex's own term**, not a hiding word, so there was no
+  product-class error and the `type` of Transponders is right.
+  **The incomplete-product instinct paid anyway, which is the pattern this file has now recorded
+  four times.** The current sheet states that **NEMA 1/IP30 boxes and solid doors are ordered
+  separately** and that a Power Distribution Module (`4100-0634` at 120 VAC, `4100-0635` at
+  220/230/240 VAC) is *&quot;one required per box&quot;*. The buyer receives bay equipment with
+  no box, no door and no PDM. Also found and published: `4100-1291` RUI Module is listed
+  *&quot;for use with 4100-9600 only&quot;*, an explicit host-side compatibility statement.
+  Two live body defects on that same page, both **description-only** so one channel not two:
+  *&quot;the status of each **wireless** device&quot;* &mdash; `wireless` occurs **zero times**
+  in all three transponder sheets and MINIPLEX devices are wired IDNet/IDNAC/IDC &mdash; and a
+  malformed `<ul>` whose first `<li>` is the lead-in *&quot;The transponder can:&quot;*.
+
+- **A cross-family import declined for the SIXTH time, and this one was offered with two
+  supporting reasons.** The `SPSWKLED-CLR-ALERT` briefing offered the recorded amber
+  private-mode finding and the outdoor brochure's *&quot;K means UL 1638&quot;* sentence. The
+  agent checked `AVDS-62185-00` (03/17/2025) and declined both: **&quot;private&quot; appears
+  zero times and no UL standard number appears anywhere in the sheet** (UL 1638, UL 1971 and
+  1480 all zero; page 1 carries file numbers only), and the sheet's own notes define the suffix
+  as a **cover marking** &mdash; *&quot;All -P models have a plain housing (no 'FIRE' marking on
+  cover.)&quot;*, *&quot;All -ALERT models have 'ALERT' marking on cover.&quot;*, *&quot;All -B
+  models have 'FIRE/FEU' marking on cover.&quot;* Outdoor status was taken from the ordering row
+  and the sheet's own NEMA 4X / IP56 statements instead.
+  **And the same-name trap was live in a web summary.** The right-sounding `AVDS1131` sheet is
+  **SpectrAlert Advance, a different generation** &mdash; it contains `SPSWKLED` zero times and
+  carries a different candela ladder (15, 15/75, 30, 75, 95, 110, 115, 135, 150, 177, 185), and
+  a summary quoted **those** figures for this part. The LED wall ladder is
+  15/30/75/95/110/135/185, coordinate-verified. System Sensor separately states that replacing a
+  SpectrAlert Advance product **requires a new L-Series with LED back box**, so `SPSWK-CLR-ALERT`
+  and `SPSWKLED-CLR-ALERT` are not interchangeable even mechanically.
+
+- **A ground-fault monitor whose own approval is conditional on an enclosure it does not
+  include.** `007941-001` was the raw ERP string `EQ2220GFM (007941-001) GRND FLT MONITOR, EQP`
+  in the Shopify **title**, so it cost the feed as well as the page &mdash; fourth instance of
+  the raw-ERP-title shape after `010254-008`, `MX16RSF-US` and `SLM-318`. Det-Tronics publishes
+  **no document of its own for it**: the WordPress media API is honest (`search=X3301` returns
+  real PDFs, `search=EQ2220`, `search=ground` and `search=fault` all return `[]`), and the part
+  appears on exactly one page of the EQP manual `95-8533 Rev 25.0`, in the Ordering Information
+  block under the heading **POWER SUPPLIES**. The series-block trap fired there too: the GFM
+  spec block ends without a CERTIFICATION line and the next page opens with one, so the Class I
+  Division 2 T4 rating was claimed **only** because Appendix B names `EQ2220GFM` explicitly
+  &mdash; a second, model-attributed source &mdash; and the copy states that the rating applies
+  inside a suitable certified enclosure, which this DIN-rail module is not.
+  The live body's *&quot;part of the Det-Tronics **Eagle Quantum**&quot;* was corrected to Eagle
+  Quantum **Premier**, every occurrence being in Premier literature.
+
+- **`Ten-Xone` is in no Fire-Lite document, and neither is `Ten-Zone`.** The `MS-10UD-7E` title
+  read *&quot;Ten-Xone, 24-Volt Fire Alarm Control Panel&quot;*, which reads as a one-character
+  typo inviting a one-character fix. Both strings appear **zero times** in manual `52626 Rev C7`;
+  what Fire-Lite states is *&quot;the MS-10UD is a ten zone FACP&quot;* and *&quot;MS-10UD - ten
+  programmable IDCs&quot;*. So the agent wrote `10-Zone` from the manufacturer's own words rather
+  than repairing the typo into a claim &mdash; **correcting an obvious typo is still writing a
+  new title, and it needs the same source as any other.** The trailing `E` was confirmed as
+  volts and not watts, model-attributed: `MS-10UD-7E (FLPS-7 Power Supply): 240 VAC, 50 HZ, 2.20
+  amps`. Defect field: **Shopify `title`**, so two channels.
+
+- **Three route facts, each with its control.** **A new EDAM zero-byte trap, live:**
+  `datasheets/df-52416.pdf` (lowercase) returns **HTTP 200 with 0 bytes, `inode/x-empty`**
+  while every other shape of that name returns the 8,047-byte fingerprint &mdash; a status-only
+  check reads it as success, which is the `cdn.power-sonic.com` shape on a host this file treats
+  as well understood. **`buildings.honeywell.com/content/dam/hbtbt/en/documents/document-lists/firelie/data-sheets/`**
+  is a clean route with an honest control (`df-60440.pdf` &rarr; 205 KB PDF; a bogus name and
+  `df-52416.pdf` alike &rarr; 404 at ~610 bytes `text/html`), so DF-52416's absence is a bounded
+  negative &mdash; and the **manual** under `manuals-and-guides/user-manuals/52626.pdf` was both
+  available and better, model-attributing the 240 VAC row where a datasheet would not. And
+  **Resideo's residential hydronic line is a THIRD prefix at four zeros**:
+  `TechLitDocuments/69-0000s/69-0404.pdf` and `60-0000s/60-2133.pdf`, after the `63-`/`67-`
+  combustion line and the five-zero `33-00000s`.
+
+- **A Resideo table where the merged blank above the row is the trap.** `69-0404` Table 1: the
+  `V8043F` row **owns its own &quot;Terminal Block&quot; cell** while the rows above it are a
+  tall merged blank that plain extraction would have inherited downward. Word coordinates also
+  settled the column: `40003916-048` sits at x=77.1, *Electrical Connection on Manual Opener
+  End*, not the x&asymp;135 opposite-end column. The powerhead's contents are stated twice
+  &mdash; *&quot;includes the motor, housing, and 2 mounting screws&quot;* &mdash; and what the
+  buyer still needs depends on the body already in the wall: a **series 6** body takes it
+  directly, a **series 1&ndash;5** body must first be converted with **`40003918-006`** for a
+  2-way water body (`-007` 3-way, `-008` 2-way steam), ordered separately. The live copy's
+  *&quot;convert **pre-1986** zone valves&quot;* is unsourced &mdash; Resideo says series 1 to 5
+  and gives no date anywhere &mdash; and the page named no kit number at all.
+  **One boundary the agent refused to cross, correctly:** `69-0404` assigns motor, housing and
+  screws to the head while `60-2133-12` calls the end switch *integral to the V8043F valve*, and
+  **neither document puts the switch on one side of the carton boundary**, so the copy states
+  the switch's rating and the valve's behaviour without asserting what is in the box.
 
 ## Conventions
 
