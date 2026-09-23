@@ -4414,3 +4414,31 @@ GA4 "busca organica" = `google` + `Organic Search` + campanha `(organic)`.
 **Regra de leitura**: crescimento organico se mede no GA4 filtrado por
 `Organic Search` + `(organic)`, nunca pela posicao media do GSC desta
 propriedade — ela mistura superficie de Shopping.
+
+## §71 — O que puxa o organico: cauda longa, nao as descricoes Resideo (ainda)
+
+GA4, `google` + `Organic Search` + `(organic)`, por pagina de entrada. 7.021
+linhas lidas 100% em disco; 305 sessoes organicas no periodo.
+
+| Tipo de pagina | 03/08–30/08 (4 sem) | 31/08–21/09 (3 sem) |
+|---|---|---|
+| Produto (nao Resideo) | 6 | 99 |
+| Home | 60 | 51 |
+| Colecao | 3 | 35 |
+| Paginas de guia/conteudo | 0 | 15 |
+| Produto Resideo | 0 | 6 |
+
+- **Crescimento e cauda longa**: os 99 de produto espalhados em dezenas de
+  paginas, nenhuma com mais de 5. Padrao de loja nova sendo indexada.
+- **Resideo: 6 sessoes**, apesar das 607 descricoes reescritas. A ultima leva
+  entrou ~18/09 — so 3 dias de dado. **Nao da para dizer ainda se as descricoes
+  funcionam**; da para dizer que nao explicam o crescimento ate aqui.
+- **Paginas de conteudo tecnico comecaram a trazer busca**:
+  `/pages/copper-pipe-dimensions-specs` (5), `/pages/pvc-cpvc-pipe-dimensions-specs`
+  (4), `/pages/strainer-selection-guide` (2). Perfil de contratante.
+- As 3 conversoes organicas do periodo novo entraram pela home ($534).
+
+### REABRIR em ~20/10/2026
+
+Mesmo corte, comparando **produto Resideo contra o resto do catalogo**, com 4+
+semanas depois de 18/09. So ai da para atribuir (ou nao) as descricoes.
