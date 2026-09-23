@@ -777,3 +777,8 @@
 - **WG4 suffix, from pairing across sheets rather than a syntax block:** `-HVMC` = standard candela and `-HVMHC` = high candela; in 0626, `-SVMC` = clear lens and `-SVMA` = amber lens. So the final `C` reads as the clear lens and the `H` before it as high output. The older note "HC = high candela" is only half right. This decode is by pairing only, so it stays out of copy.
 - **WG4WN-HVMC candela is conditional:** 15/29/70/87 cd indoor (UL 1971), 6/12/28/35 cd outdoor at -35 °C (UL 1638), 1/3/8/10 cd CAN/ULC-S526 at -40 °C. UL rates current at 16 V (127–351 mA); the copy gives the 24 VDC figures (107–238 mA) and labels them.
 - The sibling WG4WN-S is ARCHIVED in the store.
+
+### e06 (23 Sep 2026): EC2-SB and SD-T78
+
+- **EC2-SB:** E85001-0599 Issue 1.2 p2, "Standard base, 4 terminals, 4" dia.". The 4 in. is the base diameter, not the box size; the coordinator's suspicion was wrong. There is no EC2 installation sheet on LifeLines (`/lifelines/conventional-initiating-devices` lists catalogue sheets only).
+- **SD-T78:** K85001-0326 Issue 1, "78 inch (1980mm) Air Sampling Inlet Tube". It also appears in -0583, -0584, -0585 and -2006. **Ship weight disagrees across Kidde sheets (2.2, 4.1 and 7.5 lb)**, so it was left out. K85001-2006 misprints the row as "SD-T78 8-inch", a dropped digit shown by the part number, 1980 mm and the shared 7.5 lb; its pages carry both "E85001-2006 Issue 1" and "K85001-2006 ISSUE 1.1" headers. `K85001-2005` 404s at 1,245 B although the Kidde API lists it (PrivateMedia).

@@ -140,3 +140,7 @@
   sentences**, which is what licensed using it. A search snippet calling `71165` the panel's
   part number was wrong: **it is the manual's own number**, printed on the cover.
 
+
+### e06 (23 Sep 2026): E3BB-RD/INCC
+
+- 9020-0649 Rev X (06/20) resolved bare and first try, as did 9020-0613 (Rev O). `gamewell-101625/hon-ba-fire-9020-0649.pdf` gives the 8,047 B miss, while `gamewell-101625/hon-ba-fire-9020-0542.pdf?download=false` works. p2 D-size row: "E3BB-RD/INCC: Enclosure, Command Center, Red, 'D' Size", 19-3/8 × 41 × 4-1/2 in. The enclosure is the backbox and outer door only; the inner doors (E3ID2-D/E3ID3-D) and the E3-INCC-D-PLATE are separate. **Trap: the 9020-0649 p4 capacity table labels two different rows "E3BB-BD".** INCC sheet 9020-0542 Rev K does not list the enclosure.

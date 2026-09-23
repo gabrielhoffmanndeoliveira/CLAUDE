@@ -247,3 +247,7 @@
 - **HMS-SA (500-034150)** is an addressable FireFinder XLS single-action station with a programmable N/C auxiliary contact (24 VDC 2 A). It is documented only on the **Siemens Canada** data sheet 6316C (A6V11524007, Sept 2018), headed "for Canada Only", "ULC Listed and FM Approved". The US sheet 6306 Rev. 11 (A6V10238851) does not mention it. Installation: 315-033430-6 (A6V10239119). It is the single-stage sibling of the two-stage HMS-2S, not of the HMS-D. It surface-mounts on the MC-5 box; the HMS-S and HMS-D use the SB-5R. The title got "Canada ULC Version", the same treatment as ISO-XA, and the feed question was flagged to the owner.
 - `/go/` resolved first try for A6V11524007, A6V10239119, A6V10239110 and A6V10238851; the bogus control returned the `unresolved` deeplink. The Industry Mall `buildingtechnologiesusa/Catalog/Products/<n>` returns 200 at 19,950 B for real and bogus articles alike, so it does not discriminate (third failure on that host).
 - Queued: the HMS-2S title says "Double Action" but it is two-stage with a keyswitch.
+
+### e06 (23 Sep 2026): MSI-B6F
+
+- Data Sheet 6188 Rev. 3 (Apr 2023, `/go/A6V10238839`, resolved first try), p2: "MSI-B6F 500-895301 Single-Action Addressable Manual Fire-Alarm Box", for FireFinder XLS and MXL. The $1,173 price is not a special variant: the dual-action MSI-20B sibling is $1,124. MS-FB (surface box), MS-FD (double-action adapter, "Supplied Separately") and MS-NY (NYC plate) are separate parts and none is stocked. A bogus A6V redirects (303) to `/r/deeplink/unresolved`, which works as the control.
