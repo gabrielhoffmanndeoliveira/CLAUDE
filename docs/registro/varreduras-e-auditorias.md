@@ -559,3 +559,17 @@
 - **Verification of the earlier 316 import:** a bulk pull showed only **51 of 316 archived** (265 still ACTIVE), so the owner was asked to check the Matrixify job. Re-verify both lots with one bulk query after the owner confirms.
 - **Verified 23 Sep:** all **316/316 Hochiki Europe listings are ARCHIVED** (Matrixify job #750928219, Updated 316). The earlier 51/316 reading was taken while the import was still running. The other 574 Hochiki listings are untouched. The 106-product European lot is still pending the owner's upload.
 - **Verified 23 Sep: 106/106 European lot ARCHIVED.** 97 showed in the bulk pull; the other 9 were archived at 06:43 UTC, seconds after the bulk snapshot, and were confirmed live by a direct query. Catalogue after both lots, from the bulk pull (before those 9): 15,618 ACTIVE, 3,824 ARCHIVED.
+
+### Urgent check: Shopify and Ahrefs (23 Sep 2026, owner-requested)
+
+- **Price scan on the active catalogue (15,618):**
+  - 0 products at $0 and 0 products without a SKU.
+  - 10 under $1: screws, rivets, clips and similar, plausible, **except VSP-1017-HON at $0.10**.
+  - 81 at $50k or more: mostly Kidde Fenwal LPCO2 storage units ($280k–$780k, plausible), plus the known DHS40.
+- **A class-vs-price scan** (a panel/board/module/detector word priced under $10, excluding accessory words) gave 68 hits, nearly all plausible (bases, covers, cards).
+- **Confirmed live: VSP-1017-HON ($0.10) and VSP-1017-NTF ($9.55)**, VESDA-E SLC PCA spare boards, ACTIVE with `inventoryPolicy: CONTINUE` (orderable at zero stock). Flagged URGENT to the owner. KIT0016APO at $4.40 flagged medium.
+- **Ahrefs Site Audit (project 7227233; always-on crawl in progress; 34,083 URLs; health 100):**
+  - Errors: 55 4XX (54 of them 404), 22 images too large, 3 pages linking to broken pages, 2 orphans, 2 broken redirects, and 1 "robots.txt not accessible".
+  - **robots.txt checked live:** 200 on the apex host (also with a Googlebot UA); www and http 301 to it. The Ahrefs error is presumably on a subdomain (the project covers all subdomains), so not urgent.
+  - Warnings: 17,551 "links to redirect", 5,879 short meta descriptions, 3,444 titles too long.
+- **Ahrefs organic traffic, weekly:** 1,911 (31 Aug) → 2,054 → 2,198 → **2,371 (21 Sep, the highest since June)**. Traffic value $2.2k → $2.6k/month. Contaminated as evidence (see the measurement rules), but no alarm.
