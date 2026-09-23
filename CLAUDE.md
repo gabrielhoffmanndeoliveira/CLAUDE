@@ -447,12 +447,10 @@ Case law: `registro/fotos.md`.
 
 ## State and measurement
 
-- **Progress (23 Sep 2026): 1,335 enrichment pages published per the last recorded
-  line**, plus 260 title-only products, 80 catalogue-wide title-encoding fixes and 75+6
-  brand-and-SKU dedups. v2b50 half A (`a1_in.json`) is on disk, not yet researched.
-  **The breakdown does not reconcile and the next sweep must settle it:** the old line
-  said 555 + 768, which is 1,323; the v2 slices hold 780 ids, 774 excluding the
-  unpublished half. Update this line from a live pull, never by adding.
+- **Progress (23 Sep 2026): 1,335 enrichment pages published** = 555 old list + 780 v2
+  ids across v2b01–v2b50 (both halves of v2b50 verified live on 23 Sep), plus 260
+  title-only products, 80 catalogue-wide title-encoding fixes and 75+6 brand-and-SKU
+  dedups. Next batch is v2b51. Update this line from a live pull, never by adding.
 - **Queue economics:** value per batch falls steeply; a natural stopping point sits
   around batch 135 (see `registro/negocio-ads-medicao.md`). Revenue per impression stays
   $25–38 across bands. Thermostats convert at 1/200th of the fire core per impression.
