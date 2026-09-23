@@ -4212,3 +4212,76 @@ gratuita, e nao outro rotulo enganoso como o `sag_organic`. **Confirmar em
 Merchant Center -> Performance -> por superficie**, comparando cliques de free
 listings contra os do Ads no dia 21/09. Se confirmar, e o achado mais
 importante da semana.
+
+## §67 — Shopify de volta na THS; a order grande e a #THS1063, via sag_organic NAO faturado
+
+Conferido antes de tudo: `shop.myshopifyDomain` = **`1vy05a-x6.myshopify.com`**,
+"The House Supplier". Loja certa.
+
+### Receita reconciliada (fecha a pendencia do §64)
+
+Shopify, 21/08–19/09: **55 orders, $18.762,04 bruto, $15.810,94 liquido,
+$18.690,49 total.** GA4 no mesmo periodo: 52 transacoes, $16.362,07.
+
+Bate: o GA4 perde 3 orders (bloqueador, consentimento), e o `purchase_revenue`
+cai entre liquido e bruto. **O "$14.637 no ano inteiro" que eu usei em 18/09
+estava errado** — provavel artefato da consulta `GROUP BY product_vendor`. Nao
+investiguei o porque. **Para receita total, usar a consulta sem agrupamento.**
+A analise de verba do §64 usou GA4 e segue valida.
+
+### A order de $3.812,97 e a #THS1063
+
+- **21x Resideo L4029E1029/U** Limit Control, fixed 200 F, 3 in insert, Manual
+  Reset. Subtotal $3.812,97, total $4.120,24. 21/09/2026 14:23 UTC.
+- **Pedido de contratante em quantidade.** Maior order do mes.
+- Jornada na Shopify: primeira **e** ultima visita com
+  `utm_source=google`, `utm_medium=product_sync`, `utm_campaign=sag_organic`.
+- **O Google Ads NAO contou essa order.**
+
+Prova — as cinco orders `sag_organic` de 21/09:
+
+| Order | Produto | Subtotal |
+|---|---|---|
+| #THS1062 | Navien NHW700-180AI-NG | $1.455,00 |
+| **#THS1063** | **21x Resideo L4029E1029/U** | **$3.812,97** |
+| #THS1064 | Suntemp SER-3/SEL-3 x6 | $167,76 |
+| #THS1065 | 2x Resideo TH3210D1004/U | $157,38 |
+| #THS1066 | DiversiTech 36x60x3 pad | $191,64 |
+
+As quatro sem a #THS1063 somam **$1.971,78 = exatamente** a linha `google / cpc`
+do GA4 do dia. O Ads reportou $2.035,55. A #THS1063 ficou fora dos dois.
+
+Casos menores confirmam o padrao: #THS1060 e #THS1068 ($82,83 cada, Resideo
+PRO 3000) aparecem no GA4 como `google / product_sync` — sem `gclid`, nao
+faturados. #THS1061 ($5,58) aparece como `google / cpc` — pago. **Os tres tem
+`sag_organic` na Shopify.**
+
+### O mecanismo
+
+O canal Google da Shopify carimba `sag_organic` em **todo** link do feed do
+Merchant — anuncio pago e listagem gratuita. Clique pago chega tambem com
+`gclid`; clique gratuito nao. **O GA4 separa pelo `gclid`; a Shopify so ve o UTM
+e mostra `sag_organic` para os dois.**
+
+### Consequencia para a regra do CLAUDE.md — PENDENTE DO GABRIEL
+
+A regra atual diz que `sag_organic` **e** o Shopping pago e nunca pode ser
+chamado de free listing. **A intencao esta certa**: nao tratar receita de
+Shopping como custo zero — de ~$16,5k de Shopping no periodo, ~$12,7k foram
+pagos. **A letra esta errada**: a #THS1063 prova que `sag_organic` nao e pago
+nem gratuito por si so.
+
+Texto proposto, **nao aplicado** — a regra existe porque eu errei nisso varias
+vezes e o Gabriel corrigiu, entao muda so com o OK dele:
+
+> `sag_organic` + `product_sync` e o **carimbo do feed do Merchant**, nao a
+> natureza do trafego. Cobre anuncio pago **e** listagem gratuita. **Nunca
+> concluir "gratuito" pelo UTM** — a maior parte e paga (~77% em 09/2026). O
+> discriminador e o `gclid`: no GA4, `google / cpc` = pago; `Shopping Free
+> Listings` = nao faturado. Prova: #THS1063, $3.812,97, 21/09.
+
+### Achado lateral
+
+A maior order do mes e um contratante comprando 21 unidades de uma peca de
+reposicao de caldeira. Reforca o ponto do post do LinkedIn: o comprador que
+paga as contas da THS e o profissional, nao o dono de casa.
