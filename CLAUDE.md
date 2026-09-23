@@ -48,6 +48,8 @@ whether to continue.**
 desacelerar um pouco&quot;.** One research agent at a time until the owner changes it.
 The standing order still holds inside that cap.
 
+**STOP DECISION (owner, 23 Sep 2026): &quot;vamos de b, fecha os 19 e para&quot;.** Finish the title lots for the last products in the title queue that have demand (impressions or ERP revenue): t10 (in flight) plus t11–t13 (`/tmp/tfas/audit/t11..t13/a1_in.json`, built from `FILA_final_com_demanda.json`). **Then stop all agent work** and wait for the 2026-10-21 measurement checkpoint. The remaining 246 titles in `FILA_titulos.json` have zero impressions and zero revenue, so they are not worth the budget. The 225 remaining ad-candidate descriptions (`FILA_ads438_descricoes.json`, next lot e11) resume only if the owner asks after 21 Oct. Until then the standing &quot;never idle&quot; order is suspended by the owner; an explicit stop is the correct state.
+
 **Usage budget (owner, 23 Sep 2026): &quot;temos q cuidar com o weekly all models&quot;.** One full day of work (12 agent lots + coordination) consumed ~24% of the weekly all-models limit. Pace to **~10–12% per day** (about 6–8 agent lots/day) until the weekly reset (Tuesday 19:00). Prefer title lots (~150–165k tokens) over enrichment lots (~220–260k); fix mechanically, without an agent, any title whose correction decides nothing; keep spot-checks to the strongest claim and reports short. Using a cheaper model for agents requires the owner&#39;s explicit approval.
 
 **Direction change (owner, 23 Sep 2026): enrichment is PAUSED after v2b52.** &quot;vamos
