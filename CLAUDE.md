@@ -8147,6 +8147,54 @@ Revisit after the high-impression band is done.
   listing or rating line is not a property of the carrier &mdash; applied to a document conflict
   that therefore did not need resolving at all.
 
+- **A SIXTH MECHANISM-BASED SCAN, RUN BECAUSE THE PREVIOUS ENTRY SAID IT WAS WORTH RUNNING, AND
+  IT FOUND FOUR PRODUCTS LISTED TWICE AT TWO PRICES &mdash; SEPARATED BY AN INVISIBLE
+  CHARACTER.** The `P32-BB` duplicate-title finding implied a scan nobody had run: **do two SKUs
+  in one vendor carry the same title?** Six groups, 14 products, all inside one vendor. But the
+  title scan was the *weaker* of the two it suggested. The sharper one is on the SKU:
+  **two SKUs that differ only in whitespace cannot be two products.**
+  **Four collisions, and the character is `U+00A0`, a non-breaking space, not an ordinary one.**
+  `PRETROFIT` / `PRETROFIT&#160;`, `PSOLAR` / `PSOLAR&#160;`, `1-06-118537-001` /
+  `1-06-118537-001&#160;`, `1-B7482-201` / `1-B7482-201&#160;`. Two more SKUs carry a trailing
+  `U+00A0` with no twin (`6-01-7171-1129` has **two**), so six SKUs in 16,031 are affected and
+  **zero SKUs are exactly duplicated between products** &mdash; every collision is explained by
+  the invisible character alone.
+  **The creation timestamps give the mechanism outright, and it is two different failures with
+  one cause.** The Kidde Fenwal pairs were written **three seconds apart in one import**
+  (23:08:23 and 23:08:26; 23:13:38 and 23:13:40 on 17 Jul 2026), so the source file carried the
+  same part twice, once with the character. The Napco pairs are the other shape: the clean
+  product dates from **January 2025** and its twin from **that same July 2026 import**, which
+  **failed to match the existing product because the identifier does not equal itself** and
+  created a duplicate instead of updating it.
+  **The cost is visible in the prices**: $72.60 against $82.70, $44.00 against $38.15,
+  $1,720.80 against $1,998.85, $3,738.35 against $4,830.35 &mdash; the last a $1,092 spread
+  between two listings whose titles, types and descriptions are **byte-identical**. A buyer
+  searching the store gets two results; Merchant Center gets two offers for one part number.
+  **This is the `868STRC-AQ` defect one field over, and that is the general lesson.** This file
+  records a title whose part number carried a double-encoded zero-width space *&quot;so the part
+  number did not match itself&quot;*, and an Aiphone title with a non-breaking hyphen inside the
+  model number. **The catalogue-wide non-ASCII audit was only ever run on TITLES.** The same
+  corruption is in the `sku` field, from the same class of import, and nobody looked &mdash;
+  because the scan was defined by the field it was first found in rather than by the mechanism.
+  **Run the non-ASCII check on every identifier field, not just the one where it was noticed.**
+  Nothing was changed: a SKU is a Merchant Center identifier and choosing which of two live
+  listings survives is the owner's. Seven rows appended.
+- **The title-duplication half of that scan is nearly clean, and its one hit is a false positive
+  with a known cause.** Six groups of identical titles, 14 products, **every group inside one
+  vendor** &mdash; four Det-Tronics and two Kidde Fenwal. The Det-Tronics groups are the recorded
+  brand convention working as designed (the **title** carries the ordering code `PIRECLA11A1T1`
+  and the **SKU** the internal stock number `014046-201B`), so the titles are not wrong in kind
+  &mdash; but three products share one title and **their pages are identical except for the stock
+  number buried in the body**, which is the only place the `B`/`E`/`P` suffix appears at all.
+  **One of those three costs $721 more than the other two**, while both sibling families price
+  every suffix identically, so either that price is wrong or the suffix means something no
+  visible field carries. Flagged, not touched.
+  Worth pairing with the outcome of the brand-and-SKU-repetition re-run on the same pull:
+  **exactly one hit, `STI STI EP141207-T`, and it is correct** &mdash; the `sku` field is
+  literally `STI EP141207-T`, vendor plus a space plus the part number, so the title is vendor
+  plus SKU. The postcondition that refused it (*the SKU must still appear verbatim in the new
+  title*) is what makes that scan safe to apply unilaterally, and it has now held twice.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
