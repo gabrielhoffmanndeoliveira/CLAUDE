@@ -497,3 +497,13 @@
 - **CS04-070/071/072-429:** the titles said "2 W / 3 W / 4 W", a wrong unit: the number is the way count from the SPD2/3/4 model string. Both 2026 Westell order guides agree on 300 W. The frequency stays out of the title because Westell contradicts itself: the model string says 698-2.7K, while the frequency column gives 450–2700 for the 2-way in both guides. The Ancillary guide also misprints the 4-way model as SPD3. productType "Fire Alarms" was flagged.
 - Pattern: a number stuck after a comma at the end of an ERP string (`, 2 W`) can be a field from another column (way count). Candidate for a mechanism scan: titles whose "N W" equals the N of an `SPD<N>`/`-<N>-Way` token in the same title.
 - productType for CS04-070/071/072-429 changed from Fire Alarms to BDA (owner-approved 23 Sep), matching every other Westell passive in the store. The e05 BDA-on-passives flags were closed: BDA is the store convention for the family.
+
+### Scan: data-sheet sentence in the title (23 Sep 2026, prompted by GWPID-95P in e07)
+
+- **Mechanism:** an import pasted the data sheet's opening sentence into `title` ("Brand SKU The Brand SKU Interfaces…", "…Note: Use This Part Number…", "…It Includes: 1. …"). Regex on the title after its first two tokens: `The|This|These|It|Its + word`, or a prose verb (`provides, interfaces, offers, features a, is designed, can be, Note:, It Includes`). The vendor string "by The Signal Source" had to be removed first: it produced 48 of the 66 raw hits.
+- **Result on the live.jsonl snapshot (16,031 active):** 18 hits.
+  - Not defects (3): the two Resideo "The Round®" thermostats (the product name) and GWPID-95P (already fixed in e07; the snapshot is stale).
+  - **15 defects, so precision 15/18. Recall unknown:** sentences without these trigger words are missed.
+- **Fixed unilaterally (5):** each new title is a literal prefix of the old one, with the SKU still present, ASCII, 150 characters or fewer, and no tail collision. The five: Kidde Fenwal 85-150000-520, 85-154000-500, 38-401140-060 and 06-231866-856, and Notifier 020-569.
+- **Queued for an agent lot (10), in `/tmp/tfas/audit/FILA_t07_frase.json`:** 4904-9176, FSI-851, FSL-751, D2xC1X05, DH-101-A, WHES24-75WR, MIX-M502MAP, DA-4DS (191 characters, over the limit), 85-150000-530 and 90-150000-000.
+  - The last two have the same truncated title and the same price ($3,354.70); duplicate-or-successor was flagged to the owner.
