@@ -217,6 +217,22 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   32 dias) — sao so os cliques sem `gclid`. Prova de que o pago esta todo em
   `cpc`: 4.564 sessoes GA4 contra 4.619 cliques reportados pelo Ads na mesma
   janela, 1,2% de diferenca.
+- **O comprador busca "Honeywell", nao "Resideo".** Ahrefs, volume mensal EUA:
+  `honeywell t10 pro` 500, `honeywell focuspro 5000` 250, `honeywell th3210d1004`
+  200, `honeywell pro 3000` 200 — e **`resideo` + qualquer desses modelos = 0**.
+  Nos termos de pesquisa do Shopping (08–09/2026), 11 dos 25 que converteram
+  tem "honeywell" e **nenhum** tem "resideo". Os titulos da loja comecam com
+  "Resideo". Toda decisao de titulo, SEO, feed ou palavra-chave de produto
+  Resideo tem que partir disso. Marca licenciada: o padrao deles e
+  "Honeywell Home by Resideo" — confirmar com o Craig antes de mudar em massa.
+- **Ahrefs devolve dinheiro em CENTAVOS** (CPC, valor de trafego). "cpc: 25" e
+  **$0,25**. Em 23/09 eu quase li como $25 e concluiria que Search custa 10x o
+  Shopping — o contrario do dado.
+- **Termo de pesquisa do Google Ads pelo Windsor estoura a sessao** na janela
+  cheia ("session expired" 5 vezes seguidas em 23/09). Sempre filtrar:
+  `[["conversions","gt",0]]` ou `[["spend","gte",N]]`. Filtrado, sai na hora.
+  E o relatorio so cobre parte do valor convertido (44% em 08–09/2026): o
+  Google esconde termo de baixo volume por privacidade.
 - **`SEOInput` no `productUpdate` substitui o objeto inteiro, nao faz merge.**
   Mandar `seo { title }` sozinho **apaga a `seo.description`**. Sempre reenviar
   os dois campos juntos. Aconteceu em 16/09 com 3 termostatos de line voltage;

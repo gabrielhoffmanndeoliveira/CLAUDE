@@ -4595,3 +4595,72 @@ Search em cima delas e canibalizacao. Se nao aparecem, e alcance novo.
 
 Pendente: reconectar Windsor -> puxar `search_term` do SHOPPING GABRIEL
 (01/08–hoje) com conversao.
+
+## §75 — Termos de pesquisa do Shopping: o comprador busca "Honeywell" (23/09/2026)
+
+Windsor reconectado; a consulta cheia de `search_term` continuou expirando a
+sessao — era o tamanho. Com filtro saiu na hora.
+
+### Os 25 termos que converteram (01/08–22/09)
+
+Quase todos **modelo exato**, e **11 dos 25 tem "honeywell", nenhum tem
+"resideo"**: `honeywell th3110d1008` ($794,88), `honeywell thx321wfs2001w t10 pro
+smart thermostat with redlink` ($989,19), `honeywell th3110d1008 pro non
+programmable digital thermostat` ($530,40), `honeywell home t10+ pro smart
+thermostat` ($329,73), `honeywell focuspro 5000`, `honeywell t10 pro`,
+`honeywell thermostat th3210d1004`, `www honeywell com thermostat`… Os 11 somam
+**$3.345,56** de **$7.163,63** visiveis.
+
+Outros: `th5110d1022` ($499,56), `franke sinks undermount` ($643,42),
+`toto ts626t cp` ($250,02), `axiom nc 1s condensate neutralizer`, `studor maxi
+vent`, `rheem ap23528 duct diverter`. Tambem aparecem os de orders estornadas:
+`aker kds 3448` (Maax, $1.256,50) e `3 8 copper tubing type l` ($4,53, o preco
+por pe).
+
+**Cobertura: so 44% do valor convertido** ($7.164 de $16.259). Os termos das
+orders Navien, por exemplo, nao aparecem — o Google esconde termo de baixo
+volume.
+
+### Os que mais gastaram sem converter (>= $8)
+
+19 termos, quase todos **1 clique caro em item de ticket alto** (`franke cux120`
+$24,70, `toto sw4736at40 01` $16,64, `insinkerator evolution pro 880lt`
+$14,22) — e o lance por valor fazendo o que faz. O que da para cortar:
+**`pexuniverse`, $12,24 por um clique no nome de um concorrente** -> negativar.
+
+### Volume de busca (Ahrefs, EUA/mes; CPC em CENTAVOS)
+
+| Keyword | Volume | CPC |
+|---|---|---|
+| honeywell t10 pro | 500 | $0,30 |
+| honeywell focuspro 5000 | 250 | $0,25 |
+| honeywell th3210d1004 | 200 | $0,25 |
+| th3210d1004 | 200 | $0,45 |
+| honeywell pro 3000 | 200 | $0,20 |
+| honeywell t3 pro | 50 | $0,25 |
+| honeywell l4029e1029 | 10 | — |
+| **resideo** + qualquer desses | **0** | — |
+
+### Decisao do Search (fecha o §74)
+
+- Os termos que convertem **ja sao** o que o Search teria: modelo exato. Search
+  em cima deles disputa com o proprio Shopping.
+- O que mantem o teste de pe: Shopping aparece (posicao 2,3) e perde o clique
+  (CTR 0,19%), provavelmente pelo preco; anuncio de texto nao mostra preco, e o
+  CPC estimado e baixo.
+- **Se testar: so `honeywell <modelo>` em exata, so modelos que ja vendem, e
+  medir Shopping + Search JUNTOS nesses modelos, antes e depois.** Search
+  sozinho vai parecer otimo porque rouba venda do Shopping.
+
+### A alavanca maior e de graca: o nome
+
+Titulos Resideo dizem "Resideo"; o comprador busca "Honeywell". Afeta:
+- **CTR do Shopping** (quem busca "honeywell t10 pro" ve "Resideo
+  THX321WFS2001W/U");
+- **organico** — hipotese para as 607 descricoes Resideo terem trazido so 6
+  sessoes (§71): o titulo diz uma marca que ninguem busca. **Testar no
+  lembrete de 20/10.**
+- o Search, se sair.
+
+Pendente do Gabriel: confirmar com o Craig o padrao de nome
+("Honeywell Home by Resideo") antes de mudar titulo em massa.
