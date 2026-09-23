@@ -8288,6 +8288,34 @@ Revisit after the high-impression band is done.
   coverage ceiling that is a property of the manufacturer's own catalogue cannot be engineered
   around, and saying so is more useful than another batch.**
 
+- **THIS FILE IS NOW 712 KB, ABOUT 178,000 TOKENS, AND EVERY AGENT LOADS ALL OF IT BEFORE IT
+  FETCHES ANYTHING. Measured 23 Sep 2026, because the owner said limits were being consumed too
+  fast and the agents were the obvious suspect.** They may not be the main one. The breakdown:
+  **`## The enrichment pipeline` alone is 673 KB of the 712 KB &mdash; 168k of the 178k tokens
+  &mdash; and it is 603 top-level bullets**, almost all of them worked case notes. Every other
+  section together is under 40 KB.
+  **The arithmetic is the point.** A batch runs the coordinator plus two or three agents, and a
+  subagent inherits the project instructions, so **one batch pays roughly 700k tokens of method
+  file before a single document is downloaded.** The recorded figure for a day's nine agents was
+  2.69M tokens total; on today's file size the method file alone would be a large fraction of
+  that. **The cost grows every time this file records a finding, which is exactly what the owner
+  instructed it to do** &mdash; so the instruction and the budget now pull against each other,
+  and that is worth stating rather than quietly absorbing.
+  **What is NOT proposed: deleting anything.** The owner's standing instruction is to write
+  findings down, this file's whole value is that a recorded trap catches its next instance, and
+  five recorded negatives have already decayed and been caught precisely because they were
+  written out in full. **The proposal is a split, and it is the owner's call:** an operative core
+  loaded as project instructions &mdash; the standing order, the house style, the publishing
+  mechanics, the research rules, the route list, the live conventions &mdash; against a case log
+  kept in the repository and read on demand or handed to an agent as a named file when its
+  subject matter is in the batch. Measured above, the core is a few thousand characters and the
+  log is 673 KB.
+  **The general lesson is about how a method file ages.** Each entry here was worth writing when
+  it was written, and the cost of an entry is paid once while the cost of the file is paid on
+  every turn of every agent forever. **A file that is loaded automatically has a budget, and
+  nobody was tracking it** &mdash; which is the same shape as every denominator error in this
+  file: a number that matters, that nothing in the process measures.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
