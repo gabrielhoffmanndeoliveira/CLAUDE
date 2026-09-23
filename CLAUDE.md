@@ -65,6 +65,12 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   Recalcule do dado bruto sempre que o critério for uma desigualdade.
 - **Antes de qualquer mudança em massa, gere o CSV de rollback** com o estado
   anterior, e comite.
+- **Arquivo de peso para o Matrixify leva `Command = UPDATE` e `Variant Command
+  = UPDATE`.** Cabecalho que funciona: `Handle, Command, Variant Command,
+  Variant SKU, Variant Weight, Variant Weight Unit`. Em 23/09 eu mandei 25 pesos
+  sem as duas colunas de comando: o Matrixify reportou **Updated** e **nenhum
+  peso mudou**. Os tres imports de peso que funcionaram antes tinham as duas.
+  Copiar o cabecalho de um arquivo que ja provou funcionar, nao montar de novo.
 - **A coluna `Variant Shipping Profile` do Matrixify é ignorada nesta loja.**
   Mudança de perfil só sai por API.
 - **Texto longo vai por Matrixify, nunca por API.** Descrição, SEO e qualquer

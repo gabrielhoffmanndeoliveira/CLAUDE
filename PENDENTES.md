@@ -4380,3 +4380,37 @@ NPE-240A2; quem vende e o NHW-SU"). Os tres primeiros da lista do Merchant
 
 **Acao proposta**: tirar Navien nao-NHW do Shopping pago ou baixar prioridade;
 ~$270/mes que hoje retornam $132. Pendente do Gabriel.
+
+## §70 — Ahrefs/organico: crescimento real, separado do Shopping (23/09/2026)
+
+Pergunta do Gabriel: algum progresso no Ahrefs?
+
+| Semana | GSC cliques | GSC impr. | GSC posicao | GA4 busca organica | GA4 Free Listings |
+|---|---|---|---|---|---|
+| 03/08 | 5 | 163 | 61,9 | 16 | 0 |
+| 10/08 | 9 | 458 | 58,2 | 22 | 0 |
+| 17/08 | 10 | 2.810 | 54,5 | 20 | 0 |
+| 24/08 | 11 | 5.370 | 53,6 | 21 | 1 |
+| 31/08 | 39 | 13.584 | 32,7 | 29 | 40 |
+| 07/09 | 90 | 22.077 | 27,1 | 69 | 98 |
+| 14/09 | 111 | 20.741 | 20,6 | **98** | 42 |
+
+GA4 "busca organica" = `google` + `Organic Search` + campanha `(organic)`.
+
+- **Busca organica cresceu ~5x em um mes** (~20 -> 98 sessoes/semana), confirmado
+  no GA4, independente do Shopping.
+- **O salto de impressoes do GSC em 31/08 e em boa parte Free Listings**, que
+  comecou a aparecer exatamente nessa semana. O GSC mistura as duas coisas; a
+  posicao media de 53 -> 20 tambem e contaminada por isso.
+- Site Audit de 22/09: **health 100**, 64.991 URLs, 25 erros. O pico de 3.113
+  orfas falsas de 16/09 nao voltou.
+- DR 7, parado desde 31/08.
+- Receita da busca organica no periodo: $1.349,93. Volume subiu, conversao nao
+  acompanhou ainda.
+- **Causa nao atribuida.** O salto comeca 31/08–07/09, antes de boa parte das
+  descricoes e titulos entrarem. Pode ser so o Google indexando loja nova. Nao
+  creditar ao trabalho sem prova.
+
+**Regra de leitura**: crescimento organico se mede no GA4 filtrado por
+`Organic Search` + `(organic)`, nunca pela posicao media do GSC desta
+propriedade — ela mistura superficie de Shopping.
