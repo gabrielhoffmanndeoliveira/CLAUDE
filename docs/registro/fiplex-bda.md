@@ -271,3 +271,5 @@
   three of the four TCS products.
 
 - **Westell `CS05-488-429` (v2b52):** product page links `support.westell.com/documents/IBW-CS05-Series-PSG-DC-DS.pdf` (footer dated `-07092024`; bogus = 1,245 B 404). Ordering row (coordinator-verified): `5 dB | N (f) | CS05-488-429 | ClearLink-DC5/340-2.7K/N` &mdash; the digits are catalogue numbering, the band is the sheet's 340&ndash;2700 MHz. **Fingerprint drift:** `westell.com/products/<bogus>` now 200 at 42,310 B (recorded 302 at ~40,567). The data sheet makes `CS05-416-429` the 5 dB 4.3-10 coupler while a westell.com page title says 6 dB &mdash; unresolved. Type BDA on the CS05 family flagged.
+
+- **HONBDA-7S27B-IB-06 (audit t01):** BD441.1 serves from `datasheets/fiplex-02022026/hon-ba-fire-bd441-bda-bbu-honbda-7s.pdf` and `datasheets/hbt-fire-fiplex-BD441-BDA-BBU-HONBDA-7S-datasheet.pdf` (same revision); both slugs miss under the other root. p1 (coordinator-verified): -IB-06 DL 769-775 &amp; 851-861 MHz &mdash; the -IB-10 is 758-775, so the pair differs in the 700 MHz band edge. Type Annunciators&rarr;BDA flagged.
