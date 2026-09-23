@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,305 enrichment pages published** (555 old list + 738 v2 through v2b48A, verified live), plus 249 title-only products — 555 from the old list plus v2b01 through
+**Progress: 1,311 enrichment pages published** (555 old list + 744 v2 through v2b48, verified live), plus 249 title-only products — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -7750,8 +7750,40 @@ Revisit after the high-impression band is done.
   a scan whose statistic has collapsed is not even that.**
   Lot shipped as 18 rows.
 
-- **The v2b48 slice builder never ran, and both agents caught it &mdash; the fourth lossy-slice
-  failure and the first where the file was ABSENT rather than wrong.** No `v2b48/` directory
+- **CORRECTED SAME DAY, AND THE CORRECTION IS THE WHOLE FINDING: the v2b48 slice was NOT
+  missing. The builder wrote it to a directory named `48` while every briefing, every publish
+  path and every previous batch uses `v2bNN`.** Both agents were pointed at `v2b48/`, found
+  nothing, and were right; the file had been built correctly all along and was landing where
+  nobody was looking. Proved by recovering it: `48/a1_in.json` holds exactly `GW71332`,
+  `NP-200R`, `4098-5611`, `D4P120`, `ABP-1`, `4010-9521` and `48/a2_in.json` the other six
+  &mdash; **the builder's own split of the `4098-5610`/`4098-5611` pair matches what the two
+  agents independently reconstructed from the live store.**
+  **And the first diagnosis, written into this file an hour earlier, was wrong in the expensive
+  direction: it said &quot;the builder never ran&quot;.** That is a fact about a *program*, and
+  it points at reliability. The truth is a fact about a *name*, and it points at a
+  five-character fix. A wrong diagnosis that sounds like the right shape of diagnosis is the
+  hardest kind to catch, and this one survived a commit.
+  **It is the same bug as the `build_titulos.py` prefix mistake, one week apart**: a script
+  whose directory naming does not match the convention the rest of the pipeline uses. Both are
+  now unrepresentable rather than things to remember &mdash; the builder normalises `49`,
+  `v2b49` or `v2b49/` to the same `v2bNN`, prints where it is writing, and **re-reads both slice
+  files from disk before reporting success**, refusing on a missing file or an empty `id` or
+  `sku`. An empty `type` **warns and names the row** instead of refusing, because a blank type
+  is a real catalogue fact for 52 of 16,031 products &mdash; and the warning exists so it gets
+  *said in the briefing*, which is the v2b13 failure's actual remedy.
+  **The guard immediately paid twice.** It fired on v2b49 naming `P32-DBB`, whose type really is
+  blank; that product is the one the batch was asked to adjudicate, and an agent handed a blank
+  field with no warning reports the blank back as a finding. And re-running the builder after
+  the fix revealed a second hazard nobody had considered: **the `used` set is computed by
+  scanning every `<dir>/slice.json`, so a second run silently produces a DIFFERENT twelve
+  products** &mdash; the first run's own slice now counts as used. Two agents were already in
+  flight against briefings describing the first twelve. Recovered by deleting the stray slice
+  and re-running, which reproduced the original twelve exactly. **A slice builder is not
+  idempotent, and re-running it while agents are working is a way to hand them somebody else's
+  products.**
+
+- **How the agents handled it is the part worth copying, and it is the fourth lossy-slice
+  instance &mdash; the first where the file was ABSENT rather than wrong.** No `v2b48/` directory
   existed when the agents started; agent 2 polled for two minutes, reported it plainly, and
   rebuilt its slice programmatically &mdash; filtering `catalogo_full.json` by the six SKUs
   named in the briefing prose, pulling those products **live** from Shopify by `sku:` search
@@ -7763,9 +7795,13 @@ Revisit after the high-impression band is done.
   The recorded instances &mdash; a blank `type`, a human-readable note in `live_desc`, four
   batches of empty `live_desc` &mdash; all wore the shape of a plausible value and three of them
   survived because of it. An absent file cannot be mistaken for anything, so the agents stopped
-  and said so. **The builder's assertions protect against a wrong slice; nothing protected
-  against no slice**, and the guard is trivial: the launcher should refuse to start an agent
-  whose `aN_in.json` does not exist.
+  and said so. **The builder's assertions protected against a wrong slice and nothing
+  protected against a slice nobody could find**, which is the same gap one level out.
+  A third thing surfaced only in the reports: agent 1, unable to tell which half of the split
+  pair was its own, **resolved its own scope by reading the OTHER agent's working directory.**
+  It worked, it was declared plainly, and it is exactly the cross-contamination the
+  never-transcribe-the-assignment rule exists to prevent &mdash; an agent inferring its scope
+  from a peer's draft is one bad draft away from two agents writing the same product.
   A second thing the briefing got wrong and the file would have settled: it named **both** halves
   of the `4098-5610`/`4098-5611` split pair in one agent's prose and said &quot;the other is with
   agent 1&quot;, which disambiguates nothing. Agent 2 researched both, delivered `4098-5610` and
@@ -7884,6 +7920,97 @@ Revisit after the high-impression band is done.
   screws to the head while `60-2133-12` calls the end switch *integral to the V8043F valve*, and
   **neither document puts the switch on one side of the carton boundary**, so the copy states
   the switch's rating and the valve's behaviour without asserting what is in the box.
+
+- **Twenty-fourth product-class error, and the type field named a COMPONENT of a complete
+  $4,159 panel.** `4010-9521` was typed **Loop Modules** and its title was the raw ERP string
+  *&quot;4010ES 2 Idnet 2 BAY Red 240V&quot;* &mdash; no class noun at all. Simplex's own Table
+  14 files it under **Control Units**, and its Basic control unit description lists Main System
+  Supply 2, operator interface, master controller with Compact Flash, an 8 A supply, four 3 A
+  NACs, an aux relay, an RUI port and **cabinet and door**, with *&quot;Box and door or retainer
+  assemblies are included with basic control unit assemblies&quot;*. A buyer filtering for
+  control panels never sees it and one filtering for loop modules gets a two-bay panel. That is
+  the `CPU2-3030D` / `4100-9701` signature for the fourth time. Defect field: **Shopify
+  `title`**, so two channels.
+  **Three sub-findings on that one part, each a recorded trap firing.** (a) **&quot;2 IDNet&quot;
+  is neither a loop count nor a 250-point channel, and both readings offered in the briefing
+  were half right**: Table 4 gives it *&quot;one two-loop isolated IDNet2 Communications Channel
+  and one four-loop Isolated IDNet 2+2 Communications Channel Module &hellip; up to **500**
+  addressable IDNet points&quot;* &mdash; two channels, six loops, 250 points each. Page 1's
+  *&quot;up to 1000&quot;* is the series figure. (b) **The live title's bare &quot;240V&quot;
+  understates a range**: Simplex writes **&quot;English 220 VAC to 240 VAC&quot;**. (c) **The
+  invisible-dimension trap, with a number that invites exactly the wrong read** &mdash; Figure
+  12 is vector linework with no text layer, and at 200 dpi the prominent **16 in. (406 mm)** is
+  the **mounting-hole spacing**, its leaders pointing at two hole circles labelled *&quot;Use 4
+  holes to Secure box to wall&quot;*. The box is **24 in.** wide. Publishing 16 in. as the width
+  was the obvious error and only the render prevents it.
+
+- **A series-wide FEATURES bullet that is FALSE for a member, contradicted by three
+  model-attributed signals on the same sheet.** `S4098-0059 Rev. 2` heads a page-1 block
+  &quot;Heat detection:&quot; and says the detectors *&quot;Include both rate-of-rise and fixed
+  temperature thermistor-based detection.&quot;* For `4098-5611` that is wrong three times
+  over: Table 1 gives **&quot;Rate-of-rise temperature alarm: n/a&quot;**, Table 2 reads
+  *&quot;4098-5611: Heat detector at a 135 &deg;F or 57.2 &deg;C fixed temperature&quot;*, and
+  Table 3's Type column reads **Fixed temperature**. Column assignment confirmed by word
+  coordinates on four clean x-positions and by a 300 dpi render.
+  **This is stronger than the recorded `SD365T-IV` case and worth distinguishing.** There the
+  family block named a property the member could not be shown to have; here the family block
+  **asserts a function the member's own rows deny**. A family bullet is not merely unattributed
+  &mdash; it can be flatly false for a member, so the question is never &quot;does this apply&quot;
+  but &quot;what does this model's own row say&quot;.
+  The same sheet contradicts itself on ambient range a second way: Table 1's heat columns give
+  **32 to 122 &deg;F** while the prose paragraph, under a heat heading, gives **32 to 100
+  &deg;F** with a 6 &deg;F/min fluctuation limit that is a *smoke*-detector guideline. The
+  model-attributed table value was published.
+
+- **A live body that is another PRODUCT CLASS's spec block entirely, and a cable cannot have
+  the quantity it asserts.** `GW71332`'s whole description read
+  *&quot;Interface Cable: Non-condensing-93%: Nodes: 250: +32F to +120.2F&quot;* &mdash; panel
+  environmental specifications scraped onto a **ribbon cable**, and **a cable has no node
+  count**, which is the tell available without any document. The identical wording sits on a
+  distributor page, so it is correlated copy in one direction or the other. The live **title**
+  was fine, so this cost one channel.
+  **Third recorded instance of the `GW` prefix hiding the real catalogue number on this brand**,
+  after `GWPID-95`&rarr;`PID-95` and `GWRCE-95`&rarr;`RCE-95`: Gamewell prints **&quot;P/N
+  71332&quot;**, and the `GW` form appears in no Gamewell document read. SKU untouched, bare
+  number named in the body. The part is documented **only** in a mirror &mdash; *IdentiFlex 630
+  Installation &amp; Operation Manual, P/N 71165 Rev 3.0, 9-25-96* &mdash; and the two
+  independent mirrors' normalised text is **word for word identical on all three `71332`
+  sentences**, which is what licensed using it. A search snippet calling `71165` the panel's
+  part number was wrong: **it is the manual's own number**, printed on the cover.
+
+- **`DR-`/`SBB-` is shared across two Notifier cabinet families and the TRAILING DIGIT is the
+  family marker.** The briefing called them CAB-4 numbers. `DN-62113` lists `DR-A5`, `SBB-A5`,
+  `DR-B5B`, `SBB-E5` as **CAB-5**, while `DN-6857:C2` (CAB-4) uses `DR-A4`/`SBB-A4` and contains
+  `ABP-1` and `ACM-30` **zero times each**. So a prefix that looks like a family marker is not
+  one, and the one-character difference decides which cabinet a part fits.
+  Two negatives recorded rather than guessed on that part: **no package quantity is stated**
+  (&quot;pack&quot; and &quot;package&quot; are zero across `DN-62113` revisions **C and E** and
+  `DN-62114:B`), and **no listing was claimed**, because both documents scope their agency
+  blocks to the cabinet and modules and hedge that *&quot;certain modules or applications may
+  not be listed&quot;* &mdash; a blank plate has no function to list, the `3-LDSM` precedent.
+
+- **A fourth instance of two EDAM revisions under two slugs, and this one differs in
+  substance.** `datasheets/notifier-us/hon-ba-fire-dn-62113.pdf` serves **rev C (7/11/2022)**
+  and `datasheets/hon-ba-fire-notifier-cab5-datasheet-english.pdf` serves **rev E
+  (03/17/2025)**, and rev E adds a ULC listing, an FM number, an IBC 2024 seismic certification
+  and a 26 Ah battery note that rev C does not carry. After `DN-61092`, `DN-60955` and
+  `DN-6935` this is settled: **a successful EDAM fetch is not evidence you have the current
+  revision &mdash; read the header line.** And `DN-62114` is reachable by **no** constructed
+  shape (five slug forms &times; both roots &times; `?download=false`, all the 8,047-byte
+  fingerprint); it was taken from a mirror, mime-checked and **imprint-verified** against its
+  own revision line and the manufacturer's address.
+
+- **Two more blocked-host facts, and one of them kills a route this file recommends by name.**
+  **`session-manager.aero.joule.honeywell.com` is refused at the proxy gateway with `CONNECT
+  tunnel failed, response 502`, zero bytes**, so the Honeywell product index recorded here
+  (`joule-bt-hbt-epim-product-prod`) is unreachable from this environment entirely. And
+  **`buildings.honeywell.com/us/en/products/by-brand/&lt;brand&gt;/&lt;slug&gt;` does NOT
+  discriminate** &mdash; a real and a bogus slug both returned `application/javascript` at
+  225,064 and 225,066 bytes. This file records that host as one where *the mime check works*;
+  that is true of the `/products/.../&lt;slug&gt;` path and **false of the `by-brand/` path**,
+  so the honest statement is per-path and not per-host. `gamewell-fci.com`'s fingerprint has
+  also drifted: **258,629 and 258,627 bytes** against the ~258,337 on record, the one-byte-drift
+  tell still holding.
 
 ## Conventions
 
