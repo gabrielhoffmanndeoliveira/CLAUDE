@@ -483,3 +483,4 @@
 ### e07 (23 Sep 2026): DR-AA4
 
 - DN-6857:C2 (6/19/2012) p1: "DR-AA4: Door assembly, window, one tier (no battery compartment), BLACK, 9.8 lbs." **The live title omitted "with Window"**, which is what separates it from DR-AA4B (solid door). It is served at `datasheets/notifier-us/hon-ba-fire-dn-6857.pdf` and at `datasheets/hbt-fire-DN-6857.pdf`: same revision, different bytes. The DR-AA page's schema carries a `discontinued-products` tag and `data-discontinued-countries="id"` (Indonesia): page chrome, flagged low.
+- t07 (23 Sep): the "A suffix = ULC Listed model" convention is confirmed again in DN-6934:B1 (FSI-851/FSI-851A) and DN-6886:C (FSL-751/FSL-751A). The live FSI-851 copy named "FSI851A", so the SKU was flagged to confirm the stocked unit is the UL version. DN-6934:B1 is served under both `notifier-us/` and the root (different bytes, same revision); DN-6886 is only under `notifier-us/`.

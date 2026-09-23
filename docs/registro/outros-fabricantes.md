@@ -461,3 +461,8 @@
 - e08 (23 Sep):
   - **Apollo 58002-300APO** (PP5143/2024 Issue 1): Discovery/CoreProtocol, loop-powered, 15 tones, 7 volume levels; the isolator works only when the unit is on an XPERT 8 base; **APO is Apollo's own suffix**. Sound is conditional: 95 dB(A) maximum at 1 m on the data sheet, 87 dB(A) typical at volume 7 in installation guide 39215-488. PP5143 and PP2203 Issue 25 disagree on tone frequencies, so none were published. No UL listing (flag, the same as 55200-940APO).
   - **APC 7-CO** is named only in the SL-701 FAQ `20007127_0001` p3 ("The model number for the sensor head is 7-co") and in brochure `20004021_0001`. `apcfire.com/wp-json/wp/v2/product?search=` is honest (bogus → `[]`). A bogus `/wp-content/uploads/2021/07/` file 404s at 146 B and a bogus `/product/` page at 52,349 B. The brochure and the product page disagree on SL-701 ambient temperature (0–70 vs 0–60 °C).
+- t07 (23 Sep), **E2S:**
+  - The D2x line is Class I Div 2 / Zone 2 aluminium equipment, **not explosion-proof** (Ex ec / Ex tc). Source: datasheet 1-34-020 (footer 8 Jul 2026), Part Codes table.
+  - The bare `D2xC1X05` is only the product-type field, so it is a **wildcard SKU**; it was flagged, and the store also sells the configured -DC024CN1A1R/C and /R. Only the D2xC1X05DC024 is UL 464/1638 listed, and in Private Mode only.
+  - A file served as `D189-01-501-IS_Issue_3` is really D189-00-501-IS Issue 12: read the header, not the filename.
+  - A bogus `/product/99999-zz` returns an honest 404 of 35,499 B.

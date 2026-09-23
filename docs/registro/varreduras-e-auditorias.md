@@ -507,3 +507,17 @@
 - **Fixed unilaterally (5):** each new title is a literal prefix of the old one, with the SKU still present, ASCII, 150 characters or fewer, and no tail collision. The five: Kidde Fenwal 85-150000-520, 85-154000-500, 38-401140-060 and 06-231866-856, and Notifier 020-569.
 - **Queued for an agent lot (10), in `/tmp/tfas/audit/FILA_t07_frase.json`:** 4904-9176, FSI-851, FSL-751, D2xC1X05, DH-101-A, WHES24-75WR, MIX-M502MAP, DA-4DS (191 characters, over the limit), 85-150000-530 and 90-150000-000.
   - The last two have the same truncated title and the same price ($3,354.70); duplicate-or-successor was flagged to the owner.
+- **t07 (23 Sep):** 6 of the 10 queued sentence-titles fixed by an agent lot, verify 0. Four remain in `FILA_t07_frase.json`: 85-150000-530, 90-150000-000, MIX-M502MAP and DA-4DS.
+
+### Scan: Hochiki model-number vs part-code twins (23 Sep 2026, prompted by WHES24-75WR in t07)
+
+- **Mechanism:** Hochiki sells the same item under its model number (e.g. WHES24-75WR) and under its part code (`0500-05780`, pattern `0\d{3}-\d{5}`). A duplicate is visible in the data as a part-code-SKU listing whose title contains a token that is another Hochiki listing's SKU.
+- **Result:** population 890 Hochiki listings, 73 with part-code SKUs, **32 twin pairs**. Precision looks high: every pair's titles name the same model. Recall is unknown: part-code listings whose title omits the model number are missed.
+- **19 pairs have identical prices; 13 differ,** some by a lot:
+  - TCH-B100: $370.15 vs $46.75
+  - HEH24-W: $60.25 vs $33.20
+  - HEC3-24WR: $121.45 vs $75.25
+  - HSSPK24-1575WLPPR: $158.55 vs $100.05
+  - WHES24-75WR: $139.00 vs $82.80
+  - FN-PS776: $664.70 vs $417.30
+- All 32 pairs were written to `DECISOES_DO_DONO.csv`: which listing to keep is the owner's call (duplicate listings are an open ask).

@@ -133,3 +133,10 @@
   and `HCP CALL POINT KEY` carries an **unverified &quot;10 Pack&quot;**. Removing either is
   a claim; the duplication fix is not. **Fix only the part of a defective title that decides
   nothing.**
+
+### t07 (23 Sep 2026)
+
+- **DH-101-A** (datasheet Rev 2 07/2026, installation instructions HA-06-485 06/25) is an **addressable DCP duct detector with the ALO-V head included**, not a bare housing. The two documents disagree on the head type ("Analog Photoelectric" vs "Multi-Criteria"), so neither word was used. Only the 7.5 in. exhaust tube is in the kit; the STS-2.5/5.0/10.0 intake tube is ordered separately.
+- **WHES24-75WR** (F0134 Rev2 08/2025): part code 0500-05780, 75 cd, 24 VDC; "W = Wall mount, R = Red faceplate", so R is the faceplate colour, not the lettering. Datasheet filenames carry stale dates (`WHE_Series_10-2021.pdf` is Rev2 08/2025).
+- An exact-code query to `/products-search?qs=` redirects to the product page with no result links; the bogus control prints "no results". A bogus datasheet name returns a 302 B `text/html` 404.
+- This prompted the Hochiki twin scan (see varreduras-e-auditorias.md): 32 model-vs-part-code duplicate pairs.
