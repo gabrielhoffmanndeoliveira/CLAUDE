@@ -4505,3 +4505,68 @@ e o mesmo modelo.
 
 "water leak detection" 1.394 impr pos 48; "sump pump" pos 69; "storage tanks"
 pos 35. Com DR 7 nao sobem tao cedo. Nao priorizar.
+
+## §73 — Historico de campanhas e todas as orders da loja (23/09/2026)
+
+### Campanhas Google Ads desde 06/2025 (Windsor, `include_inactive`)
+
+| Campanha | Tipo | Status | Gasto | Conv | Valor |
+|---|---|---|---|---|---|
+| SHOPPING GABRIEL 8-3-2026 | SHOPPING | ativa | $3.291,72 | 44 | $16.258,91 |
+| Heating Equipment Supplies | PERFORMANCE_MAX | **pausada** | $354,73 | 4 | **$0,78** |
+
+- **A THS nunca rodou campanha de Search.** Correcao: o
+  `navien tankless water heater` do CLAUDE.md e **termo de pesquisa do
+  Shopping**, nao palavra-chave de Search. Eu tinha dito o contrario.
+- A PMax contava "conversao" que valia $0,78 no total — nao era compra, era
+  micro-conversao. Pausada.
+
+### Orders — 72, de #THS1002 (18/08) a #THS1075 (23/09)
+
+Bulk, loja `1vy05a-x6` conferida. 71 reais (1 cancelada: #THS1055), 0 de teste
+marcadas.
+
+- **Produto: $25.238,70.** Ticket mediano $157, medio $355.
+- Top 1 = 15%, top 3 = 33%, top 10 = **57%** da receita.
+- Frete cobrado: $3.258,22 (13% do subtotal). Desconto: $39,49.
+- **Resideo $10.789 (43%), 106 un; Navien $4.654.** Juntos, 61%.
+- Recompra: **2 de 69 clientes.**
+- Estados: TX 8, CA 8, NY 6, VA 5, PA/IL/NC 4.
+
+Por canal (ultima visita):
+
+| Canal | Orders | Receita |
+|---|---|---|
+| Google Shopping (`sag_organic`, pago + gratuito) | 41 | $14.670,94 |
+| Direto | 12 | $7.256,69 |
+| Google organico | 4 | $1.349,93 |
+| Bing | 6 | $780,59 |
+| Sem jornada | 4 | $768,15 |
+| ChatGPT | 3 | $403,40 |
+
+**"Direto" esconde Shopping**: a #THS1026 (Navien, $3.015) teve primeira visita
+`sag_organic` e ultima direta. O ultimo clique subcredita o Shopping.
+
+### Estornos: 8 orders, $2.823,92 (11%)
+
+| Order | Subtotal | Frete | Causa provavel |
+|---|---|---|---|
+| #THS1006 | $4,53 | $15 | **preco por pe**: Mueller 3/8" x 10' copper, hoje $45,30 (x10) |
+| #THS1009 | $2,96 | $15 | **preco por pe**: Charlotte 2" x 20' PVC, hoje $29,60 (x20) |
+| #THS1064 | $167,76 | **$351,29** | **frete para o Alasca** (Suntemp end caps) |
+| #THS1028 | $1.256,50 | $349,00 | frete de banheira Maax para MN — motivo nao confirmado |
+| #THS1010 | $216,98 | $0 | American Standard via ChatGPT — motivo nao visivel |
+| #THS1018 | $86,25 | $15 | Gerber tank — motivo nao visivel |
+| #THS1056 | $101,40 | $61,84 | TOTO seat — motivo nao visivel |
+| #THS1002 | $0,50 | $11,18 | teste (50 toques na jornada) |
+
+- **Os dois de preco por pe ja estao corrigidos** — exatamente pelo fator do
+  comprimento. Varredura dos 561 produtos com comprimento >= 10 ft no titulo:
+  a maioria dos baratos e legitima (fita, PVC fino, PEX). **Sobram 2
+  suspeitos**: `ANVI-AS500-EH-20-GR` Anvil 13/16" x 20' strut a $3,66 e
+  `ANVI-AS200-EH-20-GR` Anvil 1-5/8 x 20' strut a $5,31. Perfilado de 20' custa
+  ~$30–70.
+- **Detector por mediana do tipo falha** quando o tipo inteiro tem o defeito —
+  ele nao pegou nenhum dos dois estornados. Usar criterio absoluto.
+- **A loja aceita pedido para o Alasca** (a #THS1064 pagou $351 de frete e
+  estornou), enquanto a comunicacao diz "contiguous U.S.". Decisao do Gabriel.
