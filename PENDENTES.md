@@ -4117,3 +4117,55 @@ Fontes que converteram em 30 dias, por receita GA4: `google/cpc` $10.712,58 (30)
 **`chatgpt.com`** $300,76 em 3 transacoes (`/feed` 2 + `/ai-assistant` 1, em 99
 sessoes). O ChatGPT ja e canal de receita da loja, com taxa de conversao de 3%
 — melhor que a do `google/cpc` (0,66%). Nao explorado.
+
+## §65 — Correcao do §64: o budget FOI aumentado (23/09/2026)
+
+**O §64 acima esta desatualizado e nao deve ser lido como estado atual.** Ele
+recomendava nao aumentar; o Gabriel aumentou. Decisao dele, tomada.
+
+`budget_amount` agora e **$208** (era $160 — exatamente +30%).
+
+**Achado de metodo que vale mais que o numero**: o `budget_amount` do Windsor e
+o valor **atual** do budget, replicado em toda linha de data — **nao e
+historico**. As linhas de 18 e 19/09, que em 19/09 vinham com $160, hoje vem com
+$208. **Nunca ler `budget_amount` de uma data passada como se fosse o que
+valia naquele dia.**
+
+Isso tambem resolve o "2x o budget" do §64: o gasto de ~$320/dia entre 15 e
+19/09 era o Google compensando a parada de 11–14/09. Ja normalizou para
+$207–254/dia, batendo com o novo teto de $208.
+
+### Primeiros dias no nivel novo
+
+| Dia | Gasto | Receita GA4 `google/cpc` |
+|---|---|---|
+| 20/09 | $253,71 | **$5,58** |
+| 21/09 | $206,82 | $1.971,78 |
+| 22/09 | $214,36 | inutilizavel |
+
+**22/09 nao serve**: o GA4 ainda processava e jogou 345 sessoes em `(not set)` e
+227 em `(data not available)`. **Atribuicao do dia anterior nunca serve** —
+esperar 48h antes de usar `session_source_medium`.
+
+Nos dois dias limpos: ROAS **4,29**, contribuicao **+$138,61** (~$69/dia),
+contra ~$12/dia da janela anterior. Melhor — **mas o mesmo padrao**: 21/09
+carregou tudo e 20/09 gastou $253 para faturar $5,58.
+
+### Criterio de corte proposto (falta o Gabriel confirmar)
+
+Rodar ate **05/10** (duas semanas cheias no nivel novo) e julgar por
+**contribuicao acumulada**, nao por ROAS de dia bom. Abaixo de ~$50/dia, voltar
+para $160.
+
+### Outros
+
+- **21/09: order de $3.812,97 por `google / organic`** — maior que qualquer
+  coisa que o pago trouxe no mes. Nao identificada ainda.
+- `Heating Equipment Supplies` **parou de aparecer com gasto desde 10/09**.
+  Provavelmente pausada.
+- **Nada foi importado ate 23/09**: os 483 titulos, 281 SEO, 267 alt, 2
+  descricoes e os 25 pesos seguem parados. Conferido ao vivo no site — os
+  quatro titulos de amostra continuam com `(R)`, `&amp;`, traco solto e caixa
+  alta. O carrossel tambem segue na ordem antiga.
+- **O MCP da Shopify voltou apontando para a TFAS de novo** em 23/09. A regra
+  do CLAUDE.md pegou antes de eu fazer besteira. Continua precisando de `/mcp`.
