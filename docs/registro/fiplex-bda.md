@@ -275,3 +275,20 @@
 - **HONBDA-7S27B-IB-06 (audit t01):** BD441.1 serves from `datasheets/fiplex-02022026/hon-ba-fire-bd441-bda-bbu-honbda-7s.pdf` and `datasheets/hbt-fire-fiplex-BD441-BDA-BBU-HONBDA-7S-datasheet.pdf` (same revision); both slugs miss under the other root. p1 (coordinator-verified): -IB-06 DL 769-775 &amp; 851-861 MHz &mdash; the -IB-10 is 758-775, so the pair differs in the 700 MHz band edge. Type Annunciators&rarr;BDA flagged.
 
 - **Westell kits and fiber-DAS master (enrichment e01, 23 Sep):** no product page exists for `CS40-734834-00D-A0` (slug redirects to /search at 42,310 B, same as bogus); the series page `cs40-series-protectlink-class-a-b-bdas` links the data sheet. `IBW-PS-OrderGuide.pdf` and `catalogs-brochures/IBW-UL2524-KIT-FLYER.pdf` state kit contents (coordinator-verified: CS45-727-827-K2 = CS45-727-827-A0 + CS19-BBU-004 + CS19-BAT100AH31); the flyer's K2 graphic says &quot;12 HRS&quot; against its own 24-hour table. Order guide vs data sheet disagree on -00D-BR (wideband remote vs Class B remote amp). Store defects: `CS19-PYL12V100FT` titled a cabinet and is a battery; `CS40-U34-U4D-HE` has control chars U+0001/U+0002 in its title; `CS19BAT145AHSLA` and `CS19-BAT145AH-SLA` look duplicated.
+
+### e05 (23 Sep 2026): Westell CV04 splitter and CS05 power tappers, ad-candidate lot
+
+- **Routes.**
+  - Tapper data sheet: `support.westell.com/documents/IBW-PSG-PwrTappers-DS.pdf`, file dated 2020-09-15.
+  - CV04 splitter data sheet: `IBW-CV04-Series-PwrSplitters-DS.pdf`.
+  - Two order guides are linked from every product page: `IBW-PS-OrderGuide.pdf` (2026-05-08) and `OrderGuide/IBW-Ancillary-Passive-Antenna-OrderGuide.pdf` (2026-03-12).
+  - `westell.com/sitemap.xml` has 794 URLs and enumerates product slugs.
+- **Fingerprints.** A bogus product page returns 200 at 42,310 B with no data-sheet link. A bogus `/documents/` path returns 404 at 1,245 B `text/html`.
+- **The CS05-429 coupler sheet is a different family from the CS05-4xx-114 tappers.**
+- **Trap: Westell contradicts itself on tapper power and IP rating.**
+  - Power: 300 W in the data-sheet prose and the Ancillary Order Guide; 200 W in the PS Order Guide, the product-page spec table and the unit label in the data sheet's own photo (`CS05-479-114 REV: B`, "200W"). A likely origin of 200 is the CV05-614 VHF tapper block printed directly above in the PS guide, which is truly 200 W. A hardware revision would also explain it.
+  - IP rating: IP65 on the data sheet and page, IP67 in the Ancillary guide.
+  - Nothing settled either, so the live "200W" was removed and no power figure or IP rating was published for the tappers.
+- **Page headlines carry the ERP strings (136-960, 200W) while the spec tables on the same pages say otherwise.** The CV04 sheet says 138–960 MHz; only the PS Order Guide heading says 136. The CV04 dimension cell has a typo (`4.4 x 4x4 x 0.9`); the drawing gives 4.4 × 4.4 × 0.9 in.
+- The 3 dB tapper (PT3, CS05-494-114) is an unequal 2:1 split, not an even divider. "Wilkinson" is on the westell.com headline only; it stayed in the title because it was already live, and was put in `unverified`.
+- Queued: titles on CS04-070/071/072-429 read "2 W/3 W/4 W", but the number is the way count. The PS Order Guide says 300 W (see `audit/proximos_irmaos.md`).
