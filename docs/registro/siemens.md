@@ -239,3 +239,5 @@
 
 
 - **`PAD5-6A` (v2b52):** Data Sheet 3364 (A6V11231624) Rev. 4, Sep 2025, from `cache.industry.siemens.com/dl/files/869/109790869/att_1047634/v3/A6V11231624.pdf`. Kit = PAB-ENCL black 1HU enclosure + PAD-5-MB with one adapter plate + FP2011-U1 170 W &mdash; complete, not the `FC901-U3` shape; batteries not in the kit list. The sheet contradicts itself on 1HU battery capacity (18 vs 35 Ah) and 6.5 vs 6 A &mdash; neither battery figure published. Type Kits flagged.
+
+- **[Correction of a briefing compression] SL (first generation) HAS a 95 cd setting; the &quot;no 95 cd&quot; rule is SL2 only (audit t04).** Data Sheet 2594 (A6V11396487) Rev. 5 Feb 2023 p4 row `SLSCW-F | S54329-F15-A1 | Strobe | Ceiling | Clear | WHITE | FIRE` (coordinator-verified); p1 *&quot;multi-candela settings (15 | 30 | 75 | 95cd)&quot;*; P85582-001A agrees. SL2 (Data Sheet 2600) is 15/30/75/110/150/177. Data Sheet 2600 Rev 3 states no supersession of SL. A bogus A6V via `/go/` returns a 2,611 B &quot;unresolved&quot; page.
