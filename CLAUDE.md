@@ -8195,6 +8195,31 @@ Revisit after the high-impression band is done.
   plus SKU. The postcondition that refused it (*the SKU must still appear verbatim in the new
   title*) is what makes that scan safe to apply unilaterally, and it has now held twice.
 
+- **THE FOLLOW-THROUGH FOUND THE SHARPEST CASE OF ALL, AND IT IS THE SAME PRODUCT THIS FILE
+  ALREADY THINKS IT FIXED.** The entry above ends *&quot;run the non-ASCII check on every
+  identifier field, not just the one where it was noticed.&quot;* Run immediately, over
+  `sku`, `vendor`, `productType` and `title` on all 16,031 active products:
+  **`vendor` 0, `productType` 0, `title` 46 (23 `&deg;`, 21 `&reg;`, 5 `&trade;`, zero outside
+  that set), `sku` EIGHT.** Six are the trailing `U+00A0` above. **The other two have no twin,
+  so the collision scan could not see them**, and one of them is this:
+  **`868STRC-AQ`'s SKU is, live today, `868STRC-AQ` followed by `U+00E2 U+20AC U+2039`.** That
+  is byte-for-byte the double-encoded zero-width space this file records as having been found in
+  **the TITLE of this exact product** and normalised on 21 Sep 2026. Verified live: the title is
+  clean ASCII now, the handle still carries its own leaked form (`edwards-868strc-aqa`, left
+  alone on purpose to avoid breaking the URL), and **the SKU was never looked at.**
+  **Three fields on one product: one fixed, one deliberately left, one never checked &mdash; and
+  the one never checked is the Merchant Center identifier.** The recorded note even *says* the
+  corruption &quot;had already leaked into the handle&quot;, which shows the author knew it
+  spread across fields and still did not enumerate them. **A defect found in one field is a
+  question about every field of that record.**
+  The eighth is Eaton's `DB4BULGD870N2CPCR&#160; C:1.5` &mdash; a `U+00A0` and then an ordinary
+  space before a configuration token welded onto the catalogue number.
+  **And the negative control in the same run is what keeps the mechanism honest: 377 SKUs
+  contain an ordinary internal space and nearly all are legitimate** (`PS-1270 F2`,
+  `OX SENSOR`, `STI EP141207-T`). &quot;A SKU contains a space&quot; is a **shape** and
+  over-fires; &quot;two SKUs differ only in whitespace&quot; and &quot;a SKU contains a
+  character outside ASCII&quot; are **mechanisms** and return 4 and 8 with no false positives.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
