@@ -8254,6 +8254,40 @@ Revisit after the high-impression band is done.
   defect class is found in one script, grep for the same pattern in its siblings, because the
   second instance will not announce itself.
 
+- **THE PHOTO WORK IS 22% DONE BY PRODUCT AND ABOUT 82% DONE BY AVAILABLE YIELD, AND THAT IS
+  THE NUMBER THAT SHOULD DECIDE WHAT HAPPENS NEXT.** Tallied 23 Sep 2026 across all 26 CSV
+  lots: **1,745 rows, 1,743 distinct handles, and every one present in the 7,900-product
+  placeholder census** &mdash; the two repeats are the deliberate Mircom door corrections.
+  **6,157 remain.** Projecting each remaining vendor at its own recorded rate:
+
+  | | products left | projected |
+  |---|---|---|
+  | brands with a **measured ceiling under 4%** | **4,293** | **~55** |
+  | the five brands still worth working | **1,091** | **~304** |
+  | everything else | 773 | ~16 |
+  | **total** | **6,157** | **~375** |
+
+  **So four fifths of what is still obtainable sits in 18% of the remaining products**
+  &mdash; Amerex 203, Rath 607, Edwards 114, Power Sonic 84, Macurco 83 &mdash; and the other
+  4,293 are projected to yield about fifty-five photographs between them.
+  **Kidde Fenwal alone is 1,508 products, 24% of everything left, at a measured 1.25%** &mdash;
+  and its five hits have **no hosted URL at all**, being extracted from PDFs, so they cannot
+  enter a Matrixify import that keys on `Image Src`. **Hochiki is 770 at 0.77%**, of which 369
+  are Hochiki *Europe* numeric codes whose manufacturer publishes nothing per part. Fiplex,
+  Napco, Monaco, Gentex and Resideo are **measured zeros**, 675 products between them.
+  **Be honest about which figures are which.** The zeros and the sub-4% rates are *measured*,
+  each from a named probe with a control. The five worth working carry rates *derived* from
+  delivered-against-attempted, which is weaker &mdash; Amerex at 65% because 408 of 629 already
+  shipped, Edwards at 42% because 84 of 198 did. Those five could come in lower; the 4,293
+  will not come in meaningfully higher, because their ceiling is **catalogue coverage**, not
+  matching and not routing.
+  **The consequence is a recommendation rather than a queue: work the five, then stop.** What
+  remains after that is not a research problem and no better filename rule will move it &mdash;
+  it is a request to five manufacturers for a dealer image pack, exactly the one that turned out
+  to exist for Kidde/Edwards Genesis (39 photographs, three of them reachable products). **A
+  coverage ceiling that is a property of the manufacturer's own catalogue cannot be engineered
+  around, and saying so is more useful than another batch.**
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
