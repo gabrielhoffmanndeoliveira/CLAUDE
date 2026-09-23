@@ -532,3 +532,17 @@
 - Every live title was confirmed identical to the snapshot before applying; all 11 returned `userErrors: []`.
 - **Most of the "truncated" 177 are not mechanically fixable:** the title simply runs to ~150 characters and ends plausibly. Those need an agent, or no action.
 - m01 (cont.): 2 more prefix cuts: 84-330001-001 (dropped the trailing sentence 'Includes Label Options (KIDDE-FIRE') and 439D-8AW-R (dropped '(with 449 Outdoor'). Kept for an agent rather than cut, because a prefix cut would lose a real fact: 85-220032-001 (ECS 500 Novec listing), 76-600000-200 (back box required).
+
+### t10–t13 and the pause (23 Sep 2026)
+
+- t10–t13 closed the 25 titles in `FILA_titulos.json` that had impressions or ERP revenue: t10 (6), t11 (6), t12 (6), t13 (7). All verified with 0 problems, all published with `userErrors: []`.
+- The biggest were ELCHSR ($15k ERP; the title lacked its own SKU) and Comba RX14V3-AP0-V2AU2X ($26k ERP; the ordering row was cut at 150 characters, just before the differentiating filter code "UHF 2X").
+- The owner stopped work here ("fecha os 19 e para"). 246 zero-demand titles stay in the queue by decision. The owner received a curated 29-row shortlist, `DECISOES_PRIORITARIAS.csv` (prices, duplicates, non-UL feed items).
+- **Queued, not done:**
+  - Eaton ELCHSRC ("Horn Strobe" should be Chime Strobe) and the ELCHW/ELCHWC title/SKU mismatch.
+  - Napco SLE-MAXAI-CFB and SLE-MAXVI-CFBPS, same truncation.
+  - Gentex GHSLFCW/GHSLFR/GHSLFW, same "Plain (no" cut.
+  - Mircom SP-404SW/504 raw-quote titles.
+  - The four Kidde Fenwal valve siblings.
+  - Notifier WRL-PC/WSO-PR/BSO-BB/BSO-DD/BRH-PC field-list titles.
+  - BDA-DC20-W2-2026: the "-2026" suffix is in no document (flag).

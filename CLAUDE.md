@@ -463,7 +463,7 @@ Case law: `registro/fotos.md`.
 - **Progress (23 Sep 2026): 1,359 enrichment pages published** = 555 old list + 804 v2
   ids across v2b01–v2b52 (v2b50 and v2b51 verified live on 23 Sep), plus 260
   title-only products, 80 catalogue-wide title-encoding fixes and 75+6 brand-and-SKU
-  dedups. v2b52 fully published 23 Sep (12 ids). Enrichment paused after v2b52 by the owner. Update this line from a live pull, never by adding.
+  dedups. v2b52 fully published 23 Sep (12 ids). Enrichment paused after v2b52 by the owner. **Also on 23 Sep:** 62 ad-candidate pages (e01–e10, from `FILA_ads438_descricoes.json`; 225 left) + 2 Fiplex pages (x01); title audit lots t01–t13 plus 18 mechanical fixes (m01, sentence-in-title cuts). The 19 remaining demand titles were closed; 246 zero-demand titles left deliberately. **Paused until the 21 Oct checkpoint (owner).** Owner shortlist: `/tmp/tfas/DECISOES_PRIORITARIAS.csv` (29 rows: prices, duplicates, feed). Note: rows appended to `DECISOES_DO_DONO.csv` on 23 Sep carry their source label (e.g. `auditoria t10`) in the `status` column, so filter on it with care. Update this line from a live pull, never by adding.
 - **Queue economics:** value per batch falls steeply; a natural stopping point sits
   around batch 135 (see `registro/negocio-ads-medicao.md`). Revenue per impression stays
   $25–38 across bands. Thermostats convert at 1/200th of the fire core per impression.
