@@ -189,6 +189,28 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   (`navien tankless water heater`: 2.345 impressões, 25 cliques, 0 conversão) e
   o modelo errado (o lance está no NPE-240A2; quem vende é o NHW-SU).
 
+- **`google / organic` no GA4 nao e uma coisa so.** Agrupar por
+  `session_source_medium` junta dois buckets diferentes. Sempre abrir tambem por
+  **`campaign`** e **`session_default_channel_group`**:
+  - `google / organic` + Organic Search + campanha `(organic)` = busca organica.
+  - `google / organic` + **Organic Shopping** + campanha **`Shopping Free
+    Listings`** = superficie de Shopping, **nao** busca organica. Foi por aqui
+    que entrou a maior order de 21/08 a 21/09: **$3.812,97 em 188 sessoes**,
+    maior que a Navien.
+  Em 23/09 eu chamei essa order de "busca organica" e estava errado; o Gabriel
+  desconfiou e ele e que estava certo.
+- **O `sag_organic` aparece em TRES buckets do GA4** — `google / product_sync`,
+  `google / cpc` em Paid Search, e dentro do Paid Shopping. A mesma etiqueta de
+  UTM cobre superficie paga e nao paga. **O discriminador nunca e o nome do
+  bucket: e se o Google Ads faturou aquele clique.** Teste: comparar o
+  `conversion_value` do Ads no dia com a linha `google / cpc` do GA4 — o que
+  sobra nao veio de clique pago faturado.
+- **O `gclid` vence o UTM no GA4.** Clique de Shopping pago chega com `gclid` e
+  com os `utm_*=sag_organic`; o GA4 usa o `gclid` e arquiva como `google / cpc`,
+  ignorando o UTM. Por isso o bucket `product_sync` e minusculo (21 sessoes em
+  32 dias) — sao so os cliques sem `gclid`. Prova de que o pago esta todo em
+  `cpc`: 4.564 sessoes GA4 contra 4.619 cliques reportados pelo Ads na mesma
+  janela, 1,2% de diferenca.
 - **`SEOInput` no `productUpdate` substitui o objeto inteiro, nao faz merge.**
   Mandar `seo { title }` sozinho **apaga a `seo.description`**. Sempre reenviar
   os dois campos juntos. Aconteceu em 16/09 com 3 termostatos de line voltage;

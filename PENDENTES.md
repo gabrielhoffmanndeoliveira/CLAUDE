@@ -4169,3 +4169,46 @@ para $160.
   alta. O carrossel tambem segue na ordem antiga.
 - **O MCP da Shopify voltou apontando para a TFAS de novo** em 23/09. A regra
   do CLAUDE.md pegou antes de eu fazer besteira. Continua precisando de `/mcp`.
+
+## §66 — Correcao: a maior order do mes nao foi organica, foi Shopping
+
+O Gabriel perguntou se `google / organic` nao seria o `sag_organic` pago. Eu
+respondi que nao e dei uma tabela. **A tabela estava incompleta e a conclusao
+sobre a order grande estava errada.** Ele estava certo em desconfiar.
+
+**Escopo exato do erro**: na janela 21/08–19/09 usada para a analise de verba,
+a receita de `google / organic` ($1.349,93) era mesmo toda de busca organica —
+aquela tabela estava certa. O erro foi no caso de **21/09**, onde chamei a order
+de $3.812,97 de organica.
+
+### Split correto, 21/08 a 21/09, por campanha
+
+| source/medium | channel group | campanha | sessoes | trans | receita |
+|---|---|---|---|---|---|
+| `google / cpc` | Paid Shopping | SHOPPING GABRIEL | 4.777 | 35 | $12.689,94 |
+| `google / organic` | **Organic Shopping** | **Shopping Free Listings** | 188 | 1 | **$3.812,97** |
+| `google / organic` | Organic Search | `(organic)` | 255 | 4 | $1.349,93 |
+| `google / product_sync` | Organic Search | `sag_organic` | 21 | 1 | $82,83 |
+| `google / cpc` | Cross-network | **Heating Equipment Supplies** | **291** | **0** | **$0** |
+| `google / cpc` | Paid Search | `sag_organic` | 8 | 0 | $0 |
+
+### `Heating Equipment Supplies` e pior do que o §64 dizia
+
+Nao e so "$207,17 sem conversao". Sao **291 sessoes e zero transacao**, e o
+channel group e **Cross-network** — indica Performance Max ou Demand Gen, nao
+busca simples. **Pausar continua sendo a recomendacao, mas antes entender que
+tipo de campanha e**: PMax gasta em superficies que ninguem escolheu.
+
+### A maior order do periodo custou zero de midia
+
+$3.812,97 de 188 sessoes, maior que a Navien da #THS1026.
+
+**Evidencia de que nao foi paga**: em 21/09 o Ads reportou $2.035,55 de valor de
+conversao, que casa com a linha `google / cpc` do GA4 ($1.971,78) e **nao**
+inclui os $3.812,97.
+
+**O que NAO esta provado**: que "Shopping Free Listings" seja mesmo superficie
+gratuita, e nao outro rotulo enganoso como o `sag_organic`. **Confirmar em
+Merchant Center -> Performance -> por superficie**, comparando cliques de free
+listings contra os do Ads no dia 21/09. Se confirmar, e o achado mais
+importante da semana.
