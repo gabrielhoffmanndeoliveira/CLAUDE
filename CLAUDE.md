@@ -8316,6 +8316,36 @@ Revisit after the high-impression band is done.
   nobody was tracking it** &mdash; which is the same shape as every denominator error in this
   file: a number that matters, that nothing in the process measures.
 
+- **Verification sweep at batch 49 (1,322 pages, 23 Sep 2026): clean an EIGHTH time &mdash; and
+  for the first time in five sweeps the DENOMINATOR NEEDED NO CORRECTION, because the previous
+  four corrections are now encoded in the query rather than remembered.** One bulk pull, 16,031
+  active products. Population = the v2 slices (768) plus the old list taken from
+  `BASELINE_555_publicadas.csv` (555), **minus the in-flight batch** and **minus the 279
+  title-only products, which are tracked-but-not-enriched by design** &rarr; **1,322 audited,
+  zero missing**, and exactly **four** pages under 400 visible characters: `SM7100-L8` (22),
+  `90521` (30), `BDA-TP10-L2` (73), `BDA-NMP01250` (95), all four the deliberate skips.
+  **That is the useful outcome of four embarrassing sweeps.** Batch 35 found title-only products
+  breaking the equation between tracked and enriched; batch 40 found 99 abandoned slices from the
+  retired queue; batch 43 hit both at once. Each was written up as a lesson, and a lesson that
+  stays a lesson gets re-learned &mdash; **what stopped it was moving the exclusions into the
+  script.** The sweep now states its own population in its output line, so the number cannot be
+  read without seeing what it was measured on.
+  Catalogue-wide on the same pull: **46 non-ASCII titles, every one `&deg;` (23), `&reg;` (21)
+  or `&trade;` (5), zero outside that set** &mdash; 56 &rarr; 50 &rarr; 49 &rarr; 47 &rarr; 46
+  across batches 14, 24, 29, 43 and 49, still falling on its own as enrichment rewrites titles
+  for substantive reasons. **Zero** titles carrying a literal HTML entity. **Zero** titles
+  repeating brand and SKU as separate tokens, bar the one known false positive whose `sku` field
+  literally contains the vendor string. Unbalanced parentheses **102, unchanged**, as expected
+  for truncated titles this project deliberately does not reconstruct.
+- **The Eaton bare-host lever FAILED to reproduce, and the negative is worth the line.** This
+  file records `https://eaton.com` without the `www.` as a cheap lever after ~100 consecutive
+  failures against `www.eaton.com`. Re-validating the 25 delivered Eaton photo URLs, **both
+  hosts returned `RemoteDisconnected` on every attempt**, tried in that order per row. So the
+  lever is not a fix &mdash; it is one more draw against the recorded per-connection
+  intermittency, and this process lost every draw. The 25 rows stand as delivered and
+  **unverified from here**, which the owner has been told; the recorded remedy is a different
+  process, and that is now bounded by the owner's three-agent cap rather than by the host.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
