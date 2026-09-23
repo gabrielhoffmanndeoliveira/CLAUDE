@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,329 enrichment pages published** (555 old list + 762 v2 through v2b50 half B, verified live), plus 249 title-only products — 555 from the old list plus v2b01 through
+**Progress: 1,335 enrichment pages published** (555 old list + 768 v2 through v2b50, verified live), plus 260 title-only products — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -8415,6 +8415,121 @@ Revisit after the high-impression band is done.
   store**, so a buyer cannot complete the assembly from TFAS at all. **An incomplete-product
   finding is also a merchandising finding** &mdash; check whether the required part is stocked,
   because the answer decides whether the copy can help the buyer or only warn them.
+
+- **A SUPERSESSION CAN LIVE IN A SALES ANNOUNCEMENT RATHER THAN IN EITHER PRODUCT'S DATA
+  SHEET, AND A DATA-SHEET-ONLY SEARCH RETURNS A FALSE NEGATIVE. This corrects a recorded
+  finding.** This file records the Gentex `S1209` *&quot;Replaced by S&quot;* claim as unsourced,
+  on the grounds that `replac`, `supersed` and `discontinu` connect the two in none of the data
+  sheets &mdash; and that measurement was right. **The document exists and is not a data sheet.**
+  `fireprotection.gentex.com/files/Product_Announcement-3-19-24.pdf`, fetched and read directly
+  by the coordinator (126,853 bytes, `application/pdf`, 1 page), is a letter from Gentex's Sales
+  Director dated 19 March 2024 saying verbatim: *&quot;These new alarms will replace our current
+  offering of the S1209 Series, CO1209 Series and GN-503 Series. We will continue to manufacture
+  the legacy alarms through June 30, 2024, pending component availability.&quot;*
+  **So the claim went INTO a feed title**, which is rare here: `Gentex CR &hellip; Replaces CO1209
+  Series`. **And it stayed at series level, because that is all the letter says.** The letter
+  announces *&quot;Attached is a cross reference chart&quot;* and **the chart is not in the PDF**,
+  so the part-for-part mapping every reseller asserts &mdash; and that four store pages assert
+  &mdash; has no source. The agent narrowed to the series claim on its own and was right to.
+  **The ask that follows is worth more than the page: one Gentex cross-reference chart settles
+  `CO1209`, `CO1209F`, `S1209` and the C Series pages at once.** It is an attachment to a sales
+  e-mail, so no amount of searching produces it &mdash; the rep does. Flagged, with the
+  end-of-manufacture date (30 Jun 2024) as a separate lifecycle question, since the store still
+  sells both legacy SKUs as current.
+  **The generalisable half: a supersession lives wherever the manufacturer chose to announce it.**
+  This file already records the Honeywell product-announcement bulletins as the supersession
+  source for that brand, and the System Sensor `OSI-R-SS` letter as a manufacturer-authored
+  REPLACES table with no document number. This is the third shape &mdash; a dated sales letter on
+  letterhead &mdash; and it means **&quot;absent from both data sheets&quot; bounds the data
+  sheets, not the catalogue.**
+- **A COUNTER-EXAMPLE TO THE 185-TITLE FREQUENCY WORKSTREAM, FOUND BY A BATCH THAT WAS NOT
+  LOOKING FOR ONE, AND IT SHOULD REACH THE OWNER BEFORE THAT WORK IS APPLIED.** That workstream
+  rests on *&quot;the title explains itself&quot;* &mdash; 267 of 288 broken digit runs carry a
+  VHF/UHF/Band label immediately before them, and 8 more have the range inside the part number,
+  which this file records as **a different and much better kind of evidence** than domain
+  knowledge. `BDA-YDA763869-14-1` is one of the second kind, and **expanding it would be wrong.**
+  Honeywell `HON62098.02` gives the antenna's range as **698-869 MHz**. The digits `763869` are a
+  **model designator**, not a band, and the real range is 65 MHz wider at the bottom. The store's
+  live title said 763-869.
+  So the rule needs its boundary stated: **a digit run inside a PART NUMBER is not evidence about
+  a frequency; only a run the title itself labels is.** The 267 labelled rows are untouched by
+  this; the 8 that rest on their own part number need their own data sheet, one at a time. That is
+  the `AS-75-R-WP` shape &mdash; a number inside a model number that looks like a spec &mdash;
+  firing on the one workstream this file had cleared to proceed.
+- **An AI summary committed the adjacent-row trap INSIDE ITS OWN SUMMARY, on a part two rows
+  down.** A search summary attributed to Viking `904757` the wording *&quot;align a UniVario flame
+  detector in the vertical as well as the horizontal axis / 22.5&deg; increments&quot;*. Reading
+  the page shows that belongs to **`922485`, the Mounting ANGLE bracket, the next part on the same
+  page**. Nothing from it was published. This file records summarising fetches shifting a table by
+  one row and manufacturing a lifecycle claim out of page chrome; this is the same failure with no
+  table involved at all &mdash; **two adjacent catalogue entries welded into one answer.**
+- **&quot;Viking&quot; is TWO UNRELATED MANUFACTURERS under one vendor string, and the negative
+  was validated with both controls before it was trusted.** `904757` is **Viking GmbH / UniVario**
+  industrial fire detection (Minimax Viking), not Viking Group Inc sprinkler hardware: Product
+  Sheet `312-810_005` heads it *&quot;UniVario Detector Accessories &mdash; Mounting Bracket
+  MX5000, Part no.: 904757&quot;*, and the store's own ERP body already reads &quot;MX5000
+  BRACKET&quot;. Viking Group Inc's product search returns its no-results size for it (158,867 B
+  against a bogus control at 158,881 and a known-good `VK502` at 163,822) &mdash; **so the endpoint
+  discriminates and the miss is real.** Every other Viking SKU in the store is sprinkler material.
+  Fifth umbrella vendor string hiding another manufacturer's namespace, after `SF-`/Space Age,
+  `Fireray`/Edwards, `Universal`/Neomounts and `Federal Signal`/E2S. Flagged; vendor is a feed
+  attribute.
+- **Two SKUs in this store that no title can separate, and saying so is the deliverable.**
+  `PTX14AHLBS-FS` and `PTX14AHBS-FS` carry **identical rows in every column** of Power-Sonic's own
+  table &mdash; 12 V, 12 Ah, 210 CCA, 273 CA, 9.7 lb, 1.2 A, Terminal A, 5.2 &times; 3.5 &times;
+  6.5 in. The manufacturer *does* decode the part number (Applications Guide p20: `PTX|14|A|H|L|-BS|-1`
+  = AGM / performance classification / case size / **higher CCA** / **polarity location** /
+  bottle-supplied electrolyte / terminal), and the only token that differs is **polarity
+  location**, which no document resolves to a side. **So the two titles differ only by part
+  number, deliberately.** One carton label settles it.
+  What the decode *did* settle is the buying decision on the rest of the lot: **`-FS` ships charged
+  and sealed and `-BS` needs a bottle of acid**, proved three ways (plain text, word coordinates at
+  x=171.5 &quot;AGM READY TO GO&quot; against x=303.0 &quot;LOCALLY ACTIVATED AGM&quot;, then a
+  300 dpi render). That is in the titles. And **the model number is a capacity on none of the
+  four** &mdash; PTZ7S 6.0 Ah, PTZ10S 8.6, PTZ12S 11.0, PTX14AHL 12.0, all at 10 hr with the 20-hour
+  row **literally blank** on every sheet, identically, so a template defect and not extraction
+  error.
+- **A datasheet's OWN product photograph showing another model's printed label &mdash; the
+  Power-Sonic filename trap, one layer in.** The PTZ7S datasheet's product render carries a label
+  reading a 30 Ah `&hellip;CLBS-FS` part, read at 700 dpi. This file records that manufacturer
+  *filenames* name the wrong product on three brands; here the wrong product is inside the
+  manufacturer's own PDF, where there is no filename to disagree with. **The photo pipeline's
+  look pass applies to datasheet-extracted images too.**
+- **A refusal that names the cheapest thing that would settle it, and questions whether the row
+  belongs in the feed at all.** `RE-CUTTING-S1` was returned `null`. RFS's `products_sitemap.xml`
+  is a **literal enumeration of 1,514 products** &mdash; not a search endpoint that can silently
+  ignore a query &mdash; and contains no &quot;CUTTING&quot; and no `RE-*` but `RE60-JFN`; the
+  product URL is a 404 at 290,373 B against a known-good `CLAMP-046` at 441,271 B, so the endpoint
+  discriminates. The store's entire description is the ERP fragment &quot;RE-CUTTING&quot; at a flat
+  $212.40, and the store sells RFS cable by the foot and in 500 and 1,000 ft reels. **A
+  cut-to-length charge is the coherent reading, and coherent is not sourced**, so no class noun was
+  written and no hardware invented. **If it is a charge line it probably should not be in the
+  Merchant Center feed at all**, which is a bigger question than the title and went to the owner
+  with it.
+- **A tenth non-discriminating search endpoint, and this one defeats an MD5 control outright.**
+  `rfsworld.com/search?q=` returns the **home page at a constant 325,895 bytes with three different
+  MD5s** for a real term, a bogus term and a known-good part &mdash; a nonce varies the hash while
+  the content is identical, so an MD5-only control passes it and **the byte count is the tell**.
+  Two more on the same brand family: `vikinggroupinc.com/?s=` (220,445 against 220,448 B) and
+  `/search?keys=` (~138,199 B for everything). Against those, **`vikinggroupinc.com/products?text=`
+  does discriminate** (no-results 158,867&ndash;158,881 B against 163,734&ndash;163,822 B) and is
+  the one to use. Also measured: **`sdifire.com` now carries only seven products and its
+  WooCommerce Store API returns `[]` for everything including a known-good term**, so it is useless
+  as an existence test while its legacy PDFs still serve from `/wp-content/uploads/2018/08/` with
+  an honest 146-byte 404.
+- **A host whose SITEMAP is incomplete while its pages are live, so the page probe is the
+  existence test.** `tcsbasys.com`'s 2021 `product-sitemap.xml` does **not** list `TS1003`,
+  `TS3030` or `US4021` and all three pages resolve. Its 404 is honest, so a probe with a control
+  answers where the sitemap gives a false negative. **This is the inverse of the RFS case in the
+  same lot**, where a sitemap *is* a literal enumeration and therefore the better instrument
+  &mdash; so neither artefact is reliable by type: **check whether the sitemap is current before
+  treating its absence as evidence.** One document, `TS_Series-Product-Data-Sheet.pdf`, settles
+  three of the four TCS products.
+- **A typo in a standard number left unrepaired, which is the `Ten-Xone` rule on a listing.**
+  The Bedrock BTB65 flyer prints **&quot;IEC-61268&quot;**, almost certainly meant for IEC 60268-16,
+  the speech-intelligibility standard. **No standard number went into the title.** Repairing an
+  obvious typo is still writing a new claim, and a standards citation is the most expensive kind
+  to get wrong.
 
 ## Conventions
 
