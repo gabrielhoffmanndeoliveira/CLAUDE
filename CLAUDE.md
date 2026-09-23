@@ -8220,6 +8220,40 @@ Revisit after the high-impression band is done.
   over-fires; &quot;two SKUs differ only in whitespace&quot; and &quot;a SKU contains a
   character outside ASCII&quot; are **mechanisms** and return 4 and 8 with no false positives.
 
+- **THE NAMELESS-TITLE QUEUE HAS A FLOOR, AND IT IS NOT ZERO. Fifth denominator correction on
+  this project, and a new kind.** The census was re-run live rather than decremented, as the
+  recorded rule requires: **37 titles remain that are brand plus part number and nothing else**,
+  matching the previous count exactly. But the number that matters is the split, which nobody
+  had taken:
+
+  | | n | what it is |
+  |---|---|---|
+  | never sliced | **6** | real work: 4 TCS Basys, 1 Viking, 1 Westell |
+  | in the lot the owner paused | **11** | real work, deliberately stopped |
+  | **deliberate nulls** | **20** | already researched and correctly declined |
+
+  **So 313 &rarr; 180 &rarr; 94 &rarr; 37 reads as progress toward zero and the floor is about
+  twenty.** Those twenty are products an agent looked at and refused to title, each for a stated
+  reason that research cannot lift: `DHS40-HG-SCH-1-A` behind a WAF with every FCC route blocked,
+  `PS-632 F1` with three incompatible readings, `PDC-12400 M6` and `PGFT-12V125 M6 FR` absent
+  from the manufacturer's current catalogue, `2900-XX` a literal wildcard SKU, `OGN-MONITOR-STD`
+  whose `STD` is polysemous inside one product line, `FREIGHT` which is not a product.
+  **What settles them is a price list, a carton label or a dealer login &mdash; not another
+  batch.** That is worth saying to the owner in those words, because &quot;37 left&quot; invites
+  the wrong instruction.
+  **And the general rule: a queue built by subtracting what you finished cannot see the items
+  you correctly declined.** They look identical to untouched work from outside, so they
+  accumulate at the bottom and every later batch re-slices them. The fix is the three-way split
+  above &mdash; never sliced, in flight, declined &mdash; computed from the lot files rather
+  than from the census.
+- **The title builder was still reading two SNAPSHOTS, one workstream after the enrichment
+  builder was fixed for exactly that.** `build_titulos.py` joined `TITULOS_SEM_NOME_v2.json`
+  (three censuses stale) against `catalogo_full.json` (a snapshot this file warns about by name
+  twice). Patched to take the newest census and join the **live** bulk pull, with the empty-field
+  assertions kept. **A fix applied to one builder is not applied to the pipeline** &mdash; when a
+  defect class is found in one script, grep for the same pattern in its siblings, because the
+  second instance will not announce itself.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
