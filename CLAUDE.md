@@ -46,7 +46,16 @@ whether to continue.**
 
 **Current capacity setting (owner, 23 Sep 2026): &quot;pode usar só 1 agent agora, vamos
 desacelerar um pouco&quot;.** One research agent at a time until the owner changes it.
-The standing order still holds inside that cap. Earlier setting, for reference when the
+The standing order still holds inside that cap.
+
+**Direction change (owner, 23 Sep 2026): enrichment is PAUSED after v2b52.** &quot;vamos
+pausar tudo entao e focar na auditoria de titulos e dados estruturados&quot;. No new
+`v2bNN` slices. The work is now the title and structured-data audit: mechanism scans on
+the live catalogue, title-only research lots for demonstrably wrong titles, and turning
+the backlog in `DECISOES_DO_DONO.csv` into owner-approved changes. Rationale: title,
+type and vendor errors cost two channels (organic and the Merchant Center feed behind
+~$1.2M/yr of PMax) and do not wait on a recrawl, while description value per batch has
+fallen to ~6&ndash;8k impressions and is unproven until the 21 Oct / 20 Nov checkpoints. Earlier setting, for reference when the
 cap is lifted: two text agents and four photo agents; six concurrent is the ceiling,
 because the coordinator is serial (10–15 min to validate, spot-check, publish, record
 and commit each returning batch) and a queued agent burns tokens like a working one.
