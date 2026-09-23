@@ -471,7 +471,7 @@ Case law: `registro/fotos.md`.
   project).
 - **Google Ads: always pass `accounts: ["151-468-5549"]`** — the connector also serves
   The House Supplier (`192-200-0533`). Windsor cannot create PMax or Shopping campaigns.
-  tROAS was cut 650%→500% on 22 Sep; review **budget utilisation**, not reported ROAS
+  tROAS was cut 650%→500% on 22 Sep; **on 23 Sep the owner switched the Primary purchase action from the GA4 import (`6910639875`, 90-day window) to the Shopify app tag `Google Shopping App Purchase (1)` (`7700459405`, 30-day, enhanced conversions on), GA4 now Secondary — never both Primary (that caused the Jul–Aug double count); both changes read together ~6 Oct;** review **budget utilisation**, not reported ROAS
   (attribution loss; check MER = Shopify net sales ÷ Ads spend). A duplicated conversion
   action inflated Jul–Aug. List conversion actions before reading any ROAS trend. Titles
   and descriptions are Merchant Center feed attributes — errors cost two channels.
