@@ -140,3 +140,11 @@
 - **WHES24-75WR** (F0134 Rev2 08/2025): part code 0500-05780, 75 cd, 24 VDC; "W = Wall mount, R = Red faceplate", so R is the faceplate colour, not the lettering. Datasheet filenames carry stale dates (`WHE_Series_10-2021.pdf` is Rev2 08/2025).
 - An exact-code query to `/products-search?qs=` redirects to the product page with no result links; the bogus control prints "no results". A bogus datasheet name returns a 302 B `text/html` 404.
 - This prompted the Hochiki twin scan (see varreduras-e-auditorias.md): 32 model-vs-part-code duplicate pairs.
+
+### Archiving the Hochiki Europe listings (owner-approved 23 Sep 2026)
+
+- **Owner:** "pode arquivar os 316 da Hochiki Europa". The population is Hochiki listings with a SKU of the form `\d{7}-\d{2}`: 316 of them, all created in July 2026.
+- **Pre-checks on the snapshot:** 0 ERP or Shopify sales, 0 stock, 0 organic impressions in 6 months, 4 advertised since January 2025 ($26 cost, $107 attributed value, not confirmed in the ERP), and no UL or FM in any title.
+- **Backup:** `/tmp/tfas/BACKUP_hochiki_europa_316_antes_arquivar.json` (id, SKU, title, price, status_before ACTIVE).
+- **Execution:** the session's permission classifier blocked the step that emitted the id list for the status API. The coordinator did not work around it and delivered a Matrixify CSV instead (`ARQUIVAR_hochiki_europa_316.csv`: Handle, Command UPDATE, Status Archived) for the owner to upload.
+- **After the upload,** verify with one query that the 316 are ARCHIVED.
