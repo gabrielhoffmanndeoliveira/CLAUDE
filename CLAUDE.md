@@ -8531,6 +8531,68 @@ Revisit after the high-impression band is done.
   obvious typo is still writing a new claim, and a standards citation is the most expensive kind
   to get wrong.
 
+- **THE OWNER FLAGGED ONE TITLE AND IT OPENED A 34-PAIR DUPLICATE, A THREE-WAY VENDOR SPLIT AND A
+  DEFECT CLASS THE NON-ASCII AUDIT CANNOT SEE. His words were &quot;Edwards RP2226 ?? Test Point
+  &mdash; Test Point is ModuLaser not Edwards&quot;, and he was right about the catalogue being
+  wrong and wrong about which field.**
+  **Edwards DOES catalogue `RP2226`.** `E85001-0633 -- Air Sampling Pipe and Fittings`, fetched
+  from the first-party `myeddie /PublicMedia/` store and read directly by the coordinator (4
+  pages, 1,243,185 bytes, mime-clean), carries the row verbatim: ***&quot;RP2226 &mdash; Test
+  point for 3/4&quot; pipe &mdash; Can be used with CPVC and ABS&quot;***. That is the recorded
+  `RP5209` precedent exactly &mdash; the `PIP-018` shape, where the store's brand has a
+  first-party document for the part &mdash; so the vendor string is not invented and **ModuLaser
+  is Edwards' product line, not a manufacturer**.
+  **What IS wrong is that one Edwards sheet is split across three vendor strings.** Of the 175
+  `RP*` SKUs live: **Modulaser 30, Space Age 39, Edwards 2**, Rath 103 (an unrelated numbering)
+  and Napco 1. Twenty-two of the numbers in that one sheet sit under two different brands, and
+  **the sheet mentions neither &quot;RedPipe&quot; nor &quot;SAFE&quot; once** &mdash; while the
+  store's own published `RP5205X` copy says *&quot;manufactured as RedPipe by Safe Fire
+  Detection&quot;*, sourced elsewhere. Thirteen more Modulaser-branded SKUs (`RP5211`, `RP5214`,
+  `RP5217`, `RP5248`&ndash;`RP5256`, `RP7125`) are **not in the Edwards sheet at all**, which is
+  the honest boundary: Edwards resells part of the RedPipe range, not all of it.
+  **The expensive finding is the duplication, and it was invisible until the vendor question was
+  asked.** `SF-RP2226` (Space Age, $16.65) and `RP2226` (Edwards, $12.60) are the same fitting.
+  **34 pairs, and EVERY ONE carries a different price** &mdash; SF- dearer on 22 and cheaper on
+  12, median **+24%**, worst `RP5240` at $225.10 against $334.55, and the nine sample-hole markers
+  `RP5248`&ndash;`RP5256` at **$20.65 against $7.60, 63% apart**, identical parts. Two search
+  results for one part, two Merchant Center offers for one number. This is the recorded U+00A0
+  duplicate-listing shape at family scale, and with **no invisible character to blame** &mdash;
+  here the two SKUs differ by a real `SF-` prefix, so the whitespace mechanism could never find
+  it. **The mechanism that does is: strip a known reseller prefix and ask whether the bare number
+  is also a SKU.**
+- **A DEFECT CLASS THAT PASSES THE NON-ASCII AUDIT BECAUSE THE CORRUPTION DESTROYED THE
+  EVIDENCE.** The `??` in that title is not punctuation &mdash; it is where `3/4&quot;` used to
+  be, two non-ASCII characters (probably a vulgar fraction and an inch mark) replaced by literal
+  question marks at import. Scanned live: **14 titles contain a literal `?`, and not one is a
+  real question mark.** An em dash in four Edwards `4-CAB`/`4-FWAL1` titles, a degree sign in
+  Modulaser `CM10906` (*&quot;Sweeping 90? Elbow&quot;*), an inch mark in Edwards `CM10941`
+  (*&quot;3/8? Quick Connects&quot;*), `&le;` in five Comba couplers (*&quot;PIM: ?-161dBc&quot;*),
+  `&reg;` in Fireray `FW-FAST` (*&quot;AutoCAD? Reader&quot;*), and one unidentified in Aiphone
+  `TB-SE` (*&quot;TC?M Series&quot;*).
+  **This file records the non-ASCII title count as 46 and falling, clean for five sweeps. That
+  audit is correct and it is blind here, because `?` IS ASCII** &mdash; the corruption did not
+  mangle the character into another non-ASCII byte the way `868STRC-AQ` did, it **deleted** it.
+  So a scan for the wrong value cannot see a defect that replaced the value with a legal one.
+  That is the same shape as the photo placeholder census, where asking *is there an image* could
+  not see *is the image of this product*; and the same as the SKU corruption found two entries
+  above, where a defect known in one field was never looked for in another. **Third instance in
+  three days of a scan being defined by the artefact it was first found in.**
+  **Only `RP2226` was corrected, and the other thirteen deliberately were not.** Its replacement
+  is Edwards' own row, so the new title asserts nothing new: `Edwards RP2226 Test Point for 3/4
+  in. Air Sampling Pipe, CPVC and ABS`. The other thirteen would each need their own source
+  &mdash; the `Ten-Xone` rule, that repairing an obvious typo is still writing a claim &mdash;
+  and the cheap fix for all of them is a re-import with the right encoding, not thirteen research
+  tasks. Flagged.
+- **A recorded blocked endpoint fired exactly as documented, one query after being cited.** This
+  file records `safefiredetection.com`'s `?s=` search as returning near-identical bytes with the
+  query echoed and **zero product rows**. Probing it for `RP2226` returned 144,047 bytes against
+  a bogus control's 144,080 and **five occurrences of the term, every one an echo** (page title,
+  `og:url`, the webpage JSON-LD url) &mdash; and counting actual product links gives **0 for both
+  the real and the bogus query**. Read as a hit it would have &quot;confirmed&quot; SAFE
+  catalogues the part; read correctly it is no evidence in either direction. **The recorded
+  warning is what stopped it**, and the check that settled it was counting product rows rather
+  than occurrences of the string.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
