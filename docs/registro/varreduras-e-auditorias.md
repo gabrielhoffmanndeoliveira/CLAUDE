@@ -546,3 +546,14 @@
   - The four Kidde Fenwal valve siblings.
   - Notifier WRL-PC/WSO-PR/BSO-BB/BSO-DD/BRH-PC field-list titles.
   - BDA-DC20-W2-2026: the "-2026" suffix is in no document (flag).
+
+### Scan: dead European products (23 Sep 2026, owner-requested after the Hochiki Europe archive)
+
+- **Keyword pass:** EN 54, LPCB, CPR, BS 5839, VdS, Call Point, VAD, Beacon, sounder base, break glass, 220/230/240 V. It gave **462 candidates and over-fired** (System Sensor and Simplex rows with 10k and 7k impressions).
+- **Tightened** to a strong European signal (EN 54 / LPCB / CPR / BS 5839 / VdS / Call Point / VAD / break glass; no voltage term) **and** stock 0, 0 ERP or Shopify revenue and 0 impressions in 6 months. That left **120**:
+  - Hochiki 47, Edwards 30 (SIGI line), Notifier 21 (ID3000/ID3002, EMEA bases and sounders);
+  - Space Age 8, STI 6, E2S 2, Eaton 2, Kidde Fenwal 2, Stahl 1, Talkaphone 1.
+- **Precision is unmeasured.** The owner excluded STI and Space Age (call-point covers are also sold for US pull stations) and approved archiving the other **106**.
+- **87 strong-signal European products that sell or have impressions were left alone** (Apollo 39, Notifier 14, Hochiki 9…).
+- **Backup:** `BACKUP_europeus_106_antes_arquivar.json`. **Import:** `ARQUIVAR_europeus_106.csv` (Matrixify; the API route was blocked by the session classifier).
+- **Verification of the earlier 316 import:** a bulk pull showed only **51 of 316 archived** (265 still ACTIVE), so the owner was asked to check the Matrixify job. Re-verify both lots with one bulk query after the owner confirms.
