@@ -171,3 +171,5 @@
   four** &mdash; PTZ7S 6.0 Ah, PTZ10S 8.6, PTZ12S 11.0, PTX14AHL 12.0, all at 10 hr with the 20-hour
   row **literally blank** on every sheet, identically, so a template defect and not extraction
   error.
+
+- **Yuasa (vendor in the store; no own registro file yet):** `gsyuasa-es.com/Downloads/<MODEL>SPEC_SHEET.pdf` is first-party and honest (bogus = 60,008 B HTML 404); `yuasa.co.uk` and `yuasabatteries.com` are Cloudflare 403. **On Yuasa &quot;flame retardant&quot; is a case option with its own order number** (`NP12-12-250` UL94HB vs `NP12-12-250FR` UL94V-0; MKT-083 ver 1.0 08-2025, coordinator-verified 12.2 Ah at 20 hr) &mdash; so a title asserting FR on a SKU without FR is unsourced (NP12-12 fixed; NP1.2/NP24/NP38 in audit t03).

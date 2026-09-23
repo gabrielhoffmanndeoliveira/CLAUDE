@@ -235,3 +235,5 @@
   grep the `filename` field rather than the title; this is that rule's failure mode, and the
   remedy is the same one recorded for accessories: **grep the served document's text, not the
   index entry.**
+
+- **FX-4003-12N is chassis-at-panel-price again (audit t02):** CAT-9209 Rev. 10 (Apr 2026) p1 caption *&quot;Display, Backbox and Door are sold separately&quot;* (coordinator-verified); all three required parts are stocked, so the title now says so.
