@@ -8359,6 +8359,63 @@ Revisit after the high-impression band is done.
   the ceiling means the soft range has stopped binding &mdash; the same shape as the recorded
   bullet-count drift, and worth a briefing sentence rather than a rewrite.
 
+- **TWO EDWARDS GENESIS GENERATIONS USE DIFFERENT SUFFIX GRAMMARS IN DIFFERENT ORDERS, AND
+  THIS FILE'S OWN DECODER NOTE POINTS AT THE WRONG SHEET.** This file says page 5 of the
+  Edwards catalogue sheets carries a Model Number Syntax block that decodes any G1/G4/GC part.
+  **`Syntax` occurs ZERO times in `E85001-0573`**, the legacy Genesis Wall Horns and Strobes
+  sheet &mdash; that block exists only on the **LED** sheets (`E85001-0667`/`0668`).
+  **The two grammars run in opposite orders**, which is why two real parts look unrelated:
+  legacy is `G1` + colour (`R` red / blank white) + marking (`F` FIRE / blank) + `-` + function
+  (`VM` visual multi-candela), giving `G1F-VM`; LED is `G1` + function (`A`/`V`/`AV`) + colour +
+  marking, giving `G1VWF`. **A suffix grammar is a property of a generation, not of a brand**
+  &mdash; the recorded `MX16RSS-US` lesson (read enough rows to see which letters vary
+  independently) with a second axis, time.
+  And this file's note that `G1RF` and `G1VF` &quot;do not exist&quot; is **half right**:
+  `G1RF-VM`, `G1RF-HDVM` and `G1R-VM` are real legacy rows; only `G1VF` appears nowhere.
+- **A speaker-only dBA row printed under a speaker-strobe label, caught because a SECOND sheet
+  separates them.** `AVDS871-02` p2 prints *&quot;Wall-Mount **SPS** Series 88 85 82 79&quot;*;
+  `AVDS867-03` p3 splits the same data into two separately captioned tables, **Speaker Strobe
+  77/80/83/86** and **Speaker 79/82/85/88**, captions coordinate-verified *above* their bodies
+  with no swap. 77/80/83/86 published. **That independently reproduces the recorded 2 dBA
+  speaker-versus-speaker-strobe gap from a third document**, and the xenon generation was
+  confirmed positively rather than inferred &mdash; both sheets state the strobe *&quot;shall
+  consist of a xenon flash tube&quot;*.
+- **A cross-family import declined for the SEVENTH time, and the briefing had offered it as a
+  recorded fact.** I pointed the agent at `I56-0024-000`'s private-mode sentence for
+  `SPSWL-ALERT`. **That manual is the L-Series with LED family: `SPSWL-ALERT` occurs zero times
+  in it and `SPSWLED-ALERT` once.** What the agent published instead comes from the part's own
+  family &mdash; `AVDS871-02` p1 puts amber-lens ALERT strobes *and speaker strobes* under
+  **ANSI/UL 1638 general signalling**, with candela published as **switch settings**. Same
+  conclusion, sourced from the right generation.
+- **Colour convention disproved by COLUMN POSITION rather than by absence, which is a cheaper
+  and stronger proof.** For `SS-PHOTO-CO`, word coordinates put the ordering-table heads at
+  White x=57.0, Ivory x=121.6, Black x=178.2; that row carries its part number at **x=57.0 with
+  em-dashes at 121.6 and 178.2**, while every base row below it carries three numbers. So no
+  ivory or black detector exists and colour is a `CK300-CO` kit &mdash; **a filled cell proves
+  more than a missing string**, because an absence could always be an extraction failure.
+- **A new document defect, and the NEWER revision is the one that does the attribution.** Bosch
+  `2700030219` V12 writes the D7050TH thermal element as **&quot;35 &deg;F (57 &deg;C)&quot;**
+  where V5 prints 135; only 57 &deg;C, on which all three revisions agree, was published. But
+  **V12 also scopes UL 521 / CAN/ULC-S530 to &quot;D7050TH only&quot; where V5 does not** &mdash;
+  so the revision carrying the typo is the one that prevents a series-listing error. **Read all
+  the revisions rather than picking the newest or the cleanest**; they fail in different places.
+  Also: V5's Parts Included table is dropped from V10 and V12, so no carton claim was made.
+- **A mirror filename can carry a DOWNLOAD ID rather than the document number, so two mirrors of
+  one document look like two documents.** `cortesielettronica.it/...2700120843.pdf` is Bosch
+  document **2700030219** inside. Add it beside the recorded `DN-6857` case, where two slugs
+  serve **413,140 and 412,612 bytes with different MD5s and the same revision `:C2`** &mdash;
+  the `DN-6935` shape, not the `DN-61092` two-revision shape. **Check the header line, never the
+  hash or the filename.**
+- **Three incomplete-product cases in one half-batch, and one of them names a gap in the
+  STORE.** `SBB-D4` is sheet metal at $430.25 with no door, lock or keys &mdash; and
+  `DR-D4`, `DR-D4R`, `DR-D4B` and `BP2-4` are **all live SKUs here**, so the closing paragraph
+  points at products TFAS sells. `SS-PHOTO-CO`'s installation step 1 reads *&quot;Wire the
+  sensor base (supplied separately)&quot;*. **`D7050` is the one worth the owner's attention:
+  Bosch states the `D7050-B6` base is required twice, and that base is NOT a SKU in this
+  store**, so a buyer cannot complete the assembly from TFAS at all. **An incomplete-product
+  finding is also a merchandising finding** &mdash; check whether the required part is stocked,
+  because the answer decides whether the copy can help the buyer or only warn them.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
