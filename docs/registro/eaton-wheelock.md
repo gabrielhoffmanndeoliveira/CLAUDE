@@ -316,3 +316,7 @@
 - **Eaton SKU-page UPCs embed the TD order code (audit t03):** 786697039416 contains 3941 (MB-G6-24-R) and 786697042225 contains 4222 (MB-G6-24-S) &mdash; an independent row-to-SKU check where the ordering table has no colour column, and a GTIN source (MB-G6-24-R's barcode field is empty; flagged).
 
 - **Eaton image bytes-upload attempt, 23 Sep 2026 (owner-approved, 25 SKUs):** from the coordinator process, `urllib`+Safari UA timed out on `www.eaton.com` and got `URLError` on the bare host for 3 of 3 `mdmfiles` images; `curl` got HTTP/2 `INTERNAL_ERROR` on `www` and a 301 (333 B HTML) on the bare host. Stopped before any Shopify call, as agreed with the owner (~5k tokens spent). Shopify's own fetcher failed on the same URLs in the Matrixify import. Next attempt only from a fresh process (per-connection intermittency).
+
+### t12 (23 Sep 2026): ELCHSR
+
+- `urllib` with a Safari UA worked first try on `skuPage.ELCHSR.html` and on TD450180EN (the Eluxa chime/chime-strobe sheet, May 2025); a bogus skuPage returns 404 at 101,279 B. **Table 3's colour and lettering columns need word coordinates** (the X marks: Red at x≈233, White at x≈271). ELCHSR = wall, red, FIRE, 15/30/75/110/135/185 cd, 24 V. **Family defects (flagged; not fixed under the stop decision):** ELCHSRC is titled "Horn Strobe" but the sheet says chime strobe; product 8710154944736 has SKU ELCHW but a title reading "ELCHWC … Chime Horn".

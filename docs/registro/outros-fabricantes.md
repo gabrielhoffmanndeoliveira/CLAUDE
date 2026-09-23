@@ -476,3 +476,8 @@
 - e10 (23 Sep):
   - **DITEK DTK-3MB:** "3-position mounting base (6 pairs)", 3.25 × 4.5 in., on SPS-100010-001 Rev 19 and -003 Rev 6 (04/26). The base-dimension row repeats the 2.65 in. module height, so only the footprint was published. `/wp-json/wp/v2/search?search=` is honest; `/products/<sku>/` returns 200 with 0 B. The family's productType disagrees (DTK-4MB is "Modules"; flagged).
   - **Apollo ORB-HT-11018-APO:** PP2631/2019 Issue 1 maps CS to 11006, and 11018 is its flashing-LED version. **CS = static (fixed temperature); CR is the rate-of-rise twin.** Declared to EN 54-5; **no UL listing, the third Apollo item so far** (flagged). The Apollo WP REST API was down (2,728 B maintenance page for real and bogus alike); `products-sitemap.xml` (524 URLs) and the product pages worked. The Apollo 404 now measures 78,529 B.
+- t12 (23 Sep), **SDi / Detector Testers:**
+  - `detectortesters.com` returns 406 to curl, but `urllib` with a Safari UA gets 200. Product slugs are the order codes; a bogus slug returns 404 at about 99,934 B. `sdifire.com` `wp/v2/search` and `wp/v2/media` discriminate.
+  - **TS3 is the Testifire 1000/2000 capsule and TES3 is the XTR2 cartridge; they are different consumables.** The live "TES1" on the XTR2 kit was wrong.
+  - Old-to-new code map (SDi, Sep 2024): TESTIFIRE1001 → TESTIFIRE-XTR2, TESTIFIRE1000 → -XTR2-HEAD, TF1851 → -XTR2-20F, TF1823 → -XTR2-30F.
+  - Duplicate flagged: the listing with SKU TS3, "(TS3-3PACK-024)", against TS3-3PACK-001.
