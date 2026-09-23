@@ -484,3 +484,10 @@
 
 - DN-6857:C2 (6/19/2012) p1: "DR-AA4: Door assembly, window, one tier (no battery compartment), BLACK, 9.8 lbs." **The live title omitted "with Window"**, which is what separates it from DR-AA4B (solid door). It is served at `datasheets/notifier-us/hon-ba-fire-dn-6857.pdf` and at `datasheets/hbt-fire-DN-6857.pdf`: same revision, different bytes. The DR-AA page's schema carries a `discontinued-products` tag and `data-discontinued-countries="id"` (Indonesia): page chrome, flagged low.
 - t07 (23 Sep): the "A suffix = ULC Listed model" convention is confirmed again in DN-6934:B1 (FSI-851/FSI-851A) and DN-6886:C (FSL-751/FSL-751A). The live FSI-851 copy named "FSI851A", so the SKU was flagged to confirm the stocked unit is the UL version. DN-6934:B1 is served under both `notifier-us/` and the root (different bytes, same revision); DN-6886 is only under `notifier-us/`.
+
+### t10 (23 Sep 2026): the EMEA WSO/WRL families (EN 54 only)
+
+- **Routes:** notifier.it product pages link notified-body CPR certificates and DoPs under `static/upload/certificati/` (a bogus path gives HTTP 500, 75 B). notifier.es product pages are first-party HTML with approvals and the EN 54-23 category.
+- **WSO grammar** (BRE certificate 2831-CPR-F1951 Issue 01, 2019): xx = body colour (PR red, PP pure white), I = isolator, yy = protocol (01 = Advanced + Honeywell 500; 02–99 = Advanced + System Sensor 500). The certificate names System Sensor Europe as the manufacturer.
+- **WRL-RC-I02** is a wall VAD, class W, with isolator; notifier.es gives both W-3.6-10.5 and W-2.4-10.5 categories, so none went into the title. It needs a B501AP/BRR/WRR base. productType "Isolator Modules" is wrong.
+- **Another EN 54-only family with no UL in the US feed** (flagged). The siblings WRL-PC-I02 and WSO-PR-I02 still carry the field-list titles and have no demand.

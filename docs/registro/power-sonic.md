@@ -179,3 +179,4 @@
 ### e05 (23 Sep 2026): Simplex battery rows state the 20-hour rate only
 
 - Simplex S2081-0006 gives no discharge current or 10-hour rate, so the capacity = current × hours checksum cannot be run on Simplex rows. State "at 20-hour rate" and nothing more. No document names the OEM; the store files siblings under Casil and Powersonic.
+- t10 (23 Sep): **PS-12100H F1**: the current sheet `ps-12100h.pdf` (Version 1.2, 8/18/2026, rendered) gives **10.0 Ah at 20 h (0.5 A × 20) and 9.46 Ah at 10 h**, and offers only F2 and FR F2; there is no F1 row. The store's 10.5 Ah matches an older 2018 sheet ("12V 10.5 AH @ 20-hr"), whose path now 301s to the home page. The stocked F1 may be the older generation, so capacity was removed from the title and flagged (check the carton). A bogus name in the 2018 directory returns 404 at 280,592 B. `wp/v2/product?search=` is still honest.
