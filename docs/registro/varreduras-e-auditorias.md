@@ -557,3 +557,4 @@
 - **87 strong-signal European products that sell or have impressions were left alone** (Apollo 39, Notifier 14, Hochiki 9…).
 - **Backup:** `BACKUP_europeus_106_antes_arquivar.json`. **Import:** `ARQUIVAR_europeus_106.csv` (Matrixify; the API route was blocked by the session classifier).
 - **Verification of the earlier 316 import:** a bulk pull showed only **51 of 316 archived** (265 still ACTIVE), so the owner was asked to check the Matrixify job. Re-verify both lots with one bulk query after the owner confirms.
+- **Verified 23 Sep:** all **316/316 Hochiki Europe listings are ARCHIVED** (Matrixify job #750928219, Updated 316). The earlier 51/316 reading was taken while the import was still running. The other 574 Hochiki listings are untouched. The 106-product European lot is still pending the owner's upload.
