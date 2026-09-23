@@ -796,3 +796,4 @@
   - **Photo trap:** myeddie `ProductImages/74347U.jpg` returns 200 (288 px), but it is a grayscale photo captioned "449".
   - **Route:** `GetCategoryNavigation` across all 19 nav categories gives 160 PDFs; one grep over them found 74347U in 11 documents.
   - Lesson for the coordinator: one colour word on one sheet was queued as a defect without looking for a second document. Queue with a count of documents, not a single reading.
+- e10 (23 Sep): **K-FSRA10C** is for the **FX-10** (K85005-0126 Issue 2.5 p7). The Edwards FSRA10C is for FireShield Plus FSP1004. Distributor copy saying "for FSP1004RD only" traces to the 2016 Kidde quick reference card K85000-0394 V2, which carries Edwards panel names. The Kidde literature API now returns **77 PDFs** (160 on record; the count has decayed). K85005-0126 contradicts itself on data-wire twisting (p4 vs p5).

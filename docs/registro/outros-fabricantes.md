@@ -473,3 +473,6 @@
   - The filename/header mismatch recurs: `D190-01-201-IS_Issue_5` is really D190-00-201-IS.
   - productType is empty on this product and on the siblings D2XL1FV725CN1A1R and D1XL2FV725CN1A1R (flagged).
 - t08 (23 Sep), **Aiphone DA-4DS:** the store's run-on title was Aiphone's own product-page sentence. `aiphone.com/wp-json/wp/v2/search?search=` is honest (bogus 0, known-good IX-DV 10). The DA-2/4DS installation manual FK0954 is an image-only 2002 scan, so render it.
+- e10 (23 Sep):
+  - **DITEK DTK-3MB:** "3-position mounting base (6 pairs)", 3.25 × 4.5 in., on SPS-100010-001 Rev 19 and -003 Rev 6 (04/26). The base-dimension row repeats the 2.65 in. module height, so only the footprint was published. `/wp-json/wp/v2/search?search=` is honest; `/products/<sku>/` returns 200 with 0 B. The family's productType disagrees (DTK-4MB is "Modules"; flagged).
+  - **Apollo ORB-HT-11018-APO:** PP2631/2019 Issue 1 maps CS to 11006, and 11018 is its flashing-LED version. **CS = static (fixed temperature); CR is the rate-of-rise twin.** Declared to EN 54-5; **no UL listing, the third Apollo item so far** (flagged). The Apollo WP REST API was down (2,728 B maintenance page for real and bogus alike); `products-sitemap.xml` (524 URLs) and the product pages worked. The Apollo 404 now measures 78,529 B.
