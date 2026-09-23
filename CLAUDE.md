@@ -136,7 +136,7 @@ Working files live outside the repo, in `/tmp/tfas/enrich/`:
 - `v2bNN/varsA.json`, `v2bNN/varsB.json` — validated publish payloads, 9 each
 - `pending_fixes.md` — corrections queued against already-published pages
 
-**Progress: 1,299 enrichment pages published** (555 old list + 732 v2 through v2b47, verified live), plus 237 title-only products — 555 from the old list plus v2b01 through
+**Progress: 1,299 enrichment pages published** (555 old list + 732 v2 through v2b47, verified live), plus 249 title-only products — 555 from the old list plus v2b01 through
 v2b40 complete (the held `BEAM1224S` released with its supersession moved to the
 body), plus fifteen from the photo batches (`foto01`, `foto02`), plus two queued title defects (`4-NET-SM`, `ZH-MC-W`) and four Thermotech
 title corrections — plus 80 title-encoding fixes applied
@@ -7641,6 +7641,74 @@ Revisit after the high-impression band is done.
   other accessory finding in this file runs the other way. The live *&quot;3.5-inch long&quot;*
   is unsourced and was removed; five sheets call the rod **plastic** while `2084-0001` calls its
   door option a **glass** break-rod, so no material was published.
+
+- **A GREP WITH A LITERAL SPACE GIVES A SILENT FALSE NEGATIVE ON EXTRACTED PDF TEXT, AND AN
+  AGENT WAS ONE STEP FROM RECORDING A FALSE CORRECTION TO THIS FILE BECAUSE OF IT.** A lot-22
+  agent first reported that this file's `FR` citation *&quot;did not reproduce&quot;*:
+  `[Ff]lame [Rr]etardant` returned **zero** hits in `SLA_Technical_Manual.pdf`. **Extraction had
+  put a newline inside the phrase.** Re-run with whitespace normalised, the manual says it
+  verbatim &mdash; *&quot;Flame Retardant (FR) battery cases and lids are available where the end
+  application dictates.&quot;* The agent caught its own error, re-ran every other critical grep
+  normalised, and reported the near-miss rather than dropping it.
+  **This is a new failure mode for the bounded-negative rule, and it is the most dangerous kind
+  this project has**, because a zero-hit grep is exactly the evidence used here to disprove
+  supersession claims, to bound a suffix as undecoded and to prove a document does not mention a
+  part. Every one of those is a *negative measured by counting occurrences of a phrase*. **So:
+  normalise whitespace (`re.sub(r'\s+', ' ', text)`) before grepping any extracted PDF text**,
+  and treat a phrase-level zero found without it as unmeasured rather than as a result.
+- **The model number is a capacity on only 4 of 12 again, and the SAME TOKEN means different
+  things on two members of one series.** `PSH-655` &rarr; 5.5 Ah at 20 hr, so the `55` is the
+  capacity; **`PSH-1255` &rarr; 6.0 Ah at 20 hr and 5.67 at 10 hr, so the same `55` is neither
+  rate.** `PS-682` (8.48/8.03) and `PSH-1280` (8.5/7.92) likewise match neither. Every figure
+  arithmetic-checked against its own stated discharge current, 12 of 12.
+  **And the powersport family settles the shape outright: the 20-hour row is LITERALLY BLANK on
+  all three `PT*` sheets**, along with Internal Resistance and Max Short Circuit Current &mdash;
+  identically, so a template defect rather than extraction error. `PT7B-4` is 6.5 Ah at 10 hr,
+  `PT9B-4` 8.0 and `PT14B-4` 12.0, with the sibling `PT12B-4` at 10 Ah confirming across four
+  members that **the number is a JIS case size, not a capacity at any rate** &mdash; the
+  `AS-75-R-WP` shape on a whole family.
+  **`PT7B-4` and `PT9B-4` both read 115 CCA**, verified genuine by word coordinates rather than
+  assumed to be a column shift (CCA at x&asymp;183, CA at x&asymp;210, each row on one y-line,
+  dimensions matching each sheet). **So CCA alone cannot distinguish two SKUs this store
+  carries**, which is why both titles carry Ah *and* CCA.
+- **A suffix in no manufacturer source, and the reason a title was still written rather than a
+  `null`.** `PSL-BT-122000-G4D`: `G4D` occurs **zero times** across all eleven datasheets, the
+  117-page application guide and both lithium product pages, and the REST search returns `[]`
+  for it and for the full SKU. The ordering authority lists **only `PSL-BT-122000 M8`**, and the
+  terminal drawing &mdash; itself a superset of the ordering list &mdash; also shows only M8.
+  **The sitemap discloses the likely pattern and simultaneously the reason not to assert it:**
+  siblings are `psl-bt-121000-g24` and `psl-bt-48320-gc2`, which are BCI **group sizes** &mdash;
+  but `PSL-BT-121000-G24` prints its group code in **four places at once** (page `<title>`, JSON
+  `name`, `<h1>` and its datasheet heading) while `PSL-BT-122000` prints **none** in all four.
+  That is the `DN-62046` inverted proof on a suffix: the manufacturer names the group when it
+  means to, on a sibling in the same series, and declines to here.
+  **The judgement that made a title possible: both readings leave the ELECTRICAL identity
+  intact**, because the capacity is in the base number and it matches exactly. So the title
+  carries voltage, capacity, energy, cycle life and Bluetooth &mdash; **and no dimensions, no
+  group-size claim and no terminal.** **A title can be written around an unsourced suffix when
+  the suffix cannot change the facts the title asserts**, which is a narrower and more useful
+  rule than holding the whole product.
+- **A chemistry claim declined on one lithium model and published on its sibling, from the same
+  series.** `PSL-SC-12200` states `(LiFePO4)` in its own model heading; **`PSL-BT-122000` states
+  it zero times, even with whitespace normalised.** The product page's Group Information block
+  does say it, but that is a **series-level** block. Class noun taken from each model's own
+  heading &mdash; &quot;Series Capable Rechargeable Lithium (LiFePO4)&quot; against &quot;Lithium
+  Bluetooth&quot; &mdash; and no chemistry asserted on the second. Sixth declined cross-series
+  import. (The charge voltage of 3.60&ndash;3.65 VPC across four cells at 12.8 V is the LiFePO4
+  signature, and that is an inference, so it stayed out.)
+  Same discipline on the class word: **`AGM` appears zero times in all six SLA and PSH
+  datasheets** and three times in the `PT` sheets' own text, so it is in the powersport titles
+  and in none of the others.
+- **`NB1` decoded, extending the recorded series:** *&quot;TERMINAL POSTS with nut &amp; bolt
+  connectors&quot;* on a **12 mm** plate, against NB2's 14 mm and NB3's 16 mm &mdash; read off a
+  400 dpi render, as that panel has no text layer.
+- **A token-order mismatch between the store and the manufacturer, resolved by keeping the
+  store's form.** The ordering authority and the product-page SKU table both write
+  `<model> FR <terminal>` (`PSH-1255 FR F2`) where the store writes `F2 FR`. **The configuration
+  exists in every case; only the order differs.** The store's spelling was kept so the title
+  matches its own SKU, with the meaning written out in words so either spelling reads correctly
+  &mdash; and the mismatch went to the owner. Also recorded: **`PSH-1280` and `PSH-655` have no
+  plain non-FR configuration at all**, while `PSH-1255` lists both.
 
 ## Conventions
 
