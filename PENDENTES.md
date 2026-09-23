@@ -4570,3 +4570,28 @@ Por canal (ultima visita):
   ele nao pegou nenhum dos dois estornados. Usar criterio absoluto.
 - **A loja aceita pedido para o Alasca** (a #THS1064 pagou $351 de frete e
   estornou), enquanto a comunicacao diz "contiguous U.S.". Decisao do Gabriel.
+
+## §74 — Search: rascunho de palavras-chave pelo que vendeu; termos de pesquisa bloqueados
+
+O relatorio de **termos de pesquisa do Shopping** (o insumo certo para montar
+Search) nao saiu: o **Windsor expirou a sessao 4 vezes seguidas** na mesma
+consulta em 23/09. Precisa reconectar o conector.
+
+Rascunho com o que ja estava em disco: `search_keywords_RASCUNHO.csv` — os 55
+SKUs vendidos (sem orders estornadas), com part number extraido do titulo e
+keyword exata sugerida (`[pn]` e `[marca pn]`), cruzados com as buscas web do
+GSC.
+
+**Achado**: dos part numbers que venderam, **so 1 aparece em busca web no GSC**.
+`L4029E1029/U` ($3.812,97), `NHW700-199SU-LP` ($3.015), `TH3210D1004/U` (**9
+orders**, $1.987,92), `THX321WFS2001W/U` (3 orders) — zero impressao organica.
+Quem comprou achou pelo **Shopping**.
+
+Isso muda a pergunta do Search: **alcanca demanda nova ou so disputa com o
+proprio Shopping?** O relatorio de termos de pesquisa responde — se as buscas
+que converteram ja sao por part number exato e o Shopping ja aparece nelas,
+Search em cima delas e canibalizacao. Se nao aparecem, e alcance novo.
+**Nao montar a campanha antes desse relatorio.**
+
+Pendente: reconectar Windsor -> puxar `search_term` do SHOPPING GABRIEL
+(01/08–hoje) com conversao.
