@@ -21,3 +21,5 @@
   6808U, 6820U, IFP-300U, IFP-1100U, FCP-300U, with Honeywell's own firmware page listing
   the conversions (`6820 -> 6820U`). A one-letter suffix that names a product generation,
   and none of the affected titles said so.
+
+- **EVS-CE4 (enrichment e02):** `manuals-and-guides/installation-guides/hbt-fire-LS10070-001SK-E-B2-EVS-CE4-installation-manual.pdf` (B2, 12/8/2021; Rev A1 at `LS-10070-001SK-E.pdf`). Adds circuits 5&ndash;8 to EVS-50W/EVS-125W, 20 mA / 180 mA. Rev A1 lists 5820XL-EVS only; B2 adds 6820EVS. Datasheet 351631 also names the EVS-100W (coordinator-verified) &mdash; the title names the two the install sheet names. 350605-E and 350606-D both claim &quot;up to four amplifiers &hellip; total of 500 watts&quot;, which does not add up for the EVS-50W &mdash; not published. Type Speakers flagged.
