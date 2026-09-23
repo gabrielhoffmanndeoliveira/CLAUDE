@@ -173,3 +173,5 @@
   also drifted: **258,629 and 258,627 bytes** against the ~258,337 on record, the one-byte-drift
   tell still holding.
 
+
+- **v2b52 route facts.** `notifier-us/hon-ba-fire-dn-3224.pdf?download=false` resolves; `installation-guides/hon-ba-fire-52526.pdf` returns the 8,047 B fingerprint. `buildings.honeywell.com/us/en/products/by-category/.../<slug>` **discriminates by mime** (real `text/html`, bogus `application/javascript` at 225,073 B) &mdash; unlike the recorded `by-brand/` path, so the per-path statement holds.

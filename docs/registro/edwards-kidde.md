@@ -755,3 +755,5 @@
   &mdash; the `Ten-Xone` rule, that repairing an obvious typo is still writing a claim &mdash;
   and the cheap fix for all of them is a re-import with the right encoding, not thirteen research
   tasks. Flagged.
+
+- **`SIGA-GRD` is louvered sheet steel, not a wire guard (v2b52).** `E85001-1005` Issue 1.1 (coordinator-verified): *&quot;16-gauge steel louvered construction&quot;*, 7.27 in. diameter, listed detectors SIGA-PD/PCD/PCD-CA/COD/COD-CA and bases SIGA-SB/RB/IB (columns by word coordinates); &quot;wire&quot; appears **zero times**. The live title's &quot;Wire Guard&quot; was unsourced and the product type wrong in kind. Sold as the guard only; `SIGA-DGSB` surface adapter and `SIGA-DGMF` flange are separate. Route: the `/lifelines/intelligent-initiating-devices` percent-encoded JSON gave the PublicMedia slug directly.

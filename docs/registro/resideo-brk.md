@@ -132,3 +132,5 @@
   **neither document puts the switch on one side of the carton boundary**, so the copy states
   the switch's rating and the valve's behaviour without asserting what is in the box.
 
+
+- **`THM5421R1021/U` generation settled positively (v2b52).** `03-00658` (2/24) lists THM5421R1021 under &quot;Compatible RedLINK 1.0 &amp; 2.0 Accessories&quot; and THM04R3000 under RedLINK 3.0 &mdash; the `THM04R3000` generation lesson, confirmed from the other side; the store sells both. Install guide `69-2758EFS-05` (Rev 08-22) gives pairing (Prestige IAQ, VisionPRO 8000 RedLINK, Wireless FocusPRO) and staging (up to 4H/2C heat pump on Prestige/VisionPRO, 3H/2C on FocusPRO). **Document defect:** 69-2758 converts 9-5/16 in. as 91 mm &mdash; inches only published. The `pid=` page listed five TechLit PDFs including the `69-0000s` guide.
