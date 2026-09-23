@@ -4285,3 +4285,31 @@ vezes e o Gabriel corrigiu, entao muda so com o OK dele:
 A maior order do mes e um contratante comprando 21 unidades de uma peca de
 reposicao de caldeira. Reforca o ponto do post do LinkedIn: o comprador que
 paga as contas da THS e o profissional, nao o dono de casa.
+
+## §68 — Titulos importados e verificados: 483 + 281 + 267 + 2, todos exatos (23/09/2026)
+
+Antes do import, conferencia de frescor: o CSV era de 18/09; bulk de 23/09
+mostrou que **nenhum** dos 483 titulos, 281 SEO, 267 alt e 2 descricoes tinha
+mudado na loja nesse intervalo, e as 267 URLs de imagem ainda existiam. So entao
+liberado.
+
+Import pelo Matrixify, 23/09 04:52–04:59: 483, 281, 202 e 2 `Updated`. O alt
+reporta **202** porque conta produto — o CSV tinha 267 imagens em 202 produtos.
+
+**Verificado por bulk + curl, byte a byte contra o CSV:**
+
+| Arquivo | Exato | So normalizacao | Divergente |
+|---|---|---|---|
+| titulo | 483 | 0 | 0 |
+| SEO | 281 | 0 | 0 |
+| descricao | 2 | 0 | 0 |
+| alt | 267 imagens | 0 | 0 |
+
+Zero defeito mecanico remanescente nos 483 (`&amp;`, `(R)`, espaco duplo,
+separador solto no fim).
+
+Rollback nos `titulo_*_rollback.csv`, se precisar.
+
+**Ainda em aberto do §62**: os ~11 titulos truncados na origem, o `Moen 8884`
+com dois part numbers, 6 SharkBite com `- ()` vazio, 5 Viega com `Press Press`,
+`Sloan 3335149` que e so codigo, e os `seo.title` truncados no meio da frase.
