@@ -4442,3 +4442,66 @@ linhas lidas 100% em disco; 305 sessoes organicas no periodo.
 
 Mesmo corte, comparando **produto Resideo contra o resto do catalogo**, com 4+
 semanas depois de 18/09. So ai da para atribuir (ou nao) as descricoes.
+
+## §72 — GSC pelo Windsor: Shopping x web separados, e part number e onde a loja compete
+
+Conector `searchconsole` do Windsor, `sc-domain:thehousesupplier.com`,
+24/08–21/09. 12.160 linhas lidas 100% em disco. **Vantagem sobre o GSC do
+Ahrefs: tem `queryparams`**, entao da para separar URL com UTM (superficie de
+Shopping) de URL limpa (web).
+
+### Shopping x web
+
+| Superficie | Impressoes | Cliques | CTR | Posicao pond. |
+|---|---|---|---|---|
+| Shopping (URL com `utm_`) | 14.382 | 27 | 0,19% | **2,3** |
+| Web (URL limpa) | 32.267 | 26 | 0,08% | **48,2** |
+
+- **Na busca web a loja esta em media na pagina 5.** A "posicao 20" do Ahrefs
+  era media das duas superficies.
+- **Shopping: posicao 2,3 e CTR 0,19%.** Aparece no topo e quase ninguem clica
+  — o padrao do Moen, na loja inteira. Bate com a lista de sale price do
+  Merchant (§69): a loja perde no preco.
+- Cliques por query sao piso: o GSC omite queries anonimizadas nesse corte.
+  Nao comparar direto com sessoes do GA4.
+
+### Part number e o unico terreno em que a loja compete
+
+| Query web | Queries | Impressoes | Posicao |
+|---|---|---|---|
+| PN que esta num titulo da loja | 209 | 419 | 31,6 |
+| PN que NAO esta em nenhum titulo | 821 | 3.054 | 25,7 |
+| Generica | 6.472 | 28.794 | 50,9 |
+
+Teste "PN no titulo da pagina que ranqueia": 29,9 com x 33,3 sem, amostra
+pequena e confundida. **Nao prova que por o PN no titulo sobe posicao.**
+
+### O caso Mueller black iron
+
+1.223 das 1.596 impressoes de PN-fora-do-titulo em pagina de produto sao
+Mueller, todas no formato `M1X90E`, `M2XCPL`, `M38X90SE`, `M212X4N`… O Google
+casa a familia mas erra a peca: `m38x90se` (3/8" street elbow) cai em
+`520-144 1" x 1/2" Black Iron Elbow`; `m2xcpl` (2" coupling) em
+`520-009 2-1/2" Black Iron Elbow`.
+
+**Origem do formato desconhecida.** Nao esta nos 5.425 part numbers nem nas
+descricoes extraidas das planilhas da Mueller — ressalva: so 4 colunas das
+planilhas foram guardadas. Duas hipoteses opostas:
+- codigo de distribuidor/concorrente que o contratante usa -> vale "Alt Part #";
+- **busca automatizada**: dezenas de codigos, todos com o prefixo identico
+  `"mueller black fittings"`, ~20 impressoes cada. Gente nao digita assim.
+
+**Nao mexer em titulo antes de saber a origem.** Teste: procurar 2–3 codigos nos
+concorrentes liberados.
+
+### Rheem com codigo alternativo
+
+`21v40-38`, `rheem 21v40-38`, `prog40-38n rh62` (116 impressoes) caem na pagina
+certa do 40 galoes, posicao 37–47, sem o codigo alternativo na pagina.
+Candidato a "Also known as" — **depois** de confirmar na documentacao Rheem que
+e o mesmo modelo.
+
+### Termos genericos
+
+"water leak detection" 1.394 impr pos 48; "sump pump" pos 69; "storage tanks"
+pos 35. Com DR 7 nao sobem tao cedo. Nao priorizar.
