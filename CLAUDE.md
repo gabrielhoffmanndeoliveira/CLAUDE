@@ -354,7 +354,7 @@ Detailed evidence per brand is in the registro. Fingerprints are measurements an
 | Hochiki | America `/products-search?qs=` (honest); datasheets `hochikiamerica.com/img/product/description/`. Europe per-part renders under `hochikieurope.com/casestudies/`; product guide via `/product/<range>` asset links. | `/ecom/productsearch` ignores the query; Europe `?s=` constant 39,632 B; AssetBank constant 14,749 B with varying MD5. |
 | Others | Functional Devices: `sitemap-managedcontent-sfdc_cms__document-1.xml` → `/sfsites/c/cms/delivery/media/<MC-key>`. DITEK: `www.diteksurgeprotection.com` series pages. Altronix: `altronix.com/library/pdf/data_sheets/DS_<MODEL>.pdf` or `DS_<series>series.pdf` (404 = 13,828 B). Space Age: `www.1sae.com/sitemap.xml`. Fireray/FFE: `ffeuk.com/resources` (358 PDFs). Apollo: `F00…_0001.pdf` names on product pages. Westell: `support.westell.com/documents/<slug>-DS.pdf`. Honeywell Analytics: `honeywellanalytics.com/~/media/...`. Autronica: `product.autronicafire.com/fileshare/...`. | — |
 | Others (2) | APC (Air Products): `apcfire.com/wp-content/uploads/<yyyy>/<mm>/` (dated path; PAM relays). RFS: `rfsworld.com/products_sitemap.xml` (1,514 products, URL = part number). Comba: `combausa.com` WooCommerce Store API + media API. Viking: `vikinggroupinc.com/products?text=` is honest. Aiphone: `know.aiphone.com/search?query=` is honest (documents only). SDi / Detector Testers: `sdifire.com` legacy PDFs under `/wp-content/uploads/2018/08/`; Detector Testers pages carry the product code in four structured places. Mirrors (`qdigital.mx`, `alldataresource.com`, `steelfire.com`, `objects.eanixter.com`): only on **searched** paths, only after the mime check, and prove verbatim by MD5 or imprint. | `rfsworld.com/search`, `aiphone.com/?s=`, `e2s.com/?s=`, `vikinggroupinc.com/?s=`, `safefiredetection.com` search (echoes only) do not discriminate; `detectortesters.com` search = 406, image miss = a real 1,692 B JPEG. `apcfire.com` undated path 404s at 146 B. Mirrors serve HTML shells for guessed names and older revisions (Anixter). `mall.industry.siemens.com` 302s for real and bogus alike (failed reproduction). `digitalassets.resideo.com` route unreachable since BRK shells 404. Bosch sitemap carries no US fire products. |
-| **Blocked** | — | `fiplex.com` Akamai (456 B 400); `protectowire.com` and `trilogy*` Sucuri (202 + `sgcaptcha`; EDAM mirrors an older Protectowire revision); `polyphaser.com` Incapsula (~965 B); Bosch CDNs (128 B); `lenel.com` 503; `gamewell-fci.com/CatalogDocuments` (~258 KB JS, 1-byte drift); `autocall.com` (103 B); `web.archive.org` blocked by egress policy; every FCC ID route. **One Fiplex Document Center login settles `BDA-TP10-L2`, `BDA-NMP01250` and `DHS40-HG-SCH-1-A`.** |
+| **Blocked** | — | `fiplex.com` Akamai (456 B 400); `protectowire.com` and `trilogy*` Sucuri (202 + `sgcaptcha`; EDAM mirrors an older Protectowire revision); `polyphaser.com` Incapsula (~965 B); Bosch CDNs (128 B); `lenel.com` 503; `gamewell-fci.com/CatalogDocuments` (~258 KB JS, 1-byte drift); `autocall.com` (103 B); `web.archive.org` blocked by egress policy; every FCC ID route. **A Fiplex Document Center login is now needed for `DHS40-HG-SCH-1-A` only** (BDA-TP10-L2 settled first-party from BD500 on `flexbda-050526/`; BDA-NMP01250 from the Trilogy sheet; `registro/fiplex-bda.md` x01). |
 
 ## Scans and sweeps
 
@@ -385,8 +385,8 @@ Case law: `registro/varreduras-e-auditorias.md`.
   owner.
 - **Verification sweep every five batches**, one bulk query. Population = v2 slice ids +
   `BASELINE_555_publicadas.csv` − the in-flight batch − title-only products. Expected:
-  zero missing, exactly four pages under 400 visible characters (`SM7100-L8`, `90521`,
-  `BDA-TP10-L2`, `BDA-NMP01250`, the deliberate skips). Also report: non-ASCII titles
+  zero missing, exactly two pages under 400 visible characters (`SM7100-L8`, `90521`,
+  the deliberate skips; `BDA-TP10-L2` and `BDA-NMP01250` were enriched on 23 Sep). Also report: non-ASCII titles
   (should be only `°`/`®`/`™`, count falling), literal entities in titles (0),
   unbalanced parentheses (102, the unreconstructable truncations), brand+SKU repeats
   (only the known `STI STI EP141207-T`, whose SKU contains the vendor). **Print the
@@ -444,7 +444,7 @@ Case law: `registro/fotos.md`.
   valor_atual, recomendado, por_que, confianca, impressoes_6m, receita_erp`) and keep
   going. Pack-count detail: `/tmp/tfas/PACKCOUNT_decisao.csv`.
 - **Open asks that research cannot settle** (phrase them to the owner as the cheapest
-  thing that settles them): Fiplex Document Center login (three products); Gentex
+  thing that settles them): Fiplex Document Center login (DHS40-HG-SCH-1-A only); Gentex
   cross-reference chart (four pages); Power-Sonic/Potter/Kidde price lists or carton
   labels for the nameless-title floor; whether a family render may stand in for a
   configuration or variant SKU (~20 E2S, Fire-Lite `ES-200XC`/`MS-5UD-3E`, Mircom
