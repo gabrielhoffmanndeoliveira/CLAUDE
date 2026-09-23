@@ -8012,6 +8012,77 @@ Revisit after the high-impression band is done.
   also drifted: **258,629 and 258,627 bytes** against the ~258,337 on record, the one-byte-drift
   tell still holding.
 
+- **THE SWEEP HAS BEEN AUDITING 71% OF THE PUBLISHED WORK AND NEVER SAID SO. Fourth
+  denominator correction in four sweeps, and the first where the missing population is
+  REAL WORK rather than an artefact of intent.** Re-run 23 Sep 2026 on a fresh live pull:
+  building the tracked set from `<dir>/slice.json` as every previous sweep has done gives
+  **935 ids**, against a recorded progress figure of 1,311. The gap is not a discrepancy to
+  reconcile &mdash; **376 published old-list pages have no slice file on disk at all.** Only
+  16 `bNN` directories retain one (b18&ndash;b39), so b01&ndash;b17 and the rest were
+  published before that convention or were cleaned, and the sweep has silently excluded
+  them since it was written.
+  **The fix was available the whole time and is one join:** `/tmp/tfas/BASELINE_555_publicadas.csv`
+  is the durable per-id record of the old list, kept for the 30- and 60-day measurement.
+  Folding it in gives **935 + 555 = 1,311 exactly**, which reconciles against the progress
+  figure for the first time.
+  **On the correct population: zero missing from the active catalogue, and exactly four
+  pages under 400 visible characters** &mdash; `SM7100-L8` (22 chars), `90521` (30),
+  `BDA-TP10-L2` (74), `BDA-NMP01250` (96), the four deliberate skips. Clean an **eighth**
+  time.
+  **The batch-40 note found slices recording INTENT without work; this is the inverse,
+  work with no artefact recording it** &mdash; and it is worse, because a sweep that cannot
+  see a page cannot report it missing. **A verification sweep's first job is to prove its
+  denominator equals what the project claims to have done**, and until today this one never
+  did that arithmetic.
+  Other checks on the same 16,031-product pull: **non-ASCII titles 47, every one `&deg;`
+  (23), `&reg;` (22) or `&trade;` (5), zero outside that set** &mdash; unchanged from batch
+  43. **Zero** titles carrying a literal HTML entity. Unbalanced parentheses **102,
+  unchanged**. **Zero** titles repeating brand and SKU case-insensitively, so the six-title
+  case-insensitive fix has held. The nameless-title census re-run live is **37**, down from
+  94 after five more title lots &mdash; re-run, never decremented, per the recorded rule.
+
+- **The duplicated-vendor-token scan's false positive is STRUCTURAL and has now fired
+  twice, and checking it is what stopped a title being broken.** The mechanism returned two
+  rows. `Notifier Notifier NC-100` is real and was fixed. **`STI STI EP141207-T` is
+  correct**, because **the Shopify `sku` field for that product is literally
+  `STI EP141207-T`** &mdash; the vendor is inside the SKU, so the title is vendor + SKU
+  exactly as it should be, and removing one `STI` would leave a title that no longer
+  contains its own SKU. That is the recorded Macurco Cal-Kit shape on a second brand.
+  **So the guard is not &quot;use the real `sku` field&quot; &mdash; this scan already
+  does.** The guard is the assertion that runs after the edit: **the SKU must still appear
+  verbatim in the new title**, which is what refused this row. A no-claim edit still needs
+  its postcondition checked, because the mechanism that finds a defect and the mechanism
+  that proves a fix safe are different mechanisms.
+- **A dropped letter in a Shopify title, and the manufacturer's own product record settles
+  it rather than the dictionary.** The same STI title read *&quot;EnviroArmour Waterproof
+  **olycarbonate** NEMA Enclosure&quot;*. It is tempting to call that an obvious typo and
+  repair it &mdash; but this file records from `Ten-Xone` that **correcting an obvious typo
+  is still writing a new title and needs the same source as any other**, and here the
+  repaired word is a **material**, which STI does vary (it sells fiberglass enclosures too).
+  Settled positively: STI's own CMS product document for `modelId: EP141207-T` is titled
+  ***&quot;EnviroArmour&reg; Polycarbonate Enclosure - Tinted&quot;***. Fixed, with the
+  assertion that the new title is exactly one character longer than the old.
+  **Route note, and it extends a recorded one:** this file records the STI Sanity dataset as
+  an **image-asset** index queryable by `originalFilename`. It also serves **product
+  documents**: `*[_type=="product" && modelId match "EP141207*"]{modelId,title,_id}` returns
+  the manufacturer's own model-attributed title. Bogus pattern &rarr; `[]`, so the endpoint
+  is honest. **That makes it a first-party structured source for STI class nouns and
+  materials, not only a route to pictures.**
+
+- **The container restarted mid-session, and what it cost is worth recording because the
+  answer is almost nothing.** Every durable artefact survived: `/tmp/tfas` intact, the git
+  repository clean and pushed, the owner's decision file at 475 rows, the delivery hash
+  file, all twenty-six photo CSVs, all slice directories. **The only casualty was
+  `live.jsonl`** &mdash; and that is a *derived* file, re-pulled in one bulk query in under
+  a minute. The two in-flight research agents died and were relaunched against the same
+  slice, which was intact and identical, so nothing had to be re-decided.
+  **That is the architecture working rather than luck.** The things that would have been
+  expensive to lose &mdash; decisions, published work, the method file &mdash; are all
+  either in Shopify, in git, or in a CSV; the things that vanished are all reconstructible
+  from one query. Worth stating so nobody is tempted to treat a snapshot as a source of
+  truth to be protected: **it is cheaper to re-pull a snapshot than to back one up**, and
+  this file's own snapshot rule says a stale one is a hazard anyway.
+
 ## Conventions
 
 - Battery capacity, pack counts, and fiber mode (single vs multi) in titles are
