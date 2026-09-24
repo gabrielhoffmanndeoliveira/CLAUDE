@@ -4801,3 +4801,21 @@ tem pagina de dimensao — ficam para a ficha tecnica.
   "NG/LP Convertible" com essa ressalva.
 
 Todos os 33 agora tem gas no titulo. CSVs regenerados (substituem os de antes).
+
+### §78 — fechado: 33 titulos Navien verificados (24/09/2026)
+
+Import feito em duas levas (a primeira com os CSVs antes do adendo de gas; a
+segunda com o delta `navien_gas_*` dos 8). Verificado por bulk, loja
+`1vy05a-x6` conferida:
+
+- **33 de 33 titulos exatos** no padrao final, todos com gas.
+- **Nenhum** seo.title, seo.description, descricao ou alt com o titulo antigo
+  nem com a versao sem gas.
+- Delta de gas: 3 SEO, 5 descricoes e 21 alts — 0 divergencia.
+
+Pendente: `NCB-240/110H-RAL` (o que e "RAL"?); dimensoes dos 3 NPF; handles do
+NPE-180S2/210S2 (so com redirect).
+
+**Licao de processo**: quando um CSV e regerado depois de enviado, o nome do
+arquivo nao muda e e facil importar o antigo. Da proxima vez, arquivo
+regerado leva sufixo de versao (`_v2`).
