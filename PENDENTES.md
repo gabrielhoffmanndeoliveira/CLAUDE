@@ -4787,3 +4787,17 @@ Rollback de cada um. Gerados do bulk de 24/09 — mesmo dia, frescor ok.
 Dimensoes dos 3 NPF estao no HTML de `navieninc.com/series/npf/dimensions`
 (ex.: NPF700-100U5CH 21,0" x 34,5" x 31,0"). As 5 caldeiras sem dimensao nao
 tem pagina de dimensao — ficam para a ficha tecnica.
+
+### §78 — adendo: gas nos 8 que estavam sem (pedido do Gabriel)
+
+- **NFB-C (301C, 399C)**: navieninc.com/series/nfb-c — "Orifice conversion kit
+  for easy gas convertibility from NG to LP is included with every NFB-C boiler."
+- **NPF (060U3BH, 100H5CH, 100U5CH)**: navieninc.com/series/npf — "Each unit is
+  supplied with an LP conversion kit"; cada modelo "Available in NG or LP".
+- **NHB sem H (55, 80, 110)**: evidencia mais fraca. So o TITULO do guia
+  ("NHB Gas Conversion Guide" + adendo); o PDF abre por `/api`, que o robots.txt
+  da Navien bloqueia — nao contornado. Numa caldeira a gas, conversao so pode
+  ser NG<->LP, e o sucessor NHB-H e explicitamente NG/LP. Aplicado
+  "NG/LP Convertible" com essa ressalva.
+
+Todos os 33 agora tem gas no titulo. CSVs regenerados (substituem os de antes).
