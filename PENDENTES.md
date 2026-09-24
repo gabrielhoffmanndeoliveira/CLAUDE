@@ -4664,3 +4664,45 @@ Titulos Resideo dizem "Resideo"; o comprador busca "Honeywell". Afeta:
 
 Pendente do Gabriel: confirmar com o Craig o padrao de nome
 ("Honeywell Home by Resideo") antes de mudar titulo em massa.
+
+## §76 — Chat de cliente (Navien NPE-180A2 x Ferguson $1.300) e o titulo sem modelo
+
+24/09, chat ao vivo: cliente quer 2 Navien (150k e 180k BTU), cita "NPE 190A2/S2"
+(modelo inexistente), depois "NPE-180A2", e diz que a Ferguson vende por $1.300.
+
+Preco e custo na THS (loja `1vy05a-x6` conferida):
+
+| Modelo | BTU | Preco | Custo | Piso (custo/0,97) | Perfil |
+|---|---|---|---|---|---|
+| NPE-150S2 | 120k | $1.740,00 | $1.160 | $1.196 | THS Standard |
+| NPE-180S2 | 150k | $1.972,50 | $1.315 | $1.356 | THS Standard |
+| NPE-210S2 | 180k | $2.167,50 | $1.445 | $1.490 | Freight |
+| **NPE-180A2** | 150k | **$2.325,00** | **$1.550** | **$1.598** | Freight |
+| NPE-210A2 | 180k | $2.617,50 | $1.745 | $1.799 | Freight |
+| NPE-240A2 | 199,9k | $2.910,00 | $1.940 | $2.000 | Freight (223 em estoque) |
+| NPN-160U-LP | 160k | $1.005,00 | $670 | — | THS Standard |
+| NPN-180U-LP | 180k | $1.155,00 | $770 | — | THS Standard |
+
+- **A $1.300, o NPE-180A2 fica $250 abaixo do nosso CUSTO.** Recomendado deixar a
+  venda ir com elegancia. Nao e markup — e custo de fornecedor. Reforca tirar
+  NPE do Shopping pago (§69): nao ha desconto que resolva.
+- Ferguson nao conferida: `fergusonhome.com/search` respondeu **403**. A lista
+  de liberados cobre `/product`, nao a busca. Nao contornar.
+- Na Navien o numero do modelo NAO e o BTU: NPE-150=120k, 180=150k, 210=180k,
+  240=199,9k. Cliente confunde com frequencia.
+
+### Defeito de catalogo: os 3 ComfortFlow (A2) sem modelo no titulo
+
+`NAVI-NPE-180A2`, `NAVI-NPE-210A2`, `NAVI-NPE-240A2`: o titulo diz so
+"...Max Input: 150,000 BTU/h ... ComfortFlow(R)" — **sem "NPE-180A2"**. Os S2 tem
+o modelo no titulo. Consequencias:
+- a cliente "nao achou" o modelo que queria;
+- **o NPE-240A2 e onde o Google Ads da lance** e o titulo nao contem o modelo —
+  busca por modelo exato, o unico tipo que converte na loja (§75), nao casa;
+- o 240A2 e o Navien com mais estoque (223).
+
+### Tambem: handles com BTU trocado
+
+`...-max-input-180-000-btu-h-...-npe-180s2` e de 150k BTU; `...-max-input-150-000-
+btu-h-...-npe-210s2` e de 180k. Titulo certo, handle errado. Nao mexer em handle
+(quebra URL indexada e link do feed) sem redirect.
