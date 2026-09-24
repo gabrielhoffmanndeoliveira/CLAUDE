@@ -4743,3 +4743,47 @@ Freight.
 `Navien <MODELO> <linha> <tipo>, <BTU>, <instalacao>` — ex.:
 `Navien NPE-240A2 ComfortFlow Condensing Tankless Water Heater, 199,900 BTU, Indoor/Outdoor`.
 Antes do CSV: conferir gas e dimensoes na ficha da Navien (robots.txt antes).
+
+## §78 — Titulos Navien no padrao novo: 33 prontos (24/09/2026)
+
+Padrao aprovado pelo Gabriel: `Navien <MODELO> <linha> <tipo>, <BTU>, <instalacao>, <gas>`.
+**Regra seguida: toda palavra do titulo novo saiu do titulo atual, do SKU ou da
+Navien.** So reorganizado, nada inventado. Travas no script: modelo presente em
+todos, nenhum BTU que nao estivesse no titulo original (unica expansao:
+"14-100K" -> "14,000-100,000"), nenhum `None`.
+
+- Modelo sempre nos **primeiros 22 caracteres** (antes: no fim de ~150, cortado
+  no Shopping, ou ausente). Tamanho 72–140.
+- Corrigidos de passagem: "NHBH-110" -> **NHB-110H** (grafia da Navien); o
+  NHB-150H que dizia "NHB-150" (outro modelo) no fim.
+
+### Gas — fonte: pagina de downloads de cada serie em navieninc.com
+
+`robots.txt` lido antes (libera tudo exceto `/app*.pdf`, `/api`, `/admin`). Os
+PDFs carregam por JS; a evidencia e a **lista de guias no HTML**.
+- **"NG/LP Convertible"** so onde a Navien lista guia de conversao para LP/
+  propano: NCB-H, NFC-H, NFB-H, NHB-H, NPE-A2, NPE-S2.
+- **Gas do SKU** (dedicado): NHW (-NG / -LP), NPN (-LP).
+- **Sem gas no titulo**: NFB-C, NHB (sem H) — guia generico, sem direcao — e
+  NPF (nenhum guia).
+
+### Fora do CSV
+
+**`NAVI-NCB-240/110H-RAL`** — titulo, descricao e tags **identicos** ao
+`NCB-240/110H`; so difere por nao ter UPC. **45 em estoque a $4.027,50.** Nao
+sei o que "RAL" significa e nao vou inventar. Pendente do Gabriel.
+
+### Arquivos (ordem de import)
+
+1. `navien_titulo_IMPORTAR.csv` (33)
+2. `navien_seo_IMPORTAR.csv` (3)
+3. `navien_alt_IMPORTAR.csv` (60 imagens em 20 produtos)
+4. `navien_descricao_IMPORTAR.csv` (10)
+
+Rollback de cada um. Gerados do bulk de 24/09 — mesmo dia, frescor ok.
+
+### Proximo
+
+Dimensoes dos 3 NPF estao no HTML de `navieninc.com/series/npf/dimensions`
+(ex.: NPF700-100U5CH 21,0" x 34,5" x 31,0"). As 5 caldeiras sem dimensao nao
+tem pagina de dimensao — ficam para a ficha tecnica.
