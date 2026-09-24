@@ -4706,3 +4706,40 @@ o modelo no titulo. Consequencias:
 `...-max-input-180-000-btu-h-...-npe-180s2` e de 150k BTU; `...-max-input-150-000-
 btu-h-...-npe-210s2` e de 180k. Titulo certo, handle errado. Nao mexer em handle
 (quebra URL indexada e link do feed) sem redirect.
+
+## §77 — Auditoria dos 73 Navien (24/09/2026)
+
+Bulk `vendor:Navien`, loja `1vy05a-x6` conferida. 73 produtos, todos ACTIVE:
+18 pecas, 16 tankless, 11 caldeiras condensing, 9 racks, 6 acessorios, 4 combi,
+3 hydro furnace, outros.
+
+**Limpo nos 73**: markup = 50% em todos (preco/custo = 1,5), custo, peso,
+descricao >= 150 caracteres, `seo.description`, imagem com alt, tag
+`free-ship-eligible` coerente com perfil e com lambda, nada > 150 lb fora do
+Freight.
+
+### Problemas
+
+1. **Modelo fora do titulo — 12**: NPE-180A2, NPE-210A2, **NPE-240A2 (223 em
+   estoque, $2.910)**, **NCB-240/110H-RAL (45 em estoque, $4.027,50)**,
+   NFC-250/175H, NFC-250/200H, NHB-55H/80H/110H/150H (titulo diz "NHBH-110",
+   grafia que nao e a da Navien), NPF700-100H5CH e 100U5CH.
+2. **Modelo no fim de titulo de ~150 caracteres** nos que tem o modelo (ex.:
+   "...Indoor or Outdoor Wall-Hung, Residential/Commercial NPE-180S2"). O
+   Shopping trunca por volta de 70 caracteres: o modelo some do anuncio. Vale
+   para os ~34 equipamentos (tankless, caldeira, combi, furnace).
+3. **Gas (NG/LP) ausente** em SKU e titulo de 21 aquecedores/caldeiras. Nao
+   escrever sem a ficha da Navien — cada linha tem regra de conversao propria.
+4. **Handle com BTU errado — 5**: NHW700-199AI-NG, 199SU-LP, 199SU-NG
+   ("199-000" para 199.900, inofensivo); NPE-180S2 e NPE-210S2 trocados. Nao
+   mexer sem redirect.
+5. **Sem dimensao — 47**; so 8 sao equipamento (5 caldeiras, 3 hydro furnace).
+6. Modelo fora da descricao — 6 (os NHB-H, NCB-RAL, NPF700-100U5CH).
+
+**Maior problema do Navien nao e catalogo, e preco** (§69, §76).
+
+### Padrao proposto (pendente do OK do Gabriel)
+
+`Navien <MODELO> <linha> <tipo>, <BTU>, <instalacao>` — ex.:
+`Navien NPE-240A2 ComfortFlow Condensing Tankless Water Heater, 199,900 BTU, Indoor/Outdoor`.
+Antes do CSV: conferir gas e dimensoes na ficha da Navien (robots.txt antes).
