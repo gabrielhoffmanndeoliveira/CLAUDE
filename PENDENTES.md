@@ -4819,3 +4819,45 @@ NPE-180S2/210S2 (so com redirect).
 **Licao de processo**: quando um CSV e regerado depois de enviado, o nome do
 arquivo nao muda e e facil importar o antigo. Da proxima vez, arquivo
 regerado leva sufixo de versao (`_v2`).
+
+## §79 — Google Ads: troca para Target ROAS 400% (25/09/2026)
+
+Pergunta do Gabriel: por que o faturamento esta estabilizando? **Resposta:
+menos clique pago.** Nada quebrou.
+
+- Conta THS `192-200-0533`, campanha `SHOPPING GABRIEL 8-3-2026` (Shopping
+  padrao, nao PMax). O gasto caiu de ~$320/dia (15–19/09) para ~$209/dia
+  (20–24/09), que e o budget atual de $208. Os cliques cairam de ~300/dia para
+  150–200/dia, e as orders da Shopify de 6–8/dia para 2–3/dia (23–24/09).
+- A hipotese de Merchant reprovando por troca de titulo nao explica o inicio:
+  a queda comeca em 20–21/09, e os 483 titulos entraram em 23/09.
+- **Windsor sem `accounts` devolve TFAS + THS somadas** (gasto de $3–8 mil/dia).
+  Sempre passar `accounts: ["192-200-0533"]`.
+
+### Por que nao aumentar o budget
+
+| Periodo | Gasto/dia | ROAS | Leitura |
+|---|---|---|---|
+| 15–19/09 | $320 | 3,42 (GA4) | empate (+$12/dia de contribuicao) |
+| 20–24/09 | ~$209 | 2,93 (Ads, otimista) | abaixo do equilibrio de 3,30 |
+
+A campanha estava em **Maximize conversion value sem alvo**: gasta o budget
+inteiro atras de faturamento, sem piso de margem.
+
+### Mudanca aplicada pelo Gabriel em 25/09/2026
+
+- Bidding: **Target ROAS 400%** (era Maximize conversion value sem alvo).
+- Budget: **$208/dia**, mantido de proposito para nao misturar duas variaveis.
+- Smart Bidding Exploration: **desligado**.
+- Por que 400% e nao os 520% recomendados pelo Google: o 520% vem da media de
+  30 dias inflada pela Navien da #THS1026. O equilibrio de 3,30 no GA4 equivale
+  a ~4,2 na regua do Ads, que tem ~26% a mais (frete, imposto e view-through).
+  Comecar logo abaixo evita derrubar o volume de uma vez.
+
+### Reavaliar em 05/10 (dados de GA4 completos a partir de 07/10)
+
+- Julgar pelo **GA4 `purchase_revenue`** e pelo **dia mediano**, por contribuicao
+  (receita x 0,303 - gasto).
+- ROAS GA4 > 3,3 com volume mantido: subir o alvo para 420%.
+- Volume despencou: baixar para 360%.
+- Esperar 7–14 dias de reaprendizado; nao julgar a primeira semana.
