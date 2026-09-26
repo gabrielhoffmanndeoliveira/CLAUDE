@@ -71,6 +71,11 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   sem as duas colunas de comando: o Matrixify reportou **Updated** e **nenhum
   peso mudou**. Os tres imports de peso que funcionaram antes tinham as duas.
   Copiar o cabecalho de um arquivo que ja provou funcionar, nao montar de novo.
+- **Matrixify NAO troca `Image Alt Text` de foto existente.** Em 26/09 mandei
+  `Handle, Command=UPDATE, Image Src (URL do CDN), Image Command=MERGE, Image Position,
+  Image Alt Text` para 2 produtos: reportou **Updated: 2**, nao duplicou foto e **nao
+  mudou alt nenhum**. Alt de foto existente vai por API: `fileUpdate(files:[{id, alt}])`
+  com o `MediaImage` id, em lote — funcionou e a releitura provou.
 - **A coluna `Variant Shipping Profile` do Matrixify é ignorada nesta loja.**
   Mudança de perfil só sai por API.
 - **Texto longo vai por Matrixify, nunca por API.** Descrição, SEO e qualquer
