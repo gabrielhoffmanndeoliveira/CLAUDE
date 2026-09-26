@@ -276,6 +276,12 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   PDF e nenhum era modelo de volume. O damper foi excecao porque a pagina dele
   carregava o submittal `33-00264.pdf`. Nao contar com spec estruturada.
 
+- **Resideo tem MAP (preco minimo anunciado)**, na planilha `Exec_MAP_pricing_.xlsx`
+  do Craig. **Markup de 50% sobre o custo fica ABAIXO do MAP** na maioria da linha
+  (custo ~0,83 x Executive; MAP = 1,43 x Executive). Preco Resideo =
+  **max(MAP, custo x 1,5)**, sempre. Em 26/09 havia 282 abaixo do MAP. Casar
+  pelo part number **com sufixo** (`/U`, `/B`, `/E` tem MAP diferentes).
+
 ## Restrições permanentes
 
 - Checar `robots.txt` antes de buscar site externo. **Nunca falsear user-agent**

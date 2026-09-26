@@ -4861,3 +4861,27 @@ inteiro atras de faturamento, sem piso de margem.
 - ROAS GA4 > 3,3 com volume mantido: subir o alvo para 420%.
 - Volume despencou: baixar para 360%.
 - Esperar 7–14 dias de reaprendizado; nao julgar a primeira semana.
+
+## §80 — Resideo: 282 precos abaixo do MAP (26/09/2026)
+
+O Craig (Resideo) mandou a planilha `Exec_MAP_pricing_.xlsx`: 1.704 part numbers
+com Base Price, Executive Price, **MAP**, UPC, peso e pais de origem.
+
+- **Executive Price NAO e o nosso custo.** Nos 558 Resideo com custo cadastrado,
+  custo / Executive = 0,83 na mediana (0,63 a 1,07). Preco da loja = custo x 1,5
+  = 1,25 x Executive. **MAP = Executive / 0,70 = 1,43 x Executive.** Base =
+  Executive / 0,30.
+- Resultado: **282 Resideo abaixo do MAP** (281 ativos + 1 draft a $0,00, o
+  `cover-plate-prestige`). 264 ja estao no MAP ou acima, 15 sao "MAP Policy Not
+  Applicable", 46 nao estao na planilha.
+- **Sufixo e produto diferente**: `/B` (granel), `/U` e `/E` tem MAP diferentes
+  com o mesmo UPC (ex.: S688A1007/B MAP 62,73 x S688A1007/U MAP 92,63). Casar pelo
+  codigo completo, nunca tirando o sufixo.
+- Casamento conferido por UPC: nenhum dos 282 diverge da planilha.
+- Correcao: preco novo = max(MAP, custo x 1,5). Em todos os 282 o MAP venceu.
+  Subida mediana de 14,2% (13,8% a 18,5%). Nenhum compare-at conflita.
+- Arquivos: `resideo_map_preco_IMPORTAR.csv` (282), `_rollback.csv`, `_DETALHE.csv`.
+  Cabecalho com `Command` e `Variant Command` = UPDATE, igual ao do peso.
+
+Pendente: importar, verificar por bulk; depois cadastrar os ~1.140 novos em draft
+com preco = MAP (custo em branco ate ter a tabela de custo da Resideo).
