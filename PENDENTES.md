@@ -4914,3 +4914,22 @@ Da planilha de MAP do Craig, os part numbers que a loja ainda nao tem.
 **Antes de ativar qualquer um:** perfil de entrega (produto novo cai no General),
 tag `free-ship-eligible` pela regua lambda, imagem, descricao rica, e o nome
 "Honeywell Home by Resideo" com o Craig.
+
+### §81 v2 — com conteudo da resideo.com e honeywellhome.com (26/09/2026)
+
+**Usar `resideo_novos_draft_v2_IMPORTAR.csv`. O v1 (sem imagem e specs) fica so de
+historico — nao importar.**
+
+- Autorizacao do Craig (26/09): pegar tudo de resideo.com, honeywellhome.com e
+  firstalert.com. Spec e galeria da Resideo estao no JSON dentro do HTML (`curl` basta).
+- Coleta: 1.136 codigos; 1.106 com URL no sitemap; **1.056 confirmados** pelo
+  `ProductId` da propria pagina; 50 com URL que nao bateu, 30 sem URL.
+- **18 descontinuados** no site da Resideo sairam do import (lista no REVISAR). Com os 4
+  de antes (3 Canada only + MX150-RP/U), ficam **1.114 produtos**.
+- 1.016 com descricao rica (Features + Specifications oficiais); 98 so com a planilha.
+- Imagens: 942 da galeria da Resideo, 92 da Honeywell Home (foto da variante primeiro),
+  **80 sem imagem**. Ate 6 por produto; 981 linhas extras de imagem no CSV.
+- Dimensao (metafield `product.length/width/height`, em in) em 369 produtos com as tres
+  medidas. **E medida do produto, nao da caixa** — conferir antes de ativar frete.
+- Limpeza: valores "0"/"None" descartados, `|` entre unidades virou virgula, peso sem
+  unidade retirado, nome oficial da Resideo fora do paragrafo (vinha repetido e sujo).
