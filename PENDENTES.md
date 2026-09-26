@@ -4973,3 +4973,5 @@ contagem certa, todas READY. Os 2 avisos sao os kits RedLINK `YTHM1004R3000/U` e
 - Regra: peso = **max(planilha, site)**. Mudam 15 + 2 pecas pequenas com 0 lb
   (`388146KP/U`, `903128`) que vao para 0,1 lb, o piso da planilha.
 - `resideo_novos_peso_IMPORTAR.csv` (17) + `_rollback.csv`, cabecalho de peso que funciona.
+
+Importado e relido em 26/09: **17 de 17 pesos exatos** (TAXV-260/U e TAXV-280/U agora 435 lb).
