@@ -4945,3 +4945,11 @@ historico — nao importar.**
 - Orfaos a tratar depois: `alt` das imagens (ficou com o titulo "Resideo ..."), e o vendor
   novo tira esses itens de qualquer colecao/carrossel filtrado por vendor = Resideo.
 - O "Honeywell Home by Resideo" com o Craig continua em aberto para os 607 antigos.
+
+### §81 — import v2 verificado por bulk (26/09/2026)
+
+Matrixify: New 1.114, Warnings 2. Conferencia campo a campo contra o CSV, 1.114
+produtos: titulo, vendor, status Draft, tipo, descricao, SEO description, 1 variante,
+SKU, preco, UPC, peso, as tres dimensoes — **todos 1.114 exatos**. Fotos: 1.112 com a
+contagem certa, todas READY. Os 2 avisos sao os kits RedLINK `YTHM1004R3000/U` e
+`YTHM1004R3001/U`: o Shopify nao baixou parte das fotos.
