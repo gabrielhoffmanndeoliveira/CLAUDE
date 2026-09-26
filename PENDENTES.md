@@ -4975,3 +4975,14 @@ contagem certa, todas READY. Os 2 avisos sao os kits RedLINK `YTHM1004R3000/U` e
 - `resideo_novos_peso_IMPORTAR.csv` (17) + `_rollback.csv`, cabecalho de peso que funciona.
 
 Importado e relido em 26/09: **17 de 17 pesos exatos** (TAXV-260/U e TAXV-280/U agora 435 lb).
+
+### §81 — frete dos 1.114 novos (26/09/2026)
+
+Regra de sempre: peso efetivo = max(real, volume/139); lambda = efetivo/preco.
+- **957** lambda <= 0,0337 -> General + tag `free-ship-eligible`
+  (`resideo_novos_tag_frete_IMPORTAR.csv`, Tags Command MERGE; rollback com REMOVE).
+- **148** -> `THS Standard - no free shipping`; **9** (> 150 lb: TAXV-100..280 e
+  HYDROSEP-109) -> `THS Freight & Oversize`. Movidos por API `deliveryProfileUpdate`;
+  **157 de 157 conferidos** pela relacao direta `ProductVariant.deliveryProfile`.
+  Rollback: `resideo_novos_perfil_rollback.csv` (todos vinham do General profile).
+- 82 decididos pelo peso dimensional (dimensao do produto, nao da caixa).
