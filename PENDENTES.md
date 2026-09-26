@@ -4933,3 +4933,15 @@ historico — nao importar.**
   medidas. **E medida do produto, nao da caixa** — conferir antes de ativar frete.
 - Limpeza: valores "0"/"None" descartados, `|` entre unidades virou virgula, peso sem
   unidade retirado, nome oficial da Resideo fora do paragrafo (vinha repetido e sujo).
+
+### §81 — 538 novos como "Honeywell Home" (26/09/2026, decisao do Gabriel)
+
+- A marca vem do campo `Brand` que a propria Resideo poe na pagina de cada SKU
+  (analytics da pagina): 538 Honeywell Home, 490 Resideo, 5 First Alert, 1 Honeywell,
+  80 sem pagina. So os 538 mudam.
+- Titulo "Resideo <codigo> ..." -> "Honeywell Home <codigo> ..." e Vendor -> "Honeywell Home".
+  `honeywell_home_titulo_vendor_IMPORTAR.csv` + `_rollback.csv`. Importar **depois** que
+  o import dos 1.114 terminar.
+- Orfaos a tratar depois: `alt` das imagens (ficou com o titulo "Resideo ..."), e o vendor
+  novo tira esses itens de qualquer colecao/carrossel filtrado por vendor = Resideo.
+- O "Honeywell Home by Resideo" com o Craig continua em aberto para os 607 antigos.
