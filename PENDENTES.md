@@ -4962,3 +4962,14 @@ contagem certa, todas READY. Os 2 avisos sao os kits RedLINK `YTHM1004R3000/U` e
   ao proprio titulo (nenhum efeito colateral). Rollback: `honeywell_home_alt_rollback.csv`.
 - Os CSVs `honeywell_home_alt_TESTE.csv` / `_IMPORTAR.csv` ficam so de historico — nao
   funcionam.
+
+### §81 — peso dos novos: planilha x site da Resideo (26/09/2026)
+
+- 255 produtos com peso nas duas fontes: 146 batem (±10% ou ±0,05 lb), 94 com a planilha
+  mais pesada (mediana +0,6 lb — parece peso embalado; e o site erra em alguns, ex.
+  valvulas de gas VR8304/8205/8305 com 0,33–0,39 lb), 15 com a planilha mais leve.
+- **Criticos: `TAXV-260/U` e `TAXV-280/U` com 0,0 lb na planilha e 435 lb no site** —
+  tanques ASME de frete de carga cadastrados com peso zero. Demais TAXV 20–28% leves.
+- Regra: peso = **max(planilha, site)**. Mudam 15 + 2 pecas pequenas com 0 lb
+  (`388146KP/U`, `903128`) que vao para 0,1 lb, o piso da planilha.
+- `resideo_novos_peso_IMPORTAR.csv` (17) + `_rollback.csv`, cabecalho de peso que funciona.
