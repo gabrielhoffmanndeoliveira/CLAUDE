@@ -4883,5 +4883,8 @@ com Base Price, Executive Price, **MAP**, UPC, peso e pais de origem.
 - Arquivos: `resideo_map_preco_IMPORTAR.csv` (282), `_rollback.csv`, `_DETALHE.csv`.
   Cabecalho com `Command` e `Variant Command` = UPDATE, igual ao do peso.
 
-Pendente: importar, verificar por bulk; depois cadastrar os ~1.140 novos em draft
+**Importado e verificado por bulk em 26/09: 282 de 282 exatos.** Nenhum outro preco,
+compare-at, UPC ou status mudou nos 607 Resideo. Nenhum Resideo abaixo do MAP.
+
+Pendente: cadastrar os ~1.140 novos em draft
 com preco = MAP (custo em branco ate ter a tabela de custo da Resideo).
