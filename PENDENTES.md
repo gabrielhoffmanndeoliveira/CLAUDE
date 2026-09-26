@@ -4986,3 +4986,16 @@ Regra de sempre: peso efetivo = max(real, volume/139); lambda = efetivo/preco.
   **157 de 157 conferidos** pela relacao direta `ProductVariant.deliveryProfile`.
   Rollback: `resideo_novos_perfil_rollback.csv` (todos vinham do General profile).
 - 82 decididos pelo peso dimensional (dimensao do produto, nao da caixa).
+
+### §81 — colecoes Resideo e Honeywell Home (26/09/2026)
+
+- **Resideo** (automatica): regra passou de `vendor = Resideo` para
+  `vendor = Resideo OU vendor = Honeywell Home` -> 1.721 produtos.
+- **Honeywell Home**: era manual com 29 produtos vendor Resideo (ativos). Os 29 viraram
+  Honeywell Home no titulo, vendor e SEO (`honeywell_home_29_IMPORTAR.csv`, rollback),
+  e 65 alts de foto por `fileUpdate` (rollback `honeywell_home_29_alt_rollback.csv`).
+  **O Shopify aceitou converter a colecao manual em automatica** por `collectionUpdate`
+  com `ruleSet` -> `vendor = Honeywell Home`, 567 produtos, mesmo handle e ordenacao.
+- Vendor agora: 1.154 Resideo, 567 Honeywell Home. Tag free-ship: 957/957 conferidos.
+- O `YTHX9421R7001WW/U` teve o titulo encurtado depois por outro import
+  (`matrixify_product_titles_150.csv`, 16:47, 32 titulos) que nao saiu desta sessao.
