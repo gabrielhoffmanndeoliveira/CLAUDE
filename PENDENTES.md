@@ -4953,3 +4953,12 @@ produtos: titulo, vendor, status Draft, tipo, descricao, SEO description, 1 vari
 SKU, preco, UPC, peso, as tres dimensoes — **todos 1.114 exatos**. Fotos: 1.112 com a
 contagem certa, todas READY. Os 2 avisos sao os kits RedLINK `YTHM1004R3000/U` e
 `YTHM1004R3001/U`: o Shopify nao baixou parte das fotos.
+
+### §81 — alt das fotos dos 538 Honeywell Home (26/09/2026)
+
+- Matrixify (Image Src + Image Alt Text) reportou Updated e nao mudou nada — ver CLAUDE.md.
+- Feito por API `fileUpdate` em 7 + 6 lotes. Releitura por bulk: **1.151 de 1.151 alts
+  exatos**, iguais ao titulo novo. As 862 fotos dos outros 576 produtos continuam iguais
+  ao proprio titulo (nenhum efeito colateral). Rollback: `honeywell_home_alt_rollback.csv`.
+- Os CSVs `honeywell_home_alt_TESTE.csv` / `_IMPORTAR.csv` ficam so de historico — nao
+  funcionam.
