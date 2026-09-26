@@ -1,0 +1,55 @@
+sku,titulo,marca,categoria,preco_usd,peso_atual_lb,peso_fornecedor_lb,motivo
+BRAS-WB00-18N,"BrassCraft 3/4"" x 3/4"" Water Heater Supplies - 18"", FIP x FIP, Copper WB00-18N",BrassCraft,Water Heater Connectors,16.95,0.52,0.0001,sentinela 0.0001 do fornecedor
+BRAS-WB00-24N,"BrassCraft 3/4"" x 3/4"" Water Heater Supplies - 24"", FIP x FIP, Copper WB00-24N",BrassCraft,Water Heater Connectors,18.93,0.52,0.0001,sentinela 0.0001 do fornecedor
+CMPF-025-BINS-NL,"BrassCraft 63PT-4X 1/4"" O.D. Tube Insert for Plastic and Nylon Tubing",BrassCraft,Compression Fittings,0.69,0.05,0.0012,abaixo do piso fisico (0.01 lb)
+CMPF-038-BINS-NL,"BrassCraft 63PT-6X 3/8"" O.D. Tube Insert for Plastic and Nylon Tubing",BrassCraft,Compression Fittings,0.45,0.05,0.0021,abaixo do piso fisico (0.01 lb)
+EASF-EFWC-034C-1010-18,"BrassCraft 3/4"" x 3/4"" Water Heater Supplies - 18"", FIP x FIP, Copper EFWC-034C-1010-18",BrassCraft,Water Heater Connectors,19.63,0.52,0.0001,sentinela 0.0001 do fornecedor
+EASF-EFWC-034C-1010-24,"BrassCraft 3/4"" x 3/4"" Water Heater Supplies - 24"", FIP x FIP, Copper EFWC-034C-1010-24",BrassCraft,Water Heater Connectors,24.27,0.52,0.0001,sentinela 0.0001 do fornecedor
+ECCO-138824,Ecco 138824 22x22 Square Drain Pan C/W PVC Ftg,Ecco Manufacturing,Galvanized Pipe & Fittings,63.06,2.19,0.005,abaixo do piso fisico (0.01 lb)
+ECCO-138834,Ecco 138834 24x24 Square Drain Pan C/W PVC Ftg,Ecco Manufacturing,Galvanized Pipe & Fittings,63.45,2.19,0.005,abaixo do piso fisico (0.01 lb)
+ECCO-138934,Ecco 138934 26x26 Square Drain Pan C/W PVC Ftg,Ecco Manufacturing,Galvanized Pipe & Fittings,65.46,2.19,0.005,abaixo do piso fisico (0.01 lb)
+FLUI-AP-1414,"Fluidmaster AP-1414 Access Panel 14"" x 14""",Fluidmaster,Access Panels,24.78,0.58,0.0001,sentinela 0.0001 do fornecedor
+SPEC-P-3000,"LSP Products P-3000 Tub Box 14-7/8"" x 14-7/8"" x 7"" Deep, 5 Pair",LSP Products,Tub Box,13.96,0.9,0.0003,abaixo do piso fisico (0.01 lb)
+MILW-48-22-8901,Milwaukee Tools 48-22-8901 Cut Level 1 Nitrile Dipped Gloves - M,Milwaukee Tools,Gloves & Sleeves,6.27,0.05,0.0066,abaixo do piso fisico (0.01 lb)
+MILW-48-22-8902,Milwaukee Tools 48-22-8902 Cut Level 1 Nitrile Dipped Gloves - L,Milwaukee Tools,Gloves & Sleeves,6.27,0.05,0.007,abaixo do piso fisico (0.01 lb)
+MILW-48-22-8903,Milwaukee Tools 48-22-8903 Cut Level 1 Nitrile Dipped Gloves - XL,Milwaukee Tools,Gloves & Sleeves,6.27,0.05,0.0075,abaixo do piso fisico (0.01 lb)
+MILW-48-22-8904,Milwaukee Tools 48-22-8904 Cut Level 1 Nitrile Dipped Gloves - XXL,Milwaukee Tools,Gloves & Sleeves,6.27,0.05,0.0086,abaixo do piso fisico (0.01 lb)
+MOEN-883,Moen Retainer clip 883,Moen,Faucet & Tap Parts & Accessories,5.83,0.52,0.004,abaixo do piso fisico (0.01 lb)
+CFCB-025-90EL,"Mueller Streamline W 02009R 1/4"" Copper Fittings - Cleaned & Bagged - 90 Degree Elbow C x C",Mueller Streamline,Copper Sweat Fittings (Cleaned & Bagged),7.33,0.05,0.0082,abaixo do piso fisico (0.01 lb)
+CFCB-050-CAP,"Mueller Streamline W 07007R 1/2"" Copper Fittings - Cleaned & Bagged - Cap C",Mueller Streamline,Copper Sweat Fittings (Cleaned & Bagged),1.91,0.05,0.0095,abaixo do piso fisico (0.01 lb)
+COPF-025-CAP-C,"Mueller Streamline W 07004 1/4"" Copper Sweat Fittings - Cap C",Mueller Streamline,Copper Sweat Fittings,1.62,0.05,0.0053,abaixo do piso fisico (0.01 lb)
+COPF-025-CPL/DS-C,"Mueller Streamline W 10143 1/4"" Copper Sweat Fittings - Coupling - Dimple Stop C x C",Mueller Streamline,Copper Sweat Fittings,1.32,0.05,0.0078,abaixo do piso fisico (0.01 lb)
+COPF-038-CAP-C,"Mueller Streamline W 07006 3/8"" Copper Sweat Fittings - Cap C",Mueller Streamline,Copper Sweat Fittings,2.59,0.05,0.0095,abaixo do piso fisico (0.01 lb)
+NDSP-107BC,"NDS National 6"" Round Standard Series - Black Box / Green Cover, ICV",NDS National,Ground Boxes,8.5,4.5,0.0001,sentinela 0.0001 do fornecedor
+NDSP-113-6,"NDS National 113-6 14"" x 19"" Standard Series - 6"" Extension",NDS National,Ground Boxes,25.66,4.5,0.0005,abaixo do piso fisico (0.01 lb)
+NDSP-117-6,"NDS National 117-6 13"" x 20"" x 6"" Standard Series Extension Box - Black Box",NDS National,Ground Boxes,32.98,4.5,0.0008,abaixo do piso fisico (0.01 lb)
+NDSP-117BC,"NDS National 117BC 13"" x 20"" Standard Series - Black Box / Green Cover, ICV",NDS National,Ground Boxes,85.2,0.05,0.0015,abaixo do piso fisico (0.01 lb)
+PASC-137,"Pasco 1/4"" Plated Closet Screw Nut",Pasco,Wax Rings & Bolts,0.11,0.05,0.007,abaixo do piso fisico (0.01 lb)
+PASC-138,Pasco Round Steel Closet Washer,Pasco,Wax Rings & Bolts,0.06,0.05,0.006,abaixo do piso fisico (0.01 lb)
+PASC-2204,"Pasco 2204 1-1/2"" Rubber Slip Joint Washer 1-1/2""",Pasco,Miscellaneous Tools,0.14,0.05,0.007,abaixo do piso fisico (0.01 lb)
+PASC-2209,"Pasco 2209 1-1/4"" Slip Joint Washer 1-1/4""",Pasco,Miscellaneous Tools,0.14,0.05,0.007,abaixo do piso fisico (0.01 lb)
+PASC-2214,"Pasco 2214 1-1/2"" Poly Slip Joint Washer 1-1/2""",Pasco,Miscellaneous Tools,0.14,0.05,0.004,abaixo do piso fisico (0.01 lb)
+PASC-2218,"Pasco 2218 1-1/2"" x 1-1/4"" Poly Slip Joint Washer",Pasco,Miscellaneous Tools,0.22,0.05,0.008,abaixo do piso fisico (0.01 lb)
+PASC-2219,"Pasco 2219 1-1/4"" Poly Slip Joint Washer 1-1/4""",Pasco,Miscellaneous Tools,0.14,0.05,0.003,abaixo do piso fisico (0.01 lb)
+PASC-2222,"Pasco 1-1/2"" Flanged Poly Washer 1-1/2""",Pasco,Miscellaneous Tools,0.15,0.05,0.004,abaixo do piso fisico (0.01 lb)
+PASC-2224,"Pasco 2224 3/4"" Garden Hose Washer 3/4""",Pasco,Miscellaneous Tools,0.08,0.05,0.004,abaixo do piso fisico (0.01 lb)
+PASC-2244,Pasco 2244 Hose Filter Washer,Pasco,Miscellaneous Tools,0.68,0.05,0.005,abaixo do piso fisico (0.01 lb)
+CASH-UC953,SharkBite UC953 1/2-in Stainless Steel PEX Clamps (100-Pack),SharkBite,Push Fittings,0.43,0.05,0.009,abaixo do piso fisico (0.01 lb)
+SIOU-290-20320,"Sioux Chief 290-20320 4-1/4"" OD x 3-3/8"" ID No Putty Gasket for Sink Strainer",Sioux Chief,Nuts & Gaskets,1.56,0.05,0.006,abaixo do piso fisico (0.01 lb)
+SIOU-290-20322,"Sioux Chief 290-20322 2"" OD x 1-1/2"" ID No Putty Gasket for Lav Drain",Sioux Chief,Nuts & Gaskets,1.2,0.05,0.002,abaixo do piso fisico (0.01 lb)
+SIOU-554-08,"Sioux Chief 554-08 3/16"" x 8"" Cable Tie",Sioux Chief,Cable Ties,0.09,0.05,0.0033,abaixo do piso fisico (0.01 lb)
+SIOU-554-14,"Sioux Chief 554-14 5/32"" x 14-1/2"" Cable Tie",Sioux Chief,Cable Ties,0.21,0.05,0.0056,abaixo do piso fisico (0.01 lb)
+SIOU-555-1,"Sioux Chief 555-1 1/2"" Tube Talon w/Nail",Sioux Chief,Nail On's,0.14,0.05,0.0071,abaixo do piso fisico (0.01 lb)
+SIOU-557-2,"Sioux Chief 557-2 1/2"" EZGlide Suspension Clamp",Sioux Chief,Suspended Clamps,0.27,0.05,0.0089,abaixo do piso fisico (0.01 lb)
+SIOU-558-M4,"Sioux Chief 558-M4 1"" PipeEye Insulator",Sioux Chief,Isolators,0.35,0.05,0.0062,abaixo do piso fisico (0.01 lb)
+SIOU-640PX12,"Sioux Chief 640PX12 1/2"" PEX F2159 Plug Composite",Sioux Chief,F2159 Press Fittings,1.23,0.05,0.0047,abaixo do piso fisico (0.01 lb)
+SIOU-649TX3,"Sioux Chief 649TX3 3/4"" PEX V-Sleeve Crimp(F1807) Sioux Chief",Sioux Chief,F1807 Crimp Fittings,0.6,0.05,0.0095,abaixo do piso fisico (0.01 lb)
+SIOU-928-2,"Sioux Chief 928-2 1/2"" CTS Dry Seal Pipe Collar",Sioux Chief,Escutcheons,0.24,0.05,0.0063,abaixo do piso fisico (0.01 lb)
+T&SB-B-39K,T&S Brass & Bronze Works B-39K Parts Kit for Waste Valves,T&S Brass & Bronze Works,Faucet & Tap Parts & Accessories,28.07,0.52,0.001,abaixo do piso fisico (0.01 lb)
+TACO-005-020RP,"Taco Comfort Solutions 005-020RP Cartridge - Bronze or Stainless Steel - 005, 006",Taco Comfort Solutions,Taco Cartridges,266.62,2.19,0.0001,sentinela 0.0001 do fornecedor
+TACO-329-3,"Taco Comfort Solutions 329-3 BOILER FEED VALVE - 1/2"" Fast Fill",Taco Comfort Solutions,System Fill Tanks & Autofills,125.67,3.5,0.0001,sentinela 0.0001 do fornecedor
+TACO-418-4,"Taco Comfort Solutions 418-4 AIR VENT - 1/2"" x 3/4"" NPT Hy-Vent",Taco Comfort Solutions,Air Vents,90.55,0.2,0.0001,sentinela 0.0001 do fornecedor
+TACO-5003-C3,"Taco Comfort Solutions 5003-C3 Mixing Valve - 1017 - 3/4"" Sweat Union Connections, adjmt 85-176 F. built-in check valve",Taco Comfort Solutions,"Mixing Valve - Lead Free - 3/4""",193.95,2.5,0.0002,abaixo do piso fisico (0.01 lb)
+TACO-555-050RP,Taco Comfort Solutions 555-050RP Zone Valve - POWER UNIT,Taco Comfort Solutions,Taco Cartridges,209.58,2.19,0.0002,abaixo do piso fisico (0.01 lb)
+TURB-STK-99,"TurboTorch 0386-0851 STK-99 Torch Swirl, MAP-Pro/LP Gas, Self Lighting",TurboTorch,Torches & Gas,191.37,0.55,0.0003,abaixo do piso fisico (0.01 lb)
+VEGA-56120,"Viega 56120 5/8"" OD, 1/2"" CTS, Stainless Steel, Insert Stiffener",Viega,Tubing Support,0.98,0.05,0.007,abaixo do piso fisico (0.01 lb)
