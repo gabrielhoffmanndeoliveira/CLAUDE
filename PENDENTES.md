@@ -4999,3 +4999,22 @@ Regra de sempre: peso efetivo = max(real, volume/139); lambda = efetivo/preco.
 - Vendor agora: 1.154 Resideo, 567 Honeywell Home. Tag free-ship: 957/957 conferidos.
 - O `YTHX9421R7001WW/U` teve o titulo encurtado depois por outro import
   (`matrixify_product_titles_150.csv`, 16:47, 32 titulos) que nao saiu desta sessao.
+
+### §81 — revisao dos 435 com tag `revisar-cadastro` (26/09/2026)
+
+Numeros do nosso titulo contra nome oficial + specs do JSON da pagina Resideo:
+**303 conferem**, **83 divergem**, **49 sem pagina** na Resideo.
+- Dos 83, **16 eram conflito real** -> `resideo_revisao_titulo_IMPORTAR.csv`
+  (Title + SEO Description; `seo.title` e nulo nos 16; rollback `_rollback.csv`):
+  F200F1620 20x25->16x20; TAXV-015/020/040/144 galoes pelo site (8,6/16,5/23/77 —
+  planilha e site divergem so nesses 4; a altura do tanque confirma o site);
+  L8148J1009 sem faixa (nome oficial 180-240, spec 120-240, planilha 140-240);
+  FC37A1130/B mm->in; PS2401C00/B 230 V; KF06-1/2AZ 1/2 e 3/4 in; 50001464-001/-005
+  tinham titulo identico (+12 in / 48 in leadwire); 4 pre/pos-filtros com o
+  tamanho do proprio filtro; C7089R3013 pelo nome oficial.
+- Mantidos: VR8205/VR8305 (nome oficial diz standing pilot, a serie e direct
+  ignition); AT140A/AT72D/Q370A (nosso bate com a spec, o nome oficial nao).
+  O resto e detalhe a mais que o nome oficial nao repete.
+- Tag removida de 303 + 83 = **386** (`resideo_revisao_tag_remover_IMPORTAR.csv`,
+  REMOVE; rollback MERGE). Fica nos **49 sem pagina** (`resideo_revisao_sem_pagina_49.csv`).
+- Depois do import: 45 alts dos 16 retitulados por `fileUpdate`.
