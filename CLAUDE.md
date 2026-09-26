@@ -271,10 +271,13 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   verificacao cruzada: VR8200/8300 = standing pilot, VR8204/8304 = intermittent
   pilot, VR8205/8215/8305 = direct ignition, VR8245/8345 = universal/multisystem.
   Os titulos da loja batem com isso.
-- **Paginas de produto e de categoria da Resideo sao renderizadas por
-  JavaScript.** Nao ha spec no HTML. Dos 20 termostatos testados, so 3 linkavam
-  PDF e nenhum era modelo de volume. O damper foi excecao porque a pagina dele
-  carregava o submittal `33-00264.pdf`. Nao contar com spec estruturada.
+- **Pagina de produto da Resideo TEM spec no HTML — dentro de JSON, nao em texto.**
+  O knockout desenha depois, por isso parece vazia. No HTML cru (`curl` basta, sem
+  navegador) ha um objeto com `"Specifications":[{"Item1":campo,"Item2":valor}]`,
+  `"GalleryImages":[...]` (fotos do proprio SKU em `digitalassets.../RDEDesktop/`),
+  `"SkuTitle"` e flags como `HasOverview`. Em 16/09 eu concluí "nao ha spec no
+  HTML" olhando so o texto visivel — estava errado; corrigido em 26/09.
+  O Chromium local nao confia no CA do proxy (sem `certutil` aqui); nao precisa dele.
 
 - **Resideo tem MAP (preco minimo anunciado)**, na planilha `Exec_MAP_pricing_.xlsx`
   do Craig. **Markup de 50% sobre o custo fica ABAIXO do MAP** na maioria da linha
@@ -308,5 +311,9 @@ resposta parcial agora a resposta completa daqui a dez minutos.
   `Disallow: /` no `robots.txt`, e mesmo assim está liberado, porque a
   permissão vem do dono do site. **Isso não é contornar bloqueio**: continua
   valendo nunca falsear user-agent. Se a autorização mudar, o Gabriel avisa.
+  **Ampliada em 26/09/2026:** o Craig autorizou pegar **tudo** (imagens,
+  descrições, specs) de `resideo.com`, `honeywellhome.com` e `firstalert.com`
+  para cadastrar os produtos Resideo. Renderizar JavaScript com o Chromium local
+  é permitido; forjar user-agent continua proibido.
 - **Checar o `robots.txt` em chamada separada, ANTES de baixar.** Eu coloquei
   os dois na mesma chamada e os PDFs entraram antes de eu ler a regra.
