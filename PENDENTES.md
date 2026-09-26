@@ -4888,3 +4888,29 @@ compare-at, UPC ou status mudou nos 607 Resideo. Nenhum Resideo abaixo do MAP.
 
 Pendente: cadastrar os ~1.140 novos em draft
 com preco = MAP (custo em branco ate ter a tabela de custo da Resideo).
+
+## §81 — Resideo: 1.132 produtos novos em draft (26/09/2026)
+
+Da planilha de MAP do Craig, os part numbers que a loja ainda nao tem.
+
+- 1.704 codigos na planilha; 561 ja na loja por SKU; **1.143 novos**. Sairam:
+  - 7 que batem por UPC com produto existente (`901445` = `0901445`; 5 pares `/E`-`/U`
+    com o mesmo UPC; `HYDROSEP-110-F/U` com UPC de outro item). Ficam fora ate decisao,
+    porque GTIN duplicado da problema no Merchant.
+  - 3 "CANADA ONLY" (VR8200A2322/U, VR8200H1236/U, VR8304M4515/U). O Q3200U2002/U diz
+    "US AND CANADA" e entrou.
+  - `MX150-RP/U`: descricao de valvula de zona, codigo de kit de junta.
+- **Ficam 1.132.** Titulo e resumo reescritos por 6 agentes a partir da descricao da
+  planilha, com regra de nao inventar spec. Conferencia independente: 36 numeros que nao
+  aparecem literalmente na descricao, todos conversao fiel (`.5`->`0.5`, `50-60HZ`->
+  `50/60 Hz`, `TWELVE`->`12`). A leitura de `2WC` divergiu entre agentes e foi retirada.
+- Preco = MAP; nos 54 "MAP Policy Not Applicable", Executive / 0,70. Custo em branco.
+- Peso, UPC e pais de origem da planilha. 14 sem UPC (duplicado entre si ou com a loja).
+- Tags: `Resideo`, o tipo, `map-import-2609`; **444 com `revisar-cadastro`** (duvida do
+  agente ou tipo novo). Lista em `resideo_novos_draft_REVISAR.csv`.
+- Arquivos: `resideo_novos_draft_IMPORTAR.csv` (Command NEW, Status Draft),
+  `_rollback.csv` (Command DELETE pelos handles), `_REVISAR.csv`.
+
+**Antes de ativar qualquer um:** perfil de entrega (produto novo cai no General),
+tag `free-ship-eligible` pela regua lambda, imagem, descricao rica, e o nome
+"Honeywell Home by Resideo" com o Craig.
