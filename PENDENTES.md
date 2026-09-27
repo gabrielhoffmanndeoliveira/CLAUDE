@@ -5050,3 +5050,7 @@ Menu v2 (Gabriel, pelo admin): Angle Stops, PEX Expansion Tools, Rheem 40 Gallon
   tipos de colecao). Arquivos refeitos com aba **"Collections"**: teste
   `seo_2709_colecoes_TESTE_pliers.xlsx` (1 linha) antes de `seo_2709_colecoes_IMPORTAR.xlsx`
   (10); rollback `seo_2709_colecoes_rollback.xlsx`. Conferir se as regras sobrevivem ao UPDATE.
+- 27/09 import Matrixify aba Collections: teste pliers (Updated 1) e 10 colecoes (Updated 10).
+  Bulk + comparacao com o xlsx: titulo e SEO 11/11 exatos; body 8 exatos + 3 so por normalizacao
+  de entidade (&reg; &ndash; &#39;). **Regras intactas** em todas (UPDATE sem colunas de Source
+  nao mexe nas condicoes; Source: Command padrao = MERGE). Fornalhas: CSV ainda nao importado.
