@@ -5046,3 +5046,7 @@ Menu ativo no site = **Main Menu v2** (3 niveis).
 Arquivos: `seo_2709_colecoes_Smart_Collections_IMPORTAR.xlsx` (9 colecoes, aba Smart
 Collections) e `seo_2709_hydro_furnaces_IMPORTAR.csv` (3 produtos), cada um com `_rollback`.
 Menu v2 (Gabriel, pelo admin): Angle Stops, PEX Expansion Tools, Rheem 40 Gallon, Hydro Furnaces.
+- 27/09: Matrixify avisou que a aba "Smart Collections" esta DEPRECATED (Shopify unificou os
+  tipos de colecao). Arquivos refeitos com aba **"Collections"**: teste
+  `seo_2709_colecoes_TESTE_pliers.xlsx` (1 linha) antes de `seo_2709_colecoes_IMPORTAR.xlsx`
+  (10); rollback `seo_2709_colecoes_rollback.xlsx`. Conferir se as regras sobrevivem ao UPDATE.
