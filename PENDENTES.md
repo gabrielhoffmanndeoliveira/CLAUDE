@@ -5041,7 +5041,8 @@ Menu ativo no site = **Main Menu v2** (3 niveis).
 - **rjb wholesale**: busca navegacional da empresa (Kirkland WA). So o SEO title de
   `/rjb-wholesale` mudou ("...Plumbing & HVAC Supplies" soava como se fossemos a RJB).
 - **plumbing pliers**: H1 `/pliers` -> "Plumbing Pliers". **gruvlok**: busca de marca, sem mudanca.
-- Links internos novos: tanque gas/eletrico -> Rheem 40; navien -> hydro-furnaces; valves -> stops.
+- Links internos novos: tanque gas/eletrico -> Rheem 40; navien -> hydro-furnaces; valves -> stops;
+  rheem-manufacturing -> Rheem 40 + Rheem tankless; rheem-tankless -> Rheem 40. xlsx = 11 colecoes.
 Arquivos: `seo_2709_colecoes_Smart_Collections_IMPORTAR.xlsx` (9 colecoes, aba Smart
 Collections) e `seo_2709_hydro_furnaces_IMPORTAR.csv` (3 produtos), cada um com `_rollback`.
 Menu v2 (Gabriel, pelo admin): Angle Stops, PEX Expansion Tools, Rheem 40 Gallon, Hydro Furnaces.
