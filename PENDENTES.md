@@ -5018,3 +5018,30 @@ Numeros do nosso titulo contra nome oficial + specs do JSON da pagina Resideo:
 - Tag removida de 303 + 83 = **386** (`resideo_revisao_tag_remover_IMPORTAR.csv`,
   REMOVE; rollback MERGE). Fica nos **49 sem pagina** (`resideo_revisao_sem_pagina_49.csv`).
 - Depois do import: 45 alts dos 16 retitulados por `fileUpdate`.
+
+## §82 — SEO: ganhos sem esperar DR (27/09/2026)
+
+Ahrefs 27/09: DR 8, 62 visitas org/mes (EUA), 20 palavras. Concorrentes: TFAS 19,
+Voomi 29, BigRock 30 (so 659 dominios), pexuniverse 40, plumbersstock 47, supplyhouse 69.
+Meta: DR 20 em 6 meses, 30 em 12-18. Os 1.474 dominios da THS com DR 8 = links sem valor
+(nao investigado).
+
+Diagnostico: as colecoes-alvo JA existiam, com bom texto; faltava consolidacao e link interno.
+Menu ativo no site = **Main Menu v2** (3 niveis).
+- **angle stops**: `/stops` (92) e `/angle-stops` (57, subconjunto) brigavam. Alvo = `/stops`.
+  `/angle-stops` recebeu `seo.hidden=1` por API -> ao vivo `noindex,nofollow` e fora do sitemap.
+  Rollback: apagar o metafield `seo.hidden` da colecao 299195433063.
+- **pex gun**: alvo `/pex-expansion-tools` (H1, SEO e abertura com "PEX gun").
+- **navien hydro furnace** (6o, unico varejista no organico): `/hydro-furnaces` com H1
+  "Navien Hydro Furnaces" + FAQ; as 3 fichas NPF700 reescritas. A SEO desc do 060U3BH dizia
+  "accessory" e a do 100U5CH dizia "not a burner"; a ficha do 100U5CH tinha part # 100H5CH.
+- **rheem 40 gallon**: colecao NOVA `rheem-40-gallon-water-heaters` (id 489745023079),
+  automatica: vendor = Rheem Manufacturing E titulo contem "40 gallon" E nao contem
+  "Scratched". Publicada nos 4 canais; ao vivo 200 com 28 produtos. Rollback: apagar a colecao.
+- **rjb wholesale**: busca navegacional da empresa (Kirkland WA). So o SEO title de
+  `/rjb-wholesale` mudou ("...Plumbing & HVAC Supplies" soava como se fossemos a RJB).
+- **plumbing pliers**: H1 `/pliers` -> "Plumbing Pliers". **gruvlok**: busca de marca, sem mudanca.
+- Links internos novos: tanque gas/eletrico -> Rheem 40; navien -> hydro-furnaces; valves -> stops.
+Arquivos: `seo_2709_colecoes_Smart_Collections_IMPORTAR.xlsx` (9 colecoes, aba Smart
+Collections) e `seo_2709_hydro_furnaces_IMPORTAR.csv` (3 produtos), cada um com `_rollback`.
+Menu v2 (Gabriel, pelo admin): Angle Stops, PEX Expansion Tools, Rheem 40 Gallon, Hydro Furnaces.
