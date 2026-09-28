@@ -1,0 +1,526 @@
+"ID","Handle","Command","Body HTML"
+"8870219808992","eaton-wheelock-miz-24s-w-miz-mini-horn-wall-24v","UPDATE","<p>The Eaton Wheelock MIZ-24S-W is a compact piezoelectric mini horn for indoor wall mounting in fire alarm notification circuits. Part of the Wheelock MIZ family, it gives designers a small, low-current audible appliance where a full-size horn is unnecessary, and its white finish blends into offices, corridors and finished interiors.</p><h3>Key Features</h3><ul><li>Field-selectable Temporal (Code 3) or Continuous horn output</li><li>87 dBA minimum anechoic sound output at 24 VDC on both Temporal and Continuous settings</li><li>Synchronized Code 3 horn tone when used with Wheelock sync modules or Wheelock power supplies</li><li>Operates on filtered DC or unfiltered full-wave-rectified power</li><li>Mounts on a standard single-gang electrical backbox with no trim plate or adapter required</li><li>Reverse-polarity supervision with IN/OUT wiring terminals</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Eaton Wheelock</li><li><strong>Part Number:</strong> MIZ-24S-W</li><li><strong>Type:</strong> Piezoelectric mini horn</li><li><strong>Nominal Voltage:</strong> 24 VDC (listed range 16–33 V)</li><li><strong>Tones:</strong> Temporal (Code 3) / Continuous</li><li><strong>Wire Gauge:</strong> #12 to #18 AWG</li><li><strong>Operating Temperature:</strong> 32°F to 120°F (0°C to 49°C), indoor use only</li><li><strong>Dimensions:</strong> 4.50"" H x 2.75"" W x 1.28"" D</li><li><strong>Color:</strong> White</li><li><strong>Mounting:</strong> Wall</li><li><strong>Listing:</strong> UL 464 (Audible Appliances for Public Mode Fire Protection Systems)</li></ul>"
+"8126613160160","notifier-fst-951h-thermal-sensor-white","UPDATE","<p>Designed for spaces where normal ambient temperatures run too high for a standard heat detector, the Notifier FST-951H is a low-profile intelligent thermal sensor factory preset to a 190°F fixed alarm point. It belongs to Notifier's FST-951 Series, the direct replacement for the FST-851 Series, and communicates on FlashScan signaling line circuits only.</p><h3>Key Features</h3><ul><li>Fixed-temperature alarm point of 190°F (88°C), factory preset</li><li>Thermistor technology for fast response with built-in device-type identification</li><li>Rotary decimal switches set the point address for exact location reporting</li><li>Two LEDs with 360° visibility: blink red when polled, steady red in alarm</li><li>Built-in tamper-resistant feature and magnet-activated functional test switch</li><li>Plugs into a separate base, allowing interchange with photoelectric and ionization sensors</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Notifier</li><li><strong>Part Number:</strong> FST-951H</li><li><strong>Protocol:</strong> FlashScan only</li><li><strong>Color:</strong> White</li><li><strong>Voltage Range:</strong> 15–32 VDC peak</li><li><strong>Standby Current:</strong> 200 µA max. avg. @ 24 VDC</li><li><strong>Alarm Current:</strong> 4.5 mA @ 24 VDC</li><li><strong>Operating Temperature:</strong> –4°F to 150°F (–20°C to 66°C)</li><li><strong>Relative Humidity:</strong> 10%–93% non-condensing</li><li><strong>Spacing:</strong> UL 50 ft center-to-center; FM 25 x 25 ft</li><li><strong>Height:</strong> 2.0 in (base determines diameter)</li><li><strong>Listings:</strong> UL/ULC S747, FM Approved, CSFM 7270-0028:0502</li></ul><h3>Compatibility</h3><p>For Notifier FlashScan panels. Mounts on Notifier intelligent bases such as the B300-6 6"" flanged base, B501 4"" base, and B224RB relay, B224BI isolator and B200S sounder bases. An optional RA100Z remote LED annunciator can be connected. Mount the base on an electrical backbox at least 1.5"" deep.</p>"
+"8244497023200","notifier-nfs-lbb-battery-cabinet","UPDATE","<p>When standby battery requirements outgrow the main fire alarm cabinet, the Notifier NFS-LBB battery cabinet provides a separate enclosure for large sealed lead-acid batteries. Notifier lists it among the enclosure options for its NFS2-3030 intelligent control panel family, where long standby calculations often call for 55 AH batteries.</p><h3>Key Features</h3><ul><li>Holds up to two 55 AH batteries</li><li>Separate hinged-door enclosure keeps large batteries out of the control panel cabinet</li><li>Optional SEISKIT-LBB seismic kit adds a battery bracket for two 55 AH batteries in seismic-certified installations</li><li>Suitable for installations where the panel enclosure cannot house the required battery size</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Notifier</li><li><strong>Part Number:</strong> NFS-LBB</li><li><strong>Type:</strong> Battery cabinet / battery box</li><li><strong>Battery Capacity:</strong> Up to two 55 AH batteries</li><li><strong>Box Dimensions:</strong> 24"" W x 14"" H x 7.75"" D (610 x 356 x 197 mm)</li><li><strong>Door Dimensions:</strong> 24.125"" W x 14.25"" H (613 x 362 mm); door adds approx. 0.0625"" to depth</li><li><strong>Seismic Accessory:</strong> SEISKIT-LBB (sold separately)</li></ul><h3>Compatibility</h3><p>Listed as an accessory in Notifier's NFS2-3030 control panel literature. Confirm battery size against your panel's charger capacity and battery calculation.</p>"
+"8941858062560","simplex-2081-9279-110-ah-sealed-lead-acid-battery","UPDATE","<p>Large Simplex fire alarm systems with long standby requirements rely on high-capacity secondary power, and the Simplex 2081-9279 supplies it as a 12 V DC, 110 Ah rechargeable sealed lead-acid battery. It is intended for Simplex control panels with chargers capable of up to 110 Ah, mounted in the external 2081-9280 battery cabinet close-nippled to the panel.</p><h3>Key Features</h3><ul><li>110 Ah capacity at 12 V DC for extended standby operation</li><li>Two batteries connected in series produce a 24 V system voltage</li><li>High-current post output terminals; connecting hardware is included with the battery cabinet</li><li>UL 924 recognized pressure relief valves</li><li>Satisfies UL, ULC and FM fire alarm requirements when used with a compatible charger and battery cabinet</li><li>Recyclable battery chemicals and materials</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Simplex</li><li><strong>Part Number:</strong> 2081-9279</li><li><strong>Type:</strong> Sealed lead-acid (SLA), rechargeable</li><li><strong>Voltage:</strong> 12 V DC</li><li><strong>Capacity:</strong> 110 Ah</li><li><strong>Quantity for 24 V System:</strong> 2 (series-connected)</li><li><strong>Required Enclosure:</strong> 2081-9280 external battery cabinet (ordered separately)</li></ul><h3>Compatibility</h3><p>For Simplex fire alarm control panels whose chargers can charge 110 Ah batteries, including 4100ES System Power Supplies, 4100ES remote and TrueAlert addressable power supplies, and 4100 legacy power supplies 4100-0104, 4100-0114 and 4100-0124. On 4100ES/4100U systems, batteries connect through a 4100-5128 Battery Distribution Terminal Block. The 2081-9280 cabinet is not applicable to ULC-listed 4100ES/4100U systems. Battery sets must match in voltage, model and approximate date of manufacture.</p>"
+"8883810566368","gentex-wgec24-75wrlp-outdoor-horn-strobe-red","UPDATE","<p>Built for outdoor evacuation signaling, the Gentex WGEC24-75WRLP from the Outdoor Commander Series pairs a 24 VDC horn/strobe with a fixed 75 candela strobe and ships with the low-profile GOELP weatherproof enclosure. The red-faceplate wall-mount unit suits building exteriors, loading docks, courtyards and other locations exposed to the weather.</p><h3>Key Features</h3><ul><li>Fixed 75 cd strobe with a minimum 1 Hz flash rate regardless of input voltage</li><li>Switch selection for mechanical or 2400 Hz tone, continuous or Temporal 3 pattern, and high or low dBA</li><li>Separate horn and strobe functions; synchronize using the Gentex AVSM control module</li><li>Clear Lexan GOELP enclosure resists moisture and allows full 75 cd output</li><li>Super-Slide 4"" mounting plate for supervision testing and Checkmate instant voltage verification</li><li>Tamperproof re-entrant grille; input terminals accept 12 to 18 AWG</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Gentex</li><li><strong>Part Number:</strong> WGEC24-75WRLP (904-1257-002)</li><li><strong>Nominal Voltage:</strong> 24 VDC</li><li><strong>Input Voltage Range:</strong> 16–33 VDC or FWR</li><li><strong>Candela:</strong> 75 cd fixed</li><li><strong>Sound Output:</strong> 70–82 dBA reverberant @ 10 ft (ANSI/UL 464); 100 dBA anechoic @ 10 ft</li><li><strong>Enclosure:</strong> GOELP, 5.75"" H x 4.75"" W x 3.25"" D</li><li><strong>Outdoor Operating Temperature:</strong> –31°F to 150°F (–35°C to 66°C)</li><li><strong>Faceplate:</strong> Red</li><li><strong>Mounting:</strong> Wall</li><li><strong>Listings:</strong> ANSI/UL 464 and ANSI/UL 1638; listed for outdoor use with the GOE/GOELP enclosure</li></ul>"
+"7970714616032","edwards-3x-sfs1r-facp-complete-system-with-user-interface","UPDATE","<p>Edwards packages its EST3X life safety control platform as the 3X-SFS1R, a complete fire alarm control panel with user interface, CPU, one signaling loop, three option card slots and a universal 10 A power supply behind a red door. EST3X is aimed at mid- to large-sized buildings and can run standalone or networked with up to 64 nodes.</p><h3>Key Features</h3><ul><li>One Signature loop installed, with a second loop added by ordering the 3-SDC1 card</li><li>Four built-in 3 A Class B notification/auxiliary circuits, synchronized to UL 1971</li><li>Universal 110/220 V (94–264 VAC) 10 A power supply with patented Voltage Boost technology</li><li>Large 24-line by 40-character backlit LCD with SpeedTouch rotary control</li><li>Three option card slots for extra SLC loops, amplifiers or dialer/modem cards</li><li>Form C alarm, supervisory and trouble relays; English-language interface</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Edwards (EST)</li><li><strong>Part Number:</strong> 3X-SFS1R</li><li><strong>Door Color:</strong> Red</li><li><strong>Language:</strong> English</li><li><strong>Loops:</strong> 1 installed; 2nd loop requires 3-SDC1</li><li><strong>Loop Capacity:</strong> 125 detectors and 125 single-address modules per SLC</li><li><strong>NACs:</strong> 4 Class B, 3 A each</li><li><strong>Power Supply:</strong> 94–264 VAC, 50/60 Hz, 10 A (UL)</li><li><strong>Battery Charging:</strong> 65 Ah max.</li><li><strong>Operating Environment:</strong> 32°F to 120°F (0°C to 49°C), 0–93% RH non-condensing</li></ul><h3>Compatibility</h3><p>Works with Edwards Signature Series detectors and modules and supports up to 30 R-Series remote annunciators per node. Networks with other EST3X panels or an EST3 network of up to 64 nodes using optional 3X-NET or 3X-NET8 network cards.</p>"
+"8989533765856","gentex-ghsr-904-1459-002-horn-strobe-led-red","UPDATE","<p>One appliance can cover many room sizes. The Gentex GHSR (904-1459-002) is a Commander 5 Series horn/strobe with a tamperproof, field-selectable candela setting, so installers set the required output on site. The red-faceplate universal mount unit installs on walls or ceilings on 24 VDC notification circuits.</p><h3>Key Features</h3><ul><li>Six field-selectable candela settings: 15, 30, 75, 115, 150 and 177 cd</li><li>Switch-selectable continuous or temporal 2400 Hz, mechanical or chime tones, plus a continuous whoop tone</li><li>High or low dBA selection; temporal tones synchronize with the Gentex GTSM control module</li><li>Super-Slide bracket for supervision testing before the signal is installed</li><li>Checkmate instant voltage verification without removing the device</li><li>Tamperproof re-entrant grille; surface mounts with the Gentex GBB indoor back box</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Gentex</li><li><strong>Part Number:</strong> GHSR (904-1459-002)</li><li><strong>Nominal Voltage:</strong> 24 VDC (16–33 VDC range)</li><li><strong>Candela:</strong> 15 / 30 / 75 / 115 / 150 / 177 cd selectable</li><li><strong>Strobe:</strong> LED, 1 Hz flash rate</li><li><strong>Sound Output:</strong> 64–88 dBA reverberant @ 10 ft (ANSI/UL 464)</li><li><strong>Dimensions:</strong> 5.91"" x 5.91"" x 2.56""</li><li><strong>Operating Temperature:</strong> 32°F to 120°F (0°C to 49°C), indoor only</li><li><strong>Faceplate:</strong> Red</li><li><strong>Mounting:</strong> Universal wall/ceiling</li><li><strong>Listings:</strong> ANSI/UL 464, ANSI/UL 1638, CAN/ULC 525 and/or 526, CSFM</li></ul>"
+"8127152062688","gamewell-fci-1100-0503-anu-48-led-driver-module","UPDATE","<p>The Gamewell-FCI 1100-0503 ANU-48 is an LED driver module that turns a remote UL-listed annunciator enclosure into a custom status and control point for Gamewell-FCI systems. It works with the E3 Series Expandable Emergency Evacuation System, the E3 Series Combined Fire and Mass Notification System and the E3 Series Broadband Voice Evacuation system. Gamewell-FCI documentation also lists the S3 Series panel.</p><h3>Key Features</h3><ul><li>Outputs for up to 48 remote LEDs or driver circuits</li><li>Inputs for eight software-programmable switches</li><li>Switches can serve as speaker circuit, firefighter phone or auxiliary On-Off-Auto control functions</li><li>Can be installed up to 3,000 ft (914.4 m) from the control panel</li><li>Up to 16 ANU-48 or ASM-16 modules per INI-VG, ILI-MB-E3/ILI95-MB-E3 or SLP (128 switches, 768 LEDs)</li><li>Mounts in any remotely located UL-listed annunciator enclosure</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Gamewell-FCI</li><li><strong>Part Number:</strong> 1100-0503 (ANU-48)</li><li><strong>Operating Voltage:</strong> 24 VDC resettable</li><li><strong>Operating Current:</strong> 0.011 A (add 0.003 A per lit LED when powered internally)</li><li><strong>External Power Driver Output:</strong> 0.050 A max. per circuit; 2.4 A max. per module</li><li><strong>Operating Temperature:</strong> 32°F to 120°F (0°C to 49°C)</li><li><strong>Relative Humidity:</strong> 0–93% non-condensing at 90°F</li><li><strong>Listings:</strong> UL 864 10th Edition (S1869); UL 2572 2nd Edition for Mass Notification</li></ul><h3>Compatibility</h3><p>Used with Gamewell-FCI E3 Series (fire, mass notification and broadband voice evacuation) and S3 Series systems. Installations with more than four ANU-48 modules require an external regulated, Class 2 power-limited power supply listed for fire protective signaling.</p>"
+"7758139424992","silent-knight-sd505-6rb-base","UPDATE","<p>The Silent Knight SD505-6RB is a 6"" relay base that adds a relay output to an addressable detector in Silent Knight IntelliKnight systems. It lets a detector location control auxiliary functions such as elevator recall, door closing, fan operation and auxiliary notification, anywhere on the signaling line circuit.</p><h3>Key Features</h3><ul><li>One Form C relay contact rated 8.0 A for normally open or normally closed applications</li><li>Fully supervised operation</li><li>Supports Class B (Style 4) or Class A (Style 6) wiring</li><li>Mounts to a standard single- or double-gang electrical box</li><li>Very low SLC current draw of 0.082 mA</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Silent Knight</li><li><strong>Part Number:</strong> SD505-6RB</li><li><strong>Base Size:</strong> 6 in</li><li><strong>Relay Rating:</strong> 8.0 A @ 30 VDC; 8.0 A @ 120/240 VAC (Form C)</li><li><strong>SLC Current Draw:</strong> 0.082 mA</li><li><strong>Max. SLC Loop Resistance:</strong> 50 Ω</li><li><strong>Operating Temperature:</strong> 32°F to 120°F (0°C to 49°C)</li><li><strong>Listings:</strong> UL Listed, CSFM Listed</li></ul><h3>Compatibility</h3><p>For use with Silent Knight addressable sensors SD505-APS (photoelectric), SD505-AIS (ionization) and SD505-AHS (heat). Detector sold separately.</p>"
+"7758174290144","siemens-hms-m-500-033450-manual-pull-station-single-action","UPDATE","<p>Where a sturdy initiating device is wanted, the Siemens HMS-M (500-033450) manual pull station combines a metal housing with a single-action pull-down lever. It is a field-installed addressable device with two-way communication to Siemens FireFinder-XLS and FS-250 control panels, giving each station its own point on the device loop. It suits corridors, exits and other locations where a durable, clearly identifiable manual station is required.</p><h3>Key Features</h3><ul><li>Metal housing and cover with PULL DOWN lever</li><li>Single-action operation; converts to double action with the Siemens MS-FD adapter</li><li>Addressable intelligent initiating device with two-way panel communication</li><li>Polarity-insensitive loop wiring</li><li>Key-reset lock barrel (Allen key supplied)</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Siemens</li><li><strong>Part Number:</strong> HMS-M (500-033450)</li><li><strong>Type:</strong> Addressable manual pull station</li><li><strong>Action:</strong> Single action</li><li><strong>Housing:</strong> Metal</li><li><strong>Mounting:</strong> Siemens MS-FB backbox or user-supplied single-gang switchbox</li></ul><h3>Compatibility</h3><p>Operates with the Siemens FireFinder-XLS or FS-250 control panel through the DLC or FS-DLC device loop card.</p>"
+"7970724282592","simplex-49av-wrf-truealert-es-addressable-horn-strobe","UPDATE","<p>Individually addressed and supervised, the Simplex 49AV-WRF is a TrueAlert ES wall-mount horn/strobe in a red housing with white ""FIRE"" lettering and a clear lens. It gets power, supervision and control from Simplex IDNAC signaling line circuits, so horn and strobe operate separately on a single two-wire circuit.</p><h3>Key Features</h3><ul><li>Multi-candela xenon strobe: 15/30/75/110/135/185 cd, set by jumper or from the control unit, with synchronized 1 Hz flash</li><li>Horn patterns: Temporal Code 3, Temporal Code 4, March Time or continuous; high/low output selectable</li><li>Self-Test mode: on-board sensors check strobe and horn output and report status to the FACU</li><li>Magnet Test diagnostics and an appliance LED that can indicate polling or address</li><li>Class B circuits can be T-tapped; separate mounting plate allows pre-wiring</li><li>Mounts on single-gang, double-gang or 4 in. square boxes, flush or surface</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Simplex</li><li><strong>Part Number:</strong> 49AV-WRF</li><li><strong>Series:</strong> TrueAlert ES addressable</li><li><strong>Color / Marking:</strong> Red housing, ""FIRE"" lettering, clear lens</li><li><strong>Mounting:</strong> Wall</li><li><strong>Operating Voltage:</strong> 23–31 VDC (special application), from 29 VDC regulated IDNAC SLC</li><li><strong>Candela:</strong> 15/30/75/110/135/185 cd</li><li><strong>Sound Output:</strong> 90.1 dBA steady/high reverberant (UL 464) @ 10 ft</li><li><strong>Dimensions:</strong> 5 1/8"" H x 5"" W x 2 5/8"" D with cover</li><li><strong>Operating Temperature:</strong> 32°F to 122°F (0°C to 50°C)</li><li><strong>Listings:</strong> Strobe UL 1971/ULC S526; horn UL 464/ULC S525; CSFM 7125-0026:0373; FM Approved</li></ul><h3>Compatibility</h3><p>Compatible with Simplex IDNAC SLC controllers: 4100ES with EPS+ or EPS power supply, 4009 IDNAC Repeater, 4007ES with IDNAC notification and 4010ES with ESS Enhanced System Supply. Maximum of 127 addresses (139 unit loads) per SLC.</p>"
+"8906477600992","mircom-udact-300a-digital-alarm-communicator-transmitter-dialer-module","UPDATE","<p>The Mircom UDACT-300A lets a Mircom panel report to a central station over two telephone lines. This digital alarm communicator transmitter/dialer module allows FA-1000 Series, FX-2000 and FleX-Net Series fire alarm control panels to transmit alarm, supervisory and trouble information to a monitoring facility. It mounts in a dedicated location in the panel's main chassis and takes its power from the host panel.</p><h3>Key Features</h3><ul><li>Dual telephone line operation with line supervision at roughly one-minute intervals</li><li>Reports in Ademco Contact ID and SIA-DCS formats</li><li>DACT mode sends common events; UDACT mode sends point-specific alarm, supervisory, waterflow and trouble data</li><li>ZDACT feature groups FX-2000/FleX-Net input circuits into software zones for reporting</li><li>Programmed on site with the CFG-300 tool or UIMA, or remotely by modem (passcode protected)</li><li>500-entry event logs, reviewable locally or remotely</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Mircom</li><li><strong>Part Number:</strong> UDACT-300A</li><li><strong>Panel Interface:</strong> RS-485 data link</li><li><strong>Telephone Lines:</strong> 2</li><li><strong>Reporting Formats:</strong> Ademco Contact ID, SIA-DCS</li><li><strong>Current Consumption:</strong> Standby 40 mA; Alarm 60 mA</li><li><strong>Power:</strong> Supplied by host fire alarm control panel</li></ul><h3>Compatibility</h3><p>For Mircom FA-1000 Series, FX-2000 and FleX-Net Series fire alarm control panels. The CFG-300 Configuration Tool is needed for on-site programming.</p>"
+"8829565305056","kidde-fx-1000-fx-series-4-loop-addressable-fire-alarm-system","UPDATE","<p>Scalable intelligent detection for small to mid-sized buildings is the job of the Kidde FX-1000. This FX-Series control panel ships with one 250-point loop installed and grows to 1,000 points with loop controller cards. It comes as a complete 120 V system with four NACs and a red surface-mount enclosure.</p><h3>Key Features</h3><ul><li>One 250-point Class A or Class B loop (125 detectors + 125 modules) installed</li><li>Expandable to four loops and 1,000 points with FX-SLC1 or FX-SLC2 loop controller modules</li><li>Four NACs (Class B, or two Class A) individually configurable for continuous, temporal, synchronized or coded output</li><li>4 x 20 character backlit LCD, two programmable switches and rotary device addressing</li><li>Supports up to eight serial annunciators; optional SA-ETH Ethernet and SA-DACT2 dialer</li><li>Pre-alarm, alarm verification by point and adjustable detector sensitivity</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Kidde</li><li><strong>Part Number:</strong> FX-1000</li><li><strong>Capacity:</strong> 1,000 points (one 250-point loop installed)</li><li><strong>NAC Output:</strong> 24 VFWR; 6.0 A total, 2.5 A max. per circuit at 120 VAC 60 Hz</li><li><strong>Primary Power:</strong> 120 VAC</li><li><strong>Batteries:</strong> 24 VDC SLA; two 18 Ah batteries fit in cabinet; 26 Ah charging capacity</li><li><strong>Enclosure:</strong> Surface mount, red</li><li><strong>Operating Environment:</strong> 32°F to 120°F (0°C to 49°C), 0–93% RH non-condensing</li></ul><h3>Compatibility</h3><p>Supports Kidde intelligent addressable detectors, modules and bases; see the FX-64 and FX-1000 Series Compatibility List (P/N 3102355-EN). The RZI16-2RS module adds up to 16 conventional circuits and two NACs for retrofits.</p>"
+"7758070513888","vesda-vps-vea-115ul-power-supply-stax-120vac","UPDATE","<p>Dedicated power for VESDA-E VEA aspirating detection comes from the VPS-VEA-115UL power supply StaX. It converts 120 VAC to 24 VDC nominal operating power for the VEA detector and VEA Relay StaX, and it charges and supervises the standby batteries. It is intended for applications requiring UL and ULC fire protective signaling listings.</p><h3>Key Features</h3><ul><li>Filtered, electronically regulated 27 VDC output: 2.8 A continuous, 5 A alarm</li><li>Built-in charger for sealed lead-acid or gel batteries with automatic switchover on AC failure</li><li>AC fail, brown-out and battery supervision</li><li>Form C fault relay for AC loss, low AC, battery loss and shorted battery or DC outputs</li><li>Cabinet space for two 36 Ah batteries (supplied separately)</li><li>AC input LED indicator</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> VESDA (Xtralis)</li><li><strong>Part Number:</strong> VPS-VEA-115UL</li><li><strong>Input:</strong> 120 VAC, 2.0 A, 60 Hz</li><li><strong>Output:</strong> 27 VDC / 2.8 A continuous; 27 VDC / 5 A alarm</li><li><strong>Max. Charging Current:</strong> 5.3 A</li><li><strong>Max. Battery Capacity for Charging:</strong> 108 Ah</li><li><strong>Trouble Relay:</strong> Form C, 2 A @ 30 VDC</li><li><strong>Dimensions:</strong> 17.25"" x 13"" x 5.6"" (438 x 330 x 142 mm)</li><li><strong>Weight:</strong> 13 lb without batteries</li><li><strong>Operating Temperature:</strong> 32°F to 120°F (0°C to 49°C)</li><li><strong>Listings:</strong> UL 864, ULC-S527, CSFM</li></ul><h3>Compatibility</h3><p>Designed to power VESDA-E VEA detectors and VESDA-E VEA Relay StaX. A 230 VAC version (VPS-VEA-230UL) is also available.</p>"
+"7757971488992","system-sensor-b200s-lf-iv-addressable-sounder-base","UPDATE","<p>Sleeping areas such as hotel rooms, dormitories and apartments need a low-frequency tone, and the System Sensor B200S-LF-IV intelligent sounder base provides it right at the detector. It produces a 520 Hz square-wave tone designed to meet the NFPA 72 sleeping space requirement. The ivory base picks up the attached sensor's address, so the panel can sound it individually or in groups.</p><h3>Key Features</h3><ul><li>520 Hz ±10% square-wave tone, a frequency shown to be effective at waking sleeping occupants</li><li>Two volume levels: 75 or 85 dBA</li><li>Continuous, ANSI Temporal 3, ANSI Temporal 4 and March Time tones</li><li>Synchronizes with other System Sensor notification devices</li><li>Pre-wire mounting plate fits various junction box sizes</li><li>Mechanical locking feature prevents removal of the attached sensor head</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> System Sensor</li><li><strong>Part Number:</strong> B200S-LF-IV</li><li><strong>Color:</strong> Ivory</li><li><strong>External Supply Voltage:</strong> 16–33 VDC (VFWR)</li><li><strong>External Standby Current:</strong> 550 µA max.</li><li><strong>Alarm Current (High):</strong> 90 mA max. @ 24 VDC</li><li><strong>Alarm Current (Low):</strong> 20 mA max. @ 24 VDC</li><li><strong>SLC Operating Voltage:</strong> 15–32 VDC</li><li><strong>Base Dimensions:</strong> 6.875"" diameter x 2.0"" high (less sensor)</li><li><strong>Humidity:</strong> 10%–93% RH non-condensing</li><li><strong>Standards:</strong> UL 268 and UL 464; CSFM 7300-1653:0238</li></ul><h3>Compatibility</h3><p>Listed as a compatible intelligent base in Notifier FST-951 Series (FlashScan) literature and in Gamewell-FCI Velociti Series literature for E3 Series, S3 Series and GWF-7075 panels. Confirm compatibility with your panel documentation.</p>"
+"8976704307424","vesda-vsp-964-04-smoke-detection-chamber-mk4","UPDATE","<p>The VESDA VSP-964-04 is the MK4 spare smoke detection chamber for VESDA-E VEU, VEP, VEP-1P and VES aspirating smoke detectors. Service technicians use it to restore a detector in the field without replacing the whole unit, which keeps downtime short in data centers, clean rooms and other high-value spaces. Matching the chamber revision to the detector generation matters, so check the detector serial number before ordering.</p><h3>Key Features</h3><ul><li>Genuine VESDA-E spare smoke detection chamber, MK4 revision</li><li>Fits VEU, VEP, VEP-1P and VES detectors</li><li>Matches GA4 generation detectors (serial numbers starting 109xxxxx)</li><li>Field-replaceable service part</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> VESDA (Xtralis)</li><li><strong>Part Number:</strong> VSP-964-04</li><li><strong>Description:</strong> Smoke Detection Chamber – MK4</li><li><strong>Compatible Detectors:</strong> VEU, VEP, VEP-1P, VES (GA4)</li></ul><h3>Compatibility</h3><p>For GA4 VESDA-E detectors, identified by serial numbers starting 109xxxxx. GA3 detectors (serial numbers starting 97xxxxx, 106xxxx, 107xxxx or 110xxxx) use the MK3 chamber VSP-964-03 instead.</p>"
+"7970733621472","edwards-io1000g-fire-alarm-control-panel-1-loop-grey","UPDATE","<p>Edwards' iO1000G is an intelligent fire alarm control panel from the iO Series for small to mid-sized buildings, supplied with one loop installed and a grey door. The installed loop supports 125 detectors and 125 modules, and the four-loop system can grow to 1,000 device addresses with added loop controller cards.</p><h3>Key Features</h3><ul><li>One Class A or Class B Signature loop installed: 125 detectors and 125 modules</li><li>Expandable in 250-point increments to 1,000 addresses</li><li>Four NACs (Class B, or two Class A) with Genesis horn silence and UL 1971 strobe synchronization</li><li>4 x 20 character backlit LCD with two programmable switches</li><li>Supports Signature Series detectors, modules, SIGA-REL releasing modules and CO detection</li><li>Up to eight serial annunciators; optional Ethernet port</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Edwards (EST)</li><li><strong>Part Number:</strong> IO1000G</li><li><strong>Door Color:</strong> Grey</li><li><strong>Primary Power:</strong> 110 V</li><li><strong>Loops:</strong> 1 installed (4-loop system)</li><li><strong>Loop Capacity:</strong> 125 detectors / 125 modules</li><li><strong>NAC Output:</strong> 24 VFWR; 6.0 A total, 2.5 A max. per circuit at 120/230 VAC 60 Hz</li><li><strong>Batteries:</strong> 24 VDC SLA; two 18 Ah fit in cabinet; 26 Ah charging capacity</li><li><strong>Operating Environment:</strong> 32°F to 120°F (0°C to 49°C), 0–93% RH non-condensing</li></ul><h3>Compatibility</h3><p>Supports Edwards Signature Series intelligent detectors, modules and bases, R-Series remote annunciators and SIGA-REL releasing modules. Add loops with iO-SDC1 or iO-SDC2 loop controller modules.</p>"
+"8666359562464","system-sensor-b114lpbt-24vac-dc-detector-base","UPDATE","<p>Duct smoke detection in low-flow air handling systems often calls for a pendant-mounted head. The System Sensor B114LPBT is the 24VAC/DC plug-in base that makes this possible with the 2151 Special Applications Duct Smoke Detector. It is designed for 4-wire systems and includes terminals for alarm and supervisory relays and a remote annunciator.</p><h3>Key Features</h3><ul><li>24 VAC/DC system voltage for 4-wire applications</li><li>Form A and Form C alarm relay contacts plus a Form A supervisory relay</li><li>Terminals for remote annunciator and remote test coil connections</li><li>Twist-in/twist-out head for quick cleaning and maintenance</li><li>Mounts to 4"" square, 4"" octagon or 3 1/2"" octagon boxes (1.5"" min. depth)</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> System Sensor</li><li><strong>Part Number:</strong> B114LPBT</li><li><strong>System Voltage:</strong> 24 VAC/DC, 60 Hz</li><li><strong>Relay Ratings:</strong> Form A 2.0 A @ 30 V AC/DC; Form C 2.0 A @ 30 V AC/DC, 1.0 A @ 125 VAC</li><li><strong>Standby Current:</strong> 25 mA typical @ 24 V (base and detector)</li><li><strong>Alarm Current:</strong> 75 mA typical @ 24 V (base and detector)</li><li><strong>Operating Temperature:</strong> 32°F to 120°F (0°C to 49°C)</li><li><strong>Humidity:</strong> 10%–93% RH</li></ul><h3>Compatibility</h3><p>For use with the System Sensor 2151 Special Applications Duct Smoke Detector (installation instructions also list 1151 and 2151T heads). With the B114LPBT, the 2151 is listed to UL 268A for no-flow/low-flow air handling systems at air velocities of 0–3,000 FPM.</p>"
+"8676818059488","system-sensor-spwkl-outdoor-speaker-wall-plain-white","UPDATE","<p>Voice messages need to be heard outdoors too, and the System Sensor SPWKL is a weatherproof wall speaker from the L-Series outdoor line built for that job. The white, plain (unmarked) housing suits exterior walls, washdown areas and other wet or dry locations used for emergency voice communication.</p><h3>Key Features</h3><ul><li>Weatherproof to NEMA 4X and IP56 as a standalone device</li><li>Rated for –40°F to 151°F environments</li><li>Rotary switches select 25 or 70.7 Vrms speaker voltage and ¼, ½, 1 or 2 W power taps</li><li>Mounting plate with UL-listed waterproof wirenuts for field connections</li><li>Tamper-resistant construction</li><li>Plain white housing with no ""FIRE"" marking</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> System Sensor</li><li><strong>Part Number:</strong> SPWKL</li><li><strong>Type:</strong> L-Series outdoor speaker, wall</li><li><strong>Color / Marking:</strong> White, plain</li><li><strong>Nominal Voltage:</strong> 25 or 70.7 Vrms</li><li><strong>Power Taps:</strong> ¼, ½, 1, 2 W</li><li><strong>Sound Output:</strong> 77 / 81 / 83 / 85 dBA @ 10 ft (UL reverberant) at ¼ / ½ / 1 / 2 W</li><li><strong>Frequency Range:</strong> 400–4,000 Hz</li><li><strong>Max. Supervisory Voltage:</strong> 50 VDC</li><li><strong>Dimensions:</strong> 6.69"" L x 5.16"" W x 1.72"" D</li><li><strong>Operating Temperature:</strong> –40°F to 151°F (–40°C to 66°C)</li><li><strong>Wire Gauge:</strong> 12–18 AWG</li></ul>"
+"8976704372960","vesda-vsp-980-b22-vea-6mm-black-sampling-point-pack-of-22","UPDATE","<p>Each VESDA-E VEA detector draws air from rooms through microbore tubes that end at small ceiling sampling points. The VSP-980-B22 is a pack of 22 black 6 mm standard sampling points for that network, and the black finish suits dark ceilings where a discreet fitting is wanted.</p><h3>Key Features</h3><ul><li>Pack of 22 standard sampling points for 6 mm microbore tubes</li><li>Black finish</li><li>Swivel-joint inlet for flexible tube orientation</li><li>Blind mounting: no ceiling-void access needed once tubes are run through the ceiling</li><li>Screws directly to the ceiling or mounts with the included retainer</li><li>Fully supervised and cleaned automatically by the VEA detector</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> VESDA (Xtralis)</li><li><strong>Part Number:</strong> VSP-980-B22</li><li><strong>Type:</strong> VESDA-E VEA standard sampling point</li><li><strong>Tube Size:</strong> 6 mm</li><li><strong>Color:</strong> Black</li><li><strong>Quantity:</strong> 22 per pack</li></ul><h3>Compatibility</h3><p>For VESDA-E VEA aspirating smoke detectors with 6 mm microbore sampling tubes, in ceilings with a void above them. For exposed tube runs, use the VSP-982 surface-mount sampling points instead.</p>"
+"7758152204512","gentex-geca24pww-904-1328-002-horn-strobe","UPDATE","<p>Built for emergency communication and other non-fire alerting, the Gentex GECA24PWW (904-1328-002) is a low-profile, wall-mount horn/strobe from the Commander3 GEC3 Colored Lens Series. It pairs an amber lens with a plain white faceplate (no lettering), so it suits severe weather, emergency response and general warning signals where a red ""FIRE"" appliance would be wrong.</p><h3>Key Features</h3><ul><li>Tamperproof, field-selectable strobe output of 15, 30, 60, 75 or 110 candela</li><li>Switch-selectable 2400 Hz, mechanical, chime and whoop tones, with a high or low dBA setting</li><li>Continuous or synchronizable temporal 3 pattern (temporal 3 is not available on the whoop tone)</li><li>Super-Slide&reg; mounting bracket lets you prewire and test supervision before the signal is installed</li><li>Checkmate&reg; test points let you check voltage at the device without removing it</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Gentex</li><li><strong>Part Number:</strong> GECA24PWW (904-1328-002)</li><li><strong>Series:</strong> Commander3 GEC3 Colored Lens Series</li><li><strong>Lens / Faceplate:</strong> Amber lens; white faceplate, plain (no lettering)</li><li><strong>Mounting:</strong> Wall mount (surface mount with Gentex GSB box)</li><li><strong>Nominal Voltage:</strong> 24 VDC</li><li><strong>Candela:</strong> 15 / 30 / 60 / 75 / 110 cd, field selectable</li><li><strong>Strobe Current (UL max, amber lens):</strong> 47 mA at 15 cd; 64 mA at 30 cd; 113 mA at 60 cd; 145 mA at 75 cd; 178 mA at 110 cd</li><li><strong>Sound Output at 10 ft:</strong> 62&ndash;82 dBA reverberant; 100 dBA anechoic</li><li><strong>Dimensions:</strong> 5 in H x 4.5 in W x 2.5 in D (12.7 x 11.43 x 6.35 cm)</li><li><strong>Operating Temperature:</strong> 32&deg;F to 120&deg;F (0&deg;C to 49&deg;C); not listed for outdoor use</li><li><strong>Listings:</strong> ANSI/UL 464 and ANSI/UL 1638; CAN/ULC S525 and/or S526; CSFM 7135-0569:135</li></ul><h3>Compatibility</h3><p>Strobes and horns synchronize with the Gentex AVSM Control Module. Gentex does not recommend this appliance for coded or pulsing signaling circuits.</p>"
+"8126608146656","notifier-bb-200-cabinet","UPDATE","<p>The Notifier BB-200 is a combination power supply and battery enclosure for NFS2-3030 systems that need more standby battery capacity than the main cabinet holds. It is compatible with the AMPS-24 power supply and holds a power supply plus up to four BAT-12100 100 AH batteries, for a total of 200 AH.</p><h3>Key Features</h3><ul><li>Lockable door, hinged on the left, shipped assembled</li><li>Holds a power supply and up to four BAT-12100 100 AH batteries (200 AH capacity)</li><li>Mounts a minimum of 6 in (15.24 cm) below the fire alarm control panel</li><li>Knockouts on the top and sides for conduit entry, plus a grounding wire</li><li>Mounting holes take hardware up to 3/8 in</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Notifier</li><li><strong>Part Number:</strong> BB-200</li><li><strong>Type:</strong> Power supply and battery backbox/enclosure</li><li><strong>Battery Capacity:</strong> Up to four BAT-12100 100 AH batteries (200 AH)</li><li><strong>Dimensions:</strong> 30 in W x 36 in H x 7.5 in D (76.20 x 91.44 x 19.05 cm), depth includes door</li><li><strong>Loaded Weight:</strong> Over 300 lb when fully loaded; the wall may need extra support</li><li><strong>Mounting:</strong> Wall mount, at least 6 in (15.24 cm) below the FACP</li></ul><h3>Compatibility</h3><p>For Notifier NFS2-3030 systems when larger batteries are needed. Compatible with the AMPS-24 power supply. According to the NFS2-3030 datasheet, the AMPS-24 charges batteries from 7 to 200 AH, and batteries larger than 26 AH need a separate cabinet such as the BB-200.</p>"
+"8127167332576","gamewell-fci-s3b-clss-kit-v-kit-1","UPDATE","<p>The Gamewell-FCI S3B-CLSS-KIT-V is a bundle of three parts: an SLP-BLK S3 Series addressable fire alarm control panel, a CLSS Gateway and a Verizon module. The S3 Series is a microprocessor-based panel for small to mid-sized buildings. The CLSS Gateway connects the system to Honeywell's Connected Life Safety Services (CLSS) cloud.</p><h3>Key Features</h3><ul><li>SLP-BLK: SLP addressable control panel in a black S3 SLP-BB enclosure</li><li>4.3 in color touchscreen display with five programmable function buttons</li><li>One SLC loop, expandable to two. Each loop supports up to 318 System Sensor protocol devices or 126 Apollo protocol devices</li><li>Four Class B or two Class A NACs, with System Sensor, Cooper-Wheelock or Gentex strobe synchronization</li><li>The CLSS Gateway reads device inventory from one panel or a network of panels and sends it to the CLSS Cloud</li><li>With the cellular module and feature activation, the gateway can also act as a fire alarm communicator to a central station</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Gamewell-FCI (Honeywell)</li><li><strong>Part Number:</strong> S3B-CLSS-KIT-V</li><li><strong>Kit Contents:</strong> SLP-BLK panel, CLSS Gateway, Verizon module</li><li><strong>Panel Power Supply:</strong> 7.0 A (120 VAC or 240 VAC)</li><li><strong>Device Capacity:</strong> Up to 636 System Sensor devices or 252 Apollo devices per panel with the second loop</li><li><strong>Networking:</strong> Up to 122 nodes with S3/E3 Series panels, or 64 nodes with 7100 Series</li><li><strong>Connectivity:</strong> Built-in Ethernet port for programming, reports and FocalPoint workstation connection</li><li><strong>Listing:</strong> ANSI/UL 864, 9th Edition (S3 Series)</li></ul><h3>Compatibility</h3><p>The S3 Series datasheet says the SLP-BLK needs an SLC-PM or SLC95-PM loop personality module for its SLC loops. The S3 Series is designed as an upgrade path for legacy FCI 7100 and Gamewell 602 Series panels.</p>"
+"8877259063520","potter-ashp-24smr-amplified-speaker-red","UPDATE","<p>The Potter ASHP-24SMR is a CPG Signals Model ASHP PowerTone amplified speaker for loud, clear alarm tones in large or noisy spaces. It runs on 24 VDC and is polarized for supervised notification appliance circuits. The tone comes from a separately ordered plug-in card: UTC, PTCK25 or PTCK70.</p><h3>Key Features</h3><ul><li>Spun aluminum speaker cone and projector</li><li>Circuitry and tone card are sealed in a dust- and moisture-proof die-cast aluminum housing</li><li>Internal gain control for volume adjustment</li><li>NEMA 3 rated construction</li><li>Red enamel finish</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Potter (CPG Signals)</li><li><strong>Part Number:</strong> ASHP-24SMR</li><li><strong>Model:</strong> ASHP PowerTone Amplified Speaker</li><li><strong>Operating Voltage:</strong> 24 VDC, polarized</li><li><strong>Color:</strong> Red</li><li><strong>Enclosure Rating:</strong> NEMA 3</li><li><strong>Required Accessory:</strong> UTC, PTCK25 or PTCK70 tone card (ordered separately)</li></ul><h3>Compatibility</h3><p>Connects to supervised alarm notification circuits. Requires a UTC, PTCK25 or PTCK70 tone card to operate.</p>"
+"7967283216608","edwards-270p-spo-fire-alarm-pull-station","UPDATE","<p>Pulling the lever on the Edwards 270P-SPO pre-signal station sounds an alarm on all pre-signal indicating devices, alerting staff first. An authorized person then inserts a key and turns it to start a general evacuation alarm. This non-coded, break-glass station belongs to the Edwards 270 Series and has die-cast metal construction.</p><h3>Key Features</h3><ul><li>Pre-signal operation: the lever pull gives a staff alert, and a key turn starts general evacuation</li><li>Break-glass, single-action pull lever</li><li>Single-pole, open-circuit (normally open) contacts</li><li>Screw terminals for field wiring</li><li>Pull force under 5 lb, which complies with ADA</li><li>Solid die-cast metal construction in fire alarm red</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Edwards</li><li><strong>Part Number:</strong> 270P-SPO</li><li><strong>Series:</strong> 270P (pre-signal)</li><li><strong>Type:</strong> Non-coded, break glass manual station</li><li><strong>Contacts:</strong> Single pole, open circuit (N.O.), with pre-signal switch</li><li><strong>Field Connections:</strong> Screw terminals</li><li><strong>Construction:</strong> Die-cast metal, fire alarm red with aluminum strips</li><li><strong>Marking:</strong> ""Fire Alarm""; handle marked ""Pull in Case of Fire""</li><li><strong>Mounting:</strong> Flush on a 4 in square box with single-gang plaster cover, or surface with the P-027193 cast box or P-039250 steel box housing</li></ul>"
+"7758160298208","eaton-wheelock-spb-80-4-safepath-supervised-power-booster","UPDATE","<p>To add speaker and strobe capacity to a Wheelock SAFEPATH voice evacuation system, use the Eaton Wheelock SPB-80/4 Supervised Power Booster. This red steel enclosure adds 80 watts of supervised audio power and 4 amps of supervised strobe power. It extends SP40S or SP40/2 systems into larger buildings.</p><h3>Key Features</h3><ul><li>80 W of supervised audio for live voice, prerecorded messages or background music</li><li>Supervision stays active even while background music is playing</li><li>4 A of 24 VDC supervised, synchronized strobe power</li><li>Speaker outputs are field selectable for 70 V or 25 V</li><li>Several SPB-80/4 boosters can be interconnected for large installations</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Eaton Wheelock</li><li><strong>Part Number:</strong> SPB-80/4</li><li><strong>Product Family:</strong> SAFEPATH accessory</li><li><strong>Audio Output:</strong> 80 W supervised</li><li><strong>Strobe Power:</strong> 4 A at 24 VDC, supervised and synchronized (two 2 A strobe circuits)</li><li><strong>Enclosure:</strong> Steel, red</li></ul><h3>Compatibility</h3><p>Designed to connect to the Wheelock SP40S or SP40/2 SAFEPATH panels. It accepts a 70 V or 25 V audio input from those panels.</p>"
+"7970716778720","simplex-4098-9791-4-wire-sensor-supervised-relay-base","UPDATE","<p>With the Simplex 4098-9791 4-wire TrueAlarm sensor base, an addressable smoke or heat sensor can also control a relay. It has connections for the 2098-9737 supervised remote relay, or for an LED indicator or unsupervised relay. The sensor gets power and data from the MAPNET II or IDNet loop, and a separate 24 VDC supply runs the relay.</p><h3>Key Features</h3><ul><li>4-wire base for Simplex TrueAlarm analog sensors</li><li>Connects to the 2098-9737 supervised remote relay, up to 100 ft of wire from the base</li><li>Supports the 2098-9808 remote red LED alarm indicator or the 4098-9822 LED annunciation relay module</li><li>Screw terminals accept 14 to 18 AWG solid or stranded wire</li><li>White finish</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Simplex</li><li><strong>Part Number:</strong> 4098-9791</li><li><strong>Type:</strong> 4-wire supervised relay sensor base</li><li><strong>Communication:</strong> MAPNET II or IDNet single wire pair</li><li><strong>Relay Power:</strong> Separate 24 VDC required</li><li><strong>Max Wire Length to 2098-9737:</strong> 100 ft</li><li><strong>Terminal Wire Size:</strong> 14&ndash;18 AWG</li><li><strong>Color:</strong> White</li><li><strong>Surface/Semi-Flush Mounting:</strong> Requires 4098-9832 adapter plate</li></ul><h3>Compatibility</h3><p>Works with Simplex 4010, 4020, 4100+ and 4120 fire alarm panels over MAPNET II or IDNet. NOT compatible with the 2120 CDT. Do not use a remote LED when the 4098-9822 relay module is installed.</p>"
+"7970716451040","simplex-4098-9687-duct-detector","UPDATE","<p>The Simplex 4098-9687 is a duct detector housing for HVAC ducts that must be monitored without a fire alarm control panel. It comes with a factory-installed 4098-9601 TrueAlarm photoelectric smoke detector. Its own relay can shut down fans or trigger other equipment when smoke is detected in the duct.</p><h3>Key Features</h3><ul><li>Input power of 120 VAC, 24 VAC or 24 VDC</li><li>Fail-safe Form C relay stays energized in normal operation and transfers on alarm, loss of power or detector removal</li><li>Clear cover lets you see the detector and its status LED, and test ports allow smoke testing with the cover in place</li><li>Magnetic test starts an alarm and shows the detector's dirt accumulation status</li><li>TrueAlarm sensitivity drift compensation</li><li>Mounts to rectangular or round ducts</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Simplex</li><li><strong>Part Number:</strong> 4098-9687</li><li><strong>Type:</strong> Stand-alone duct smoke detector housing</li><li><strong>Detector:</strong> 4098-9601 TrueAlarm photoelectric (factory installed)</li><li><strong>Input Power:</strong> 120 VAC, 24 VAC or 24 VDC</li><li><strong>Relay Contacts:</strong> Form C, 5 A at 120 VAC or 28 VDC, resistive</li><li><strong>Minimum Duct Size:</strong> 8 in (203 mm) square or 18 in (457 mm) diameter</li><li><strong>Listings:</strong> UL 268A; CSFM 3240-0026:241</li></ul><h3>Compatibility</h3><p>Requires the 4098-9842 control station, ordered separately. It provides a green power LED, a red alarm LED, a tone-alert with silence switch and a keyed test/reset switch. A sampling tube sized to the duct width (4098-9854 through 4098-9858) is also ordered separately. Duct detection supplements area smoke detection but does not replace it.</p>"
+"7758036893920","simplex-49hfvh-applc-truealert-es-high-fidelity-addressable-speaker-strobe","UPDATE","<p>For voice evacuation where clear speech matters, the Simplex 49HFVH-APPLC is a TrueAlert ES high-fidelity, high-candela speaker/strobe appliance for ceiling mounting. A Simplex IDNAC signaling line circuit powers, addresses and controls it, and the speaker connects to a compatible fire alarm audio circuit. This model is the appliance electronics only, so order the cover separately.</p><h3>Key Features</h3><ul><li>High-fidelity speaker with a 200 to 10,000 Hz frequency response</li><li>High-candela strobe selectable at 110, 135 or 185 cd, with a synchronized 1 Hz flash rate</li><li>Speaker taps of 1/4, 1/2, 1 and 2 W at 25 or 70.7 Vrms</li><li>Wiring supervision is monitored electronically, so audio wiring can be T-tapped for Class B</li><li>Clear lens</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Simplex</li><li><strong>Part Number:</strong> 49HFVH-APPLC</li><li><strong>Series:</strong> TrueAlert ES addressable</li><li><strong>Mounting:</strong> Ceiling</li><li><strong>Candela:</strong> 110 / 135 / 185 cd</li><li><strong>Strobe Current (at 23 VDC on IDNAC):</strong> 235 mA at 110 cd; 255 mA at 135 cd; 295 mA at 185 cd</li><li><strong>Speaker Input:</strong> 25 or 70.7 Vrms; 1/4, 1/2, 1, 2 W taps</li><li><strong>Reverberant Output (UL 1480, 10 ft):</strong> 76 / 80 / 84 / 87 dBA at 1/4 / 1/2 / 1 / 2 W</li><li><strong>Operating Voltage:</strong> 23 to 30 VDC, special application</li><li><strong>Loading:</strong> 1 unit load</li><li><strong>Dimensions with Cover:</strong> 8-1/8 in H x 7-1/8 in W x 3 in D</li><li><strong>Environment:</strong> 32&deg;F to 120&deg;F; 10% to 93% RH non-condensing</li><li><strong>Listings:</strong> UL and ULC listed; FM approved</li></ul><h3>Compatibility</h3><p>Runs on an IDNAC SLC from a Simplex 4100ES with an EPS or EPS+ power supply, or from a 4009 IDNAC repeater. Speaker audio comes from compatible 4100ES amplifiers. Requires a separately ordered 49SVC-series cover.</p>"
+"7970712420576","simplex-2099-9138-non-coded-single-action-manual-station","UPDATE","<p>For locations that call for a cast-metal manual station, the Simplex 2099-9138 is a non-coded, single-action pull station with a SPST normally open contact. Pulling the handle latches the alarm mechanically, and the extended handle shows the station has been used. It can be made weatherproof for outdoor use by mounting it in the optional 2975-9211 box.</p><h3>Key Features</h3><ul><li>Single-action operation: pull the handle to activate</li><li>Rugged cast-metal (cast zinc) housing and handle</li><li>Reset by unlocking and opening the enclosure with the Simplex ""B"" key (included)</li><li>Optional break rod (replacement included) is visible from the front and helps deter vandalism</li><li>Operation meets ADA requirements</li><li>NEMA 3R rating when mounted in the 2975-9211 weatherproof box with its gaskets</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Simplex</li><li><strong>Part Number:</strong> 2099-9138</li><li><strong>Type:</strong> Non-coded single action manual station</li><li><strong>Contact:</strong> SPST, N.O.</li><li><strong>Contact Rating (resistive):</strong> UL/C-UL/CSFM: 1 A at 30 VDC or 125 VAC; FM: 1 A at 30 VAC/VDC</li><li><strong>Construction:</strong> Cast metal; red housing with white lever and white raised lettering</li><li><strong>Wiring:</strong> Terminal blocks for IN/OUT wiring, up to 14 AWG</li><li><strong>Mounting:</strong> Semi-flush on a single-gang box 2-1/2 in deep, or surface with 2975-9211 (weatherproof) or 2975-9212 (indoor) box</li><li><strong>Temperature:</strong> -40&deg;F to 150&deg;F with 2975-9211 box; 32&deg;F to 140&deg;F with 2975-9212 box</li><li><strong>Listings:</strong> UL 38; UL, C-UL, CSFM listed; FM approved</li></ul>"
+"7970737848544","edwards-siga-uio6r-input-output-motherboard-module","UPDATE","<p>The Edwards SIGA-UIO6R motherboard has six positions for Signature Series plug-in UIO (SIGA-""M"" series) modules, with selectable riser inputs. It gives the modules mounting and wiring terminations inside an equipment enclosure. Because all field wiring lands on the motherboard, you can pull and replace modules quickly during troubleshooting.</p><h3>Key Features</h3><ul><li>Mounting and wiring terminations for up to six plug-in UIO modules</li><li>Riser #1 and riser #2 input buses. Jumpers on riser #1 let several modules share one riser, or you can remove them to feed each module separately</li><li>Includes a rigid extruded mounting track with mounting pads</li><li>Modules are held in place with captive machine screws</li><li>Terminal blocks accept 12 to 18 AWG wire</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Edwards</li><li><strong>Part Number:</strong> SIGA-UIO6R</li><li><strong>Type:</strong> Universal input/output module motherboard</li><li><strong>Module Positions:</strong> 6, with riser selection</li><li><strong>Wire Size:</strong> 12&ndash;18 AWG (2.5 to 0.75 mm&sup2;)</li><li><strong>Enclosure:</strong> One SIGA-UIO6R with a full set of modules fits in an Edwards MFC-A cabinet</li></ul><h3>Compatibility</h3><p>Works only with Signature Series SIGA-""M"" I/O modules, which need a Signature Data Controller. Compatible with EST3, EST3X and iO Series control panels.</p>"
+"7970730705120","siemens-fpt-11-500-095918-thermal-detector","UPDATE","<p>Siemens' FPT-11 (500-095918) is a plug-in, two-wire intelligent thermal detector for FireFinder XLS and MXL fire alarm control panels. A thermistor sensor gives the panel nearly instant temperature readings, with a 135&deg;F (57.2&deg;C) rate-compensated rating. This model has been replaced by the HI921.</p><h3>Key Features</h3><ul><li>135&deg;F (57.2&deg;C) rate-compensated thermistor sensing</li><li>Address is stored in EEPROM and set with the DPU or FPI-32 field programmer/tester, so there are no DIP switches or rotary dials</li><li>Multi-color LED flashes green in normal operation, amber on a fault and red on a confirmed alarm</li><li>UL and ULC listed as a self-testing device</li><li>Each detector can run one accessory: a remote alarm indicator, an auxiliary relay or an audible base</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Siemens</li><li><strong>Part Number:</strong> FPT-11 (500-095918)</li><li><strong>Status:</strong> Replaced by HI921</li><li><strong>Type:</strong> Intelligent addressable thermal detector</li><li><strong>Rating:</strong> 135&deg;F (57.2&deg;C), rate-compensated</li><li><strong>Current:</strong> 750 &micro;A normal / 750 &micro;A alarm</li><li><strong>Operating Temperature:</strong> 32&deg;F to 120&deg;F (0&deg;C to 49&deg;C)</li><li><strong>Humidity:</strong> 0&ndash;93% RH, non-condensing</li><li><strong>Spacing:</strong> Up to 50 ft (UL); 20 ft for FM-approved installations (RTI: Quick)</li><li><strong>Listings:</strong> UL and ULC listed; FM, CSFM and NYCFD approved</li></ul><h3>Compatibility</h3><p>For FireFinder XLS (MLC) and MXL (ALD) panels, with up to 60 detectors per circuit. Mounts in the DB-11 base, DB-11E base, DB-X11RS relay base or ADBX-11 audible base. The optional LK-11 kit locks the head in the base.</p>"
+"8829565731040","kidde-fx-64r-intelligent-fire-alarm-system-with-64-point-capacity","UPDATE","<p>Small buildings get a complete addressable system with the Kidde FX-64R, a one-loop intelligent fire alarm control panel with 64-point capacity. It includes two notification appliance circuits and comes in a surface-mount enclosure with a red door. Auto-programming and support for existing wiring make it a good fit for both new work and retrofits.</p><h3>Key Features</h3><ul><li>One Class A or Class B intelligent loop that supports 64 devices of any type</li><li>Two Class B NACs (Class A with the SA-CLA module). Horns can be silenced over two wires, and strobe sync meets UL 1971 with Genesis appliances</li><li>Auto-programming, rotary addressing and a 4 x 20 backlit LCD</li><li>Form C contacts for alarm and trouble, Form A for supervisory</li><li>Optional SA-ETH Ethernet card for central station monitoring, programming and reports</li><li>Supports up to eight serial annunciators</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Kidde</li><li><strong>Part Number:</strong> FX-64R</li><li><strong>Loop Capacity:</strong> 1 loop, 64 device addresses</li><li><strong>NACs:</strong> 2 Class B (2 Class A with SA-CLA)</li><li><strong>NAC Output:</strong> 24 VFWR; 3.75 A total, 2.5 A max per circuit (120/230 VAC, 60 Hz)</li><li><strong>Isolators:</strong> 64 maximum</li><li><strong>Enclosure:</strong> Surface mount, red door</li><li><strong>Dialer:</strong> Not included; order separately</li></ul><h3>Compatibility</h3><p>Supports Kidde FX Series intelligent detectors and modules, and Genesis notification appliances for strobe synchronization. The RZI16-2RS module adds conventional circuits for retrofits.</p>"
+"8152693113056","gamewell-fci-ms-7af-bp-double-action-pull-station-bulk-pack-with-10-units","UPDATE","<p>This bulk pack contains ten Gamewell-FCI MS-7AF double-action addressable pull stations from the Velociti&reg; Series. The MS-7AF-BP suits multi-station projects. Each station installs on the signaling line circuit of a Gamewell-FCI analog addressable control panel, and pulling it registers the station's address at the panel.</p><h3>Key Features</h3><ul><li>Double-action operation helps reduce accidental activations</li><li>LED on the door flashes green in normal condition and lights steady red when activated (only the red LED works on panels not in Velociti mode)</li><li>Velociti protocol responds up to five times faster than earlier designs</li><li>Meets the ADA 5 lb maximum pull force. Operating instructions and Braille are engraved in the handle</li><li>Key lock/reset keyed alike with Gamewell-FCI control panels</li><li>Screw terminals; surface or semi-flush mounting</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Gamewell-FCI</li><li><strong>Part Number:</strong> MS-7AF-BP (10 x MS-7AF)</li><li><strong>Series:</strong> Velociti&reg; addressable</li><li><strong>Material:</strong> Lexan&reg;</li><li><strong>Dimensions:</strong> 5-5/8 in H x 4-1/4 in W x 1-1/4 in D (14 x 10.1 x 3.2 cm)</li><li><strong>Alarm Current:</strong> 0.0030 A (0.007 A with LED)</li><li><strong>Supervisory Current:</strong> 0.00030 A</li><li><strong>Operating Environment:</strong> 32&deg;F to 120&deg;F; 10% to 93% RH, non-condensing</li><li><strong>Mounting:</strong> Standard double-gang or 4 in square electrical box; optional BG12TR trim ring for semi-flush</li><li><strong>Listings (MS-7 Series):</strong> UL S2465; FM 3023594</li></ul><h3>Compatibility</h3><p>For use only with Gamewell-FCI analog addressable fire alarm control panels.</p>"
+"7893889515744","silent-knight-5880-led-driver-module","UPDATE","<p>The Silent Knight 5880 LED driver module lets you build custom remote annunciation, such as graphic maps and zone displays, for a 5820XL panel. Each module has 40 programmable LED outputs and eight supervised dry-contact inputs. It is small enough to mount inside a remote graphic annunciator or an accessory cabinet.</p><h3>Key Features</h3><ul><li>40 individually mapped, open-collector LED outputs</li><li>8 supervised inputs for dry contacts or a remote silence or reset switch</li><li>No external resistors needed on the LED outputs</li><li>DIP-switch addressable, with a 4-wire connection to the panel SBUS</li><li>Up to eight 5880 modules per control panel</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Silent Knight (Honeywell)</li><li><strong>Part Number:</strong> 5880</li><li><strong>Operating Voltage:</strong> 24 VDC</li><li><strong>Current:</strong> 35 mA standby; 200 mA alarm; 10 mA per LED</li><li><strong>Operating Temperature:</strong> 32&deg;F to 120&deg;F (0&deg;C to 49&deg;C)</li><li><strong>Humidity:</strong> 10&ndash;85% non-condensing</li><li><strong>Mounting:</strong> Inside an annunciator or accessory cabinet</li><li><strong>Listings:</strong> UL 864; FM approved; CSFM 7165-0559:0502; MEA 429-92-E Vol. 9</li></ul><h3>Compatibility</h3><p>For use with the Silent Knight 5820XL. Also compatible with the 5820XL-EVS, 6820, 6820EVS, 6808, 6700, 5700 and 5808 addressable panels.</p>"
+"7970724020448","simplex-4906-9230-mc-truealert-a-v-ceiling-mount","UPDATE","<p>As part of the Simplex TrueAlert addressable family, the 4906-9230 is a ceiling-mount horn/strobe with a multi-candela xenon strobe, in a white housing with ""FIRE"" lettering. A TrueAlert addressable signaling line circuit powers, supervises and controls each appliance individually. Horn and strobe run separately over the same two wires.</p><h3>Key Features</h3><ul><li>Strobe set to 15, 30, 75 or 110 cd with a plug at the appliance, or programmed from a 4100U panel with TPS</li><li>Synchronized 1 Hz flash rate</li><li>Horn sounds temporal, March Time or continuous, with high or low output (about 5 dBA apart)</li><li>Supervision to each appliance allows T-tapping on Class B circuits</li><li>With a 4100U and TPS, TrueNAC voltage-drop diagnostics and device reports are available</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Simplex</li><li><strong>Part Number:</strong> 4906-9230</li><li><strong>Mounting:</strong> Ceiling</li><li><strong>Color:</strong> White housing, ""FIRE"" lettering</li><li><strong>Candela:</strong> 15 / 30 / 75 / 110 cd</li><li><strong>Max RMS Current (ceiling, horn steady):</strong> 82 mA at 15 cd; 135 mA at 30 cd; 249 mA at 75 cd; 335 mA at 110 cd</li><li><strong>Rated Voltage:</strong> 17 to 31 VRMS (UL special application)</li><li><strong>Horn Output:</strong> 2400&ndash;3700 Hz sweep</li><li><strong>Dimensions:</strong> 4-3/4 in L x 6-7/8 in W x 2-5/8 in D (121 x 175 x 67 mm)</li><li><strong>Environment:</strong> 32&deg;F to 122&deg;F; 10% to 93% RH non-condensing</li><li><strong>Wire Size:</strong> 18&ndash;12 AWG</li><li><strong>Listings:</strong> Strobe UL 1971, horn UL 464; UL, ULC, CSFM (7125-0026:239) listed; FM approved</li></ul><h3>Compatibility</h3><p>Works with the 4100U TrueAlert Addressable Power Supply (TPS) and the TrueAlert Addressable Controller (4009T). It can share an SLC with fixed-candela TrueAlert addressable strobes. TrueNAC diagnostics require 4100U software revision 12.04 or higher.</p>"
+"8829531160800","kidde-eg1avrf-genesis-led-eg1-compact-wall-horn-strobe","UPDATE","<p>About the size of a single-gang box, the Kidde EG1AVRF is a Genesis LED EG1 Series compact wall horn/strobe in red with ""FIRE"" marking. It is made for indoor, dry locations where a low-profile notification appliance fits better than a full-size device. The EG1AVRF replaces the EG1F-HDVM.</p><h3>Key Features</h3><ul><li>Field-selectable strobe output of 15, 30 or 75 candela</li><li>Horn can be set to constant or T3 temporal, at high or low dB</li><li>Synchronization circuitry meets current UL 1638 and CAN/ULC-S526 requirements</li><li>Input wiring test points on the front (with the cover removed) for quick circuit checks</li><li>Mounts on 1-gang, 2-gang, 4 in octagon or 4 in square boxes. Use the EG1TR/EG1TW trim ring on boxes wider than 3 in</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Kidde</li><li><strong>Part Number:</strong> EG1AVRF</li><li><strong>Replaces:</strong> EG1F-HDVM</li><li><strong>Color / Marking:</strong> Red, ""FIRE""</li><li><strong>Mounting:</strong> Wall, indoor dry locations</li><li><strong>Operating Voltage:</strong> 16 to 33 VDC or 16 to 33 VFWR</li><li><strong>Candela:</strong> 15 / 30 / 75 cd</li><li><strong>Flash Rate:</strong> About 1 flash per second</li><li><strong>Dimensions (W x H x D):</strong> 3 x 4-5/8 x 1-1/8 in (7.62 x 11.75 x 2.86 cm)</li><li><strong>Wire Size:</strong> 12&ndash;18 AWG</li><li><strong>Operating Environment:</strong> 32&deg;F to 122&deg;F; 0&ndash;93% RH non-condensing</li></ul><h3>Compatibility</h3><p>Synchronized operation needs a separately installed synchronization device. Check the control unit or booster compatibility list. Do not use this appliance where signal power is cycled on and off, such as coded or private-mode systems.</p>"
+"7758072676576","vesda-vsp-980-w22-standard-sampling-point-for-6mm-tube-pack-of-22","UPDATE","<p>This pack contains 22 VESDA VSP-980-W22 VEA standard sampling points for 6 mm microbore tube, for VESDA-E VEA aspirating smoke detection systems. Standard sampling points are meant for ceilings with a void above: the microbore tubes run through the void and the sampling points mount in the ceiling. Buying a pack makes sense for multi-room projects.</p><h3>Key Features</h3><ul><li>Designed for VESDA-E VEA systems that use 6 mm microbore tubes</li><li>Swivel inlet lets you orient the tube flexibly</li><li>Mounts directly or in ceiling tiles with a retainer</li><li>The VEA detector supervises each sampling point and tube and handles automated cleaning</li><li>Pack of 22 sampling points</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> VESDA (Xtralis)</li><li><strong>Part Number:</strong> VSP-980-W22</li><li><strong>Type:</strong> VEA standard sampling point</li><li><strong>Tube Size:</strong> 6 mm microbore</li><li><strong>Quantity:</strong> 22 per pack</li><li><strong>System:</strong> VESDA-E VEA</li></ul><h3>Compatibility</h3><p>For VESDA-E VEA aspirating smoke detectors with 6 mm microbore tubing.</p>"
+"7970728804576","siemens-dt-200wp-detector-heat-rate-comp-fixed-200f","UPDATE","<p>Outdoor or harsh locations that would rule out other detector types can use the Siemens DT-200WP weatherproof conventional heat detector. It is a rate-compensation/fixed-temperature detector, sold as a 200&deg;F model, that restores itself after operating. It works with Siemens fire safety systems and with other commercially available fire alarm systems.</p><h3>Key Features</h3><ul><li>Rate-compensation/fixed-temperature detection that responds only to heat</li><li>Self-restoring after operation</li><li>Weatherproof, shock- and corrosion-resistant construction</li><li>Normally open contacts close to start the alarm</li><li>No set limit on the number of detectors per circuit beyond practical job conditions</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Siemens</li><li><strong>Part Number:</strong> DT-200WP (500-087261)</li><li><strong>Type:</strong> Conventional rate-compensation/fixed-temperature heat detector, weatherproof</li><li><strong>Temperature Rating:</strong> Sold as 200&deg;F. The Siemens datasheet lists the set point as 194&deg;F (90&deg;C)</li><li><strong>Coverage:</strong> UL recommends a maximum of 2,500 sq ft</li><li><strong>Listing:</strong> UL listed</li><li><strong>Shipping Weight:</strong> 1.0 lb (0.45 kg)</li><li><strong>Accessory:</strong> Adapter plate/decorator ring 500-618020</li></ul><h3>Compatibility</h3><p>Compatible with Siemens flame detectors and manual stations on the same circuit.</p>"
+"7757925679328","simplex-4100-1243-microphone-module","UPDATE","<p>Live voice paging on a Simplex 4100ES emergency voice/alarm communication system goes through the 4100-1243, the master microphone module (mike) for fire alarm control units. It mounts on the front of the panel's audio expansion bay and gives operators a push-to-talk microphone for live announcements.</p><h3>Key Features</h3><ul><li>Master microphone for live voice announcements from the fire alarm control unit</li><li>Front panel module that takes up 2 slots (4 in)</li><li>Must go in the expansion bay; the space behind it is for 4100ES flat modules only</li><li>One per audio system</li></ul><h3>Specifications</h3><ul><li><strong>Manufacturer:</strong> Simplex</li><li><strong>Part Number:</strong> 4100-1243</li><li><strong>Type:</strong> Microphone module for fire alarm control units</li><li><strong>Mounting:</strong> Front panel, 2 slots (4 in), expansion bay only</li><li><strong>Supervisory Current:</strong> 2.4 mA</li><li><strong>Active Current:</strong> 6 mA</li><li><strong>Quantity Limit:</strong> One per audio system</li></ul><h3>Compatibility</h3><p>For Simplex 4100ES audio systems. For a microphone at a remote annunciator panel, use the 4100-1244 remote microphone module instead.</p>"
+"8264415183072","notifier-nbg-12lo-manual-pull-station","UPDATE","<p>Built for exterior entrances, loading docks and other outdoor locations, the Notifier NBG-12LO is a non-coded manual fire alarm pull station that provides an alarm-initiating input signal to conventional fire alarm control panels. It is part of Notifier's NBG-12 pull station family and uses a key-lock reset for controlled restoration after activation.</p>
+<h3>Key Features</h3>
+<ul>
+<li>Non-coded manual alarm-initiating input for conventional fire alarm control panels</li>
+<li>Dual-action design helps reduce accidental activation</li>
+<li>Key-lock reset using a standard Notifier key</li>
+<li>High-impact Lexan construction that resists tampering and weathering</li>
+<li>Intended for outdoor use with an approved outdoor gasket</li>
+<li>Operating instructions molded into the handle alongside the wiring terminal numbers</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Notifier</li>
+<li><strong>Part Number:</strong> NBG-12LO</li>
+<li><strong>Type:</strong> Non-coded, dual-action manual pull station</li>
+<li><strong>Reset:</strong> Key lock</li>
+<li><strong>Construction:</strong> High-impact Lexan</li>
+<li><strong>Application:</strong> Outdoor use; conventional fire alarm control panels</li>
+<li><strong>Backbox:</strong> Not included. This product does not include the System Sensor SB-I/O backbox; it can also mount to a WP-10 weatherproof backbox in retrofit applications</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Designed to provide an alarm-initiating input to conventional (non-addressable) fire alarm control panels. For outdoor mounting, order the System Sensor SB-I/O backbox separately.</p>"
+"8878460862688","siemens-sl2hscr-f-s54329-f89-a1-horn-strobe-ceiling-red","UPDATE","<p>The Siemens SL2HSCR-F (S54329-F89-A1) is a ceiling-mount horn strobe from the SL2 series of LED-based notification appliances, finished in red with ""FIRE"" lettering and a clear lens. It is used in commercial buildings where audible and visible alarm notification must come from a low-profile ceiling device, and it works for both new installations and retrofits.</p>
+<h3>Key Features</h3>
+<ul>
+<li>LED strobe technology significantly reduces current draw compared with xenon designs</li>
+<li>Six field-selectable candela settings (15, 30, 75, 110, 150, 177 cd) set with a tool-free slide adjuster</li>
+<li>Horn selectable for temporal or steady output with high or low dBA settings</li>
+<li>Meets the 20 ms light-pulse-duration requirement of the 2016 edition of NFPA 72, so it can share a field of view with existing Siemens xenon strobes</li>
+<li>Low-profile design with no visible mounting screws</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Siemens</li>
+<li><strong>Part Number:</strong> SL2HSCR-F (S54329-F89-A1)</li>
+<li><strong>Mounting:</strong> Indoor, ceiling only; mounts to a single-gang or 4"" square backbox, or surface mounts with the SLSPBBC backbox</li>
+<li><strong>Color / Marking:</strong> Red housing, ""FIRE"" lettering, clear lens</li>
+<li><strong>Operating Voltage:</strong> 24 VDC / VFWR (16.0–33.0 V regulated range)</li>
+<li><strong>Candela:</strong> 15 / 30 / 75 / 110 / 150 / 177 cd, field-selectable</li>
+<li><strong>Flash Rate:</strong> One flash per second</li>
+<li><strong>Dimensions:</strong> 6.27"" x 6.27"" x 1.69"" (15.9 x 15.9 x 4.29 cm)</li>
+<li><strong>Operating Temperature:</strong> 32°F to 122°F (0°C to 50°C), indoor use only</li>
+<li><strong>Wire Size:</strong> 12–18 AWG</li>
+<li><strong>Listings:</strong> UL 1638, UL 1971, UL 464; ULC-S525-16, ULC-S526-16; FM and CSFM approved</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Strobe synchronization is supported by Siemens addressable panels, Siemens PAD-series NAC extenders, FireFinder XLS/XLSV FACPs and Siemens dual-sync (DSC) modules.</p>"
+"9687131455712","silent-knight-sd505-heat","UPDATE","<p>Silent Knight's SD505-HEAT is an analog addressable heat detector head from the IntelliKnight detector family. It is an absolute-temperature device, meaning it alarms when the temperature rises above a trip point programmed at the control panel. It suits kitchens and other areas where steam or cooking fumes rule out smoke detection. This listing is for the detector head only.</p>
+<h3>Key Features</h3>
+<ul>
+<li>Absolute-temperature detection with the trip point programmed at the panel</li>
+<li>Sends temperature data to the fire alarm control panel over a digital communication protocol</li>
+<li>Externally mounted thermistor under a protective cover that allows maximum airflow</li>
+<li>Status LED blinks about every 15 seconds in normal operation and stays on during alarm</li>
+<li>Low profile: 2 inches high including the base</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Silent Knight (Honeywell)</li>
+<li><strong>Part Number:</strong> SD505-HEAT</li>
+<li><strong>Type:</strong> Analog addressable heat detector, head only</li>
+<li><strong>Operating Voltage:</strong> 17 to 41 VDC</li>
+<li><strong>Current:</strong> 0.55 mA standby; 0.55 mA alarm</li>
+<li><strong>Detection Temperature Range:</strong> 135°F to 150°F (57°C to 65°C)</li>
+<li><strong>Ambient Temperature:</strong> 32°F to 120°F (0°C to 49°C)</li>
+<li><strong>Rated Spacing:</strong> 70 ft between sensors on smooth ceilings</li>
+<li><strong>Mounting (via base):</strong> 4"" square, 4"" octagon, single-gang mud ring</li>
+<li><strong>Listings:</strong> UL listed, CSFM listed, MEA listed, FM approved</li>
+</ul>
+<h3>Compatibility</h3>
+<p>For use with Silent Knight IntelliKnight fire alarm control panels. Requires a compatible base, sold separately: SD505-6AB, SD505-6SB, SD505-6IB or SD505-6RB.</p>"
+"9021162127584","system-sensor-wfd40n-waterflow-detector-4-inches","UPDATE","<p>Installed on a sprinkler riser or feed main, the System Sensor WFD40N vane-type waterflow detector signals the fire alarm system when sustained water flow occurs in a 4-inch steel pipe. It belongs to System Sensor's WFDN series and is used on wet-pipe sprinkler systems.</p>
+<h3>Key Features</h3>
+<ul>
+<li>Sized for 4-inch steel water pipe</li>
+<li>Mechanical time delay minimizes false alarms from pressure surges or air trapped in the sprinkler system</li>
+<li>Two sets of SPDT (Form C) switches for panel and auxiliary connections</li>
+<li>Rugged NEMA 4 enclosure for indoor or outdoor use</li>
+<li>Detects flow in the 4 to 10 GPM range</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> System Sensor</li>
+<li><strong>Part Number:</strong> WFD40N</li>
+<li><strong>Pipe Size:</strong> 4 in.</li>
+<li><strong>Pipe Schedule:</strong> Steel pipe, Schedule 7 through 40 (the original listing describes it as Schedule 10/40, shown as ""1040"")</li>
+<li><strong>Flow Sensitivity:</strong> 4 to 10 GPM</li>
+<li><strong>Static Pressure Rating:</strong> 450 psi</li>
+<li><strong>Maximum Surge:</strong> 18 ft/sec</li>
+<li><strong>Contact Ratings:</strong> Two SPDT (Form C): 10.0 A, 1/2 HP @ 125/250 VAC; 2.5 A @ 6/12/24 VDC</li>
+<li><strong>Enclosure:</strong> NEMA 4, indoor/outdoor</li>
+<li><strong>Operating Temperature:</strong> 32°F to 150°F (0°C to 66°C)</li>
+</ul>"
+"7970723528928","simplex-4906-9129-truealert-multi-candela-horn-strobe","UPDATE","<p>Part of Simplex's TrueAlert non-addressable notification line, the 4906-9129 is a wall-mount horn strobe in a white housing with ""FIRE"" lettering. One device offers four strobe intensities (15, 30, 75 and 110 cd), which lets contractors cover rooms of different sizes and reduces the number of parts to stock.</p>
+<h3>Key Features</h3>
+<ul>
+<li>Multi-candela strobe selectable at 15, 30, 75 or 110 cd</li>
+<li>Synchronized 1 Hz strobe flash</li>
+<li>Supports Simplex SmartSync operation, with horn and strobe on the same two-wire circuit</li>
+<li>Impact- and vandal-resistant housing with convenient strobe intensity selection</li>
+<li>One-piece wall-mount housing (including lens)</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Simplex</li>
+<li><strong>Part Number:</strong> 4906-9129</li>
+<li><strong>Product Line:</strong> TrueAlert multi-candela, non-addressable</li>
+<li><strong>Type:</strong> Horn strobe (audible/visible)</li>
+<li><strong>Mounting:</strong> Wall mount; fits a single-gang, double-gang or standard 4"" square electrical box</li>
+<li><strong>Candela:</strong> 15 / 30 / 75 / 110 cd, selectable</li>
+<li><strong>Color / Marking:</strong> White, ""FIRE""</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Strobe synchronization and SmartSync two-wire control are available from Simplex fire alarm control units, NAC extenders and SmartSync control modules.</p>"
+"8937318154464","notifier-cpu-320sys-fire-alarm-control-panel-with-power-supply","UPDATE","<p>At the core of every Notifier NFS-320SYS system is the CPU-320SYS: an FACP factory-mounted on a chassis with an integral 3.0 A (6.0 A in alarm) power supply and one Signaling Line Circuit. It belongs to Notifier's ONYX Series and works as a stand-alone panel for small to large buildings or as a node on a larger network.</p>
+<h3>Key Features</h3>
+<ul>
+<li>One isolated intelligent SLC (Style 4, 6 or 7) supporting up to 159 detectors and 159 modules (318 devices)</li>
+<li>FlashScan protocol polls up to 318 devices in under two seconds</li>
+<li>Four built-in Class A/B NACs with selectable System Sensor, Wheelock or Gentex strobe synchronization</li>
+<li>Built-in Alarm, Trouble and Supervisory relays</li>
+<li>Standard 80-character display and full QWERTY keypad</li>
+<li>800-event history file plus a separate 200-event alarm-only file</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Notifier</li>
+<li><strong>Part Number:</strong> CPU-320SYS</li>
+<li><strong>System:</strong> NFS-320SYS</li>
+<li><strong>Power Supply:</strong> Integral 3.0 A (6.0 A in alarm)</li>
+<li><strong>SLC Capacity:</strong> 1 SLC; 159 detectors + 159 modules (318 devices max.)</li>
+<li><strong>Display:</strong> 80-character, included</li>
+<li><strong>Included:</strong> Factory-mounted chassis, 80-character display, documentation kit</li>
+<li><strong>Batteries:</strong> Two 12 V batteries, 18 to 200 AH (sold separately)</li>
+<li><strong>Listings:</strong> UL listed, ULC listed, FM approved (basic control panel)</li>
+<li><strong>Ordering:</strong> Order one per system, or as needed on a network system. A non-English version is also available: CPU-320SYS-FR</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Supports FlashScan intelligent detectors and modules and can connect to Notifier's high-speed network (up to 200 nodes) or standard network (up to 103 nodes) with other ONYX Series panels, such as the NFS2-3030 and NFS2-640.</p>"
+"8701547741408","notifier-fst-951r-iv-thermal-detector-ivory","UPDATE","<p>The Notifier FST-951R-IV is an intelligent addressable rate-of-rise thermal detector in ivory. It works with both FlashScan and CLIP systems and comes from the FST-951 Series, the direct replacement for the FST-851 Series. It protects property in areas where a heat detector is the right choice and reports its own address to the panel over the SLC.</p>
+<h3>Key Features</h3>
+<ul>
+<li>Rate-of-rise detection at 15°F (8.3°C) per minute</li>
+<li>Works with FlashScan and CLIP protocols (""-IV"" suffix)</li>
+<li>Rotary decimal switches set the point ID address for exact detector location</li>
+<li>Two LEDs visible through 360° blink red when polled and turn steady red in alarm</li>
+<li>Built-in functional test switch activated by an external magnet; remote test from the panel</li>
+<li>Built-in tamper-resistant feature and sleek low-profile design</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Notifier</li>
+<li><strong>Part Number:</strong> FST-951R-IV</li>
+<li><strong>Type:</strong> Intelligent addressable rate-of-rise thermal detector (plug-in head)</li>
+<li><strong>Protocol:</strong> FlashScan and CLIP</li>
+<li><strong>Color:</strong> Ivory</li>
+<li><strong>Rate-of-Rise:</strong> 15°F (8.3°C) per minute</li>
+<li><strong>Height:</strong> 2.0"" (base determines diameter)</li>
+<li><strong>Wiring:</strong> Two-wire SLC loop connection through the base</li>
+<li><strong>Options:</strong> Remote LED output for the optional RA100Z annunciator</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Mounts on Notifier intelligent bases sold separately, such as the B300-6-IV, B501-IV, B224RB-IV relay base, B224BI-IV isolator base or B200S-IV sounder base. Device capacity depends on the Notifier control panel.</p>"
+"8035224223968","system-sensor-d2-innovairflex-2-wire-conventional-photo-duct-detector","UPDATE","<p>HVAC systems can carry smoke through a building, and the System Sensor D2 InnovairFlex 2-wire conventional photoelectric duct detector is designed to catch it inside the ductwork. This unit includes the 2151 photoelectric detector head. Its pivoting housing mounts in a square or rectangular footprint on round or rectangular ducts.</p>
+<h3>Key Features</h3>
+<ul>
+<li>Includes the 2151 photoelectric detector head</li>
+<li>Integrated low-flow technology rated for air velocities of 100 to 4,000 ft/min</li>
+<li>Patented sampling tube installs from the front or back without tools</li>
+<li>Cover tamper feature signals trouble if the sensor cover is removed or not installed correctly</li>
+<li>Added ¾-inch conduit knockout for more wiring space</li>
+<li>Local magnetic test or remote testing with a compatible remote test station</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> System Sensor</li>
+<li><strong>Part Number:</strong> D2</li>
+<li><strong>Type:</strong> 2-wire conventional photoelectric duct smoke detector (InnovairFlex)</li>
+<li><strong>Power Supply Voltage:</strong> 8.5–35 VDC (24 VDC nominal)</li>
+<li><strong>Standby Current:</strong> 60 µA max. average</li>
+<li><strong>Alarm Current:</strong> 130 mA max.</li>
+<li><strong>Air Duct Velocity:</strong> 100 to 4,000 ft/min (0.5 to 20.32 m/sec)</li>
+<li><strong>Operating Temperature:</strong> -4°F to 158°F (-20°C to 70°C)</li>
+<li><strong>Humidity:</strong> 0% to 95% RH, non-condensing</li>
+<li><strong>Size:</strong> Rectangular: 14.38 x 5 x 2.5 in.; Square: 7.75 x 9 x 2.5 in.</li>
+<li><strong>Wire Size:</strong> 12–18 AWG</li>
+<li><strong>Listing:</strong> Housing UL listed to UL 268A for use in air handling systems</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Connects to UL/FM listed compatible 2-wire control panel initiating circuits and is backward compatible with existing Innovair products, including remote accessories such as the RA100Z remote alarm LED.</p>"
+"8829565567200","kidde-fx-278-pull-station-double-action","UPDATE","<p>Designed for small buildings, the Kidde FX-278 is a double-action intelligent pull station with a Lexan housing and rotary address dials. It works as an addressable module on Kidde FX-64 and FX-1000 intelligent fire alarm systems. A factory-installed mini module supervises the station and reports an alarm to the panel when the handle is pulled.</p>
+<h3>Key Features</h3>
+<ul>
+<li>Double action: lift the upper door marked ""LIFT THEN PULL HANDLE"", then pull the handle</li>
+<li>Rugged Lexan housing with keyed reset</li>
+<li>Familiar rotary dials (tens and ones) for addressing</li>
+<li>Onboard microprocessor; diagnostic LED flashes green for normal polling and red for alarm</li>
+<li>Alarm latches at the station until reset</li>
+<li>Meets ADA requirements for manual pull stations</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Kidde</li>
+<li><strong>Part Number:</strong> FX-278</li>
+<li><strong>Type:</strong> Double-action addressable manual pull station</li>
+<li><strong>Housing:</strong> Lexan</li>
+<li><strong>Addressing:</strong> Rotary dials; 01–64 (64-point SLC) or 01–125 (250-point control panel)</li>
+<li><strong>Current:</strong> 350 µA standby; 500 µA activated</li>
+<li><strong>Communication Line Voltage:</strong> 20 V peak-to-peak max.</li>
+<li><strong>Operating Environment:</strong> 32°F to 120°F (0°C to 49°C); 0–93% RH non-condensing</li>
+<li><strong>Electrical Box:</strong> 2-1/2"" deep 1-gang box, or 4"" square box 1-1/2"" deep with 1-gang cover</li>
+<li><strong>Wire Size:</strong> 12–18 AWG (16 and 18 AWG preferred)</li>
+</ul>
+<h3>Compatibility</h3>
+<p>For use with Kidde FX-64 and FX-1000 intelligent fire alarm control panels.</p>"
+"7757971357920","system-sensor-b112lp-100-series-relay-base","UPDATE","<p>This 4-wire, 24 V plug-in base is the System Sensor B112LP. It works with the 100 Series conventional smoke detector heads and adds Form A and Form C relay contacts plus a current-limit resistor. Integrators use it when a detector must drive auxiliary functions such as fan shutdown, door release or other local control.</p>
+<h3>Key Features</h3>
+<ul>
+<li>4-wire base with separate power and initiating connections</li>
+<li>Form A and Form C relay contacts with a current-limit resistor</li>
+<li>Screw terminals for power, ground and an optional remote annunciator</li>
+<li>Mounts directly to common octagon and square electrical boxes, with or without plaster rings</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> System Sensor</li>
+<li><strong>Part Number:</strong> B112LP</li>
+<li><strong>Type:</strong> 4-wire relay base, 24 V</li>
+<li><strong>System Voltage:</strong> 24 VDC (standby range 20–29 VDC)</li>
+<li><strong>Relay Contacts:</strong> Form A: 2.0 A @ 30 V AC/DC; Form C: 2.0 A @ 30 V AC/DC, 0.6 A @ 110 VDC, 1.0 A @ 125 VAC (resistive or inductive, 60% PF)</li>
+<li><strong>Base Dimensions:</strong> 6.2"" diameter x 0.95"" high</li>
+<li><strong>Mounting:</strong> 4"" square box (with or without plaster ring), 3-1/2"" or 4"" octagon box; 1.5"" min. depth</li>
+<li><strong>Operating Temperature:</strong> 32°F to 120°F (0°C to 49°C)</li>
+<li><strong>Humidity:</strong> 10% to 93% RH, non-condensing</li>
+</ul>
+<h3>Compatibility</h3>
+<p>For use with System Sensor 2151 photoelectric and 1151 ionization detector heads (100 Series).</p>"
+"8127171297504","potter-psn-64-6a-conventional-power-supply","UPDATE","<p>When a fire alarm panel runs short of notification power, the Potter PSN-64 adds 6 amps of continuous power across four outputs. Each output is rated at 3 amps and can be used continuously without derating. This PSN Series notification power supply serves both new installations and retrofits.</p>
+<h3>Key Features</h3>
+<ul>
+<li>6 A of regulated 24 VDC power across 4 outputs, 3 A per output with no derating</li>
+<li>Quadrasync synchronizes AMSECO, Gentex, Wheelock and System Sensor strobes, with each output set independently</li>
+<li>Pass Thru mode lets outputs follow the input signal from the FACP</li>
+<li>Each output can be set for Class A or Class B, constant power, ANSI Temporal Code 3 or door holder power</li>
+<li>Two trouble relays (general system trouble and low AC) and diagnostic LEDs with trouble memory</li>
+<li>Lockable 18-gauge steel cabinet in red powder coat</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Potter</li>
+<li><strong>Part Number:</strong> PSN-64</li>
+<li><strong>Output:</strong> 6 A total, regulated 24 VDC; 4 NAC outputs, 3 A max. each</li>
+<li><strong>Power Input:</strong> 120 VAC @ 60 Hz or 220/240 VAC @ 50 Hz</li>
+<li><strong>Input Trigger:</strong> 15 mA @ 8–33 VDC</li>
+<li><strong>Trouble Relays:</strong> 5 A @ 30 VDC</li>
+<li><strong>Battery Charging:</strong> 27.3 V @ 1 A; supports 7–55 Ah batteries</li>
+<li><strong>Operating Temperature:</strong> 32°F to 120°F (0°C to 49°C), 93% max. humidity non-condensing</li>
+<li><strong>Terminals:</strong> 18–12 AWG</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Can be connected to any manufacturer's UL 864 listed FACP for activation and supervision. Accepts a reference EOL of 2K to 27K ohms.</p>"
+"8921164972256","eaton-wheelock-sp4z-a-b-safepath-accessory-supervised-speaker-audio","UPDATE","<p>Need more speaker zones from a SAFEPATH system? The Eaton Wheelock SP4Z-A/B is a supervised speaker audio splitter that turns one supervised audio output into two Class A zones or four Class B zones. This green accessory board mounts inside the host panel or audio booster enclosure and is used in fire alarm voice evacuation and mass notification systems.</p>
+<h3>Key Features</h3>
+<ul>
+<li>Splits one supervised speaker audio output into 2 Class A or 4 Class B supervised outputs</li>
+<li>Each zone accepts up to 40 W of audio at 25 or 70.7 V RMS</li>
+<li>Supports live microphone paging, prerecorded emergency voice messages, supervised background music and general paging</li>
+<li>Power and trouble LEDs plus short and open LEDs for each zone</li>
+<li>Detects wiring faults; all output circuitry is power limited</li>
+<li>Removable wiring terminals for quick connect/disconnect</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Eaton Wheelock</li>
+<li><strong>Part Number:</strong> SP4Z-A/B</li>
+<li><strong>Type:</strong> Supervised speaker audio splitter, SAFEPATH accessory</li>
+<li><strong>Zone Configuration:</strong> 2-zone Class A or 4-zone Class B</li>
+<li><strong>Power:</strong> 24 VDC from the host SAFEPATH panel or booster</li>
+<li><strong>Current:</strong> 15 mA standby and alarm @ 24 VDC</li>
+<li><strong>Wire Size:</strong> 12–22 AWG</li>
+<li><strong>Color:</strong> Green</li>
+<li><strong>Listings:</strong> UL 864 9th edition, CSFM and MEA approved</li>
+</ul>
+<h3>Compatibility</h3>
+<p>For the Wheelock SP40S and SP40/2 panels and the SPB-80/4, SPB-160 and SPB-320 audio boosters. Mounts inside the host enclosure. The SPMB4Z mounting bracket is required when installing in an audio booster.</p>"
+"7986961187040","mircom-mix-5351ap-intelligent-heat-detector","UPDATE","<p>Mircom's MIX-5351AP is an intelligent addressable plug-in heat detector that offers 135°F (57°C) fixed thermal detection. It belongs to the Select Series and communicates using Mircom's high-speed Advanced Protocol. It is also backward compatible with CLIP mode for legacy systems, which makes it useful for both new projects and system upgrades.</p>
+<h3>Key Features</h3>
+<ul>
+<li>135°F (57°C) fixed-temperature detection</li>
+<li>Thermistor sensing circuit for fast response</li>
+<li>Rotary address switches set the exact point ID for each detector</li>
+<li>Dual LEDs visible through 360°</li>
+<li>Low standby current and a low-profile base for easy interchangeability</li>
+<li>Bright white finish with color kit options</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Mircom</li>
+<li><strong>Part Number:</strong> MIX-5351AP</li>
+<li><strong>Type:</strong> Intelligent addressable fixed-temperature heat detector (UL version)</li>
+<li><strong>Fixed Setpoint:</strong> 135°F (57°C)</li>
+<li><strong>Voltage Range:</strong> 15 to 32 VDC peak</li>
+<li><strong>Operating Current:</strong> 200 µA @ 24 VDC</li>
+<li><strong>Maximum Alarm Current:</strong> 2 mA @ 24 VDC</li>
+<li><strong>Operating Temperature:</strong> -4°F to 100°F (-20°C to 38°C)</li>
+<li><strong>Humidity:</strong> 10% to 93% non-condensing</li>
+<li><strong>Height:</strong> 2.0 in. (51 mm)</li>
+<li><strong>Color:</strong> White</li>
+<li><strong>Listing:</strong> UL 521</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Uses Mircom Advanced Protocol and can also run in CLIP mode. Mounts on bases sold separately, including the B300-6 and B501-WHITE, plus sounder, relay and isolator base options.</p>"
+"7970728247520","edwards-bps10a-230-10a-power-supply-220v","UPDATE","<p>The Edwards BPS10A/230 is the 220 V version of the 10 amp Remote Booster Power Supply. It supplies filtered, regulated and supervised 24 VDC to extra notification appliance circuits or auxiliary loads wherever the main fire alarm system needs more power. It is used with Edwards life safety systems for NAC expansion, mass notification and related applications.</p>
+<h3>Key Features</h3>
+<ul>
+<li>10 A total output across four Class B NACs, convertible to two Class A, at 3 A max. per circuit</li>
+<li>Dual input circuits can activate outputs in one or two groups</li>
+<li>Synchronizes Genesis and Enhanced Integrity notification appliances</li>
+<li>NACs selectable for continuous, 3-3-3 temporal, or following the host panel's coded NAC</li>
+<li>Seven onboard diagnostic LEDs, self-restoring overcurrent protection and ground fault detection</li>
+<li>Lockable steel cabinet with room for two 10 Ah batteries and up to three Signature modules</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Edwards</li>
+<li><strong>Part Number:</strong> BPS10A/230</li>
+<li><strong>Type:</strong> 10 A remote booster power supply, 220 V</li>
+<li><strong>AC Input:</strong> 220–240 VAC, 50/60 Hz, 580 W</li>
+<li><strong>Output:</strong> 24 VDC filtered/regulated; 3.0 A max. per circuit, 10 A total</li>
+<li><strong>Activation Input:</strong> 6–45 VDC filtered/regulated or 11–33 VDC full-wave rectified</li>
+<li><strong>Auxiliary Output:</strong> Dedicated 200 mA, 24 VDC</li>
+<li><strong>Trouble Relay:</strong> 2 A @ 30 VDC</li>
+<li><strong>Batteries:</strong> Up to 10 Ah in cabinet; up to 24 Ah in an external cabinet for fire applications</li>
+<li><strong>Operating Temperature:</strong> 32°F to 120°F (0°C to 49°C)</li>
+<li><strong>Wire Size:</strong> 18–12 AWG</li>
+<li><strong>Listings:</strong> UL 864 9th edition; UL, ULC, CSFM</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Can be activated from a main system NAC and/or Edwards Signature Series control modules. Provides Genesis and Enhanced Integrity strobe synchronization.</p>"
+"8127152259296","gamewell-fci-gwms95-dl-dual-action-pull-station","UPDATE","<p>The Gamewell-FCI GWMS95-DL is a dual-action addressable manual pull station that uses the XP95 (Apollo) protocol. It is made for Gamewell-FCI systems built on XP95 signaling line circuits, where each pull station reports its own address to the panel. Because two separate motions are needed to start an alarm, the dual-action design helps prevent accidental activations in busy corridors and public areas.</p>
+<h3>Key Features</h3>
+<ul>
+<li>XP95 (Apollo) protocol addressable interface</li>
+<li>Dual action: push in, then pull down the handle</li>
+<li>Key reset</li>
+<li>Red Lexan (or equivalent polycarbonate) housing with textured finish</li>
+<li>Address set in the field at the station</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Gamewell-FCI</li>
+<li><strong>Part Number:</strong> GWMS95-DL</li>
+<li><strong>Type:</strong> Dual-action addressable manual pull station</li>
+<li><strong>Protocol:</strong> XP95 (Apollo)</li>
+<li><strong>Loop Capacity:</strong> Up to 126 stations per XP95 loop</li>
+<li><strong>Mounting:</strong> Semi-flush to a single-gang, double-gang or 4"" square electrical box; surface mount with the SB-I/O backbox (sold separately)</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Designed for Gamewell-FCI 600 Series fire alarm control panels that use XP95 addressable SLC loops.</p>"
+"7970716156128","simplex-4098-9403-heat-detector-fixed-temperature","UPDATE","<p>Where normal room temperatures run above 100°F (38°C) but stay below 150°F (66°C), such as mechanical rooms, the Simplex 4098-9403 Lifealarm heat detector is a suitable fixed-temperature choice. It is a conventional, direct-connect electronic detector rated at 200°F (93°C) and is wired directly to a two-wire initiating device circuit.</p>
+<h3>Key Features</h3>
+<ul>
+<li>200°F (93°C) fixed-temperature operation</li>
+<li>Fast-response thermistor design, inherently rate compensated due to minimal thermal lag</li>
+<li>Epoxy-encapsulated electronics for ceiling or wall mounting</li>
+<li>Self-restoring operation with repeatable accuracy for easy testing</li>
+<li>Alarm LED on the detector turns on steady in alarm</li>
+<li>Direct-connect: wiring attaches to the detector terminals; mechanical adapter plate supplied</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Simplex</li>
+<li><strong>Part Number:</strong> 4098-9403</li>
+<li><strong>Type:</strong> Conventional fixed-temperature heat detector, direct connect</li>
+<li><strong>Rating:</strong> 200°F (93°C)</li>
+<li><strong>Voltage Range:</strong> 15 to 32 VDC, filtered, 30% max. ripple</li>
+<li><strong>Alarm Current:</strong> Up to 100 mA max., limited by the connected IDC</li>
+<li><strong>Spacing:</strong> UL: 60 ft x 60 ft; FM: 15 ft x 15 ft</li>
+<li><strong>Ambient Operating Range:</strong> 32°F to 150°F</li>
+<li><strong>Mounting:</strong> 4"" octagonal box, 1-1/2"" deep min.; not for outdoor use</li>
+<li><strong>Color:</strong> Off-white</li>
+<li><strong>Listings:</strong> UL 521 listed, CSFM listed, FM approved, MEA (NYC) accepted</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Current-limited alarm output works with two-wire initiating device circuits (IDCs).</p>"
+"8829566681312","kidde-g4lfwf-hvm-series-low-frequency-520-hz-horn-strobe","UPDATE","<p>The Kidde G4LFWF-HVM is a Genesis G4LF Series horn strobe in white with ""FIRE"" marking. It pairs a 520 Hz low-frequency tone with a multi-candela strobe for sleeping rooms and other spaces where codes call for low-frequency audible signals. It installs on the wall for indoor public-mode notification.</p>
+<h3>Key Features</h3>
+<ul>
+<li>520 Hz low-frequency tone, factory set to Temporal 3 with a jumper option for continuous (coded) output</li>
+<li>High or low dB output (low setting is about 5 dB lower)</li>
+<li>Field-selectable strobe: 15, 30, 75 or 110 cd, with the setting visible through a side window</li>
+<li>Genesis FullLight strobe technology for even light distribution</li>
+<li>Ultra-slim profile, about one inch from the wall, with no visible mounting screws</li>
+<li>Synchronizes with other Genesis audible and visible signals when used with a compatible sync source</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Kidde</li>
+<li><strong>Part Number:</strong> G4LFWF-HVM</li>
+<li><strong>Series:</strong> Genesis G4LF</li>
+<li><strong>Color / Marking:</strong> White, ""FIRE""</li>
+<li><strong>Audible Frequency:</strong> 520 Hz</li>
+<li><strong>Candela:</strong> 15 / 30 / 75 / 110 cd</li>
+<li><strong>Operating Voltage:</strong> 24 VDC or 24 VFWR (16–33 V)</li>
+<li><strong>Dimensions:</strong> 6.5"" H x 5"" W x 1"" D</li>
+<li><strong>Mounting:</strong> 4"" square electrical box with supplied spacer, or EG4B surface-mount box</li>
+<li><strong>Wire Size:</strong> 12–18 AWG</li>
+<li><strong>Operating Environment:</strong> 32°F to 120°F (0°C to 49°C), 0–93% RH non-condensing</li>
+<li><strong>Listings:</strong> UL 464 (low-frequency audible), UL 1971 (strobe)</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Compatible sync sources include VM and VS Series life safety systems, FX Series fire alarm control panels, GSA-CC1S, GSA-MCC1S, SIGA-CC2A, GSA-MCC2A and EG1M-RM modules, and MIRBPS6A, MIRBPS10A, APS6A and APS10A power supplies.</p>"
+"7970716680416","simplex-4098-9772-sounder-base","UPDATE","<p>Sleeping areas such as hotel rooms and dormitories often need a low-frequency alarm at the point of detection. The Simplex 4098-9772 meets that need: it is a TrueAlarm addressable sensor base with a built-in 520 Hz sounder. It uses a single IDNet address and gets communications and sensor power from the IDNet channel.</p>
+<h3>Key Features</h3>
+<ul>
+<li>Low-frequency sounder output: 520 Hz at 85 dBA</li>
+<li>Accepts a TrueAlarm photoelectric, photo/heat or heat sensor (ordered separately)</li>
+<li>Sounder can be supervised and coded by compatible NACs for synchronized temporal, march time or other coding</li>
+<li>Address is set at the base, so it stays with the location when the sensor is removed</li>
+<li>Automatic sensor type identification and magnetic test function</li>
+<li>Integral red LED pulses for normal communication and stays on for alarm or trouble</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Simplex</li>
+<li><strong>Part Number:</strong> 4098-9772</li>
+<li><strong>Type:</strong> TrueAlarm sensor base with 520 Hz sounder</li>
+<li><strong>Sounder Output:</strong> 520 Hz at 85 dBA</li>
+<li><strong>Addressing:</strong> Single IDNet address (multi-point device)</li>
+<li><strong>Sounder Power:</strong> Separate 24 VDC system power or NAC connection required</li>
+<li><strong>Mounting:</strong> Ceiling or wall</li>
+<li><strong>Listings:</strong> UL 268 and UL 464 listed (sounder also listed to UL 464 as an audible notification appliance); ULC S529; CSFM listed; FM approved</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Works with Simplex TrueAlarm sensors on IDNet systems, including the 4007ES, 4010ES and 4100ES control units. Listed for Special Application when used with a compatible NAC circuit.</p>"
+"9721845776608","vesda-vps-100us-ul","UPDATE","<p>Aspirating smoke detection systems need a dependable, supervised 24 VDC source, and the VESDA VPS-100US-UL power supply provides it. It automatically adjusts to a 120 VAC or 220 VAC input and delivers operating power with battery backup to VESDA and VESDA-E detectors and other compatible Xtralis devices.</p>
+<h3>Key Features</h3>
+<ul>
+<li>Automatically adjusts to 120 VAC or 220 VAC input</li>
+<li>Three individually protected, power-limited 24 VDC outputs</li>
+<li>1.5 A continuous supply current at 24 VDC with a filtered, electronically regulated output</li>
+<li>Built-in charger for sealed lead acid or gel batteries, with automatic switchover to standby batteries when AC fails</li>
+<li>AC fail, low AC (brown-out) and battery supervision</li>
+<li>Two separate Form C relay contacts (remote and local) report power faults</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> VESDA (Xtralis / Honeywell)</li>
+<li><strong>Part Number:</strong> VPS-100US-UL</li>
+<li><strong>Input:</strong> 120 VAC / 60 Hz or 220 VAC / 60 Hz, auto-adjusting</li>
+<li><strong>Output:</strong> Three power-limited 24 VDC outputs; 1.5 A continuous</li>
+<li><strong>Batteries:</strong> Holds two 12 V, 12 Ah sealed lead acid batteries (sold separately)</li>
+<li><strong>Fault Relays:</strong> Two Form C (remote and local): AC loss, low AC, loss of battery voltage, output short circuit</li>
+<li><strong>Environment:</strong> Indoor, dry locations</li>
+<li><strong>Listings:</strong> UL 864; ULC-S527</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Powers VESDA-E VEU, VEP and VES Series detectors; VESDA VLF, VLI, VLP, VLC and VLS Series detectors; VESDA/VESDA-E remote accessories; OSID beam detectors; and VESDA Sensepoint XCL.</p>"
+"7970733818080","edwards-io64g","UPDATE","<p>Built for small to mid-sized buildings, the Edwards IO64G is a single-loop intelligent fire alarm control panel from the iO Series. It supports up to 64 intelligent devices and two Class B notification appliance circuits. This model has a gray door, runs on 115 VAC and has English-language operation.</p>
+<h3>Key Features</h3>
+<ul>
+<li>One intelligent device loop supporting up to 64 Signature Series detectors and modules; Class A wiring optional with a module</li>
+<li>Two Class B NACs, 2.5 A each, with Genesis horn silence over two wires and UL 1971 strobe synchronization</li>
+<li>Electronic addressing with automatic device mapping</li>
+<li>4 x 20 character backlit LCD with two programmable switches</li>
+<li>Supports up to eight serial remote annunciators</li>
+<li>Options include a dual-line dialer (SA-DACT), Ethernet port (SA-ETH) and Class A adapter (SA-CLA)</li>
+</ul>
+<h3>Specifications</h3>
+<ul>
+<li><strong>Manufacturer:</strong> Edwards</li>
+<li><strong>Part Number:</strong> IO64G</li>
+<li><strong>Loops:</strong> 1 loop, 64 intelligent devices max.</li>
+<li><strong>NACs:</strong> 2 Class B, 2.5 A each</li>
+<li><strong>Power Supply:</strong> 4.25 A</li>
+<li><strong>Primary Power:</strong> 115 VAC</li>
+<li><strong>Batteries:</strong> Cabinet holds up to (2) 10 Ah batteries</li>
+<li><strong>Relay Contacts:</strong> Form C alarm and trouble; Form A supervisory (24 VDC @ 1 A)</li>
+<li><strong>Enclosure:</strong> Surface mount, gray door</li>
+<li><strong>Language:</strong> English</li>
+<li><strong>Operating Environment:</strong> 32°F to 120°F (0°C to 49°C); 0–93% RH non-condensing</li>
+<li><strong>Agency Listings:</strong> UL, CSFM, ULC</li>
+</ul>
+<h3>Compatibility</h3>
+<p>Supports Edwards Signature Series intelligent detectors, modules and bases, R-Series remote annunciators, and Genesis notification appliances.</p>"
