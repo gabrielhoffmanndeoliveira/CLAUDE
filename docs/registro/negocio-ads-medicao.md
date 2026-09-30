@@ -660,9 +660,14 @@ Revisit the June–August 2026 cohort around **March 2027**, when it reaches the
 ### GA4: organic revenue 2025 vs 2026 (30 Sep 2026)
 
 - **Route:** Windsor `googleanalytics4`, account **462333257** ("TFAS OCT 24"; the connector also serves thehousesupplier.com, 548320000). Fields: `year_month`, `session_default_channel_group`, `purchase_revenue`, `transactions`, `sessions`.
-- **Coverage trap:** despite its name, the property has **no data before Aug 2025** in any channel (Feb 2025 shows 4 sessions and $0), so **full-year 2025 cannot be measured from GA4.**
+- **[CORRIGIDO 30 Sep — see below]** Coverage trap: via Windsor the property returned **no data before Aug 2025** in any channel (Feb 2025 shows 4 sessions and $0).
 - **Organic Search purchase revenue:**
   - 2025, Aug–Dec: 101.6k / 105.8k / 105.4k / 90.7k / 137.4k = **$540.8k**.
   - 2026, Jan–Sep (to the 29th): 116.2k / 164.3k / 141.1k / 145.1k / 159.5k / 125.6k / 174.7k / 233.0k / 246.8k = **$1.506M**.
 - **Same months:** Aug+Sep 2025 = $207.3k against Aug+Sep 2026 = $479.8k (**+131%**). Organic transactions: 155+172 against 374+428.
 - **Contamination caveat:** growth began before the enrichment work (see the measurement rules). The hold-out remains the evidence base. GA4 revenue is attributed revenue, not the ERP figure.
+- **Correction (30 Sep, owner screenshots of the GA4 UI):** the GA4 UI (property "TFAS OCT 18 24") **does have 2025 data from January**.
+  - Its Reports-snapshot "Organic traffic" comparison shows **2025 full year: $1.6M, 3K purchases**, and **2026 Jan 1 – Sep 30: $1.8M, 3.4K purchases**.
+  - So "the property has no data before Aug 2025" was wrong. The gap is in the Windsor route: the history it returned is about 14 months, possibly a connector or plan history limit. Whether Windsor's "TFAS OCT 24" is the same property as "TFAS OCT 18 24" is unconfirmed.
+  - The definitions also differ. The UI's "Organic traffic" comparison lists sources such as google/product_sync (free listings) and chatgpt.com/organic, and may be user-scoped. The Windsor pull used session channel = Organic Search ($1.506M for 2026 YTD against the UI's $1.8M).
+  - **For year totals, trust the UI**, or pull via a route with full history.
