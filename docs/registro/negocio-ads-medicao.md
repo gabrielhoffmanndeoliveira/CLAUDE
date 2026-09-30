@@ -656,3 +656,13 @@ Revisit the June–August 2026 cohort around **March 2027**, when it reaches the
 - **Rule outcome is ambiguous:** 74.7% on the week says "worked, keep"; 56% without the spike day says "go to 400%". **Recommendation: hold at 500% and re-read on 6 Oct**, the date already set for the combined tROAS and conversion-switch read. First explain the 28 Sep spike from the Ads change history (a budget change or a new tROAS?).
 - **MER and the Ads-conversions / Shopify-orders ratio NOT computed:** the Shopify MCP connector is now attached to **The House Supplier** (get-shop-info: thehousesupplier.com, `1vy05a-x6.myshopify.com`). Its ShopifyQL returned THS figures (62 orders in 15 days), which are not TFAS. The coordinator did not switch shops unilaterally (shared connector). The owner decides on switching, or the numbers come from the TFAS admin.
 - The 264-product PMax stays queued until this read closes.
+
+### GA4: organic revenue 2025 vs 2026 (30 Sep 2026)
+
+- **Route:** Windsor `googleanalytics4`, account **462333257** ("TFAS OCT 24"; the connector also serves thehousesupplier.com, 548320000). Fields: `year_month`, `session_default_channel_group`, `purchase_revenue`, `transactions`, `sessions`.
+- **Coverage trap:** despite its name, the property has **no data before Aug 2025** in any channel (Feb 2025 shows 4 sessions and $0), so **full-year 2025 cannot be measured from GA4.**
+- **Organic Search purchase revenue:**
+  - 2025, Aug–Dec: 101.6k / 105.8k / 105.4k / 90.7k / 137.4k = **$540.8k**.
+  - 2026, Jan–Sep (to the 29th): 116.2k / 164.3k / 141.1k / 145.1k / 159.5k / 125.6k / 174.7k / 233.0k / 246.8k = **$1.506M**.
+- **Same months:** Aug+Sep 2025 = $207.3k against Aug+Sep 2026 = $479.8k (**+131%**). Organic transactions: 155+172 against 374+428.
+- **Contamination caveat:** growth began before the enrichment work (see the measurement rules). The hold-out remains the evidence base. GA4 revenue is attributed revenue, not the ERP figure.
