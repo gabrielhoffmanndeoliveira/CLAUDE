@@ -5054,3 +5054,24 @@ Menu v2 (Gabriel, pelo admin): Angle Stops, PEX Expansion Tools, Rheem 40 Gallon
   Bulk + comparacao com o xlsx: titulo e SEO 11/11 exatos; body 8 exatos + 3 so por normalizacao
   de entidade (&reg; &ndash; &#39;). **Regras intactas** em todas (UPDATE sem colunas de Source
   nao mexe nas condicoes; Source: Command padrao = MERGE). Fornalhas: CSV ainda nao importado.
+
+### §79 — reavaliacao do Target ROAS 400% (07/10/2026, lembrete agendado)
+
+Campanha SHOPPING GABRIEL 8-3-2026, conta 192-200-0533; GA4 548320000 (Paid Shopping).
+| | 15-24/09 (antes) | 26/09-05/10 (tROAS 400%) | depois, sem 05/10 |
+|---|---|---|---|
+| gasto | $2.647 ($265/dia) | $2.924 ($292/dia) | $2.545 |
+| cliques / CPC | 2.594 / $1,02 | 3.283 / $0,89 | 2.816 / $0,90 |
+| ROAS Ads | 3,79 | 4,56 | 2,51 |
+| receita GA4 / pedidos | $8.803 / 29 | $12.527 / 28 | $5.567 / 24 |
+| ROAS GA4 | 3,33 | 4,28 | 2,19 |
+| contribuicao total | +$21 | +$871 | -$858 |
+| **contribuicao dia mediano** | **-$63** | **-$78** | -$130 |
+| ROAS GA4 dia mediano | 2,52 | 2,42 | 1,90 |
+Orders Shopify (todas as origens, sem canceladas/teste): 52 -> 53.
+O periodo so fecha positivo por **#THS1128** (05/10 22:45 ET, $6.370 em produto,
+3x Honeywell Home DR90A3000/U, google/cpc). Sem ela, ROAS GA4 2,19.
+Gasto passou de $208/dia: media $292 e $372-379 em 04-05/10 -> conferir se o budget mudou.
+Campanha nova **THS Search - Heating Part Numbers** desde 02/10: $416 em 4 dias, 1 venda
+de $118,65 no GA4 (contribuicao ~ -$380). Nao saiu desta sessao.
+Recomendacao: subir para 420% (equilibrio na escala do Ads). Nao baixar para 360%.
