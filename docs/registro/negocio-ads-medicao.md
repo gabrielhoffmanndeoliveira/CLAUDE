@@ -671,3 +671,19 @@ Revisit the June–August 2026 cohort around **March 2027**, when it reaches the
   - So "the property has no data before Aug 2025" was wrong. The gap is in the Windsor route: the history it returned is about 14 months, possibly a connector or plan history limit. Whether Windsor's "TFAS OCT 24" is the same property as "TFAS OCT 18 24" is unconfirmed.
   - The definitions also differ. The UI's "Organic traffic" comparison lists sources such as google/product_sync (free listings) and chatgpt.com/organic, and may be user-scoped. The Windsor pull used session channel = Organic Search ($1.506M for 2026 YTD against the UI's $1.8M).
   - **For year totals, trust the UI**, or pull via a route with full history.
+
+### Amazon Seller Central: 12-month sales snapshot (9 Oct 2026)
+
+- **Source:** Amazon SP-API `sales_getOrderMetrics` via the Selling Partner MCP. Merchant A7TPFXHQ93351, marketplace ATVPDKIKX0DER (Amazon.com), monthly granularity, America/New_York, ordered product sales.
+  - The API serves at most two years of history, so Oct 2024 counts from 9 Oct only.
+- **Last 12 months (Oct 25 – Sep 26):** $2,106,050, 9,496 orders.
+- **Previous 12 months (Oct 24 – Sep 25):** $3,734,194, 16,912 orders.
+- **Change:** sales −43.6%, orders −43.9%.
+- **Jun–Sep:** $1,316,962 → $486,439 (−63.1%). Every month of 2026 is below the same month of 2025, and Oct 25 is the only one that is close ($261k against $266k).
+- **Mix shift:** the average unit price rose from about $58–67 to $79–97 from Jun 2026, while units fell from 3,000–6,500 a month to 1,300–1,700. Volume on low-priced items is being lost.
+  - Hypotheses, none tested: lost featured offer (Buy Box), stockouts, listing suppression.
+- **October 2026 to date (1–8 Oct):** $41,214.60, 137 orders, 424 units.
+- **Next diagnostic, owner's call:** a featured offer check on the top SKUs by previous-year revenue (`productPricing_getCompetitiveSummary`, throttled to about 1 call per 30 s), plus a listing-issues scan.
+- **Tool notes:**
+  - The Windsor `amazon_sp` connector also holds a UK account (AUMZB4S0IMCJN-GB), so always filter to the US account.
+  - Amazon write tools need explicit approval for each change.
