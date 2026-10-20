@@ -5075,3 +5075,34 @@ Gasto passou de $208/dia: media $292 e $372-379 em 04-05/10 -> conferir se o bud
 Campanha nova **THS Search - Heating Part Numbers** desde 02/10: $416 em 4 dias, 1 venda
 de $118,65 no GA4 (contribuicao ~ -$380). Nao saiu desta sessao.
 Recomendacao: subir para 420% (equilibrio na escala do Ads). Nao baixar para 360%.
+
+## §83 — §71 reaberto: as 607 descricoes Resideo NAO moveram o organico (20/10/2026)
+
+Lembrete agendado em 23/09. **Fonte trocada**: o Windsor bloqueou leitura (conta voltou ao
+plano Free: 1 conta incluida, 6 conectadas; devolve texto no lugar de numero). Usei o
+Search Console pelo Ahrefs (projeto 10234181, busca web). E outra metrica que o §71
+(GA4 sessoes) — comparar so dentro desta secao. GSC tem dado ate 16/10.
+**Shopify MCP estava na TFAS** (`the-fire-alarm-supplier`) em 20/10: dado descartado, nada
+mutado, `switch-shop` nao chamado. Gabriel precisa rodar `/mcp`.
+
+Os 607 = handles de `resideo_bloco2..9_descricao_IMPORTAR.csv` (486) + termostatos (20) +
+zone_dampers (19) + zone_valves (82). Consulta por URL exata em 3 lotes (o Ahrefs corta
+gsc-pages em **500 linhas**; o "antes" veio completo com 402).
+
+| Busca web (GSC) | 03/08-30/08 | 18/09-16/10 | crescimento |
+|---|---|---|---|
+| Resideo 607: paginas com impressao | 5 | 122 | |
+| Resideo 607: impressoes / cliques | 17 / 0 | 368 / 3 | x22 |
+| Resto das paginas de produto: impressoes / cliques | 796 / 1 | 28.396 / 74 | **x36** |
+| Site inteiro: impressoes / cliques | 8.801 / 35 | 138.361 / 953 | x16 |
+- Resideo e ~4% do catalogo e ficou com **1,3%** das impressoes de produto (era 2,1%).
+  Impressao por pagina: Resideo 0,61 contra ~2,0 no resto.
+- O site todo cresceu ~16x (indexacao de loja nova). As descricoes nao fizeram o Resideo
+  andar mais rapido que isso; andou mais devagar que o resto do catalogo.
+- As buscas que chegam nas paginas Resideo sao part number ("l8148e1265", "c7189u",
+  "honeywell th6220wf2006"), em posicao 20-40. Bate com §72: PN e onde a loja compete.
+- DR90A3000/U (order de $6.370) e T498B1512/U nao aparecem no organico web: venderam por Shopping.
+- Guias: copper 5 impr, pvc-cpvc 9, strainer 1, **0 clique** no GSC. O que traz organico
+  em /pages/ e about-us (83 impr, 3 cliques) e contact-us.
+- Ressalva: o GSC do Ahrefs mistura superficie de Shopping (§72); a posicao media de produto
+  ~5-12 indica isso. Afeta os dois grupos igual.
