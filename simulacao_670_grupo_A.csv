@@ -1,0 +1,39 @@
+sku,vendor,ptype,price,lb_loja,lb_fornecedor,usd_lb,teto_lb,handle,variant_id,product_id
+BOSC-BP048-1-VTC-FRT-TDBD,Bosch,Wall Mount Head Units,17245.5,2.0,,8622.8,581.17,4-ton-water-to-air-unit,44350356029543,7715252797543
+GVLF-AE7722-3-1000,Gruvlok,Gruvlok Fittings,12536.91,0.52,,24109.4,422.49,10-grvd-bfv-e-grade-disc-expy-ctd-g-o,44350753669223,7715451928679
+GVLF-AE7722-3-800,Gruvlok,Gruvlok Fittings,9451.77,0.52,,18176.5,318.52,8-grvd-bfv-e-grade-disc-expy-ctd-g-o,44350753701991,7715451961447
+GVLF-A7072SS-600.250-304,Gruvlok,Gruvlok Fittings,8982.48,0.52,,17274.0,302.71,6-x-2-1-2-concentric-reducer-304-stainless-steel-gr-x-gr,44350752850023,7715451207783
+MIDE-MHA-V16WD2MN8-B2,Midea,Heat Pumps,8164.41,2.19,,3728.0,275.14,midea-m-thermal-split-air-to-water-heat-pump-outdoor-unit,44350908596327,7715530506343
+BOSC-BMS500-AAM048-1CSXHD,Bosch,Outdoor Units (Compressor/Condenser),8051.15,7.0,,1150.2,271.32,4-ton-ductless-mini-split-multi-zone-outdoor-heat-pump-max-performance-r454b-48-000-btu-r454b-208-230v,44350354489447,7715252109415
+BOSC-BMS500-AAM036-1CSXHD,Bosch,Outdoor Units (Compressor/Condenser),7165.65,7.0,,1023.7,241.48,3-ton-ductless-mini-split-multi-zone-outdoor-heat-pump-max-performance-r454b-36-000-btu-r454b-208-230v,44350353440871,7715251945575
+MIDE-HB-A160CMDM30GN8-B2,Midea,Heat Pumps,6835.32,2.19,,3121.2,230.35,midea-m-thermal-split-air-to-water-heat-pump-indoor-unit,44350908563559,7715530473575
+MILW-2922-22M,Milwaukee Tools,Press Tools and Kits,6712.99,6.31,,1063.9,226.23,m18-force-logic-press-tool-kit-w-one-key-with-1-4-7-8-streamline-acr-jaws,44350915706983,7715536765031
+BOSC-BMS500-AAM048-1CSXRD,Bosch,Outdoor Units (Compressor/Condenser),6170.78,7.0,,881.5,207.96,4-ton-ductless-mini-split-multi-zone-outdoor-heat-pump-regular-performance-r454b-48-000-btu-r454b-208-230v,44350354522215,7715252142183
+GVLF-AE7721-3-600,Gruvlok,Gruvlok Fittings,6004.12,0.52,,11546.4,202.34,6-grvd-bfv-e-grade-disc-epoxy-coated,44350753636455,7715451895911
+MILW-49-16-2697X,Milwaukee Tools,Press Jaw Kits,6000.12,0.73,,8219.3,202.2,1-2-2-ips-p-pivoting-press-ring-kit-for-m18-force-logic-press-tools,44350938677351,7715555672167
+BURN-X-PV4N-T02,US Boiler,Cast Iron Gas Boilers,5865.28,2.19,,2678.2,197.66,x-pv-series-105-000-btu-input-cast-iron-sectonal-power-vented-boiler-84-efficient-includes-grundfos-pump-elevation-range-0-2-000,44353436549223,7716786602087
+MILW-MXF301-2CP,Milwaukee Tools,Core Drills (MX),5562.51,0.73,,7619.9,187.46,mx-fuel-handheld-core-drill-kit,44350948081767,7715561865319
+BOSC-BMS500-AAM027-1CSXHD,Bosch,Outdoor Units (Compressor/Condenser),5157.89,7.0,,736.8,173.82,2-1-2-ton-ductless-mini-split-multi-zone-outdoor-heat-pump-max-performance-r454b-30-000-btu-r454b-208-230v,44350352621671,7715251748967
+ENVI-EWS-SPECTRUM-V2,Environmental Water Systems,Water Filters,5029.02,1.44,,3492.4,169.48,whole-home-filter-system,44350696685671,7715412443239
+MILW-49-16-2690X,Milwaukee Tools,Press XL Jaw Kits,5000.13,0.73,,6849.5,168.5,2-1-2-4-cts-v-pivoting-press-ring-kit-for-m18-force-logic-press-tools,44350938611815,7715555606631
+MILW-49-16-2683,Milwaukee Tools,Press Jaw Kits,5000.1,0.73,,6849.5,168.5,1-2-2-ips-p-jaw-and-pivoting-ring-kit-for-m18-force-logic-press-tools,44350938546279,7715555573863
+GVLF-A7061SS-600.200-304,Gruvlok,Gruvlok Fittings,4986.83,0.52,,9590.1,168.06,6-x-2-tee-304-stainless-steel-gr-x-gr-x-gr,44350752260199,7715450716263
+BOSC-BMS500-AAM036-1CSXRD,Bosch,Outdoor Units (Compressor/Condenser),4747.34,7.0,,678.2,159.99,3-ton-ductless-mini-split-multi-zone-outdoor-heat-pump-regular-performance-r454b-36-000-btu-r454b-208-230v,44350354456679,7715252076647
+MILW-49-16-2692X,Milwaukee Tools,Press Jaw Kits,4571.58,0.73,,6262.4,154.06,1-2-2-cts-v-pivoting-press-ring-kit-for-m18-force-logic-press-tools,44350938644583,7715555639399
+TOTO-SW4549AT60-01,Toto,Toilet Seats,4499.04,10.7,,420.5,151.62,toto-sw-washlet-ready-square-electronic-bidet-toilet-seat-with-auto-flush-ready-cotton-white-sw4549at60-01,44353397686375,7716753113191
+BOSC-BMS500-AAM018-1CSXHD,Bosch,Outdoor Units (Compressor/Condenser),4455.16,7.0,,636.5,150.14,1-1-2-ton-ductless-mini-split-multi-zone-outdoor-heat-pump-max-performance-r454b-24-000-btu-r454b-208-230v,44350349934695,7715251421287
+MPEX-3261100,MrPEX Systems,Manifolds (Radiant Heating),4158.19,0.8,,5197.7,140.13,11-branches-1-1-2-stainless-steel-manifold-assembly-w-inline-flowmeter,44351003590759,7715599581287
+ROHL-U.4719L-ULB-2,Perrin & Rowe,Bridge Faucets,3861.0,5.0,,772.2,130.12,georgian-era-bridge-kitchen-faucet-with-side-spray-in-unlacquered-brass,44351279792231,7715718299751
+ELKA-LZSTL8WSLP,Elkay,Bottle Fillers & Fountains,3817.65,2.0,,1908.8,128.65,elkay-enhanced-ezh2o-bottle-filling-station-versatile-bi-level-ada-cooler-filtered-refrigerated-light-gray,44350692098151,7715410477159
+IBCT-SFC199-1,IBC,Combination Heating & DHW Boilers,3722.16,90.0,,41.4,125.44,sfc-combi-199-000-btu-input-combination-boiler-95-efficient-no-pump-included-elevation-range-0-10-000,44350821236839,7715478503527
+IBCT-SFC160-1,IBC,Combination Heating & DHW Boilers,3629.68,90.0,,40.3,122.32,sfc-combi-160-000-btu-input-combination-boiler-95-efficient-no-pump-included-elevation-range-0-10-000,44350821171303,7715478437991
+GVLF-A7064SS-600.200-TEE-1004,Gruvlok,Gruvlok Fittings,3592.97,0.52,,6909.6,121.08,6-x-2-tee-304-stainless-steel-gr-x-gr-x-mpt,44350752522343,7715450912871
+NAVI-NPF700-100H5CH,Navien,Hydro Furnaces,3570.0,2.19,,1630.1,120.31,14-100k-btu-condensing-hydro-furnace-horizontal-unit,44351192170599,7715669835879
+NAVI-NPF700-100U5CH,Navien,Hydro Furnaces,3570.0,2.19,,1630.1,120.31,14-100k-btu-condensing-hydro-furnace-upflow-unit,44351192203367,7715669868647
+VEGA-57081,Viega,Press Tools and Kits,3485.55,0.9,,3872.8,117.46,2-1-2-actuator-for-megapress-tool,44353473314919,7716821008487
+PEXG-PG803101,PexGun,Tools (Radiant Heating),3345.0,2.19,,1527.4,112.73,complete-kit-pg-101-gun-2-bat-chrgr,44351279824999,7715718332519
+PDWV-100045EL-P,Charlotte Pipe,PVC DWV Fittings,3250.95,0.81,,4013.5,109.56,10-pvc-dwv-45-elbow-h-x-h,44350437326951,7715311747175
+FRAN-CUX16021-W,Franke,Undermount Sinks,3249.35,1.0,,3249.3,109.5,franke-culinary-center-35-in-x-21-in-19-gauge-stainless-steel-undermount-double-bowl-kitchen-sink-workstation-cux16021-w,44350701928551,7715417325671
+GVLF-A7788SS-600-316,Gruvlok,Gruvlok Fittings,3242.65,0.5,,6485.3,109.28,6-flange-adapter-316-stainless-steel-gr-x-flange,44350753407079,7715451699303
+GVLF-AE7721-3-400,Gruvlok,Gruvlok Fittings,3192.54,0.52,,6139.5,107.59,4-grvd-bfv-e-grade-disc-epoxy-coated,44350753603687,7715451863143
+MLWV-2885-M-600S,Milwaukee Valve,Gate Valves,3071.87,1.44,,2133.2,103.52,6-flange-x-flange-cast-iron-gate-valve-125-swp-200-wog-os-y-stem-bronze-seat-solid-wedge-disc,44350949523559,7715563110503

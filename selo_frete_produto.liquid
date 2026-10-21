@@ -1,0 +1,20 @@
+{%- assign ships_free = false -%}
+{%- if product.tags contains 'free-ship-eligible' and product.available -%}{%- assign ships_free = true -%}{%- endif -%}
+{%- if ships_free -%}
+<div style="display:flex;align-items:flex-start;gap:10px;padding:12px 14px;margin:0 0 16px;border:1px solid #cfe6d6;border-radius:6px;background:#f2f9f4">
+  <span aria-hidden="true" style="flex:0 0 auto;line-height:1.35;color:#1c7b36;font-weight:700">&#10003;</span>
+  <span style="line-height:1.35;color:#1c7b36">
+    <strong>Ships free on orders over $99.</strong>
+    <a href="/collections/free-shipping-eligible" style="color:#1c7b36">See all eligible items</a>
+  </span>
+</div>
+{%- else -%}
+<div style="display:flex;align-items:flex-start;gap:10px;padding:12px 14px;margin:0 0 16px;border:1px solid #e8e8e8;border-radius:6px;background:#fafafa">
+  <span aria-hidden="true" style="flex:0 0 auto;line-height:1.35;color:#8a9297;font-weight:700">&#8226;</span>
+  <span style="line-height:1.35;color:#616161">
+    <strong>Shipping calculated at checkout.</strong>
+    This item is heavy or oversized, so it ships at the carrier rate rather than free.
+    <a href="/collections/free-shipping-eligible" style="color:#3f6ab1">See items that ship free</a>
+  </span>
+</div>
+{%- endif -%}

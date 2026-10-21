@@ -1,0 +1,23 @@
+perfil,zona,metodo,tipo,preco_ou_taxa,condicao_peso_min_lb,condicao_peso_max_lb,condicao_preco_min,condicao_preco_max,ativo
+General profile,US Continental,Free shipping over $99,DeliveryRateDefinition,0.00,,,99.00,999999.00,true
+General profile,US Continental,ups_shipping,DeliveryParticipant,65% + $0.00 fixo,,,,,true
+General profile,US Continental,Intuitive Shipping,DeliveryParticipant,0% + null,,,,,true
+General profile,US Outside,ups_shipping,DeliveryParticipant,65% + $0.00 fixo,,,,,true
+General profile,US Outside,Intuitive Shipping,DeliveryParticipant,0% + null,,,,,true
+THS Freight & Oversize,US Band A - West,"Freight - oversize length, up to 70 lb",DeliveryRateDefinition,179.00,0,70,,,true
+THS Freight & Oversize,US Band A - West,Freight 70 to 150 lb,DeliveryRateDefinition,229.00,70,150,,,true
+THS Freight & Oversize,US Band A - West,Freight 150 to 300 lb,DeliveryRateDefinition,349.00,150,300,,,true
+THS Freight & Oversize,US Band A - West,Freight 300 to 600 lb,DeliveryRateDefinition,469.00,300,600,,,true
+THS Freight & Oversize,US Band A - West,Freight over 600 lb,DeliveryRateDefinition,629.00,600,,,,true
+THS Freight & Oversize,US Band B - Southwest and Mountain,"Freight - oversize length, up to 70 lb",DeliveryRateDefinition,229.00,0,70,,,true
+THS Freight & Oversize,US Band B - Southwest and Mountain,Freight 70 to 150 lb,DeliveryRateDefinition,289.00,70,150,,,true
+THS Freight & Oversize,US Band B - Southwest and Mountain,Freight 150 to 300 lb,DeliveryRateDefinition,439.00,150,300,,,true
+THS Freight & Oversize,US Band B - Southwest and Mountain,Freight 300 to 600 lb,DeliveryRateDefinition,589.00,300,600,,,true
+THS Freight & Oversize,US Band B - Southwest and Mountain,Freight over 600 lb,DeliveryRateDefinition,789.00,600,,,,true
+THS Freight & Oversize,US Band C - Rest of country,"Freight - oversize length, up to 70 lb",DeliveryRateDefinition,279.00,0,70,,,true
+THS Freight & Oversize,US Band C - Rest of country,Freight 70 to 150 lb,DeliveryRateDefinition,349.00,70,150,,,true
+THS Freight & Oversize,US Band C - Rest of country,Freight 150 to 300 lb,DeliveryRateDefinition,529.00,150,300,,,true
+THS Freight & Oversize,US Band C - Rest of country,Freight 300 to 600 lb,DeliveryRateDefinition,709.00,300,600,,,true
+THS Freight & Oversize,US Band C - Rest of country,Freight over 600 lb,DeliveryRateDefinition,949.00,600,,,,true
+THS Standard - no free shipping,US Continental,ups_shipping,DeliveryParticipant,65% + $0.00 fixo,,,,,true
+THS Standard - no free shipping,US Outside,ups_shipping,DeliveryParticipant,65% + $0.00 fixo,,,,,true

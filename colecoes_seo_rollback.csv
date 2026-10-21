@@ -1,0 +1,8 @@
+handle,acao_aplicada,rollback,campo,valor_anterior
+flo-by-moen,CRIAR,DELETAR a colecao,-,"NAO EXISTIA (HTTP 404 em 16/09/2026)"
+water-heater-shut-off-valves,CRIAR,DELETAR a colecao,-,"NAO EXISTIA (HTTP 404 em 16/09/2026)"
+floodstop,ATUALIZAR,restaurar os 3 campos abaixo,title,"FloodStop"
+floodstop,ATUALIZAR,restaurar os 3 campos abaixo,seo.title,"FloodStop Plumbing & HVAC Supplies | The House Supplier"
+floodstop,ATUALIZAR,restaurar os 3 campos abaixo,seo.description,"Shop FloodStop products in stock at The House Supplier. Fast U.S. shipping on plumbing, HVAC, fittings, valves and more."
+floodstop,ATUALIZAR,restaurar os 3 campos abaixo,descriptionHtml,"<p>FloodStop products stocked at The House Supplier, covering Leak Detection Valves — 4 items.</p>"
+floodstop,ATUALIZAR,nao alterado,ruleSet,"VENDOR EQUALS FloodStop"

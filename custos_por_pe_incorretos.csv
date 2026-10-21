@@ -1,0 +1,295 @@
+sku,titulo,custo_atual_lb_por_pe,comprimento_ft,custo_correto_estimado,preco_usd,markup_aparente_pct
+ANVI-AS100-EH-20-PGV,"Anvil 3-1/4"" x 20' Galvanized Slotted Strut",12.05,20.0,241.0,361.6,2901
+ANVI-AS200-10-PGV,"Anvil 1-5/8"" x 10' Galvanized Solid Strut",6.53,10.0,65.3,97.9,1399
+ANVI-AS200-20-PGV,"Anvil 1-5/8"" x 20' Galvanized Solid Strut",6.53,20.0,130.6,195.8,2898
+ANVI-AS200-EH-10-304SS,"Anvil 1-5/8"" x 10' Stainless Steel Strut with Elongaged Holes",19.84,10.0,198.4,297.6,1400
+ANVI-AS200-EH-10-ZTC,"Anvil 1-5/8"" x 10' Gold Slotted Strut",5.09,10.0,50.9,76.3,1399
+ANVI-AS200-EH-BTB-20-PGV,"Anvil 1-5/8"" x 20' Back-To-Back Galvanized Slotted Strut",15.58,20.0,311.6,467.4,2900
+ANVI-AS500-EH-10-PGV,"Anvil 13/16"" x 10' Galvanized Slotted Strut",4.26,10.0,42.6,63.9,1400
+ANVI-AS500-EH-10-ZTC,"Anvil 13/16"" x 10' Gold Slotted Strut",5.18,10.0,51.8,77.7,1400
+ANVI-AS500-EH-20-PGV,"Anvil 13/16"" x 20' Galvanized Slotted Strut",4.26,20.0,85.2,127.8,2900
+INSL-118CT,"Armacell 6IL048118 1-1/8"" x 1/2"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",0.85,6.0,5.1,7.62,796
+INSL-118DT,"Armacell 6IL068118 1-1/8"" x 3/4"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",1.53,6.0,9.18,13.74,798
+INSL-118ET,"Armacell 6IL100118 1-1/8"" x 1"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",2.28,6.0,13.68,20.52,800
+INSL-138CT,"Armacell 6IL048138 1-3/8"" x 1/2"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",0.95,6.0,5.7,8.52,797
+INSL-138DT,"Armacell 6IL068138 1-3/8"" x 3/4"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",1.75,6.0,10.5,15.72,798
+INSL-158CT,"Armacell 6IL048158 1-5/8"" x 1/2"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",1.12,6.0,6.72,10.08,800
+INSL-158DT,"Armacell 6IL068158 1-5/8"" x 3/4"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",2.37,6.0,14.22,21.36,801
+INSL-218CT,"Armacell 6IL048218 2-1/8"" x 1/2"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",1.47,6.0,8.82,13.26,802
+INSL-218DT,"Armacell 6IL068218 2-1/8"" x 3/4"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",3.04,6.0,18.24,27.36,800
+INSL-238CT,"Armacell 6IL048238 2-3/8"" x 1/2"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",1.7,6.0,10.2,15.3,800
+INSL-258CT,"Armacell 6IL048258 2-5/8"" x 1/2"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",1.94,6.0,11.64,17.46,800
+INSL-258DT,"Armacell 6IL068258 2-5/8"" x 3/4"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",4.01,6.0,24.06,36.06,799
+INSL-312CT,"Armacell 6IL048348 3-1/2"" x 1/2"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",2.99,6.0,17.94,26.94,801
+INSL-358CT,"Armacell 6IL048358 3-5/8"" x 1/2"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",2.99,6.0,17.94,26.94,801
+INSL-412CT,"Armacell 6IL048448 4-1/2"" x 1/2"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",4.51,6.0,27.06,40.56,799
+INSL-58CT,"Armacell 6IL048058 5/8"" x 1/2"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",0.66,6.0,3.96,5.94,800
+INSL-58DT,"Armacell 6IL068058 5/8"" x 3/4"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",1.05,6.0,6.3,9.48,803
+INSL-78CT,"Armacell 6IL048078 7/8"" x 1/2"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",0.74,6.0,4.44,6.66,800
+INSL-78DT,"Armacell 6IL068078 7/8"" x 3/4"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",1.26,6.0,7.56,11.34,800
+INSL-78ET,"Armacell 6IL100078 7/8"" x 1"" wall, Elastomeric Pipe Insulation with a flexible lap seal closure - 72"" Long",2.05,6.0,12.3,18.42,799
+HDPE-400,"Centennial Plastics FS470170400-20 4"" x 20' HDPE Geothermal Pipe - 160 PSI - SDR 17 CenFuse",9.63,20.0,192.6,289.0,2901
+HDPE-600,"Centennial Plastics FS470170600-20 6"" x 20' HDPE Geothermal Pipe - 160 PSI - SDR 17 CenFuse",20.87,20.0,417.4,626.0,2900
+HDPE-GASH0110200250,"Centennial Plastics GASH01102000250 2"" x 250' Gas Pipe - HDPE 4710 - SDR 11 CenGas",3.4,250.0,850.0,1275.0,37400
+MDPE-1002239,"Centennial Plastics GASM0110075-250 3/4"" x 250' Gas Pipe - MDPE 2708 - SDR 11 CenGas",0.59,250.0,147.5,222.5,37612
+MDPE-1002278,"Centennial Plastics GASM0110200-250 2"" x 250' Gas Pipe - MDPE 2708 - SDR 11 CenGas",2.85,250.0,712.5,1070.0,37444
+MDPE-1031252,"Centennial Plastics GASM0110100-250 1"" x 250' Gas Pipe - MDPE 2708 - SDR 11 CenGas",0.9,250.0,225.0,337.5,37400
+MDPE-GASM01001250250,"Centennial Plastics GASM0100125-250 1-1/4"" x 250' Poly Pipe - MDPE 2708 - SDR 11 CenGas",1.58,250.0,395.0,592.5,37400
+POLY-075-250/100,"Centennial Plastics FL472500075-100 3/4"" x 100' Poly Pipe - 250 PSI - SIDR 7 CenFlo",0.52,100.0,52.0,78.0,14900
+POLY-075-250/300,"Centennial Plastics FL472500075-300 3/4"" x 300' Poly Pipe - 250 PSI - SIDR 7 CenFlo",0.52,300.0,156.0,234.0,44900
+POLY-100-250/100,"Centennial Plastics FL472500100-100 1"" x 100' Poly Pipe - 250 PSI - SIDR 7 CenFlo",0.84,100.0,84.0,126.0,14900
+POLY-100-250/300,"Centennial Plastics FL472500100-300 1"" x 300' Poly Pipe - 250 PSI - SIDR 7 CenFlo",0.84,300.0,252.0,378.0,44900
+POLY-125-250/100,"Centennial Plastics FL472000125-100 1-1/4"" x 100' Poly Pipe - 250 PSI - SIDR 7 CenFlo",1.45,100.0,145.0,217.0,14866
+POLY-125-250/300,"Centennial Plastics FL472000125-300 1-1/4"" x 300' Poly Pipe - 250 PSI - SIDR 7 CenFlo",1.45,300.0,435.0,651.0,44797
+POLY-150-250/100,"Centennial Plastics FL472000150-100 1-1/2"" x 100' Poly Pipe - 250 PSI - SIDR 7 CenFlo",1.98,100.0,198.0,297.0,14900
+POLY-150-250/300,"Centennial Plastics FL472000150-300 1-1/2"" x 300' Poly Pipe - 250 PSI - SIDR 7 CenFlo",1.98,300.0,594.0,891.0,44900
+POLY-200-250/100,"Centennial Plastics FL472000200-100 2"" x 100' Poly Pipe - 250 PSI - SIDR 7 CenFlo",3.26,100.0,326.0,489.0,14900
+POLY-200-250/300,"Centennial Plastics FL472000200-200 2"" x 300' Poly Pipe - 250 PSI - SIDR 7 CenFlo",3.26,300.0,978.0,1467.0,44900
+ABSP-150-10,"Charlotte Pipe ABS 03112 0600 1-1/2"" x 10' - ABS Foam Core Pipe - SCH40",0.9,10.0,9.0,13.5,1400
+ABSP-150-20,"Charlotte Pipe ABS 03112 0800 1-1/2"" x 20' - ABS Foam Core Pipe - SCH40",0.9,20.0,18.0,27.0,2900
+ABSP-200-10,"Charlotte Pipe ABS 03200 0600 2"" x 10' - ABS Foam Core Pipe - SCH40",1.23,10.0,12.3,18.4,1396
+ABSP-200-20,"Charlotte Pipe ABS 03200 0800 2"" x 20' - ABS Foam Core Pipe - SCH40",1.23,20.0,24.6,36.8,2892
+ABSP-300-10,"Charlotte Pipe ABS 03300 0600 3"" x 10' - ABS Foam Core Pipe - SCH40",2.33,10.0,23.3,35.0,1402
+ABSP-300-20,"Charlotte Pipe ABS 03300 0800 3"" x 20' - ABS Foam Core Pipe - SCH40",2.33,20.0,46.6,70.0,2904
+ABSP-400-10,"Charlotte Pipe ABS 03400 0600 4"" x 10' - ABS Foam Core Pipe - SCH40",3.55,10.0,35.5,53.2,1399
+ABSP-400-20,"Charlotte Pipe ABS 03400 0800 4"" x 20' - ABS Foam Core Pipe - SCH40",3.55,20.0,71.0,106.4,2897
+ABSP-600-10,"Charlotte Pipe ABS 03600 0600 6"" x 10' - ABS Foam Core Pipe - SCH40",10.0,10.0,100.0,150.0,1400
+ABSP-600-20,"Charlotte Pipe ABS 03600 0800 6"" x 20' - ABS Foam Core Pipe - SCH40",10.0,20.0,200.0,300.0,2900
+CPVP-050-10-V,"Charlotte Pipe CTS 12005-10 1/2"" x 10' FlowGuard Gold CPVC Pipe",0.47,10.0,4.7,7.0,1389
+CPVP-050-20-SCH80,"Charlotte Pipe 1/2"" x 20' CPVC Pipe - Corzan SCH80",1.78,20.0,35.6,53.4,2900
+CPVP-075-10-V,"Charlotte Pipe CTS 12007-10 3/4"" x 10' FlowGuard Gold CPVC Pipe",0.77,10.0,7.7,11.6,1406
+CPVP-075-20-SCH80,"Charlotte Pipe 3/4"" x 20' CPVC Pipe - Corzan SCH80",2.43,20.0,48.6,73.0,2904
+CPVP-100-10-V,"Charlotte Pipe CTS 12010-10 1"" x 10' FlowGuard Gold CPVC Pipe",1.7,10.0,17.0,25.5,1400
+CPVP-100-20-SCH80,"Charlotte Pipe 1"" x 20' CPVC Pipe - Corzan SCH80",3.56,20.0,71.2,106.8,2900
+CPVP-125-10-V,"Charlotte Pipe CTS 12012-10 1-1/4"" x 10' FlowGuard Gold CPVC Pipe",3.09,10.0,30.9,46.3,1398
+CPVP-125-20-SCH80,"Charlotte Pipe 1-1/4"" x 20' CPVC Pipe - Corzan SCH80",4.96,20.0,99.2,148.8,2900
+CPVP-150-10-V,"Charlotte Pipe CTS 12015-10 1-1/2"" x 10' FlowGuard Gold CPVC Pipe",4.02,10.0,40.2,60.3,1400
+CPVP-150-20-SCH80,"Charlotte Pipe 1-1/2"" x 20' CPVC Pipe - Corzan SCH80",6.01,20.0,120.2,180.4,2902
+CPVP-200-10-V,"Charlotte Pipe CTS 12020-10 2"" x 10' FlowGuard Gold CPVC Pipe",6.43,10.0,64.3,96.4,1399
+CPVP-200-20-SCH80,"Charlotte Pipe 2"" x 20' CPVC Pipe - Corzan SCH80",8.3,20.0,166.0,249.0,2900
+CPVP-250-20-SCH80,"Charlotte Pipe 2-1/2"" x 20' CPVC Pipe - Corzan SCH80",12.61,20.0,252.2,378.2,2899
+CPVP-300-10-CHEM,"Charlotte Pipe AW 14003 3"" x 10' ChemDrain CPVC Pipe",14.04,10.0,140.4,210.6,1400
+CPVP-300-20-SCH80,"Charlotte Pipe 3"" x 20' CPVC Pipe - Corzan SCH80",15.63,20.0,312.6,469.0,2901
+CPVP-400-20-SCH80,"Charlotte Pipe 4"" x 20' CPVC Pipe - Corzan SCH80",22.79,20.0,455.8,683.8,2900
+CPVP-600-20-SCH80,"Charlotte Pipe 6"" x 20' CPVC Pipe - Corzan SCH80",43.84,20.0,876.8,1315.2,2900
+PVCP-050-10-SCH40-PE,"Charlotte Pipe PVC 04005 0600 1/2"" x 10' PVC SCH40 Plain End Pipe",0.24,10.0,2.4,3.6,1400
+PVCP-050-SCH40-BE,"Charlotte Pipe PVC 04005B 0800 1/2"" x 20' PVC SCH40 Belled End Pipe",0.24,20.0,4.8,7.2,2900
+PVCP-050-SCH40-PE,"Charlotte Pipe PVC 04005 0800 1/2"" x 20' PVC SCH40 Plain End Pipe",0.24,20.0,4.8,7.2,2900
+PVCP-050-SCH80,"Charlotte Pipe PVC 10005 0600 1/2"" x 20' PVC SCH80 Plain End Pipe",2.04,20.0,40.8,61.2,2900
+PVCP-075-10-SCH40-PE,"Charlotte Pipe PVC 04007 0600 3/4"" x 10' PVC SCH40 Plain End Pipe",0.31,10.0,3.1,4.6,1384
+PVCP-075-SCH40-BE,"Charlotte Pipe PVC 04007B 0800 3/4"" x 20' PVC SCH40 Belled End Pipe",0.31,20.0,6.2,9.2,2868
+PVCP-075-SCH40-PE,"Charlotte Pipe PVC 04007 0800 3/4"" x 20' PVC SCH40 Plain End Pipe",0.31,20.0,6.2,9.2,2868
+PVCP-075-SCH80,"Charlotte Pipe PVC 10007 0600 3/4"" x 20' PVC SCH80 Plain End Pipe",2.14,20.0,42.8,64.2,2900
+PVCP-100-10-SCH40-BE,"Charlotte Pipe PVC 04010B 0600 1"" x 10' PVC SCH40 Belled End Pipe",0.48,10.0,4.8,7.2,1400
+PVCP-100-10-SCH40-PE,"Charlotte Pipe PVC 04010 0600 1"" x 10' PVC SCH40 Plain End Pipe",0.48,10.0,4.8,7.2,1400
+PVCP-100-SCH40-BE,"Charlotte Pipe PVC 04010B 0800 1"" x 20' PVC SCH40 Belled End Pipe",0.48,20.0,9.6,14.4,2900
+PVCP-100-SCH40-PE,"Charlotte Pipe PVC 04010 0800 1"" x 20' PVC SCH40 Plain End Pipe",0.48,20.0,9.6,14.4,2900
+PVCP-100-SCH80,"Charlotte Pipe PVC 10010 0600 1"" x 20' PVC SCH80 Plain End Pipe",4.08,20.0,81.6,122.4,2900
+PVCP-1000-SCH40-BE,"Charlotte Pipe PVC 07910B 0600 10"" x 20' PVC SCH40 Belled End Pipe",11.5,20.0,230.0,345.0,2900
+PVCP-1000-SCH40-PE,"Charlotte Pipe PVC 07910 0600 10"" x 20' PVC SCH40 Plain End Pipe",11.5,20.0,230.0,345.0,2900
+PVCP-1200-SCH40-BE,"Charlotte Pipe PVC 07912B 0600 12"" x 20' PVC SCH40 Belled End Pipe",15.21,20.0,304.2,456.4,2901
+PVCP-1200-SCH40-PE,"Charlotte Pipe PVC 07912 0600 12"" x 20' PVC SCH40 Plain End Pipe",15.21,20.0,304.2,456.4,2901
+PVCP-125-10-SCH40-PE,"Charlotte Pipe PVC 07100 0600 1-1/4"" x 10' PVC SCH40 Plain End Pipe",0.62,10.0,6.2,9.3,1400
+PVCP-125-SCH40-BE,"Charlotte Pipe PVC 04012B 0800 1-1/4"" x 20' PVC SCH40 Belled End Pipe",0.62,20.0,12.4,18.6,2900
+PVCP-125-SCH40-PE,"Charlotte Pipe PVC 07100 0800 1-1/4"" x 20' PVC SCH40 Plain End Pipe",0.62,20.0,12.4,18.6,2900
+PVCP-125-SCH80,"Charlotte Pipe PVC 10012 0600 1-1/4"" x 20' PVC SCH80 Plain End Pipe",4.47,20.0,89.4,134.2,2902
+PVCP-150-10-SCH40-PE,"Charlotte Pipe PVC 07112 0600 1-1/2"" x 10' PVC SCH40 Plain End Pipe",0.74,10.0,7.4,11.1,1400
+PVCP-150-10DWV,"Charlotte Pipe PVC 04112 0600 1-1/2"" x 10' PVC DWV Cellular Core Pipe ASTM F891",0.56,10.0,5.6,8.4,1400
+PVCP-150-20DWV,"Charlotte Pipe PVC 04112 0800 1-1/2"" x 20' PVC DWV Cellular Core Pipe ASTM F891",0.56,20.0,11.2,16.8,2900
+PVCP-150-SCH40-BE,"Charlotte Pipe PVC 04015B 0800 1-1/2"" x 20' PVC SCH40 Belled End Pipe",0.74,20.0,14.8,22.2,2900
+PVCP-150-SCH40-PE,"Charlotte Pipe PVC 07112 0800 1-1/2"" x 20' PVC SCH40 Plain End Pipe",0.74,20.0,14.8,22.2,2900
+PVCP-150-SCH80,"Charlotte Pipe PVC 10015 0600 1-1/2"" x 20' PVC SCH80 Plain End Pipe",6.85,20.0,137.0,205.4,2899
+PVCP-200-10-SCH40-BE,"Charlotte Pipe PVC 04015B 0600 2"" x 10' PVC SCH40 Belled End Pipe",0.99,10.0,9.9,14.8,1395
+PVCP-200-10-SCH40-PE,"Charlotte Pipe PVC 07200 0600 2"" x 10' PVC SCH40 Plain End Pipe",0.99,10.0,9.9,14.8,1395
+PVCP-200-10DWV,"Charlotte Pipe PVC 04200 0600 2"" x 10' PVC DWV Cellular Core Pipe ASTM F891",0.7,10.0,7.0,10.5,1400
+PVCP-200-20DWV,"Charlotte Pipe PVC 04200 0800 2"" x 20' PVC DWV Cellular Core Pipe ASTM F891",0.7,20.0,14.0,21.0,2900
+PVCP-200-SCH40-BE,"Charlotte Pipe PVC 04020B 0800 2"" x 20' PVC SCH40 Belled End Pipe",0.99,20.0,19.8,29.6,2890
+PVCP-200-SCH40-PE,"Charlotte Pipe PVC 07200 0800 2"" x 20' PVC SCH40 Plain End Pipe",0.99,20.0,19.8,29.6,2890
+PVCP-200-SCH80,"Charlotte Pipe PVC 10020 0600 2"" x 20' PVC SCH80 Plain End Pipe",9.48,20.0,189.6,284.4,2900
+PVCP-250-SCH40-BE,"Charlotte Pipe PVC 04025B 0800 2-1/2"" x 20' PVC SCH40 Belled End Pipe",1.64,20.0,32.8,49.2,2900
+PVCP-250-SCH80,"Charlotte Pipe PVC 10025 0600 2-1/2"" x 20' PVC SCH80 Plain End Pipe",3.38,20.0,67.6,101.4,2900
+PVCP-300-10-SCH40-PE,"Charlotte Pipe PVC 07300 0600 3"" x 10' PVC SCH40 Plain End Pipe",2.06,10.0,20.6,30.9,1400
+PVCP-300-10DWV,"Charlotte Pipe PVC 04300 0600 3"" x 10' PVC DWV Cellular Core Pipe ASTM F891",1.36,10.0,13.6,20.4,1400
+PVCP-300-20DWV,"Charlotte Pipe PVC 04300 0800 3"" x 20' PVC DWV Cellular Core Pipe ASTM F891",1.36,20.0,27.2,40.8,2900
+PVCP-300-SCH40-BE,"Charlotte Pipe PVC 04030B 0600 3"" x 20' PVC SCH40 Belled End Pipe",2.06,20.0,41.2,61.8,2900
+PVCP-300-SCH40-PE,"Charlotte Pipe PVC 07300 0800 3"" x 20' PVC SCH40 Plain End Pipe",2.06,20.0,41.2,61.8,2900
+PVCP-300-SCH80,"Charlotte Pipe PVC 10030 0600 3"" x 20' PVC SCH80 Plain End Pipe",4.53,20.0,90.6,135.8,2898
+PVCP-400-10-SCH40-PE,"Charlotte Pipe PVC 07400 0600 4"" x 10' PVC SCH40 Plain End Pipe",2.92,10.0,29.2,43.8,1400
+PVCP-400-10DWV,"Charlotte Pipe PVC 04400 0600 4"" x 10' PVC DWV Cellular Core Pipe ASTM F891",2.01,10.0,20.1,30.1,1398
+PVCP-400-20DWV,"Charlotte Pipe PVC 04400 0800 4"" x 20' PVC DWV Cellular Core Pipe ASTM F891",2.01,20.0,40.2,60.2,2895
+PVCP-400-SCH40-BE,"Charlotte Pipe PVC 09400B 0600 4"" x 20' PVC SCH40 Belled End Pipe",2.92,20.0,58.4,87.6,2900
+PVCP-400-SCH40-PE,"Charlotte Pipe PVC 07400 0800 4"" x 20' PVC SCH40 Plain End Pipe",2.92,20.0,58.4,87.6,2900
+PVCP-400-SCH80,"Charlotte Pipe PVC 10040 0600 4"" x 20' PVC SCH80 Plain End Pipe",28.33,20.0,566.6,849.8,2900
+PVCP-600-20DWV,"Charlotte Pipe PVC 04600 0800 6"" x 20' PVC DWV Cellular Core Pipe ASTM F891",3.47,20.0,69.4,104.2,2903
+PVCP-600-SCH40-BE,"Charlotte Pipe PVC 09600B 0600 6"" x 20' PVC SCH40 Belled End Pipe",5.24,20.0,104.8,157.2,2900
+PVCP-600-SCH40-PE,"Charlotte Pipe PVC 07600 0800 6"" x 20' PVC SCH40 Plain End Pipe",5.24,20.0,104.8,157.2,2900
+PVCP-600-SCH80,"Charlotte Pipe PVC 10060 0600 6"" x 20' PVC SCH80 Plain End Pipe",40.08,20.0,801.6,1202.4,2900
+PVCP-800-20DWV,"Charlotte Pipe PVC 04800 0800 8"" x 20' PVC DWV Cellular Core Pipe ASTM F891",5.78,20.0,115.6,173.4,2900
+PVCP-800-SCH40-BE,"Charlotte Pipe PVC 09800B 0600 8"" x 20' PVC SCH40 Belled End Pipe",8.26,20.0,165.2,247.8,2900
+PVCP-800-SCH40-PE,"Charlotte Pipe PVC 07800 0800 8"" x 20' PVC SCH40 Plain End Pipe",8.26,20.0,165.2,247.8,2900
+ECCO-300706,"Ecco 300706 6"" x 10' Aluminum Flex Ducting",5.8,10.0,58.0,87.0,1400
+COPT-025-10ACR,"Mueller Streamline 1/4"" x 10' - Copper Tube - L Hard ACR/OXY/MED",4.01,10.0,40.1,60.1,1399
+COPT-025-LS,"Mueller Streamline 1/4"" x 60' - Copper Tube - L Soft",2.89,60.0,173.4,259.8,8890
+COPT-025-LS/100,"Mueller Streamline LS02060 1/4"" x 100' - Copper Tube - L Soft",2.89,100.0,289.0,433.0,14883
+COPT-038-10ACR,"Mueller Streamline 3/8"" x 10' - Copper Tube - L Hard ACR/OXY/MED",3.02,10.0,30.2,45.3,1400
+COPT-038-ACR,"Mueller Streamline AC02010 3/8"" x 20' - Copper Tube - L Hard ACR/OXY/MED",3.02,20.0,60.4,90.6,2900
+COPT-038-LS,"Mueller Streamline LS02100 3/8"" x 60' - Copper Tube - L Soft",4.27,60.0,256.2,384.0,8893
+COPT-050-10LH,"Mueller Streamline 1/2"" x 10' - Copper Tube - L Hard",3.58,10.0,35.8,53.7,1400
+COPT-050-10MH,"Mueller Streamline 1/2"" x 10' - Copper Tube - M hard",2.66,10.0,26.6,39.9,1400
+COPT-050-ACR,"Mueller Streamline AC02020 1/2"" x 20' - Copper Tube - L Hard ACR/OXY/MED",4.56,20.0,91.2,136.8,2900
+COPT-050-KH,"Mueller Streamline 1/2"" x 20' - Copper Tube - K Hard",6.82,20.0,136.4,204.6,2900
+COPT-050-KS,"Mueller Streamline KS03060 1/2"" x 60' - Copper Tube - K Soft",7.45,60.0,447.0,670.8,8904
+COPT-050-KS/100,"Mueller Streamline KS04060 1/2"" x 100' - Copper Tube - K Soft",7.45,100.0,745.0,1118.0,14907
+COPT-050-LH,"Mueller Streamline LH04010 1/2"" x 20' - Copper Tube - L Hard",3.58,20.0,71.6,107.4,2900
+COPT-050-LS,"Mueller Streamline LS03100 1/2"" x 60' - Copper Tube - L Soft",6.22,60.0,373.2,559.8,8900
+COPT-050-LS/100,"Mueller Streamline LS04060 1/2"" x 100' - Copper Tube - L Soft",6.22,100.0,622.0,933.0,14900
+COPT-050-MH,"Mueller Streamline 1/2"" x 20' - Copper Tube - M hard",2.66,20.0,53.2,79.8,2900
+COPT-058-ACR,"Mueller Streamline AC03020 5/8"" x 20' - Copper Tube - L Hard ACR/OXY/MED",5.91,20.0,118.2,177.4,2902
+COPT-075-10LH,"Mueller Streamline LH04020 3/4"" x 10' - Copper Tube - L Hard",5.86,10.0,58.6,87.9,1400
+COPT-075-10MH,"Mueller Streamline 3/4"" x 10' - Copper Tube - M hard",4.3,10.0,43.0,64.5,1400
+COPT-075-ACR,"Mueller Streamline AC04020 3/4"" x 20' - Copper Tube - L Hard ACR/OXY/MED",7.91,20.0,158.2,237.4,2901
+COPT-075-KH,"Mueller Streamline KH06010 3/4"" x 20' - Copper Tube - K Hard",12.62,20.0,252.4,378.6,2900
+COPT-075-KS,"Mueller Streamline KS04100 3/4"" x 60' - Copper Tube - K Soft",13.29,60.0,797.4,1195.8,8898
+COPT-075-KS/100,"Mueller Streamline KS06060 3/4"" x 100' - Copper Tube - K Soft",13.29,100.0,1329.0,1993.0,14896
+COPT-075-LH,"Mueller Streamline LH06010 3/4"" x 20' - Copper Tube - L Hard",5.86,20.0,117.2,175.8,2900
+COPT-075-LS,"Mueller Streamline LS04100 3/4"" x 60' - Copper Tube - L Soft",9.92,60.0,595.2,892.8,8900
+COPT-075-MH,"Mueller Streamline MH06010 3/4"" x 20' - Copper Tube - M hard",4.3,20.0,86.0,129.0,2900
+COPT-078-ACR,"Mueller Streamline AC05020 7/8"" x 20' - Copper Tube - L Hard ACR/OXY/MED",9.4,20.0,188.0,282.0,2900
+COPT-100-10LH,"Mueller Streamline LH06020 1"" x 10' - Copper Tube - L Hard",8.61,10.0,86.1,129.1,1399
+COPT-100-10MH,"Mueller Streamline MH06020 1"" x 10' - Copper Tube - M hard",6.64,10.0,66.4,99.6,1400
+COPT-100-KH,"Mueller Streamline KH06020 1"" x 20' - Copper Tube - K Hard",16.36,20.0,327.2,490.8,2900
+COPT-100-KS,"Mueller Streamline KS06100 1"" x 60' - Copper Tube - K Soft",17.64,60.0,1058.4,1587.6,8900
+COPT-100-KS/100,"Mueller Streamline KS10060 1"" x 100' - Copper Tube - K Soft",17.64,100.0,1764.0,2646.0,14900
+COPT-100-LH,"Mueller Streamline LH10010 1"" x 20' - Copper Tube - L Hard",8.61,20.0,172.2,258.2,2899
+COPT-100-LS,"Mueller Streamline LS06100 1"" x 60' - Copper Tube - L Soft",14.19,60.0,851.4,1277.4,8902
+COPT-100-LS/100,"Mueller Streamline LS10060 1"" x 100' - Copper Tube - L Soft",14.19,100.0,1419.0,2129.0,14904
+COPT-100-MH,"Mueller Streamline MH10010 1"" x 20' - Copper Tube - M hard",6.64,20.0,132.8,199.2,2900
+COPT-118-ACR,"Mueller Streamline AC06020 1-1/8"" x 20' - Copper Tube - L Hard ACR/OXY/MED",13.52,20.0,270.4,405.6,2900
+COPT-125-10LH,"Mueller Streamline LH10020 1-1/4"" x 10' - Copper Tube - L Hard",15.89,10.0,158.9,238.4,1400
+COPT-125-10MH,"Mueller Streamline MH10020 1-1/4"" x 10' - Copper Tube - M hard",13.94,10.0,139.4,209.1,1400
+COPT-125-KH,"Mueller Streamline KH10020 1-1/4"" x 20' - Copper Tube - K Hard",20.58,20.0,411.6,617.4,2900
+COPT-125-KS,"Mueller Streamline KS10100 1-1/4"" x 60' - Copper Tube - K Soft",22.64,60.0,1358.4,2037.6,8900
+COPT-125-LH,"Mueller Streamline LH12010 1-1/4"" x 20' - Copper Tube - L Hard",15.89,20.0,317.8,476.8,2901
+COPT-125-LS,"Mueller Streamline LS10100 1-1/4"" x 60' - Copper Tube - L Soft",19.29,60.0,1157.4,1735.8,8898
+COPT-125-MH,"Mueller Streamline MH12010 1-1/4"" x 20' - Copper Tube - M hard",13.94,20.0,278.8,418.2,2900
+COPT-138-ACR,"Mueller Streamline AC10020 1-3/8"" x 20' - Copper Tube - L Hard ACR/OXY/MED",18.02,20.0,360.4,540.6,2900
+COPT-150-10DWV,"Mueller Streamline 1-1/2"" x 10' - Copper Tube - DWV",18.56,10.0,185.6,278.4,1400
+COPT-150-10LH,"Mueller Streamline LH12020 1-1/2"" x 10' - Copper Tube - L Hard",20.17,10.0,201.7,302.6,1400
+COPT-150-10MH,"Mueller Streamline MH12020 1-1/2"" x 10' - Copper Tube - M hard",19.18,10.0,191.8,287.7,1400
+COPT-150-DWV,"Mueller Streamline V 14010 1-1/2"" x 20' - Copper Tube - DWV",18.56,20.0,371.2,556.8,2900
+COPT-150-KH,"Mueller Streamline KH12020 1-1/2"" x 20' - Copper Tube - K Hard",27.15,20.0,543.0,814.4,2900
+COPT-150-KS,"Mueller Streamline KS12060 1-1/2"" x 60' - Copper Tube - K Soft",29.43,60.0,1765.8,2648.4,8899
+COPT-150-LH,"Mueller Streamline LH14010 1-1/2"" x 20' - Copper Tube - L Hard",20.17,20.0,403.4,605.2,2900
+COPT-150-LS,"Mueller Streamline LS12060 1-1/2"" x 60' - Copper Tube - L Soft",24.81,60.0,1488.6,2232.6,8899
+COPT-150-MH,"Mueller Streamline MH14010 1-1/2"" x 20' - Copper Tube - M hard",19.18,20.0,383.6,575.4,2900
+COPT-158-ACR,"Mueller Streamline AC12020 1-5/8"" x 20' - Copper Tube - L Hard ACR/OXY/MED",23.41,20.0,468.2,702.4,2900
+COPT-200-10DWV,"Mueller Streamline V 14020 2"" x 10' - Copper Tube - DWV",24.38,10.0,243.8,365.7,1400
+COPT-200-10LH,"Mueller Streamline LH14020 2"" x 10' - Copper Tube - L Hard",31.56,10.0,315.6,473.4,1400
+COPT-200-10MH,"Mueller Streamline MH14020 2"" x 10' - Copper Tube - M hard",29.49,10.0,294.9,442.3,1400
+COPT-200-DWV,"Mueller Streamline V 20010 2"" x 20' - Copper Tube - DWV",24.38,20.0,487.6,731.4,2900
+COPT-200-KH,"Mueller Streamline KH14020 2"" x 20' - Copper Tube - K Hard",39.98,20.0,799.6,1199.4,2900
+COPT-200-LH,"Mueller Streamline LH20010 2"" x 20' - Copper Tube - L Hard",31.56,20.0,631.2,946.8,2900
+COPT-200-MH,"Mueller Streamline MH20010 2"" x 20' - Copper Tube - M hard",29.49,20.0,589.8,884.6,2900
+COPT-218-ACR,"Mueller Streamline AC14020 2-1/8"" x 20' - Copper Tube - L Hard ACR/OXY/MED",35.3,20.0,706.0,1059.0,2900
+COPT-250-10LH,"Mueller Streamline LH20020 2-1/2"" x 10' - Copper Tube - L Hard",48.77,10.0,487.7,731.6,1400
+COPT-250-KH,"Mueller Streamline KH20020 2-1/2"" x 20' - Copper Tube - K Hard",59.86,20.0,1197.2,1795.8,2900
+COPT-250-LH,"Mueller Streamline LH24010 2-1/2"" x 20' - Copper Tube - L Hard",48.77,20.0,975.4,1463.2,2900
+COPT-250-MH,"Mueller Streamline MH20020 2-1/2"" x 20' - Copper Tube - M hard",43.52,20.0,870.4,1305.6,2900
+COPT-258-ACR,"Mueller Streamline AC20020 2-5/8"" x 20' - Copper Tube - L Hard ACR/OXY/MED",51.43,20.0,1028.6,1542.8,2900
+COPT-300-10LH,"Mueller Streamline LH24020 3"" x 10' - Copper Tube - L Hard",72.23,10.0,722.3,1083.4,1400
+COPT-300-10MH,"Mueller Streamline MH24020 3"" x 10' - Copper Tube - M hard",57.77,10.0,577.7,866.6,1400
+COPT-300-DWV,"Mueller Streamline V 20020 3"" x 20' - Copper Tube - DWV",43.03,20.0,860.6,1291.0,2900
+COPT-300-KH,"Mueller Streamline KH24020 3"" x 20' - Copper Tube - K Hard",82.63,20.0,1652.6,2478.8,2900
+COPT-300-LH,"Mueller Streamline LH30010 3"" x 20' - Copper Tube - L Hard",72.23,20.0,1444.6,2166.8,2900
+COPT-300-MH,"Mueller Streamline MH30010 3"" x 20' - Copper Tube - M hard",57.77,20.0,1155.4,1733.2,2900
+COPT-400-10LH,"Mueller Streamline LH30020 4"" x 10' - Copper Tube - L Hard",119.61,10.0,1196.1,1794.1,1400
+COPT-400-DWV,"Mueller Streamline V 30020 4"" x 20' - Copper Tube - DWV",74.92,20.0,1498.4,2247.6,2900
+COPT-400-LH,"Mueller Streamline LH40010 4"" x 20' - Copper Tube - L Hard",119.61,20.0,2392.2,3588.2,2900
+COPT-400-MH,"Mueller Streamline MH40010 4"" x 20' - Copper Tube - M hard",106.47,20.0,2129.4,3194.0,2900
+COPT-418-ACR,"Mueller Streamline AC30020 4-1/8"" x 20' - Copper Tube - L Hard ACR/OXY/MED",134.67,20.0,2693.4,4040.0,2900
+COPT-600-10LH,"Mueller Streamline LH40020 6"" x 10' - Copper Tube - L Hard",219.57,10.0,2195.7,3293.6,1400
+COPT-600-LH,"Mueller Streamline LH60010 6"" x 20' - Copper Tube - L Hard",219.57,20.0,4391.4,6587.2,2900
+HGRI-050-2510-EG,"nVent Caddy 0502510EG 1/4"" x 10' Threaded Rod, Steel, EG",0.23,10.0,2.3,3.5,1422
+HGRI-050-3710-EG,"nVent Caddy 0503710EG 3/8"" x 10' Threaded Rod, Steel, EG",0.41,10.0,4.1,6.1,1388
+HGRI-050-5010-EG,"nVent Caddy 0505010EG 1/2"" x 10' Threaded Rod, Steel, EG",0.91,10.0,9.1,13.6,1395
+HGRI-050-6210-EG,"nVent Caddy 0506210EG 5/8"" x 10' Threaded Rod, Steel, EG",4.13,10.0,41.3,62.0,1401
+HGRI-050-7510-EG,"nVent Caddy 0507510EG 3/4"" x 10' Threaded Rod, Steel, EG",5.77,10.0,57.7,86.5,1399
+PASC-50750,"Pasco 50750 7/8"" x 50' Code DW Drain Hose",2.02,50.0,101.0,151.5,7400
+S&DP-400-2729P,"RJB Wholesale S&amp;DP-400-2729P 4"" x 10' PVC Sewer and Drain Pipe ASTM D-2729 Perforated Solvent Weld White",1.31,10.0,13.1,19.7,1404
+S&DP-400-2729S,"RJB Wholesale S&amp;DP-400-2729S 4"" x 10' PVC Sewer and Drain Pipe ASTM D-2729 Solvent Weld White",1.31,10.0,13.1,19.7,1404
+S&DP-400-3034G,"RJB Wholesale S&amp;DP-400-3034G 4"" x 20' PVC Sewer and Drain Pipe ASTM D-3034 Gasket Joint White",2.31,20.0,46.2,69.2,2896
+S&DP-400-3034G-14,"RJB Wholesale S&amp;DP-400-3034G-14 4"" x 14' PVC Sewer and Drain Pipe ASTM D-3034 Gasket Joint White",2.31,14.0,32.34,48.44,1997
+S&DP-400-3034SW-10,"RJB Wholesale S&amp;DP-400-3034SW-10 4"" x 10' PVC Sewer and Drain Pipe ASTM D-3034 Solvent Weld White",1.78,10.0,17.8,26.7,1400
+S&DP-400-3034SWPER-10,"RJB Wholesale S&amp;DP-400-3034SWPER-10 4"" x 10' PVC Sewer and Drain Pipe ASTM D-3034 Perforated Solvent Weld White",1.78,10.0,17.8,26.7,1400
+S&DP-600-2729P,"RJB Wholesale S&amp;DP-600-2729P 6"" x 10' PVC Sewer and Drain Pipe ASTM D-2729 Perforated Solvent Weld White",2.63,10.0,26.3,39.4,1398
+S&DP-600-2729S,"RJB Wholesale S&amp;DP-600-2729S 6"" x 10' PVC Sewer and Drain Pipe ASTM D-2729 Solvent Weld White",2.63,10.0,26.3,39.4,1398
+S&DP-600-3034G,"RJB Wholesale S&amp;DP-600-3034G 6"" x 20' PVC Sewer and Drain Pipe ASTM D-3034 Gasket Joint White",5.26,20.0,105.2,157.8,2900
+S&DP-600-3034G-14,"RJB Wholesale S&amp;DP-600-3034G-14 6"" x 14' PVC Sewer and Drain Pipe ASTM D-3034 Gasket Joint White",5.26,14.0,73.64,110.46,2000
+S&DP-600-3034SW-10,"RJB Wholesale S&amp;DP-600-3034SW-10 6"" x 10' PVC Sewer and Drain Pipe ASTM D-3034 Solvent Weld White",4.15,10.0,41.5,62.3,1401
+NHSP-1000,"Tyler Pipe 006831 10"" x 10', NH x NH, Gray, Cast Iron, Soil Pipe (8 per Bundle)",101.84,10.0,1018.4,1527.6,1400
+NHSP-1200,"Tyler Pipe 376583 12"" x 10', NH x NH, Gray, Cast Iron, Soil Pipe (6 per Bundle)",147.94,10.0,1479.4,2219.1,1400
+NHSP-150,"Tyler Pipe 006763 1-1/2"" x 10', NH x NH, Gray, Cast Iron, Soil Pipe (54 per Bundle)",12.47,10.0,124.7,187.1,1400
+NHSP-200,"Tyler Pipe 006770 2"" x 10', NH x NH, Gray, Cast Iron, Soil Pipe (64 per Bundle)",12.49,10.0,124.9,187.3,1400
+NHSP-300,"Tyler Pipe 006787 3"" x 10', NH x NH, Gray, Cast Iron, Soil Pipe (48 per Bundle)",17.28,10.0,172.8,259.2,1400
+NHSP-400,"Tyler Pipe 006794 4"" x 10', NH x NH, Gray, Cast Iron, Soil Pipe (30 per Bundle)",22.42,10.0,224.2,336.3,1400
+NHSP-500,"Tyler Pipe 006800 5"" x 10', NH x NH, Gray, Cast Iron, Soil Pipe (24 per Bundle)",32.26,10.0,322.6,483.9,1400
+NHSP-600,"Tyler Pipe 006817 6"" x 10', NH x NH, Gray, Cast Iron, Soil Pipe (21 per Bundle)",38.55,10.0,385.5,578.2,1400
+NHSP-800,"Tyler Pipe 006824 8"" x 10', NH x NH, Gray, Cast Iron, Soil Pipe (15 per Bundle)",59.94,10.0,599.4,899.1,1400
+BLDP-050,"Valencia Pipe 1/2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Domestic",2.31,21.0,48.51,72.66,3045
+BLDP-075,"Valencia Pipe 3/4"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Domestic",2.81,21.0,59.01,88.41,3046
+BLDP-100,"Valencia Pipe 1"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Domestic",3.91,21.0,82.11,123.27,3053
+BLDP-125,"Valencia Pipe 1-1/4"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Domestic",5.25,21.0,110.25,165.48,3052
+BLDP-150,"Valencia Pipe 1-1/2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Domestic",6.18,21.0,129.78,194.67,3050
+BLDP-200,"Valencia Pipe 2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Domestic",8.22,21.0,172.62,258.93,3050
+BLIP-025,"Valencia Pipe 1/4"" x 21' Black Steel Pipe Threaded & Coupled Import",1.69,21.0,35.49,53.34,3056
+BLIP-038,"Valencia Pipe 3/8"" x 21' Black Steel Pipe Threaded & Coupled Import",2.84,21.0,59.64,89.46,3050
+BLIP-050,"Valencia Pipe 1/2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",0.99,21.0,20.79,31.08,3039
+BLIP-050-PE,"Valencia Pipe 1/2"" x 21' Black Steel Pipe Plain End Import",0.95,21.0,19.95,29.82,3039
+BLIP-050-TBE,"Valencia Pipe 1/2"" x 10' Black Steel Pipe SCH40 A53 Threaded Both Ends Import",0.99,10.0,9.9,14.8,1395
+BLIP-050-XH106B-PE,"Valencia Pipe 1/2"" x 21' Black Steel Pipe A106 Grade B Seamless Plain End 0.147"" W XH Import",3.71,21.0,77.91,116.76,3047
+BLIP-075,"Valencia Pipe 3/4"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",1.38,21.0,28.98,43.47,3050
+BLIP-075-PE,"Valencia Pipe 3/4"" x 21' Black Steel Pipe Plain End Import",1.31,21.0,27.51,41.37,3058
+BLIP-075-TBE,"Valencia Pipe 3/4"" x 10' Black Steel Pipe SCH40 A53 Threaded Both Ends Import",1.31,10.0,13.1,19.7,1404
+BLIP-100,"Valencia Pipe 1"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",1.95,21.0,40.95,61.32,3045
+BLIP-100-PE,"Valencia Pipe 1"" x 21' Black Steel Pipe Plain End Import",1.84,21.0,38.64,57.96,3050
+BLIP-100-TBE,"Valencia Pipe 1"" x 10' Black Steel Pipe SCH40 A53 Threaded Both Ends Import",1.95,10.0,19.5,29.2,1397
+BLIP-1000-A53B-PE,"Valencia Pipe 10"" x 21' Black Steel Pipe A53 Type E Grade B ERW Plain End 0.365"" W Import",60.26,21.0,1265.46,1898.19,3050
+BLIP-125,"Valencia Pipe 1-1/4"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",2.81,21.0,59.01,88.41,3046
+BLIP-125-PE,"Valencia Pipe 1-1/4"" x 21' Black Steel Pipe Plain End Import",2.65,21.0,55.65,83.37,3046
+BLIP-125-TBE,"Valencia Pipe 1-1/4"" x 10' Black Steel Pipe SCH40 A53 Threaded Both Ends Import",2.71,10.0,27.1,40.6,1398
+BLIP-150,"Valencia Pipe 1-1/2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",3.18,21.0,66.78,100.17,3050
+BLIP-150-PE,"Valencia Pipe 1-1/2"" x 21' Black Steel Pipe Plain End Import",2.97,21.0,62.37,93.66,3054
+BLIP-150-TBE,"Valencia Pipe 1-1/2"" x 10' Black Steel Pipe SCH40 A53 Threaded Both Ends Import",3.18,10.0,31.8,47.7,1400
+BLIP-200,"Valencia Pipe 2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",4.27,21.0,89.67,134.4,3048
+BLIP-200-A53B-PE,"Valencia Pipe 2"" x 21' Black Steel Pipe A53 Type E Grade B ERW Plain End 0.154"" W Import",5.47,21.0,114.87,172.41,3052
+BLIP-200-PE,"Valencia Pipe 2"" x 21' Black Steel Pipe Plain End Import",4.01,21.0,84.21,126.21,3047
+BLIP-200-TBE,"Valencia Pipe 2"" x 10' Black Steel Pipe SCH40 A53 Threaded Both Ends Import",4.27,10.0,42.7,64.0,1399
+BLIP-250,"Valencia Pipe 2-1/2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",7.18,21.0,150.78,226.17,3050
+BLIP-250-A53B-PE,"Valencia Pipe 2-1/2"" x 21' Black Steel Pipe A53 Type E Grade B ERW Plain End 0.203"" W Import",8.77,21.0,184.17,276.15,3049
+BLIP-300,"Valencia Pipe 3"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",9.38,21.0,196.98,295.47,3050
+BLIP-300-A53B-PE,"Valencia Pipe 3"" x 21' Black Steel Pipe A53 Type E Grade B ERW Plain End 0.216"" W Import",11.46,21.0,240.66,360.99,3050
+BLIP-400,"Valencia Pipe 4"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",13.38,21.0,280.98,421.47,3050
+BLIP-400-PE,"Valencia Pipe 4"" x 21' Black Steel Pipe SCH40 Plain End Import",12.59,21.0,264.39,396.48,3049
+BLIP-500-A53B-PE,"Valencia Pipe 5"" x 21' Black Steel Pipe A53 Type E Grade B ERW Plain End 0.258"" W Import",22.13,21.0,464.73,697.2,3050
+BLIP-600-A53B-PE,"Valencia Pipe 6"" x 21' Black Steel Pipe A53 Type E Grade B ERW Plain End 0.280"" W Import",19.12,21.0,401.52,602.28,3050
+BLIP-800-A53B-PE,"Valencia Pipe 8"" x 21' Black Steel Pipe A53 Type E Grade B ERW Plain End 0.322"" W Import",28.77,21.0,604.17,906.36,3050
+GAIP-050,"Valencia Pipe 1/2"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",1.38,21.0,28.98,43.47,3050
+GAIP-075,"Valencia Pipe 3/4"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",1.73,21.0,36.33,54.39,3044
+GAIP-100,"Valencia Pipe 1"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",2.56,21.0,53.76,80.64,3050
+GAIP-125,"Valencia Pipe 1-1/4"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",3.47,21.0,72.87,109.41,3053
+GAIP-150,"Valencia Pipe 1-1/2"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",4.17,21.0,87.57,131.25,3047
+GAIP-200,"Valencia Pipe 2"" x 21' Galvanized Steel Pipe SCH40 A53 Grade A Threaded & Coupled Import",5.59,21.0,117.39,175.98,3048
+GAIP-250,"Valencia Pipe 2-1/2"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",8.87,21.0,186.27,279.3,3049
+GAIP-300,"Valencia Pipe 3"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",11.6,21.0,243.6,365.4,3050
+GAIP-400,"Valencia Pipe 4"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",16.52,21.0,346.92,520.38,3050
+VEGA-11500,"Viega 11500 3/4"" x 20' Red Stripe on Black O2 Barrier PEX Tubing",0.79,20.0,15.8,23.8,2913
+VEGA-11505,"Viega 1"" x 20' Red Stripe on Black O2 Barrier PEX Tubing",1.4,20.0,28.0,42.0,2900
+VEGA-11510,"Viega 11510 1-1/4"" x 20' Red Stripe on Black O2 Barrier PEX Tubing",2.76,20.0,55.2,82.8,2900
+VEGA-11515,"Viega 11515 1-1/2"" x 20' Red Stripe on Black O2 Barrier PEX Tubing",3.47,20.0,69.4,104.2,2903
+VEGA-33020,"Viega 33020 1/2"" x 20' White PureFlow PEX Tubing",0.29,20.0,5.8,8.6,2866
+VEGA-33045,"Viega 33045 3/4"" x 20' White PureFlow PEX Tubing",0.55,20.0,11.0,16.6,2918
+VEGA-33061,"Viega 33061 1"" x 20' White PureFlow PEX Tubing",0.96,20.0,19.2,28.8,2900
+VEGA-33120,"Viega 33120 1/2"" x 20' Red PureFlow PEX Tubing",0.29,20.0,5.8,8.6,2866
+VEGA-33145,"Viega 33145 3/4"" x 20' Red PureFlow PEX Tubing",0.55,20.0,11.0,16.6,2918
+VEGA-33240,"Viega 33240 1/2"" x 20' Blue PureFlow PEX Tubing",0.29,20.0,5.8,8.6,2866
+VEGA-33265,"Viega 33265 3/4"" x 20' Blue PureFlow PEX Tubing",0.55,20.0,11.0,16.6,2918

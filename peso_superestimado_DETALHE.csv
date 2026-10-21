@@ -1,0 +1,26 @@
+sku,titulo,preco,peso_registrado,peso_fabricante,peso_novo,folga,tem_tag_freeship,lambda_antes,lambda_depois,vira_elegivel
+RHEE-ELDS30-FTB-208,Rheem® ELDS30-FTB-208 30 gallon 6 kW 208 V Light Duty Commercial Electric Water Heater with Fused Terminal Block - Short,3697.68,350.0,105.0,120.75,1.15,nao,0.0947,0.0327,sim
+HONE-HM750AVKIT/U,Resideo HM750AVKIT/U Advanced Electrode Humidifier Valve Kit,223.88,7.0,0.76,0.87,1.15,nao,0.0313,0.0039,nao
+HONE-HM750ACYL/U,Resideo HM750ACYL/U Advanced Electrode Humidifier Replacement Cylinder,105.05,7.0,1.562,1.8,1.15,nao,0.0666,0.0171,sim
+HONE-HM750APCB/U,Resideo HM750APCB/U Advanced Electrode Humidifier Replacement PC Board,610.89,7.0,1.7,1.96,1.15,sim,0.0115,0.0032,nao
+HONE-M847A1072/U,Resideo M847A1072/U Foot Mounted Actuator,146.56,7.0,1.75,2.01,1.15,nao,0.0478,0.0137,sim
+GERB-12-875,"Gerber G0012875 Logan Square S-Rim Lav 23.63""x18.13"" 4""CC White",240.0,31.0,23.5,27.03,1.15,nao,0.1292,0.1126,nao
+CALA-HGT60,Calefactio HGT-60 8 Gallon Expansion Tank Hydronic Heating,174.91,10.0,6.0,6.9,1.15,nao,0.0572,0.0394,nao
+BLAN-441232,Blanco 441232 3-in-1 Disposal Flange,222.0,3.0,0.4,0.46,1.15,sim,0.0135,0.0021,nao
+BLAN-441231,Blanco 441231 3-in-1 Basket Strainer,222.0,3.0,0.5,0.58,1.15,sim,0.0135,0.0026,nao
+WILK-RK114-975XLR,"Zurn Wilkins RK114-975XLR 975XL Complete Rubber Repair Kit compatible with the 1-1/4""-2"" Model 975XL and 975XL2",143.18,2.9,0.6,0.69,1.15,sim,0.0203,0.0048,nao
+WILK-RK34-975XLR,"Zurn Wilkins RK34-975XLR 3/4""-1"" Model 975XL/XL2 Rubber Repair Kit",76.48,2.9,0.6,0.69,1.15,nao,0.0379,0.009,sim
+HONE-TD-090/U,Resideo TD-090/U 1/4 in NPT Connection Tridicator with 1-21/32 in,33.12,2.19,0.3,0.35,1.15,nao,0.0661,0.0106,sim
+HONE-TDV-040/U,Resideo TDV-040/U 1/2 in NPT Connection Tridicator with 29/32 in stem,45.64,2.19,0.4,0.46,1.15,nao,0.048,0.0101,sim
+WILK-AG-12,"Zurn Wilkins AG-12 1-1/4"" - 2"" Air Gap Fitting compatible with Model 375/375XL",177.27,2.0,0.8,0.92,1.15,sim,0.0113,0.0052,nao
+HONE-RC840/U,Resideo RC840/U Electromechanical Relay Without Transformer,60.02,1.5,0.438,0.5,1.15,sim,0.025,0.0083,nao
+HONE-RC840T-120/U,Resideo RC840T-120/U Electromechanical Relay with 24 V to 120 V Transformer,91.98,1.5,0.719,0.83,1.15,sim,0.0163,0.009,nao
+WILK-AG-11,"Zurn Wilkins AG-11 1/2"" - 1"" Air Gap Fitting compatible with Model 375/375XL",132.47,1.0,0.5,0.58,1.15,sim,0.0075,0.0044,nao
+GERB-D481350,Gerber D481350 Push Pull Showerarm Diverter Chrome,49.41,1.0,0.6,0.69,1.15,sim,0.0202,0.014,nao
+GERB-D481350BN,Gerber D481350BN Push Pull Showerarm Diverter Brushed Nickel,62.37,1.0,0.6,0.69,1.15,sim,0.016,0.0111,nao
+WILK-RK14-975XL,"Zurn Wilkins RK14-975XL Rubber and Springs Repair Kit compatible with the 1/4""-1/2"" Model 975XL and 975XL2, and 3/8""-1/2"" 975XLST",84.73,0.6,0.3,0.35,1.15,sim,0.0071,0.0041,nao
+WILK-RK14-975XLC,"Zurn Wilkins RK14-975XLC 1/4""-1/2"" 975XL/XL2 Complete Poppets, Springs and Seats Repair Kit",213.31,0.6,0.3,0.35,1.15,sim,0.0028,0.0016,nao
+WILK-RK34-950XL,"Zurn Wilkins RK34-950XL 3/4"" 1"" Model 950XL Standard Repair Kit",74.03,0.6,0.3,0.35,1.15,sim,0.0081,0.0047,nao
+GERB-D481136,"Gerber D481136 6"" Showerarm w/ Escutcheon Chrome",22.68,0.5,0.3,0.35,1.15,nao,0.022,0.0154,nao
+GERB-D481136BB,"Gerber D481136BB 6"" Showerarm w/ Escutcheon Brushed Bronze",30.78,0.5,0.3,0.35,1.15,nao,0.0162,0.0114,nao
+BLAN-240332,Blanco 240332 Color-Coordinated Metal Waste Flange - Truffle,252.0,0.5,0.38,0.44,1.15,sim,0.002,0.0017,nao

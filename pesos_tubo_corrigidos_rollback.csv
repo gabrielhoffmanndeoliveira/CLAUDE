@@ -1,0 +1,103 @@
+variant_id,product_id,sku,title,peso_antigo_lb,peso_novo_lb
+gid://shopify/ProductVariant/44350473535591,gid://shopify/Product/7715337437287,PVCP-050-10-SCH40-PE,"Charlotte Pipe PVC 04005 0600 1/2"" x 10' PVC SCH40 Plain End Pipe",0.16,1.6
+gid://shopify/ProductVariant/44350473568359,gid://shopify/Product/7715337470055,PVCP-050-SCH40-BE,"Charlotte Pipe PVC 04005B 0800 1/2"" x 20' PVC SCH40 Belled End Pipe",0.16,3.2
+gid://shopify/ProductVariant/44350473633895,gid://shopify/Product/7715337535591,PVCP-050-SCH80,"Charlotte Pipe PVC 10005 0600 1/2"" x 20' PVC SCH80 Plain End Pipe",0.21,4.2
+gid://shopify/ProductVariant/44350473666663,gid://shopify/Product/7715337568359,PVCP-075-10-SCH40-PE,"Charlotte Pipe PVC 04007 0600 3/4"" x 10' PVC SCH40 Plain End Pipe",0.22,2.2
+gid://shopify/ProductVariant/44350473699431,gid://shopify/Product/7715337601127,PVCP-075-SCH40-BE,"Charlotte Pipe PVC 04007B 0800 3/4"" x 20' PVC SCH40 Belled End Pipe",0.22,4.4
+gid://shopify/ProductVariant/44350473764967,gid://shopify/Product/7715337666663,PVCP-075-SCH80,"Charlotte Pipe PVC 10007 0600 3/4"" x 20' PVC SCH80 Plain End Pipe",0.28,5.6
+gid://shopify/ProductVariant/44350473830503,gid://shopify/Product/7715337732199,PVCP-100-10-SCH40-PE,"Charlotte Pipe PVC 04010 0600 1"" x 10' PVC SCH40 Plain End Pipe",0.32,3.2
+gid://shopify/ProductVariant/44350473863271,gid://shopify/Product/7715337764967,PVCP-100-SCH40-BE,"Charlotte Pipe PVC 04010B 0800 1"" x 20' PVC SCH40 Belled End Pipe",0.32,6.4
+gid://shopify/ProductVariant/44350473928807,gid://shopify/Product/7715337830503,PVCP-100-SCH80,"Charlotte Pipe PVC 10010 0600 1"" x 20' PVC SCH80 Plain End Pipe",0.41,8.2
+gid://shopify/ProductVariant/44350474256487,gid://shopify/Product/7715338059879,PVCP-125-SCH40-BE,"Charlotte Pipe PVC 04012B 0800 1-1/4"" x 20' PVC SCH40 Belled End Pipe",0.44,8.8
+gid://shopify/ProductVariant/44350474322023,gid://shopify/Product/7715338125415,PVCP-125-SCH80,"Charlotte Pipe PVC 10012 0600 1-1/4"" x 20' PVC SCH80 Plain End Pipe",0.57,11.4
+gid://shopify/ProductVariant/44350474354791,gid://shopify/Product/7715338158183,PVCP-150-10-SCH40-PE,"Charlotte Pipe PVC 07112 0600 1-1/2"" x 10' PVC SCH40 Plain End Pipe",0.52,5.2
+gid://shopify/ProductVariant/44350474387559,gid://shopify/Product/7715338190951,PVCP-150-10DWV,"Charlotte Pipe PVC 04112 0600 1-1/2"" x 10' PVC DWV Cellular Core Pipe ASTM F891",0.52,5.2
+gid://shopify/ProductVariant/44350475305063,gid://shopify/Product/7715338977383,PVCP-150-20DWV,"Charlotte Pipe PVC 04112 0800 1-1/2"" x 20' PVC DWV Cellular Core Pipe ASTM F891",0.52,10.4
+gid://shopify/ProductVariant/44350478155879,gid://shopify/Product/7715339141223,PVCP-150-SCH40-BE,"Charlotte Pipe PVC 04015B 0800 1-1/2"" x 20' PVC SCH40 Belled End Pipe",0.52,10.4
+gid://shopify/ProductVariant/44350478909543,gid://shopify/Product/7715339206759,PVCP-150-SCH40-PE,"Charlotte Pipe PVC 07112 0800 1-1/2"" x 20' PVC SCH40 Plain End Pipe",0.54,10.8
+gid://shopify/ProductVariant/44350481072231,gid://shopify/Product/7715339370599,PVCP-150-SCH80,"Charlotte Pipe PVC 10015 0600 1-1/2"" x 20' PVC SCH80 Plain End Pipe",0.69,13.8
+gid://shopify/ProductVariant/44350481170535,gid://shopify/Product/7715339468903,PVCP-200-10DWV,"Charlotte Pipe PVC 04200 0600 2"" x 10' PVC DWV Cellular Core Pipe ASTM F891",0.7,7.0
+gid://shopify/ProductVariant/44350481203303,gid://shopify/Product/7715339501671,PVCP-200-20DWV,"Charlotte Pipe PVC 04200 0800 2"" x 20' PVC DWV Cellular Core Pipe ASTM F891",0.7,14.0
+gid://shopify/ProductVariant/44350484185191,gid://shopify/Product/7715339698279,PVCP-200-SCH40-BE,"Charlotte Pipe PVC 04020B 0800 2"" x 20' PVC SCH40 Belled End Pipe",0.7,14.0
+gid://shopify/ProductVariant/44350485528679,gid://shopify/Product/7715340058727,PVCP-200-SCH80,"Charlotte Pipe PVC 10020 0600 2"" x 20' PVC SCH80 Plain End Pipe",0.96,19.2
+gid://shopify/ProductVariant/44350485561447,gid://shopify/Product/7715340091495,PVCP-250-SCH40-BE,"Charlotte Pipe PVC 04025B 0800 2-1/2"" x 20' PVC SCH40 Belled End Pipe",1.11,22.2
+gid://shopify/ProductVariant/44350485626983,gid://shopify/Product/7715340157031,PVCP-250-SCH80,"Charlotte Pipe PVC 10025 0600 2-1/2"" x 20' PVC SCH80 Plain End Pipe",1.5,30.0
+gid://shopify/ProductVariant/44350485692519,gid://shopify/Product/7715340222567,PVCP-300-10DWV,"Charlotte Pipe PVC 04300 0600 3"" x 10' PVC DWV Cellular Core Pipe ASTM F891",1.45,14.5
+gid://shopify/ProductVariant/44350485725287,gid://shopify/Product/7715340255335,PVCP-300-20DWV,"Charlotte Pipe PVC 04300 0800 3"" x 20' PVC DWV Cellular Core Pipe ASTM F891",1.45,29.0
+gid://shopify/ProductVariant/44350485758055,gid://shopify/Product/7715340288103,PVCP-300-SCH40-BE,"Charlotte Pipe PVC 04030B 0600 3"" x 20' PVC SCH40 Belled End Pipe",1.46,29.2
+gid://shopify/ProductVariant/44350485823591,gid://shopify/Product/7715340353639,PVCP-300-SCH80,"Charlotte Pipe PVC 10030 0600 3"" x 20' PVC SCH80 Plain End Pipe",2.01,40.2
+gid://shopify/ProductVariant/44350486610023,gid://shopify/Product/7715340451943,PVCP-400-10DWV,"Charlotte Pipe PVC 04400 0600 4"" x 10' PVC DWV Cellular Core Pipe ASTM F891",2.06,20.6
+gid://shopify/ProductVariant/44350486642791,gid://shopify/Product/7715340484711,PVCP-400-20DWV,"Charlotte Pipe PVC 04400 0800 4"" x 20' PVC DWV Cellular Core Pipe ASTM F891",2.06,41.2
+gid://shopify/ProductVariant/44350486675559,gid://shopify/Product/7715340517479,PVCP-400-SCH40-BE,"Charlotte Pipe PVC 09400B 0600 4"" x 20' PVC SCH40 Belled End Pipe",2.08,41.6
+gid://shopify/ProductVariant/44350486773863,gid://shopify/Product/7715340615783,PVCP-600-20DWV,"Charlotte Pipe PVC 04600 0800 6"" x 20' PVC DWV Cellular Core Pipe ASTM F891",3.63,72.6
+gid://shopify/ProductVariant/44350486904935,gid://shopify/Product/7715340746855,PVCP-800-20DWV,"Charlotte Pipe PVC 04800 0800 8"" x 20' PVC DWV Cellular Core Pipe ASTM F891",5.47,109.4
+gid://shopify/ProductVariant/44351111364711,gid://shopify/Product/7715644047463,COPT-025-10ACR,"Mueller Streamline 1/4"" x 10' - Copper Tube - L Hard ACR/OXY/MED",0.13,1.3
+gid://shopify/ProductVariant/44351111921767,gid://shopify/Product/7715644211303,COPT-038-10ACR,"Mueller Streamline 3/8"" x 10' - Copper Tube - L Hard ACR/OXY/MED",0.2,2.0
+gid://shopify/ProductVariant/44351111954535,gid://shopify/Product/7715644244071,COPT-038-ACR,"Mueller Streamline AC02010 3/8"" x 20' - Copper Tube - L Hard ACR/OXY/MED",0.2,4.0
+gid://shopify/ProductVariant/44351112052839,gid://shopify/Product/7715644342375,COPT-050-10LH,"Mueller Streamline 1/2"" x 10' - Copper Tube - L Hard",0.28,2.8
+gid://shopify/ProductVariant/44351112118375,gid://shopify/Product/7715644407911,COPT-050-10MH,"Mueller Streamline 1/2"" x 10' - Copper Tube - M hard",0.2,2.0
+gid://shopify/ProductVariant/44351112544359,gid://shopify/Product/7715644440679,COPT-050-ACR,"Mueller Streamline AC02020 1/2"" x 20' - Copper Tube - L Hard ACR/OXY/MED",0.28,5.6
+gid://shopify/ProductVariant/44351112577127,gid://shopify/Product/7715644473447,COPT-050-KH,"Mueller Streamline 1/2"" x 20' - Copper Tube - K Hard",0.34,6.8
+gid://shopify/ProductVariant/44351112675431,gid://shopify/Product/7715644571751,COPT-050-LH,"Mueller Streamline LH04010 1/2"" x 20' - Copper Tube - L Hard",0.28,5.6
+gid://shopify/ProductVariant/44351112773735,gid://shopify/Product/7715644670055,COPT-050-MH,"Mueller Streamline 1/2"" x 20' - Copper Tube - M hard",0.2,4.0
+gid://shopify/ProductVariant/44351112839271,gid://shopify/Product/7715644735591,COPT-075-10LH,"Mueller Streamline LH04020 3/4"" x 10' - Copper Tube - L Hard",0.46,4.6
+gid://shopify/ProductVariant/44351112937575,gid://shopify/Product/7715644801127,COPT-075-10MH,"Mueller Streamline 3/4"" x 10' - Copper Tube - M hard",0.33,3.3
+gid://shopify/ProductVariant/44351113560167,gid://shopify/Product/7715644866663,COPT-075-KH,"Mueller Streamline KH06010 3/4"" x 20' - Copper Tube - K Hard",0.64,12.8
+gid://shopify/ProductVariant/44351113658471,gid://shopify/Product/7715644964967,COPT-075-LH,"Mueller Streamline LH06010 3/4"" x 20' - Copper Tube - L Hard",0.46,9.2
+gid://shopify/ProductVariant/44351113724007,gid://shopify/Product/7715645030503,COPT-075-MH,"Mueller Streamline MH06010 3/4"" x 20' - Copper Tube - M hard",0.33,6.6
+gid://shopify/ProductVariant/44351113789543,gid://shopify/Product/7715645096039,COPT-100-10LH,"Mueller Streamline LH06020 1"" x 10' - Copper Tube - L Hard",0.66,6.6
+gid://shopify/ProductVariant/44351113822311,gid://shopify/Product/7715645128807,COPT-100-10MH,"Mueller Streamline MH06020 1"" x 10' - Copper Tube - M hard",0.47,4.7
+gid://shopify/ProductVariant/44351113855079,gid://shopify/Product/7715645161575,COPT-100-KH,"Mueller Streamline KH06020 1"" x 20' - Copper Tube - K Hard",0.84,16.8
+gid://shopify/ProductVariant/44351113953383,gid://shopify/Product/7715645259879,COPT-100-LH,"Mueller Streamline LH10010 1"" x 20' - Copper Tube - L Hard",0.66,13.2
+gid://shopify/ProductVariant/44351114149991,gid://shopify/Product/7715645358183,COPT-100-MH,"Mueller Streamline MH10010 1"" x 20' - Copper Tube - M hard",0.47,9.4
+gid://shopify/ProductVariant/44351114215527,gid://shopify/Product/7715645423719,COPT-125-10LH,"Mueller Streamline LH10020 1-1/4"" x 10' - Copper Tube - L Hard",0.88,8.8
+gid://shopify/ProductVariant/44351114248295,gid://shopify/Product/7715645456487,COPT-125-10MH,"Mueller Streamline MH10020 1-1/4"" x 10' - Copper Tube - M hard",0.68,6.8
+gid://shopify/ProductVariant/44351114575975,gid://shopify/Product/7715645522023,COPT-125-KH,"Mueller Streamline KH10020 1-1/4"" x 20' - Copper Tube - K Hard",1.04,20.8
+gid://shopify/ProductVariant/44351114641511,gid://shopify/Product/7715645587559,COPT-125-LH,"Mueller Streamline LH12010 1-1/4"" x 20' - Copper Tube - L Hard",0.88,17.6
+gid://shopify/ProductVariant/44351115395175,gid://shopify/Product/7715645685863,COPT-125-MH,"Mueller Streamline MH12010 1-1/4"" x 20' - Copper Tube - M hard",0.68,13.6
+gid://shopify/ProductVariant/44351115493479,gid://shopify/Product/7715645784167,COPT-150-10LH,"Mueller Streamline LH12020 1-1/2"" x 10' - Copper Tube - L Hard",1.14,11.4
+gid://shopify/ProductVariant/44351115526247,gid://shopify/Product/7715645816935,COPT-150-10MH,"Mueller Streamline MH12020 1-1/2"" x 10' - Copper Tube - M hard",0.94,9.4
+gid://shopify/ProductVariant/44351115591783,gid://shopify/Product/7715645882471,COPT-150-KH,"Mueller Streamline KH12020 1-1/2"" x 20' - Copper Tube - K Hard",1.36,27.2
+gid://shopify/ProductVariant/44351115657319,gid://shopify/Product/7715645948007,COPT-150-LH,"Mueller Streamline LH14010 1-1/2"" x 20' - Copper Tube - L Hard",1.14,22.8
+gid://shopify/ProductVariant/44351116410983,gid://shopify/Product/7715646046311,COPT-150-MH,"Mueller Streamline MH14010 1-1/2"" x 20' - Copper Tube - M hard",0.94,18.8
+gid://shopify/ProductVariant/44351116607591,gid://shopify/Product/7715646177383,COPT-200-10LH,"Mueller Streamline LH14020 2"" x 10' - Copper Tube - L Hard",1.75,17.5
+gid://shopify/ProductVariant/44351116640359,gid://shopify/Product/7715646210151,COPT-200-10MH,"Mueller Streamline MH14020 2"" x 10' - Copper Tube - M hard",1.46,14.6
+gid://shopify/ProductVariant/44351116705895,gid://shopify/Product/7715646275687,COPT-200-KH,"Mueller Streamline KH14020 2"" x 20' - Copper Tube - K Hard",2.06,41.2
+gid://shopify/ProductVariant/44351116804199,gid://shopify/Product/7715646308455,COPT-200-LH,"Mueller Streamline LH20010 2"" x 20' - Copper Tube - L Hard",1.75,35.0
+gid://shopify/ProductVariant/44351116836967,gid://shopify/Product/7715646341223,COPT-200-MH,"Mueller Streamline MH20010 2"" x 20' - Copper Tube - M hard",1.46,29.2
+gid://shopify/ProductVariant/44351116902503,gid://shopify/Product/7715646406759,COPT-250-10LH,"Mueller Streamline LH20020 2-1/2"" x 10' - Copper Tube - L Hard",2.48,24.8
+gid://shopify/ProductVariant/44351117230183,gid://shopify/Product/7715646439527,COPT-250-KH,"Mueller Streamline KH20020 2-1/2"" x 20' - Copper Tube - K Hard",2.93,58.6
+gid://shopify/ProductVariant/44351117262951,gid://shopify/Product/7715646472295,COPT-250-LH,"Mueller Streamline LH24010 2-1/2"" x 20' - Copper Tube - L Hard",2.48,49.6
+gid://shopify/ProductVariant/44351117295719,gid://shopify/Product/7715646505063,COPT-250-MH,"Mueller Streamline MH20020 2-1/2"" x 20' - Copper Tube - M hard",2.03,40.6
+gid://shopify/ProductVariant/44351117394023,gid://shopify/Product/7715646603367,COPT-300-10LH,"Mueller Streamline LH24020 3"" x 10' - Copper Tube - L Hard",3.33,33.3
+gid://shopify/ProductVariant/44351118082151,gid://shopify/Product/7715646636135,COPT-300-10MH,"Mueller Streamline MH24020 3"" x 10' - Copper Tube - M hard",2.68,26.8
+gid://shopify/ProductVariant/44351118147687,gid://shopify/Product/7715646701671,COPT-300-KH,"Mueller Streamline KH24020 3"" x 20' - Copper Tube - K Hard",4.0,80.0
+gid://shopify/ProductVariant/44351118213223,gid://shopify/Product/7715646767207,COPT-300-LH,"Mueller Streamline LH30010 3"" x 20' - Copper Tube - L Hard",3.33,66.6
+gid://shopify/ProductVariant/44351118245991,gid://shopify/Product/7715646799975,COPT-300-MH,"Mueller Streamline MH30010 3"" x 20' - Copper Tube - M hard",2.68,53.6
+gid://shopify/ProductVariant/44351118278759,gid://shopify/Product/7715646832743,COPT-400-10LH,"Mueller Streamline LH30020 4"" x 10' - Copper Tube - L Hard",5.38,53.8
+gid://shopify/ProductVariant/44351118344295,gid://shopify/Product/7715646898279,COPT-400-LH,"Mueller Streamline LH40010 4"" x 20' - Copper Tube - L Hard",5.38,107.6
+gid://shopify/ProductVariant/44351118377063,gid://shopify/Product/7715646931047,COPT-400-MH,"Mueller Streamline MH40010 4"" x 20' - Copper Tube - M hard",4.66,93.2
+gid://shopify/ProductVariant/44353436647527,gid://shopify/Product/7716786700391,BLDP-050,"Valencia Pipe 1/2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Domestic",0.85,17.85
+gid://shopify/ProductVariant/44353436680295,gid://shopify/Product/7716786733159,BLDP-075,"Valencia Pipe 3/4"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Domestic",1.13,23.73
+gid://shopify/ProductVariant/44353436713063,gid://shopify/Product/7716786765927,BLDP-100,"Valencia Pipe 1"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Domestic",1.68,35.28
+gid://shopify/ProductVariant/44353436778599,gid://shopify/Product/7716786831463,BLDP-125,"Valencia Pipe 1-1/4"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Domestic",2.27,47.67
+gid://shopify/ProductVariant/44353436811367,gid://shopify/Product/7716786864231,BLDP-150,"Valencia Pipe 1-1/2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Domestic",2.72,57.12
+gid://shopify/ProductVariant/44353436844135,gid://shopify/Product/7716786896999,BLDP-200,"Valencia Pipe 2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Domestic",3.66,76.86
+gid://shopify/ProductVariant/44353436942439,gid://shopify/Product/7716786995303,BLIP-050,"Valencia Pipe 1/2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",0.85,17.85
+gid://shopify/ProductVariant/44353437073511,gid://shopify/Product/7716787126375,BLIP-075,"Valencia Pipe 3/4"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",1.13,23.73
+gid://shopify/ProductVariant/44353437171815,gid://shopify/Product/7716787224679,BLIP-100,"Valencia Pipe 1"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",1.68,35.28
+gid://shopify/ProductVariant/44353437302887,gid://shopify/Product/7716787355751,BLIP-125,"Valencia Pipe 1-1/4"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",2.28,47.88
+gid://shopify/ProductVariant/44353437401191,gid://shopify/Product/7716787454055,BLIP-150,"Valencia Pipe 1-1/2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",2.73,57.33
+gid://shopify/ProductVariant/44353437499495,gid://shopify/Product/7716787552359,BLIP-200,"Valencia Pipe 2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",3.68,77.28
+gid://shopify/ProductVariant/44353437630567,gid://shopify/Product/7716787683431,BLIP-250,"Valencia Pipe 2-1/2"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",5.82,122.22
+gid://shopify/ProductVariant/44353437696103,gid://shopify/Product/7716787748967,BLIP-300,"Valencia Pipe 3"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",7.62,160.02
+gid://shopify/ProductVariant/44353437761639,gid://shopify/Product/7716787814503,BLIP-400,"Valencia Pipe 4"" x 21' Black Steel Pipe SCH40 A53 Threaded & Coupled Import",10.89,228.69
+gid://shopify/ProductVariant/44353437925479,gid://shopify/Product/7716787978343,GAIP-050,"Valencia Pipe 1/2"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",0.85,17.85
+gid://shopify/ProductVariant/44353437958247,gid://shopify/Product/7716788011111,GAIP-075,"Valencia Pipe 3/4"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",1.13,23.73
+gid://shopify/ProductVariant/44353437991015,gid://shopify/Product/7716788043879,GAIP-100,"Valencia Pipe 1"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",1.68,35.28
+gid://shopify/ProductVariant/44353438023783,gid://shopify/Product/7716788076647,GAIP-125,"Valencia Pipe 1-1/4"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",2.28,47.88
+gid://shopify/ProductVariant/44353438056551,gid://shopify/Product/7716788109415,GAIP-150,"Valencia Pipe 1-1/2"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",2.73,57.33
+gid://shopify/ProductVariant/44353438089319,gid://shopify/Product/7716788142183,GAIP-200,"Valencia Pipe 2"" x 21' Galvanized Steel Pipe SCH40 A53 Grade A Threaded & Coupled Import",3.68,77.28
+gid://shopify/ProductVariant/44353438122087,gid://shopify/Product/7716788174951,GAIP-250,"Valencia Pipe 2-1/2"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",5.82,122.22
+gid://shopify/ProductVariant/44353438154855,gid://shopify/Product/7716788207719,GAIP-300,"Valencia Pipe 3"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",7.62,160.02
+gid://shopify/ProductVariant/44353438187623,gid://shopify/Product/7716788240487,GAIP-400,"Valencia Pipe 4"" x 21' Galvanized Steel Pipe SCH40 A53 Threaded & Coupled Import",10.89,228.69
