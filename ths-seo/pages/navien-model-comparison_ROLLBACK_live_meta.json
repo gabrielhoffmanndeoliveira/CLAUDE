@@ -1,0 +1,17 @@
+{
+ "id": "gid://shopify/Page/113160257639",
+ "handle": "navien-model-comparison",
+ "title": "Navien Tankless Water Heater and Boiler Comparison",
+ "isPublished": true,
+ "templateSuffix": null,
+ "metafields": {
+  "nodes": [
+   {
+    "namespace": "global",
+    "key": "description_tag",
+    "value": "Every Navien tankless water heater and boiler we stock, side by side: gas input, UEF and hot water flow at three temperature rises, from Navien specs.",
+    "type": "single_line_text_field"
+   }
+  ]
+ }
+}
