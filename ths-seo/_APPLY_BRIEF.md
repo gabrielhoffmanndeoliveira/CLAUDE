@@ -20,7 +20,7 @@ Drop a row (do not apply it) when you cannot make it pass. Rules:
 Write the reviewed rows to <import file name>_REVIEWED.csv and a log to <import file name>_APPLY_LOG.csv with columns: ID, Handle, Decision (applied / fixed and applied / dropped), What was changed in review, Reason if dropped.
 
 ## Step 3 - Apply
-Apply the reviewed rows in small groups (3-6 items per mutation call, using aliases). Check userErrors on every call.
+Each mutation call makes the store owner confirm on screen, so use as few calls as possible: put 10-15 items in each mutation call, using aliases. Check userErrors on every call.
 
 ## Step 4 - Verify
 Fetch the items again (large batches, so the result is saved to a file) and compare with the REVIEWED file by script. Shopify may normalize HTML slightly (entities, whitespace); treat that as a match, but any missing section or truncated text is a failure: re-apply that item and check again. Record the final state in the log.
