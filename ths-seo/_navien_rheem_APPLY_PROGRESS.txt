@@ -1,1 +1,1 @@
-mutations OK (no userErrors) for all 32 Navien REVIEWED rows + first 3 Rheem REVIEWED rows. Pending: Rheem REVIEWED rows 4-35 (g03,g04,g05). Verification pending.
+mutations OK (no userErrors) for all 32 Navien REVIEWED rows + first 14 Rheem REVIEWED rows. First 35 verified against live. Pending: Rheem REVIEWED rows 15-35 (g04,g05), then verify Rheem rows 4-35.
