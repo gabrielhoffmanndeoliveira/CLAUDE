@@ -6,7 +6,9 @@
     "allow": [
       "mcp__Shopify",
       "mcp__Ahrefs",
-      "mcp__Shopify__graphql_mutation"
+      "mcp__Shopify__graphql_mutation",
+      "Bash",
+      "mcp__Shopify__graphql_query"
     ]
   }
 }
