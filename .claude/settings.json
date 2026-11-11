@@ -1,3 +1,11 @@
 {
-  "enabledMcpjsonServers": ["chrome-devtools"]
+  "enabledMcpjsonServers": [
+    "chrome-devtools"
+  ],
+  "permissions": {
+    "allow": [
+      "mcp__Shopify",
+      "mcp__Ahrefs"
+    ]
+  }
 }
