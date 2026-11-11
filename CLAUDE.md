@@ -9,6 +9,7 @@ A working repository for SEO and catalog maintenance of the TFAS Shopify store. 
 ## Layout
 
 - `tfas-seo/` — all TFAS deliverables (CSV).
+- `ths-seo/` — SEO deliverables for The House Supplier, in the same import / ROLLBACK / REVIEW trio used for TFAS. Not applied until approved.
 - `ths-ops/` — change logs for The House Supplier (THS, a separate Shopify store). Each row records a change applied directly through the Shopify API, with the previous value and how to roll it back. TFAS product IDs and CSVs do not apply to THS.
 - `.mcp.json` — Chrome DevTools MCP server, run headless against the container's preinstalled Chromium (`/opt/pw-browsers/chromium`).
 - `.claude/settings.json` — Claude Code project settings.
