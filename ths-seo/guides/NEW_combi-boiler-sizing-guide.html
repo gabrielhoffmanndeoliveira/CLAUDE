@@ -1,0 +1,91 @@
+<!--
+Title: Combi Boiler Sizing: Heating Load vs Domestic Hot Water Demand
+SEO title: Combi Boiler Sizing Guide: Heating Load vs Hot Water
+Meta description: Size a combi boiler in two steps: heat loss for space heating and gallons per minute for hot water, with Navien NCB-H and NFC-H as worked examples.
+Suggested handle: combi-boiler-sizing-guide
+Target query: combi boiler sizing
+Status: DRAFT for owner review. Not published.
+-->
+<p>A combi boiler is sized twice. The heating side is sized to the home's design heat loss, which for most houses is far less than people expect. The domestic hot water side is sized to the flow of hot water you need at one time, in gallons per minute, at the temperature rise your incoming water requires. In nearly every home the hot water side needs the larger burner, so the practical method is: pick the hot water capacity that covers your peak flow, then choose the heating size closest to your heat loss within that range.</p>
+
+<h2>Why the two numbers differ so much</h2>
+<p>Heating a house is a slow, steady load. Heating water as it flows is a short, intense one. A well-insulated 2,000 square foot house may lose 30,000 to 50,000 BTU per hour on the coldest day of the year. One shower and one faucet running together can need more than 120,000 BTU per hour for as long as they run. Combi boilers handle this with two ratings: a maximum heating input and a higher maximum domestic hot water (DHW) input. The Navien NCB-240/110H, for example, is rated at 110,000 BTU/h for heating and 199,900 BTU/h for hot water.</p>
+
+<h2>Step 1: Size the heating side from a heat loss calculation</h2>
+<p>The heating output should match the design heat loss of the building: the heat it loses per hour at the local outdoor design temperature with the indoor temperature at about 70°F. The accepted residential method is ACCA Manual J, or an equivalent room-by-room calculation.</p>
+<ul>
+  <li><strong>Do not size from the old boiler's rating plate.</strong> Older boilers were routinely installed at two to three times the real load.</li>
+  <li><strong>Do not size from square footage alone.</strong> Insulation, windows, air leakage and climate change the answer by a factor of three.</li>
+  <li><strong>A cross-check from fuel bills</strong> is useful: annual gas use and local heating degree days give a measured estimate of the load.</li>
+</ul>
+<p>Compare the heat loss with the boiler's heating <em>output</em>, which is input multiplied by efficiency. A boiler with 80,000 BTU/h input at roughly 95% efficiency delivers about 76,000 BTU/h.</p>
+
+<h3>Minimum firing rate matters as much as maximum</h3>
+<p>A modulating boiler adjusts its flame to the load. If its lowest firing rate is still more than the house needs on a mild day, or more than the smallest zone can absorb, it switches on and off repeatedly. Short cycling lowers efficiency and wears components. Navien's published heating input ranges for the NCB-H series start at about 11,000 BTU/h on the 190 models, 13,000 on the 240 models and 14,000 on the 250/150H. Check the smallest zone in the house against that minimum; a single bathroom towel warmer zone cannot absorb 13,000 BTU/h, and a buffer tank or zone grouping may be needed.</p>
+
+<h2>Step 2: Size the hot water side from peak flow and temperature rise</h2>
+<p>A combi heats water as it flows, like a tankless water heater. The heat required is:</p>
+<p><strong>BTU/h output = gallons per minute × 500 × temperature rise (°F)</strong></p>
+<p>The 500 comes from 8.33 pounds per gallon times 60 minutes. Temperature rise is the outlet setpoint minus the incoming cold water temperature.</p>
+<ol>
+  <li><strong>Find your incoming water temperature in winter.</strong> Roughly 40°F in the northern states, around 50°F in the Pacific Northwest and mid-latitudes, and 60 to 70°F in the Gulf states. Measure it at a cold tap in late winter if you can.</li>
+  <li><strong>Set the rise.</strong> For 120°F water from 43°F supply, the rise is 77°F. From 50°F it is 70°F. From 75°F it is 45°F.</li>
+  <li><strong>Add up the fixtures that run at the same time.</strong> Typical flow rates: shower 1.8 to 2.5 gpm, bathroom faucet 1.0 to 1.5 gpm, kitchen faucet 1.5 to 2.2 gpm, tub filler 4 gpm or more. Washing machines and dishwashers draw in bursts.</li>
+  <li><strong>Compare with the boiler's DHW flow at your rise.</strong></li>
+</ol>
+
+<h2>Worked example: Navien NCB-H and NFC-H</h2>
+<p>Navien publishes DHW flow at fixed temperature rises. The figures below are from Navien's NCB-H and NFC-H literature; confirm them on the current submittal sheet for the exact model before ordering.</p>
+<table>
+  <thead>
+    <tr><th>Model</th><th>Max heating input (BTU/h)</th><th>Max DHW input (BTU/h)</th><th>DHW flow at 77°F rise</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>NCB-190/060H</td><td>60,000</td><td>160,000</td><td>3.7 gpm</td></tr>
+    <tr><td>NCB-190/080H</td><td>80,000</td><td>160,000</td><td>3.7 gpm</td></tr>
+    <tr><td>NCB-240/110H</td><td>110,000</td><td>199,900</td><td>4.7 gpm</td></tr>
+    <tr><td>NCB-240/130H</td><td>130,000</td><td>199,900</td><td>4.7 gpm</td></tr>
+    <tr><td>NCB-250/150H</td><td>150,000</td><td>210,000</td><td>4.9 gpm</td></tr>
+    <tr><td>NFC-250/175H</td><td>175,000</td><td>210,000</td><td>4.9 gpm</td></tr>
+    <tr><td>NFC-250/200H</td><td>199,900</td><td>210,000</td><td>4.9 gpm</td></tr>
+  </tbody>
+</table>
+<p>For the NFC-H models Navien also lists 5.4 gpm at a 70°F rise and 8.4 gpm at a 45°F rise, which shows how much the answer depends on incoming water temperature.</p>
+<p><strong>Example household.</strong> A three-bedroom, two-bath house in a cold climate with a calculated heat loss of 48,000 BTU/h and 43°F winter supply water. The owners want two showers at once: 2 × 2.0 gpm = 4.0 gpm at a 77°F rise.</p>
+<ul>
+  <li>Hot water: 4.0 gpm at 77°F is above the 3.7 gpm of the 190 models and within the 4.7 gpm of the 240 models.</li>
+  <li>Heating: 48,000 BTU/h is covered by any model, so the smallest heating size in the 240 group, the NCB-240/110H, is the closest fit. The 130H adds heating capacity the house cannot use.</li>
+  <li>If the same house needed only one shower plus a faucet (about 3.2 gpm), the NCB-190/060H would cover both loads with a lower minimum firing rate.</li>
+</ul>
+<p>Where the NCB-H and NFC-H differ: the NCB-H series covers heating inputs from 60,000 to 150,000 BTU/h, and the NFC-H series uses a fire tube heat exchanger and covers 175,000 and 199,900 BTU/h. The NFC-H is the choice when the heating load, not the hot water demand, is the large number, as in big or poorly insulated houses.</p>
+
+<h2>When a combi is the wrong tool</h2>
+<p>A combi gives hot water priority: while a tap runs, space heating pauses. In a house with average demand this is not noticeable. Consider a <a href="/collections/condensing-boilers">heat-only boiler</a> with an <a href="/collections/water-makers">indirect water heater</a> instead when:</p>
+<ul>
+  <li>Three or more showers regularly run at the same time, or there is a large soaking tub or multi-head shower.</li>
+  <li>Winter supply water is very cold and peak flow is above about 5 gpm.</li>
+  <li>The house needs a hot water recirculation loop that runs for long periods.</li>
+  <li>The heating load is very small and the boiler would short cycle badly.</li>
+</ul>
+
+<h2>Other limits to check before buying</h2>
+<ul>
+  <li><strong>Gas supply.</strong> A 199,900 BTU/h appliance needs a gas line and meter that can deliver that plus every other gas appliance in the house. Many existing 1/2 inch lines cannot. The line must be sized from the code tables for its length and pressure.</li>
+  <li><strong>Altitude.</strong> Output drops at high elevation. Manufacturers publish derating figures.</li>
+  <li><strong>Water quality.</strong> Hard water scales the DHW heat exchanger. Check the manufacturer's hardness limit and plan for treatment and flushing valves.</li>
+  <li><strong>Venting and condensate.</strong> Condensing combis need an approved vent material and a condensate drain, often with a <a href="/collections/condensate-neutralizers">neutralizer</a>.</li>
+  <li><strong>System side.</strong> An <a href="/collections/expansion-tanks-heating">expansion tank</a>, air separator, relief valve piping and the right pumping arrangement for the zones.</li>
+</ul>
+<p>See the <a href="/collections/navien-combi-boilers">Navien combi boilers</a> and the wider <a href="/collections/combination-heating-dhw-boilers">combination heating and DHW boilers</a> range. For the basics of how these units work, read <a href="/blogs/guides/what-is-a-combi-boiler">what is a combi boiler</a>.</p>
+
+<h2>When to call a professional</h2>
+<p>A combi boiler installation involves gas piping, combustion venting, pressure relief, electrical connections and combustion set-up with an analyzer. This is work for a licensed heating contractor, and a permit is required in most jurisdictions. Manufacturers generally require installation by a licensed professional for warranty coverage. You can do the sizing homework yourself (fixture count, winter water temperature, fuel bills), and a good contractor will confirm it with a heat loss calculation before quoting a model.</p>
+
+<h2>Sources</h2>
+<ul>
+  <li>Navien, NCB-H series QuickFacts, submittal and engineering specification (heating and DHW input ranges, DHW flow rates).</li>
+  <li>Navien, NFC-H series QuickFacts and submittal (inputs, DHW flow at 45°F, 70°F and 77°F rise).</li>
+  <li>ACCA Manual J, Residential Load Calculation.</li>
+  <li>NFPA 54 / ANSI Z223.1, National Fuel Gas Code (gas pipe sizing tables).</li>
+  <li>US EPA WaterSense specifications (showerhead and faucet flow rates).</li>
+</ul>

@@ -1,0 +1,208 @@
+{
+"NAVI-NPE-210A2": [
+"free-ship-eligible",
+"no-trade",
+"vp-exclude"
+],
+"NAVI-NPE-210S2-NG/LP": [
+"free-ship-eligible",
+"no-trade",
+"vp-exclude"
+],
+"NAVI-NPE-180A2": [
+"free-ship-eligible",
+"no-trade",
+"vp-exclude"
+],
+"NAVI-NHB-110H": [
+"no-trade",
+"vp-exclude"
+],
+"NAVI-NHB-55H": [
+"no-trade",
+"vp-exclude"
+],
+"NAVI-NFB-200H": [
+"no-trade",
+"vp-exclude"
+],
+"NAVI-NFC-250/200H": [
+"no-trade",
+"vp-exclude"
+],
+"IBCT-SFC199-1": [
+"no-trade",
+"vp-exclude"
+],
+"IBCT-SL20-160G3-NG": [
+"no-trade",
+"vp-exclude"
+],
+"AVNT-AF-65": [
+"no-trade",
+"vp-exclude"
+],
+"IBCT-DTI-119-MAX": [
+"no-trade",
+"vp-exclude"
+],
+"IBCT-IWT119-MAX": [
+"no-trade",
+"vp-exclude"
+],
+"RHEE-PROG50-38N-RH60TT": [
+"no-trade",
+"vp-exclude"
+],
+"RHEE-PROG50-40N-RH62TT": [
+"no-trade",
+"vp-exclude"
+],
+"RHEE-PRO+G75-76N-RH": [
+"no-trade",
+"vp-exclude"
+],
+"RHEE-PROG50-36N-RH60-DV": [
+"no-trade",
+"vp-exclude"
+],
+"RUUD-PRO+E40-M2-RU-CG": [
+"no-trade",
+"vp-exclude"
+],
+"RHEE-PROE40-M2-RH-CG": [
+"no-trade",
+"vp-exclude"
+],
+"RHEE-PROG40-38N-RH62TT": [
+"no-trade",
+"vp-exclude"
+],
+"RHEE-PROG40S-38N-RH62": [
+"no-trade",
+"vp-exclude"
+],
+"RHEE-PROG50-42N-RH67-PV": [
+"no-trade",
+"vp-exclude"
+],
+"RHEE-RTGH-84DVLN-2": [
+"no-trade",
+"vp-exclude"
+],
+"RHEE-GHE100SU-200NG": [
+"no-trade",
+"vp-exclude"
+],
+"RHEE-G100-200-NG": [
+"no-trade",
+"vp-exclude"
+],
+"RHEE-ES120-36-G-208-3": [
+"no-trade",
+"vp-exclude"
+],
+"TOTO-SS114-01": [
+"no-trade",
+"vp-exclude"
+],
+"AMST-0614.000.020": [
+"no-trade",
+"vp-exclude"
+],
+"GROH-29.137000": [
+"no-trade",
+"vp-exclude"
+],
+"GROH-20.21700A": [
+"no-trade",
+"vp-exclude"
+],
+"GROH-34.27000A": [
+"no-trade",
+"vp-exclude"
+],
+"MOEN-6191": [
+"no-trade",
+"vp-exclude"
+],
+"MOEN-6190": [
+"no-trade",
+"vp-exclude"
+],
+"MOEN-T990": [
+"no-trade",
+"vp-exclude"
+],
+"MOEN-900-002": [
+"no-trade",
+"vp-exclude"
+],
+"MOEN-TS984BL": [
+"no-trade",
+"vp-exclude"
+],
+"HGRO-01850181": [
+"no-trade",
+"vp-exclude"
+],
+"HGRO-04231000": [
+"no-trade",
+"vp-exclude"
+],
+"GRUN-98126808": [
+"no-trade",
+"vp-exclude"
+],
+"MLWV-UPBA-480B-200": [
+"no-trade",
+"vp-exclude"
+],
+"JOMA-150-114G": [
+"no-trade",
+"vp-exclude"
+],
+"JOMA-102-603": [
+"no-trade",
+"vp-exclude"
+],
+"LEGE-114-604NL": [
+"no-trade",
+"vp-exclude"
+],
+"MILW-49-16-2690X": [
+"no-trade",
+"vp-exclude"
+],
+"MILW-2932-22XC": [
+"no-trade",
+"vp-exclude"
+],
+"MILW-2674-22P": [
+"no-trade",
+"vp-exclude"
+],
+"VEGA-15312": [
+"no-trade",
+"vp-exclude"
+],
+"MPEX-1230100": [
+"no-trade",
+"vp-exclude"
+],
+"NAVI-NPE-180S2-NG/LP": [
+"free-ship-eligible"
+],
+"NAVI-NPE-150S2-NG/LP": [
+"free-ship-eligible"
+],
+"MOEN-62380": [
+"free-ship-eligible"
+],
+"MOEN-62320": [
+"free-ship-eligible"
+],
+"ZOEL-267-0001": [
+"free-ship-eligible"
+]
+}
