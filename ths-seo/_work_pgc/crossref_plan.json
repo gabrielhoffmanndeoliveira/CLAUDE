@@ -1,0 +1,153 @@
+[
+ {
+  "id": "gid://shopify/Product/10225839079527",
+  "handle": "resideo-st9120u1011-u-electronic-fan-timer-24-vac",
+  "keep": [
+   "ST9101A1006",
+   "ST9120C1012",
+   "ST9120C3000",
+   "ST9120C4057",
+   "ST9120G2032",
+   "ST9141A1028",
+   "ST9150B2026",
+   "ST9160B1027",
+   "ST9160B1076"
+  ],
+  "why": []
+ },
+ {
+  "id": "gid://shopify/Product/7715739238503",
+  "handle": "fan-and-limit-controller-5-in-insert",
+  "keep": [
+   "L4064B1683",
+   "L4064B3440"
+  ],
+  "why": [
+   "L4064B2640: source extraction misaligned"
+  ]
+ },
+ {
+  "id": "gid://shopify/Product/7715745661031",
+  "handle": "t6-pro-programmable-thermostat-up-to-2-heat-2-cool",
+  "keep": [
+   "TH6220D1002",
+   "TH5220D1003"
+  ],
+  "why": []
+ },
+ {
+  "id": "gid://shopify/Product/7715745595495",
+  "handle": "t6-pro-programmable-thermostat-up-to-2-heat-1-cool",
+  "keep": [],
+  "why": [
+   "TH4210D1005: one source only",
+   "TH3210D1004: one source only",
+   "TH1210DH1001: one source only"
+  ]
+ },
+ {
+  "id": "gid://shopify/Product/7715745759335",
+  "handle": "t6-pro-programmable-thermostat-up-to-3-heat-2-cool",
+  "keep": [
+   "TH6320U1000",
+   "TH5320U1001"
+  ],
+  "why": []
+ },
+ {
+  "id": "gid://shopify/Product/10225841602663",
+  "handle": "resideo-th8320r1003-u-visionpro-8000-thermostat-with-redlink-7-day-programmable",
+  "keep": [
+   "TH8320U1008"
+  ],
+  "why": []
+ },
+ {
+  "id": "gid://shopify/Product/10225846911079",
+  "handle": "resideo-vc6934zz11-u-vc-floating-3-wire-actuator-plenum-cable",
+  "keep": [
+   "VC6931ZZ11"
+  ],
+  "why": []
+ },
+ {
+  "id": "gid://shopify/Product/7715739697255",
+  "handle": "aquastat-relay-180-to-240-f-range-with-15-degree-f-fixed-differential-low-volt-millivolt",
+  "keep": [],
+  "why": [
+   "L8148E1257: excluded by task"
+  ]
+ },
+ {
+  "id": "gid://shopify/Product/7715743662183",
+  "handle": "standard-opening-intermittent-pilot-with-comb-air-control",
+  "keep": [
+   "SV9541M2094"
+  ],
+  "why": []
+ },
+ {
+  "id": "gid://shopify/Product/7715743498343",
+  "handle": "fast-fast-opening-smartvalve-intermittent-hot-surface-pilot",
+  "keep": [],
+  "why": [
+   "SV9500M8600: excluded by task"
+  ]
+ },
+ {
+  "id": "gid://shopify/Product/7715743465575",
+  "handle": "standard-opening-smartvalve-intermittent-hot-surface-pilot",
+  "keep": [
+   "SV9501M2056",
+   "SV9500M2674",
+   "SV9500M2682",
+   "SV9501M2700",
+   "SV9501M2726",
+   "SV9500M2736"
+  ],
+  "why": []
+ },
+ {
+  "id": "gid://shopify/Product/7715741368423",
+  "handle": "30-in-igniter-flame-rod-assembly-for-smartvalve-pilots",
+  "keep": [
+   "Q3400A1008"
+  ],
+  "why": []
+ },
+ {
+  "id": "gid://shopify/Product/10225839931495",
+  "handle": "resideo-t87n1000-u-t87-1-heat-1-cool-thermostat-4090f-premier-white",
+  "keep": [],
+  "why": [
+   "T8775A1009: excluded by task",
+   "T8775C1005: excluded by task"
+  ]
+ },
+ {
+  "id": "gid://shopify/Product/7715742941287",
+  "handle": "multisystem-switching-relay-with-internal-transformer",
+  "keep": [
+   "R845A",
+   "R182A",
+   "R482A",
+   "R882A"
+  ],
+  "why": []
+ },
+ {
+  "id": "gid://shopify/Product/7715749724263",
+  "handle": "single-stage-24-vac-standard-opening-direct-ignition-gas-valve-1-2-x-1-2-in-set-3-5-in-wc",
+  "keep": [],
+  "why": [
+   "VR8205S2262: excluded by task",
+   "VR8205S2270: excluded by task",
+   "VR8205S2296: excluded by task",
+   "VR8205S2338: excluded by task",
+   "VR8205S2353: excluded by task",
+   "VR8205S2361: excluded by task",
+   "VR8205S2379: excluded by task",
+   "VR8205S2395: excluded by task"
+  ]
+ }
+]
