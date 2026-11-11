@@ -1,0 +1,13 @@
+Date,Store,Object,ID,Field,Before,After,How to roll back
+2026-11-11,The House Supplier,URL redirect,gid://shopify/UrlRedirect/611838558311,/pages/request-a-quote,(none - 404),/pages/contact-us,Delete the redirect
+2026-11-11,The House Supplier,Variant NAVI-NPE-240S2-NG/LP,gid://shopify/ProductVariant/44351192105063,price,1987.50,1849.00,Set price back to 1987.50
+2026-11-11,The House Supplier,Variant NAVI-NPE-240A2,gid://shopify/ProductVariant/44351192072295,price,2443.99,2199.00,Set price back to 2443.99
+2026-11-11,The House Supplier,Variant NAVI-NPE-240S2-NG/LP,gid://shopify/ProductVariant/44351192105063,delivery profile,THS Standard - no free shipping,General profile,Associate the variant with profile gid://shopify/DeliveryProfile/94652268647
+2026-11-11,The House Supplier,Variant NAVI-NPE-240A2,gid://shopify/ProductVariant/44351192072295,delivery profile,THS Standard - no free shipping,General profile,Associate the variant with profile gid://shopify/DeliveryProfile/94652268647
+2026-11-11,The House Supplier,Product Navien NPE-240S2,gid://shopify/Product/7715669770343,tags added,(not present),no-trade; free-ship-eligible,Remove the two tags
+2026-11-11,The House Supplier,Product Navien NPE-240A2,gid://shopify/Product/7715669737575,tags added,(not present),vp-exclude; free-ship-eligible,Remove the two tags
+2026-11-11,The House Supplier,Product Resideo TH3110D1008/U,gid://shopify/Product/10262366519399,custom.replacement_product,gid://shopify/Product/10225841176679 (TH1210U4001/U FocusPRO N100),gid://shopify/Product/7715744841831 (TH1110DV1009/U PRO 1000),Set the metafield back to the N100 product
+2026-11-11,The House Supplier,Product Resideo TH3110D1008/U,gid://shopify/Product/10262366519399,custom.replacement_type,direct,alternative,Set the metafield back to direct
+2026-11-11,The House Supplier,Product Honeywell Home TH1110D2009/U T1 Pro,gid://shopify/Product/7715744743527,custom.discontinued,(empty),true,Delete the metafield
+2026-11-11,The House Supplier,Product Honeywell Home TH1110D2009/U T1 Pro,gid://shopify/Product/7715744743527,custom.replacement_product,(empty),gid://shopify/Product/7715744841831 (TH1110DV1009/U PRO 1000),Delete the metafield
+2026-11-11,The House Supplier,Product Honeywell Home TH1110D2009/U T1 Pro,gid://shopify/Product/7715744743527,custom.replacement_type,(empty),alternative,Delete the metafield
