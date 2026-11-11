@@ -1,3 +1,12 @@
+# MODE CHANGE (2026-11-11, overrides everything below): FILES ONLY
+
+Do NOT run any Shopify mutation. Every write to the store makes the owner confirm on screen, so content is now delivered as Matrixify import files that the owner imports in one go.
+- Do Step 1 (true rollback from the API, saved by script) and Step 2 (review, fix or drop) exactly as written.
+- Skip Step 3 and Step 4. Instead make sure the <import file name>_REVIEWED.csv file is a ready-to-import Matrixify file: same columns as the import file, only rows that passed review, Command = UPDATE.
+- In the log, use Decision values: "reviewed - ready to import", "reviewed - fixed, ready to import", "dropped".
+- For pages and blog articles (no Matrixify file): write the reviewed HTML to <name>_REVIEWED.html and list it in the log; do not create or update anything in the store.
+- If you already applied some rows through the API before this change, say exactly which in the log (Decision "already applied") after confirming against the live store.
+
 # Brief: review and apply a THS SEO batch
 
 Store: The House Supplier (thehousesupplier.com), Shopify. The owner has approved applying this content. You review one batch of draft files in /home/user/CLAUDE/ths-seo/, fix what is wrong, and apply what passes through the Shopify Admin API. You did not write these drafts; read them critically.

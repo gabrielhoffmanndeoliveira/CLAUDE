@@ -1,1 +1,1 @@
-mutations sent OK (no userErrors): first 2 NPE-240 rows + g00 (11 rows). Pending: g01..g05. Not yet verified.
+mutations OK (no userErrors) for all 32 Navien REVIEWED rows + first 3 Rheem REVIEWED rows. Pending: Rheem REVIEWED rows 4-35 (g03,g04,g05). Verification pending.
